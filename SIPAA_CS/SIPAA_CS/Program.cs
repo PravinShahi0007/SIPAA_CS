@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIPAA_CS.Recursos_Humanos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Acceso());
+            Application.Run(new Crear_Modulo());
         }
     }
 }
