@@ -10,33 +10,30 @@ using System.Windows.Forms;
 
 namespace SIPAA_CS
 {
-    public partial class Acceso : Form
+    public partial class Dashboard : Form
     {
         public Point formPosition;
         public Boolean mouseAction;
-        public Acceso()
+        public Dashboard()
         {
             InitializeComponent();
         }
 
-        private void Acceso_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        private void barraSuperior_MouseUp(object sender, MouseEventArgs e)
         {
             mouseAction = false;
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void barraSuperior_MouseDown(object sender, MouseEventArgs e)
         {
+
             formPosition = new Point(Cursor.Position.X - Location.X, Cursor.Position.Y - Location.Y);
             mouseAction = true;
         }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void barraSuperior_MouseMove(object sender, MouseEventArgs e)
         {
+
             if (mouseAction == true)
             {
                 Location = new Point(Cursor.Position.X - formPosition.X, Cursor.Position.Y - formPosition.Y);
@@ -66,14 +63,22 @@ namespace SIPAA_CS
             WindowState = FormWindowState.Minimized;
         }
 
-        private void panel7_Paint(object sender, PaintEventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
 
-        }
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
 
-        private void btnIngresar_Click(object sender, EventArgs e)
-        {
+            }
+            else if (result == DialogResult.Cancel)
+            {
 
+            }
         }
     }
 }

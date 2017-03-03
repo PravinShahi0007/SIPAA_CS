@@ -30,13 +30,13 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.btnOlvidarContraseña = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -72,6 +72,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(353, 140);
             this.panel2.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.panel7.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.panel7.Location = new System.Drawing.Point(153, 137);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(200, 3);
+            this.panel7.TabIndex = 24;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // label1
             // 
@@ -129,15 +139,6 @@
             this.textBox2.Size = new System.Drawing.Size(250, 18);
             this.textBox2.TabIndex = 21;
             // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.panel7.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.panel7.Location = new System.Drawing.Point(153, 136);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(200, 3);
-            this.panel7.TabIndex = 24;
-            // 
             // btnOlvidarContraseña
             // 
             this.btnOlvidarContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
@@ -161,6 +162,7 @@
             this.btnIngresar.Size = new System.Drawing.Size(50, 50);
             this.btnIngresar.TabIndex = 22;
             this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // label3
             // 

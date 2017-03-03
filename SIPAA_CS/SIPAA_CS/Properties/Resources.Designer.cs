@@ -73,9 +73,39 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_devices_white_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_devices_white_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_group_white_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_group_white_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_help_outline_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_help_outline_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_home_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_home_white_18dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,6 +123,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_insert_chart_white_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_insert_chart_white_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_keyboard_arrow_right_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_keyboard_arrow_right_white_18dp", resourceCulture);
@@ -103,9 +143,39 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_local_shipping_white_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_local_shipping_white_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_power_settings_new_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_power_settings_new_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_remove_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_remove_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_school_white_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_school_white_48dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
