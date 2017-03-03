@@ -240,3 +240,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/SIPAA_CS/SIPAA_CS/Resources/drawable-xhdpi/ic_keyboard_arrow_right_light_blue_A700_24dp.png
+/SIPAA_CS/SIPAA_CS/Resources/drawable-xxhdpi/ic_keyboard_arrow_right_light_blue_A700_24dp.png
+/SIPAA_CS/SIPAA_CS/Resources/drawable-xxxhdpi/ic_keyboard_arrow_right_light_blue_A700_24dp.png
+/SIPAA_CS/SIPAA_CS/Resources/drawable-mdpi
+/SIPAA_CS/SIPAA_CS/Resources/drawable-hdpi
