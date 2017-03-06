@@ -63,7 +63,7 @@ namespace SIPAA_CS
             DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
             imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
             imgCheckPerfiles.Name = "SELECCIONAR";
-            dgvPerfiles.Columns.Insert(2, imgCheckPerfiles);
+            dgvPerfiles.Columns.Insert(0, imgCheckPerfiles);
             ImageList imglt = new ImageList();
 
         }
@@ -117,7 +117,7 @@ namespace SIPAA_CS
             
             for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
             {
-                dgvPerfiles.Rows[iContador].Cells[2].Value = Resources.ic_lens_blue_grey_600_18dp;
+                dgvPerfiles.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
 
 
@@ -130,7 +130,7 @@ namespace SIPAA_CS
                 string ValorRow = row.Cells["DESCRIPCION"].Value.ToString();
 
                 txtPerfil.Text = ValorRow;
-                row.Cells[2].Value = Resources.ic_check_circle_green_400_18dp;
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
                // DisableBotones(btnGuardar, 1,false);
                 DisableBotones(btnEditar, 2, false);
