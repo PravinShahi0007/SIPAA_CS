@@ -66,6 +66,8 @@ namespace SIPAA_CS
             dgvPerfiles.Columns.Insert(2, imgCheckPerfiles);
             ImageList imglt = new ImageList();
 
+            dgvPerfiles.ClearSelection();
+           
         }
 
         private void barraSuperior_MouseUp(object sender, MouseEventArgs e)
