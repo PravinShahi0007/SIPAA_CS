@@ -144,6 +144,15 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_power_settings_new_white_18dp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-hdpi\ic_input_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-hdpi\ic_help_outline_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_white_18dp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
