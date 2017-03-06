@@ -73,6 +73,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_check_circle_green_400_18dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_check_circle_green_400_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_clear_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_clear_white_18dp", resourceCulture);
@@ -93,9 +103,9 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ic_delete_forever_white_18dp {
+        internal static System.Drawing.Bitmap ic_create_white_18dp1 {
             get {
-                object obj = ResourceManager.GetObject("ic_delete_forever_white_18dp", resourceCulture);
+                object obj = ResourceManager.GetObject("ic_create_white_18dp1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,16 +116,6 @@ namespace SIPAA_CS.Properties {
         internal static System.Drawing.Bitmap ic_devices_white_48dp {
             get {
                 object obj = ResourceManager.GetObject("ic_devices_white_48dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ic_group_white_48dp {
-            get {
-                object obj = ResourceManager.GetObject("ic_group_white_48dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ic_keyboard_arrow_right_white_18dp {
+        internal static System.Drawing.Bitmap ic_lens_blue_grey_600_18dp {
             get {
-                object obj = ResourceManager.GetObject("ic_keyboard_arrow_right_white_18dp", resourceCulture);
+                object obj = ResourceManager.GetObject("ic_lens_blue_grey_600_18dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,6 +203,26 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_remove_circle_outline_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_remove_circle_outline_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_remove_circle_outline_white_18dp1 {
+            get {
+                object obj = ResourceManager.GetObject("ic_remove_circle_outline_white_18dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_remove_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_remove_white_18dp", resourceCulture);
@@ -216,16 +236,6 @@ namespace SIPAA_CS.Properties {
         internal static System.Drawing.Bitmap ic_reply_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_reply_white_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ic_reply_white_18dp1 {
-            get {
-                object obj = ResourceManager.GetObject("ic_reply_white_18dp1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

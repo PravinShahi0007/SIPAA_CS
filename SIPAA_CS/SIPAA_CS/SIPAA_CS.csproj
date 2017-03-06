@@ -53,10 +53,10 @@
       <DependentUpon>Acceso.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexiones\Conexion.cs" />
-    <Compile Include="Crear_Perfil.cs">
+    <Compile Include="Recursos_Humanos\Administracion\Crear_Perfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Crear_Perfil.Designer.cs">
+    <Compile Include="Recursos_Humanos\Administracion\Crear_Perfil.Designer.cs">
       <DependentUpon>Crear_Perfil.cs</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.cs">
@@ -73,6 +73,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recursos_Humanos\Administracion\Crear_Modulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Crear_Modulo.Designer.cs">
+      <DependentUpon>Crear_Modulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\App_Code\Perfil.cs" />
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,7 +89,7 @@
     <EmbeddedResource Include="Acceso.resx">
       <DependentUpon>Acceso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Crear_Perfil.resx">
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Perfil.resx">
       <DependentUpon>Crear_Perfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
@@ -98,6 +105,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Modulo.resx">
+      <DependentUpon>Crear_Modulo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,70 +134,43 @@
     <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_add_circle_outline_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_help_outline_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_remove_circle_outline_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_input_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_create_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_blue_dark_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_reply_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
+    <None Include="Resources\drawable-xhdpi\ic_insert_chart_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
+    <None Include="Resources\drawable-xhdpi\ic_school_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
+    <None Include="Resources\drawable-xhdpi\ic_devices_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_home_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_store_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_group_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_insert_chart_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_fitness_center_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_monetization_on_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_school_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_fingerprint_white_48dp.png" />
+    <None Include="Resources\drawable-xhdpi\ic_local_shipping_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_power_settings_new_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_store_white_48dp.png" />
+    <None Include="Resources\drawable-hdpi\ic_input_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_school_white_48dp.png" />
+    <None Include="Resources\drawable-hdpi\ic_help_outline_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_local_shipping_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_devices_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_settings_white_18dp.png" />
@@ -212,6 +195,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-hdpi\ic_home_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_lens_blue_grey_600_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_green_400_18dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

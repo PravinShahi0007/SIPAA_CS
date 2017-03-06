@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS
+namespace SIPAA_CS.Recursos_Humanos
 {
-    public partial class Crear_Perfil : Form
+    public partial class Crear_Modulo : Form
     {
-        public Crear_Perfil()
+        public Crear_Modulo()
         {
             InitializeComponent();
         }
