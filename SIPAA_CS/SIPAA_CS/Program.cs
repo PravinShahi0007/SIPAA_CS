@@ -17,7 +17,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
+            Application.Run(new Crear_Modulo());
         }
     }
 }

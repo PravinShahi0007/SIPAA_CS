@@ -73,6 +73,12 @@
     <Compile Include="Recursos_Humanos\Crear_Modulo.Designer.cs">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Acceso.resx">
       <DependentUpon>Acceso.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +97,9 @@
     </Compile>
     <EmbeddedResource Include="Recursos_Humanos\Crear_Modulo.resx">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -152,6 +161,18 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_settings_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_save_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_green_400_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_blue_grey_600_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_lens_blue_grey_600_18dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

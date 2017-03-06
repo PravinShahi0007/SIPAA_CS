@@ -134,7 +134,7 @@ namespace SIPAA_CS.Conexiones
         {
             try
             {
-                da = new SqlDataAdapter("select * from ACCECMODULO", cn);
+                da = new SqlDataAdapter("select CVMODULO,DESCRIPCION,CVMODPAD,ORDEN,AMBIENTE,MODULO,USUUMOD,PRGUMOD from ACCECMODULO where STATUS = 1", cn);
                 dt = new DataTable();
                 da.Fill(dt);
                 dgv.DataSource = dt;
@@ -152,7 +152,7 @@ namespace SIPAA_CS.Conexiones
 
             try
             {
-                cmd = new SqlCommand("select * from ACCECMODULO where CVMODULO like '%'+@cvmodulo+'%'", cn);
+                cmd = new SqlCommand("select CVMODULO,DESCRIPCION,CVMODPAD,ORDEN,AMBIENTE,MODULO,USUUMOD,PRGUMOD from ACCECMODULO where CVMODULO like '%'+@cvmodulo+'%'", cn);
                 cmd.Parameters.Add("@cvmodulo", SqlDbType.VarChar).Value = cvmodulo;
                 //cmd = new SqlCommand("select * from ACCECMODULO where CVMODULO like '%rh%'", cn);
                 da = new SqlDataAdapter(cmd);

@@ -73,6 +73,26 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_check_circle_blue_grey_600_18dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_check_circle_blue_grey_600_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_check_circle_green_400_18dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_check_circle_green_400_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_clear_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_clear_white_18dp", resourceCulture);
@@ -143,6 +163,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_lens_blue_grey_600_18dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_lens_blue_grey_600_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_local_shipping_white_48dp {
             get {
                 object obj = ResourceManager.GetObject("ic_local_shipping_white_48dp", resourceCulture);
@@ -186,6 +216,16 @@ namespace SIPAA_CS.Properties {
         internal static System.Drawing.Bitmap ic_reply_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_reply_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_save_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_save_white_18dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
