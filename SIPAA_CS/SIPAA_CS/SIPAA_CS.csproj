@@ -89,6 +89,9 @@
     <EmbeddedResource Include="Acceso.resx">
       <DependentUpon>Acceso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Perfil.resx">
       <DependentUpon>Crear_Perfil.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,7 +200,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\drawable-hdpi\ic_home_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_home_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_lens_blue_grey_600_18dp.png" />
