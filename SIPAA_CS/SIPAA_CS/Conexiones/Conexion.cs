@@ -116,35 +116,55 @@ namespace SIPAA_CS.Conexiones
 
                 if (dr == 1)
                 {
-                    MessageBox.Show("Se ha creado correctamente");
+                    //MessageBox.Show("Se ha creado correctamente");
                 }
                 else
                 {
-                    MessageBox.Show("No se puede crear");
+                    //MessageBox.Show("No se puede crear");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo crear el modulo: " + ex);
+                //MessageBox.Show("No se pudo crear el modulo: " + ex);
             }
         }
 
         //funcion para mostrar modulos en el data view
-        public void mostrarModulo(DataGridView dgv)
+        //public void mostrarModulo(DataGridView dgv)
+        //{
+        //    try
+        //    {
+        //        da = new SqlDataAdapter("select CVMODULO,DESCRIPCION,CVMODPAD,ORDEN,AMBIENTE,MODULO,USUUMOD,PRGUMOD from ACCECMODULO where STATUS = 1 and CVMODULO = @cvmodulo", cn);
+        //        dt = new DataTable();
+        //        da.Fill(dt);
+        //        dgv.DataSource = dt;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("No se pudo mostrar el modulo: " + ex);
+        //    }
+        //}
+
+        public DataTable mostrarModulo(string cvmodulo)
         {
+
             try
             {
-                da = new SqlDataAdapter("select CVMODULO,DESCRIPCION,CVMODPAD,ORDEN,AMBIENTE,MODULO,USUUMOD,PRGUMOD from ACCECMODULO where STATUS = 1", cn);
+                cmd = new SqlCommand("select CVMODULO,DESCRIPCION,CVMODPAD,ORDEN,AMBIENTE,MODULO,USUUMOD,PRGUMOD from ACCECMODULO where CVMODULO = @cvmodulo", cn);
+                cmd.Parameters.Add("@cvmodulo", SqlDbType.VarChar).Value = cvmodulo;
+                //cmd = new SqlCommand("select * from ACCECMODULO where CVMODULO like '%rh%'", cn);
+                da = new SqlDataAdapter(cmd);
                 dt = new DataTable();
                 da.Fill(dt);
-                dgv.DataSource = dt;
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo mostrar el modulo: " + ex);
+                MessageBox.Show("No se encontro: " + ex);
             }
-        }
 
+            return dt;
+        }
 
         //funcion para buscar catalogo
         public DataTable buscarModulo(string cvmodulo)
@@ -197,7 +217,7 @@ namespace SIPAA_CS.Conexiones
             int dr;
             try
             {
-                cmd = new SqlCommand("delete from ACCECMODULO where CVMODULO = '" + cvmodulo + "'", cn);
+                cmd = new SqlCommand("update ACCECMODULO SET STATUS = 1 where CVMODULO = '" + cvmodulo + "'", cn);
                 dr = cmd.ExecuteNonQuery();
                 if (dr == 1)
                 {

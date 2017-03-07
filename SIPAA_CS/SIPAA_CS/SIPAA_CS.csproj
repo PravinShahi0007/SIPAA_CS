@@ -80,6 +80,7 @@
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\App_Code\Perfil.cs" />
+    <Compile Include="Recursos_Humanos\App_Code\Utilerias.cs" />
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
     </Compile>

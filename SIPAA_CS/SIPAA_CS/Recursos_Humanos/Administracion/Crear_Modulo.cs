@@ -1,5 +1,6 @@
 ﻿using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
+using SIPAA_CS.Recursos_Humanos.App_Code;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,10 @@ namespace SIPAA_CS.Recursos_Humanos
     {
         public Point formPosition;
         public Boolean mouseAction;
+
+        public int variable= 0;
+
+        Utilerias u = new Utilerias();
 
         Conexion c = new Conexion();
         public Crear_Modulo()
@@ -73,6 +78,19 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+
+            variable = 1;
+
+
+            txtCvModulo.Text = "";
+            txtDescripcion.Text = "";
+            txtCvModPad.Text = "";
+            txtOrden.Text = "";
+            cbAmbiente.Text = "SELECCIONA UNA AMBIENTE";
+            cbModulo.Text = "SELECCIONA UN MÓDULO";
+            txtPrgUmod.Text = "";
+
+
             //Activa campos 
             txtCvModulo.Enabled = true;
             txtDescripcion.Enabled = true;
@@ -143,11 +161,169 @@ namespace SIPAA_CS.Recursos_Humanos
                 txtCvModPad.Text = cvmodpad;
                 txtOrden.Text = Convert.ToString(orden);
                 cbAmbiente.Text = ambiente;
-                txtCvModulo.Text = modulo;
+                cbModulo.Text = modulo;
                 txtPrgUmod.Text = prgumod;
+
+                btnEliminar.Enabled = true;
+                btnEliminar.BackColor = Color.FromArgb(244, 67, 54);
+                btnEliminar.ForeColor = Color.FromArgb(244, 67, 54);
+
+                btnEditar.Enabled = true;
+                btnEditar.BackColor = Color.FromArgb(2, 119, 189);
+                btnEditar.ForeColor = Color.FromArgb(2, 119, 189);
+
+
+                //txtCvModulo.Enabled = true;
+                //txtDescripcion.Enabled = true;
+                //txtCvModPad.Enabled = true;
+                //txtOrden.Enabled = true;
+                //cbAmbiente.Enabled = true;
+                //cbModulo.Enabled = true;
+                //txtPrgUmod.Enabled = true;
+
+                txtCvModulo.Focus();
+
+                //btnGuardar.Enabled = true;
+                //btnGuardar.BackColor = Color.FromArgb(2, 119, 189);
+                //btnGuardar.ForeColor = Color.FromArgb(2, 119, 189);
+
+                //btnAgregar.Enabled = false;
+                //btnAgregar.BackColor = Color.FromArgb(97, 97, 97);
+                //btnAgregar.ForeColor = Color.FromArgb(97, 97, 97);
+
+                btnGuardar.Enabled = false;
+                btnGuardar.BackColor = Color.FromArgb(97, 97, 97);
+                btnGuardar.ForeColor = Color.FromArgb(97, 97, 97);
+
                 
+
+
+
+
+
             }
 
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            variable = 2;
+
+            txtCvModulo.Enabled = true;
+            txtDescripcion.Enabled = true;
+            txtCvModPad.Enabled = true;
+            txtOrden.Enabled = true;
+            cbAmbiente.Enabled = true;
+            cbModulo.Enabled = true;
+            txtPrgUmod.Enabled = true;
+
+            btnGuardar.Enabled = true;
+            btnGuardar.BackColor = Color.FromArgb(2, 119, 189);
+            btnGuardar.ForeColor = Color.FromArgb(2, 119, 189);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string cvmodulo;
+
+            btnGuardar.Enabled = false;
+            btnGuardar.BackColor = Color.FromArgb(97, 97, 97);
+            btnGuardar.ForeColor = Color.FromArgb(97, 97, 97);
+
+           
+
+            cvmodulo = txtCvModulo.Text;
+
+            c.eliminarCatalogo(cvmodulo);
+
+            //CrearModulo_Load(sender, e);
+        }
+
+
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+           
+            if (variable == 1)
+            {
+                //Se instancia la clase conexion
+                
+                string cvmodulo, descripcion, cvmodpad, ambiente, modulo, usuumod, prgumod, fhumod, fecha, hora, fecha_hora;
+                DateTime fhumod1, fh;
+                int orden;
+
+                // Se asginan valores de los componentes
+                cvmodulo = txtCvModulo.Text;
+                descripcion = txtDescripcion.Text;
+                cvmodpad = txtCvModPad.Text;
+                ambiente = cbAmbiente.Text;
+                modulo = cbModulo.Text;
+                prgumod = txtPrgUmod.Text;
+                usuumod = "140014";
+                
+                orden = int.Parse(txtOrden.Text);
+
+                //se arma la fecha 
+                fecha = DateTime.Now.ToShortDateString();
+                hora = DateTime.Now.ToLongTimeString();
+
+                fecha_hora = fecha + " " + hora;
+
+                fh = DateTime.Parse(fecha_hora);
+                //MessageBox.Show(fecha_hora);
+
+                // pasamos parametros a la funcion
+                c.crearModulo(cvmodulo, descripcion, cvmodpad, orden, ambiente, modulo, usuumod, fh, prgumod);
+
+                DataTable tabla = c.mostrarModulo(cvmodulo);
+
+                dgvModulo.DataSource = tabla;
+
+                dgvModulo.Visible = true;
+
+                txtCvModulo.Text = "";
+                txtDescripcion.Text = "";
+                txtCvModPad.Text = "";
+                txtOrden.Text = "";
+                cbAmbiente.Text = "";
+                cbModulo.Text = "";
+                cbAmbiente.Text = "SELECCIONA UNA AMBIENTE";
+                cbModulo.Text = "SELECCIONA UN MÓDULO";
+                txtPrgUmod.Text = "";
+                
+
+            }
+            if (variable == 2)
+            {
+                string cvmodulo, descripcion, cvmodpad, ambiente, modulo, usuumod, prgumod, fecha, hora, fecha_hora;
+                int orden;
+                DateTime fh;
+
+                cvmodulo = txtCvModulo.Text;
+                descripcion = txtDescripcion.Text;
+                cvmodpad = txtCvModPad.Text;
+                orden = int.Parse(txtOrden.Text);
+                ambiente = cbAmbiente.Text;
+                modulo = cbModulo.Text;
+                usuumod = "140014";
+                prgumod = txtPrgUmod.Text;
+
+                fecha = DateTime.Now.ToShortDateString();
+                hora = DateTime.Now.ToLongTimeString();
+
+                fecha_hora = fecha + " " + hora;
+
+                fh = DateTime.Parse(fecha_hora);
+
+                c.actualizarCatalogo(cvmodulo, descripcion, cvmodpad, orden, ambiente, modulo, usuumod, fh, prgumod);
+
+                DataTable tabla = c.mostrarModulo(cvmodulo);
+
+                dgvModulo.DataSource = tabla;
+
+                dgvModulo.Visible = true;
+            }
+            
         }
     }
 }
