@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SIPAA_CS.Recursos_Humanos.Administracion;
 
 namespace SIPAA_CS
 {
@@ -17,7 +18,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Crear_Modulo());
+            Application.Run(new Crear_Perfil());
         }
     }
 }
