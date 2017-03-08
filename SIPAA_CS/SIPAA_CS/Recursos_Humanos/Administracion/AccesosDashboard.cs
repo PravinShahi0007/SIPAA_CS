@@ -43,42 +43,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             Usuario objUsuario = new Usuario();
             List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario("140414");
 
-            for (int iContador = 0; iContador < MenuAccesos.Items.Count; iContador++) {
-
-                ToolStripMenuItem item = (ToolStripMenuItem)MenuAccesos.Items[iContador];
-
-                if (item.DropDownItems.Count > 0)
-                {
-                    bool bandera = false;
-
-                    foreach (ToolStripDropDownItem dpitem in item.DropDownItems)
-                    {
-                        if (!ltModulosxUsuario.Contains(Convert.ToString(dpitem.Tag)))
-                        {
-                            dpitem.Visible = false;
-
-                        }
-                        else {
-                            bandera = true;
-                        }
-                    }
-
-                    if (bandera != true) {
-                        item.Visible = false;
-                    }
-                }
-                else {
-                    if (!ltModulosxUsuario.Contains(Convert.ToString(item.Tag)))
-                    {
-                        item.Visible = false;
-                    }
-
-                }
-
-            }
-
-
-            //Utilerias.DashboardDinamico(msCatalogo, ltModulosxUsuario);
+            Utilerias.MenuDinamico(MenuAccesos, ltModulosxUsuario);
         }
     }
 }

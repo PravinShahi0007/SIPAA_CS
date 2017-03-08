@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -54,7 +54,8 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
-        public static void DashboardDinamico(Panel PanelMetro, List<string> ltPermisos){
+        public static void DashboardDinamico(Panel PanelMetro, List<string> ltPermisos)
+        {
 
 
             for (int iContador = (PanelMetro.Controls.Count - 1); iContador > -1; iContador--)
@@ -90,42 +91,49 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         }
 
 
-        //public static void MenuDinamico(ToolStripMenuItem Menu, List<string> ltPermisos)
-        //{
+        public static void MenuDinamico(MenuStrip MenuAccesos, List<string> ltPermisos)
+        {
 
+            for (int iContador = 0; iContador < MenuAccesos.Items.Count; iContador++)
+            {
 
-        //    for (int iContador = (Menu.Controls.Count - 1); iContador > -1; iContador--)
-        //    {
+                ToolStripMenuItem item = (ToolStripMenuItem)MenuAccesos.Items[iContador];
 
-        //        Button btn = (Button)PanelMetro.Controls[iContador];
-        //        string str = Convert.ToString(btn.Tag);
+                if (item.DropDownItems.Count > 0)
+                {
+                    bool bandera = false;
 
-        //        if (!ltPermisos.Contains(str))
-        //        {
-        //            btn.Visible = false;
-        //        }
-        //        else
-        //        {
-        //            if (iContador < (PanelMetro.Controls.Count - 1))
-        //            {
-        //                int ibtnContador = iContador + 1;
-        //                while (PanelMetro.Controls[ibtnContador].Visible != true)
-        //                {
+                    foreach (ToolStripDropDownItem dpitem in item.DropDownItems)
+                    {
+                        if (!ltPermisos.Contains(Convert.ToString(dpitem.Tag)))
+                        {
+                            dpitem.Visible = false;
 
-        //                    Point location = PanelMetro.Controls[ibtnContador].Location;
+                        }
+                        else
+                        {
+                            bandera = true;
+                        }
+                    }
 
-        //                    btn.Location = location;
+                    if (bandera != true)
+                    {
+                        item.Visible = false;
+                    }
+                }
+                else
+                {
+                    if (!ltPermisos.Contains(Convert.ToString(item.Tag)))
+                    {
+                        item.Visible = false;
+                    }
 
-        //                    ibtnContador = ibtnContador + 1;
+                }
 
-        //                }
-        //            }
-        //        }
+            }
 
-        //    }
-
-        //}
+        }
     }
 
-   
+
 }
