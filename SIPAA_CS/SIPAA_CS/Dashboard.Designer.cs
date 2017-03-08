@@ -192,6 +192,7 @@
             this.btnCompras.Name = "btnCompras";
             this.btnCompras.Size = new System.Drawing.Size(270, 132);
             this.btnCompras.TabIndex = 52;
+            this.btnCompras.Tag = "frmCompras";
             this.btnCompras.Text = "Compras";
             this.btnCompras.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnCompras.UseVisualStyleBackColor = false;
@@ -267,6 +268,7 @@
             this.btnAccesos.Name = "btnAccesos";
             this.btnAccesos.Size = new System.Drawing.Size(270, 132);
             this.btnAccesos.TabIndex = 47;
+            this.btnAccesos.Tag = "frmAccesos";
             this.btnAccesos.Text = "Acessos";
             this.btnAccesos.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnAccesos.UseVisualStyleBackColor = false;
@@ -313,7 +315,8 @@
             this.btnRecursosh.Name = "btnRecursosh";
             this.btnRecursosh.Size = new System.Drawing.Size(270, 132);
             this.btnRecursosh.TabIndex = 44;
-            this.btnRecursosh.Text = "Recursos Humanos";
+            this.btnRecursosh.Tag = "frmRecursosHumanos";
+            this.btnRecursosh.Text = "RecursosHumanos";
             this.btnRecursosh.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnRecursosh.UseVisualStyleBackColor = false;
             // 
@@ -330,6 +333,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard";
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.PanelMetro.ResumeLayout(false);
             this.barraSuperior.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

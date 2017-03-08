@@ -31,6 +31,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             DataTable dtUsuarios = objUsuario.ObtenerDataTableUsuarios(ltUsuario);
             dgvUsuarios.DataSource = dtUsuarios;
 
+
             Perfil objPerfil = new Perfil();
             DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%");
             dgvPerfiles.DataSource = dtPerfiles;

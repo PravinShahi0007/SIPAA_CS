@@ -136,6 +136,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         }
 
 
+
         public int GestionarPerfiles(Perfil objPerfil, int iOpcion)
         {
 
@@ -163,6 +164,28 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             objConexion.cerrarConexion();
 
             return iResponse;
+
+        }
+
+        public void AsignarModuloAPerfil(string CVModulo, int CVPerfil, string UsuuMod, string PrguMod)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "sp_AsignarModulo";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@CVModulo", SqlDbType.VarChar).Value = CVModulo;
+            cmd.Parameters.Add("@CvPerfil", SqlDbType.Int).Value = CVPerfil;
+            cmd.Parameters.Add("@USUUMOD", SqlDbType.VarChar).Value = UsuuMod;
+            cmd.Parameters.Add("@PRGUMOD", SqlDbType.VarChar).Value = PrguMod;
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.ExecuteNonQuery();
+
+            objConexion.cerrarConexion();
+
 
         }
     }

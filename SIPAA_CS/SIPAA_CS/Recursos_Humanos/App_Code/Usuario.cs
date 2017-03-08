@@ -147,5 +147,44 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             return dtPerfiles;
 
         }
+
+        public List<string> ObtenerListaModulosxUsuario(string CVUsuario)
+        {
+
+            Perfil objPerfil = new Perfil();
+            List<int> ltPerfiles = objPerfil.ObtenerPerfilesxUsuario(CVUsuario);
+
+            List<string> ltModulosxUsuario = new List<string>();
+
+
+            foreach (int iCV in ltPerfiles) {
+
+                Modulo objModulo = new Modulo();
+               // int iCVPerfil = ltPerfiles.ElementAt(iCV);
+                List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCV);
+
+                foreach (string strCV in ltModulos) {
+
+                    ltModulosxUsuario.Add(strCV);
+                }
+
+            }
+            return ltModulosxUsuario;
+
+            //for (int iContador = 0; iContador < ltPerfiles.Count(); iContador++)
+            //{
+            //    Modulo objModulo = new Modulo();
+            //    int iCVPerfil = ltPerfiles.ElementAt(iContador);
+            //    List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCVPerfil);
+
+            //    for (int iCont = 0; iCont < ltModulos.Count(); iContador++)
+            //    {
+            //        string strCVMod = ltModulos.ElementAt(iCont);
+            //        ltModulosxUsuario.Add(strCVMod);
+            //    }
+            //}
+
+        }
     }
 }
+
