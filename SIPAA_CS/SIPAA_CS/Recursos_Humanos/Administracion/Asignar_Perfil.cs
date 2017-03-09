@@ -27,12 +27,13 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         private void Asignar_Perfil_Load(object sender, EventArgs e)
         {
             Usuario objUsuario = new App_Code.Usuario();
-            List<Usuario> ltUsuario = objUsuario.ObtenerListaUsuarios();
+            List<Usuario> ltUsuario = objUsuario.ObtenerUsuariosxBusqueda("%","%");
             DataTable dtUsuarios = objUsuario.ObtenerDataTableUsuarios(ltUsuario);
             dgvUsuarios.DataSource = dtUsuarios;
 
+
             Perfil objPerfil = new Perfil();
-            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%");
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%","%","1");
             dgvPerfiles.DataSource = dtPerfiles;
 
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
@@ -50,9 +51,12 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
 
 
-            dgvPerfiles.Columns[1].ReadOnly = true;
+           
             dgvPerfiles.Columns[1].Visible = false;
-            dgvPerfiles.Columns[2].ReadOnly = true;
+            dgvPerfiles.Columns[3].Visible = false;
+            dgvPerfiles.Columns[4].Visible = false;
+            dgvPerfiles.Columns[5].Visible = false;
+            dgvPerfiles.Columns[6].Visible = false;
 
             dgvUsuarios.Columns[1].ReadOnly = true;
             dgvUsuarios.Columns[0].ReadOnly = true;
@@ -221,7 +225,9 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
 
             Usuario objUsuario = new Usuario();
-            DataTable dtUsuario = objUsuario.ObtenerUsuariosxBusqueda(strUsuario, IdTrab);
+
+            List<Usuario> ltUsuario = objUsuario.ObtenerUsuariosxBusqueda(strUsuario, IdTrab);
+            DataTable dtUsuario = objUsuario.ObtenerDataTableUsuarios(ltUsuario);
 
             dgvUsuarios.DataSource = dtUsuario;
 
@@ -257,7 +263,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 strPerfil = "%";
             }
             Perfil objPerfil = new Perfil();
-            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda(strPerfil);
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%",strPerfil,"1");
 
             dgvPerfiles.DataSource = dtPerfiles;
 

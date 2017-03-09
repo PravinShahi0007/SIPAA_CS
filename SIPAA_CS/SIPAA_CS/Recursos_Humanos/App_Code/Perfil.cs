@@ -19,18 +19,18 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         public string PrguMod;
 
 
-        public Dictionary<int, string> ObtenerListPerfiles()
+        public Dictionary<int, string> ObtenerListPerfiles(int CvPerfil,string Descripcion,int Estatus)
         {
 
             Dictionary<int, string> dcPerfiles = new Dictionary<int, string>();
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"SELECT [CVPERFIL]
-                                     ,[DESCRIPCION]
-                                     ,[USUUMOD]
-                                     ,[FHUMOD]
-                                     ,[PRGUMOD]
-                                     FROM[dbo].[ACCECPERFIL]";
+            cmd.CommandText = @"sp_BuscarPerfil";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@CvPerfil", SqlDbType.Int).Value = CvPerfil;
+            cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Descripcion;
+            cmd.Parameters.Add("@Estatus", SqlDbType.Int).Value = Estatus;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
@@ -46,6 +46,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 objPerfiles.CVPerfil = reader.GetInt32(reader.GetOrdinal("CVPERFIL"));
                 objPerfiles.Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION"));
 
+
                 dcPerfiles.Add(objPerfiles.CVPerfil, objPerfiles.Descripcion);
             }
 
@@ -55,16 +56,17 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         }
 
 
-        public DataTable ObtenerPerfilesxBusqueda(string Descripcion)
+        public DataTable ObtenerPerfilesxBusqueda(string CvPerfil, string Descripcion,string Estatus)
         {
 
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"SELECT CVPERFIL, DESCRIPCION
-                                FROM ACCECPERFIL WHERE DESCRIPCION LIKE '%'+ @Descripcion +'%'";
+            cmd.CommandText = @"sp_BuscarPerfil";
+            cmd.CommandType = CommandType.StoredProcedure;
 
-
+            cmd.Parameters.Add("@CvPerfil", SqlDbType.VarChar).Value = CvPerfil;
             cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Descripcion;
+            cmd.Parameters.Add("@Estatus", SqlDbType.VarChar).Value = Estatus;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -79,40 +81,15 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
-        public DataTable ObtenerPerfilxID(int CVPerfil)
-        {
-
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"SELECT CVPERFIL, DESCRIPCION
-                                FROM ACCECPERFIL WHERE CVPERFIL = @CVPerfil";
-
-
-            cmd.Parameters.Add("@CVPerfil", SqlDbType.VarChar).Value = CVPerfil;
-
-            Conexion objConexion = new Conexion();
-            objConexion.asignarConexion(cmd);
-
-            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
-
-            objConexion.cerrarConexion();
-
-            DataTable dtPerfiles = new DataTable();
-            Adapter.Fill(dtPerfiles);
-            return dtPerfiles;
-
-        }
-
+      
 
         public List<int> ObtenerPerfilesxUsuario(string cvUsuario)
         {
 
             List<int> ltPerfilesxUsuario = new List<int>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"SELECT [CVUSUARIO]
-                                 ,[CVPERFIL]
-                                FROM [ACCEAUSUPER] WHERE CVUSUARIO = @cvUsuario";
-
+            cmd.CommandText = @"sp_BuscarPerfilxUsuario";
+            cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@cvUsuario", SqlDbType.VarChar).Value = cvUsuario;
 
@@ -134,6 +111,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             return ltPerfilesxUsuario;
 
         }
+
 
 
         public int GestionarPerfiles(Perfil objPerfil, int iOpcion)
@@ -163,6 +141,28 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             objConexion.cerrarConexion();
 
             return iResponse;
+
+        }
+
+        public void AsignarModuloAPerfil(string CVModulo, int CVPerfil, string UsuuMod, string PrguMod)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "sp_AsignarModulo";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@CVModulo", SqlDbType.VarChar).Value = CVModulo;
+            cmd.Parameters.Add("@CvPerfil", SqlDbType.Int).Value = CVPerfil;
+            cmd.Parameters.Add("@USUUMOD", SqlDbType.VarChar).Value = UsuuMod;
+            cmd.Parameters.Add("@PRGUMOD", SqlDbType.VarChar).Value = PrguMod;
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.ExecuteNonQuery();
+
+            objConexion.cerrarConexion();
+
 
         }
     }

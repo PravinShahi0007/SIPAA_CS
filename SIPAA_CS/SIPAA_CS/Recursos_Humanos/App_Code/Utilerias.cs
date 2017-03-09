@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -8,9 +8,10 @@ using System.Windows.Forms;
 
 namespace SIPAA_CS.Recursos_Humanos.App_Code
 {
-    public class Utilerias
+    class Utilerias
     {
-        private void DisableBotones(Button btn, int iClase, Boolean Apagar)
+
+        public static void DisableBotones(Button btn, int iClase, Boolean Apagar)
         {
 
             if (Apagar == false)
@@ -53,5 +54,85 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
+        public static void DashboardDinamico(Panel PanelMetro, List<string> ltPermisos)
+        {
+
+
+            for (int iContador = (PanelMetro.Controls.Count - 1); iContador > -1; iContador--)
+            {
+                Button btn = (Button)PanelMetro.Controls[iContador];
+                string str = Convert.ToString(btn.Tag);
+
+                if (!ltPermisos.Contains(str))
+                {
+                    btn.Visible = false;
+                }
+                else
+                {
+                    if (iContador < (PanelMetro.Controls.Count - 1))
+                    {
+                        int ibtnContador = iContador + 1;
+                        while (PanelMetro.Controls[ibtnContador].Visible != true)
+                        {
+
+                            Point location = PanelMetro.Controls[ibtnContador].Location;
+
+                            btn.Location = location;
+
+                            ibtnContador = ibtnContador + 1;
+
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
+        public static void MenuDinamico(MenuStrip MenuAccesos, List<string> ltPermisos)
+        {
+
+            for (int iContador = 0; iContador < MenuAccesos.Items.Count; iContador++)
+            {
+
+                ToolStripMenuItem item = (ToolStripMenuItem)MenuAccesos.Items[iContador];
+
+                if (item.DropDownItems.Count > 0)
+                {
+                    bool bandera = false;
+
+                    foreach (ToolStripDropDownItem dpitem in item.DropDownItems)
+                    {
+                        if (!ltPermisos.Contains(Convert.ToString(dpitem.Tag)))
+                        {
+                            dpitem.Visible = false;
+
+                        }
+                        else
+                        {
+                            bandera = true;
+                        }
+                    }
+
+                    if (bandera != true)
+                    {
+                        item.Visible = false;
+                    }
+                }
+                else
+                {
+                    if (!ltPermisos.Contains(Convert.ToString(item.Tag)))
+                    {
+                        item.Visible = false;
+                    }
+
+                }
+
+            }
+
+        }
     }
+
+
 }

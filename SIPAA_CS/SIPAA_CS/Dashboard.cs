@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIPAA_CS.Recursos_Humanos.App_Code;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -79,6 +80,21 @@ namespace SIPAA_CS
             {
 
             }
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            Usuario objUsuario = new Usuario();
+
+            List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario("140414");
+
+            Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
+
+        }
+
+        private void PanelMetro_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

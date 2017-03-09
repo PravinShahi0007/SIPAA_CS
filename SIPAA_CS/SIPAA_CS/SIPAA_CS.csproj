@@ -53,6 +53,18 @@
       <DependentUpon>Acceso.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexiones\Conexion.cs" />
+    <Compile Include="Recursos_Humanos\Administracion\AccesosDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\AccesosDashboard.Designer.cs">
+      <DependentUpon>AccesosDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Asignar_Modulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Asignar_Modulo.Designer.cs">
+      <DependentUpon>Asignar_Modulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexiones\c_Permisos.cs" />
     <Compile Include="Recursos_Humanos\Administracion\Asignar_Perfil.cs">
       <SubType>Form</SubType>
@@ -86,6 +98,7 @@
     <Compile Include="Recursos_Humanos\Administracion\Crear_Modulo.Designer.cs">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recursos_Humanos\App_Code\Modulo.cs" />
     <Compile Include="Recursos_Humanos\Administracion\frmFormReg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +120,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\AccesosDashboard.resx">
+      <DependentUpon>AccesosDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Asignar_Modulo.resx">
+      <DependentUpon>Asignar_Modulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Asignar_Perfil.resx">
       <DependentUpon>Asignar_Perfil.cs</DependentUpon>
@@ -232,6 +251,45 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_account_circle_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_fingerprint_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_list_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_account_circle_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_work_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_carousel_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_settings_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_compare_arrows_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_compare_arrows_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_account_circle_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_work_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_carousel_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_settings_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_local_shipping_black_24dp.png" />
