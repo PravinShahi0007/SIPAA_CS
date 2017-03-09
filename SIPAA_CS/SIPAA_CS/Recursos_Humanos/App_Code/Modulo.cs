@@ -24,32 +24,19 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         public Boolean Estatus;
         Conexion objConexion = new Conexion();
 
-        public List<Modulo> ObtenerListModulos(string CVModulo,string Descripcion,string Ambiente,string Modulo)
+        public List<Modulo> ObtenerListModulos(string CVModulo,string Descripcion,string Ambiente,string Modulo,string Estatus)
         {
 
             List<Modulo> ltModulos = new List<Modulo>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"SELECT [CVMODULO]
-                                  ,[DESCRIPCION]
-                                  ,[CVMODPAD]
-                                  ,[ORDEN]
-                                  ,[AMBIENTE]
-                                  ,[MODULO]
-                                  ,[USUUMOD]
-                                  ,[FHUMOD]
-                                  ,[PRGUMOD]
-                                  ,[STATUS]   
-                              FROM [dbo].[ACCECMODULO] 
-                               WHERE CVMODULO LIKE '%'+ @CVModulo +'%' 
-                               AND DESCRIPCION LIKE '%'+ @Descripcion +'%' 
-                               AND AMBIENTE LIKE '%'+ @Ambiente +'%' 
-                               AND MODULO LIKE '%'+ @Modulo +'%' 
-                               ORDER BY ORDEN";
+            cmd.CommandText = @"sp_BuscarModulo";
+            cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("CVModulo",SqlDbType.VarChar).Value = CVModulo;
             cmd.Parameters.Add("Descripcion", SqlDbType.VarChar).Value = Descripcion;
             cmd.Parameters.Add("Ambiente", SqlDbType.VarChar).Value = Ambiente;
             cmd.Parameters.Add("Modulo", SqlDbType.VarChar).Value = Modulo;
+            cmd.Parameters.Add("Estatus", SqlDbType.VarChar).Value = Estatus;
 
 
             objConexion.asignarConexion(cmd);
@@ -130,17 +117,8 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             List<string> ltModulosxPerfil = new List<string>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"SELECT [CVPERFIL]
-                                      ,[CVMODULO]
-                                      ,[STLEC]
-                                      ,[STACT]
-                                      ,[STELI]
-                                      ,[STIMP]
-                                      ,[USUUMOD]
-                                      ,[FHUMOD]
-                                      ,[PRGUMOD]
-                                  FROM [dbo].[ACCEAPERMOD]
-                                  WHERE CVPERFIL = @CVPerfil";
+            cmd.CommandText = @"sp_BuscarModuloxPerfil";
+            cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@CVPerfil", SqlDbType.Int).Value = CVPerfil;
 

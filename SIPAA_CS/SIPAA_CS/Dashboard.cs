@@ -91,5 +91,10 @@ namespace SIPAA_CS
             Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
 
         }
+
+        private void PanelMetro_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

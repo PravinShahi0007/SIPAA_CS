@@ -24,20 +24,17 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
 
 
-        public List<Usuario> ObtenerListaUsuarios()
+        public List<Usuario> ObtenerUsuariosxBusqueda(string Nombre, string idTrab)
         {
             List<Usuario> ltUsuarios = new List<Usuario>();
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"SELECT [CVUSUARIO]
-                              ,[IDTRAB]
-                              ,[NOMBRE]
-                              ,[PASSW]
-                              ,[STUSUARIO]
-                              ,[USUUMOD]
-                              ,[FHUMOD]
-                              ,[PRGUMOD]
-                          FROM [dbo].[ACCECUSUARIO]";
+            cmd.CommandText = @"sp_BuscarUsuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = Nombre;
+            cmd.Parameters.Add("@IDTRAB", SqlDbType.VarChar).Value = idTrab;
+
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
@@ -118,35 +115,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
-        public DataTable ObtenerUsuariosxBusqueda(string Nombre, string idTrab)
-        {
-
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"SELECT [CVUsuario]
-                                      ,[IdTrab]
-                                      ,[Nombre]
-                                     
-                                  FROM [dbo].[ACCECUSUARIO] 
-                                    WHERE NOMBRE LIKE '%'+ @NOMBRE +'%'
-                                     AND IDTRAB LIKE  '%'+ @IDTRAB +'%'  ";
-
-
-            cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = Nombre;
-            cmd.Parameters.Add("@IDTRAB", SqlDbType.VarChar).Value = idTrab;
-
-            Conexion objConexion = new Conexion();
-            objConexion.asignarConexion(cmd);
-
-            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
-
-            objConexion.cerrarConexion();
-
-            DataTable dtPerfiles = new DataTable();
-            Adapter.Fill(dtPerfiles);
-            return dtPerfiles;
-
-        }
+       
 
         public List<string> ObtenerListaModulosxUsuario(string CVUsuario)
         {

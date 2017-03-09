@@ -60,7 +60,6 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             for (int iContador = (PanelMetro.Controls.Count - 1); iContador > -1; iContador--)
             {
-
                 Button btn = (Button)PanelMetro.Controls[iContador];
                 string str = Convert.ToString(btn.Tag);
 

@@ -25,9 +25,9 @@ namespace SIPAA_CS
 
         private void Crear_Perfil_Load(object sender, EventArgs e)
         {
-            DisableBotones(btnGuardar, 1,true);
-            DisableBotones(btnEditar, 2, true);
-            DisableBotones(btnEliminar, 3, true);
+            Utilerias.DisableBotones(btnGuardar, 1, true);
+            Utilerias.DisableBotones(btnEditar, 2, true);
+            Utilerias.DisableBotones(btnEliminar, 3, true);
 
 
         }
@@ -43,9 +43,9 @@ namespace SIPAA_CS
             PanelEditar.Enabled = false;
             txtPerfil.Text = "Sin Selección";
 
-            DisableBotones(btnGuardar, 1, true);
-            DisableBotones(btnEditar, 2, true);
-            DisableBotones(btnEliminar, 3, true);
+            Utilerias.DisableBotones(btnGuardar, 1, true);
+            Utilerias.DisableBotones(btnEditar, 2, true);
+            Utilerias.DisableBotones(btnEliminar, 3, true);
 
             Perfil objPerfil = new Perfil();
 
@@ -55,9 +55,32 @@ namespace SIPAA_CS
             {
                 strPerfil = txtBuscarPerfil.Text;
             }
-            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda(strPerfil);
+
+            string strEstatus = "%";
+
+            if (cbEstatus.SelectedIndex > 0)
+            {
+                if (cbEstatus.SelectedIndex == 1)
+                {
+                    strEstatus = "1";
+                }
+                else if (cbEstatus.SelectedIndex == 2)
+                {
+                    strEstatus = "0";
+                }
+            }
+            else
+            {
+                strEstatus = "%";
+            }
+
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%", strPerfil, strEstatus);
             dgvPerfiles.DataSource = dtPerfiles;
-            dgvPerfiles.Columns[0].Visible = false;
+            dgvPerfiles.Columns["CVPERFIL"].Visible = false;
+            dgvPerfiles.Columns["USUUMOD"].Visible = false;
+            dgvPerfiles.Columns["FHUMOD"].Visible = false;
+            dgvPerfiles.Columns["PRGUMOD"].Visible = false;
+            dgvPerfiles.Columns["STATUS"].Visible = false;
             dgvPerfiles.Visible = true;
 
             DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
@@ -67,7 +90,7 @@ namespace SIPAA_CS
             ImageList imglt = new ImageList();
 
             dgvPerfiles.ClearSelection();
-           
+
         }
 
         private void barraSuperior_MouseUp(object sender, MouseEventArgs e)
@@ -116,7 +139,7 @@ namespace SIPAA_CS
 
         private void dgvPerfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
             {
                 dgvPerfiles.Rows[iContador].Cells[2].Value = Resources.ic_lens_blue_grey_600_18dp;
@@ -128,61 +151,31 @@ namespace SIPAA_CS
 
                 DataGridViewRow row = this.dgvPerfiles.SelectedRows[0];
 
-               IdPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
+                IdPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
                 string ValorRow = row.Cells["DESCRIPCION"].Value.ToString();
-
+                string strEstatus = row.Cells["STATUS"].Value.ToString();
                 txtPerfil.Text = ValorRow;
                 row.Cells[2].Value = Resources.ic_check_circle_green_400_18dp;
 
-               // DisableBotones(btnGuardar, 1,false);
-                DisableBotones(btnEditar, 2, false);
-                DisableBotones(btnEliminar, 3, false);
-
-            }
-        }
-
-        private void DisableBotones(Button btn, int iClase,Boolean Apagar)
-        {
-
-            if (Apagar == false)
-            {
-
-                switch (iClase)
+                if (strEstatus == "False")
                 {
-
-                    case 1:
-                        //Clase Success - Color Verde
-                        btn.Enabled = true;
-                        btn.BackColor = ColorTranslator.FromHtml("#2e7d32");
-                        btn.ForeColor = ColorTranslator.FromHtml("#2e7d32");
-
-                        break;
-                    case 2:
-                        //Clase Info - Color Azul
-                        btn.Enabled = true;
-                        btn.BackColor = ColorTranslator.FromHtml("#0277bd");
-                        btn.ForeColor = ColorTranslator.FromHtml("#0277bd");
-
-                        break;
-                    case 3:
-                        //Clase Danger - Color Rojo
-                        btn.Enabled = true;
-                        btn.BackColor = ColorTranslator.FromHtml("#f44336");
-                        btn.ForeColor = ColorTranslator.FromHtml("#f44336");
-                        break;
-                    default:
-
-                        break;
+                    Utilerias.DisableBotones(btnEliminar, 2, false);
+                    btnEliminar.Image = Resources.ic_check_white_24dp;
                 }
-            }
-            else
-            {
-                btn.Enabled = false;
-                btn.BackColor = ColorTranslator.FromHtml("#eeeeee");
-                btn.ForeColor = ColorTranslator.FromHtml("#eeeeee");
-            }
+                else if (strEstatus == "True")
+                {
+                    Utilerias.DisableBotones(btnEliminar, 3, false);
+                    btnEliminar.Image = Resources.ic_remove_circle_outline_white_18dp;
+                }
 
+                // DisableBotones(btnGuardar, 1,false);
+                Utilerias.DisableBotones(btnEditar, 2, false);
+
+
+            }
         }
+
+
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -192,17 +185,17 @@ namespace SIPAA_CS
             objPerfil.Descripcion = txtPerfil.Text;
             objPerfil.PrguMod = "Recursos Humanos";
             objPerfil.UsuuMod = "vjiturburuv";
-            GestionarPefilesxOpcion(txtPerfil, objPerfil, "Perfil Eliminado Correctamente", 3, sender, e);
+            GestionarPefilesxOpcion(txtPerfil, objPerfil, "Cambio de Estatus Correcto", 3, sender, e);
             dgvPerfiles.Visible = false;
             txtPerfil.Text = "Sin Selección";
-            PanelEditar.Enabled = false;            
+            PanelEditar.Enabled = false;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             PanelEditar.Enabled = true;
             iOpcionAdmin = 2;
-            DisableBotones(btnGuardar, 2, false);
+            Utilerias.DisableBotones(btnGuardar, 2, false);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -212,7 +205,7 @@ namespace SIPAA_CS
             txtPerfil.Text = "";
             PanelEditar.Enabled = true;
             label2.Text = "     Nuevo Perfil";
-            DisableBotones(btnGuardar, 1, false);
+            Utilerias.DisableBotones(btnGuardar, 1, false);
 
             iOpcionAdmin = 1;
 
@@ -267,11 +260,13 @@ namespace SIPAA_CS
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+
+
             label2.Text = "       Perfil Seleccionado";
             PanelEditar.Enabled = false;
             Perfil objPerfil = new Perfil();
             objPerfil.CVPerfil = IdPerfil;
-            objPerfil.Descripcion = txtPerfil.Text;
+            objPerfil.Descripcion = txtPerfil.Text.Trim();
             objPerfil.PrguMod = "Recursos Humanos";
             objPerfil.UsuuMod = "vjiturburuv";
             string strMensaje;
@@ -280,28 +275,24 @@ namespace SIPAA_CS
             {
                 strMensaje = "Perfil Guardado Correctamente";
             }
-            else {
+            else
+            {
                 strMensaje = "Perfil Actualizado Correctamente";
             }
 
-           int iResponse =  GestionarPefilesxOpcion(txtPerfil, objPerfil,strMensaje, iOpcionAdmin, sender, e);
+            int iResponse = GestionarPefilesxOpcion(txtPerfil, objPerfil, strMensaje, iOpcionAdmin, sender, e);
 
-            if (iResponse != 0) {
+            if (iResponse != 0)
+            {
 
-                if (iOpcionAdmin != 2)
-                {
-                    DataTable dtPerfilxID = objPerfil.ObtenerPerfilxID(iResponse);
-                    dgvPerfiles.DataSource = dtPerfilxID;
-                    dgvPerfiles.Visible = true;
-                    dgvPerfiles.Columns[0].Visible = false;
+                btnBuscar_Click(sender, e);
+
+                    }
+            
                 }
-                else {
-                    DataTable dtPerfilxID = objPerfil.ObtenerPerfilxID(IdPerfil);
-                    dgvPerfiles.DataSource = dtPerfilxID;
-                    dgvPerfiles.Visible = true;
-                    dgvPerfiles.Columns[0].Visible = false;
-                }
-            }
+
+        private void PanelEditar_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

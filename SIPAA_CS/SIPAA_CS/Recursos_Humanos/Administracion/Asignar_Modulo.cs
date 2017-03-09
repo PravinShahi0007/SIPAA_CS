@@ -24,11 +24,11 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         {
             
             Perfil objPerfil = new Perfil();
-            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%");
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%","%","1");
             dgvPerfil.DataSource = dtPerfiles;
 
             Modulo objModulo = new Modulo();
-            List<Modulo> ltModulo = objModulo.ObtenerListModulos("%", "%", "%", "%");
+            List<Modulo> ltModulo = objModulo.ObtenerListModulos("%", "%", "%", "%","1");
             DataTable dtModulo = objModulo.ObtenerDataTableModulo(ltModulo);
             dgvModulos.DataSource = dtModulo;
 
@@ -49,10 +49,16 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             dgvModulos.ClearSelection();
             dgvPerfil.ClearSelection();
 
+            dgvPerfil.Columns[3].Visible = false;
+            dgvPerfil.Columns[4].Visible = false;
+            dgvPerfil.Columns[5].Visible = false;
+            dgvPerfil.Columns[6].Visible = false;
+
             dgvModulos.Columns["Orden"].Visible = false;
             dgvModulos.Columns["Descripción"].Visible = false;
             dgvPerfil.Columns["CVPERFIL"].Visible = false;
-           
+            dgvModulos.Columns["Estatus"].Visible = false;
+
         }
 
         private void dgvPerfil_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -158,7 +164,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             }
 
             Perfil objPerfil = new Perfil();
-            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda(strPerfil);
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%",strPerfil,"1");
             dgvPerfil.DataSource = dtPerfiles;
 
 
@@ -190,25 +196,18 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
             if (txtNombreModulo.Text != String.Empty)
             {
-                strModulo = txtNombreModulo.Text;
+                strNombreModulo = txtNombreModulo.Text;
             }
             else
             {
-                strModulo = "%";
+                strNombreModulo = "%";
             }
 
-            if (txtDescripcion.Text != String.Empty)
-            {
-                strDescripcion = txtNombreModulo.Text;
-            }
-            else
-            {
-                strDescripcion = "%";
-            }
+           
 
             if (txtModulo.Text != String.Empty)
             {
-                strModulo = txtNombreModulo.Text;
+                strModulo = txtModulo.Text;
             }
             else
             {
@@ -224,7 +223,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             }
 
             Modulo objModulo = new Modulo();
-            List<Modulo> ltModulo = objModulo.ObtenerListModulos(strNombreModulo,strDescripcion,strAmbiente,strModulo);
+            List<Modulo> ltModulo = objModulo.ObtenerListModulos(strNombreModulo,"%",strAmbiente,strModulo,"1");
             DataTable dtModulo = objModulo.ObtenerDataTableModulo(ltModulo);
             dgvModulos.DataSource = dtModulo;
 
@@ -239,5 +238,9 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 dgvPerfil.Rows[iContador].Cells[2].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
         }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+                    }
     }
 }
