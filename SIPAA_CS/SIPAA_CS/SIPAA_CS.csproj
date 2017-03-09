@@ -53,6 +53,7 @@
       <DependentUpon>Acceso.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexiones\Conexion.cs" />
+    <Compile Include="Conexiones\c_Permisos.cs" />
     <Compile Include="Recursos_Humanos\Administracion\Asignar_Perfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +86,13 @@
     <Compile Include="Recursos_Humanos\Administracion\Crear_Modulo.Designer.cs">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\frmFormReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\frmFormReg.Designer.cs">
+      <DependentUpon>frmFormReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\App_Code\FormReg.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Perfil.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Usuario.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Utilerias.cs" />
@@ -121,6 +129,9 @@
     </Compile>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Modulo.resx">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\frmFormReg.resx">
+      <DependentUpon>frmFormReg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
@@ -172,7 +183,7 @@
     <None Include="Resources\drawable-xhdpi\ic_devices_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\drawable-xhdpi\ic_local_shipping_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_local_shipping_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_power_settings_new_white_18dp.png" />
@@ -221,6 +232,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_account_circle_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_local_shipping_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_local_shipping_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_local_shipping_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_local_shipping_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_local_shipping_black_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
