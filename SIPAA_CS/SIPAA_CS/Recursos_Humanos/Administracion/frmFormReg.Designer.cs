@@ -36,16 +36,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.barraSuperior = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.PanelAgregar = new System.Windows.Forms.Panel();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -57,20 +52,21 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtCapFR = new System.Windows.Forms.TextBox();
             this.lblAct = new System.Windows.Forms.Label();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblModifElim = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRegresar = new System.Windows.Forms.Button();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
-            this.barraSuperior.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panelTag.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvForReg)).BeginInit();
             this.pnlAct.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -110,18 +106,6 @@
             label2.TabIndex = 44;
             label2.Text = "Descripción";
             // 
-            // barraSuperior
-            // 
-            this.barraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.barraSuperior.Controls.Add(this.btnMinimizar);
-            this.barraSuperior.Controls.Add(this.btnRegresar);
-            this.barraSuperior.Controls.Add(this.btnCerrar);
-            this.barraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barraSuperior.Location = new System.Drawing.Point(0, 0);
-            this.barraSuperior.Name = "barraSuperior";
-            this.barraSuperior.Size = new System.Drawing.Size(1024, 26);
-            this.barraSuperior.TabIndex = 3;
-            // 
             // btnMinimizar
             // 
             this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
@@ -129,26 +113,13 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(972, 3);
+            this.btnMinimizar.Location = new System.Drawing.Point(965, 7);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 101;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(899, 1);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(40, 24);
-            this.btnRegresar.TabIndex = 53;
-            this.btnRegresar.UseVisualStyleBackColor = false;
             // 
             // btnCerrar
             // 
@@ -157,45 +128,32 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(1000, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(989, 7);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(22, 22);
+            this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 100;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.panelTag);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.panel7);
-            this.panel2.Controls.Add(this.PanelAgregar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 26);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1024, 79);
-            this.panel2.TabIndex = 4;
-            // 
             // panelTag
             // 
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(4, 7);
+            this.panelTag.Location = new System.Drawing.Point(0, 37);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(456, 36);
+            this.panelTag.Size = new System.Drawing.Size(456, 25);
             this.panelTag.TabIndex = 25;
+            this.panelTag.Visible = false;
             // 
             // lbMensaje
             // 
             this.lbMensaje.AutoSize = true;
             this.lbMensaje.BackColor = System.Drawing.Color.Transparent;
-            this.lbMensaje.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMensaje.ForeColor = System.Drawing.Color.White;
             this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbMensaje.Location = new System.Drawing.Point(0, 16);
+            this.lbMensaje.Location = new System.Drawing.Point(12, 3);
             this.lbMensaje.Name = "lbMensaje";
             this.lbMensaje.Size = new System.Drawing.Size(209, 20);
             this.lbMensaje.TabIndex = 26;
@@ -205,35 +163,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_18dp;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(0, 56);
+            this.label3.Location = new System.Drawing.Point(3, 76);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(187, 23);
             this.label3.TabIndex = 0;
             this.label3.Text = "       Formas de Registro   ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.panel7.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.panel7.Location = new System.Drawing.Point(155, 74);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(868, 5);
-            this.panel7.TabIndex = 24;
-            // 
-            // PanelAgregar
-            // 
-            this.PanelAgregar.BackgroundImage = global::SIPAA_CS.Properties.Resources.logo;
-            this.PanelAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PanelAgregar.Location = new System.Drawing.Point(651, 7);
-            this.PanelAgregar.Name = "PanelAgregar";
-            this.PanelAgregar.Size = new System.Drawing.Size(370, 61);
-            this.PanelAgregar.TabIndex = 0;
             // 
             // pnlBusqueda
             // 
@@ -250,13 +189,13 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.ic_search_white_18dp1;
-            this.btnBuscar.Location = new System.Drawing.Point(366, 35);
+            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
+            this.btnBuscar.Location = new System.Drawing.Point(363, 26);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(66, 28);
+            this.btnBuscar.Size = new System.Drawing.Size(50, 50);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -271,7 +210,7 @@
             // 
             // txtFormReg
             // 
-            this.txtFormReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtFormReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtFormReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFormReg.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFormReg.Location = new System.Drawing.Point(32, 43);
@@ -330,7 +269,7 @@
             this.pnlAct.Controls.Add(this.btnEliminar);
             this.pnlAct.Controls.Add(this.btnGuardar);
             this.pnlAct.Controls.Add(this.btnEditar);
-            this.pnlAct.Location = new System.Drawing.Point(90, 343);
+            this.pnlAct.Location = new System.Drawing.Point(90, 354);
             this.pnlAct.Name = "pnlAct";
             this.pnlAct.Size = new System.Drawing.Size(434, 87);
             this.pnlAct.TabIndex = 3;
@@ -360,7 +299,7 @@
             // 
             // txtCapFR
             // 
-            this.txtCapFR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtCapFR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtCapFR.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCapFR.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCapFR.Location = new System.Drawing.Point(33, 45);
@@ -381,29 +320,15 @@
             this.lblAct.TabIndex = 41;
             this.lblAct.Text = "     Agregar forma de registro";
             // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(50)))));
-            this.btnEditar.Image = global::SIPAA_CS.Properties.Resources.ic_create_white_18dp;
-            this.btnEditar.Location = new System.Drawing.Point(360, 39);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(66, 28);
-            this.btnEditar.TabIndex = 56;
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Visible = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
             // btnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.ic_remove_circle_outline_white_18dp;
-            this.btnEliminar.Location = new System.Drawing.Point(360, 39);
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.btnRemove2;
+            this.btnEliminar.Location = new System.Drawing.Point(360, 30);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(66, 28);
+            this.btnEliminar.Size = new System.Drawing.Size(50, 50);
             this.btnEliminar.TabIndex = 54;
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Visible = false;
@@ -411,26 +336,40 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(50)))));
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(50)))));
-            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.ic_save_white_18dp;
-            this.btnGuardar.Location = new System.Drawing.Point(360, 39);
+            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
+            this.btnGuardar.Location = new System.Drawing.Point(360, 30);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(66, 28);
+            this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 52;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnEditar.Image = global::SIPAA_CS.Properties.Resources.btnEdit;
+            this.btnEditar.Location = new System.Drawing.Point(359, 30);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(50, 50);
+            this.btnEditar.TabIndex = 56;
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Visible = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
             // btnAgregar
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(50)))));
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(125)))), ((int)(((byte)(50)))));
-            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.ic_add_circle_outline_white_18dp;
-            this.btnAgregar.Location = new System.Drawing.Point(578, 167);
+            this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
+            this.btnAgregar.Location = new System.Drawing.Point(579, 151);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(66, 28);
+            this.btnAgregar.Size = new System.Drawing.Size(50, 50);
             this.btnAgregar.TabIndex = 52;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
@@ -449,27 +388,48 @@
             this.lblModifElim.Text = ".";
             this.lblModifElim.Visible = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::SIPAA_CS.Properties.Resources.JSierra;
+            this.panel1.Controls.Add(this.btnRegresar);
+            this.panel1.Controls.Add(this.btnAgregar);
+            this.panel1.Controls.Add(this.btnMinimizar);
+            this.panel1.Controls.Add(this.btnCerrar);
+            this.panel1.Controls.Add(this.panelTag);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(-1, -6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1029, 775);
+            this.panel1.TabIndex = 102;
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
+            this.btnRegresar.Location = new System.Drawing.Point(915, 6);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
+            this.btnRegresar.TabIndex = 103;
+            this.btnRegresar.UseVisualStyleBackColor = false;
+            // 
             // frmFormReg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.lblModifElim);
-            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pnlAct);
             this.Controls.Add(this.dgvForReg);
             this.Controls.Add(this.pnlBusqueda);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.barraSuperior);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmFormReg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "V";
             this.Load += new System.EventHandler(this.frmFormReg_Load);
-            this.barraSuperior.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
             this.pnlBusqueda.ResumeLayout(false);
@@ -477,22 +437,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvForReg)).EndInit();
             this.pnlAct.ResumeLayout(false);
             this.pnlAct.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel barraSuperior;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelTag;
         private System.Windows.Forms.Label lbMensaje;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel PanelAgregar;
         private System.Windows.Forms.Panel pnlBusqueda;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel5;
@@ -503,12 +460,13 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtCapFR;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.CheckBox ckbEliminar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblAct;
         private System.Windows.Forms.Label lblModifElim;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnRegresar;
     }
 }

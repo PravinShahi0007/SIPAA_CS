@@ -34,11 +34,11 @@
             System.Windows.Forms.Label label2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Asignar_Modulo));
             System.Windows.Forms.Label label3;
+            System.Windows.Forms.Label label8;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label label8;
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -146,6 +146,19 @@
             label3.Size = new System.Drawing.Size(119, 20);
             label3.TabIndex = 41;
             label3.Text = "     Buscar Usuario";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Enabled = false;
+            label8.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            label8.Location = new System.Drawing.Point(299, 39);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(43, 16);
+            label8.TabIndex = 52;
+            label8.Text = "Módulo";
             // 
             // panel1
             // 
@@ -488,19 +501,6 @@
             this.dgvPerfil.Size = new System.Drawing.Size(313, 303);
             this.dgvPerfil.TabIndex = 61;
             this.dgvPerfil.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPerfil_CellContentClick);
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Enabled = false;
-            label8.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label8.Location = new System.Drawing.Point(299, 39);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(43, 16);
-            label8.TabIndex = 52;
-            label8.Text = "Módulo";
             // 
             // Asignar_Modulo
             // 

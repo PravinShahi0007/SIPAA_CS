@@ -306,6 +306,72 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_local_shipping_black_24dp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-hdpi\ic_check_circle_blue_grey_600_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_blue_dark_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-mdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_fingerprint_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_fitness_center_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_group_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_monetization_on_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_school_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_store_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_store_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnAlta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btndel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btninfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnRemove2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnRemove21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JSierra.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
