@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,7 +12,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 {
     public class Utilerias
     {
-        private void DisableBotones(Button btn, int iClase, Boolean Apagar)
+        public void DisableBotones(Button btn, int iClase, Boolean Apagar)
         {
 
             if (Apagar == false)
@@ -51,6 +53,22 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 btn.ForeColor = ColorTranslator.FromHtml("#eeeeee");
             }
 
+        }
+
+        public string cifradoMd5(string pass)
+        {
+            
+            MD5 md5 = MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pass);
+            byte[] hash = md5.ComputeHash(inputBytes);
+            pass = BitConverter.ToString(hash).Replace("-", "");
+            return pass;
+        }
+
+        public bool IsNumber(string inputvalue)
+        {
+            Regex isnumber = new Regex("[^0-9]");
+            return !isnumber.IsMatch(inputvalue);
         }
 
     }

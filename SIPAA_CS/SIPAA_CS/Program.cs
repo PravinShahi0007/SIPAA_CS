@@ -18,7 +18,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Crear_Perfil());
+            Application.Run(new Crear_Acceso_Usuario());
         }
     }
 }

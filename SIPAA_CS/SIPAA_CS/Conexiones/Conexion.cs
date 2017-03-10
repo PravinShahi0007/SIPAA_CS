@@ -31,6 +31,21 @@ namespace SIPAA_CS.Conexiones
             }
         }
 
+        public SqlConnection conexionSonarh()
+        {
+            try
+            {
+                cn = new SqlConnection("Data Source=192.168.9.5;Initial Catalog=SonarhNet;User ID=webdesarrollo;Password=webdesarrollo");
+                //cn.Open();
+                // MessageBox.Show("Conectado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se concto con la BD: " + ex.ToString());
+            }
+            return cn;
+        }
+
         //Asigna conexion
         public void asignarConexion(SqlCommand cmd)
         {
