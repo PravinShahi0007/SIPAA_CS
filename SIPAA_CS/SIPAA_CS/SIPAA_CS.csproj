@@ -53,6 +53,19 @@
       <DependentUpon>Acceso.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexiones\Conexion.cs" />
+    <Compile Include="Recursos_Humanos\Administracion\AccesosDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\AccesosDashboard.Designer.cs">
+      <DependentUpon>AccesosDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Asignar_Modulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Asignar_Modulo.Designer.cs">
+      <DependentUpon>Asignar_Modulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conexiones\c_Permisos.cs" />
     <Compile Include="Recursos_Humanos\Administracion\Asignar_Perfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +104,14 @@
     <Compile Include="Recursos_Humanos\Administracion\Crear_Modulo.Designer.cs">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recursos_Humanos\App_Code\Modulo.cs" />
+    <Compile Include="Recursos_Humanos\Administracion\frmFormReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\frmFormReg.Designer.cs">
+      <DependentUpon>frmFormReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\App_Code\FormReg.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Perfil.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Usuario.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Utilerias.cs" />
@@ -105,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\AccesosDashboard.resx">
+      <DependentUpon>AccesosDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Asignar_Modulo.resx">
+      <DependentUpon>Asignar_Modulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Asignar_Perfil.resx">
       <DependentUpon>Asignar_Perfil.cs</DependentUpon>
@@ -130,6 +157,9 @@
     </Compile>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Modulo.resx">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\frmFormReg.resx">
+      <DependentUpon>frmFormReg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
@@ -181,7 +211,7 @@
     <None Include="Resources\drawable-xhdpi\ic_devices_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\drawable-xhdpi\ic_local_shipping_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_local_shipping_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_power_settings_new_white_18dp.png" />
@@ -230,6 +260,126 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_account_circle_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_fingerprint_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_list_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_account_circle_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_work_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_carousel_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_settings_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_compare_arrows_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_compare_arrows_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_account_circle_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_work_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_view_carousel_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_settings_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_local_shipping_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_local_shipping_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_local_shipping_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_local_shipping_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_local_shipping_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-hdpi\ic_check_circle_blue_grey_600_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_blue_dark_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-mdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_fingerprint_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_fitness_center_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_group_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_monetization_on_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_school_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_store_white_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable-xhdpi\ic_store_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnAlta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btndel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btninfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnRemove2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnRemove21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JSierra.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -28,20 +28,17 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
 
 
-        public List<Usuario> ObtenerListaUsuarios()
+        public List<Usuario> ObtenerUsuariosxBusqueda(string Nombre, string idTrab)
         {
             List<Usuario> ltUsuarios = new List<Usuario>();
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"SELECT [CVUSUARIO]
-                              ,[IDTRAB]
-                              ,[NOMBRE]
-                              ,[PASSW]
-                              ,[STUSUARIO]
-                              ,[USUUMOD]
-                              ,[FHUMOD]
-                              ,[PRGUMOD]
-                          FROM [dbo].[ACCECUSUARIO]";
+            cmd.CommandText = @"sp_BuscarUsuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = Nombre;
+            cmd.Parameters.Add("@IDTRAB", SqlDbType.VarChar).Value = idTrab;
+
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
@@ -122,32 +119,43 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
-        public DataTable ObtenerUsuariosxBusqueda(string Nombre, string idTrab)
+       
+
+        public List<string> ObtenerListaModulosxUsuario(string CVUsuario)
         {
-            
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"SELECT [CVUsuario]
-                                      ,[IdTrab]
-                                      ,[Nombre]
-                                     
-                                  FROM [dbo].[ACCECUSUARIO] 
-                                    WHERE NOMBRE LIKE '%'+ @NOMBRE +'%'
-                                     AND IDTRAB LIKE  '%'+ @IDTRAB +'%'  ";
+
+            Perfil objPerfil = new Perfil();
+            List<int> ltPerfiles = objPerfil.ObtenerPerfilesxUsuario(CVUsuario);
+
+            List<string> ltModulosxUsuario = new List<string>();
 
 
-            cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = Nombre;
-            cmd.Parameters.Add("@IDTRAB", SqlDbType.VarChar).Value = idTrab;
+            foreach (int iCV in ltPerfiles) {
 
-            Conexion objConexion = new Conexion();
-            objConexion.asignarConexion(cmd);
+                Modulo objModulo = new Modulo();
+               // int iCVPerfil = ltPerfiles.ElementAt(iCV);
+                List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCV);
 
-            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+                foreach (string strCV in ltModulos) {
 
-            objConexion.cerrarConexion();
+                    ltModulosxUsuario.Add(strCV);
+                }
 
-            DataTable dtPerfiles = new DataTable();
-            Adapter.Fill(dtPerfiles);
-            return dtPerfiles;
+            }
+            return ltModulosxUsuario;
+
+            //for (int iContador = 0; iContador < ltPerfiles.Count(); iContador++)
+            //{
+            //    Modulo objModulo = new Modulo();
+            //    int iCVPerfil = ltPerfiles.ElementAt(iContador);
+            //    List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCVPerfil);
+
+            //    for (int iCont = 0; iCont < ltModulos.Count(); iContador++)
+            //    {
+            //        string strCVMod = ltModulos.ElementAt(iCont);
+            //        ltModulosxUsuario.Add(strCVMod);
+            //    }
+            //}
 
         }
 
@@ -267,3 +275,4 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         }
     }
 }
+
