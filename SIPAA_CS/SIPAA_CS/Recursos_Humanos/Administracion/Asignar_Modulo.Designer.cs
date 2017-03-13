@@ -348,7 +348,7 @@
             // 
             this.btnBuscarModulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(182)))), ((int)(((byte)(246)))));
             this.btnBuscarModulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarModulo.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarModulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarModulo.ForeColor = System.Drawing.Color.White;
             this.btnBuscarModulo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarModulo.Image")));
             this.btnBuscarModulo.Location = new System.Drawing.Point(517, 54);
@@ -400,7 +400,7 @@
             // 
             this.btnBuscarPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(182)))), ((int)(((byte)(246)))));
             this.btnBuscarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarPerfil.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarPerfil.ForeColor = System.Drawing.Color.White;
             this.btnBuscarPerfil.Image = global::SIPAA_CS.Properties.Resources.ic_search_white_18dp;
             this.btnBuscarPerfil.Location = new System.Drawing.Point(272, 52);

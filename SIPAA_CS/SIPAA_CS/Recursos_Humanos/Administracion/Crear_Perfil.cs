@@ -25,10 +25,7 @@ namespace SIPAA_CS
 
         private void Crear_Perfil_Load(object sender, EventArgs e)
         {
-            Utilerias.DisableBotones(btnGuardar, 1, true);
-            Utilerias.DisableBotones(btnEditar, 2, true);
-            Utilerias.DisableBotones(btnEliminar, 3, true);
-
+           
 
         }
 
@@ -43,9 +40,8 @@ namespace SIPAA_CS
             PanelEditar.Enabled = false;
             txtPerfil.Text = "Sin Selección";
 
-            Utilerias.DisableBotones(btnGuardar, 1, true);
-            Utilerias.DisableBotones(btnEditar, 2, true);
-            Utilerias.DisableBotones(btnEliminar, 3, true);
+         
+       
 
             Perfil objPerfil = new Perfil();
 
@@ -159,17 +155,17 @@ namespace SIPAA_CS
 
                 if (strEstatus == "False")
                 {
-                    Utilerias.DisableBotones(btnEliminar, 2, false);
+                   
                     btnEliminar.Image = Resources.ic_check_white_24dp;
                 }
                 else if (strEstatus == "True")
                 {
-                    Utilerias.DisableBotones(btnEliminar, 3, false);
+                   
                     btnEliminar.Image = Resources.ic_remove_circle_outline_white_18dp;
                 }
 
                 // DisableBotones(btnGuardar, 1,false);
-                Utilerias.DisableBotones(btnEditar, 2, false);
+              
 
 
             }
@@ -195,7 +191,7 @@ namespace SIPAA_CS
         {
             PanelEditar.Enabled = true;
             iOpcionAdmin = 2;
-            Utilerias.DisableBotones(btnGuardar, 2, false);
+           
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -205,7 +201,7 @@ namespace SIPAA_CS
             txtPerfil.Text = "";
             PanelEditar.Enabled = true;
             label2.Text = "     Nuevo Perfil";
-            Utilerias.DisableBotones(btnGuardar, 1, false);
+            
 
             iOpcionAdmin = 1;
 
