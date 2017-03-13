@@ -7,45 +7,78 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SIPAA_CS
 {
+
+
+    //***********************************************************************************************
+    //Autor: Victor Jesús Iturburu Vergara
+    //Fecha creación:13-03-2017       Última Modificacion: 13-03-2017
+    //Descripción: Pantalla que permite la gestión de Perfiles de usuario
+    //***********************************************************************************************
+
     public partial class Crear_Perfil : Form
     {
         public Point formPosition;
         public Boolean mouseAction;
         int iOpcionAdmin;
         public int IdPerfil;
-        public Crear_Perfil()
+        string strEstatus;
+        public List<string> ltPermisos = new List<string>();
+
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      C O M B O S
+        //-----------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------
+        //                                      G R I D // S
+        //-----------------------------------------------------------------------------------------------
+
+        private void LlenarGridPerfiles(DataTable dtPerfiles, bool Seleccion)
         {
-            InitializeComponent();
+
+            dgvPerfiles.DataSource = dtPerfiles;
+            dgvPerfiles.Columns["CVPERFIL"].Visible = false;
+            dgvPerfiles.Columns["USUUMOD"].Visible = false;
+            dgvPerfiles.Columns["FHUMOD"].Visible = false;
+            dgvPerfiles.Columns["PRGUMOD"].Visible = false;
+            dgvPerfiles.Columns["STATUS"].Visible = false;
+            dgvPerfiles.Visible = true;
+
+            if (Seleccion != true)
+            {
+                DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
+                imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
+                imgCheckPerfiles.Name = "SELECCIONAR";
+                //imgCheckPerfiles.HeaderText = "";
+                dgvPerfiles.Columns.Insert(0, imgCheckPerfiles);
+                ImageList imglt = new ImageList();
+            }
+            dgvPerfiles.ClearSelection();
+
+
         }
-
-        private void Crear_Perfil_Load(object sender, EventArgs e)
-        {
-            //Utilerias.DisableBotones(btnGuardar, 1, true);
-            //Utilerias.DisableBotones(btnEditar, 2, true);
-            //Utilerias.DisableBotones(btnEliminar, 3, true);
-
-
-        }
+        //-----------------------------------------------------------------------------------------------
+        //                                     B O T O N E S
+        //-----------------------------------------------------------------------------------------------
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            label2.Text = "       Perfil Seleccionado";
+            ckbEliminar.Checked = false;
+            ckbEliminar.Visible = false;
+            lblAccion.Text = "       Perfil Seleccionado";
             if (dgvPerfiles.Columns.Count > 3)
             {
                 dgvPerfiles.Columns.Remove(columnName: "SELECCIONAR");
             }
             panelTag.Visible = false;
-            PanelEditar.Enabled = false;
+            PanelEditar.Visible = false;
             txtPerfil.Text = "Sin Selección";
-
-            //Utilerias.DisableBotones(btnGuardar, 1, true);
-            //Utilerias.DisableBotones(btnEditar, 2, true);
-            //Utilerias.DisableBotones(btnEliminar, 3, true);
 
             Perfil objPerfil = new Perfil();
 
@@ -53,7 +86,7 @@ namespace SIPAA_CS
 
             if (txtBuscarPerfil.Text != String.Empty)
             {
-                strPerfil = txtBuscarPerfil.Text;
+                strPerfil = txtBuscarPerfil.Text.Trim();
             }
 
             string strEstatus = "%";
@@ -75,44 +108,11 @@ namespace SIPAA_CS
             }
 
             DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%", strPerfil, strEstatus);
-            dgvPerfiles.DataSource = dtPerfiles;
-            dgvPerfiles.Columns["CVPERFIL"].Visible = false;
-            dgvPerfiles.Columns["USUUMOD"].Visible = false;
-            dgvPerfiles.Columns["FHUMOD"].Visible = false;
-            dgvPerfiles.Columns["PRGUMOD"].Visible = false;
-            dgvPerfiles.Columns["STATUS"].Visible = false;
-            dgvPerfiles.Visible = true;
-
-            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
-            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckPerfiles.Name = "SELECCIONAR";
-            dgvPerfiles.Columns.Insert(2, imgCheckPerfiles);
-            ImageList imglt = new ImageList();
-
-            dgvPerfiles.ClearSelection();
+            LlenarGridPerfiles(dtPerfiles, false);
 
         }
 
-        private void barraSuperior_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseAction = false;
-        }
 
-        private void barraSuperior_MouseDown(object sender, MouseEventArgs e)
-        {
-
-            formPosition = new Point(Cursor.Position.X - Location.X, Cursor.Position.Y - Location.Y);
-            mouseAction = true;
-        }
-
-        private void barraSuperior_MouseMove(object sender, MouseEventArgs e)
-        {
-
-            if (mouseAction == true)
-            {
-                Location = new Point(Cursor.Position.X - formPosition.X, Cursor.Position.Y - formPosition.Y);
-            }
-        }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -137,12 +137,135 @@ namespace SIPAA_CS
             WindowState = FormWindowState.Minimized;
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            ckbEliminar.Visible = false;
+            ckbEliminar.Checked = false;
+            panelTag.Visible = false;
+            txtPerfil.Text = "";
+            PanelEditar.Visible = true;
+            lblAccion.Text = "     Nuevo Perfil";
+
+            iOpcionAdmin = 1;
+            //btnEditar.Visible = false;
+            btnGuardar.Image = Resources.btnAdd;
+            //Utilerias.CambioBoton(btnGuardar,btnEliminar ,btnEditar, btnGuardar);
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+            lblAccion.Text = "       Perfil Seleccionado";
+
+            Perfil objPerfil = new Perfil();
+            objPerfil.CVPerfil = IdPerfil;
+            objPerfil.Descripcion = txtPerfil.Text.Trim();
+            objPerfil.PrguMod = "Recursos Humanos";
+            objPerfil.UsuuMod = "vjiturburuv";
+            string strMensaje = "";
+
+            if (iOpcionAdmin == 1)
+            {
+                strMensaje = "Perfil Guardado Correctamente";
+            }
+            else if (iOpcionAdmin == 2)
+            {
+                strMensaje = "Perfil Actualizado Correctamente";
+            }
+            else if (iOpcionAdmin == 3)
+            {
+                strMensaje = "Cambio de Estatus hecho Correctamente";
+            }
+
+            int iResponse = GestionarPefilesxOpcion(txtPerfil, objPerfil, strMensaje, iOpcionAdmin, sender, e);
+           
+
+            ckbEliminar.Checked = false;
+            if (iResponse != 0)
+            {
+
+                btnBuscar_Click(sender, e);
+
+            }
+
+        }
+
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                           C A J A S      D E      T E X T O   
+        //-----------------------------------------------------------------------------------------------
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                     E V E N T O S
+        //-----------------------------------------------------------------------------------------------
+
+        public Crear_Perfil()
+        {
+            InitializeComponent();
+        }
+
+        private void Crear_Perfil_Load(object sender, EventArgs e)
+        {
+
+            //Validar permisos x Pantalla
+            Modulo objModulo = new Modulo();
+            DataTable dtPermisos = objModulo.ObtenerPermisosxUsuario("140414");
+            DataRow[] row = dtPermisos.Select("CVModulo = 'frmCrear_Perfil'");
+            Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
+            Utilerias.ApagarControlxPermiso(btnAgregar, "Crear", ltPermisos);
+
+
+            lblAccion.Text = "       Perfil Seleccionado";
+            txtPerfil.Text = "Sin Selección";
+
+
+            Perfil objPerfil = new Perfil();
+
+            string strPerfil = "%";
+
+            if (txtBuscarPerfil.Text != String.Empty)
+            {
+                strPerfil = txtBuscarPerfil.Text.Trim();
+            }
+
+            string strEstatus = "%";
+
+            if (cbEstatus.SelectedIndex > 0)
+            {
+                if (cbEstatus.SelectedIndex == 1)
+                {
+                    strEstatus = "1";
+                }
+                else if (cbEstatus.SelectedIndex == 2)
+                {
+                    strEstatus = "0";
+                }
+            }
+            else
+            {
+                strEstatus = "%";
+            }
+
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%", strPerfil, strEstatus);
+            LlenarGridPerfiles(dtPerfiles, false);
+
+        }
+
+
+       
         private void dgvPerfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+
+
+            ckbEliminar.Visible = true;
+
+            Utilerias.ApagarControlxPermiso(ckbEliminar, "Eliminar", ltPermisos);
             for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
             {
-                dgvPerfiles.Rows[iContador].Cells[2].Value = Resources.ic_lens_blue_grey_600_18dp;
+                dgvPerfiles.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
 
 
@@ -153,148 +276,141 @@ namespace SIPAA_CS
 
                 IdPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
                 string ValorRow = row.Cells["DESCRIPCION"].Value.ToString();
-                string strEstatus = row.Cells["STATUS"].Value.ToString();
+                strEstatus = row.Cells["STATUS"].Value.ToString();
                 txtPerfil.Text = ValorRow;
-                row.Cells[2].Value = Resources.ic_check_circle_green_400_18dp;
+                PanelEditar.Visible = true;
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                btnGuardar.Image = Resources.btnEdit;
+                //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
 
+                iOpcionAdmin = 2;
+
+                Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
+                if (btnGuardar.Visible == false) {
+                    PanelEditar.Enabled = false;
+                }
                 if (strEstatus == "False")
                 {
-                    //Utilerias.DisableBotones(btnEliminar, 2, false);
-                    //btnEliminar.Image = Resources.ic_check_white_24dp;
-                    btnEliminar.Image = Resources.ic_check_white_24dp;
+                    ckbEliminar.Text = "Alta";
+
                 }
                 else if (strEstatus == "True")
                 {
-                    //Utilerias.DisableBotones(btnEliminar, 3, false);
-                    btnEliminar.Image = Resources.ic_remove_circle_outline_white_18dp;
-                }
-
-                // DisableBotones(btnGuardar, 1,false);
-               // Utilerias.DisableBotones(btnEditar, 2, false);
-
-
-            }
-        }
-
-
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-            Perfil objPerfil = new Perfil();
-            objPerfil.CVPerfil = IdPerfil;
-            objPerfil.Descripcion = txtPerfil.Text;
-            objPerfil.PrguMod = "Recursos Humanos";
-            objPerfil.UsuuMod = "vjiturburuv";
-            GestionarPefilesxOpcion(txtPerfil, objPerfil, "Cambio de Estatus Correcto", 3, sender, e);
-            dgvPerfiles.Visible = false;
-            txtPerfil.Text = "Sin Selección";
-            PanelEditar.Enabled = false;
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            PanelEditar.Enabled = true;
-            iOpcionAdmin = 2;
-           // Utilerias.DisableBotones(btnGuardar, 2, false);
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            panelTag.Visible = false;
-            dgvPerfiles.Visible = false;
-            txtPerfil.Text = "";
-            PanelEditar.Enabled = true;
-            label2.Text = "     Nuevo Perfil";
-           // Utilerias.DisableBotones(btnGuardar, 1, false);
-
-            iOpcionAdmin = 1;
-
-        }
-
-        private int GestionarPefilesxOpcion(TextBox txt, Perfil objPerfil,
-                       string strMensaje, int iOpcion, object sender, EventArgs e)
-        {
-
-            if (txt.Text != String.Empty || txt.Text != "Sin Selección")
-            {
-
-                try
-                {
-                    int iResponse = objPerfil.GestionarPerfiles(objPerfil, iOpcion);
-                    if (iResponse != 0)
-                    {
-                        panelTag.Visible = true;
-                        panelTag.BackColor = ColorTranslator.FromHtml("#2e7d32");
-                        lbMensaje.Text = strMensaje;
-                        //  Thread.Sleep(3000);
-                        return iResponse;
-                    }
-                    else if (iResponse == 0)
-                    {
-                        panelTag.Visible = true;
-                        panelTag.BackColor = ColorTranslator.FromHtml("#f44336");
-                        lbMensaje.Text = "El Perfil Ingresado ya se encuentra registrado.";
-                        return iResponse;
-                    }
+                    ckbEliminar.Text = "Baja";
 
                 }
-                catch (Exception ex)
-                {
 
-                    panelTag.Visible = true;
-                    panelTag.BackColor = ColorTranslator.FromHtml("#f44336");
-                    lbMensaje.Text = "Error de Comunicación con el servidor. Favor de Intentarlo más tarde";
-                    return 0;
-                }
             }
-            else
-            {
-
-                panelTag.Visible = true;
-                panelTag.BackColor = ColorTranslator.FromHtml("#0277bd");
-                lbMensaje.Text = "El Campo Editar no puede ir Vacio";
-                return 0;
-            }
-            return 0;
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
-
-            label2.Text = "       Perfil Seleccionado";
-            PanelEditar.Enabled = false;
-            Perfil objPerfil = new Perfil();
-            objPerfil.CVPerfil = IdPerfil;
-            objPerfil.Descripcion = txtPerfil.Text.Trim();
-            objPerfil.PrguMod = "Recursos Humanos";
-            objPerfil.UsuuMod = "vjiturburuv";
-            string strMensaje;
-
-            if (iOpcionAdmin == 1)
-            {
-                strMensaje = "Perfil Guardado Correctamente";
-            }
-            else
-            {
-                strMensaje = "Perfil Actualizado Correctamente";
-            }
-
-            int iResponse = GestionarPefilesxOpcion(txtPerfil, objPerfil, strMensaje, iOpcionAdmin, sender, e);
-
-            if (iResponse != 0)
-            {
-
-                btnBuscar_Click(sender, e);
-
-                    }
-            
-                }
+     
 
         private void PanelEditar_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (ckbEliminar.Checked == true)
+            {
+
+                if (strEstatus == "False")
+                {
+
+                    btnGuardar.Image = Resources.btnAlta;
+                }
+                else if (strEstatus == "True")
+                {
+
+                    btnGuardar.Image = Resources.btnRemove2;
+                }
+
+                iOpcionAdmin = 3;
+                //Utilerias.CambioBoton(btnGuardar, btnEditar, btnGuardar, btnEliminar);
+            }
+            else
+            {
+                iOpcionAdmin = 2;
+                btnGuardar.Image = Resources.btnEdit;
+                //Utilerias.CambioBoton(btnGuardar, btnEliminar, btnGuardar, btnEditar);
+
+            }
+
+
+        }
+
+        private void PanelPlantilla_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+
+      
+
+        private int GestionarPefilesxOpcion(TextBox txt, Perfil objPerfil,
+                     string strMensaje, int iOpcion, object sender, EventArgs e)
+        {
+            if (txt.Text != String.Empty || txt.Text != "Sin Selección")
+            {
+                try
+                {
+                    int iResponse = objPerfil.GestionarPerfiles(objPerfil, iOpcion);
+                    if (iResponse != 0)
+                    {
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, strMensaje);
+                        return iResponse;
+                    }
+                    else if (iResponse == 0)
+                    {
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El Perfil Ingresado ya se encuentra registrado.");
+                        return iResponse;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde");
+                    return 0;
+                }
+            }
+            else
+            {
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "El Campo Editar no puede ir Vacio");
+                return 0;
+            }
+            return 0;
+        }
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      R E P O R T E
+        //-----------------------------------------------------------------------------------------------
+
     }
 }
+
+
+
+//private void barraSuperior_MouseUp(object sender, MouseEventArgs e)
+//{
+//    mouseAction = false;
+//}
+
+//private void barraSuperior_MouseDown(object sender, MouseEventArgs e)
+//{
+
+//    formPosition = new Point(Cursor.Position.X - Location.X, Cursor.Position.Y - Location.Y);
+//    mouseAction = true;
+//}
+
+//private void barraSuperior_MouseMove(object sender, MouseEventArgs e)
+//{
+
+//    if (mouseAction == true)
+//    {
+//        Location = new Point(Cursor.Position.X - formPosition.X, Cursor.Position.Y - formPosition.Y);
+//    }
+//}

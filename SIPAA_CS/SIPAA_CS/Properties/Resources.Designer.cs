@@ -143,9 +143,9 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ic_account_circle_white_18dp1 {
+        internal static System.Drawing.Bitmap ic_account_circle_white_18dp {
             get {
-                object obj = ResourceManager.GetObject("ic_account_circle_white_18dp1", resourceCulture);
+                object obj = ResourceManager.GetObject("ic_account_circle_white_18dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,9 +353,9 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ic_keyboard_arrow_right_light_blue_A700_24dp1 {
+        internal static System.Drawing.Bitmap ic_keyboard_arrow_right_light_blue_A700_24dp {
             get {
-                object obj = ResourceManager.GetObject("ic_keyboard_arrow_right_light_blue_A700_24dp1", resourceCulture);
+                object obj = ResourceManager.GetObject("ic_keyboard_arrow_right_light_blue_A700_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -496,16 +496,6 @@ namespace SIPAA_CS.Properties {
         internal static System.Drawing.Bitmap ic_settings_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_settings_white_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ic_settings_white_18dp1 {
-            get {
-                object obj = ResourceManager.GetObject("ic_settings_white_18dp1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

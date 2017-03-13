@@ -1,6 +1,7 @@
 using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
@@ -54,6 +55,58 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 btn.ForeColor = ColorTranslator.FromHtml("#eeeeee");
             }
 
+        }
+
+
+        public static void CambioBoton(Button btnCentral,Button btnApagado1 ,Button btnApagado2, Button btnEncendido)
+        {
+            btnEncendido.Location = btnCentral.Location;
+             btnCentral.Visible = false;
+            btnApagado2.Visible = false;
+            btnEncendido.Visible = true;
+           
+
+        }
+
+        public static void ControlNotificaciones(Panel panelTag,Label lbMensaje, int iClase,string strMensaje)
+        {
+
+
+                switch (iClase)
+                {
+
+                    case 1:
+                        //Clase Success - Color Verde
+     
+                        panelTag.Visible = true;
+                        panelTag.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                        lbMensaje.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                        lbMensaje.Text = strMensaje;
+
+                        break;
+                    case 2:
+                        //Clase Info - Color Azul
+                        panelTag.Visible = true;
+                        panelTag.BackColor = ColorTranslator.FromHtml("#0277bd");
+                    lbMensaje.BackColor = ColorTranslator.FromHtml("#0277bd");
+                    lbMensaje.Text = strMensaje;
+                        break;
+                    case 3:
+                        //Clase Danger - Color Rojo    
+                        panelTag.Visible = true;
+                        panelTag.BackColor = ColorTranslator.FromHtml("#f44336");
+                    lbMensaje.BackColor = ColorTranslator.FromHtml("#f44336");
+                    lbMensaje.Text = strMensaje;
+                        break;
+                    default:
+
+                        break;
+                }
+            }
+           
+        
+
+      
         }
 
         public string cifradoMd5(string pass)
@@ -151,6 +204,29 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
+        public static void CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos) { 
+            foreach (DataRow rows in row)
+            {
+
+                if (Convert.ToInt32(rows["Crear"]) == 1)
+                {
+                    ltPermisos.Add("Crear");
+                }
+
+                if (Convert.ToInt32(rows["Eliminar"]) == 1)
+                {
+                    ltPermisos.Add("Eliminar");
+                }
+
+                if (Convert.ToInt32(rows["Actualizar"]) == 1)
+                {
+                    ltPermisos.Add("Actualizar");
+                }
+
+            }
+
+        }
+
         public void ChangeButton(Button btn, int iClase, Boolean Apagar)
         {
 
@@ -186,6 +262,68 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             
         }
     }
+                if (Convert.ToInt32(rows["Imprimir"]) == 1)
+                {
+                    ltPermisos.Add("Imprimir");
+                }
 
+                if (Convert.ToInt32(rows["Lectura"]) == 1)
+                {
+                    ltPermisos.Add("Lectura");
+                }
+            }
+        }
+
+        public static void ApagarControlxPermiso(Control ctrl, string Permiso, List<string> ltPermisos)
+        {
+
+            switch (Permiso)
+            {
+                case "Crear":
+                    if (!ltPermisos.Contains(Permiso))
+                    {
+                        ctrl.Visible = false;
+                    }
+
+                    break;
+                case "Actualizar":
+                    if (!ltPermisos.Contains(Permiso))
+                    {
+                        ctrl.Visible = false;
+                    }
+
+                    break;
+
+                case "Lectura":
+                    if (!ltPermisos.Contains(Permiso))
+                    {
+                        ctrl.Visible = false;
+                    }
+
+                    break;
+
+                case "Eliminar":
+                    if (!ltPermisos.Contains(Permiso))
+                    {
+                       ctrl.Visible = false;
+                    }
+
+                    break;
+
+                case "Imprimir":
+                    if (!ltPermisos.Contains(Permiso))
+                    {
+                        ctrl.Visible = false;
+                    }
+
+                    break;
+            }
+        }
+
+    
+
+
+
+    }
 
 }

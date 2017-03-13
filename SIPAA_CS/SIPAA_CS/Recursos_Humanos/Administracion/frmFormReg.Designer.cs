@@ -30,19 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFormReg));
-            System.Windows.Forms.Label label2;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.panelTag = new System.Windows.Forms.Panel();
-            this.lbMensaje = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtFormReg = new System.Windows.Forms.TextBox();
             this.dgvForReg = new System.Windows.Forms.DataGridView();
@@ -51,22 +45,30 @@
             this.ckbEliminar = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtCapFR = new System.Windows.Forms.TextBox();
+            this.lblModifElim = new System.Windows.Forms.Label();
             this.lblAct = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.lblModifElim = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.panelTag = new System.Windows.Forms.Panel();
+            this.lbMensaje = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
-            this.panelTag.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
             this.pnlBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvForReg)).BeginInit();
             this.pnlAct.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelTag.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -81,19 +83,6 @@
             label4.TabIndex = 44;
             label4.Text = "Descripción";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.Color.Gray;
-            label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(5, 6);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(190, 17);
-            label1.TabIndex = 41;
-            label1.Text = "     Buscar forma de registro";
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -106,76 +95,9 @@
             label2.TabIndex = 44;
             label2.Text = "Descripción";
             // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_remove_white_18dp;
-            this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(965, 7);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
-            this.btnMinimizar.TabIndex = 101;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.UseVisualStyleBackColor = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_clear_white_18dp;
-            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(989, 7);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(24, 24);
-            this.btnCerrar.TabIndex = 100;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // panelTag
-            // 
-            this.panelTag.Controls.Add(this.lbMensaje);
-            this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(0, 37);
-            this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(456, 25);
-            this.panelTag.TabIndex = 25;
-            this.panelTag.Visible = false;
-            // 
-            // lbMensaje
-            // 
-            this.lbMensaje.AutoSize = true;
-            this.lbMensaje.BackColor = System.Drawing.Color.Transparent;
-            this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMensaje.ForeColor = System.Drawing.Color.White;
-            this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbMensaje.Location = new System.Drawing.Point(12, 3);
-            this.lbMensaje.Name = "lbMensaje";
-            this.lbMensaje.Size = new System.Drawing.Size(209, 20);
-            this.lbMensaje.TabIndex = 26;
-            this.lbMensaje.Text = "       Administración de Perfiles    ";
-            this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(3, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(187, 23);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "       Formas de Registro   ";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlBusqueda.Controls.Add(label4);
             this.pnlBusqueda.Controls.Add(this.btnBuscar);
             this.pnlBusqueda.Controls.Add(this.panel5);
@@ -186,19 +108,6 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(437, 87);
             this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
-            this.btnBuscar.Location = new System.Drawing.Point(363, 26);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(50, 50);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // panel5
             // 
@@ -213,7 +122,7 @@
             this.txtFormReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtFormReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFormReg.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFormReg.Location = new System.Drawing.Point(32, 43);
+            this.txtFormReg.Location = new System.Drawing.Point(34, 46);
             this.txtFormReg.Name = "txtFormReg";
             this.txtFormReg.Size = new System.Drawing.Size(250, 15);
             this.txtFormReg.TabIndex = 1;
@@ -223,29 +132,29 @@
             this.dgvForReg.AllowUserToAddRows = false;
             this.dgvForReg.AllowUserToDeleteRows = false;
             this.dgvForReg.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvForReg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvForReg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvForReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvForReg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvForReg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvForReg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvForReg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvForReg.Location = new System.Drawing.Point(578, 201);
             this.dgvForReg.Name = "dgvForReg";
             this.dgvForReg.ReadOnly = true;
@@ -302,10 +211,23 @@
             this.txtCapFR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtCapFR.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCapFR.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCapFR.Location = new System.Drawing.Point(33, 45);
+            this.txtCapFR.Location = new System.Drawing.Point(34, 49);
             this.txtCapFR.Name = "txtCapFR";
             this.txtCapFR.Size = new System.Drawing.Size(250, 15);
             this.txtCapFR.TabIndex = 4;
+            // 
+            // lblModifElim
+            // 
+            this.lblModifElim.AutoSize = true;
+            this.lblModifElim.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModifElim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.lblModifElim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblModifElim.Location = new System.Drawing.Point(581, 552);
+            this.lblModifElim.Name = "lblModifElim";
+            this.lblModifElim.Size = new System.Drawing.Size(12, 16);
+            this.lblModifElim.TabIndex = 53;
+            this.lblModifElim.Text = ".";
+            this.lblModifElim.Visible = false;
             // 
             // lblAct
             // 
@@ -314,11 +236,25 @@
             this.lblAct.ForeColor = System.Drawing.Color.Gray;
             this.lblAct.Image = ((System.Drawing.Image)(resources.GetObject("lblAct.Image")));
             this.lblAct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblAct.Location = new System.Drawing.Point(5, 6);
+            this.lblAct.Location = new System.Drawing.Point(4, 4);
             this.lblAct.Name = "lblAct";
             this.lblAct.Size = new System.Drawing.Size(193, 17);
             this.lblAct.TabIndex = 41;
             this.lblAct.Text = "     Agregar forma de registro";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.btnRemove2;
+            this.btnEliminar.Location = new System.Drawing.Point(360, 30);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(50, 50);
+            this.btnEliminar.TabIndex = 54;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Visible = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnGuardar
             // 
@@ -347,6 +283,85 @@
             this.btnEditar.Visible = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscar.Location = new System.Drawing.Point(362, 11);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(50, 50);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.ForeColor = System.Drawing.Color.Gray;
+            label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.Location = new System.Drawing.Point(4, 4);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(190, 17);
+            label1.TabIndex = 41;
+            label1.Text = "     Buscar forma de registro";
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::SIPAA_CS.Properties.Resources.JSierra;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.btnRegresar);
+            this.panel1.Controls.Add(this.btnAgregar);
+            this.panel1.Controls.Add(this.btnMinimizar);
+            this.panel1.Controls.Add(this.btnCerrar);
+            this.panel1.Controls.Add(this.panelTag);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(-1, -6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1029, 775);
+            this.panel1.TabIndex = 102;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel2.Location = new System.Drawing.Point(35, 31);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(41, 45);
+            this.panel2.TabIndex = 105;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(3, 76);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(200, 23);
+            this.label5.TabIndex = 104;
+            this.label5.Text = "       Noe Alvarez Marquina  ";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
+            this.btnRegresar.Location = new System.Drawing.Point(897, 7);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
+            this.btnRegresar.TabIndex = 103;
+            this.btnRegresar.UseVisualStyleBackColor = false;
+            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -361,58 +376,73 @@
             this.btnAgregar.Visible = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // lblModifElim
+            // btnMinimizar
             // 
-            this.lblModifElim.AutoSize = true;
-            this.lblModifElim.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModifElim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblModifElim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblModifElim.Location = new System.Drawing.Point(581, 552);
-            this.lblModifElim.Name = "lblModifElim";
-            this.lblModifElim.Size = new System.Drawing.Size(12, 16);
-            this.lblModifElim.TabIndex = 53;
-            this.lblModifElim.Text = ".";
-            this.lblModifElim.Visible = false;
+            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnMinimizar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_remove_white_18dp;
+            this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnMinimizar.Location = new System.Drawing.Point(974, 7);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
+            this.btnMinimizar.TabIndex = 101;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
-            // panel1
+            // btnCerrar
             // 
-            this.panel1.BackgroundImage = global::SIPAA_CS.Properties.Resources.JSierra;
-            this.panel1.Controls.Add(this.btnRegresar);
-            this.panel1.Controls.Add(this.btnAgregar);
-            this.panel1.Controls.Add(this.btnMinimizar);
-            this.panel1.Controls.Add(this.btnCerrar);
-            this.panel1.Controls.Add(this.panelTag);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(-1, -6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1029, 775);
-            this.panel1.TabIndex = 102;
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnCerrar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_clear_white_18dp;
+            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnCerrar.Location = new System.Drawing.Point(1000, 7);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(24, 24);
+            this.btnCerrar.TabIndex = 100;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnRegresar
+            // panelTag
             // 
-            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(915, 6);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
-            this.btnRegresar.TabIndex = 103;
-            this.btnRegresar.UseVisualStyleBackColor = false;
+            this.panelTag.Controls.Add(this.lbMensaje);
+            this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTag.Location = new System.Drawing.Point(1, 590);
+            this.panelTag.Name = "panelTag";
+            this.panelTag.Size = new System.Drawing.Size(456, 25);
+            this.panelTag.TabIndex = 25;
+            this.panelTag.Visible = false;
             // 
-            // btnEliminar
+            // lbMensaje
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.btnRemove2;
-            this.btnEliminar.Location = new System.Drawing.Point(360, 30);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(50, 50);
-            this.btnEliminar.TabIndex = 54;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Visible = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.lbMensaje.AutoSize = true;
+            this.lbMensaje.BackColor = System.Drawing.Color.Transparent;
+            this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMensaje.ForeColor = System.Drawing.Color.White;
+            this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbMensaje.Location = new System.Drawing.Point(12, 3);
+            this.lbMensaje.Name = "lbMensaje";
+            this.lbMensaje.Size = new System.Drawing.Size(209, 20);
+            this.lbMensaje.TabIndex = 26;
+            this.lbMensaje.Text = "       Administración de Perfiles    ";
+            this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(401, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(187, 23);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "       Formas de Registro   ";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmFormReg
             // 
@@ -430,8 +460,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "V";
             this.Load += new System.EventHandler(this.frmFormReg_Load);
-            this.panelTag.ResumeLayout(false);
-            this.panelTag.PerformLayout();
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvForReg)).EndInit();
@@ -439,6 +467,8 @@
             this.pnlAct.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelTag.ResumeLayout(false);
+            this.panelTag.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,6 +490,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtCapFR;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.CheckBox ckbEliminar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAgregar;
@@ -467,6 +498,7 @@
         private System.Windows.Forms.Label lblModifElim;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel2;
     }
 }
