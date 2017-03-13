@@ -26,7 +26,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         #endregion
 
         FormReg FormasRegistro = new FormReg();
-        c_Permisos Permisos = new c_Permisos();
+  
 
         public frmFormReg()
         {
@@ -101,7 +101,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             else
             {
 
-                sGuardaMod(1,0,txtCapFR.Text.Trim(),Permisos.vUsuario, "frmFormReg");
+                sGuardaMod(1,0,txtCapFR.Text.Trim(),"noe", "frmFormReg");
                 txtCapFR.Text = "";
                 SLlenaGrid(1, txtFormReg.Text.Trim());
                 DialogResult result = MessageBox.Show("Dato Guardado con Exito!!!!!", "SIPAA", MessageBoxButtons.OK);
@@ -135,7 +135,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 else
                 {
 
-                    sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), Permisos.vUsuario, "frmFormReg");
+                    sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), "noe", "frmFormReg");
                     txtCapFR.Text = "";
                     SLlenaGrid(1, txtFormReg.Text.Trim());
                     iCvFR = 0;
@@ -158,7 +158,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
             if (result == DialogResult.Yes)
             {
-                sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), Permisos.vUsuario, "frmFormReg");
+                sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(),"noe", "frmFormReg");
                 txtCapFR.Text = "";
                 SLlenaGrid(1, txtFormReg.Text.Trim());
                 iCvFR = 0;
@@ -212,8 +212,6 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             //LLAMA METODO LLENAR GRID
             SLlenaGrid(1, "");
             
-
-            Permisos.vUsuario = "nam";
             iAgr = 1;
             iAct = 1;
             iEli = 1;

@@ -12,6 +12,7 @@ namespace SIPAA_CS.Conexiones
     public class Conexion
     {
         SqlConnection cn;
+        SqlConnection cns;
         SqlCommand cmd;
         SqlDataReader dr;
         SqlDataAdapter da;
@@ -29,6 +30,35 @@ namespace SIPAA_CS.Conexiones
             {
                 MessageBox.Show("No se concto con la BD: " + ex.ToString());
             }
+        }
+
+        public SqlConnection conexionSonarh()
+        {
+            try
+            {
+                cns = new SqlConnection("Data Source=192.168.9.5;Initial Catalog=SonarhNet;User ID=webdesarrollo;Password=webdesarrollo");
+                cns.Open();
+                // MessageBox.Show("Conectado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se concto con la BD: " + ex.ToString());
+            }
+            return cns;
+        }
+
+        //Asigna conexion sonarh
+        public void asignarConexions(SqlCommand cmd)
+        {
+
+            cmd.Connection = cns;
+        }
+
+        //Cierra Conexion
+        public void cerrarConexions()
+        {
+
+            cns.Close();
         }
 
         //Asigna conexion

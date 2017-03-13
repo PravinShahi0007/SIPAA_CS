@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SIPAA_CS.Conexiones;
-
-
 using System.Data;
 using System.Data.SqlClient;
 
@@ -15,7 +13,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
     class FormReg
     {
 
-        //SE DECLARAN VARIABLE
+        //SE DECLARAN VARIABLES
         public int vOpcion;
         public string sResp;
 
