@@ -103,6 +103,12 @@
     <Compile Include="Recursos_Humanos\Administracion\Crear_Modulo.Designer.cs">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Departamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Departamentos.Designer.cs">
+      <DependentUpon>Departamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,7 @@
       <DependentUpon>frmCompanias.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\App_Code\CompaniasSonarh.cs" />
+    <Compile Include="Recursos_Humanos\App_Code\DepartamentosSonarh.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Modulo.cs" />
     <Compile Include="Recursos_Humanos\Administracion\frmFormReg.cs">
       <SubType>Form</SubType>
@@ -163,6 +170,9 @@
     </Compile>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Modulo.resx">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Departamentos.resx">
+      <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\frmCompanias.resx">
       <DependentUpon>frmCompanias.cs</DependentUpon>
