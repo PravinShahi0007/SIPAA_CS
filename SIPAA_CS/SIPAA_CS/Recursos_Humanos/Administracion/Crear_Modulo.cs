@@ -29,105 +29,20 @@ namespace SIPAA_CS.Recursos_Humanos
             InitializeComponent();
         }
 
-        private void Crear_Modulo_Load(object sender, EventArgs e)
-        {
-            //btnAgregar.Enabled = false;
-            txtCvModulo.Enabled = false;
-            txtDescripcion.Enabled = false;
-            txtCvModPad.Enabled = false;
-            txtOrden.Enabled = false;
-            txtPrgUmod.Enabled = false;
-
-            cbAmbiente.Enabled = false;
-            cbModulo.Enabled = false;
-
-            //btnGuardar.Hide();
-
-            btnGuardar.Enabled = false;
-            btnGuardar.BackColor = Color.FromArgb(97, 97, 97);
-
-            btnEliminar.Enabled = false;
-            btnEliminar.BackColor = Color.FromArgb(97,97,97);
-            btnEliminar.ForeColor = Color.FromArgb(97, 97, 97);
-
-            btnEditar.Enabled = false;
-            btnEditar.BackColor = Color.FromArgb(97, 97, 97);
-            btnEditar.ForeColor = Color.FromArgb(97, 97, 97);
 
 
-        }
+        //***********************************************************************************************
+        //Autor: Gamaliel Lobato Solis
+        //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
+        //Descripción: Formulario de crear Modulo
+        //***********************************************************************************************
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseAction = false;
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            formPosition = new Point(Cursor.Position.X - Location.X, Cursor.Position.Y - Location.Y);
-            mouseAction = true;
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseAction == true)
-            {
-                Location = new Point(Cursor.Position.X - formPosition.X, Cursor.Position.Y - formPosition.Y);
-            }
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-            variable = 1;
-
-
-            txtCvModulo.Text = "";
-            txtDescripcion.Text = "";
-            txtCvModPad.Text = "";
-            txtOrden.Text = "";
-            cbAmbiente.Text = "SELECCIONA UNA AMBIENTE";
-            cbModulo.Text = "SELECCIONA UN MÓDULO";
-            txtPrgUmod.Text = "";
-
-
-            //Activa campos 
-            txtCvModulo.Enabled = true;
-            txtDescripcion.Enabled = true;
-            txtCvModPad.Enabled = true;
-            txtOrden.Enabled = true;
-            txtPrgUmod.Enabled = true;
-
-            //Activa combobox
-            cbAmbiente.Enabled = true;
-            cbModulo.Enabled = true;
-
-            //Habilita boton guardar
-            btnGuardar.Enabled = true;
-            btnGuardar.BackColor = Color.FromArgb(46, 125, 50);
-
-
-            txtCvModulo.Focus();
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            string cvmodulo;
-
-            cvmodulo = txtBuscar.Text;
-
-            dgvModulo.Visible = true;
-
-            dgvModulo.DataSource = c.buscarModulo(cvmodulo);
-
-            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
-            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckPerfiles.Name = "SELECCIONAR";
-            dgvModulo.Columns.Insert(0, imgCheckPerfiles);
-            ImageList imglt = new ImageList();
-            dgvModulo.Columns[1].Visible = false;
-        }
-
+        //-----------------------------------------------------------------------------------------------
+        //                                      C O M B O S
+        //-----------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------
+        //                                      G R I D // S
+        //-----------------------------------------------------------------------------------------------
         private void dgvModulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string cvmodulo, descripcion, cvmodpad, ambiente, modulo, usuumod, prgumod;
@@ -194,17 +109,64 @@ namespace SIPAA_CS.Recursos_Humanos
                 btnGuardar.Enabled = false;
                 btnGuardar.BackColor = Color.FromArgb(97, 97, 97);
                 btnGuardar.ForeColor = Color.FromArgb(97, 97, 97);
-
                 
-
-
-
-
-
             }
 
         }
+        //-----------------------------------------------------------------------------------------------
+        //                                     B O T O N E S
+        //-----------------------------------------------------------------------------------------------
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
 
+            variable = 1;
+
+
+            txtCvModulo.Text = "";
+            txtDescripcion.Text = "";
+            txtCvModPad.Text = "";
+            txtOrden.Text = "";
+            cbAmbiente.Text = "SELECCIONA UNA AMBIENTE";
+            cbModulo.Text = "SELECCIONA UN MÓDULO";
+            txtPrgUmod.Text = "";
+
+
+            //Activa campos 
+            txtCvModulo.Enabled = true;
+            txtDescripcion.Enabled = true;
+            txtCvModPad.Enabled = true;
+            txtOrden.Enabled = true;
+            txtPrgUmod.Enabled = true;
+
+            //Activa combobox
+            cbAmbiente.Enabled = true;
+            cbModulo.Enabled = true;
+
+            //Habilita boton guardar
+            btnGuardar.Enabled = true;
+            btnGuardar.BackColor = Color.FromArgb(46, 125, 50);
+
+
+            txtCvModulo.Focus();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string cvmodulo;
+
+            cvmodulo = txtBuscar.Text;
+
+            dgvModulo.Visible = true;
+
+            dgvModulo.DataSource = c.buscarModulo(cvmodulo);
+
+            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
+            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
+            imgCheckPerfiles.Name = "SELECCIONAR";
+            dgvModulo.Columns.Insert(0, imgCheckPerfiles);
+            ImageList imglt = new ImageList();
+            dgvModulo.Columns[1].Visible = false;
+        }
         private void btnEditar_Click(object sender, EventArgs e)
         {
             variable = 2;
@@ -230,7 +192,7 @@ namespace SIPAA_CS.Recursos_Humanos
             btnGuardar.BackColor = Color.FromArgb(97, 97, 97);
             btnGuardar.ForeColor = Color.FromArgb(97, 97, 97);
 
-           
+
 
             cvmodulo = txtCvModulo.Text;
 
@@ -239,15 +201,13 @@ namespace SIPAA_CS.Recursos_Humanos
             //CrearModulo_Load(sender, e);
         }
 
-
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-           
+
             if (variable == 1)
             {
                 //Se instancia la clase conexion
-                
+
                 string cvmodulo, descripcion, cvmodpad, ambiente, modulo, usuumod, prgumod, fhumod, fecha, hora, fecha_hora;
                 DateTime fhumod1, fh;
                 int orden;
@@ -260,7 +220,7 @@ namespace SIPAA_CS.Recursos_Humanos
                 modulo = cbModulo.Text;
                 prgumod = txtPrgUmod.Text;
                 usuumod = "140014";
-                
+
                 orden = int.Parse(txtOrden.Text);
 
                 //se arma la fecha 
@@ -290,7 +250,7 @@ namespace SIPAA_CS.Recursos_Humanos
                 cbAmbiente.Text = "SELECCIONA UNA AMBIENTE";
                 cbModulo.Text = "SELECCIONA UN MÓDULO";
                 txtPrgUmod.Text = "";
-                
+
 
             }
             if (variable == 2)
@@ -323,7 +283,75 @@ namespace SIPAA_CS.Recursos_Humanos
 
                 dgvModulo.Visible = true;
             }
-            
+
         }
+        //-----------------------------------------------------------------------------------------------
+        //                           C A J A S      D E      T E X T O   
+        //-----------------------------------------------------------------------------------------------
+        
+        //-----------------------------------------------------------------------------------------------
+        //                                     E V E N T O S
+        //-----------------------------------------------------------------------------------------------
+        private void Crear_Modulo_Load(object sender, EventArgs e)
+        {
+            //btnAgregar.Enabled = false;
+            txtCvModulo.Enabled = false;
+            txtDescripcion.Enabled = false;
+            txtCvModPad.Enabled = false;
+            txtOrden.Enabled = false;
+            txtPrgUmod.Enabled = false;
+
+            cbAmbiente.Enabled = false;
+            cbModulo.Enabled = false;
+
+            //btnGuardar.Hide();
+
+            btnGuardar.Enabled = false;
+            btnGuardar.BackColor = Color.FromArgb(97, 97, 97);
+
+            btnEliminar.Enabled = false;
+            btnEliminar.BackColor = Color.FromArgb(97, 97, 97);
+            btnEliminar.ForeColor = Color.FromArgb(97, 97, 97);
+
+            btnEditar.Enabled = false;
+            btnEditar.BackColor = Color.FromArgb(97, 97, 97);
+            btnEditar.ForeColor = Color.FromArgb(97, 97, 97);
+
+
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void panel12_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel12_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      R E P O R T E
+        //-----------------------------------------------------------------------------------------------
+
     }
 }

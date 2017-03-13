@@ -143,16 +143,6 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ic_account_circle_white_18dp {
-            get {
-                object obj = ResourceManager.GetObject("ic_account_circle_white_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ic_account_circle_white_18dp1 {
             get {
                 object obj = ResourceManager.GetObject("ic_account_circle_white_18dp1", resourceCulture);
@@ -353,16 +343,6 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ic_keyboard_arrow_right_blue_dark_18dp {
-            get {
-                object obj = ResourceManager.GetObject("ic_keyboard_arrow_right_blue_dark_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ic_keyboard_arrow_right_grey_600_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_keyboard_arrow_right_grey_600_18dp", resourceCulture);
@@ -373,29 +353,9 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ic_keyboard_arrow_right_light_blue_A700_24dp {
-            get {
-                object obj = ResourceManager.GetObject("ic_keyboard_arrow_right_light_blue_A700_24dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ic_keyboard_arrow_right_light_blue_A700_24dp1 {
             get {
                 object obj = ResourceManager.GetObject("ic_keyboard_arrow_right_light_blue_A700_24dp1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ic_keyboard_arrow_right_light_blue_A700_24dp2 {
-            get {
-                object obj = ResourceManager.GetObject("ic_keyboard_arrow_right_light_blue_A700_24dp2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

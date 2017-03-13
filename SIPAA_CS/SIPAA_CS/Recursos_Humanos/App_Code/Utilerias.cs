@@ -1,3 +1,4 @@
+using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -148,6 +149,41 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             }
 
+        }
+
+        public void ChangeButton(Button btn, int iClase, Boolean Apagar)
+        {
+
+            if (Apagar == false)
+            {
+
+                switch (iClase)
+                {
+
+                    case 1:
+                        //Clase Success - Color Verde
+                        //btn.Enabled = true;
+                        btn.Image = Resources.btnAdd;
+                        
+                        break;
+                    case 2:
+                        //Clase Info - Color Azul
+                        //btn.Enabled = true;
+                        btn.Image = Resources.btnEdit;
+
+                        break;
+                    case 3:
+                        //Clase Danger - Color Rojo
+                        //btn.Enabled = true;
+                        btn.Image = Resources.btnRemove2;
+                        
+                        break;
+                    default:
+
+                        break;
+                }
+            }
+            
         }
     }
 
