@@ -105,9 +105,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             }
            
         
-
-      
-        }
+        
 
         public string cifradoMd5(string pass)
         {
@@ -204,7 +202,8 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
-        public static void CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos) { 
+        public static void CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos)
+        { 
             foreach (DataRow rows in row)
             {
 
@@ -222,7 +221,15 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 {
                     ltPermisos.Add("Actualizar");
                 }
+                if (Convert.ToInt32(rows["Imprimir"]) == 1)
+                {
+                    ltPermisos.Add("Imprimir");
+                }
 
+                if (Convert.ToInt32(rows["Lectura"]) == 1)
+                {
+                    ltPermisos.Add("Lectura");
+                }
             }
 
         }
@@ -259,20 +266,9 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                         break;
                 }
             }
-            
-        }
-    }
-                if (Convert.ToInt32(rows["Imprimir"]) == 1)
-                {
-                    ltPermisos.Add("Imprimir");
-                }
 
-                if (Convert.ToInt32(rows["Lectura"]) == 1)
-                {
-                    ltPermisos.Add("Lectura");
-                }
-            }
         }
+    
 
         public static void ApagarControlxPermiso(Control ctrl, string Permiso, List<string> ltPermisos)
         {
@@ -319,11 +315,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                     break;
             }
         }
-
-    
-
-
-
+        
     }
 
 }
