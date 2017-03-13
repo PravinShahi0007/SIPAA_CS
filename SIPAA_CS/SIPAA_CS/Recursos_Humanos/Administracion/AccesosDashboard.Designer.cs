@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -63,16 +63,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1024, 108);
             this.panel2.TabIndex = 4;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.panel7.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.panel7.Location = new System.Drawing.Point(153, 105);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(900, 4);
-            this.panel7.TabIndex = 24;
             // 
             // label3
             // 
@@ -88,6 +78,15 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "       Accesos                    ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.panel7.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.panel7.Location = new System.Drawing.Point(153, 105);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(900, 4);
+            this.panel7.TabIndex = 24;
             // 
             // panel5
             // 
@@ -143,7 +142,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(1024, 32);
             this.panelMenu.TabIndex = 5;
-            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // MenuAccesos
             // 
@@ -157,7 +155,7 @@
             this.msAsignacionProceso});
             this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(790, 26);
+            this.MenuAccesos.Size = new System.Drawing.Size(698, 26);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
@@ -181,7 +179,7 @@
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem2.Image = global::SIPAA_CS.Properties.Resources.ic_account_circle_white_24dp;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(143, 22);
             this.toolStripMenuItem2.Tag = "frmCrear_Usuario";
             this.toolStripMenuItem2.Text = "Usuarios";
             // 
@@ -191,7 +189,7 @@
             this.toolStripMenuItem3.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem3.Image = global::SIPAA_CS.Properties.Resources.ic_work_white_24dp;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(143, 22);
             this.toolStripMenuItem3.Tag = "frmCrear_Perfil";
             this.toolStripMenuItem3.Text = "Perfiles";
             // 
@@ -201,7 +199,7 @@
             this.toolStripMenuItem4.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem4.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(143, 22);
             this.toolStripMenuItem4.Tag = "frmCrear_Modulo";
             this.toolStripMenuItem4.Text = "Módulos";
             // 
@@ -211,7 +209,7 @@
             this.toolStripMenuItem5.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem5.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(143, 22);
             this.toolStripMenuItem5.Tag = "frmCrear_Proceso";
             this.toolStripMenuItem5.Text = "Procesos";
             // 
