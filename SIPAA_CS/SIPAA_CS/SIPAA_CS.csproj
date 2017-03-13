@@ -116,6 +116,12 @@
       <DependentUpon>frmCompanias.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\App_Code\CompaniasSonarh.cs" />
+    <Compile Include="Recursos_Humanos\Administracion\Crear_Procesos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Crear_Procesos.Designer.cs">
+      <DependentUpon>Crear_Procesos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recursos_Humanos\App_Code\DepartamentosSonarh.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Modulo.cs" />
     <Compile Include="Recursos_Humanos\Administracion\frmFormReg.cs">
@@ -126,6 +132,7 @@
     </Compile>
     <Compile Include="Recursos_Humanos\App_Code\FormReg.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Perfil.cs" />
+    <Compile Include="Recursos_Humanos\App_Code\Proceso.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Usuario.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Utilerias.cs" />
     <Compile Include="Splash.cs">
@@ -176,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\frmCompanias.resx">
       <DependentUpon>frmCompanias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Procesos.resx">
+      <DependentUpon>Crear_Procesos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\frmFormReg.resx">
       <DependentUpon>frmFormReg.cs</DependentUpon>

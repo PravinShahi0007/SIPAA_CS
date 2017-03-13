@@ -12,54 +12,26 @@ using System.Windows.Forms;
 
 namespace SIPAA_CS.Recursos_Humanos.Administracion
 {
+
+
+    //***********************************************************************************************
+    //Autor: Victor Jesús Iturburu Vergara
+    //Fecha creación:13-03-2017      Última Modificacion: 13-03-2017
+    //Descripción: Pantalla de Asignación de Módulos a Perfiles
+    //***********************************************************************************************
     public partial class Asignar_Modulo : Form
     {
         public int CVPerfil = 0;
-        public Asignar_Modulo()
-        {
-            InitializeComponent();
-        }
-
-        private void Asignar_Modulo_Load(object sender, EventArgs e)
-        {
-            
-            Perfil objPerfil = new Perfil();
-            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%","%","1");
-            dgvPerfil.DataSource = dtPerfiles;
-
-            Modulo objModulo = new Modulo();
-            List<Modulo> ltModulo = objModulo.ObtenerListModulos("%", "%", "%", "%","1");
-            DataTable dtModulo = objModulo.ObtenerDataTableModulo(ltModulo);
-            dgvModulos.DataSource = dtModulo;
 
 
 
-            DataGridViewImageColumn imgCheckModulos = new DataGridViewImageColumn();
-            imgCheckModulos.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckModulos.Name = "imgModulos";
-            dgvModulos.Columns.Insert(0, imgCheckModulos);
-            dgvModulos.Columns[0].HeaderText = "";
+        //-----------------------------------------------------------------------------------------------
+        //                                      C O M B O S
+        //-----------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------
+        //                                      G R I D // S
+        //-----------------------------------------------------------------------------------------------
 
-            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
-            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckPerfiles.Name = "imgPerfiles";
-            dgvPerfil.Columns.Insert(2, imgCheckPerfiles);
-            dgvPerfil.Columns[2].HeaderText = "";
-
-            dgvModulos.ClearSelection();
-            dgvPerfil.ClearSelection();
-
-            dgvPerfil.Columns[3].Visible = false;
-            dgvPerfil.Columns[4].Visible = false;
-            dgvPerfil.Columns[5].Visible = false;
-            dgvPerfil.Columns[6].Visible = false;
-
-            dgvModulos.Columns["Orden"].Visible = false;
-            dgvModulos.Columns["Descripción"].Visible = false;
-            dgvPerfil.Columns["CVPERFIL"].Visible = false;
-            dgvModulos.Columns["Estatus"].Visible = false;
-
-        }
 
         private void dgvPerfil_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -76,7 +48,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
                 CVPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
                 string Desc = row.Cells["DESCRIPCION"].Value.ToString();
-                
+
                 row.Cells[2].Value = Resources.ic_check_circle_green_400_18dp;
 
                 Modulo objModulo = new Modulo();
@@ -144,6 +116,11 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             }
         }
 
+
+        //-----------------------------------------------------------------------------------------------
+        //                                     B O T O N E S
+        //-----------------------------------------------------------------------------------------------
+
         private void btnBuscarPerfil_Click(object sender, EventArgs e)
         {
             panelTag.Visible = false;
@@ -156,7 +133,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             if (txtPerfil.Text != String.Empty)
             {
 
-                strPerfil = txtPerfil.Text;
+                strPerfil = txtPerfil.Text.Trim();
             }
             else
             {
@@ -164,7 +141,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             }
 
             Perfil objPerfil = new Perfil();
-            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%",strPerfil,"1");
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%", strPerfil, "1");
             dgvPerfil.DataSource = dtPerfiles;
 
 
@@ -196,14 +173,14 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
             if (txtNombreModulo.Text != String.Empty)
             {
-                strNombreModulo = txtNombreModulo.Text;
+                strNombreModulo = txtNombreModulo.Text.Trim();
             }
             else
             {
                 strNombreModulo = "%";
             }
 
-           
+
 
             if (txtModulo.Text != String.Empty)
             {
@@ -223,7 +200,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             }
 
             Modulo objModulo = new Modulo();
-            List<Modulo> ltModulo = objModulo.ObtenerListModulos(strNombreModulo,"%",strAmbiente,strModulo,"1");
+            List<Modulo> ltModulo = objModulo.ObtenerListModulos(strNombreModulo, "%", strAmbiente, strModulo, "1");
             DataTable dtModulo = objModulo.ObtenerDataTableModulo(ltModulo);
             dgvModulos.DataSource = dtModulo;
 
@@ -238,6 +215,73 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 dgvPerfil.Rows[iContador].Cells[2].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
         }
+        //-----------------------------------------------------------------------------------------------
+        //                           C A J A S      D E      T E X T O   
+        //-----------------------------------------------------------------------------------------------
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                     E V E N T O S
+        //-----------------------------------------------------------------------------------------------
+
+        public Asignar_Modulo()
+        {
+            InitializeComponent();
+        }
+
+        private void Asignar_Modulo_Load(object sender, EventArgs e)
+        {
+
+            Perfil objPerfil = new Perfil();
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%", "%", "1");
+            dgvPerfil.DataSource = dtPerfiles;
+
+            Modulo objModulo = new Modulo();
+            List<Modulo> ltModulo = objModulo.ObtenerListModulos("%", "%", "%", "%", "1");
+            DataTable dtModulo = objModulo.ObtenerDataTableModulo(ltModulo);
+            dgvModulos.DataSource = dtModulo;
+
+
+
+            DataGridViewImageColumn imgCheckModulos = new DataGridViewImageColumn();
+            imgCheckModulos.Image = Resources.ic_lens_blue_grey_600_18dp;
+            imgCheckModulos.Name = "imgModulos";
+            dgvModulos.Columns.Insert(0, imgCheckModulos);
+            dgvModulos.Columns[0].HeaderText = "";
+
+            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
+            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
+            imgCheckPerfiles.Name = "imgPerfiles";
+            dgvPerfil.Columns.Insert(2, imgCheckPerfiles);
+            dgvPerfil.Columns[2].HeaderText = "";
+
+            dgvModulos.ClearSelection();
+            dgvPerfil.ClearSelection();
+
+            dgvPerfil.Columns[3].Visible = false;
+            dgvPerfil.Columns[4].Visible = false;
+            dgvPerfil.Columns[5].Visible = false;
+            dgvPerfil.Columns[6].Visible = false;
+
+            dgvModulos.Columns["Orden"].Visible = false;
+            dgvModulos.Columns["Descripción"].Visible = false;
+            dgvPerfil.Columns["CVPERFIL"].Visible = false;
+            dgvModulos.Columns["Estatus"].Visible = false;
+
+        }
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      R E P O R T E
+        //-----------------------------------------------------------------------------------------------
+
+
+     
 
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
