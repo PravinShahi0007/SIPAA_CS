@@ -40,7 +40,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             if (panelTag.Visible == true)
             {
 
-                Thread.Sleep(3000);
+             //   Thread.Sleep(3000);
                 panelTag.Visible = false;
             }
 
