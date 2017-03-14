@@ -552,6 +552,13 @@
   <ItemGroup>
     <None Include="Resources\ic_fingerprint_white_48dp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16388379_1936191480000670_4493751231525441480_n.png" />
+    <Content Include="Resources\pass24x24.png" />
+    <None Include="Resources\user24x241.png" />
+    <None Include="Resources\pass24x241.png" />
+    <Content Include="Resources\user24x24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
