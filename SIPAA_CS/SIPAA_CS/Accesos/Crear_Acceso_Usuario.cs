@@ -115,6 +115,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             passw = txtPassword.Text;
             usumod = "140014";
 
+
             if (cvusuario == "ADMIN")
             {
                 string idtrab = txtCvUsuario.Text;
@@ -280,10 +281,10 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                             MessageBox.Show("No se encontró usuario en SONARH");
                         }
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
 
-                        MessageBox.Show("No se encontró usuario en SONARH");
+                        MessageBox.Show("No se encontró usuario en SONARH"+ ex);
                     }
                 }
                 else

@@ -53,34 +53,34 @@
       <DependentUpon>Acceso.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexiones\Conexion.cs" />
-    <Compile Include="Recursos_Humanos\Administracion\AccesosDashboard.cs">
+    <Compile Include="Accesos\AccesosDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\AccesosDashboard.Designer.cs">
+    <Compile Include="Accesos\AccesosDashboard.Designer.cs">
       <DependentUpon>AccesosDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\Asignar_Modulo.cs">
+    <Compile Include="Accesos\Asignar_Modulo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\Asignar_Modulo.Designer.cs">
+    <Compile Include="Accesos\Asignar_Modulo.Designer.cs">
       <DependentUpon>Asignar_Modulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\Asignar_Perfil.cs">
+    <Compile Include="Accesos\Asignar_Perfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\Asignar_Perfil.Designer.cs">
+    <Compile Include="Accesos\Asignar_Perfil.Designer.cs">
       <DependentUpon>Asignar_Perfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\Crear_Acceso_Usuario.cs">
+    <Compile Include="Accesos\Crear_Acceso_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\Crear_Acceso_Usuario.Designer.cs">
+    <Compile Include="Accesos\Crear_Acceso_Usuario.Designer.cs">
       <DependentUpon>Crear_Acceso_Usuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\Crear_Perfil.cs">
+    <Compile Include="Accesos\Crear_Perfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\Crear_Perfil.Designer.cs">
+    <Compile Include="Accesos\Crear_Perfil.Designer.cs">
       <DependentUpon>Crear_Perfil.cs</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.cs">
@@ -97,10 +97,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recursos_Humanos\Administracion\Crear_Modulo.cs">
+    <Compile Include="Accesos\Crear_Modulo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\Crear_Modulo.Designer.cs">
+    <Compile Include="Accesos\Crear_Modulo.Designer.cs">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\Administracion\Departamentos.cs">
@@ -109,10 +109,11 @@
     <Compile Include="Recursos_Humanos\Administracion\Departamentos.Designer.cs">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">
-      <SubType>Form</SubType>
+    <!---<Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">-->
+      <Compile Include="Recursos_Humanos\frmCompanias.cs">
+        <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\frmCompanias.Designer.cs">
+    <Compile Include="Recursos_Humanos\frmCompanias.Designer.cs">
       <DependentUpon>frmCompanias.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\Administracion\Puestos.cs">
@@ -130,10 +131,10 @@
     </Compile>
     <Compile Include="Recursos_Humanos\App_Code\DepartamentosSonarh.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Modulo.cs" />
-    <Compile Include="Recursos_Humanos\Administracion\frmFormReg.cs">
+    <Compile Include="Recursos_Humanos\frmFormReg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\frmFormReg.Designer.cs">
+    <Compile Include="Recursos_Humanos\frmFormReg.Designer.cs">
       <DependentUpon>frmFormReg.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\App_Code\FormReg.cs" />
@@ -142,6 +143,18 @@
     <Compile Include="Recursos_Humanos\App_Code\PuestosSonarh.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Usuario.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Utilerias.cs" />
+    <Compile Include="Recursos_Humanos\Compania_Plantel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Compania_Plantel.Designer.cs">
+      <DependentUpon>Compania_Plantel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Ubicacion_Plantel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Ubicacion_Plantel.Designer.cs">
+      <DependentUpon>Ubicacion_Plantel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,19 +167,19 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\Administracion\AccesosDashboard.resx">
+    <EmbeddedResource Include="Accesos\AccesosDashboard.resx">
       <DependentUpon>AccesosDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\Administracion\Asignar_Modulo.resx">
+    <EmbeddedResource Include="Accesos\Asignar_Modulo.resx">
       <DependentUpon>Asignar_Modulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\Administracion\Asignar_Perfil.resx">
+    <EmbeddedResource Include="Accesos\Asignar_Perfil.resx">
       <DependentUpon>Asignar_Perfil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Acceso_Usuario.resx">
+    <EmbeddedResource Include="Accesos\Crear_Acceso_Usuario.resx">
       <DependentUpon>Crear_Acceso_Usuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Perfil.resx">
+    <EmbeddedResource Include="Accesos\Crear_Perfil.resx">
       <DependentUpon>Crear_Perfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
@@ -182,13 +195,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Modulo.resx">
+    <EmbeddedResource Include="Accesos\Crear_Modulo.resx">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
     </EmbeddedResource>
+    <!--<EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">-->
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\Administracion\frmCompanias.resx">
+    <EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">
       <DependentUpon>frmCompanias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Procesos.resx">
@@ -199,6 +213,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Puestos.resx">
       <DependentUpon>Puestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Compania_Plantel.resx">
+      <DependentUpon>Compania_Plantel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Ubicacion_Plantel.resx">
+      <DependentUpon>Ubicacion_Plantel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
