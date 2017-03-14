@@ -262,6 +262,7 @@
             this.Controls.Add(this.barraSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AccesosDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AccesosDashboard";
             this.Load += new System.EventHandler(this.AccesosDashboard_Load);
             this.panel2.ResumeLayout(false);

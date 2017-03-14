@@ -18,7 +18,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Ubicacion_Plantel());
+            Application.Run(new Splash());
         }
     }
 }

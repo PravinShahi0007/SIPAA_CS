@@ -430,6 +430,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Asignar_Perfil";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asignar_Perfil";
             this.Load += new System.EventHandler(this.Asignar_Perfil_Load);
             this.panel4.ResumeLayout(false);

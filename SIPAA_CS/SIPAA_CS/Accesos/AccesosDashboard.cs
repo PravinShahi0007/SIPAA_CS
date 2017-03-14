@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.Recursos_Humanos.App_Code.Usuario;
 
 namespace SIPAA_CS.Recursos_Humanos.Administracion
 {
@@ -47,7 +48,8 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         private void AccesosDashboard_Load(object sender, EventArgs e)
         {
             Usuario objUsuario = new Usuario();
-            List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario("140414");
+            string IdTrab = LoginInfo.IdTrab;
+            List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab);
 
             Utilerias.MenuDinamico(MenuAccesos, ltModulosxUsuario);
         }

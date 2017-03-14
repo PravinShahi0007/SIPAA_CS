@@ -1,3 +1,4 @@
+using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -102,11 +103,13 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                         break;
                 }
             }
-
+           
+        
+        
 
         public string cifradoMd5(string pass)
         {
-
+            
             MD5 md5 = MD5.Create();
             byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pass);
             byte[] hash = md5.ComputeHash(inputBytes);
@@ -198,8 +201,9 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             }
 
         }
+
         public static void CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos)
-        {
+        { 
             foreach (DataRow rows in row)
             {
 
@@ -217,7 +221,6 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 {
                     ltPermisos.Add("Actualizar");
                 }
-
                 if (Convert.ToInt32(rows["Imprimir"]) == 1)
                 {
                     ltPermisos.Add("Imprimir");
@@ -228,7 +231,44 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                     ltPermisos.Add("Lectura");
                 }
             }
+
         }
+
+        public void ChangeButton(Button btn, int iClase, Boolean Apagar)
+        {
+
+            if (Apagar == false)
+            {
+
+                switch (iClase)
+                {
+
+                    case 1:
+                        //Clase Success - Color Verde
+                        //btn.Enabled = true;
+                        btn.Image = Resources.btnAdd;
+                        
+                        break;
+                    case 2:
+                        //Clase Info - Color Azul
+                        //btn.Enabled = true;
+                        btn.Image = Resources.btnEdit;
+
+                        break;
+                    case 3:
+                        //Clase Danger - Color Rojo
+                        //btn.Enabled = true;
+                        btn.Image = Resources.btnRemove2;
+                        
+                        break;
+                    default:
+
+                        break;
+                }
+            }
+
+        }
+    
 
         public static void ApagarControlxPermiso(Control ctrl, string Permiso, List<string> ltPermisos)
         {
@@ -261,7 +301,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 case "Eliminar":
                     if (!ltPermisos.Contains(Permiso))
                     {
-                        ctrl.Visible = false;
+                       ctrl.Visible = false;
                     }
 
                     break;
@@ -275,14 +315,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                     break;
             }
         }
-
-
-
+        
     }
 
-
 }
-
-      
-    
-
