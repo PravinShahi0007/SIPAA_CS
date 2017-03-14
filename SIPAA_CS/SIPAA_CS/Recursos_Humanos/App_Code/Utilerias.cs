@@ -102,15 +102,11 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                         break;
                 }
             }
-           
-        
 
-      
-        }
 
         public string cifradoMd5(string pass)
         {
-            
+
             MD5 md5 = MD5.Create();
             byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pass);
             byte[] hash = md5.ComputeHash(inputBytes);
@@ -202,8 +198,8 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             }
 
         }
-
-        public static void CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos) { 
+        public static void CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos)
+        {
             foreach (DataRow rows in row)
             {
 
@@ -265,7 +261,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 case "Eliminar":
                     if (!ltPermisos.Contains(Permiso))
                     {
-                       ctrl.Visible = false;
+                        ctrl.Visible = false;
                     }
 
                     break;
@@ -280,10 +276,13 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             }
         }
 
-    
-
 
 
     }
 
+
 }
+
+      
+    
+

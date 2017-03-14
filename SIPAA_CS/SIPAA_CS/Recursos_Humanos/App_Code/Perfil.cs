@@ -61,7 +61,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"sp_BuscarPerfil";
+            cmd.CommandText = @"usp_accecperfil_S";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@CvPerfil", SqlDbType.VarChar).Value = CvPerfil;
@@ -120,7 +120,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"sp_GestionPerfiles";
+            cmd.CommandText = @"usp_acceperfil_SUID";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);

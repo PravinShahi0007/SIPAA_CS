@@ -21,7 +21,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         public string UsuuMod;
         public DateTime FhuMod;
         public string PrguMod;
-        public Boolean Estatus;
+        public int Estatus;
         Conexion objConexion = new Conexion();
 
         public List<Modulo> ObtenerListModulos(string CVModulo,string Descripcion,string Ambiente,string Modulo,string Estatus)
@@ -29,7 +29,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             List<Modulo> ltModulos = new List<Modulo>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"sp_BuscarModulo";
+            cmd.CommandText = @"usp_accemodulo_S";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("CVModulo",SqlDbType.VarChar).Value = CVModulo;
@@ -57,7 +57,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 objModulo.UsuuMod = reader.GetString(reader.GetOrdinal("USUUMOD"));
                 objModulo.FhuMod = reader.GetDateTime(reader.GetOrdinal("FHUMOD"));
                 objModulo.PrguMod = reader.GetString(reader.GetOrdinal("PRGUMOD"));
-                objModulo.Estatus = reader.GetBoolean(reader.GetOrdinal("STATUS"));
+                objModulo.Estatus = reader.GetInt32(reader.GetOrdinal("stModulo"));
 
                 ltModulos.Add(objModulo);
             }
@@ -93,7 +93,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 row["Orden"] = objModuloActual.Orden;
                 row["Ambiente"] = objModuloActual.Ambiente.ToString();
                 row["Módulo"] = objModuloActual.strModulo.ToString();
-                if (objModuloActual.Estatus != false)
+                if (objModuloActual.Estatus != 0)
                 {
                     row["Estatus"] = "Activo";
                 }
