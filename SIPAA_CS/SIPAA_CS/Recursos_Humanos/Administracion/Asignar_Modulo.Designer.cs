@@ -516,6 +516,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Asignar_Modulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asignar_Modulo";
             this.Load += new System.EventHandler(this.Asignar_Modulo_Load);
             this.panel1.ResumeLayout(false);
