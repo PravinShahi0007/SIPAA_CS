@@ -115,6 +115,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             passw = txtPassword.Text;
             usumod = "140014";
 
+
             if (cvusuario == "ADMIN")
             {
                 string idtrab = txtCvUsuario.Text;

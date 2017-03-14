@@ -276,36 +276,6 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             return regreso;
         }
 
-        //public Usuario ObtenerUsuarioContrasena(string cvusuario, int idtrab, int opcion)
-        //{
-        //    SqlCommand cmd = new SqlCommand();
-        //    Conexion objConexion = new Conexion();
-        //    SqlConnection sqlcn = objConexion.conexionSonarh();
-        //    Usuario objusuario = new Usuario();
-
-        //    cmd.Connection = sqlcn;
-
-
-        //    cmd.CommandText = "[sp_administracionaccesousuario]";
-        //    cmd.CommandType = CommandType.StoredProcedure;
-
-        //    cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = idtrab;
-
-        //    cmd.Parameters.Add("@Nom", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
-        //    cmd.Parameters.Add("@Sta", SqlDbType.Int, 50).Direction = ParameterDirection.Output;
-        //    cmd.Parameters.Add("@Enc", SqlDbType.Int, 50).Direction = ParameterDirection.Output;
-        //    cmd.ExecuteNonQuery();
-
-        //    objusuario.Nombre = Convert.ToString(cmd.Parameters["@Nom"].Value.ToString());
-        //    objusuario.st = Convert.ToInt32(cmd.Parameters["@Sta"].Value.ToString());
-        //    objusuario.enc = Convert.ToInt32(cmd.Parameters["@Enc"].Value.ToString());
-
-        //    sqlcn.Close();
-        //    return objusuario;
-        //    }
-        //}
-
-
         public static class LoginInfo
         {
             public static string IdTrab;
