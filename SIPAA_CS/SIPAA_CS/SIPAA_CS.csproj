@@ -109,7 +109,14 @@
     <Compile Include="Recursos_Humanos\Administracion\frmCompanias.Designer.cs">
       <DependentUpon>frmCompanias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\frmDiasFestivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\frmDiasFestivos.Designer.cs">
+      <DependentUpon>frmDiasFestivos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recursos_Humanos\App_Code\CompaniasSonarh.cs" />
+    <Compile Include="Recursos_Humanos\App_Code\DiasFestivos.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Modulo.cs" />
     <Compile Include="Recursos_Humanos\Administracion\frmFormReg.cs">
       <SubType>Form</SubType>
@@ -166,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\frmCompanias.resx">
       <DependentUpon>frmCompanias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\frmDiasFestivos.resx">
+      <DependentUpon>frmDiasFestivos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\frmFormReg.resx">
       <DependentUpon>frmFormReg.cs</DependentUpon>
