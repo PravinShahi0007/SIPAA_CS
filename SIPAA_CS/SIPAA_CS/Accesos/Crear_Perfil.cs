@@ -47,14 +47,14 @@ namespace SIPAA_CS
             dgvPerfiles.Columns["USUUMOD"].Visible = false;
             dgvPerfiles.Columns["FHUMOD"].Visible = false;
             dgvPerfiles.Columns["PRGUMOD"].Visible = false;
-            dgvPerfiles.Columns["STATUS"].Visible = false;
+            dgvPerfiles.Columns["stperfil"].Visible = false;
             dgvPerfiles.Visible = true;
 
             if (Seleccion != true)
             {
                 DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
                 imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
-                imgCheckPerfiles.Name = "SELECCIONAR";
+                imgCheckPerfiles.Name = "Seleccionar";
                 //imgCheckPerfiles.HeaderText = "";
                 dgvPerfiles.Columns.Insert(0, imgCheckPerfiles);
                 ImageList imglt = new ImageList();
@@ -276,7 +276,7 @@ namespace SIPAA_CS
 
                 IdPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
                 string ValorRow = row.Cells["DESCRIPCION"].Value.ToString();
-                strEstatus = row.Cells["STATUS"].Value.ToString();
+                strEstatus = row.Cells["stPerfil"].Value.ToString();
                 txtPerfil.Text = ValorRow;
                 PanelEditar.Visible = true;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
@@ -289,12 +289,12 @@ namespace SIPAA_CS
                 if (btnGuardar.Visible == false) {
                     PanelEditar.Enabled = false;
                 }
-                if (strEstatus == "False")
+                if (strEstatus == "0")
                 {
                     ckbEliminar.Text = "Alta";
 
                 }
-                else if (strEstatus == "True")
+                else if (strEstatus == "1")
                 {
                     ckbEliminar.Text = "Baja";
 
@@ -316,12 +316,12 @@ namespace SIPAA_CS
             if (ckbEliminar.Checked == true)
             {
 
-                if (strEstatus == "False")
+                if (strEstatus == "0")
                 {
 
                     btnGuardar.Image = Resources.btnAlta;
                 }
-                else if (strEstatus == "True")
+                else if (strEstatus == "1")
                 {
 
                     btnGuardar.Image = Resources.btnRemove2;
@@ -382,6 +382,11 @@ namespace SIPAA_CS
                 return 0;
             }
             return 0;
+        }
+
+        private void ckbEliminar_CheckedChanged_1(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -28,6 +28,12 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
+        public int IdCompania;
+        public string DescripcionCia;
+        public string DireccionCia;
+        public int IdPlanta;
+        public string DireccionPlanta;
+
         //data table 
         public DataTable obtcomp(int popcion, string ptextobuscar)
         {
@@ -53,6 +59,51 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
+
+        public DataTable ObtenerPlantelxCompania(int IdCompania, string PlantaDesc)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechPlantaxCompania_S";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            SqlConnection sqlcn = objConexion.conexionSonarh();
+
+            cmd.Parameters.Add("@IdCompania", SqlDbType.Int).Value = IdCompania;
+            cmd.Parameters.Add("@Planta", SqlDbType.VarChar).Value = PlantaDesc;
+
+            objConexion.asignarConexions(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexions();
+
+            DataTable dtPlanta = new DataTable();
+            Adapter.Fill(dtPlanta);
+            return dtPlanta;
+   }
+
+
+        public DataTable ObtenerUbicacionPlantel( string PlantaDesc)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechplantelubicacion_S";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            SqlConnection sqlcn = objConexion.conexionSonarh();
+
+            
+            cmd.Parameters.Add("@Ubicacion", SqlDbType.VarChar).Value = PlantaDesc;
+
+            objConexion.asignarConexions(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexions();
+
+            DataTable dtPlanta = new DataTable();
+            Adapter.Fill(dtPlanta);
+            return dtPlanta;
+        }
 
     }
 }
