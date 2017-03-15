@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SIPAA_CS.Recursos_Humanos.Administracion;
+using SIPAA_CS.Accesos;
 
 namespace SIPAA_CS
 {
@@ -18,7 +19,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Splash());
+            Application.Run(new Asignar_Proceso());
         }
     }
 }
