@@ -54,7 +54,6 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         public int sGuardaModifReg(int iOpc, int sCve, string sDesc, string sUsu, string sProg)
         {
-
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_FormRegistro_Act";
             cmd.CommandType = CommandType.StoredProcedure;
@@ -71,7 +70,6 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             objConexion.asignarConexion(cmd);
 
             int iResponse = Convert.ToInt32(cmd.ExecuteScalar());
-
 
             objConexion.cerrarConexion();
 

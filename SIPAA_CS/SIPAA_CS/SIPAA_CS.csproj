@@ -121,6 +121,12 @@
     <Compile Include="Recursos_Humanos\Administracion\Puestos.Designer.cs">
       <DependentUpon>Puestos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\TipoHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\TipoHorario.Designer.cs">
+      <DependentUpon>TipoHorario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recursos_Humanos\App_Code\CompaniasSonarh.cs" />
     <Compile Include="Recursos_Humanos\Administracion\Crear_Procesos.cs">
       <SubType>Form</SubType>
@@ -140,6 +146,7 @@
     <Compile Include="Recursos_Humanos\App_Code\Perfil.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Proceso.cs" />
     <Compile Include="Recursos_Humanos\App_Code\PuestosSonarh.cs" />
+    <Compile Include="Recursos_Humanos\App_Code\TipoHr.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Usuario.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Utilerias.cs" />
     <Compile Include="Splash.cs">
@@ -199,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Puestos.resx">
       <DependentUpon>Puestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\TipoHorario.resx">
+      <DependentUpon>TipoHorario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
