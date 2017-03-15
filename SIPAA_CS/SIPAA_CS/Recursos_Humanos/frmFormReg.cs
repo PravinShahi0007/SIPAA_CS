@@ -223,10 +223,6 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 btnAgregar.Visible = true;
             }
 
-            
-
-
-
         }
         //-----------------------------------------------------------------------------------------------
         //                                  S U B R U T I N A S
@@ -267,8 +263,6 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             DataTable dtFormasRegistro = FormasRegistro.cObtFormRegBusqueda(Opc, Busq);
             dgvForReg.DataSource = dtFormasRegistro;
             
-
-
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
             imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
             imgCheckUsuarios.Name = "img";
@@ -374,6 +368,11 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         {
 
             FormasRegistro.sGuardaModifReg(iOpc, sCve, sDesc, sUsu, sProg);
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
 
