@@ -119,7 +119,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
-       
+
 
         public List<string> ObtenerListaModulosxUsuario(string CVUsuario)
         {
@@ -130,13 +130,15 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             List<string> ltModulosxUsuario = new List<string>();
 
 
-            foreach (int iCV in ltPerfiles) {
+            foreach (int iCV in ltPerfiles)
+            {
 
                 Modulo objModulo = new Modulo();
-               // int iCVPerfil = ltPerfiles.ElementAt(iCV);
+                // int iCVPerfil = ltPerfiles.ElementAt(iCV);
                 List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCV);
 
-                foreach (string strCV in ltModulos) {
+                foreach (string strCV in ltModulos)
+                {
 
                     ltModulosxUsuario.Add(strCV);
                 }
@@ -165,10 +167,9 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             Conexion objConexion = new Conexion();
             SqlConnection sqlcn = objConexion.conexionSonarh();
             Usuario objusuario = new Usuario();
-            
+
             cmd.Connection = sqlcn;
 
-            sqlcn.Open();
 
             cmd.CommandText = "Trabajador_Usu";
             cmd.CommandType = CommandType.StoredProcedure;
@@ -183,11 +184,12 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             objusuario.Nombre = Convert.ToString(cmd.Parameters["@Nom"].Value.ToString());
             objusuario.st = Convert.ToInt32(cmd.Parameters["@Sta"].Value.ToString());
             objusuario.enc = Convert.ToInt32(cmd.Parameters["@Enc"].Value.ToString());
-            
+
+            sqlcn.Close();
             return objusuario;
         }
 
-        public int AsignarAccesoUsuario(string cvusuario, int idtrab, string nombre, string passw, int stusuario, string usuumod,string prgmod, int opcion)
+        public int AsignarAccesoUsuario(string cvusuario, int idtrab, string nombre, string passw, int stusuario, string usuumod, string prgmod, int opcion)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "sp_AdministracionAccesoUsuario";
@@ -201,7 +203,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             cmd.Parameters.Add("@UsuUmod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@PrguMod", SqlDbType.VarChar).Value = prgmod;
             cmd.Parameters.Add("@Opcion", SqlDbType.VarChar).Value = opcion;
-            
+
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
@@ -211,8 +213,8 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             return regreso;
         }
-        
-        public DataTable ObtenerAccesosUsuario(string cvusuario,int idtrab,string nombre, string passw, int stusuario,string usuumod,string prgmod, int opcion)
+
+        public DataTable ObtenerAccesosUsuario(string cvusuario, int idtrab, string nombre, string passw, int stusuario, string usuumod, string prgmod, int opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
@@ -244,7 +246,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             DataTable dgvAccesoUsu = new DataTable();
 
             Adapter.Fill(dgvAccesoUsu);
-            
+
             return dgvAccesoUsu;
         }
 
@@ -273,6 +275,11 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             return regreso;
         }
-    }
-}
 
+        public static class LoginInfo
+        {
+            public static string IdTrab;
+        }
+    }
+
+}
