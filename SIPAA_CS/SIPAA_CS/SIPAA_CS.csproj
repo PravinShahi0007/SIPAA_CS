@@ -115,9 +115,9 @@
     <Compile Include="Recursos_Humanos\Administracion\Departamentos.Designer.cs">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </Compile>
-    <!---<Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">-->
     <Compile Include="Recursos_Humanos\frmCompanias.cs">
       <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Recursos_Humanos\App_Code\IncNomina.cs" />
     <Compile Include="Recursos_Humanos\frmCompanias.cs">
       <SubType>Form</SubType>
@@ -230,7 +230,6 @@
     <EmbeddedResource Include="Accesos\Crear_Modulo.resx">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
     </EmbeddedResource>
-    <!--<EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">-->
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
