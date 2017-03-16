@@ -234,9 +234,6 @@
     <EmbeddedResource Include="Recursos_Humanos\Administracion\frmDiasFestivos.resx">
       <DependentUpon>frmDiasFestivos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\Administracion\frmFormReg.resx">
-      <DependentUpon>frmFormReg.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Puestos.resx">
       <DependentUpon>Puestos.cs</DependentUpon>
     </EmbeddedResource>
