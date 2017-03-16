@@ -116,7 +116,7 @@
       <DependentUpon>Departamentos.cs</DependentUpon>
     </Compile>
     <!---<Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">-->
-    <Compile Include="Recursos_Humanos\App_Code\Incidencia.cs" />
+    <Compile Include="App_Code\Incidencia.cs" />
     <Compile Include="Recursos_Humanos\frmCompanias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,29 +141,29 @@
     <Compile Include="Recursos_Humanos\Administracion\frmDiasFestivos.Designer.cs">
       <DependentUpon>frmDiasFestivos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\App_Code\CompaniasSonarh.cs" />
+    <Compile Include="App_Code\CompaniasSonarh.cs" />
     <Compile Include="Accesos\Crear_Procesos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accesos\Crear_Procesos.Designer.cs">
       <DependentUpon>Crear_Procesos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\App_Code\DepartamentosSonarh.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\DiasFestivos.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Modulo.cs" />
+    <Compile Include="App_Code\DepartamentosSonarh.cs" />
+    <Compile Include="App_Code\DiasFestivos.cs" />
+    <Compile Include="App_Code\Modulo.cs" />
     <Compile Include="Recursos_Humanos\frmFormReg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Recursos_Humanos\frmFormReg.Designer.cs">
       <DependentUpon>frmFormReg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\App_Code\FormReg.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Perfil.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Proceso.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\PuestosSonarh.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\TipoHr.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Usuario.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Utilerias.cs" />
+    <Compile Include="App_Code\FormReg.cs" />
+    <Compile Include="App_Code\Perfil.cs" />
+    <Compile Include="App_Code\Proceso.cs" />
+    <Compile Include="App_Code\PuestosSonarh.cs" />
+    <Compile Include="App_Code\TipoHr.cs" />
+    <Compile Include="App_Code\Usuario.cs" />
+    <Compile Include="App_Code\Utilerias.cs" />
     <Compile Include="Recursos_Humanos\Compania_Plantel.cs">
       <SubType>Form</SubType>
     </Compile>
