@@ -62,6 +62,66 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             Adapter.Fill(incnomin);
             return incnomin;
         }
+        //metodo llenar combo tipo horario
+        public DataTable cboTipoHr(int p_opcion)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechctipohr_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
+            cmd.Parameters.Add("@p_cvtipohr", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable TipoHr = new DataTable();
+            Adapter.Fill(TipoHr);
+            return TipoHr;
+        }
+
+        //metodo llenar combo combo estatus director, pasa nomina, premio
+        public DataTable cboEsNoPr(int p_opcion)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechcincnomina_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
+            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_cvrepresenta", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stdir", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_cvtipohr", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stpremio", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_cvafecta", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stpasanom", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_imphrsdias", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_campo", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_formula", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable EsNoPr = new DataTable();
+            Adapter.Fill(EsNoPr);
+            return EsNoPr;
+        }
+
 
         //metodo data table para llenar grid de busqueda
         public DataTable obttipohr(int p_opcion, int p_cvtipohr, string p_descripcion, string p_usuumod, string p_prgumodr)

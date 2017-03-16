@@ -317,8 +317,9 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         {
 
             nombre.DataSource = datoscbo;
-            nombre.DisplayMember = "descripcion";
-            nombre.ValueMember = "clave";
+            nombre.DisplayMember = "Descripción";
+            nombre.ValueMember = "Clave";
+            nombre.Text = "";
         }
 
     }

@@ -11,6 +11,12 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.Recursos_Humanos.App_Code;
 
+//***********************************************************************************************
+//Autor: Noe Alvarez Marquina
+//Fecha creación:13-Mar-2017       Última Modificacion: dd-mm-aaaa
+//Descripción: Muestra y busca puestos sonarh
+//***********************************************************************************************
+
 namespace SIPAA_CS.Recursos_Humanos.Administracion
 {
     public partial class Puestos : Form
@@ -21,12 +27,6 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         }
 
         PuestosSonarh puestos = new PuestosSonarh();
-
-        //***********************************************************************************************
-        //Autor: Noe Alvarez Marquina
-        //Fecha creación:13-Mar-2017       Última Modificacion: dd-mm-aaaa
-        //Descripción: Muestra y busca puestos sonarh
-        //***********************************************************************************************
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S

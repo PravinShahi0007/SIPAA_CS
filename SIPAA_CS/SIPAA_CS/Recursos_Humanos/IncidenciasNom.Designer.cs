@@ -38,9 +38,12 @@
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label10;
+            System.Windows.Forms.Label label11;
+            System.Windows.Forms.Label label12;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvtiphr = new System.Windows.Forms.DataGridView();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -56,10 +59,13 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txttipohr = new System.Windows.Forms.TextBox();
             this.pnltiphr = new System.Windows.Forms.Panel();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cbopasanom = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbopremio = new System.Windows.Forms.ComboBox();
+            this.cbotipohr = new System.Windows.Forms.ComboBox();
+            this.cbostdir = new System.Windows.Forms.ComboBox();
             this.cboRepresenta = new System.Windows.Forms.ComboBox();
             this.ckbEliminar = new System.Windows.Forms.CheckBox();
             this.btninsertar = new System.Windows.Forms.Button();
@@ -75,6 +81,9 @@
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtiphr)).BeginInit();
             this.panelTag.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
@@ -88,7 +97,7 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(483, 166);
+            label2.Location = new System.Drawing.Point(412, 137);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(139, 16);
             label2.TabIndex = 143;
@@ -125,11 +134,11 @@
             label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(10, 50);
+            label3.Location = new System.Drawing.Point(10, 33);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(74, 16);
+            label3.Size = new System.Drawing.Size(66, 16);
             label3.TabIndex = 44;
-            label3.Text = "Representa";
+            label3.Text = "Incidencia";
             // 
             // label5
             // 
@@ -137,11 +146,11 @@
             label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(9, 305);
+            label5.Location = new System.Drawing.Point(9, 320);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(76, 16);
+            label5.Size = new System.Drawing.Size(49, 16);
             label5.TabIndex = 137;
-            label5.Text = "Descripción";
+            label5.Text = "Campo";
             // 
             // label6
             // 
@@ -149,7 +158,7 @@
             label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(10, 87);
+            label6.Location = new System.Drawing.Point(10, 102);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(46, 16);
             label6.TabIndex = 138;
@@ -161,7 +170,7 @@
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(10, 124);
+            label7.Location = new System.Drawing.Point(10, 139);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(75, 16);
             label7.TabIndex = 140;
@@ -173,7 +182,7 @@
             label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(10, 161);
+            label8.Location = new System.Drawing.Point(10, 176);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(49, 16);
             label8.TabIndex = 142;
@@ -185,11 +194,47 @@
             label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(10, 200);
+            label9.Location = new System.Drawing.Point(10, 215);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(49, 16);
+            label9.Size = new System.Drawing.Size(45, 16);
             label9.TabIndex = 144;
-            label9.Text = "Premio";
+            label9.Text = "Afecta";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label10.Location = new System.Drawing.Point(10, 252);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(95, 16);
+            label10.TabIndex = 146;
+            label10.Text = "Pasa a nomina";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label11.Location = new System.Drawing.Point(10, 286);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(51, 16);
+            label11.TabIndex = 148;
+            label11.Text = "Importe";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label12.Location = new System.Drawing.Point(9, 68);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(74, 16);
+            label12.TabIndex = 151;
+            label12.Text = "Representa";
             // 
             // btnAgregar
             // 
@@ -197,7 +242,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
-            this.btnAgregar.Location = new System.Drawing.Point(960, 131);
+            this.btnAgregar.Location = new System.Drawing.Point(960, 102);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
             this.btnAgregar.TabIndex = 144;
@@ -209,30 +254,30 @@
             this.dgvtiphr.AllowUserToAddRows = false;
             this.dgvtiphr.AllowUserToDeleteRows = false;
             this.dgvtiphr.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvtiphr.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvtiphr.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvtiphr.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvtiphr.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvtiphr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvtiphr.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvtiphr.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvtiphr.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvtiphr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvtiphr.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvtiphr.Location = new System.Drawing.Point(408, 186);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvtiphr.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvtiphr.Location = new System.Drawing.Point(408, 158);
             this.dgvtiphr.Name = "dgvtiphr";
             this.dgvtiphr.ReadOnly = true;
             this.dgvtiphr.RowHeadersVisible = false;
@@ -240,7 +285,7 @@
             this.dgvtiphr.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvtiphr.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvtiphr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvtiphr.Size = new System.Drawing.Size(604, 486);
+            this.dgvtiphr.Size = new System.Drawing.Size(604, 514);
             this.dgvtiphr.TabIndex = 142;
             this.dgvtiphr.TabStop = false;
             // 
@@ -250,7 +295,7 @@
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(896, 2);
+            this.btnRegresar.Location = new System.Drawing.Point(896, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(50, 24);
             this.btnRegresar.TabIndex = 139;
@@ -264,12 +309,13 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(973, 2);
+            this.btnMinimizar.Location = new System.Drawing.Point(973, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 138;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
             // 
@@ -278,12 +324,13 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(999, 2);
+            this.btnCerrar.Location = new System.Drawing.Point(999, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 137;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // panelTag
             // 
@@ -312,7 +359,7 @@
             // 
             this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
             this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(12, 31);
+            this.pnlimgusuario.Location = new System.Drawing.Point(12, 30);
             this.pnlimgusuario.Name = "pnlimgusuario";
             this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
             this.pnlimgusuario.TabIndex = 141;
@@ -338,11 +385,11 @@
             this.lbltitulo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbltitulo.Location = new System.Drawing.Point(429, 5);
+            this.lbltitulo.Location = new System.Drawing.Point(429, 2);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(221, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(234, 23);
             this.lbltitulo.TabIndex = 136;
-            this.lbltitulo.Text = "Catalogo de Tipos de Horario  ";
+            this.lbltitulo.Text = "Catalogo Incidencias de Nomina";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlBusqueda
@@ -353,10 +400,10 @@
             this.pnlBusqueda.Controls.Add(this.panel5);
             this.pnlBusqueda.Controls.Add(this.txttipohr);
             this.pnlBusqueda.Controls.Add(label1);
-            this.pnlBusqueda.Location = new System.Drawing.Point(5, 186);
+            this.pnlBusqueda.Location = new System.Drawing.Point(5, 159);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(397, 87);
-            this.pnlBusqueda.TabIndex = 146;
+            this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
             // 
             // btnBuscar
@@ -394,13 +441,19 @@
             // pnltiphr
             // 
             this.pnltiphr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnltiphr.Controls.Add(this.comboBox6);
+            this.pnltiphr.Controls.Add(label12);
+            this.pnltiphr.Controls.Add(this.comboBox5);
+            this.pnltiphr.Controls.Add(label11);
+            this.pnltiphr.Controls.Add(this.cbopasanom);
+            this.pnltiphr.Controls.Add(label10);
             this.pnltiphr.Controls.Add(this.comboBox4);
             this.pnltiphr.Controls.Add(label9);
-            this.pnltiphr.Controls.Add(this.comboBox3);
+            this.pnltiphr.Controls.Add(this.cbopremio);
             this.pnltiphr.Controls.Add(label8);
-            this.pnltiphr.Controls.Add(this.comboBox2);
+            this.pnltiphr.Controls.Add(this.cbotipohr);
             this.pnltiphr.Controls.Add(label7);
-            this.pnltiphr.Controls.Add(this.comboBox1);
+            this.pnltiphr.Controls.Add(this.cbostdir);
             this.pnltiphr.Controls.Add(label6);
             this.pnltiphr.Controls.Add(label5);
             this.pnltiphr.Controls.Add(this.cboRepresenta);
@@ -410,55 +463,90 @@
             this.pnltiphr.Controls.Add(this.panel2);
             this.pnltiphr.Controls.Add(this.txttipohriu);
             this.pnltiphr.Controls.Add(this.lbluid);
-            this.pnltiphr.Location = new System.Drawing.Point(5, 279);
+            this.pnltiphr.Location = new System.Drawing.Point(5, 252);
             this.pnltiphr.Name = "pnltiphr";
-            this.pnltiphr.Size = new System.Drawing.Size(397, 393);
-            this.pnltiphr.TabIndex = 147;
+            this.pnltiphr.Size = new System.Drawing.Size(397, 420);
+            this.pnltiphr.TabIndex = 3;
             this.pnltiphr.TabStop = true;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.comboBox6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(106, 65);
+            this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(266, 24);
+            this.comboBox6.TabIndex = 150;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.comboBox5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(107, 283);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(266, 24);
+            this.comboBox5.TabIndex = 149;
+            // 
+            // cbopasanom
+            // 
+            this.cbopasanom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbopasanom.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbopasanom.FormattingEnabled = true;
+            this.cbopasanom.Location = new System.Drawing.Point(107, 249);
+            this.cbopasanom.Margin = new System.Windows.Forms.Padding(2);
+            this.cbopasanom.Name = "cbopasanom";
+            this.cbopasanom.Size = new System.Drawing.Size(266, 24);
+            this.cbopasanom.TabIndex = 147;
             // 
             // comboBox4
             // 
             this.comboBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.comboBox4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(90, 197);
+            this.comboBox4.Location = new System.Drawing.Point(107, 212);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(249, 24);
+            this.comboBox4.Size = new System.Drawing.Size(266, 24);
             this.comboBox4.TabIndex = 145;
             // 
-            // comboBox3
+            // cbopremio
             // 
-            this.comboBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.comboBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(90, 158);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(249, 24);
-            this.comboBox3.TabIndex = 143;
+            this.cbopremio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbopremio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbopremio.FormattingEnabled = true;
+            this.cbopremio.Location = new System.Drawing.Point(107, 173);
+            this.cbopremio.Margin = new System.Windows.Forms.Padding(2);
+            this.cbopremio.Name = "cbopremio";
+            this.cbopremio.Size = new System.Drawing.Size(266, 24);
+            this.cbopremio.TabIndex = 143;
             // 
-            // comboBox2
+            // cbotipohr
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.comboBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(90, 121);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(249, 24);
-            this.comboBox2.TabIndex = 141;
+            this.cbotipohr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbotipohr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbotipohr.FormattingEnabled = true;
+            this.cbotipohr.Location = new System.Drawing.Point(107, 136);
+            this.cbotipohr.Margin = new System.Windows.Forms.Padding(2);
+            this.cbotipohr.Name = "cbotipohr";
+            this.cbotipohr.Size = new System.Drawing.Size(266, 24);
+            this.cbotipohr.TabIndex = 141;
             // 
-            // comboBox1
+            // cbostdir
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(90, 84);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(249, 24);
-            this.comboBox1.TabIndex = 139;
+            this.cbostdir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbostdir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbostdir.FormattingEnabled = true;
+            this.cbostdir.Location = new System.Drawing.Point(107, 99);
+            this.cbostdir.Margin = new System.Windows.Forms.Padding(2);
+            this.cbostdir.Name = "cbostdir";
+            this.cbostdir.Size = new System.Drawing.Size(266, 24);
+            this.cbostdir.TabIndex = 139;
             // 
             // cboRepresenta
             // 
@@ -467,17 +555,17 @@
             this.cboRepresenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cboRepresenta.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRepresenta.FormattingEnabled = true;
-            this.cboRepresenta.Location = new System.Drawing.Point(90, 47);
+            this.cboRepresenta.Location = new System.Drawing.Point(107, 30);
             this.cboRepresenta.Margin = new System.Windows.Forms.Padding(2);
             this.cboRepresenta.Name = "cboRepresenta";
-            this.cboRepresenta.Size = new System.Drawing.Size(249, 24);
-            this.cboRepresenta.TabIndex = 136;
+            this.cboRepresenta.Size = new System.Drawing.Size(266, 24);
+            this.cboRepresenta.TabIndex = 4;
             // 
             // ckbEliminar
             // 
             this.ckbEliminar.AutoSize = true;
             this.ckbEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbEliminar.Location = new System.Drawing.Point(8, 370);
+            this.ckbEliminar.Location = new System.Drawing.Point(110, 347);
             this.ckbEliminar.Name = "ckbEliminar";
             this.ckbEliminar.Size = new System.Drawing.Size(47, 17);
             this.ckbEliminar.TabIndex = 135;
@@ -491,7 +579,7 @@
             this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
-            this.btninsertar.Location = new System.Drawing.Point(338, 327);
+            this.btninsertar.Location = new System.Drawing.Point(324, 352);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(50, 50);
             this.btninsertar.TabIndex = 134;
@@ -500,9 +588,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(88, 323);
+            this.panel2.Location = new System.Drawing.Point(107, 336);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 1);
+            this.panel2.Size = new System.Drawing.Size(266, 1);
             this.panel2.TabIndex = 43;
             // 
             // txttipohriu
@@ -510,9 +598,9 @@
             this.txttipohriu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txttipohriu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txttipohriu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttipohriu.Location = new System.Drawing.Point(89, 306);
+            this.txttipohriu.Location = new System.Drawing.Point(108, 319);
             this.txttipohriu.Name = "txttipohriu";
-            this.txttipohriu.Size = new System.Drawing.Size(250, 15);
+            this.txttipohriu.Size = new System.Drawing.Size(266, 15);
             this.txttipohriu.TabIndex = 1;
             // 
             // lbluid
@@ -533,6 +621,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.pnltiphr);
             this.Controls.Add(this.pnlBusqueda);
@@ -587,8 +676,11 @@
         private System.Windows.Forms.Label lbluid;
         private System.Windows.Forms.ComboBox cboRepresenta;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbopremio;
+        private System.Windows.Forms.ComboBox cbotipohr;
+        private System.Windows.Forms.ComboBox cbostdir;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cbopasanom;
+        private System.Windows.Forms.ComboBox comboBox6;
     }
 }
