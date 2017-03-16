@@ -89,9 +89,7 @@ namespace SIPAA_CS
         {
             Usuario objUsuario = new Usuario();
             string idtrab = LoginInfo.IdTrab;
-            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab);
-
-
+            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario("140414");
             Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
         }
 

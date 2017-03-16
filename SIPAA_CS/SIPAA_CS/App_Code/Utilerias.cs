@@ -122,9 +122,9 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         public static void DashboardDinamico(Panel PanelMetro, List<string> ltPermisos)
         {
+            int Ultimoboton = (PanelMetro.Controls.Count - 1);
 
-
-            for (int iContador = (PanelMetro.Controls.Count - 1); iContador > -1; iContador--)
+            for (int iContador = Ultimoboton; iContador > -1; iContador--)
             {
                 Button btn = (Button)PanelMetro.Controls[iContador];
                 string str = Convert.ToString(btn.Tag);
@@ -140,14 +140,40 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                         int ibtnContador = iContador + 1;
                         while (PanelMetro.Controls[ibtnContador].Visible != true)
                         {
-
-                            Point location = PanelMetro.Controls[ibtnContador].Location;
+                            
+                           Point location = PanelMetro.Controls[ibtnContador].Location;
 
                             btn.Location = location;
 
                             ibtnContador = ibtnContador + 1;
 
                         }
+
+                       
+
+                        if (ibtnContador < (Ultimoboton - 1))
+                        {
+
+                            ibtnContador = ibtnContador + 1;
+
+                            while (ibtnContador < (Ultimoboton))
+                            {
+
+                                Point location = PanelMetro.Controls[ibtnContador].Location;
+
+                                btn.Location = location;
+
+                                ibtnContador = ibtnContador + 1;
+
+                            }
+
+                            Ultimoboton = ibtnContador;
+                        }
+                        else {
+
+                            Ultimoboton = ibtnContador - 1;
+                        }
+
                     }
                 }
 

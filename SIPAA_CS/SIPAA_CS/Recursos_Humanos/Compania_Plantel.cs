@@ -60,5 +60,23 @@ namespace SIPAA_CS.Recursos_Humanos
         {
             LlenarGridPlanteles((cbCia.SelectedIndex + 1), txtBuscarPerfil.Text, dgvPlantel);
         }
+
+        private void PanelPlantilla_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Compania_Plantel_Load(object sender, EventArgs e)
+        {
+            CompaniasSonarh objCia = new CompaniasSonarh();
+            DataTable dtCia = objCia.obtcomp(1, "");
+            List<string> ltCia = new List<string>();
+            foreach (DataRow row in dtCia.Rows)
+            {
+                ltCia.Add(row["Descripción"].ToString());
+            }
+            cbCia.DataSource = ltCia;
+            LlenarGridPlanteles(1, "", dgvPlantel);
+        }
     }
 }

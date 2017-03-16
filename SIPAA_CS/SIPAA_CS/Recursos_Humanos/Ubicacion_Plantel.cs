@@ -41,5 +41,10 @@ namespace SIPAA_CS.Recursos_Humanos
         {
             llenarGrid(txtBuscarUbicacion.Text);
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

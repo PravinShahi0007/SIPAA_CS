@@ -43,9 +43,9 @@ namespace SIPAA_CS
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void btnCerrar_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
+            DialogResult result = MessageBox.Show("¿Seguro que deseas salir?", "SIPAA", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -55,157 +55,141 @@ namespace SIPAA_CS
             {
 
             }
-            else if (result == DialogResult.Cancel)
-            {
 
-            }
         }
 
-        private void btnMinimizar_Click(object sender, EventArgs e)
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-           
-            //valida si es numero
-            if (utilerias.IsNumber(txtUsuario.Text))
+            //valida si estan vacios los textbox
+            if (txtUsuario.Text != String.Empty && txtPwd.Text != String.Empty)
             {
-                user = txtUsuario.Text;
-                pwd = txtPwd.Text;
-                int us = Convert.ToInt32(user);
+                //MessageBox.Show("esta lleno");
 
-                string password = utilerias.cifradoMd5(pwd);
-
-                Console.Write(password);
-                MessageBox.Show("es numero");
-                try
+                //valida si es numero
+                if (utilerias.IsNumber(txtUsuario.Text))
                 {
-                    //obtiene la lista 
-                    usuario = usuario.ObtenerListaTrabajadorUsuario(us);
+                    user = txtUsuario.Text;
+                    pwd = txtPwd.Text;
+                    int us = Convert.ToInt32(user);
 
-                    //valida si lo encontro
-                    if (usuario.enc == 1)
+                    string password = utilerias.cifradoMd5(pwd);
+
+                    Console.Write(password);
+                    //MessageBox.Show("es numero");
+                    try
                     {
-                        //valida si esta activo en sonarh
-                        if (usuario.st == 1)
-                        {
-                            //MessageBox.Show("El usuario " + usuario.Nombre + " esta activo en sonarh");
-                            int u = usuario.AsignarAccesoUsuario("", us, "", "", 0, "", "", 4);
+                        //obtiene la lista 
+                        usuario = usuario.ObtenerListaTrabajadorUsuario(us);
 
-                            //valida si esta activo en sipaa
-                            if (u == 1)
+                        //valida si lo encontro
+                        if (usuario.enc == 1)
+                        {
+                            //valida si esta activo en sonarh
+                            if (usuario.st == 1)
                             {
-                                //MessageBox.Show("El usuario  esta activo en sipaa");
-                                int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), us, "", password.Trim(), 0, "", "", 5);
-                                if (respuesta == 1)
+                                //MessageBox.Show("El usuario " + usuario.Nombre + " esta activo en sonarh");
+                                int u = usuario.AsignarAccesoUsuario("", us, "", "", 0, "", "", 4);
+
+                                //valida si esta activo en sipaa
+                                if (u == 1)
                                 {
-                                    Dashboard ds = new Dashboard();
-                                    LoginInfo.IdTrab = txtUsuario.Text;
-                                    //ds.RecibirIdTrab(txtUsuario.Text);
-                                    ds.Show();
-                                    this.Close();
+                                    //MessageBox.Show("El usuario  esta activo en sipaa");
+                                    int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), us, "", password.Trim(), 0, "", "", 5);
+                                    if (respuesta == 1)
+                                    {
+                                        Dashboard ds = new Dashboard();
+                                        LoginInfo.IdTrab = txtUsuario.Text;
+                                        //ds.RecibirIdTrab(txtUsuario.Text);
+                                        ds.Show();
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Usuario y contraseña no coincide");
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Usuario y contraseña no coincide");
+                                    MessageBox.Show("El usuario  esta inaactivo en sipaa");
                                 }
+
                             }
                             else
                             {
-                                MessageBox.Show("El usuario  esta inaactivo en sipaa");
+                                MessageBox.Show("El usuario " + usuario.Nombre + " esta inactivo");
+                                //utilerias.DisableBotones(btnGuardar, 1, true);
                             }
 
                         }
                         else
                         {
-                            MessageBox.Show("El usuario " + usuario.Nombre + " esta inactivo");
-                            //utilerias.DisableBotones(btnGuardar, 1, true);
+                            MessageBox.Show("No se encontró usuario en SONARH");
                         }
-
                     }
-                    else
+                    catch (Exception)
                     {
+
                         MessageBox.Show("No se encontró usuario en SONARH");
                     }
                 }
-                catch (Exception)
+
+
+                //valida si es textto
+                if (!utilerias.IsNumber(txtUsuario.Text))
                 {
+                    user = txtUsuario.Text;
+                    pwd = txtPwd.Text;
+                    //int us = Convert.ToInt32(user);
 
-                    MessageBox.Show("No se encontró usuario en SONARH");
-                }
-            }
+                    string password = utilerias.cifradoMd5(pwd);
 
-            //valida si es textto
-            if (!utilerias.IsNumber(txtUsuario.Text))
-            {
-                user = txtUsuario.Text;
-                pwd = txtPwd.Text;
-                int us = Convert.ToInt32(user);
+                    Console.Write(password);
+                    //MessageBox.Show("no es numero");
 
-                string password = utilerias.cifradoMd5(pwd);
+                    try
+                    {
+                       
+                        int u = usuario.AsignarAccesoUsuario(user, 0, "", "", 0, "", "", 9);
 
-                Console.Write(password);
-                MessageBox.Show("no es numero");
-
-                try
-                {
-                    //obtiene la lista de sonarh
-                    //usuario = usuario.ObtenerListaTrabajadorUsuario(us);
-
-                    //valida si lo encontro en sonarh
-                    //if (usuario.enc == 1)
-                    //{
-                        //valida si esta activo en sonarh
-                        //if (usuario.st == 1)
-                        //{
-                            //MessageBox.Show("El usuario " + usuario.Nombre + " esta activo en sonarh");
-                            int u = usuario.AsignarAccesoUsuario("", us, "", "", 0, "", "", 9);
-
-                            //valida si esta activo en sipaa
-                            if (u == 1)
+                        //valida si esta activo en sipaa
+                        if (u == 1)
+                        {
+                            //MessageBox.Show("El usuario  esta activo en sipaa");
+                            int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), 0, "", password.Trim(), 0, "", "", 5);
+                            if (respuesta == 1)
                             {
-                                //MessageBox.Show("El usuario  esta activo en sipaa");
-                                int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), us, "", password.Trim(), 0, "", "", 5);
-                                if (respuesta == 1)
-                                {
-                                    Dashboard ds = new Dashboard();
-                                    LoginInfo.IdTrab = txtUsuario.Text;
-                                    //ds.RecibirIdTrab(txtUsuario.Text);
-                                    ds.Show();
-                                    this.Close();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Usuario y contraseña no coincide");
-                                }
+                                Dashboard ds = new Dashboard();
+                                LoginInfo.IdTrab = txtUsuario.Text;
+                                //ds.RecibirIdTrab(txtUsuario.Text);
+                                ds.Show();
+                                this.Close();
                             }
                             else
                             {
-                                MessageBox.Show("El usuario  esta inaactivo en sipaa");
+                                MessageBox.Show("Usuario y contraseña no coincide");
                             }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El usuario  esta inaactivo en sipaa");
+                        }
+                        
+                    }
+                    catch (Exception)
+                    {
 
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("El usuario " + usuario.Nombre + " esta inactivo");
-                        //    //utilerias.DisableBotones(btnGuardar, 1, true);
-                        //}
-
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("No se encontró usuario en SONARH");
-                    //}
-                }
-                catch (Exception)
-                {
-
-                    MessageBox.Show("No se encontró usuario en SONARH");
+                        MessageBox.Show("No se encontró usuario en SONARH");
+                    }
                 }
             }
-           
-            
+            else
+            {
+                MessageBox.Show("Asigna Usuario y  Contraseña");
+            }
             
         }
         //-----------------------------------------------------------------------------------------------
@@ -218,7 +202,7 @@ namespace SIPAA_CS
         //-----------------------------------------------------------------------------------------------
         private void Acceso_Load(object sender, EventArgs e)
         {
-
+            txtUsuario.Focus();
         }
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
@@ -237,8 +221,7 @@ namespace SIPAA_CS
                 Location = new Point(Cursor.Position.X - formPosition.X, Cursor.Position.Y - formPosition.Y);
             }
         }
-
-       
+        
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
@@ -248,7 +231,7 @@ namespace SIPAA_CS
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
-        
-       
+
+
     }
 }

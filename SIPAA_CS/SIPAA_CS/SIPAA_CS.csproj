@@ -116,8 +116,16 @@
       <DependentUpon>Departamentos.cs</DependentUpon>
     </Compile>
     <!---<Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">-->
+    <Compile Include="App_Code\Incidencia.cs" />
     <Compile Include="Recursos_Humanos\App_Code\IncNomina.cs" />
     <Compile Include="Recursos_Humanos\frmCompanias.cs">
+    <Compile Include="Recursos_Humanos\Administracion\Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Empleados.Designer.cs">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Recursos_Humanos\frmCompanias.Designer.cs">
@@ -130,6 +138,14 @@
       <DependentUpon>Puestos.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\Administracion\TipoHorario.cs">
+    <Compile Include="Recursos_Humanos\Administracion\Mensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Mensajes.Designer.cs">
+      <DependentUpon>Mensajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\App_Code\CompaniasSonarh.cs" />
+    <Compile Include="Recursos_Humanos\Administracion\Crear_Procesos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Recursos_Humanos\Administracion\TipoHorario.Designer.cs">
@@ -141,34 +157,45 @@
     <Compile Include="Recursos_Humanos\Administracion\frmDiasFestivos.Designer.cs">
       <DependentUpon>frmDiasFestivos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\App_Code\CompaniasSonarh.cs" />
+    <Compile Include="App_Code\CompaniasSonarh.cs" />
     <Compile Include="Accesos\Crear_Procesos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accesos\Crear_Procesos.Designer.cs">
       <DependentUpon>Crear_Procesos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\App_Code\DepartamentosSonarh.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\DiasFestivos.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Modulo.cs" />
+    <Compile Include="App_Code\DepartamentosSonarh.cs" />
+    <Compile Include="App_Code\DiasFestivos.cs" />
+    <Compile Include="App_Code\Modulo.cs" />
     <Compile Include="Recursos_Humanos\frmFormReg.cs">
+    <Compile Include="Recursos_Humanos\App_Code\DepartamentosSonarh.cs" />
+    <Compile Include="Recursos_Humanos\App_Code\EmpleadosSonarh.cs" />
+    <Compile Include="Recursos_Humanos\App_Code\MensajesSonarh.cs" />
+    <Compile Include="Recursos_Humanos\App_Code\Modulo.cs" />
+    <Compile Include="Recursos_Humanos\Administracion\frmFormReg.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Recursos_Humanos\frmFormReg.Designer.cs">
       <DependentUpon>frmFormReg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\App_Code\FormReg.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Perfil.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Proceso.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\PuestosSonarh.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\TipoHr.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Usuario.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Utilerias.cs" />
+    <Compile Include="App_Code\FormReg.cs" />
+    <Compile Include="App_Code\Perfil.cs" />
+    <Compile Include="App_Code\Proceso.cs" />
+    <Compile Include="App_Code\PuestosSonarh.cs" />
+    <Compile Include="App_Code\TipoHr.cs" />
+    <Compile Include="App_Code\Usuario.cs" />
+    <Compile Include="App_Code\Utilerias.cs" />
     <Compile Include="Recursos_Humanos\Compania_Plantel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Recursos_Humanos\Compania_Plantel.Designer.cs">
       <DependentUpon>Compania_Plantel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Incapacidad_Representa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Incapacidad_Representa.Designer.cs">
+      <DependentUpon>Incapacidad_Representa.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\IncidenciasNom.cs">
       <SubType>Form</SubType>
@@ -233,6 +260,10 @@
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Empleados.resx">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\frmCompanias.resx">
       <DependentUpon>frmCompanias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Crear_Procesos.resx">
@@ -247,6 +278,9 @@
     <EmbeddedResource Include="Recursos_Humanos\Compania_Plantel.resx">
       <DependentUpon>Compania_Plantel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Incapacidad_Representa.resx">
+      <DependentUpon>Incapacidad_Representa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\frmFormReg.resx">
       <DependentUpon>frmFormReg.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\TipoHorario.resx">
       <DependentUpon>TipoHorario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Mensajes.resx">
+      <DependentUpon>Mensajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
