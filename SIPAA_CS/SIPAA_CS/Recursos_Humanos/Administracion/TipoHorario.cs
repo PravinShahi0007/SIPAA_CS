@@ -138,7 +138,14 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 //inserta registro nuevo
                 fuidtiphr(1,0,txttipohriu.Text.Trim(), "nam", "TipoHorario");
                 dgvtiphr.DataSource = null;
-                dgvtiphr.Columns.RemoveAt(0);
+                if (pins == 1 && pact == 0 && pelim == 0)
+                {
+                    
+                }
+                else
+                {
+                    dgvtiphr.Columns.RemoveAt(0);
+                }
                 panelTag.Visible = true;
                 txttipohriu.Text = "";
                 txttipohriu.Focus();
@@ -457,25 +464,31 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         }
         private void factgrid()
         {
-            for (int iContador = 0; iContador < dgvtiphr.Rows.Count; iContador++)
+            if (pins == 1 && pact == 0 && pelim == 0)
             {
-                dgvtiphr.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
-
-            if (dgvtiphr.SelectedRows.Count != 0)
+            else
             {
+                for (int iContador = 0; iContador < dgvtiphr.Rows.Count; iContador++)
+                {
+                    dgvtiphr.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                }
 
-                DataGridViewRow row = this.dgvtiphr.SelectedRows[0];
+                if (dgvtiphr.SelectedRows.Count != 0)
+                {
 
-                pcvtipohr = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
-                string ValorRow = row.Cells["Descripción"].Value.ToString();
+                    DataGridViewRow row = this.dgvtiphr.SelectedRows[0];
 
-                pnltiphr.Visible = true;
-                lbluid.Text = "     Modifica Tipo de Horario";
-                txttipohriu.Text = ValorRow;
-                txttipohriu.Focus();
+                    pcvtipohr = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
+                    string ValorRow = row.Cells["Descripción"].Value.ToString();
 
-                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                    pnltiphr.Visible = true;
+                    lbluid.Text = "     Modifica Tipo de Horario";
+                    txttipohriu.Text = ValorRow;
+                    txttipohriu.Focus();
+
+                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                }
             }
         }
         //-----------------------------------------------------------------------------------------------

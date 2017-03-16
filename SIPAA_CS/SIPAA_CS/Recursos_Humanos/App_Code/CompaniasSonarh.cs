@@ -42,7 +42,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             cmd.CommandText = @"usp_compania_s";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
-            SqlConnection sqlcn = objConexion.conexionSonarh();
+            objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = ptextobuscar;
@@ -51,7 +51,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
 
-            objConexion.cerrarConexions();
+            objConexion.asignarConexion(cmd);
 
             DataTable dtcomp = new DataTable();
             Adapter.Fill(dtcomp);
