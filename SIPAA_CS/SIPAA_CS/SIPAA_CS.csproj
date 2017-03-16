@@ -115,10 +115,7 @@
     <Compile Include="Recursos_Humanos\Administracion\Departamentos.Designer.cs">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\frmCompanias.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Recursos_Humanos\App_Code\IncNomina.cs" />
+    <!---<Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">-->
     <Compile Include="Recursos_Humanos\frmCompanias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,12 +169,6 @@
     <Compile Include="Recursos_Humanos\Compania_Plantel.Designer.cs">
       <DependentUpon>Compania_Plantel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\IncidenciasNom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Recursos_Humanos\IncidenciasNom.Designer.cs">
-      <DependentUpon>IncidenciasNom.cs</DependentUpon>
-    </Compile>
     <Compile Include="Recursos_Humanos\Ubicacion_Plantel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +221,7 @@
     <EmbeddedResource Include="Accesos\Crear_Modulo.resx">
       <DependentUpon>Crear_Modulo.cs</DependentUpon>
     </EmbeddedResource>
+    <!--<EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">-->
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,9 +239,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Compania_Plantel.resx">
       <DependentUpon>Compania_Plantel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\IncidenciasNom.resx">
-      <DependentUpon>IncidenciasNom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Ubicacion_Plantel.resx">
       <DependentUpon>Ubicacion_Plantel.cs</DependentUpon>
@@ -611,6 +600,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\16388379_1936191480000670_4493751231525441480_n.png" />
+    <None Include="Resources\icon_material\btnadd1.png" />
+    <None Include="Resources\icon_material\btncre.png" />
+    <None Include="Resources\icon_material\btncre1.png" />
+    <None Include="Resources\icon_material\btncreinfo.png" />
+    <None Include="Resources\icon_material\btncreinfo1.png" />
+    <None Include="Resources\icon_material\btndel.png" />
+    <None Include="Resources\icon_material\btndel1.png" />
+    <None Include="Resources\icon_material\btnremove.png" />
+    <None Include="Resources\icon_material\btnremove1.png" />
+    <None Include="Resources\icon_material\btnsave.png" />
+    <None Include="Resources\icon_material\btnsave1.png" />
+    <None Include="Resources\icon_material\btnsearch.png" />
+    <None Include="Resources\icon_material\btnsearch1.png" />
+    <None Include="Resources\icon_material\btnsearchinfo.png" />
+    <None Include="Resources\icon_material\btnsearchinfo1.png" />
+    <None Include="Resources\icon_material\btnadd.png" />
+    <None Include="Resources\f8.png" />
+    <None Include="Resources\f9.png" />
     <Content Include="Resources\pass24x24.png" />
     <None Include="Resources\user24x241.png" />
     <None Include="Resources\pass24x241.png" />
