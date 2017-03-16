@@ -160,6 +160,7 @@
             this.btnAccesos.Text = "Acessos";
             this.btnAccesos.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnAccesos.UseVisualStyleBackColor = false;
+            this.btnAccesos.Click += new System.EventHandler(this.btnAccesos_Click);
             // 
             // btnIngresos
             // 

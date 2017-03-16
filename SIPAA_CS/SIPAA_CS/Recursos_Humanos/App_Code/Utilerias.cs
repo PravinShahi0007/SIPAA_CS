@@ -104,9 +104,6 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 }
             }
            
-        
-        
-
         public string cifradoMd5(string pass)
         {
             
@@ -341,7 +338,15 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                     break;
             }
         }
-        
+
+        public void cargarcombo(ComboBox nombre, DataTable datoscbo)
+        {
+
+            nombre.DataSource = datoscbo;
+            nombre.DisplayMember = "descripcion";
+            nombre.ValueMember = "clave";
+        }
+
     }
 
 }

@@ -11,6 +11,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 {
     class Proceso
     {
+        
         public Proceso()
         {
         }
@@ -64,6 +65,54 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             objConexion.cerrarConexion();
 
             return regreso;
+        }
+
+        public List<string> obtenerUsuariosxProceso(string cvusuario)
+        {
+
+            List<string> ltUsuariosxProceso = new List<string>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_formasignarproceso";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+
+                string usuarioproceso = Convert.ToString(reader.GetInt32(reader.GetOrdinal("cvproceso")));
+                ltUsuariosxProceso.Add(usuarioproceso);
+            }
+
+            objConexion.cerrarConexion();
+
+            return ltUsuariosxProceso;
+        }
+
+        public void AsignarUsuarioProceso(string cvusuario, int cvproceso,string passw, string usuumod, string prgumod)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_asignarproceso";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@cvproceso", SqlDbType.Int).Value = cvproceso;
+            cmd.Parameters.Add("@passw", SqlDbType.VarChar).Value = passw;
+            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = prgumod;
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.ExecuteNonQuery();
+
+            objConexion.cerrarConexion();
         }
     }
 

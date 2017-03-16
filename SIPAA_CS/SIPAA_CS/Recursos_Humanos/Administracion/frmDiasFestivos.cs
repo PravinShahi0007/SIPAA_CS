@@ -10,27 +10,33 @@ using System.Windows.Forms;
 
 using SIPAA_CS.Properties;
 using SIPAA_CS.Recursos_Humanos.App_Code;
+using SIPAA_CS.Conexiones;
+
 
 namespace SIPAA_CS.Recursos_Humanos.Administracion
 {
-
-    #region variables
-
-
-    #endregion
-
-    public partial class frmCompanias : Form
+    public partial class frmDiasFestivos : Form
     {
-        public frmCompanias()
+        #region
+
+        int iAgr;
+        int iAct;
+        int iEli;
+        int iCvFR;
+
+        #endregion
+
+        DiasFestivos oDiasFestivos = new DiasFestivos();
+
+        public frmDiasFestivos()
         {
             InitializeComponent();
         }
-        CompaniasSonarh companias = new CompaniasSonarh();
 
         //***********************************************************************************************
-        //Autor: Noe Alvarez Marquina
-        //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
-        //Descripción: Lee la tabla de compañias de SONARH
+        //Autor: Benjamin Huizar Barajas
+        //Fecha creación: 13-Mar-2017       Última Modificacion: dd-mm-aaaa
+        //Descripción: Administra Días Festivos
         //***********************************************************************************************
 
         //-----------------------------------------------------------------------------------------------
@@ -43,87 +49,63 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
 
-        //boton buscar compañia 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            //llena grid
-            fgcomp(1,txtComp.Text.Trim());
+        //BOTON BUSCAR
 
-            txtComp.Text = "";
-            txtComp.Focus();
-        }
-
-        //boton minimizar
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        //boton cerrar
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
-
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else if (result == DialogResult.No)
-            {
-
-            }
-        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
+
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void frmCompanias_Load(object sender, EventArgs e)
+        private void frmDiasFestivos_Load(object sender, EventArgs e)
         {
-            //inicializa tool tip
-            ftooltip();
+            //LLAMA TOOL TIP
+            sTooltip();
 
-            txtComp.Focus();
+            //LLAMA METODO LLENAR GRID
+            //SLlenaGrid(1, "");
 
-            //llena grid
-            fgcomp(1,"");
+            iAgr = 1;
+            iAct = 1;
+            iEli = 1;
+
+            //HABILITA BOTON AGREGAR
+            if (iAgr == 1)
+            {
+                btnAgregar.Visible = true;
+            }
         }
+
+        //-----------------------------------------------------------------------------------------------
+        //                                  S U B R U T I N A S
+        //-----------------------------------------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
-        private void ftooltip()
+        //TOOL TIP PARA OBJETOS
+        private void sTooltip()
         {
-            //crea tool tip
+
+            //CREA TOOL TIP
             ToolTip toolTip1 = new ToolTip();
 
-            //configuracion
+            //CONFIGURACION
             toolTip1.AutoPopDelay = 5000;
             toolTip1.InitialDelay = 1000;
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            //configura texto del objeto
+            // CONFIGURA EL TEXTO POR OBJETO
             toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
+            toolTip1.SetToolTip(this.btnAgregar, "Agrega Registro");
             toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
-        }
-        //llena grid compañias
-        private void fgcomp(int popc, string pbusq)
-        {
+            toolTip1.SetToolTip(this.btnGuardar, "Guarda Registro");
+            toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
+            toolTip1.SetToolTip(this.btnEliminar, "Alimina Registro");
 
-            DataTable dtcompania = companias.obtcomp(popc, pbusq);
-            dgvComp.DataSource = dtcompania;
-
-            dgvComp.Columns[0].Visible = false;
-            dgvComp.Columns[1].Width = 355;
-            dgvComp.Columns[2].Width = 125;
-            dgvComp.ClearSelection();
-        }
-
-        //-----------------------------------------------------------------------------------------------
-        //                                      R E P O R T E S
-        //-----------------------------------------------------------------------------------------------
-    }
-}
+        } // private void sTooltip()
+    } // public partial class frmDiasFestivos : Form
+} // namespace SIPAA_CS.Recursos_Humanos.Administracion
