@@ -109,11 +109,23 @@
     <Compile Include="Recursos_Humanos\Administracion\Departamentos.Designer.cs">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Empleados.Designer.cs">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Recursos_Humanos\Administracion\frmCompanias.Designer.cs">
       <DependentUpon>frmCompanias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Mensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Mensajes.Designer.cs">
+      <DependentUpon>Mensajes.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\App_Code\CompaniasSonarh.cs" />
     <Compile Include="Recursos_Humanos\Administracion\Crear_Procesos.cs">
@@ -123,6 +135,8 @@
       <DependentUpon>Crear_Procesos.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\App_Code\DepartamentosSonarh.cs" />
+    <Compile Include="Recursos_Humanos\App_Code\EmpleadosSonarh.cs" />
+    <Compile Include="Recursos_Humanos\App_Code\MensajesSonarh.cs" />
     <Compile Include="Recursos_Humanos\App_Code\Modulo.cs" />
     <Compile Include="Recursos_Humanos\Administracion\frmFormReg.cs">
       <SubType>Form</SubType>
@@ -181,6 +195,9 @@
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Empleados.resx">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\frmCompanias.resx">
       <DependentUpon>frmCompanias.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\frmFormReg.resx">
       <DependentUpon>frmFormReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Mensajes.resx">
+      <DependentUpon>Mensajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
