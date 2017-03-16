@@ -104,9 +104,6 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 }
             }
            
-        
-        
-
         public string cifradoMd5(string pass)
         {
             
