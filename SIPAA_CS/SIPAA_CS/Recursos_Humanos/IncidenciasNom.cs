@@ -49,6 +49,24 @@ namespace SIPAA_CS.Recursos_Humanos
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -57,14 +75,41 @@ namespace SIPAA_CS.Recursos_Humanos
         //-----------------------------------------------------------------------------------------------
         private void IncidenciasNom_Load(object sender, EventArgs e)
         {
+            //habilita tool tip
+            ftooltip();
 
             Util.cargarcombo(cboRepresenta, IncNom.cboInc(1));
-            cboRepresenta.Text = "";
+            
+            Util.cargarcombo(cbotipohr, IncNom.cboTipoHr(4));
+
+            Util.cargarcombo(cbostdir, IncNom.cboEsNoPr(5));
+
+            Util.cargarcombo(cbopremio, IncNom.cboEsNoPr(5));
+
+            Util.cargarcombo(cbopasanom, IncNom.cboEsNoPr(5));
             cboRepresenta.Focus();
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
+        //funcion para tool tip
+        private void ftooltip()
+        {
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
+
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
+            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
+        }
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------

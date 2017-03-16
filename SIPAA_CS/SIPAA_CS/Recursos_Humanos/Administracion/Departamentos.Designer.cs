@@ -263,6 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.JSierra;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(label2);
             this.Controls.Add(this.pnlBusqueda);

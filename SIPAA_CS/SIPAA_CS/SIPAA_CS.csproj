@@ -58,6 +58,7 @@
     <Compile Include="Accesos\Asignar_Proceso.Designer.cs">
       <DependentUpon>Asignar_Proceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\IncNomina.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
     <Compile Include="Accesos\AccesosDashboard.cs">
       <SubType>Form</SubType>
@@ -117,6 +118,12 @@
     </Compile>
     <!---<Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">-->
     <Compile Include="App_Code\Incidencia.cs" />
+    <Compile Include="Recursos_Humanos\Administracion\Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Empleados.Designer.cs">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recursos_Humanos\frmCompanias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +161,7 @@
     <Compile Include="Recursos_Humanos\frmFormReg.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="App_Code\EmpleadosSonarh.cs" />
     <Compile Include="Recursos_Humanos\frmFormReg.Designer.cs">
       <DependentUpon>frmFormReg.cs</DependentUpon>
     </Compile>
@@ -175,6 +183,12 @@
     </Compile>
     <Compile Include="Recursos_Humanos\Incapacidad_Representa.Designer.cs">
       <DependentUpon>Incapacidad_Representa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\IncidenciasNom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\IncidenciasNom.Designer.cs">
+      <DependentUpon>IncidenciasNom.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\Ubicacion_Plantel.cs">
       <SubType>Form</SubType>
@@ -232,6 +246,9 @@
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Empleados.resx">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">
       <DependentUpon>frmCompanias.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,6 +266,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Incapacidad_Representa.resx">
       <DependentUpon>Incapacidad_Representa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\frmFormReg.resx">
+      <DependentUpon>frmFormReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\IncidenciasNom.resx">
+      <DependentUpon>IncidenciasNom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Ubicacion_Plantel.resx">
       <DependentUpon>Ubicacion_Plantel.cs</DependentUpon>
