@@ -49,7 +49,6 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             //llena grid
             fgcomp(1,txtComp.Text.Trim());
 
-
             txtComp.Text = "";
             txtComp.Focus();
         }

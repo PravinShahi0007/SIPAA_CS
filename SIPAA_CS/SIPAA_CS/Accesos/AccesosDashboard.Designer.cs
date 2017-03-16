@@ -38,10 +38,10 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.MenuAccesos = new System.Windows.Forms.MenuStrip();
             this.msCatalogo = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPerfiles = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiModulos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiProcesos = new System.Windows.Forms.ToolStripMenuItem();
             this.msAsignacionPerfil = new System.Windows.Forms.ToolStripMenuItem();
             this.msAsignacionModulo = new System.Windows.Forms.ToolStripMenuItem();
             this.msAsignacionProceso = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,17 +155,17 @@
             this.msAsignacionProceso});
             this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(698, 26);
+            this.MenuAccesos.Size = new System.Drawing.Size(790, 26);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
             // msCatalogo
             // 
             this.msCatalogo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5});
+            this.tsmiUsuarios,
+            this.tsmiPerfiles,
+            this.tsmiModulos,
+            this.tsmiProcesos});
             this.msCatalogo.ForeColor = System.Drawing.Color.White;
             this.msCatalogo.Image = global::SIPAA_CS.Properties.Resources.ic_view_list_white_18dp;
             this.msCatalogo.Name = "msCatalogo";
@@ -173,45 +173,49 @@
             this.msCatalogo.Tag = "frmCatalogos";
             this.msCatalogo.Text = "Catalogos";
             // 
-            // toolStripMenuItem2
+            // tsmiUsuarios
             // 
-            this.toolStripMenuItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItem2.Image = global::SIPAA_CS.Properties.Resources.ic_account_circle_white_24dp;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(143, 22);
-            this.toolStripMenuItem2.Tag = "frmCrear_Usuario";
-            this.toolStripMenuItem2.Text = "Usuarios";
+            this.tsmiUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.tsmiUsuarios.ForeColor = System.Drawing.Color.White;
+            this.tsmiUsuarios.Image = global::SIPAA_CS.Properties.Resources.ic_account_circle_white_24dp;
+            this.tsmiUsuarios.Name = "tsmiUsuarios";
+            this.tsmiUsuarios.Size = new System.Drawing.Size(152, 22);
+            this.tsmiUsuarios.Tag = "frmCrear_Usuario";
+            this.tsmiUsuarios.Text = "Usuarios";
+            this.tsmiUsuarios.Click += new System.EventHandler(this.tsmiUsuarios_Click);
             // 
-            // toolStripMenuItem3
+            // tsmiPerfiles
             // 
-            this.toolStripMenuItem3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItem3.Image = global::SIPAA_CS.Properties.Resources.ic_work_white_24dp;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(143, 22);
-            this.toolStripMenuItem3.Tag = "frmCrear_Perfil";
-            this.toolStripMenuItem3.Text = "Perfiles";
+            this.tsmiPerfiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.tsmiPerfiles.ForeColor = System.Drawing.Color.White;
+            this.tsmiPerfiles.Image = global::SIPAA_CS.Properties.Resources.ic_work_white_24dp;
+            this.tsmiPerfiles.Name = "tsmiPerfiles";
+            this.tsmiPerfiles.Size = new System.Drawing.Size(152, 22);
+            this.tsmiPerfiles.Tag = "frmCrear_Perfil";
+            this.tsmiPerfiles.Text = "Perfiles";
+            this.tsmiPerfiles.Click += new System.EventHandler(this.tsmiPerfiles_Click);
             // 
-            // toolStripMenuItem4
+            // tsmiModulos
             // 
-            this.toolStripMenuItem4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.toolStripMenuItem4.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItem4.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(143, 22);
-            this.toolStripMenuItem4.Tag = "frmCrear_Modulo";
-            this.toolStripMenuItem4.Text = "Módulos";
+            this.tsmiModulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.tsmiModulos.ForeColor = System.Drawing.Color.White;
+            this.tsmiModulos.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
+            this.tsmiModulos.Name = "tsmiModulos";
+            this.tsmiModulos.Size = new System.Drawing.Size(152, 22);
+            this.tsmiModulos.Tag = "frmCrear_Modulo";
+            this.tsmiModulos.Text = "Módulos";
+            this.tsmiModulos.Click += new System.EventHandler(this.tsmiModulos_Click);
             // 
-            // toolStripMenuItem5
+            // tsmiProcesos
             // 
-            this.toolStripMenuItem5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.toolStripMenuItem5.ForeColor = System.Drawing.Color.White;
-            this.toolStripMenuItem5.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(143, 22);
-            this.toolStripMenuItem5.Tag = "frmCrear_Proceso";
-            this.toolStripMenuItem5.Text = "Procesos";
+            this.tsmiProcesos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.tsmiProcesos.ForeColor = System.Drawing.Color.White;
+            this.tsmiProcesos.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
+            this.tsmiProcesos.Name = "tsmiProcesos";
+            this.tsmiProcesos.Size = new System.Drawing.Size(152, 22);
+            this.tsmiProcesos.Tag = "frmCrear_Proceso";
+            this.tsmiProcesos.Text = "Procesos";
+            this.tsmiProcesos.Click += new System.EventHandler(this.tsmiProcesos_Click);
             // 
             // msAsignacionPerfil
             // 
@@ -221,6 +225,7 @@
             this.msAsignacionPerfil.Size = new System.Drawing.Size(176, 22);
             this.msAsignacionPerfil.Tag = "frmAsignar_Perfil";
             this.msAsignacionPerfil.Text = "Asignación de Perfil";
+            this.msAsignacionPerfil.Click += new System.EventHandler(this.msAsignacionPerfil_Click);
             // 
             // msAsignacionModulo
             // 
@@ -230,6 +235,7 @@
             this.msAsignacionModulo.Size = new System.Drawing.Size(199, 22);
             this.msAsignacionModulo.Tag = "frmAsignar_Modulo";
             this.msAsignacionModulo.Text = "Asignación de Modulos";
+            this.msAsignacionModulo.Click += new System.EventHandler(this.msAsignacionModulo_Click);
             // 
             // msAsignacionProceso
             // 
@@ -239,6 +245,7 @@
             this.msAsignacionProceso.Size = new System.Drawing.Size(207, 22);
             this.msAsignacionProceso.Tag = "frmAsignar_Proceso";
             this.msAsignacionProceso.Text = "Asignación de Procesos";
+            this.msAsignacionProceso.Click += new System.EventHandler(this.msAsignacionProceso_Click);
             // 
             // panel3
             // 
@@ -288,10 +295,10 @@
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.MenuStrip MenuAccesos;
         private System.Windows.Forms.ToolStripMenuItem msCatalogo;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem tsmiUsuarios;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPerfiles;
+        private System.Windows.Forms.ToolStripMenuItem tsmiModulos;
+        private System.Windows.Forms.ToolStripMenuItem tsmiProcesos;
         private System.Windows.Forms.ToolStripMenuItem msAsignacionPerfil;
         private System.Windows.Forms.ToolStripMenuItem msAsignacionModulo;
         private System.Windows.Forms.ToolStripMenuItem msAsignacionProceso;

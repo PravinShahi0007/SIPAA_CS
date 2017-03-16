@@ -141,10 +141,10 @@
       <DependentUpon>frmDiasFestivos.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\App_Code\CompaniasSonarh.cs" />
-    <Compile Include="Recursos_Humanos\Administracion\Crear_Procesos.cs">
+    <Compile Include="Accesos\Crear_Procesos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\Crear_Procesos.Designer.cs">
+    <Compile Include="Accesos\Crear_Procesos.Designer.cs">
       <DependentUpon>Crear_Procesos.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\App_Code\DepartamentosSonarh.cs" />
@@ -228,7 +228,7 @@
     <EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">
       <DependentUpon>frmCompanias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Procesos.resx">
+    <EmbeddedResource Include="Accesos\Crear_Procesos.resx">
       <DependentUpon>Crear_Procesos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\frmDiasFestivos.resx">
@@ -606,6 +606,13 @@
     <Content Include="Resources\user24x24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

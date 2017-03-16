@@ -111,6 +111,11 @@ namespace SIPAA_CS
 
         private void btnRecursosh_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void btnAccesos_Click(object sender, EventArgs e)
+        {
             AccesosDashboard Ads = new AccesosDashboard();
             Ads.Show();
             //this.Hide();   
