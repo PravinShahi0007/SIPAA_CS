@@ -15,6 +15,11 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         public string CVModulo;
         public string Descripcion;
         public string CVModPadre;
+        public int steli;
+        public int stcre;
+        public int stact;
+        public int stimp;
+        public int stlec;
         public int Orden;
         public string Ambiente;
         public string strModulo;
@@ -68,6 +73,41 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
+
+        public Modulo ObtenerPermisosxModulo(string CVModulo,int CVPerfil)
+        { 
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechpermisos_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("cv", SqlDbType.VarChar).Value = CVPerfil.ToString();
+            cmd.Parameters.Add("CVModulo", SqlDbType.VarChar).Value = CVModulo;
+            cmd.Parameters.Add("Opcion", SqlDbType.VarChar).Value = 2;
+
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            Modulo objModulo = new Modulo();
+
+            while (reader.Read())
+            {
+
+                
+                objModulo.CVModulo = reader.GetString(reader.GetOrdinal("CVMODULO"));
+                objModulo.steli = reader.GetInt32(reader.GetOrdinal("steli"));
+                objModulo.stact = reader.GetInt32(reader.GetOrdinal("stact"));
+                objModulo.stlec = reader.GetInt32(reader.GetOrdinal("stlec"));
+                objModulo.stcre = reader.GetInt32(reader.GetOrdinal("stcre"));
+                objModulo.stimp = reader.GetInt32(reader.GetOrdinal("stimp"));
+            }
+
+            objConexion.cerrarConexion();
+
+            return objModulo;
+
+        }
+
         public DataTable ObtenerDataTableModulo(List<Modulo> ltModulos)
         {
 
@@ -112,6 +152,9 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
+
+      
+
         public List<string> obtenerModulosxPerfil(int CVPerfil)
         {
 
@@ -119,6 +162,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"sp_BuscarModuloxPerfil";
             cmd.CommandType = CommandType.StoredProcedure;
+
 
             cmd.Parameters.Add("@CVPerfil", SqlDbType.Int).Value = CVPerfil;
 
@@ -130,9 +174,16 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             while (reader.Read())
             {
+                Modulo objModulo = new Modulo();
+                objModulo.CVModulo = reader.GetString(reader.GetOrdinal("CVMODULO"));
+                objModulo.steli = reader.GetInt32(reader.GetOrdinal("steli"));
+                objModulo.stact = reader.GetInt32(reader.GetOrdinal("stact"));
+                objModulo.stlec = reader.GetInt32(reader.GetOrdinal("stlec"));
+                objModulo.stimp = reader.GetInt32(reader.GetOrdinal("stimp"));
+                objModulo.stcre = reader.GetInt32(reader.GetOrdinal("stcre"));
 
-                CVModulo = reader.GetString(reader.GetOrdinal("CVMODULO"));
-                ltModulosxPerfil.Add(CVModulo);
+
+                ltModulosxPerfil.Add(objModulo.CVModulo);
             }
 
             objConexion.cerrarConexion();
@@ -159,6 +210,8 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = CVUsuario;
+            cmd.Parameters.Add("@cvmodulo", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@Opcion", SqlDbType.VarChar).Value = 1;
             objConexion.asignarConexion(cmd);
 
             SqlDataReader reader = cmd.ExecuteReader();

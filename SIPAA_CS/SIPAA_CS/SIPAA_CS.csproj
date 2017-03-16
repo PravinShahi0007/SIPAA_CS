@@ -628,6 +628,15 @@
     <None Include="Resources\icon_material\btnadd.png" />
     <None Include="Resources\f8.png" />
     <None Include="Resources\f9.png" />
+    <None Include="Resources\b6.png" />
+    <None Include="Resources\b7.png" />
+    <None Include="Resources\b8.png" />
+    <None Include="Resources\Lb2.png" />
+    <None Include="Resources\b1.png" />
+    <None Include="Resources\b3.png" />
+    <None Include="Resources\b4.png" />
+    <None Include="Resources\b5.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_light_blue_A100_18dp.png" />
     <Content Include="Resources\pass24x24.png" />
     <None Include="Resources\user24x241.png" />
     <None Include="Resources\pass24x241.png" />

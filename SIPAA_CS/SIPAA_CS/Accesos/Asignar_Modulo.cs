@@ -22,7 +22,9 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
     public partial class Asignar_Modulo : Form
     {
         public int CVPerfil = 0;
-
+        public string CVModulo;
+        public int ultimaseleccion = 0;
+        public int iOpcionAdmin;
 
 
         //-----------------------------------------------------------------------------------------------
@@ -58,15 +60,19 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 {
                     string cvModulo = dgvModulos.Rows[iContador].Cells[1].Value.ToString();
 
-                    if (ltPerfilesxUsuario.Contains(cvModulo))
-                    {
-                        dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                  
+                        if (ltPerfilesxUsuario.Contains(cvModulo))
+                        {
+                            dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
-                    }
-                    else
-                    {
-                        dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                    }
+                        }
+                        else
+                        {
+                            dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                        }
+                    
+
+                  
                 }
 
 
@@ -75,35 +81,61 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         private void dgvModulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+
+           
+               
+
             if (CVPerfil != 0)
             {
 
+                dgvModulos.Rows[ultimaseleccion].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+
+                dgvPerfil_CellContentClick(sender, e);
+
+
                 if (dgvModulos.SelectedRows.Count != 0)
                 {
+
+                    panelPermisos.Enabled = true;
                     DataGridViewRow row = this.dgvModulos.SelectedRows[0];
 
-                    string CVModulo = row.Cells[1].Value.ToString();
-                    string UsuuMod = "vjiturburuv";
-                    string PrguMod = "Recursos_Humanos";
+                    ultimaseleccion = row.Index;
 
-                    try
+                    CVModulo = row.Cells[1].Value.ToString();
+
+                    row.Cells[0].Value = Resources.ic_check_circle_blue_grey_600_18dp;
+
+                    Modulo objModulo = new Modulo();
+                    objModulo = objModulo.ObtenerPermisosxModulo(CVModulo, CVPerfil);
+
+                    iOpcionAdmin = 1;
+
+                    if (objModulo.CVModulo == "0")
                     {
-                        Perfil objPerfil = new Perfil();
-                        objPerfil.AsignarModuloAPerfil(CVModulo, CVPerfil, UsuuMod, PrguMod);
-                        panelTag.Visible = true;
-                        panelTag.BackColor = ColorTranslator.FromHtml("#439047");
-                        lbMensaje.Text = "Cambio Hecho Correctamente";
-                        dgvPerfil_CellContentClick(sender, e);
+                       btnGuardar.Image = Resources.b8;
+                        ckbEliminarAsig.Visible = false;
 
+
+                        panelPermisos.Enabled = false;
+                        ckbActualizar.Checked = false;
+                        ckbAgregar.Checked = false;
+                        ckbEliminar.Checked = false;
+                        ckbEliminarAsig.Checked = false;
+                        ckbImprimir.Checked = false;
+                        ckbLectura.Checked = false;
                     }
-                    catch (Exception ex)
-                    {
-
-                        panelTag.Visible = true;
-                        panelTag.BackColor = ColorTranslator.FromHtml("#ef5350");
-                        lbMensaje.Text = "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.";
-
+                    else {
+                        btnGuardar.Image = Resources.Lb2;
+                        ckbEliminarAsig.Visible = true;
+                        if (objModulo.steli == 1) { ckbEliminar.Checked = true; } else { ckbEliminar.Checked = false; }
+                        if (objModulo.stimp == 1) { ckbImprimir.Checked = true; } else { ckbImprimir.Checked = false; }
+                        if (objModulo.stact == 1) { ckbActualizar.Checked = true; } else { ckbActualizar.Checked = false; }
+                        if (objModulo.stlec == 1) { ckbLectura.Checked = true; } else { ckbLectura.Checked = false; }
+                        if (objModulo.stcre == 1) { ckbAgregar.Checked = true; } else { ckbAgregar.Checked = false; }
                     }
+
+                   
                 }
 
             }
@@ -113,6 +145,8 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 panelTag.Visible = true;
                 panelTag.BackColor = ColorTranslator.FromHtml("#29b6f6");
                 lbMensaje.Text = "No se ha Seleccionado a un Usuario";
+                dgvModulos.ClearSelection();
+                dgvPerfil.ClearSelection();
             }
         }
 
@@ -123,6 +157,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         private void btnBuscarPerfil_Click(object sender, EventArgs e)
         {
+            panelPermisos.Enabled = false;
             panelTag.Visible = false;
             CVPerfil = 0;
             dgvPerfil.Columns.Remove(columnName: "imgPerfiles");
@@ -157,11 +192,13 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
 
-
+            dgvModulos.ClearSelection();
+            dgvPerfil.ClearSelection();
         }
 
         private void btnBuscarModulo_Click(object sender, EventArgs e)
         {
+            panelPermisos.Enabled = false;
             CVPerfil = 0;
             dgvModulos.Columns.Remove(columnName: "imgModulos");
             panelTag.Visible = false;
@@ -214,6 +251,9 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             {
                 dgvPerfil.Rows[iContador].Cells[2].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
+
+            dgvModulos.ClearSelection();
+            dgvPerfil.ClearSelection();
         }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -268,12 +308,30 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             dgvPerfil.Columns["CVPERFIL"].Visible = false;
             dgvModulos.Columns["Estatus"].Visible = false;
 
+
+
+            panelPermisos.Enabled = false;
+            ckbActualizar.Checked = false;
+            ckbAgregar.Checked = false;
+            ckbEliminar.Checked = false;
+            ckbEliminarAsig.Checked = false;
+            ckbImprimir.Checked = false;
+            ckbLectura.Checked = false;
         }
 
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
 
+        private void AsignarPermisosObjeto(Modulo objModulo) {
+
+            if (ckbActualizar.Checked == true) { objModulo.stact = 1; } else { objModulo.stact = 0; }
+            if (ckbAgregar.Checked == true) { objModulo.stcre = 1; } else { objModulo.stcre = 0; }
+            if (ckbEliminar.Checked == true) { objModulo.steli = 1; } else { objModulo.steli = 0; }
+            if (ckbImprimir.Checked == true) { objModulo.stimp = 1; } else { objModulo.stimp = 0; }
+          
+
+        }
 
 
         //-----------------------------------------------------------------------------------------------
@@ -286,5 +344,74 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
                     }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                Perfil objPerfil = new Perfil();
+                Modulo objModulo = new Modulo();
+                objModulo.CVModulo = CVModulo;
+                objModulo.UsuuMod = "vjiturburuv";
+                objModulo.PrguMod = this.Name;
+                AsignarPermisosObjeto(objModulo);
+                int response = objPerfil.AsignarModuloAPerfil(objModulo, CVPerfil,iOpcionAdmin);
+                panelTag.Visible = true;
+                timer1.Start();
+                if (response == 0) {
+                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
+                    lbMensaje.Text = "Actualización Correcta";
+                    
+                }else if(response == 1)
+                {
+                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
+                    lbMensaje.Text = "Asignación Correcta";
+
+                }
+                else if (response == 2)
+                {
+                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
+                    lbMensaje.Text = "Asignación eliminada";
+
+                }
+
+
+                panelPermisos.Enabled = false;
+                ckbActualizar.Checked = false;
+                ckbAgregar.Checked = false;
+                ckbEliminar.Checked = false;
+                ckbEliminarAsig.Checked = false;
+                ckbImprimir.Checked = false;
+                ckbLectura.Checked = false;
+            }
+            catch (Exception ex)
+            {
+
+                panelTag.Visible = true;
+                panelTag.BackColor = ColorTranslator.FromHtml("#ef5350");
+                lbMensaje.Text = "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.";
+
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbEliminarAsig.Checked != false)
+            {
+                btnGuardar.Image = Resources.b7;
+                iOpcionAdmin = 2;
+            }
+            else {
+                btnGuardar.Image = Resources.b8;
+                iOpcionAdmin = 1;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+            timer1.Stop();
+        }
     }
 }

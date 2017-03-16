@@ -137,10 +137,10 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 // int iCVPerfil = ltPerfiles.ElementAt(iCV);
                 List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCV);
 
-                foreach (string strCV in ltModulos)
+                foreach (string obj in ltModulos)
                 {
 
-                    ltModulosxUsuario.Add(strCV);
+                    ltModulosxUsuario.Add(obj);
                 }
 
             }
