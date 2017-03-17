@@ -74,7 +74,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 nombre = row.Cells["NOMBRE"].Value.ToString();
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-
+                //row.Cells[1].Value = cvusuario;
                 //cajas de texto panel actualizar
                 //txt.Text = cvusuario;
                 txtNombreSipaa.Text = nombre;
@@ -93,16 +93,6 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         //-----------------------------------------------------------------------------------------------
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que deseas salir?", "SIPAA", MessageBoxButtons.YesNo);
-
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else if (result == DialogResult.No)
-            {
-
-            }
 
         }
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -492,11 +482,11 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
             if (txtNombreSipaa.Text != String.Empty)
             {
-                MessageBox.Show("no vacio");
+                //MessageBox.Show("no vacio");
                 //agrega usuario sipaa
                 if (variable == 3)
                 {
-                    MessageBox.Show("variable 3");
+                    //MessageBox.Show("variable 3");
 
                     
                     cvusuario = txtNombreSipaa.Text;
@@ -534,11 +524,12 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 //bloquea usuario sipaa
                 if (variable == 4)
                 {
-                    MessageBox.Show("variable 4");
+                    //MessageBox.Show("variable 4");
 
                     if (cvusuario != String.Empty)
                     {
-                        cvusuario = txtNombreSipaa.Text;
+                        
+                        //cvusuario = 
                         response = usuario.EliminarAccesoUsuario(cvusuario, 0, "", "", 0, "", "", 3);
 
                         if (response == 1)
@@ -549,7 +540,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                             DataTable tabla = usuario.ObtenerAccesosUsuario(cvusuario, 0, "", "", 0, "", "", 2);
 
                             dgvAccesoUsuario.DataSource = tabla;
-
+                            dgvAccesoUsuario.Columns.Remove(columnName: "IDTRAB");
                             DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
                             imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
                             imgCheckPerfiles.Name = "SELECCIONAR";
@@ -564,7 +555,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                             DataTable tabla = usuario.ObtenerAccesosUsuario(cvusuario, 0, "", "", 0, "", "", 2);
 
                             dgvAccesoUsuario.DataSource = tabla;
-
+                            dgvAccesoUsuario.Columns.Remove(columnName: "IDTRAB");
                             DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
                             imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
                             imgCheckPerfiles.Name = "SELECCIONAR";
@@ -583,6 +574,17 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             {
                 MessageBox.Show("vacio");
             }
+        }
+
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void btnCerrar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

@@ -110,6 +110,14 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         }
 
-        
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -413,5 +413,15 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             panelTag.Visible = false;
             timer1.Stop();
         }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

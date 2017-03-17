@@ -263,7 +263,18 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
             dgvProceso.ClearSelection();
         }
-        
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+
+            WindowState = FormWindowState.Minimized;
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
