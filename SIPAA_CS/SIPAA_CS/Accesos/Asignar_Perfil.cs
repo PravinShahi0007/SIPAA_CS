@@ -69,7 +69,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             Perfil objPerfil = new Perfil();
             ltPerfilesxUsuario = objPerfil.ObtenerPerfilesxUsuario(CVUsuario);
 
-            Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
+           // Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
 
            
                 for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
@@ -297,7 +297,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             DataTable dtPermisos = objModulo.ObtenerPermisosxUsuario(idtrab);
             DataRow[] row = dtPermisos.Select("CVModulo = '" + this.Tag + "'");
             Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
-            Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
+          //  Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
 
 
         }

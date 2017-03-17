@@ -160,7 +160,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             List<string> ltModulosxPerfil = new List<string>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"sp_BuscarModuloxPerfil";
+            cmd.CommandText = @"usp_accepermod_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
 
