@@ -70,8 +70,6 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         public static void ControlNotificaciones(Panel panelTag,Label lbMensaje, int iClase,string strMensaje)
         {
-
-
                 switch (iClase)
                 {
 

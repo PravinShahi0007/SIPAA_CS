@@ -14,6 +14,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         public int CVPerfil;
         public string Descripcion;
+        public int Estatus;
         public string UsuuMod;
         public DateTime FhumMod;
         public string PrguMod;

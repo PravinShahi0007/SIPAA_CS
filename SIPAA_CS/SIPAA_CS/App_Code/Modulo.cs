@@ -27,7 +27,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         public DateTime FhuMod;
         public string PrguMod;
         public int Estatus;
-        Conexion objConexion = new Conexion();
+        
 
         public List<Modulo> ObtenerListModulos(string CVModulo,string Descripcion,string Ambiente,string Modulo,string Estatus)
         {
@@ -43,7 +43,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             cmd.Parameters.Add("Modulo", SqlDbType.VarChar).Value = Modulo;
             cmd.Parameters.Add("Estatus", SqlDbType.VarChar).Value = Estatus;
 
-
+            Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
             SqlDataReader reader = cmd.ExecuteReader();
@@ -84,7 +84,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             cmd.Parameters.Add("CVModulo", SqlDbType.VarChar).Value = CVModulo;
             cmd.Parameters.Add("Opcion", SqlDbType.VarChar).Value = 2;
 
-
+            Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
             SqlDataReader reader = cmd.ExecuteReader();
@@ -212,6 +212,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             cmd.Parameters.Add("@cv", SqlDbType.VarChar).Value = CVUsuario;
             cmd.Parameters.Add("@cvmodulo", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@Opcion", SqlDbType.VarChar).Value = 1;
+            Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
             SqlDataReader reader = cmd.ExecuteReader();
