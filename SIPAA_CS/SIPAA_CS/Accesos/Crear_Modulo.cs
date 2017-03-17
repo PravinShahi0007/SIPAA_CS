@@ -359,8 +359,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void btnRegresa_Click(object sender, EventArgs e)
         {
-            AccesosDashboard ad = new AccesosDashboard();
-            ad.Show();
+            
             this.Close();
         }
 

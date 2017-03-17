@@ -426,8 +426,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            AccesosDashboard ad = new AccesosDashboard();
-            ad.Show();
+            
             this.Close();
         }
     }
