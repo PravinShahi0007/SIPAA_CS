@@ -484,6 +484,7 @@
             this.btnRegresa.Size = new System.Drawing.Size(50, 24);
             this.btnRegresa.TabIndex = 116;
             this.btnRegresa.UseVisualStyleBackColor = false;
+            this.btnRegresa.Click += new System.EventHandler(this.btnRegresa_Click);
             // 
             // btnCerrar
             // 

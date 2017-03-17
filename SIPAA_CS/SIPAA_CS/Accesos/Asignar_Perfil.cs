@@ -360,5 +360,12 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         {
             this.Close();
         }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            AccesosDashboard ad = new AccesosDashboard();
+            ad.Show();
+            this.Close();
+        }
     }
 }

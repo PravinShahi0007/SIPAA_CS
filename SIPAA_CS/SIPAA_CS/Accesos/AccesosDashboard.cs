@@ -117,6 +117,22 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("¿Seguro que deseas salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            //Dashboard d = new Dashboard();
+            //d.Show();
             this.Close();
         }
     }

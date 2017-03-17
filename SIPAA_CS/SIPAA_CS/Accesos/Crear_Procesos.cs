@@ -275,6 +275,13 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             WindowState = FormWindowState.Minimized;
         }
 
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            AccesosDashboard ad = new AccesosDashboard();
+            ad.Show();
+            this.Close();
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
