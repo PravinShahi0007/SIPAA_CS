@@ -111,7 +111,7 @@
             this.msAsignacionProceso});
             this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(698, 26);
+            this.MenuAccesos.Size = new System.Drawing.Size(790, 26);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
@@ -135,7 +135,7 @@
             this.tsmiUsuarios.ForeColor = System.Drawing.Color.White;
             this.tsmiUsuarios.Image = global::SIPAA_CS.Properties.Resources.ic_account_circle_white_24dp;
             this.tsmiUsuarios.Name = "tsmiUsuarios";
-            this.tsmiUsuarios.Size = new System.Drawing.Size(143, 22);
+            this.tsmiUsuarios.Size = new System.Drawing.Size(152, 22);
             this.tsmiUsuarios.Tag = "frmCrear_Usuario";
             this.tsmiUsuarios.Text = "Usuarios";
             this.tsmiUsuarios.Click += new System.EventHandler(this.tsmiUsuarios_Click);
@@ -146,7 +146,7 @@
             this.tsmiPerfiles.ForeColor = System.Drawing.Color.White;
             this.tsmiPerfiles.Image = global::SIPAA_CS.Properties.Resources.ic_work_white_24dp;
             this.tsmiPerfiles.Name = "tsmiPerfiles";
-            this.tsmiPerfiles.Size = new System.Drawing.Size(143, 22);
+            this.tsmiPerfiles.Size = new System.Drawing.Size(152, 22);
             this.tsmiPerfiles.Tag = "frmCrear_Perfil";
             this.tsmiPerfiles.Text = "Perfiles";
             this.tsmiPerfiles.Click += new System.EventHandler(this.tsmiPerfiles_Click);
@@ -157,7 +157,7 @@
             this.tsmiModulos.ForeColor = System.Drawing.Color.White;
             this.tsmiModulos.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.tsmiModulos.Name = "tsmiModulos";
-            this.tsmiModulos.Size = new System.Drawing.Size(143, 22);
+            this.tsmiModulos.Size = new System.Drawing.Size(152, 22);
             this.tsmiModulos.Tag = "frmCrear_Modulo";
             this.tsmiModulos.Text = "Módulos";
             this.tsmiModulos.Click += new System.EventHandler(this.tsmiModulos_Click);
@@ -168,8 +168,8 @@
             this.tsmiProcesos.ForeColor = System.Drawing.Color.White;
             this.tsmiProcesos.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
             this.tsmiProcesos.Name = "tsmiProcesos";
-            this.tsmiProcesos.Size = new System.Drawing.Size(143, 22);
-            this.tsmiProcesos.Tag = "frmCrear_Proceso";
+            this.tsmiProcesos.Size = new System.Drawing.Size(152, 22);
+            this.tsmiProcesos.Tag = "frmProceso";
             this.tsmiProcesos.Text = "Procesos";
             this.tsmiProcesos.Click += new System.EventHandler(this.tsmiProcesos_Click);
             // 
