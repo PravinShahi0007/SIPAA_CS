@@ -1,5 +1,6 @@
 ﻿using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
+using SIPAA_CS.Recursos_Humanos.Administracion;
 using SIPAA_CS.Recursos_Humanos.App_Code;
 using System;
 using System.Collections.Generic;
@@ -354,6 +355,13 @@ namespace SIPAA_CS.Recursos_Humanos
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnRegresa_Click(object sender, EventArgs e)
+        {
+            AccesosDashboard ad = new AccesosDashboard();
+            ad.Show();
+            this.Close();
         }
 
         //-----------------------------------------------------------------------------------------------

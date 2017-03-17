@@ -392,6 +392,7 @@
             this.btnRegresar.Size = new System.Drawing.Size(50, 24);
             this.btnRegresar.TabIndex = 106;
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // PanelPlantilla
             // 
@@ -421,6 +422,7 @@
             this.Controls.Add(this.PanelPlantilla);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Crear_Perfil";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear_Perfil";
             this.Load += new System.EventHandler(this.Crear_Perfil_Load);
             this.PanelEditar.ResumeLayout(false);

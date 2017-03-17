@@ -1,4 +1,5 @@
 ﻿using SIPAA_CS.Properties;
+using SIPAA_CS.Recursos_Humanos.Administracion;
 using SIPAA_CS.Recursos_Humanos.App_Code;
 using System;
 using System.Collections.Generic;
@@ -374,6 +375,13 @@ namespace SIPAA_CS
         private void ckbEliminar_CheckedChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            AccesosDashboard ad = new AccesosDashboard();
+            ad.Show();
+            this.Close();
         }
 
 
