@@ -196,6 +196,12 @@
     <Compile Include="Recursos_Humanos\IncidenciasNom.Designer.cs">
       <DependentUpon>IncidenciasNom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recursos_Humanos\RechDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\RechDashboard.Designer.cs">
+      <DependentUpon>RechDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recursos_Humanos\Ubicacion_Plantel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\IncidenciasNom.resx">
       <DependentUpon>IncidenciasNom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\RechDashboard.resx">
+      <DependentUpon>RechDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Ubicacion_Plantel.resx">
       <DependentUpon>Ubicacion_Plantel.cs</DependentUpon>

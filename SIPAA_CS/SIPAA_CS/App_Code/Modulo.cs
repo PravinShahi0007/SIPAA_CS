@@ -209,7 +209,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             cmd.CommandText = @"usp_rechpermisos_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = CVUsuario;
+            cmd.Parameters.Add("@cv", SqlDbType.VarChar).Value = CVUsuario;
             cmd.Parameters.Add("@cvmodulo", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@Opcion", SqlDbType.VarChar).Value = 1;
             objConexion.asignarConexion(cmd);
