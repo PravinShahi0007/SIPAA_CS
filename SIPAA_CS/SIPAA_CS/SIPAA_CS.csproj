@@ -124,6 +124,12 @@
     <Compile Include="Recursos_Humanos\Administracion\Empleados.Designer.cs">
       <DependentUpon>Empleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Mensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Mensajes.Designer.cs">
+      <DependentUpon>Mensajes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recursos_Humanos\frmCompanias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Empleados.resx">
       <DependentUpon>Empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Mensajes.resx">
+      <DependentUpon>Mensajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">
       <DependentUpon>frmCompanias.cs</DependentUpon>
