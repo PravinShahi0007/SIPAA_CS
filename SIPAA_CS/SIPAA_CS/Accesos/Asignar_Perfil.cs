@@ -94,7 +94,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
                     int iCVPerfil = Convert.ToInt32(row.Cells[1].Value.ToString());
                     string UsuuMod = "vjiturburuv";
-                    string PrguMod = "Recursos_Humanos";
+                    string PrguMod = this.Name;
 
                     try
                     {

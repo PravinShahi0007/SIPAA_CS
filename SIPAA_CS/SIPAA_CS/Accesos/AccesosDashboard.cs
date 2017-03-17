@@ -70,6 +70,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         private void msAsignacionProceso_Click(object sender, EventArgs e)
         {
             Asignar_Proceso aproc = new Asignar_Proceso();
+            aproc.Show();
         }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   

@@ -219,7 +219,7 @@ namespace SIPAA_CS.Recursos_Humanos
                 cvmodpad = txtCvModPad.Text;
                 ambiente = cbAmbiente.Text;
                 modulo = cbModulo.Text;
-                prgumod = txtPrgUmod.Text;
+                prgumod = this.Name;
                 usuumod = "140014";
 
                 orden = int.Parse(txtOrden.Text);

@@ -148,7 +148,7 @@ namespace SIPAA_CS
             Perfil objPerfil = new Perfil();
             objPerfil.CVPerfil = IdPerfil;
             objPerfil.Descripcion = txtPerfil.Text.Trim();
-            objPerfil.PrguMod = "Recursos Humanos";
+            objPerfil.PrguMod = this.Name;
             objPerfil.UsuuMod = "vjiturburuv";
             string strMensaje = "";
 

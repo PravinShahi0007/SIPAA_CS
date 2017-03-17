@@ -492,7 +492,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                     cvusuario = txtNombreSipaa.Text;
                     string pass = utilerias.cifradoMd5(cvusuario);
                     usumod = "140114";
-                    prgmod = "Crear_Acceso_Usuario";
+                    prgmod = this.Name;
 
                     response = usuario.AsignarAccesoUsuario(cvusuario, 0, cvusuario, pass, 1, usumod, prgmod, 1);
                     
