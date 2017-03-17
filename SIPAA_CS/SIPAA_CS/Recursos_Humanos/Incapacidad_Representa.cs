@@ -65,6 +65,13 @@ namespace SIPAA_CS.Recursos_Humanos
             }
         }
 
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+            timer1.Stop();
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -145,16 +152,38 @@ namespace SIPAA_CS.Recursos_Humanos
             {
                 DataTable reponse = objIncidencia.ObtenerRepresentaxIncidencia(objIncidencia, iOpcionAdmin);
                 ckbEliminar.Checked = false;
-
+                panelTag.Visible = true;
+                if (iOpcionAdmin == 2) {
+                   
+                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
+                    lbMensaje.Text = "Cambio Correcto";
+                    timer1.Start();
+                }
+                else if (iOpcionAdmin == 3)
+                {
+                    panelTag.Visible = true;
+                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
+                    lbMensaje.Text = "Asignación Eliminada.";
+                    timer1.Start();
+                }
+                else if (iOpcionAdmin == 4)
+                {
+                    panelTag.Visible = true;
+                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
+                    lbMensaje.Text = "Registro Completo.";
+                    timer1.Start();
+                }
 
                 LlenarComboRepresenta(cbIncidencia, 6);
 
+                
                 btnBuscar_Click_1(sender, e);
             }
             catch (Exception ex)
             {
 
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el Servidor. Intentarlo más tarde.");
+                timer1.Start();
             }
 
         }
@@ -169,7 +198,7 @@ namespace SIPAA_CS.Recursos_Humanos
             {
                 dgvIncidencia.Columns.Remove(columnName: "SELECCIONAR");
             }
-            panelTag.Visible = false;
+           
             PanelEditar.Visible = false;
 
             Incidencia objIncidencia = new Incidencia();
