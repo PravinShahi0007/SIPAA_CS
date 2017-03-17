@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Compania_Plantel));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -51,6 +51,44 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlantel)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Enabled = false;
+            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label6.Location = new System.Drawing.Point(35, 73);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(56, 16);
+            label6.TabIndex = 58;
+            label6.Text = "Compañia";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label8.Location = new System.Drawing.Point(35, 21);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(48, 16);
+            label8.TabIndex = 44;
+            label8.Text = "Plantel";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label9.ForeColor = System.Drawing.Color.Gray;
+            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
+            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label9.Location = new System.Drawing.Point(5, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(123, 17);
+            label9.TabIndex = 41;
+            label9.Text = "     Buscar Plantel";
             // 
             // btnRegresar
             // 
@@ -148,19 +186,6 @@
             this.pnlBusqueda.TabIndex = 108;
             this.pnlBusqueda.TabStop = true;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Enabled = false;
-            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(35, 73);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(56, 16);
-            label6.TabIndex = 58;
-            label6.Text = "Compañia";
-            // 
             // cbCia
             // 
             this.cbCia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -174,22 +199,10 @@
             this.cbCia.TabIndex = 57;
             this.cbCia.Text = "Seleccionar";
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(35, 21);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(48, 16);
-            label8.TabIndex = 44;
-            label8.Text = "Plantel";
-            // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.BackgroundImage = global::SIPAA_CS.Properties.Resources.btnsearch1;
+            this.btnBuscar.BackgroundImage = global::SIPAA_CS.Properties.Resources.b5;
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -216,19 +229,6 @@
             this.txtBuscarPerfil.Name = "txtBuscarPerfil";
             this.txtBuscarPerfil.Size = new System.Drawing.Size(286, 15);
             this.txtBuscarPerfil.TabIndex = 1;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.ForeColor = System.Drawing.Color.Gray;
-            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
-            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(5, 0);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(123, 17);
-            label9.TabIndex = 41;
-            label9.Text = "     Buscar Plantel";
             // 
             // label3
             // 

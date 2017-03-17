@@ -681,6 +681,7 @@
     <None Include="Resources\log2.png" />
     <None Include="Resources\btningresar3.png" />
     <None Include="Resources\btnpass.png" />
+    <None Include="Resources\btalta.png" />
     <Content Include="Resources\pass24x24.png" />
     <None Include="Resources\user24x241.png" />
     <None Include="Resources\pass24x241.png" />

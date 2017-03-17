@@ -148,7 +148,7 @@
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
+            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.b5;
             this.btnBuscar.Location = new System.Drawing.Point(363, 26);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
@@ -181,7 +181,7 @@
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(917, 1);
+            this.btnRegresar.Location = new System.Drawing.Point(880, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(50, 24);
             this.btnRegresar.TabIndex = 109;
@@ -194,7 +194,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(967, 2);
+            this.btnMinimizar.Location = new System.Drawing.Point(967, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 108;
@@ -208,7 +208,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(991, 2);
+            this.btnCerrar.Location = new System.Drawing.Point(991, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 107;
@@ -219,6 +219,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMinimizar);
