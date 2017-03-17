@@ -219,7 +219,7 @@ namespace SIPAA_CS.Recursos_Humanos
                 cvmodpad = txtCvModPad.Text;
                 ambiente = cbAmbiente.Text;
                 modulo = cbModulo.Text;
-                prgumod = txtPrgUmod.Text;
+                prgumod = this.Name;
                 usuumod = "140014";
 
                 orden = int.Parse(txtOrden.Text);
@@ -359,8 +359,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void btnRegresa_Click(object sender, EventArgs e)
         {
-            AccesosDashboard ad = new AccesosDashboard();
-            ad.Show();
+            
             this.Close();
         }
 

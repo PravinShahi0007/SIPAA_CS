@@ -138,7 +138,8 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 //MessageBox.Show("Ingresa una 1");
                 if (descripcion.Trim() != String.Empty)
                 {
-                    int regreso = proceso.AgregarProceso(0, descripcion.Trim(), 0, "", "", 1);
+                    string prgmod = this.Name;
+                    int regreso = proceso.AgregarProceso(0, descripcion.Trim(), 0, "", prgmod, 1);
                     if (regreso == 1)
                     {
                         MessageBox.Show("Sea agrego proceso");
@@ -277,8 +278,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            AccesosDashboard ad = new AccesosDashboard();
-            ad.Show();
+            
             this.Close();
         }
 

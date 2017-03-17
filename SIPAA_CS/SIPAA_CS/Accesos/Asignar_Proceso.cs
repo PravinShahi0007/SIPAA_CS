@@ -286,8 +286,7 @@ namespace SIPAA_CS.Accesos
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            AccesosDashboard ad = new AccesosDashboard();
-            ad.Show();
+            
             this.Close();
         }
 

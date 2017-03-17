@@ -148,7 +148,7 @@ namespace SIPAA_CS
             Perfil objPerfil = new Perfil();
             objPerfil.CVPerfil = IdPerfil;
             objPerfil.Descripcion = txtPerfil.Text.Trim();
-            objPerfil.PrguMod = "Recursos Humanos";
+            objPerfil.PrguMod = this.Name;
             objPerfil.UsuuMod = "vjiturburuv";
             string strMensaje = "";
 
@@ -379,8 +379,7 @@ namespace SIPAA_CS
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            AccesosDashboard ad = new AccesosDashboard();
-            ad.Show();
+           
             this.Close();
         }
 
