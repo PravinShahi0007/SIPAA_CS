@@ -116,20 +116,7 @@ namespace SIPAA_CS
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
-
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else if (result == DialogResult.No)
-            {
-
-            }
-            else if (result == DialogResult.Cancel)
-            {
-
-            }
+            this.Close();
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
