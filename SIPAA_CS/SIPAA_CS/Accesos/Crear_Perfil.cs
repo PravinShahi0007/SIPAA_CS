@@ -199,7 +199,7 @@ namespace SIPAA_CS
 
             //Validar permisos x Pantalla
             Modulo objModulo = new Modulo();
-            DataTable dtPermisos = objModulo.ObtenerPermisosxUsuario("140414");
+            DataTable dtPermisos = objModulo.ObtenerPermisosxUsuario("ADMIN");
             DataRow[] row = dtPermisos.Select("CVModulo = 'frmCrear_Perfil'");
             Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
             Utilerias.ApagarControlxPermiso(btnAgregar, "Crear", ltPermisos);

@@ -1,4 +1,5 @@
-﻿using SIPAA_CS.Recursos_Humanos.App_Code;
+﻿using SIPAA_CS.Recursos_Humanos.Administracion;
+using SIPAA_CS.Recursos_Humanos.App_Code;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -61,13 +62,58 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void tsmiCompanias_Click(object sender, EventArgs e)
         {
-            this.Enabled = false;
+            frmCompanias form = new frmCompanias();
+            form.Show();
+           
             
         }
 
         private void diasFestivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmDiasFestivos form = new frmDiasFestivos();
+            form.Show();
+        }
 
+        private void tsmiDepartamentos_Click(object sender, EventArgs e)
+        {
+            Departamentos form = new Departamentos();
+            form.Show();
+        }
+
+        private void tsmiUbicacion_Click(object sender, EventArgs e)
+        {
+            Ubicacion_Plantel form = new Ubicacion_Plantel();
+            form.Show();
+        }
+
+        private void tsmiPuestos_Click(object sender, EventArgs e)
+        {
+            Puestos form = new Puestos();
+            form.Show();
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Empleados form = new Empleados();
+            form.Show();
+        }
+
+        private void formasDeRegistroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFormReg form = new frmFormReg();
+            form.Show();
+        }
+
+        private void incapacidadRepresentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Incapacidad_Representa form = new Incapacidad_Representa();
+            form.Show();
+        }
+
+        private void mensajesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mensajes form = new Mensajes();
+            form.Show();
         }
     }
 }
