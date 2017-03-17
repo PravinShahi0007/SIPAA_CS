@@ -27,7 +27,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         }
 
         //se "instancia" la clase para usar todos los metodos que contenga
-        MensajesSonarh pantallaMensajes = new MensajesSonarh();
+        //MensajesSonarh pantallaMensajes = new MensajesSonarh();
                 
         private void Mensajes_Load(object sender, EventArgs e)
         {
@@ -83,9 +83,9 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         private void gridMensajes(int popc, string pbusqueda)
         {
-            DataTable dtmensajes = pantallaMensajes.obtenermensajes(popc, pbusqueda);
-            dgvMensajes.DataSource = dtmensajes;
-            dgvMensajes.ClearSelection();
+            //DataTable dtmensajes = pantallaMensajes.obtenermensajes(popc, pbusqueda);
+            //dgvMensajes.DataSource = dtmensajes;
+            //dgvMensajes.ClearSelection();
         }
         
     }
