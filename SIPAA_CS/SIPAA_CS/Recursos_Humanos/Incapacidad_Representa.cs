@@ -97,7 +97,7 @@ namespace SIPAA_CS.Recursos_Humanos
                 cbIncidencia.Enabled = false;
                 PanelEditar.Visible = true;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                btnGuardar.Image = Resources.btnEdit;
+                btnGuardar.Image = Resources.b3;
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
 
                 iOpcionAdmin = 2;
@@ -122,7 +122,7 @@ namespace SIPAA_CS.Recursos_Humanos
             PanelEditar.Visible = true;
             iOpcionAdmin = 4;
             //btnEditar.Visible = false;
-            btnGuardar.Image = Resources.btnAdd;
+            btnGuardar.Image = Resources.b8;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -215,7 +215,7 @@ namespace SIPAA_CS.Recursos_Humanos
         {
             if (ckbEliminar.Checked == true)
             {
-                btnGuardar.Image = Resources.btndel;
+                btnGuardar.Image = Resources.b6;
 
                 iOpcionAdmin = 3;
                 //Utilerias.CambioBoton(btnGuardar, btnEditar, btnGuardar, btnEliminar);
@@ -223,7 +223,7 @@ namespace SIPAA_CS.Recursos_Humanos
             else
             {
                 iOpcionAdmin = 2;
-                btnGuardar.Image = Resources.btnEdit;
+                btnGuardar.Image = Resources.b3;
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar, btnGuardar, btnEditar);
 
             }
