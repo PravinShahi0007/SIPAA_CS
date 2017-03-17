@@ -679,6 +679,8 @@
     <None Include="Resources\b5.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_light_blue_A100_18dp.png" />
     <None Include="Resources\log2.png" />
+    <None Include="Resources\btningresar3.png" />
+    <None Include="Resources\btnpass.png" />
     <Content Include="Resources\pass24x24.png" />
     <None Include="Resources\user24x241.png" />
     <None Include="Resources\pass24x241.png" />

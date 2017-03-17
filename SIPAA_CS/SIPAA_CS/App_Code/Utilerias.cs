@@ -135,10 +135,10 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 }
                 else
                 {
-                    if (iContador < (PanelMetro.Controls.Count - 1))
+                    if (iContador < Ultimoboton)
                     {
                         int ibtnContador = iContador + 1;
-                        while (PanelMetro.Controls[ibtnContador].Visible != true)
+                        while (PanelMetro.Controls[ibtnContador].Visible != true && ibtnContador < Ultimoboton)
                         {
                             
                            Point location = PanelMetro.Controls[ibtnContador].Location;

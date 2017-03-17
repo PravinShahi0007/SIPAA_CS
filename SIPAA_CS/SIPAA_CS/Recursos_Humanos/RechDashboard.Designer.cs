@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RechDashboard));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.MenuAccesos = new System.Windows.Forms.MenuStrip();
             this.msCatalogo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCompanias = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,14 +42,14 @@
             this.incapacidadRepresentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mensajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.áreasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.incidenciasNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diasFestivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mensajesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoHorarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.MenuAccesos.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +63,15 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(1024, 32);
             this.panelMenu.TabIndex = 6;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.panel3.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.panel3.Location = new System.Drawing.Point(0, 31);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1024, 1);
+            this.panel3.TabIndex = 26;
             // 
             // MenuAccesos
             // 
@@ -185,6 +195,47 @@
             this.áreasToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.áreasToolStripMenuItem.Text = "Áreas";
             // 
+            // incidenciasNominaToolStripMenuItem
+            // 
+            this.incidenciasNominaToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.incidenciasNominaToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.incidenciasNominaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("incidenciasNominaToolStripMenuItem.Image")));
+            this.incidenciasNominaToolStripMenuItem.Name = "incidenciasNominaToolStripMenuItem";
+            this.incidenciasNominaToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.incidenciasNominaToolStripMenuItem.Tag = "frmIncidenciasNom";
+            this.incidenciasNominaToolStripMenuItem.Text = "Incidencias Nomina";
+            // 
+            // diasFestivoToolStripMenuItem
+            // 
+            this.diasFestivoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.diasFestivoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.diasFestivoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("diasFestivoToolStripMenuItem.Image")));
+            this.diasFestivoToolStripMenuItem.Name = "diasFestivoToolStripMenuItem";
+            this.diasFestivoToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.diasFestivoToolStripMenuItem.Tag = "frmDiasFestivos";
+            this.diasFestivoToolStripMenuItem.Text = "Días Festivos";
+            this.diasFestivoToolStripMenuItem.Click += new System.EventHandler(this.diasFestivoToolStripMenuItem_Click);
+            // 
+            // mensajesToolStripMenuItem1
+            // 
+            this.mensajesToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.mensajesToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.mensajesToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("mensajesToolStripMenuItem1.Image")));
+            this.mensajesToolStripMenuItem1.Name = "mensajesToolStripMenuItem1";
+            this.mensajesToolStripMenuItem1.Size = new System.Drawing.Size(246, 22);
+            this.mensajesToolStripMenuItem1.Tag = "frmMensajes";
+            this.mensajesToolStripMenuItem1.Text = "Mensajes";
+            // 
+            // tipoHorarioToolStripMenuItem
+            // 
+            this.tipoHorarioToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.tipoHorarioToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.tipoHorarioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tipoHorarioToolStripMenuItem.Image")));
+            this.tipoHorarioToolStripMenuItem.Name = "tipoHorarioToolStripMenuItem";
+            this.tipoHorarioToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.tipoHorarioToolStripMenuItem.Tag = "frmTipoHorario";
+            this.tipoHorarioToolStripMenuItem.Text = "Tipo Horario";
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
@@ -229,55 +280,20 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // panel3
+            // label3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.panel3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.panel3.Location = new System.Drawing.Point(0, 31);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1024, 1);
-            this.panel3.TabIndex = 26;
-            // 
-            // incidenciasNominaToolStripMenuItem
-            // 
-            this.incidenciasNominaToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.incidenciasNominaToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.incidenciasNominaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("incidenciasNominaToolStripMenuItem.Image")));
-            this.incidenciasNominaToolStripMenuItem.Name = "incidenciasNominaToolStripMenuItem";
-            this.incidenciasNominaToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.incidenciasNominaToolStripMenuItem.Tag = "frmIncidenciasNom";
-            this.incidenciasNominaToolStripMenuItem.Text = "Incidencias Nomina";
-            // 
-            // diasFestivoToolStripMenuItem
-            // 
-            this.diasFestivoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.diasFestivoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.diasFestivoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("diasFestivoToolStripMenuItem.Image")));
-            this.diasFestivoToolStripMenuItem.Name = "diasFestivoToolStripMenuItem";
-            this.diasFestivoToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.diasFestivoToolStripMenuItem.Tag = "frmDiasFestivos";
-            this.diasFestivoToolStripMenuItem.Text = "Días Festivos";
-            this.diasFestivoToolStripMenuItem.Click += new System.EventHandler(this.diasFestivoToolStripMenuItem_Click);
-            // 
-            // mensajesToolStripMenuItem1
-            // 
-            this.mensajesToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.mensajesToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.mensajesToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("mensajesToolStripMenuItem1.Image")));
-            this.mensajesToolStripMenuItem1.Name = "mensajesToolStripMenuItem1";
-            this.mensajesToolStripMenuItem1.Size = new System.Drawing.Size(246, 22);
-            this.mensajesToolStripMenuItem1.Tag = "frmMensajes";
-            this.mensajesToolStripMenuItem1.Text = "Mensajes";
-            // 
-            // tipoHorarioToolStripMenuItem
-            // 
-            this.tipoHorarioToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.tipoHorarioToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.tipoHorarioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tipoHorarioToolStripMenuItem.Image")));
-            this.tipoHorarioToolStripMenuItem.Name = "tipoHorarioToolStripMenuItem";
-            this.tipoHorarioToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.tipoHorarioToolStripMenuItem.Tag = "frmTipoHorario";
-            this.tipoHorarioToolStripMenuItem.Text = "Tipo Horario";
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_keyboard_arrow_right_white_18dp;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(413, 2);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(178, 23);
+            this.label3.TabIndex = 145;
+            this.label3.Text = "       Accesos                    ";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RechDashboard
             // 
@@ -285,6 +301,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
@@ -299,6 +316,7 @@
             this.MenuAccesos.ResumeLayout(false);
             this.MenuAccesos.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -324,5 +342,6 @@
         private System.Windows.Forms.ToolStripMenuItem diasFestivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mensajesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tipoHorarioToolStripMenuItem;
+        private System.Windows.Forms.Label label3;
     }
 }

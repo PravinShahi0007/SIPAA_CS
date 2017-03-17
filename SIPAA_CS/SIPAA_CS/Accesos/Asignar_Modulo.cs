@@ -117,7 +117,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                         ckbEliminarAsig.Visible = false;
 
 
-                        panelPermisos.Enabled = false;
+                       // panelPermisos.Enabled = false;
                         ckbActualizar.Checked = false;
                         ckbAgregar.Checked = false;
                         ckbEliminar.Checked = false;
