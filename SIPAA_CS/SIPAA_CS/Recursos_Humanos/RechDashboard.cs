@@ -106,7 +106,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void incapacidadRepresentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Incapacidad_Representa form = new Incapacidad_Representa();
+            Incidencia_Representa form = new Incidencia_Representa();
             form.Show();
         }
 
