@@ -444,6 +444,158 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         private void Crear_Acceso_Usuario_Load(object sender, EventArgs e)
         {
 
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+
+
+            Utilerias.ResizeForm(this,new Size(new Point(sysH, sysW)));
+
+            //double nHeight = sysH * .20;
+            //nHeight = sysH - nHeight;
+            //double nWidth = sysH * .20;
+            //nWidth = sysW - nWidth;
+
+            //int ctrlW;
+            //int ctrlH;
+            //double nCtrlH;
+            //double nCtrlW;
+
+            //if ((int)nWidth > this.Size.Width)
+            //{
+            //    this.Size = new Size(this.Size.Width, (int)nHeight);
+            //}
+            //else if ((int)nHeight > this.Size.Height)
+            //{
+
+            //    this.Size = new Size((int)nWidth,this.Size.Height);
+            //}
+            //else {
+            //    this.Size = new Size((int)nWidth, (int)nHeight);
+            //}
+
+
+            //int cposx;
+            //int cposy;
+
+            //double dcposx;
+            //double dcposy;
+
+            //this.Size = new Size(800,600);
+
+            //foreach (Control ctrl1 in this.Controls)
+            //{
+            //    if (ctrl1.Controls.Count != 0)
+            //    {
+            //        foreach (Control ctrl2 in ctrl1.Controls)
+            //        {
+                            
+            //            if (ctrl2.Controls.Count != 0)
+            //            {
+
+            //                foreach (Control ctrl3 in ctrl2.Controls)
+            //                {
+            //                    if (ctrl3.AccessibilityObject.ToString().Contains("Label"))
+            //                    {
+
+            //                        float fsize = ctrl3.Font.Size;
+            //                        double dsize = fsize - (fsize * .21875);
+            //                        ctrl3.Font = new Font(ctrl3.Font.FontFamily, (float)dsize, ctrl3.Font.Style);
+
+            //                    }
+
+            //                    ctrlH = ctrl3.Size.Height;
+            //                    ctrlW = ctrl3.Size.Width;
+
+            //                    nCtrlH = ctrlH * .21875;
+            //                    nCtrlW = ctrlW * .21875;
+
+            //                    nCtrlH = ctrlH - nCtrlH;
+            //                    nCtrlW = ctrlW - nCtrlW;
+
+            //                    ctrl3.Size = new Size((int)nCtrlW, (int)nCtrlH);
+
+
+            //                }
+            //            }
+                       
+            //                if (ctrl2.AccessibilityObject.ToString().Contains("Label"))
+            //                {
+
+            //                    float fsize = ctrl2.Font.Size;
+            //                    double dsize = fsize - (fsize * .21875);
+            //                    ctrl2.Font = new Font(ctrl2.Font.FontFamily, (float)dsize, ctrl2.Font.Style);
+
+            //                }
+            //                else if (ctrl2.AccessibilityObject.ToString().Contains("TextBox"))
+            //                {
+
+            //                    float fsize = ctrl2.Font.Size;
+            //                    double dsize = fsize - (fsize * .21875);
+            //                    ctrl2.Font = new Font(ctrl2.Font.FontFamily, (float)dsize, ctrl2.Font.Style);
+
+            //                }
+
+            //                 cposx = ctrl2.Location.X;
+            //                 cposy = ctrl2.Location.Y;
+
+            //                 dcposx = cposx - (cposx * .21875);
+            //                 dcposy = cposy - (cposy * .21875);
+
+            //                ctrl2.Location = new Point((int)dcposx,(int)dcposy);
+
+            //                ctrlH = ctrl2.Size.Height;
+            //                ctrlW = ctrl2.Size.Width;
+
+            //                nCtrlH = ctrlH * .21875;
+            //                nCtrlW = ctrlW * .21875;
+
+            //                nCtrlH = ctrlH - nCtrlH;
+            //                nCtrlW = ctrlW - nCtrlW;
+
+            //                ctrl2.Size = new Size((int)nCtrlW, (int)nCtrlH);
+
+                        
+            //        }
+
+
+
+            //    }
+
+
+            //    if (ctrl1.AccessibilityObject.ToString().Contains("Label"))
+            //    {
+
+            //        float fsize = ctrl1.Font.Size;
+            //        double dsize = fsize - (fsize * .21875);
+            //        ctrl1.Font = new Font(ctrl1.Font.FontFamily, (float)dsize, ctrl1.Font.Style);
+
+            //    }
+
+            //    cposx = ctrl1.Location.X;
+            //    cposy = ctrl1.Location.Y;
+
+            //    dcposx = cposx - (cposx * .21875);
+            //    dcposy = cposy - (cposy * .21875);
+
+            //        ctrl1.Location = new Point((int)dcposx, (int)dcposy);
+
+            //        ctrlH = ctrl1.Size.Height;
+            //        ctrlW = ctrl1.Size.Width;
+
+            //        nCtrlH = ctrlH * .21875;
+            //        nCtrlW = ctrlW * .21875;
+
+            //        nCtrlH = ctrlH - nCtrlH;
+            //        nCtrlW = ctrlW - nCtrlW;
+
+            //        ctrl1.Size = new Size((int)nCtrlW, (int)nCtrlH);
+
+                  
+            //}
+
+
+            //this.AutoScaleDimensions = new System.Drawing.SizeF();
+            //this.PerformAutoScale();
 
             //txtCvUsuario.Enabled = false;
             //txtNombre.Enabled = false;
