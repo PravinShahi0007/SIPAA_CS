@@ -12,7 +12,7 @@ using SIPAA_CS.Properties;
 
 namespace SIPAA_CS.Recursos_Humanos
 {
-    public partial class Incapacidad_Representa : Form
+    public partial class Incidencia_Representa : Form
     {
         public int cvIncidencia;
         public int cvRepresenta;
@@ -224,7 +224,7 @@ namespace SIPAA_CS.Recursos_Humanos
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
 
-        public Incapacidad_Representa()
+        public Incidencia_Representa()
         {
             InitializeComponent();
         }

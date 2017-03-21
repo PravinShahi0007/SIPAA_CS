@@ -101,7 +101,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "sp_AsignarPerfil";
+            cmd.CommandText = "usp_acceasignaperfil_ui";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@CVUsuario", SqlDbType.VarChar).Value = CVUsuario;
@@ -310,6 +310,26 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             DataTable dtProceso = new DataTable();
             Adapter.Fill(dtProceso);
             return dtProceso;
+        }
+
+        public void AsignarCompaniaUsuario(string cvusuario, int idcompania, string usuumod, string prgumod)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_accetusucom_ui";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@idcompania", SqlDbType.Int).Value = idcompania;
+            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = prgumod;
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.ExecuteNonQuery();
+            objConexion.cerrarConexion();
+            
         }
     }
 

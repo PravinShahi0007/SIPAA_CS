@@ -30,6 +30,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         public string prgmod;
         public int response;
         public string buscar;
+        public string stusuario;
 
 
         public int variable = 3;
@@ -65,25 +66,38 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
             if (dgvAccesoUsuario.SelectedRows.Count != 0)
             {
-
+                ckbElimina.Visible = true;
+                ckbElimina.Checked = false;
                 txtPassword.Enabled = false;
                 DataGridViewRow row = this.dgvAccesoUsuario.SelectedRows[0];
 
-                cvusuario = row.Cells["CVUSUARIO"].Value.ToString();
+                cvusuario = row.Cells["cvusuario"].Value.ToString();
                 //idtrab = Convert.ToInt32(row.Cells["IDTRAB"].Value.ToString());
                 nombre = row.Cells["NOMBRE"].Value.ToString();
+                stusuario = row.Cells["stusuario"].Value.ToString();
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                 //row.Cells[1].Value = cvusuario;
                 //cajas de texto panel actualizar
                 //txt.Text = cvusuario;
                 txtNombreSipaa.Text = nombre;
-                variable = 4;
-                utilerias.ChangeButton(btnSipaa, 3, false);
+                variable = 5;
+                utilerias.ChangeButton(btnSipaa, 2, false);
 
                 //txtPassSipaa.Text = Convert.ToString(idtrab);
 
                 //utilerias.DisableBotones(btnElimina, 3, false);
+
+                if (stusuario == "0")
+                {
+                    ckbElimina.Text = "Alta";
+
+                }
+                else if (stusuario == "1")
+                {
+                    ckbElimina.Text = "Baja";
+
+                }
 
             }
         }
@@ -119,7 +133,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             }
 
 
-            prgmod = "Crear_Acceso_Usuario";
+            prgmod = this.Name;
 
             pass = utilerias.cifradoMd5(passw);
 
@@ -272,31 +286,37 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                             }
                             else
                             {
-                                MessageBox.Show("El usuario " + usuario.Nombre + " esta inactivo");
+                                //MessageBox.Show("El usuario " + usuario.Nombre + " esta inactivo");
                                 utilerias.DisableBotones(btnGuardar, 1, true);
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El usuario " + usuario.Nombre + " esta inactivo");
                             }
 
                         }
                         else
                         {
-                            MessageBox.Show("No se encontró usuario en SONARH");
+                            //MessageBox.Show("No se encontró usuario en SONARH");
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se encontró usuario en SONARH");
                         }
                     }
                     catch (Exception ex)
                     {
 
-                        MessageBox.Show("No se encontró usuario en SONARH"+ ex);
+                        //MessageBox.Show("No se encontró usuario en SONARH"+ ex);
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se encontró usuario en SONARH");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ingrese Idtrab de usuario");
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ingrese Idtrab de usuario");
+                    //MessageBox.Show("Ingrese Idtrab de usuario");
                     txtBuscar.Focus();
+
                 }
             }
             else
             {
-                MessageBox.Show("Debes escribir solo números");
+                //MessageBox.Show("Debes escribir solo números");
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Debes escribir solo números");
             }
         }
 
@@ -319,7 +339,8 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             else
             {
 
-                MessageBox.Show("Asigna primero una busqueda");
+                //MessageBox.Show("Asigna primero una busqueda");
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Asigna primero una busqueda");
                 txtBuscar.Focus();
             }
         }
@@ -344,6 +365,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         {
             variable = 3;
             txtNombreSipaa.Text = "";
+            ckbElimina.Visible = false;
             utilerias.ChangeButton(btnSipaa,1,false);
             buscar = txtBuscarSipaa.Text;
             buscar.Trim();
@@ -422,6 +444,158 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         private void Crear_Acceso_Usuario_Load(object sender, EventArgs e)
         {
 
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+
+
+            Utilerias.ResizeForm(this,new Size(new Point(sysH, sysW)));
+
+            //double nHeight = sysH * .20;
+            //nHeight = sysH - nHeight;
+            //double nWidth = sysH * .20;
+            //nWidth = sysW - nWidth;
+
+            //int ctrlW;
+            //int ctrlH;
+            //double nCtrlH;
+            //double nCtrlW;
+
+            //if ((int)nWidth > this.Size.Width)
+            //{
+            //    this.Size = new Size(this.Size.Width, (int)nHeight);
+            //}
+            //else if ((int)nHeight > this.Size.Height)
+            //{
+
+            //    this.Size = new Size((int)nWidth,this.Size.Height);
+            //}
+            //else {
+            //    this.Size = new Size((int)nWidth, (int)nHeight);
+            //}
+
+
+            //int cposx;
+            //int cposy;
+
+            //double dcposx;
+            //double dcposy;
+
+            //this.Size = new Size(800,600);
+
+            //foreach (Control ctrl1 in this.Controls)
+            //{
+            //    if (ctrl1.Controls.Count != 0)
+            //    {
+            //        foreach (Control ctrl2 in ctrl1.Controls)
+            //        {
+                            
+            //            if (ctrl2.Controls.Count != 0)
+            //            {
+
+            //                foreach (Control ctrl3 in ctrl2.Controls)
+            //                {
+            //                    if (ctrl3.AccessibilityObject.ToString().Contains("Label"))
+            //                    {
+
+            //                        float fsize = ctrl3.Font.Size;
+            //                        double dsize = fsize - (fsize * .21875);
+            //                        ctrl3.Font = new Font(ctrl3.Font.FontFamily, (float)dsize, ctrl3.Font.Style);
+
+            //                    }
+
+            //                    ctrlH = ctrl3.Size.Height;
+            //                    ctrlW = ctrl3.Size.Width;
+
+            //                    nCtrlH = ctrlH * .21875;
+            //                    nCtrlW = ctrlW * .21875;
+
+            //                    nCtrlH = ctrlH - nCtrlH;
+            //                    nCtrlW = ctrlW - nCtrlW;
+
+            //                    ctrl3.Size = new Size((int)nCtrlW, (int)nCtrlH);
+
+
+            //                }
+            //            }
+                       
+            //                if (ctrl2.AccessibilityObject.ToString().Contains("Label"))
+            //                {
+
+            //                    float fsize = ctrl2.Font.Size;
+            //                    double dsize = fsize - (fsize * .21875);
+            //                    ctrl2.Font = new Font(ctrl2.Font.FontFamily, (float)dsize, ctrl2.Font.Style);
+
+            //                }
+            //                else if (ctrl2.AccessibilityObject.ToString().Contains("TextBox"))
+            //                {
+
+            //                    float fsize = ctrl2.Font.Size;
+            //                    double dsize = fsize - (fsize * .21875);
+            //                    ctrl2.Font = new Font(ctrl2.Font.FontFamily, (float)dsize, ctrl2.Font.Style);
+
+            //                }
+
+            //                 cposx = ctrl2.Location.X;
+            //                 cposy = ctrl2.Location.Y;
+
+            //                 dcposx = cposx - (cposx * .21875);
+            //                 dcposy = cposy - (cposy * .21875);
+
+            //                ctrl2.Location = new Point((int)dcposx,(int)dcposy);
+
+            //                ctrlH = ctrl2.Size.Height;
+            //                ctrlW = ctrl2.Size.Width;
+
+            //                nCtrlH = ctrlH * .21875;
+            //                nCtrlW = ctrlW * .21875;
+
+            //                nCtrlH = ctrlH - nCtrlH;
+            //                nCtrlW = ctrlW - nCtrlW;
+
+            //                ctrl2.Size = new Size((int)nCtrlW, (int)nCtrlH);
+
+                        
+            //        }
+
+
+
+            //    }
+
+
+            //    if (ctrl1.AccessibilityObject.ToString().Contains("Label"))
+            //    {
+
+            //        float fsize = ctrl1.Font.Size;
+            //        double dsize = fsize - (fsize * .21875);
+            //        ctrl1.Font = new Font(ctrl1.Font.FontFamily, (float)dsize, ctrl1.Font.Style);
+
+            //    }
+
+            //    cposx = ctrl1.Location.X;
+            //    cposy = ctrl1.Location.Y;
+
+            //    dcposx = cposx - (cposx * .21875);
+            //    dcposy = cposy - (cposy * .21875);
+
+            //        ctrl1.Location = new Point((int)dcposx, (int)dcposy);
+
+            //        ctrlH = ctrl1.Size.Height;
+            //        ctrlW = ctrl1.Size.Width;
+
+            //        nCtrlH = ctrlH * .21875;
+            //        nCtrlW = ctrlW * .21875;
+
+            //        nCtrlH = ctrlH - nCtrlH;
+            //        nCtrlW = ctrlW - nCtrlW;
+
+            //        ctrl1.Size = new Size((int)nCtrlW, (int)nCtrlH);
+
+                  
+            //}
+
+
+            //this.AutoScaleDimensions = new System.Drawing.SizeF();
+            //this.PerformAutoScale();
 
             //txtCvUsuario.Enabled = false;
             //txtNombre.Enabled = false;
@@ -429,6 +603,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             //utilerias.DisableBotones(btnGuardar, 1, true);
             //utilerias.DisableBotones(btnElimina, 1, true);
             //utilerias.DisableBotones(btnEditar, 1, true);
+            ckbElimina.Visible = false;
             btnGuardar.Enabled = false;
             txtPassword.Enabled = false;
             LlenaGridUsuarios("", 0, "", "", 0, "", "", 7);
@@ -507,7 +682,8 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                         txtCvUsuario.Text = "";
                         txtNombre.Text = "";
                         txtPassword.Text = "";
-                        MessageBox.Show("El usuario " + nombre + " ya existe");
+                        //MessageBox.Show("El usuario " + nombre + " ya existe");
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El usuario " + nombre + " ya existe");
                         //utilerias.DisableBotones(btnGuardar, 1, true);
                         txtBuscar.Focus();
                     }
@@ -518,7 +694,8 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                         txtCvUsuario.Text = "";
                         txtNombre.Text = "";
                         txtPassword.Text = "";
-                        MessageBox.Show("El usuario " + nombre + " se agrego correctamente");
+                        //MessageBox.Show("El usuario " + nombre + " se agrego correctamente");
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El usuario " + nombre + " se agrego correctamente");
                     }
                 }
                 //bloquea usuario sipaa
@@ -535,7 +712,65 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                         if (response == 1)
                         {
 
-                            MessageBox.Show("El usuario esta Activado");
+                            //MessageBox.Show("El usuario esta Activado");
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El usuario esta Activado");
+                            DataTable tabla = usuario.ObtenerAccesosUsuario(cvusuario, 0, "", "", 0, "", "", 2);
+
+                            dgvAccesoUsuario.DataSource = tabla;
+                            dgvAccesoUsuario.Columns.Remove(columnName: "IDTRAB");
+                            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
+                            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
+                            imgCheckPerfiles.Name = "SELECCIONAR";
+                            dgvAccesoUsuario.Columns.Insert(0, imgCheckPerfiles);
+                            ImageList imglt = new ImageList();
+                            dgvAccesoUsuario.Columns[1].Visible = false;
+
+                        }
+                        else if (response == 0)
+                        {
+                            //MessageBox.Show("El usuario esta inactivo");
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El usuario esta inactivo");
+                            DataTable tabla = usuario.ObtenerAccesosUsuario(cvusuario, 0, "", "", 0, "", "", 2);
+
+                            dgvAccesoUsuario.DataSource = tabla;
+                            dgvAccesoUsuario.Columns.Remove(columnName: "IDTRAB");
+                            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
+                            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
+                            imgCheckPerfiles.Name = "SELECCIONAR";
+                            dgvAccesoUsuario.Columns.Insert(0, imgCheckPerfiles);
+                            ImageList imglt = new ImageList();
+                            dgvAccesoUsuario.Columns[1].Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        //MessageBox.Show("Asigna primero una busqueda para dar de baja un Usuario");
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Asigna primero una busqueda dar de baja un Usuario");
+                    }
+                }
+                //edita nombre usuario
+                if (variable == 5)
+                {
+                    //MessageBox.Show("Variable 5");
+
+                    if (cvusuario != String.Empty)
+                    {
+                        if (ckbElimina.Checked == true)
+                        {
+                            //MessageBox.Show("deschekea para editar");
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Deselecciona el checkbox para editar");
+                        }
+                        nombre = txtNombreSipaa.Text;
+                        //cvusuario = 
+                        response = usuario.EliminarAccesoUsuario(cvusuario, 0, nombre, "", 0, "", "", 10);
+
+                        if (response == 1)
+                        {
+
+                            //MessageBox.Show("Usuario actualizado");
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Usuario actualizado");
+                            //Crear_Acceso_Usuario_Load(sender, e);
+                            //LlenaGridUsuarios("", 0, "", "", 0, "", "", 7);
 
                             DataTable tabla = usuario.ObtenerAccesosUsuario(cvusuario, 0, "", "", 0, "", "", 2);
 
@@ -551,7 +786,10 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                         }
                         else if (response == 0)
                         {
-                            MessageBox.Show("El usuario esta inactivo");
+                            //MessageBox.Show("Usuario no actualizado");
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Usuario no actualizado");
+                            //Crear_Acceso_Usuario_Load(sender, e);
+                            //LlenaGridUsuarios("", 0, "", "", 0, "", "", 7);
                             DataTable tabla = usuario.ObtenerAccesosUsuario(cvusuario, 0, "", "", 0, "", "", 2);
 
                             dgvAccesoUsuario.DataSource = tabla;
@@ -566,13 +804,78 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                     }
                     else
                     {
-                        MessageBox.Show("Asigna primero una busqueda para Eliminar un Usuario");
+                        //MessageBox.Show("Asigna primero una busqueda para Eliminar un Usuario");
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Asigna primero una busqueda para Eliminar un Usuario");
+                    }
+
+                }
+
+                //bloqueo usuario
+                if (variable == 6)
+                {
+                    //MessageBox.Show("var 6");
+
+                    if (ckbElimina.Checked == true)
+                    {
+                        //MessageBox.Show("chekado ");
+                        if (cvusuario != String.Empty)
+                        {
+
+                            //cvusuario = 
+                            response = usuario.EliminarAccesoUsuario(cvusuario, 0, "", "", 0, "", "", 3);
+
+                            if (response == 1)
+                            {
+
+                                //MessageBox.Show("El usuario esta Activado");
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El usuario esta Activado");
+
+                                DataTable tabla = usuario.ObtenerAccesosUsuario(cvusuario, 0, "", "", 0, "", "", 2);
+
+                                dgvAccesoUsuario.DataSource = tabla;
+                                dgvAccesoUsuario.Columns.Remove(columnName: "IDTRAB");
+                                DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
+                                imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
+                                imgCheckPerfiles.Name = "SELECCIONAR";
+                                dgvAccesoUsuario.Columns.Insert(0, imgCheckPerfiles);
+                                ImageList imglt = new ImageList();
+                                dgvAccesoUsuario.Columns[1].Visible = false;
+
+                            }
+                            else if (response == 0)
+                            {
+                                //MessageBox.Show("El usuario esta inactivo");
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El usuario esta inactivo");
+                                DataTable tabla = usuario.ObtenerAccesosUsuario(cvusuario, 0, "", "", 0, "", "", 2);
+
+                                dgvAccesoUsuario.DataSource = tabla;
+                                dgvAccesoUsuario.Columns.Remove(columnName: "IDTRAB");
+                                DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
+                                imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
+                                imgCheckPerfiles.Name = "SELECCIONAR";
+                                dgvAccesoUsuario.Columns.Insert(0, imgCheckPerfiles);
+                                ImageList imglt = new ImageList();
+                                dgvAccesoUsuario.Columns[1].Visible = false;
+                            }
+                        }
+                        else
+                        {
+                            //MessageBox.Show("Asigna primero una busqueda para Eliminar un Usuario");
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Asigna primero una busqueda para Eliminar un Usuario");
+                        }
+                    }
+                    else if(ckbElimina.Checked == false)
+                    {
+                       // MessageBox.Show("no chekado ");
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Da click al checkbox");
+
                     }
                 }
             }
             else
             {
-                MessageBox.Show("vacio");
+                //MessageBox.Show("vacio");
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Asigna un nombre");
             }
         }
 
@@ -591,6 +894,39 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         {
             
             this.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+        }
+
+        private void ckbElimina_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbElimina.Checked == true)
+            {
+                variable = 6;
+                if (stusuario == "0")
+                {
+                    //ckbElimina.Text = "Alta";
+                    btnSipaa.Image = Resources.btnAlta;
+                }
+                else if (stusuario == "1")
+                {
+                    //ckbElimina.Text = "Baja";
+                    btnSipaa.Image = Resources.btnRemove2;
+                }
+
+                //iOpcionAdmin = 3;
+                //Utilerias.CambioBoton(btnGuardar, btnEditar, btnGuardar, btnEliminar);
+            }
+            else
+            {
+                //iOpcionAdmin = 2;
+                btnSipaa.Image = Resources.btnEdit;
+                //Utilerias.CambioBoton(btnGuardar, btnEliminar, btnGuardar, btnEditar);
+
+            }
         }
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

@@ -70,8 +70,6 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         public static void ControlNotificaciones(Panel panelTag,Label lbMensaje, int iClase,string strMensaje)
         {
-
-
                 switch (iClase)
                 {
 
@@ -348,6 +346,106 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             nombre.Text = "";
         }
 
+        public static void ResizeForm(Form frm, Size dsize)
+        {
+            int widthActual = frm.Size.Width;
+            int heightActual = frm.Size.Height;
+
+            int widthSys = dsize.Width;
+            int heightSys = dsize.Height;
+
+            int heightNueva;
+            int widthNueva;
+
+            if (heightSys <= 768 || widthSys <= 768) {
+                heightNueva = 600;
+            } else {
+                heightNueva = 768;
+            }
+
+            if (heightNueva == 600)
+            {
+                widthNueva = 800;
+                double dPorcentaje = 100-(((double)heightNueva / (double)heightActual) * 100);
+                frm.Size = new Size(widthNueva, heightNueva);
+                frm.BackgroundImageLayout = ImageLayout.Zoom;
+                foreach (Control ctrl in frm.Controls)
+                {
+                    ResizeControl(ctrl, (dPorcentaje/100));
+                }
+
+
+                //double locationx = frm.Location.X
+                frm.DesktopLocation = new Point(300, 50);
+            }
+            else
+            {
+                widthNueva = 1024;
+                frm.Size = new Size(widthNueva, heightNueva);
+
+            }
+
+
+          
+
+        }
+
+
+        public static void ResizeControl(Control ctrl, double Per) {
+
+            int cposx;
+            int cposy;
+            double dcposx;
+            double dcposy;
+            int ctrlW;
+            int ctrlH;
+            double nCtrlH;
+            double nCtrlW;
+            string TipoControl = ctrl.AccessibilityObject.ToString();
+
+
+            if (ctrl.Controls.Count != 0) {
+
+                foreach (Control ctrlHijo in ctrl.Controls) {
+
+                    ResizeControl(ctrlHijo, Per);
+                }     
+           }
+
+
+            float fsize = ctrl.Font.Size;
+            double dsize = fsize - (fsize * Per);
+            ctrl.Font = new Font(ctrl.Font.FontFamily, (float)dsize, ctrl.Font.Style);
+
+            cposx = ctrl.Location.X;
+            cposy = ctrl.Location.Y;
+            dcposx = cposx - (cposx * Per);
+            dcposy = cposy - (cposy * Per);
+            ctrl.Location = new Point((int)dcposx, (int)dcposy);
+
+            ctrlH = ctrl.Size.Height;
+            ctrlW = ctrl.Size.Width;
+            nCtrlH = ctrlH - (ctrlH * Per);
+            nCtrlW = ctrlW - (ctrlW * Per);
+            ctrl.Size = new Size((int)nCtrlW, (int)nCtrlH);
+
+            if (TipoControl.Contains("Button") && Per != 0 ) {
+
+                ctrl.BackgroundImageLayout = ImageLayout.Center;
+                ctrlH = ctrl.Size.Height;
+                ctrlW = ctrl.Size.Width;
+                nCtrlH = ctrlH - (ctrlH * (Per*.25));
+                nCtrlW = ctrlW - (ctrlW * (Per*.25));
+                ctrl.Size = new Size((int)nCtrlW, (int)nCtrlH);
+            }
+         
+            
+
+           
+
+        }
+        
     }
 
+ 
 }

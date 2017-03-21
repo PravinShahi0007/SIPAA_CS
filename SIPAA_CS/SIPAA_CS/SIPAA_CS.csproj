@@ -58,6 +58,7 @@
     <Compile Include="Accesos\Asignar_Proceso.Designer.cs">
       <DependentUpon>Asignar_Proceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Companias.cs" />
     <Compile Include="App_Code\IncNomina.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
     <Compile Include="Accesos\AccesosDashboard.cs">
@@ -130,6 +131,12 @@
     <Compile Include="Recursos_Humanos\Administracion\Mensajes.Designer.cs">
       <DependentUpon>Mensajes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recursos_Humanos\Asignacion_Companias_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Asignacion_Companias_Usuario.Designer.cs">
+      <DependentUpon>Asignacion_Companias_Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recursos_Humanos\frmCompanias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,11 +191,17 @@
     <Compile Include="Recursos_Humanos\Compania_Plantel.Designer.cs">
       <DependentUpon>Compania_Plantel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\Incapacidad_Representa.cs">
+    <Compile Include="Recursos_Humanos\Incidencia_Representa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Incapacidad_Representa.Designer.cs">
-      <DependentUpon>Incapacidad_Representa.cs</DependentUpon>
+    <Compile Include="Recursos_Humanos\Incidencia_Representa.Designer.cs">
+      <DependentUpon>Incidencia_Representa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Incapacidad_Tipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Incapacidad_Tipo.Designer.cs">
+      <DependentUpon>Incapacidad_Tipo.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\IncidenciasNom.cs">
       <SubType>Form</SubType>
@@ -264,6 +277,9 @@
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Mensajes.resx">
       <DependentUpon>Mensajes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Asignacion_Companias_Usuario.resx">
+      <DependentUpon>Asignacion_Companias_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">
       <DependentUpon>frmCompanias.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,11 +295,14 @@
     <EmbeddedResource Include="Recursos_Humanos\Compania_Plantel.resx">
       <DependentUpon>Compania_Plantel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\Incapacidad_Representa.resx">
-      <DependentUpon>Incapacidad_Representa.cs</DependentUpon>
+    <EmbeddedResource Include="Recursos_Humanos\Incidencia_Representa.resx">
+      <DependentUpon>Incidencia_Representa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\frmFormReg.resx">
       <DependentUpon>frmFormReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Incapacidad_Tipo.resx">
+      <DependentUpon>Incapacidad_Tipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\IncidenciasNom.resx">
       <DependentUpon>IncidenciasNom.cs</DependentUpon>
@@ -681,6 +700,7 @@
     <None Include="Resources\log2.png" />
     <None Include="Resources\btningresar3.png" />
     <None Include="Resources\btnpass.png" />
+    <None Include="Resources\btalta.png" />
     <Content Include="Resources\pass24x24.png" />
     <None Include="Resources\user24x241.png" />
     <None Include="Resources\pass24x241.png" />
