@@ -14,6 +14,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         public int CVPerfil;
         public string Descripcion;
+        public int Estatus;
         public string UsuuMod;
         public DateTime FhumMod;
         public string PrguMod;
@@ -61,7 +62,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_accecperfil_S";
+            cmd.CommandText = @"usp_acceperfil_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@CvPerfil", SqlDbType.VarChar).Value = CvPerfil;
@@ -88,7 +89,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             List<int> ltPerfilesxUsuario = new List<int>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"sp_BuscarPerfilxUsuario";
+            cmd.CommandText = @"usp_acceusuper_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@cvUsuario", SqlDbType.VarChar).Value = cvUsuario;
@@ -144,25 +145,31 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         }
 
-        public void AsignarModuloAPerfil(string CVModulo, int CVPerfil, string UsuuMod, string PrguMod)
+        public int AsignarModuloAPerfil(Modulo objModulo, int CVPerfil, int Opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "sp_AsignarModulo";
+            cmd.CommandText = "usp_acceasignamodulo_ui";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@CVModulo", SqlDbType.VarChar).Value = CVModulo;
-            cmd.Parameters.Add("@CvPerfil", SqlDbType.Int).Value = CVPerfil;
-            cmd.Parameters.Add("@USUUMOD", SqlDbType.VarChar).Value = UsuuMod;
-            cmd.Parameters.Add("@PRGUMOD", SqlDbType.VarChar).Value = PrguMod;
+            cmd.Parameters.Add("@P_CVModulo", SqlDbType.VarChar).Value = objModulo.CVModulo;
+            cmd.Parameters.Add("@P_CvPerfil", SqlDbType.Int).Value = CVPerfil;
+            cmd.Parameters.Add("@P_USUUMOD", SqlDbType.VarChar).Value = objModulo.UsuuMod;
+            cmd.Parameters.Add("@P_PRGUMOD", SqlDbType.VarChar).Value = objModulo.PrguMod;
+            cmd.Parameters.Add("@P_stact", SqlDbType.Int).Value = objModulo.stact;
+            cmd.Parameters.Add("@P_steli", SqlDbType.Int).Value = objModulo.steli;
+            cmd.Parameters.Add("@P_stcre", SqlDbType.Int).Value = objModulo.stcre;
+            cmd.Parameters.Add("@P_stimp", SqlDbType.Int).Value = objModulo.stimp;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = Opcion;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.ExecuteNonQuery();
+               int response = Convert.ToInt32(cmd.ExecuteScalar());
 
             objConexion.cerrarConexion();
 
+            return response;
 
         }
     }

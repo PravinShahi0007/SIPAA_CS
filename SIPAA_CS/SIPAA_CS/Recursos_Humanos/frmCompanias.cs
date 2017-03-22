@@ -11,6 +11,12 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.Recursos_Humanos.App_Code;
 
+//***********************************************************************************************
+//Autor: Noe Alvarez Marquina
+//Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
+//Descripción: Lee la tabla de compañias de SONARH
+//***********************************************************************************************
+
 namespace SIPAA_CS.Recursos_Humanos.Administracion
 {
 
@@ -27,11 +33,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         }
         CompaniasSonarh companias = new CompaniasSonarh();
 
-        //***********************************************************************************************
-        //Autor: Noe Alvarez Marquina
-        //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
-        //Descripción: Lee la tabla de compañias de SONARH
-        //***********************************************************************************************
+
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -48,7 +50,6 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         {
             //llena grid
             fgcomp(1,txtComp.Text.Trim());
-
 
             txtComp.Text = "";
             txtComp.Focus();

@@ -238,7 +238,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             sTooltip();
 
             //LLAMA METODO LLENAR GRID
-//            SLlenaGrid(1, "");
+            //SLlenaGrid(1, "");
 
             pins = 1;
             pact = 1;

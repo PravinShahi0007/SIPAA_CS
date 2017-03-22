@@ -52,6 +52,14 @@
     <Compile Include="Acceso.Designer.cs">
       <DependentUpon>Acceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\Asignar_Proceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Asignar_Proceso.Designer.cs">
+      <DependentUpon>Asignar_Proceso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\Companias.cs" />
+    <Compile Include="App_Code\IncNomina.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
     <Compile Include="Accesos\AccesosDashboard.cs">
       <SubType>Form</SubType>
@@ -110,6 +118,25 @@
       <DependentUpon>Departamentos.cs</DependentUpon>
     </Compile>
     <!---<Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">-->
+    <Compile Include="App_Code\Incidencia.cs" />
+    <Compile Include="Recursos_Humanos\Administracion\Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Empleados.Designer.cs">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Mensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Administracion\Mensajes.Designer.cs">
+      <DependentUpon>Mensajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Asignacion_Companias_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Asignacion_Companias_Usuario.Designer.cs">
+      <DependentUpon>Asignacion_Companias_Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recursos_Humanos\frmCompanias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,34 +161,59 @@
     <Compile Include="Recursos_Humanos\Administracion\frmDiasFestivos.Designer.cs">
       <DependentUpon>frmDiasFestivos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\App_Code\CompaniasSonarh.cs" />
-    <Compile Include="Recursos_Humanos\Administracion\Crear_Procesos.cs">
+    <Compile Include="App_Code\CompaniasSonarh.cs" />
+    <Compile Include="Accesos\Crear_Procesos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Administracion\Crear_Procesos.Designer.cs">
+    <Compile Include="Accesos\Crear_Procesos.Designer.cs">
       <DependentUpon>Crear_Procesos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\App_Code\DepartamentosSonarh.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\DiasFestivos.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Modulo.cs" />
+    <Compile Include="App_Code\DepartamentosSonarh.cs" />
+    <Compile Include="App_Code\DiasFestivos.cs" />
+    <Compile Include="App_Code\Modulo.cs" />
     <Compile Include="Recursos_Humanos\frmFormReg.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="App_Code\EmpleadosSonarh.cs" />
     <Compile Include="Recursos_Humanos\frmFormReg.Designer.cs">
       <DependentUpon>frmFormReg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\App_Code\FormReg.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Perfil.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Proceso.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\PuestosSonarh.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\TipoHr.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Usuario.cs" />
-    <Compile Include="Recursos_Humanos\App_Code\Utilerias.cs" />
+    <Compile Include="App_Code\FormaReg.cs" />
+    <Compile Include="App_Code\Perfil.cs" />
+    <Compile Include="App_Code\Proceso.cs" />
+    <Compile Include="App_Code\PuestosSonarh.cs" />
+    <Compile Include="App_Code\TipoHr.cs" />
+    <Compile Include="App_Code\Usuario.cs" />
+    <Compile Include="App_Code\Utilerias.cs" />
     <Compile Include="Recursos_Humanos\Compania_Plantel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Recursos_Humanos\Compania_Plantel.Designer.cs">
       <DependentUpon>Compania_Plantel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Incidencia_Representa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Incidencia_Representa.Designer.cs">
+      <DependentUpon>Incidencia_Representa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Incidencia_Tipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\Incidencia_Tipo.Designer.cs">
+      <DependentUpon>Incidencia_Tipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\IncidenciasNom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\IncidenciasNom.Designer.cs">
+      <DependentUpon>IncidenciasNom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos_Humanos\RechDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recursos_Humanos\RechDashboard.Designer.cs">
+      <DependentUpon>RechDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\Ubicacion_Plantel.cs">
       <SubType>Form</SubType>
@@ -177,6 +229,9 @@
     </Compile>
     <EmbeddedResource Include="Acceso.resx">
       <DependentUpon>Acceso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Asignar_Proceso.resx">
+      <DependentUpon>Asignar_Proceso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -216,10 +271,19 @@
     <EmbeddedResource Include="Recursos_Humanos\Administracion\Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Empleados.resx">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Administracion\Mensajes.resx">
+      <DependentUpon>Mensajes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Asignacion_Companias_Usuario.resx">
+      <DependentUpon>Asignacion_Companias_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">
       <DependentUpon>frmCompanias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\Administracion\Crear_Procesos.resx">
+    <EmbeddedResource Include="Accesos\Crear_Procesos.resx">
       <DependentUpon>Crear_Procesos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Administracion\frmDiasFestivos.resx">
@@ -230,6 +294,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Compania_Plantel.resx">
       <DependentUpon>Compania_Plantel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Incidencia_Representa.resx">
+      <DependentUpon>Incidencia_Representa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\frmFormReg.resx">
+      <DependentUpon>frmFormReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\Incidencia_Tipo.resx">
+      <DependentUpon>Incidencia_Tipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\IncidenciasNom.resx">
+      <DependentUpon>IncidenciasNom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos_Humanos\RechDashboard.resx">
+      <DependentUpon>RechDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\Ubicacion_Plantel.resx">
       <DependentUpon>Ubicacion_Plantel.cs</DependentUpon>
@@ -591,12 +670,50 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\16388379_1936191480000670_4493751231525441480_n.png" />
+    <None Include="Resources\icon_material\btnadd1.png" />
+    <None Include="Resources\icon_material\btncre.png" />
+    <None Include="Resources\icon_material\btncre1.png" />
+    <None Include="Resources\icon_material\btncreinfo.png" />
+    <None Include="Resources\icon_material\btncreinfo1.png" />
+    <None Include="Resources\icon_material\btndel.png" />
+    <None Include="Resources\icon_material\btndel1.png" />
+    <None Include="Resources\icon_material\btnremove.png" />
+    <None Include="Resources\icon_material\btnremove1.png" />
+    <None Include="Resources\icon_material\btnsave.png" />
+    <None Include="Resources\icon_material\btnsave1.png" />
+    <None Include="Resources\icon_material\btnsearch.png" />
+    <None Include="Resources\icon_material\btnsearch1.png" />
+    <None Include="Resources\icon_material\btnsearchinfo.png" />
+    <None Include="Resources\icon_material\btnsearchinfo1.png" />
+    <None Include="Resources\icon_material\btnadd.png" />
+    <None Include="Resources\f8.png" />
+    <None Include="Resources\f9.png" />
+    <None Include="Resources\b6.png" />
+    <None Include="Resources\b7.png" />
+    <None Include="Resources\b8.png" />
+    <None Include="Resources\Lb2.png" />
+    <None Include="Resources\b1.png" />
+    <None Include="Resources\b3.png" />
+    <None Include="Resources\b4.png" />
+    <None Include="Resources\b5.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_light_blue_A100_18dp.png" />
+    <None Include="Resources\log2.png" />
+    <None Include="Resources\btningresar3.png" />
+    <None Include="Resources\btnpass.png" />
+    <None Include="Resources\btalta.png" />
     <Content Include="Resources\pass24x24.png" />
     <None Include="Resources\user24x241.png" />
     <None Include="Resources\pass24x241.png" />
     <Content Include="Resources\user24x24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

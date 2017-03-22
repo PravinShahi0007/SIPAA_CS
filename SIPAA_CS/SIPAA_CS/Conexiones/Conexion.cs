@@ -28,7 +28,7 @@ namespace SIPAA_CS.Conexiones
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se concto con la BD: " + ex.ToString());
+                MessageBox.Show("No se conecto con la BD SIPAA: " + ex.ToString());
             }
         }
 
@@ -42,7 +42,7 @@ namespace SIPAA_CS.Conexiones
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se concto con la BD: " + ex.ToString());
+                MessageBox.Show("No se conecto con la BD sonarh: " + ex.ToString());
             }
             return cns;
         }

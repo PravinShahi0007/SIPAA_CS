@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SIPAA_CS.Recursos_Humanos.Administracion;
+using SIPAA_CS.Accesos;
 
 namespace SIPAA_CS
 {
