@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace SIPAA_CS
 {
-    public partial class Splash : Form
+    public partial class CompaniasUsuario : Form
     {
         public int iContador;
-        public Splash()
+        public CompaniasUsuario()
         {
             InitializeComponent();
         }

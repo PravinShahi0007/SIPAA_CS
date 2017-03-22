@@ -1,5 +1,5 @@
-﻿using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.App_Code;
+﻿using SIPAA_CS.App_Code;
+using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SIPAA_CS.Recursos_Humanos.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.Recursos_Humanos.Administracion
 {

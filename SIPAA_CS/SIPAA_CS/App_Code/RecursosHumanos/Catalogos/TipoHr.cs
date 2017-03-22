@@ -14,7 +14,7 @@ using System.Data.SqlClient;
 //Descripción: Administra tipos de horario
 //***********************************************************************************************
 
-namespace SIPAA_CS.Recursos_Humanos.App_Code
+namespace SIPAA_CS.App_Code
 {
     class TipoHr
     {

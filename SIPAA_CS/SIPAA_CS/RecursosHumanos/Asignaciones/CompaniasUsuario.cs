@@ -1,19 +1,13 @@
 ﻿using SIPAA_CS.App_Code;
 using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.App_Code;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SIPAA_CS.Recursos_Humanos
 {
-    public partial class Asignacion_Companias_Usuario : Form
+    public partial class CompaniasUsuario : Form
     {
 
         public string CVUsuario;
@@ -36,7 +30,7 @@ namespace SIPAA_CS.Recursos_Humanos
         public List<int> ltCompaniasxUsuario = new List<int>();
         Usuario usuario = new Usuario();
         SonaCompania companias = new SonaCompania();
-        public Asignacion_Companias_Usuario()
+        public CompaniasUsuario()
         {
             InitializeComponent();
         }

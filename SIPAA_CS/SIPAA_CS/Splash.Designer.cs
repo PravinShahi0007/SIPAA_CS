@@ -1,6 +1,6 @@
 ﻿namespace SIPAA_CS
 {
-    partial class Splash
+    partial class CompaniasUsuario
     {
         /// <summary>
         /// Required designer variable.

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SIPAA_CS.App_Code;
 
 namespace SIPAA_CS.App_Code
 {

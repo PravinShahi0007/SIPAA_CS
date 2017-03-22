@@ -14,7 +14,7 @@ using System.Data.SqlClient;
 //Descripción: Administra incidencias de nomina
 //***********************************************************************************************
 
-namespace SIPAA_CS.Recursos_Humanos.App_Code
+namespace SIPAA_CS.App_Code
 {
     class IncNomina
     {

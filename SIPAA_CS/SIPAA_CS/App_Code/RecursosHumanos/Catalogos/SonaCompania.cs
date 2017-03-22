@@ -8,7 +8,7 @@ using SIPAA_CS.Conexiones;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace SIPAA_CS.Recursos_Humanos.App_Code
+namespace SIPAA_CS.App_Code
 {
     class SonaCompania
     {

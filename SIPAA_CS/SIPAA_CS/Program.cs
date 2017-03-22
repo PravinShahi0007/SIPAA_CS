@@ -1,10 +1,8 @@
-﻿using SIPAA_CS.Recursos_Humanos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SIPAA_CS.Recursos_Humanos.Administracion;
 using SIPAA_CS.Accesos;
 
 namespace SIPAA_CS
@@ -19,7 +17,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Mensajes());
+            Application.Run(new CompaniasUsuario());
         }
     }
 }

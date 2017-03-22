@@ -1,6 +1,6 @@
 ﻿namespace SIPAA_CS.Recursos_Humanos
 {
-    partial class Asignacion_Companias_Usuario
+    partial class CompaniasUsuario
     {
         /// <summary>
         /// Required designer variable.
