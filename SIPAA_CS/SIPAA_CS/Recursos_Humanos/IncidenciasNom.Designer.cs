@@ -41,11 +41,12 @@
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label12;
+            System.Windows.Forms.Label label13;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.dgvtiphr = new System.Windows.Forms.DataGridView();
+            this.dgvincnomia = new System.Windows.Forms.DataGridView();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -55,10 +56,11 @@
             this.lblusuario = new System.Windows.Forms.Label();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.cboincnombusq = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txttipohr = new System.Windows.Forms.TextBox();
-            this.pnltiphr = new System.Windows.Forms.Panel();
+            this.txtincnomb = new System.Windows.Forms.TextBox();
+            this.pnlincnom = new System.Windows.Forms.Panel();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.cbopasanom = new System.Windows.Forms.ComboBox();
@@ -84,10 +86,11 @@
             label10 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvtiphr)).BeginInit();
+            label13 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvincnomia)).BeginInit();
             this.panelTag.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
-            this.pnltiphr.SuspendLayout();
+            this.pnlincnom.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -97,7 +100,7 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(412, 137);
+            label2.Location = new System.Drawing.Point(373, 137);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(139, 16);
             label2.TabIndex = 143;
@@ -109,7 +112,7 @@
             label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(25, 22);
+            label4.Location = new System.Drawing.Point(6, 64);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(76, 16);
             label4.TabIndex = 44;
@@ -124,9 +127,9 @@
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label1.Location = new System.Drawing.Point(4, 4);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(139, 17);
+            label1.Size = new System.Drawing.Size(193, 17);
             label1.TabIndex = 41;
-            label1.Text = "     Busca Incidencia";
+            label1.Text = "     Busca Incidencia Nomina";
             // 
             // label3
             // 
@@ -236,6 +239,18 @@
             label12.TabIndex = 151;
             label12.Text = "Representa";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label13.Location = new System.Drawing.Point(6, 41);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(66, 16);
+            label13.TabIndex = 46;
+            label13.Text = "Incidencia";
+            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -245,21 +260,22 @@
             this.btnAgregar.Location = new System.Drawing.Point(960, 102);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
-            this.btnAgregar.TabIndex = 144;
+            this.btnAgregar.TabIndex = 4;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // dgvtiphr
+            // dgvincnomia
             // 
-            this.dgvtiphr.AllowUserToAddRows = false;
-            this.dgvtiphr.AllowUserToDeleteRows = false;
-            this.dgvtiphr.AllowUserToResizeRows = false;
+            this.dgvincnomia.AllowUserToAddRows = false;
+            this.dgvincnomia.AllowUserToDeleteRows = false;
+            this.dgvincnomia.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvtiphr.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvtiphr.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvtiphr.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.dgvtiphr.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvtiphr.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvincnomia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvincnomia.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvincnomia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.dgvincnomia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvincnomia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -267,8 +283,8 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvtiphr.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvtiphr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvincnomia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvincnomia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -276,18 +292,19 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvtiphr.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvtiphr.Location = new System.Drawing.Point(408, 158);
-            this.dgvtiphr.Name = "dgvtiphr";
-            this.dgvtiphr.ReadOnly = true;
-            this.dgvtiphr.RowHeadersVisible = false;
-            this.dgvtiphr.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvtiphr.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
-            this.dgvtiphr.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
-            this.dgvtiphr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvtiphr.Size = new System.Drawing.Size(604, 514);
-            this.dgvtiphr.TabIndex = 142;
-            this.dgvtiphr.TabStop = false;
+            this.dgvincnomia.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvincnomia.Location = new System.Drawing.Point(369, 158);
+            this.dgvincnomia.Name = "dgvincnomia";
+            this.dgvincnomia.ReadOnly = true;
+            this.dgvincnomia.RowHeadersVisible = false;
+            this.dgvincnomia.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvincnomia.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
+            this.dgvincnomia.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
+            this.dgvincnomia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvincnomia.Size = new System.Drawing.Size(650, 514);
+            this.dgvincnomia.TabIndex = 142;
+            this.dgvincnomia.TabStop = false;
+            this.dgvincnomia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvincnomia_CellContentClick);
             // 
             // btnRegresar
             // 
@@ -395,16 +412,33 @@
             // pnlBusqueda
             // 
             this.pnlBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlBusqueda.Controls.Add(label13);
+            this.pnlBusqueda.Controls.Add(this.cboincnombusq);
             this.pnlBusqueda.Controls.Add(label4);
             this.pnlBusqueda.Controls.Add(this.btnBuscar);
             this.pnlBusqueda.Controls.Add(this.panel5);
-            this.pnlBusqueda.Controls.Add(this.txttipohr);
+            this.pnlBusqueda.Controls.Add(this.txtincnomb);
             this.pnlBusqueda.Controls.Add(label1);
-            this.pnlBusqueda.Location = new System.Drawing.Point(5, 159);
+            this.pnlBusqueda.Location = new System.Drawing.Point(4, 159);
             this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(397, 87);
+            this.pnlBusqueda.Size = new System.Drawing.Size(358, 87);
             this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
+            // 
+            // cboincnombusq
+            // 
+            this.cboincnombusq.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboincnombusq.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboincnombusq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboincnombusq.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboincnombusq.FormattingEnabled = true;
+            this.cboincnombusq.ItemHeight = 16;
+            this.cboincnombusq.Location = new System.Drawing.Point(88, 38);
+            this.cboincnombusq.Margin = new System.Windows.Forms.Padding(2);
+            this.cboincnombusq.Name = "cboincnombusq";
+            this.cboincnombusq.Size = new System.Drawing.Size(200, 24);
+            this.cboincnombusq.TabIndex = 1;
+            this.cboincnombusq.SelectedIndexChanged += new System.EventHandler(this.cboincnombusq_SelectedIndexChanged);
             // 
             // btnBuscar
             // 
@@ -413,61 +447,63 @@
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnBuscar.Location = new System.Drawing.Point(338, 16);
+            this.btnBuscar.Location = new System.Drawing.Point(302, 30);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
-            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.TabIndex = 3;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel5.Location = new System.Drawing.Point(29, 63);
+            this.panel5.Location = new System.Drawing.Point(88, 82);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(200, 1);
             this.panel5.TabIndex = 43;
             // 
-            // txttipohr
+            // txtincnomb
             // 
-            this.txttipohr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txttipohr.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txttipohr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttipohr.Location = new System.Drawing.Point(30, 46);
-            this.txttipohr.Name = "txttipohr";
-            this.txttipohr.Size = new System.Drawing.Size(200, 15);
-            this.txttipohr.TabIndex = 1;
+            this.txtincnomb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtincnomb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtincnomb.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtincnomb.Location = new System.Drawing.Point(89, 65);
+            this.txtincnomb.Name = "txtincnomb";
+            this.txtincnomb.Size = new System.Drawing.Size(200, 15);
+            this.txtincnomb.TabIndex = 2;
             // 
-            // pnltiphr
+            // pnlincnom
             // 
-            this.pnltiphr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.pnltiphr.Controls.Add(this.comboBox6);
-            this.pnltiphr.Controls.Add(label12);
-            this.pnltiphr.Controls.Add(this.comboBox5);
-            this.pnltiphr.Controls.Add(label11);
-            this.pnltiphr.Controls.Add(this.cbopasanom);
-            this.pnltiphr.Controls.Add(label10);
-            this.pnltiphr.Controls.Add(this.comboBox4);
-            this.pnltiphr.Controls.Add(label9);
-            this.pnltiphr.Controls.Add(this.cbopremio);
-            this.pnltiphr.Controls.Add(label8);
-            this.pnltiphr.Controls.Add(this.cbotipohr);
-            this.pnltiphr.Controls.Add(label7);
-            this.pnltiphr.Controls.Add(this.cbostdir);
-            this.pnltiphr.Controls.Add(label6);
-            this.pnltiphr.Controls.Add(label5);
-            this.pnltiphr.Controls.Add(this.cboRepresenta);
-            this.pnltiphr.Controls.Add(this.ckbEliminar);
-            this.pnltiphr.Controls.Add(this.btninsertar);
-            this.pnltiphr.Controls.Add(label3);
-            this.pnltiphr.Controls.Add(this.panel2);
-            this.pnltiphr.Controls.Add(this.txttipohriu);
-            this.pnltiphr.Controls.Add(this.lbluid);
-            this.pnltiphr.Location = new System.Drawing.Point(5, 252);
-            this.pnltiphr.Name = "pnltiphr";
-            this.pnltiphr.Size = new System.Drawing.Size(397, 420);
-            this.pnltiphr.TabIndex = 3;
-            this.pnltiphr.TabStop = true;
+            this.pnlincnom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlincnom.Controls.Add(this.comboBox6);
+            this.pnlincnom.Controls.Add(label12);
+            this.pnlincnom.Controls.Add(this.comboBox5);
+            this.pnlincnom.Controls.Add(label11);
+            this.pnlincnom.Controls.Add(this.cbopasanom);
+            this.pnlincnom.Controls.Add(label10);
+            this.pnlincnom.Controls.Add(this.comboBox4);
+            this.pnlincnom.Controls.Add(label9);
+            this.pnlincnom.Controls.Add(this.cbopremio);
+            this.pnlincnom.Controls.Add(label8);
+            this.pnlincnom.Controls.Add(this.cbotipohr);
+            this.pnlincnom.Controls.Add(label7);
+            this.pnlincnom.Controls.Add(this.cbostdir);
+            this.pnlincnom.Controls.Add(label6);
+            this.pnlincnom.Controls.Add(label5);
+            this.pnlincnom.Controls.Add(this.cboRepresenta);
+            this.pnlincnom.Controls.Add(this.ckbEliminar);
+            this.pnlincnom.Controls.Add(this.btninsertar);
+            this.pnlincnom.Controls.Add(label3);
+            this.pnlincnom.Controls.Add(this.panel2);
+            this.pnlincnom.Controls.Add(this.txttipohriu);
+            this.pnlincnom.Controls.Add(this.lbluid);
+            this.pnlincnom.Location = new System.Drawing.Point(4, 252);
+            this.pnlincnom.Name = "pnlincnom";
+            this.pnlincnom.Size = new System.Drawing.Size(358, 420);
+            this.pnlincnom.TabIndex = 3;
+            this.pnlincnom.TabStop = true;
+            this.pnlincnom.Visible = false;
             // 
             // comboBox6
             // 
@@ -479,7 +515,7 @@
             this.comboBox6.Location = new System.Drawing.Point(106, 65);
             this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(266, 24);
+            this.comboBox6.Size = new System.Drawing.Size(243, 24);
             this.comboBox6.TabIndex = 150;
             // 
             // comboBox5
@@ -490,7 +526,7 @@
             this.comboBox5.Location = new System.Drawing.Point(107, 283);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(266, 24);
+            this.comboBox5.Size = new System.Drawing.Size(243, 24);
             this.comboBox5.TabIndex = 149;
             // 
             // cbopasanom
@@ -501,7 +537,7 @@
             this.cbopasanom.Location = new System.Drawing.Point(107, 249);
             this.cbopasanom.Margin = new System.Windows.Forms.Padding(2);
             this.cbopasanom.Name = "cbopasanom";
-            this.cbopasanom.Size = new System.Drawing.Size(266, 24);
+            this.cbopasanom.Size = new System.Drawing.Size(243, 24);
             this.cbopasanom.TabIndex = 147;
             // 
             // comboBox4
@@ -512,7 +548,7 @@
             this.comboBox4.Location = new System.Drawing.Point(107, 212);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(266, 24);
+            this.comboBox4.Size = new System.Drawing.Size(243, 24);
             this.comboBox4.TabIndex = 145;
             // 
             // cbopremio
@@ -523,7 +559,7 @@
             this.cbopremio.Location = new System.Drawing.Point(107, 173);
             this.cbopremio.Margin = new System.Windows.Forms.Padding(2);
             this.cbopremio.Name = "cbopremio";
-            this.cbopremio.Size = new System.Drawing.Size(266, 24);
+            this.cbopremio.Size = new System.Drawing.Size(243, 24);
             this.cbopremio.TabIndex = 143;
             // 
             // cbotipohr
@@ -534,7 +570,7 @@
             this.cbotipohr.Location = new System.Drawing.Point(107, 136);
             this.cbotipohr.Margin = new System.Windows.Forms.Padding(2);
             this.cbotipohr.Name = "cbotipohr";
-            this.cbotipohr.Size = new System.Drawing.Size(266, 24);
+            this.cbotipohr.Size = new System.Drawing.Size(243, 24);
             this.cbotipohr.TabIndex = 141;
             // 
             // cbostdir
@@ -545,7 +581,7 @@
             this.cbostdir.Location = new System.Drawing.Point(107, 99);
             this.cbostdir.Margin = new System.Windows.Forms.Padding(2);
             this.cbostdir.Name = "cbostdir";
-            this.cbostdir.Size = new System.Drawing.Size(266, 24);
+            this.cbostdir.Size = new System.Drawing.Size(243, 24);
             this.cbostdir.TabIndex = 139;
             // 
             // cboRepresenta
@@ -558,7 +594,7 @@
             this.cboRepresenta.Location = new System.Drawing.Point(107, 30);
             this.cboRepresenta.Margin = new System.Windows.Forms.Padding(2);
             this.cboRepresenta.Name = "cboRepresenta";
-            this.cboRepresenta.Size = new System.Drawing.Size(266, 24);
+            this.cboRepresenta.Size = new System.Drawing.Size(243, 24);
             this.cboRepresenta.TabIndex = 4;
             // 
             // ckbEliminar
@@ -579,7 +615,7 @@
             this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
-            this.btninsertar.Location = new System.Drawing.Point(324, 352);
+            this.btninsertar.Location = new System.Drawing.Point(296, 352);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(50, 50);
             this.btninsertar.TabIndex = 134;
@@ -590,7 +626,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel2.Location = new System.Drawing.Point(107, 336);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(266, 1);
+            this.panel2.Size = new System.Drawing.Size(243, 1);
             this.panel2.TabIndex = 43;
             // 
             // txttipohriu
@@ -600,7 +636,7 @@
             this.txttipohriu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttipohriu.Location = new System.Drawing.Point(108, 319);
             this.txttipohriu.Name = "txttipohriu";
-            this.txttipohriu.Size = new System.Drawing.Size(266, 15);
+            this.txttipohriu.Size = new System.Drawing.Size(243, 15);
             this.txttipohriu.TabIndex = 1;
             // 
             // lbluid
@@ -612,9 +648,9 @@
             this.lbluid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbluid.Location = new System.Drawing.Point(4, 4);
             this.lbluid.Name = "lbluid";
-            this.lbluid.Size = new System.Drawing.Size(180, 17);
+            this.lbluid.Size = new System.Drawing.Size(201, 17);
             this.lbluid.TabIndex = 41;
-            this.lbluid.Text = "     Agregar Tipo de Horario";
+            this.lbluid.Text = "     Agregar Incidencia Nomina";
             // 
             // IncidenciasNom
             // 
@@ -623,11 +659,11 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.pnltiphr);
+            this.Controls.Add(this.pnlincnom);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(label2);
-            this.Controls.Add(this.dgvtiphr);
+            this.Controls.Add(this.dgvincnomia);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
@@ -640,13 +676,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IncidenciasNom";
             this.Load += new System.EventHandler(this.IncidenciasNom_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvtiphr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvincnomia)).EndInit();
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
-            this.pnltiphr.ResumeLayout(false);
-            this.pnltiphr.PerformLayout();
+            this.pnlincnom.ResumeLayout(false);
+            this.pnlincnom.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -655,7 +691,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.DataGridView dgvtiphr;
+        private System.Windows.Forms.DataGridView dgvincnomia;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
@@ -667,8 +703,8 @@
         private System.Windows.Forms.Panel pnlBusqueda;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txttipohr;
-        private System.Windows.Forms.Panel pnltiphr;
+        private System.Windows.Forms.TextBox txtincnomb;
+        private System.Windows.Forms.Panel pnlincnom;
         private System.Windows.Forms.CheckBox ckbEliminar;
         private System.Windows.Forms.Button btninsertar;
         private System.Windows.Forms.Panel panel2;
@@ -682,5 +718,6 @@
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.ComboBox cbopasanom;
         private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cboincnombusq;
     }
 }

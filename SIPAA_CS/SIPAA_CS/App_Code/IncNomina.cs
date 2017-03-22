@@ -124,19 +124,27 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
 
         //metodo data table para llenar grid de busqueda
-        public DataTable obttipohr(int p_opcion, int p_cvtipohr, string p_descripcion, string p_usuumod, string p_prgumodr)
+        public DataTable obtincnomina(int p_opcion)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechctipohr_suid";
+            cmd.CommandText = @"usp_rechcincnomina_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
-            cmd.Parameters.Add("@p_cvtipohr", SqlDbType.VarChar).Value = p_cvtipohr;
-            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
-            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
-            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
+            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_cvrepresenta", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stdir", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_cvtipohr", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stpremio", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_cvafecta", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stpasanom", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_imphrsdias", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_campo", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_formula", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
 
             objConexion.asignarConexion(cmd);
 
@@ -144,9 +152,43 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             objConexion.cerrarConexion();
 
-            DataTable dttipohr = new DataTable();
-            Adapter.Fill(dttipohr);
-            return dttipohr;
+            DataTable gridbusoncnom = new DataTable();
+            Adapter.Fill(gridbusoncnom);
+            return gridbusoncnom;
+        }
+
+        //bsuqueda de registro por cvincidencia y cvrepresenta
+        public DataTable obtincnominair(int p_opcion, int p_cvincidencia, string p_representa)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechcincnomina_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
+            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = p_cvincidencia;
+            cmd.Parameters.Add("@p_cvrepresenta", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stdir", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_cvtipohr", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stpremio", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_cvafecta", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stpasanom", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_imphrsdias", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_campo", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_formula", SqlDbType.VarChar).Value = p_representa;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable gridbusoncnomir = new DataTable();
+            Adapter.Fill(gridbusoncnomir);
+            return gridbusoncnomir;
         }
 
         //metodo insertar, actualizar, eliminar registro
