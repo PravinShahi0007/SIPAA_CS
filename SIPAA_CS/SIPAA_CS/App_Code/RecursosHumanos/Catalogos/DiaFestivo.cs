@@ -16,7 +16,7 @@ using System.Data.SqlClient;
 
 namespace SIPAA_CS.Recursos_Humanos.App_Code
 {
-    class DiasFestivos
+    class DiaFestivo
     {
         //variables
         public int p_opcion;
@@ -26,7 +26,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         public string p_prgumodr;
         public int p_respuesta;
 
-        public DiasFestivos()
+        public DiaFestivo()
         {
             //inician variables
             p_opcion = 0;

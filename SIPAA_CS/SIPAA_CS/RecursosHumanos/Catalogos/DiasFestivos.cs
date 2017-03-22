@@ -33,7 +33,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         #endregion
 
-        DiasFestivos oDiasFestivos = new DiasFestivos();
+        DiaFestivo oDiasFestivos = new DiaFestivo();
         Utilerias Util = new Utilerias();
 
         public frmDiasFestivos()

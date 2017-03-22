@@ -20,7 +20,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void PanelPlantilla_Paint(object sender, PaintEventArgs e)
         {
-            CompaniasSonarh objCia = new CompaniasSonarh();
+            SonaCompania objCia = new SonaCompania();
             DataTable dtCia = objCia.obtcomp(1,"");
             List<string> ltCia = new List<string>();
             foreach (DataRow row in dtCia.Rows) {
@@ -43,7 +43,7 @@ namespace SIPAA_CS.Recursos_Humanos
         public void LlenarGridPlanteles(int idCia,string busqueda, DataGridView dgvPlantel) {
 
 
-            CompaniasSonarh objCia = new CompaniasSonarh();
+            SonaCompania objCia = new SonaCompania();
             DataTable dtPlantel = objCia.ObtenerPlantelxCompania(idCia, busqueda);
 
             dgvPlantel.DataSource = dtPlantel;
@@ -68,7 +68,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void Compania_Plantel_Load(object sender, EventArgs e)
         {
-            CompaniasSonarh objCia = new CompaniasSonarh();
+            SonaCompania objCia = new SonaCompania();
             DataTable dtCia = objCia.obtcomp(1, "");
             List<string> ltCia = new List<string>();
             foreach (DataRow row in dtCia.Rows)

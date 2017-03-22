@@ -11,22 +11,27 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.Recursos_Humanos.App_Code;
 
-//***********************************************************************************************
-//Autor: Noe Alvarez Marquina
-//Fecha creación:13-Mar-2017       Última Modificacion: dd-mm-aaaa
-//Descripción: Muestra y busca puestos sonarh
-//***********************************************************************************************
-
 namespace SIPAA_CS.Recursos_Humanos.Administracion
 {
-    public partial class Puestos : Form
+
+    #region variables
+
+
+    #endregion
+
+    public partial class Departamentos : Form
     {
-        public Puestos()
+        public Departamentos()
         {
             InitializeComponent();
         }
+        SonaDepartamento departamentos = new SonaDepartamento();
 
-        PuestosSonarh puestos = new PuestosSonarh();
+        //***********************************************************************************************
+        //Autor: 
+        //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
+        //Descripción: Lee la tabla de compañias de SONARH
+        //***********************************************************************************************
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -37,20 +42,30 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+
+        //boton buscar compañia 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             //llena grid
-            fgptos(1, txtPuestos.Text.Trim());
+            fgdeptos(1, txtComp.Text.Trim());
+            txtComp.Text = "";
+            txtComp.Focus();
 
+            //DataTable listadeptos = departamentos.obtdepto(1, txtComp.Text.Trim());
+            //dgvComp.DataSource = listadeptos;
+            //txtComp.Text = "";
+            //txtComp.Focus();
 
-            txtPuestos.Text = "";
-            txtPuestos.Focus();
         }
-        private void btnMinimizar_Click(object sender, EventArgs e)
+
+        //boton minimizar        
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-        private void btnCerrar_Click(object sender, EventArgs e)
+
+        //boton cerrar
+        private void btnCerrar_Click_1(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
 
@@ -63,23 +78,28 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
             }
         }
-        //-----------------------------------------------------------------------------------------------
-        //                           C A J A S      D E      T E X T O   
-        //-----------------------------------------------------------------------------------------------
+
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void Puestos_Load(object sender, EventArgs e)
+        private void Departamentos_Load(object sender, EventArgs e)
         {
+
+            //DataTable listadeptos = departamentos.obtdepto(1, "%");
+            //dgvComp.DataSource = listadeptos;
+            //txtComp.Text = "";
+            //txtComp.Focus();
+                        
             //inicializa tool tip
             ftooltip();
 
-            txtPuestos.Focus();
+            txtComp.Focus();
 
             //llena grid
-            fgptos(1, "");
+            fgdeptos(1, "");
 
         }
+
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
@@ -100,19 +120,19 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
             toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
         }
-        private void fgptos(int popc, string pbusq)
+
+        //Llena el Grid de Departamentos
+        private void fgdeptos(int popc, string pbusq)
         {
 
-            DataTable dtpuestos = puestos.obtptos(popc, pbusq);
-            dgvPuestos.DataSource = dtpuestos;
+            DataTable dtdepartamentos = departamentos.obtdepto(popc, pbusq);
+            dgvComp.DataSource = dtdepartamentos;
 
-            dgvPuestos.Columns[0].Visible = false;
-            dgvPuestos.Columns[1].Width = 475;
-
-            dgvPuestos.ClearSelection();
+            dgvComp.Columns[0].Visible = false;
+            dgvComp.Columns[1].Width = 355;
+            //dgvComp.Columns[2].Width = 125;
+            dgvComp.ClearSelection();
         }
-        //-----------------------------------------------------------------------------------------------
-        //                                      R E P O R T E S
-        //-----------------------------------------------------------------------------------------------
+
     }
 }

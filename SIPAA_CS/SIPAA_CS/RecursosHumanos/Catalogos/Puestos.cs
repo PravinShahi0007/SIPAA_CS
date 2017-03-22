@@ -13,27 +13,20 @@ using SIPAA_CS.Recursos_Humanos.App_Code;
 
 //***********************************************************************************************
 //Autor: Noe Alvarez Marquina
-//Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
-//Descripción: Lee la tabla de compañias de SONARH
+//Fecha creación:13-Mar-2017       Última Modificacion: dd-mm-aaaa
+//Descripción: Muestra y busca puestos sonarh
 //***********************************************************************************************
 
 namespace SIPAA_CS.Recursos_Humanos.Administracion
 {
-
-    #region variables
-
-
-    #endregion
-
-    public partial class frmCompanias : Form
+    public partial class Puestos : Form
     {
-        public frmCompanias()
+        public Puestos()
         {
             InitializeComponent();
         }
-        CompaniasSonarh companias = new CompaniasSonarh();
 
-
+        SonaPuesto puestos = new SonaPuesto();
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -44,24 +37,19 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
-
-        //boton buscar compañia 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             //llena grid
-            fgcomp(1,txtComp.Text.Trim());
+            fgptos(1, txtPuestos.Text.Trim());
 
-            txtComp.Text = "";
-            txtComp.Focus();
+
+            txtPuestos.Text = "";
+            txtPuestos.Focus();
         }
-
-        //boton minimizar
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
-        //boton cerrar
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
@@ -81,15 +69,16 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void frmCompanias_Load(object sender, EventArgs e)
+        private void Puestos_Load(object sender, EventArgs e)
         {
             //inicializa tool tip
             ftooltip();
 
-            txtComp.Focus();
+            txtPuestos.Focus();
 
             //llena grid
-            fgcomp(1,"");
+            fgptos(1, "");
+
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -111,19 +100,17 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
             toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
         }
-        //llena grid compañias
-        private void fgcomp(int popc, string pbusq)
+        private void fgptos(int popc, string pbusq)
         {
 
-            DataTable dtcompania = companias.obtcomp(popc, pbusq);
-            dgvComp.DataSource = dtcompania;
+            DataTable dtpuestos = puestos.obtptos(popc, pbusq);
+            dgvPuestos.DataSource = dtpuestos;
 
-            dgvComp.Columns[0].Visible = false;
-            dgvComp.Columns[1].Width = 355;
-            dgvComp.Columns[2].Width = 125;
-            dgvComp.ClearSelection();
+            dgvPuestos.Columns[0].Visible = false;
+            dgvPuestos.Columns[1].Width = 475;
+
+            dgvPuestos.ClearSelection();
         }
-
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------

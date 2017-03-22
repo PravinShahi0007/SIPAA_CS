@@ -24,7 +24,7 @@ namespace SIPAA_CS.Recursos_Humanos
         }
 
         private void llenarGrid(string Descripcion) {
-            CompaniasSonarh objCia = new CompaniasSonarh();
+            SonaCompania objCia = new SonaCompania();
             DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(Descripcion);
             dgvUbicacion.DataSource = dtUbicacion;
             dgvUbicacion.Columns[0].Visible = false;

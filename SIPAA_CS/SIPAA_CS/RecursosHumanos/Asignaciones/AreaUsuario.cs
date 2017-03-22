@@ -86,7 +86,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
             LlenarGridPlanteles(1, "", dgvPlantel);
 
-            CompaniasSonarh objCia = new CompaniasSonarh();
+            SonaCompania objCia = new SonaCompania();
             DataTable dtCia = objCia.obtcomp(1, "");
             List<string> ltCia = new List<string>();
 
@@ -126,7 +126,7 @@ namespace SIPAA_CS.Recursos_Humanos
         {
 
 
-            CompaniasSonarh objCia = new CompaniasSonarh();
+            SonaCompania objCia = new SonaCompania();
             DataTable dtPlantel = objCia.ObtenerPlantelxCompania(idCia, busqueda);
 
             dgvPlantel.DataSource = dtPlantel;

@@ -10,14 +10,14 @@ using System.Data.SqlClient;
 
 namespace SIPAA_CS.Recursos_Humanos.App_Code
 {
-    class EmpleadosSonarh
+    class SonaTrabajador
     {
         //declaracion de variables
         public int popcion;
         public string prespuesta;
         public string ptextoabuscar;
 
-        public EmpleadosSonarh()
+        public SonaTrabajador()
         {
             popcion = 0;
             prespuesta = "";

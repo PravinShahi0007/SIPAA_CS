@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace SIPAA_CS.App_Code
 {
-    class Companias
+    class CompaniaUsuario
     {
-        public Companias()
+        public CompaniaUsuario()
         {
 
         }

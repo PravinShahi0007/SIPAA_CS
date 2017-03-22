@@ -35,7 +35,7 @@ namespace SIPAA_CS.Recursos_Humanos
         public List<int> ltCompanias = new List<int>();
         public List<int> ltCompaniasxUsuario = new List<int>();
         Usuario usuario = new Usuario();
-        CompaniasSonarh companias = new CompaniasSonarh();
+        SonaCompania companias = new SonaCompania();
         public Asignacion_Companias_Usuario()
         {
             InitializeComponent();
@@ -241,7 +241,7 @@ namespace SIPAA_CS.Recursos_Humanos
         private void AsignarCompanias()
         {
 
-            Companias objCompanias = new Companias();
+            CompaniaUsuario objCompanias = new CompaniaUsuario();
             ltCompaniasxUsuario = objCompanias.ObtenerCompaniasxUsuario(cvusuario);
 
             //Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);

@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace SIPAA_CS.Recursos_Humanos.App_Code
 {
-    class PuestosSonarh
+    class SonaPuesto
     {
 
         //se declaran variables
@@ -18,7 +18,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         public string prespuesta;
         public string ptextobuscar;
 
-        public PuestosSonarh()
+        public SonaPuesto()
         {
 
 

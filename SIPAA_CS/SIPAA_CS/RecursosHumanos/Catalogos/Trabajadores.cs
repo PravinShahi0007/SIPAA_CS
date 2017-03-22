@@ -25,7 +25,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         {
             InitializeComponent();
         }
-        EmpleadosSonarh contenedorempleados = new EmpleadosSonarh();
+        SonaTrabajador contenedorempleados = new SonaTrabajador();
 
         //boton buscar empleados
         private void btnBuscar_Click(object sender, EventArgs e)
