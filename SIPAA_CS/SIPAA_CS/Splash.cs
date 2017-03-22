@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace SIPAA_CS
 {
-    public partial class CompaniasUsuario : Form
+    public partial class Splash : Form
     {
         public int iContador;
-        public CompaniasUsuario()
+        public Splash()
         {
             InitializeComponent();
         }
@@ -38,6 +38,11 @@ namespace SIPAA_CS
                 fAcceso.Show();
                 this.Hide();
             }
+        }
+
+        private void CompaniasUsuario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

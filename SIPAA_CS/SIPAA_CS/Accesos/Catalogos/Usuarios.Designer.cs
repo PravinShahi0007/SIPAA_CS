@@ -1,6 +1,6 @@
-﻿namespace SIPAA_CS.Recursos_Humanos.Administracion
+﻿namespace SIPAA_CS.Accesos
 {
-    partial class Crear_Acceso_Usuario
+    partial class Usuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -532,7 +532,7 @@
             this.lbMensaje.Text = "       Administración de Perfiles    ";
             this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Crear_Acceso_Usuario
+            // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -550,7 +550,7 @@
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.dgvAccesoUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Crear_Acceso_Usuario";
+            this.Name = "Usuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear_Acceso_Usuario";
             this.Load += new System.EventHandler(this.Crear_Acceso_Usuario_Load);

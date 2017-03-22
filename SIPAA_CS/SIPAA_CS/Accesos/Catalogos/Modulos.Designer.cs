@@ -1,6 +1,6 @@
-﻿namespace SIPAA_CS.Recursos_Humanos
+﻿namespace SIPAA_CS.Accesos
 {
-    partial class Crear_Modulo
+    partial class Modulos
     {
         /// <summary>
         /// Required designer variable.

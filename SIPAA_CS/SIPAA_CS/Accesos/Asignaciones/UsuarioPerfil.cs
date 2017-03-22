@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.Accesos
 {
 
     //***********************************************************************************************
@@ -20,7 +20,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
     //Fecha creación:13-03-2017      Última Modificacion: 13-03-2017
     //Descripción: Pantalla de Asignación de Módulos a Perfiles
     //***********************************************************************************************
-    public partial class Asignar_Perfil : Form
+    public partial class UsuarioPerfil : Form
     {
 
         public Point formPosition;
@@ -279,7 +279,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
 
-        public Asignar_Perfil()
+        public UsuarioPerfil()
         {
             InitializeComponent();
         }

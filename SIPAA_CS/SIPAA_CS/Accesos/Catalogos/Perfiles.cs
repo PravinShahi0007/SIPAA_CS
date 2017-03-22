@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS
+namespace SIPAA_CS.Accesos
 {
 
 
@@ -23,7 +23,7 @@ namespace SIPAA_CS
     //Descripción: Pantalla que permite la gestión de Perfiles de usuario
     //***********************************************************************************************
 
-    public partial class Crear_Perfil : Form
+    public partial class Perfiles : Form
     {
         public Point formPosition;
         public Boolean mouseAction;
@@ -190,7 +190,7 @@ namespace SIPAA_CS
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
 
-        public Crear_Perfil()
+        public Perfiles()
         {
             InitializeComponent();
         }

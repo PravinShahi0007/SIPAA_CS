@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.Accesos
 {
-    public partial class Crear_Modulo : Form
+    public partial class Modulos : Form
     {
         public Point formPosition;
         public Boolean mouseAction;
@@ -25,7 +25,7 @@ namespace SIPAA_CS.Recursos_Humanos
         Utilerias u = new Utilerias();
 
         Conexion c = new Conexion();
-        public Crear_Modulo()
+        public Modulos()
         {
             InitializeComponent();
         }

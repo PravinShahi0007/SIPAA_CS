@@ -1,16 +1,11 @@
-﻿using SIPAA_CS.Recursos_Humanos.App_Code;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using SIPAA_CS.Recursos_Humanos.Administracion;
-using static SIPAA_CS.Recursos_Humanos.App_Code.Usuario;
 using SIPAA_CS.Recursos_Humanos;
+using SIPAA_CS.App_Code;
+using static SIPAA_CS.App_Code.Usuario;
+using SIPAA_CS.Accesos;
 
 namespace SIPAA_CS
 {

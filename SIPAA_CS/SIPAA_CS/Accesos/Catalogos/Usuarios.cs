@@ -12,9 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.Accesos
 {
-    public partial class Crear_Acceso_Usuario : Form
+    public partial class Usuarios : Form
     {
         public Point formPosition;
         public Boolean mouseAction;
@@ -39,7 +39,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         Usuario usuario = new Usuario();
 
 
-        public Crear_Acceso_Usuario()
+        public Usuarios()
         {
             InitializeComponent();
         }

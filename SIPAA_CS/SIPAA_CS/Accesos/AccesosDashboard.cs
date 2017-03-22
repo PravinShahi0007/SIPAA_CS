@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.Accesos
 {
 
     //***********************************************************************************************
@@ -33,43 +33,43 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         //-----------------------------------------------------------------------------------------------
         private void tsmiUsuarios_Click(object sender, EventArgs e)
         {
-            Crear_Acceso_Usuario cau = new Crear_Acceso_Usuario();
+            Usuarios cau = new Usuarios();
             cau.Show();
         }
 
         private void tsmiPerfiles_Click(object sender, EventArgs e)
         {
-            Crear_Perfil cp = new Crear_Perfil();
+            Perfiles cp = new Perfiles();
             cp.Show();
         }
 
         private void tsmiModulos_Click(object sender, EventArgs e)
         {
-            Crear_Modulo cm = new Crear_Modulo();
+            Modulos cm = new Modulos();
             cm.Show();
         }
 
         private void tsmiProcesos_Click(object sender, EventArgs e)
         {
-            Crear_Procesos cp = new Crear_Procesos();
+            Procesos cp = new Procesos();
             cp.Show();
         }
 
         private void msAsignacionPerfil_Click(object sender, EventArgs e)
         {
-            Asignar_Perfil ap = new Asignar_Perfil();
+            Perfiles ap = new Perfiles();
             ap.Show();
         }
 
         private void msAsignacionModulo_Click(object sender, EventArgs e)
         {
-            Asignar_Modulo am = new Asignar_Modulo();
+            PerfilModulo am = new PerfilModulo();
             am.Show();
         }
 
         private void msAsignacionProceso_Click(object sender, EventArgs e)
         {
-            Asignar_Proceso aproc = new Asignar_Proceso();
+            UsuarioProceso aproc = new UsuarioProceso();
             aproc.Show();
         }
         //-----------------------------------------------------------------------------------------------

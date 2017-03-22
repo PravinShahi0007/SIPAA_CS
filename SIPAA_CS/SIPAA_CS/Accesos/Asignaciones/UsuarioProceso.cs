@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace SIPAA_CS.Accesos
 {
-    public partial class Asignar_Proceso : Form
+    public partial class UsuarioProceso : Form
     {
         Usuario usuario = new Usuario();
         Proceso procesos = new Proceso();
@@ -27,7 +27,7 @@ namespace SIPAA_CS.Accesos
         public string descripcion;
         public string pass;
 
-        public Asignar_Proceso()
+        public UsuarioProceso()
         {
             InitializeComponent();
         }
