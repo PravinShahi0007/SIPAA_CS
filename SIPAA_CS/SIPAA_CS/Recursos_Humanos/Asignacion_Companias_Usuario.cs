@@ -74,7 +74,47 @@ namespace SIPAA_CS.Recursos_Humanos
 
             }
         }
+        private void dgvCompanias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+            if (cvusuario != null)
+            {
+
+                if (dgvCompanias.SelectedRows.Count != 0)
+                {
+
+                    DataGridViewRow row = this.dgvCompanias.SelectedRows[0];
+                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                    idcompania = Convert.ToInt32(row.Cells[1].Value.ToString());
+
+                    panelPermisos.Enabled = true;
+
+                    ltCompanias.Add(idcompania);
+
+                    if (row.Cells[0].Tag.ToString() == "check")
+                    {
+
+                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                        row.Cells[0].Tag = "uncheck";
+
+                    }
+                    else
+                    {
+                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                        row.Cells[0].Tag = "check";
+
+                    }
+                }
+
+            }
+            else
+            {
+
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a un Usuario");
+                timer1.Start();
+            }
+
+        }
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
@@ -118,6 +158,37 @@ namespace SIPAA_CS.Recursos_Humanos
             llenarGridCompanias(1, companias.Trim());
             txtCompanias.Text = "";
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            panelPermisos.Enabled = false;
+            try
+            {
+                string usuumod = "vjiturburuv";
+                string prgmod = this.Name;
+                Usuario objUsuario = new Usuario();
+
+                foreach (int id in ltCompanias)
+                {
+                    objUsuario.AsignarCompaniaUsuario(cvusuario, id, usuumod, prgmod);
+                }
+
+                ltCompanias.Clear();
+
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                timer1.Start();
+                AsignarCompanias();
+
+
+            }
+            catch (Exception ex)
+            {
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
+                timer1.Start();
+                MessageBox.Show("" + ex);
+                AsignarCompanias();
+            }
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -146,7 +217,7 @@ namespace SIPAA_CS.Recursos_Humanos
             dgvUsuarios.Columns.Insert(0, imgCheckProcesos);
             dgvUsuarios.Columns[0].HeaderText = "Seleccionar";
             dgvUsuarios.Columns[3].Visible = false;
-
+            dgvUsuarios.ClearSelection();
         }
 
         private void llenarGridCompanias(int popc, string pbusq)
@@ -164,87 +235,9 @@ namespace SIPAA_CS.Recursos_Humanos
             dgvCompanias.Columns[3].Visible = false;
             dgvCompanias.Columns[0].HeaderText = "Seleccionar";
             dgvCompanias.Columns[0].Width = 100;
-            //dgvCompanias.ClearSelection();
+            dgvCompanias.ClearSelection();
        
-    }
-
-        private void dgvCompanias_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //for (int iContador = 0; iContador < dgvCompanias.Rows.Count; iContador++)
-            //{
-            //    dgvCompanias.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            //}
-
-            if (cvusuario != null)
-            {
-
-                if (dgvCompanias.SelectedRows.Count != 0)
-                {
-
-                    DataGridViewRow row = this.dgvCompanias.SelectedRows[0];
-                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    idcompania = Convert.ToInt32(row.Cells[1].Value.ToString());
-
-                    panelPermisos.Enabled = true;
-                    
-                    ltCompanias.Add(idcompania);
-
-                    if (row.Cells[0].Tag.ToString() == "check")
-                    {
-
-                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                        row.Cells[0].Tag = "uncheck";
-
-                    }
-                    else
-                    {
-                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                        row.Cells[0].Tag = "check";
-
-                    }
-                }
-
-            }
-            else
-            {
-                
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a un Usuario");
-                timer1.Start();
-            }
-            
         }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            panelPermisos.Enabled = false;
-            try
-            {
-                string usuumod = "vjiturburuv";
-                string prgmod = this.Name;
-                Usuario objUsuario = new Usuario();
-
-                foreach (int id in ltCompanias)
-                {
-                    objUsuario.AsignarCompaniaUsuario(cvusuario, id, usuumod,prgmod);
-                }
-
-                ltCompanias.Clear();
-
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
-                timer1.Start();
-                AsignarCompanias();
-
-
-            }
-            catch (Exception ex)
-            {
-                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
-                timer1.Start();
-                MessageBox.Show(""+ex);
-                AsignarCompanias();
-            }
-        }
-
         private void AsignarCompanias()
         {
 

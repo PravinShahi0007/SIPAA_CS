@@ -192,7 +192,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         public int AsignarAccesoUsuario(string cvusuario, int idtrab, string nombre, string passw, int stusuario, string usuumod, string prgmod, int opcion)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "sp_AdministracionAccesoUsuario";
+            cmd.CommandText = "usp_administracionaccesousuario_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@CVUsuario", SqlDbType.VarChar).Value = cvusuario;
@@ -253,7 +253,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         public int EliminarAccesoUsuario(string cvusuario, int idtrab, string nombre, string passw, int stusuario, string usuumod, string prgmod, int opcion)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "sp_AdministracionAccesoUsuario";
+            cmd.CommandText = "usp_administracionaccesousuario_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@CVUsuario", SqlDbType.VarChar).Value = cvusuario;
@@ -286,7 +286,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"sp_administracionaccesousuario";
+            cmd.CommandText = @"usp_administracionaccesousuario_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
