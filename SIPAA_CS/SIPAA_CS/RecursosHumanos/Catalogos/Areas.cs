@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.RecursosHumanos
 {
-    public partial class Compania_Plantel : Form
+    public partial class Areas : Form
     {
-        public Compania_Plantel()
+        public Areas()
         {
             InitializeComponent();
         }

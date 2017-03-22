@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.RecursosHumanos
 {
     public partial class CompaniasUsuario : Form
     {

@@ -18,9 +18,9 @@ using SIPAA_CS.App_Code;
 //Descripción: administra incidencias de nomina
 //***********************************************************************************************
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.RecursosHumanos
 {
-    public partial class IncidenciasNom : Form
+    public partial class IncidenciasNomimas : Form
     {
         #region
 
@@ -42,7 +42,7 @@ namespace SIPAA_CS.Recursos_Humanos
         IncNomina IncNom = new IncNomina();
         Utilerias Util = new Utilerias();
 
-        public IncidenciasNom()
+        public IncidenciasNomimas()
         {
             InitializeComponent();
         }

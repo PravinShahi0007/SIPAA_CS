@@ -16,9 +16,9 @@ using SIPAA_CS.App_Code;
 //Fecha creación: 17-Mar-2017       Última Modificacion: dd-mm-aaaa
 //Descripción: Administra Formas de Registro Empleado
 //***********************************************************************************************
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.RecursosHumanos
 {
-    public partial class frmFormReg : Form
+    public partial class FormasRegistros : Form
     {
         #region
 
@@ -32,7 +32,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         FormaReg FormasRegistro = new FormaReg();
 
-        public frmFormReg()
+        public FormasRegistros()
         {
             InitializeComponent();
         }

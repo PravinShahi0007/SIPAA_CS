@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.RecursosHumanos
 {
-    public partial class Asignacion_Area_Usuario : Form
+    public partial class AreaUsuario : Form
     {
         public string cvusuario;
         public string nombre;
@@ -20,7 +20,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
         Usuario usuario = new Usuario();
         Utilerias utilerias = new Utilerias();
-        public Asignacion_Area_Usuario()
+        public AreaUsuario()
         {
             InitializeComponent();
         }

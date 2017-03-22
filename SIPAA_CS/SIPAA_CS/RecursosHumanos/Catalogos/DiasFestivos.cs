@@ -18,9 +18,9 @@ using SIPAA_CS.App_Code;
 //Descripción: Días Festivos
 //***********************************************************************************************
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.RecursosHumanos
 {
-    public partial class frmDiasFestivos : Form
+    public partial class DiasFestivos : Form
     {
         #region
 
@@ -36,7 +36,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         DiaFestivo oDiasFestivos = new DiaFestivo();
         Utilerias Util = new Utilerias();
 
-        public frmDiasFestivos()
+        public DiasFestivos()
         {
             InitializeComponent();
         }

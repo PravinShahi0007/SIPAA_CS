@@ -17,7 +17,7 @@ using SIPAA_CS.App_Code;
 //Descripción: Muestra y busca puestos sonarh
 //***********************************************************************************************
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.RecursosHumanos
 {
     public partial class Puestos : Form
     {

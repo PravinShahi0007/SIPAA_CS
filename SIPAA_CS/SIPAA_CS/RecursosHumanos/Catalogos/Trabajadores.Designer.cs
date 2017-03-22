@@ -1,6 +1,6 @@
-﻿namespace SIPAA_CS.Recursos_Humanos.Administracion
+﻿namespace SIPAA_CS.RecursosHumanos
 {
-    partial class Empleados
+    partial class Trabajadores
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Empleados));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trabajadores));
             System.Windows.Forms.Label label3;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();

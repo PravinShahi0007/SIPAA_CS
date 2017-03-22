@@ -1,6 +1,6 @@
-﻿namespace SIPAA_CS.Recursos_Humanos.Administracion
+﻿namespace SIPAA_CS.RecursosHumanos
 {
-    partial class frmCompanias
+    partial class Companias
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCompanias));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Companias));
             System.Windows.Forms.Label label2;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();

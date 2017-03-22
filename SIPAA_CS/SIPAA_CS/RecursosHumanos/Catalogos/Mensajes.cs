@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.RecursosHumanos
 {
 
     #region variables

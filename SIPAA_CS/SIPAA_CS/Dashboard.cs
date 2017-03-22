@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using SIPAA_CS.Recursos_Humanos;
+using SIPAA_CS.RecursosHumanos;
 using SIPAA_CS.App_Code;
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.Accesos;

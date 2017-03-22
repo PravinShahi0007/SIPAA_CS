@@ -1,4 +1,4 @@
-﻿namespace SIPAA_CS.Recursos_Humanos.Administracion
+﻿namespace SIPAA_CS.RecursosHumanos
 {
     partial class Puestos
     {

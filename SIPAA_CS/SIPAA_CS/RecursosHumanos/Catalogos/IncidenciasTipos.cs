@@ -10,16 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.RecursosHumanos
 {
-    public partial class Incidencia_Tipo : Form
+    public partial class IncidenciasTipo : Form
     {
         public int cvIncidencia;
         public int cvTipo;
         public int iOpcionAdmin;
         public string strIncidencia;
         public string strTipoIncidencia;
-        public Incidencia_Tipo()
+        public IncidenciasTipo()
         {
             InitializeComponent();
         }

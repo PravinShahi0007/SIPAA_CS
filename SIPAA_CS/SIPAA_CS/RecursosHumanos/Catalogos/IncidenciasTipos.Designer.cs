@@ -1,6 +1,6 @@
-﻿namespace SIPAA_CS.Recursos_Humanos
+﻿namespace SIPAA_CS.RecursosHumanos
 {
-    partial class Incidencia_Tipo
+    partial class IncidenciasTipo
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Incidencia_Tipo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncidenciasTipo));
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label7;

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.RecursosHumanos
 {
-    public partial class Incidencia_Representa : Form
+    public partial class IncidenciasRepresentan : Form
     {
         public int cvIncidencia;
         public int cvRepresenta;
@@ -223,7 +223,7 @@ namespace SIPAA_CS.Recursos_Humanos
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
 
-        public Incidencia_Representa()
+        public IncidenciasRepresentan()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
-﻿namespace SIPAA_CS.Recursos_Humanos
+﻿namespace SIPAA_CS.RecursosHumanos
 {
-    partial class Asignacion_Area_Usuario
+    partial class AreaUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label3;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Asignacion_Area_Usuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AreaUsuario));
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label2;

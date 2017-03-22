@@ -1,6 +1,6 @@
-﻿namespace SIPAA_CS.Recursos_Humanos
+﻿namespace SIPAA_CS.RecursosHumanos
 {
-    partial class Ubicacion_Plantel
+    partial class Ubicaciones
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ubicacion_Plantel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Areas));
             System.Windows.Forms.Label label1;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();

@@ -17,7 +17,7 @@ using SIPAA_CS.App_Code;
 //Descripción: Lee la tabla de compañias de SONARH
 //***********************************************************************************************
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.RecursosHumanos
 {
 
     #region variables
@@ -25,9 +25,9 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
     #endregion
 
-    public partial class frmCompanias : Form
+    public partial class Companias : Form
     {
-        public frmCompanias()
+        public Companias()
         {
             InitializeComponent();
         }

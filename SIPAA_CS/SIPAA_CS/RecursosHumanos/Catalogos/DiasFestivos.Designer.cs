@@ -1,6 +1,6 @@
-﻿namespace SIPAA_CS.Recursos_Humanos.Administracion
+﻿namespace SIPAA_CS.RecursosHumanos
 {
-    partial class frmDiasFestivos
+    partial class DiasFestivos
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDiasFestivos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiasFestivos));
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label lblFechaDiaFestivo;
             System.Windows.Forms.Label lblGridDiasFestivos;

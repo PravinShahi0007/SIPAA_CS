@@ -18,10 +18,10 @@ using SIPAA_CS.App_Code;
 //Descripción: Tipos de Horario
 //***********************************************************************************************
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.RecursosHumanos
 {
 
-    public partial class TipoHorario : Form
+    public partial class TiposHorario : Form
     {
 
         #region
@@ -38,7 +38,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         TipoHr TipHr = new TipoHr();
         Utilerias Util = new Utilerias();
 
-        public TipoHorario()
+        public TiposHorario()
         {
             InitializeComponent();
         }
