@@ -32,6 +32,7 @@
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mensajes));
+            System.Windows.Forms.Label label3;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,11 +47,20 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lbltitulo = new System.Windows.Forms.Label();
+            this.pnltiphr = new System.Windows.Forms.Panel();
+            this.ckbEliminar = new System.Windows.Forms.CheckBox();
+            this.btninsertar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtmensajeiu = new System.Windows.Forms.TextBox();
+            this.lbluid = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             this.pnlBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMensajes)).BeginInit();
+            this.pnltiphr.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -60,7 +70,7 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(97, 200);
+            label2.Location = new System.Drawing.Point(97, 210);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(64, 16);
             label2.TabIndex = 142;
@@ -90,6 +100,18 @@
             label1.Size = new System.Drawing.Size(133, 17);
             label1.TabIndex = 41;
             label1.Text = "     Buscar Mensaje";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label3.Location = new System.Drawing.Point(25, 22);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(76, 16);
+            label3.TabIndex = 44;
+            label3.Text = "Descripción";
             // 
             // pnlBusqueda
             // 
@@ -167,7 +189,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMensajes.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvMensajes.Location = new System.Drawing.Point(95, 226);
+            this.dgvMensajes.Location = new System.Drawing.Point(95, 236);
             this.dgvMensajes.Name = "dgvMensajes";
             this.dgvMensajes.ReadOnly = true;
             this.dgvMensajes.RowHeadersVisible = false;
@@ -259,12 +281,98 @@
             this.lbltitulo.Text = "Catalogo de Mensajes";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pnltiphr
+            // 
+            this.pnltiphr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnltiphr.Controls.Add(this.ckbEliminar);
+            this.pnltiphr.Controls.Add(this.btninsertar);
+            this.pnltiphr.Controls.Add(label3);
+            this.pnltiphr.Controls.Add(this.panel2);
+            this.pnltiphr.Controls.Add(this.txtmensajeiu);
+            this.pnltiphr.Controls.Add(this.lbluid);
+            this.pnltiphr.Location = new System.Drawing.Point(439, 118);
+            this.pnltiphr.Name = "pnltiphr";
+            this.pnltiphr.Size = new System.Drawing.Size(397, 87);
+            this.pnltiphr.TabIndex = 143;
+            this.pnltiphr.TabStop = true;
+            this.pnltiphr.Visible = false;
+            // 
+            // ckbEliminar
+            // 
+            this.ckbEliminar.AutoSize = true;
+            this.ckbEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ckbEliminar.Location = new System.Drawing.Point(286, 45);
+            this.ckbEliminar.Name = "ckbEliminar";
+            this.ckbEliminar.Size = new System.Drawing.Size(47, 17);
+            this.ckbEliminar.TabIndex = 135;
+            this.ckbEliminar.Text = "Baja";
+            this.ckbEliminar.UseVisualStyleBackColor = true;
+            this.ckbEliminar.Visible = false;
+            // 
+            // btninsertar
+            // 
+            this.btninsertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btninsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
+            this.btninsertar.Location = new System.Drawing.Point(339, 13);
+            this.btninsertar.Name = "btninsertar";
+            this.btninsertar.Size = new System.Drawing.Size(50, 50);
+            this.btninsertar.TabIndex = 134;
+            this.btninsertar.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel2.Location = new System.Drawing.Point(29, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(250, 1);
+            this.panel2.TabIndex = 43;
+            // 
+            // txtmensajeiu
+            // 
+            this.txtmensajeiu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtmensajeiu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtmensajeiu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmensajeiu.Location = new System.Drawing.Point(30, 46);
+            this.txtmensajeiu.Name = "txtmensajeiu";
+            this.txtmensajeiu.Size = new System.Drawing.Size(250, 15);
+            this.txtmensajeiu.TabIndex = 1;
+            // 
+            // lbluid
+            // 
+            this.lbluid.AutoSize = true;
+            this.lbluid.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbluid.ForeColor = System.Drawing.Color.Gray;
+            this.lbluid.Image = ((System.Drawing.Image)(resources.GetObject("lbluid.Image")));
+            this.lbluid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbluid.Location = new System.Drawing.Point(4, 4);
+            this.lbluid.Name = "lbluid";
+            this.lbluid.Size = new System.Drawing.Size(175, 17);
+            this.lbluid.TabIndex = 41;
+            this.lbluid.Text = "     Agregar Desc Mensaje";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
+            this.btnAgregar.Location = new System.Drawing.Point(854, 176);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(50, 50);
+            this.btnAgregar.TabIndex = 144;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Visible = false;
+            // 
             // Mensajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.JSierra;
             this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.pnltiphr);
             this.Controls.Add(label2);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.dgvMensajes);
@@ -276,11 +384,14 @@
             this.Controls.Add(this.lbltitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Mensajes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mensajes";
             this.Load += new System.EventHandler(this.Mensajes_Load);
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMensajes)).EndInit();
+            this.pnltiphr.ResumeLayout(false);
+            this.pnltiphr.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,5 +410,12 @@
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label lbltitulo;
+        private System.Windows.Forms.Panel pnltiphr;
+        private System.Windows.Forms.CheckBox ckbEliminar;
+        private System.Windows.Forms.Button btninsertar;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtmensajeiu;
+        private System.Windows.Forms.Label lbluid;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }

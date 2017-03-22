@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="App_Code\Companias.cs" />
     <Compile Include="App_Code\IncNomina.cs" />
+    <Compile Include="App_Code\MensajesSonarh.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
     <Compile Include="Accesos\AccesosDashboard.cs">
       <SubType>Form</SubType>

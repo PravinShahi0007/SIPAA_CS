@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.App_Code;
+//using SIPAA_CS.Recursos_Humanos.App_Code;
+using SIPAA_CS.App_Code;
 
 namespace SIPAA_CS.Recursos_Humanos.Administracion
 {
@@ -27,19 +28,19 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         }
 
         //se "instancia" la clase para usar todos los metodos que contenga
-        //MensajesSonarh pantallaMensajes = new MensajesSonarh();
+        MensajesSonarh pantallaMensajes = new MensajesSonarh();
                 
         private void Mensajes_Load(object sender, EventArgs e)
         {
             ftooltip();
             txtMensaje.Focus();
-            gridMensajes(1, "");
+            //gridMensajes(1, "",0,0,"","","","");
             
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            gridMensajes(1, txtMensaje.Text.Trim());
+            //gridMensajes(1, txtMensaje.Text.Trim());
             txtMensaje.Text = "";
             txtMensaje.Focus();            
         }
@@ -81,11 +82,12 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
             toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
         }
 
-        private void gridMensajes(int popc, string pbusqueda)
+        private void gridMensajes(int popc, string pbusqueda, int pidtrab, int pcvmensaje, DateTime pfeinicio, DateTime pfefin, string pusuumod, string pprgumod)
         {
-            //DataTable dtmensajes = pantallaMensajes.obtenermensajes(popc, pbusqueda);
-            //dgvMensajes.DataSource = dtmensajes;
-            //dgvMensajes.ClearSelection();
+            DataTable dtmensajes = pantallaMensajes.ObtenerMensajes(popc, pbusqueda, pidtrab, pcvmensaje, pfeinicio, pfefin, pusuumod, pprgumod);
+            dgvMensajes.DataSource = dtmensajes;
+            dgvMensajes.ClearSelection();
+              
         }
         
     }
