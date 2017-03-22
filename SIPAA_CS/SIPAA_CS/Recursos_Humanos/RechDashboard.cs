@@ -115,5 +115,11 @@ namespace SIPAA_CS.Recursos_Humanos
             Mensajes form = new Mensajes();
             form.Show();
         }
+
+        private void areasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Compania_Plantel form = new Compania_Plantel();
+            form.Show();
+        }
     }
 }

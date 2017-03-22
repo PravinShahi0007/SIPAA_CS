@@ -18,7 +18,8 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         public string UsuuMod;
         public DateTime FhuMod;
         public string PrguMod;
-
+        public int TipoID;
+        public string TipoIncidencia;
 
 
         public DataTable ObtenerRepresentaxIncidencia(Incidencia objIncidencia,int Opcion) {
@@ -45,6 +46,31 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             return dtIncidencia;
         }
 
+
+        public DataTable ObtenerIncidenciaxTipo(Incidencia objIncidencia, int Opcion,string TipoAnterior)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechtipoincidencia_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("P_incidencia", SqlDbType.VarChar).Value = objIncidencia.Descripcion;
+            cmd.Parameters.Add("P_tipo", SqlDbType.VarChar).Value = objIncidencia.TipoIncidencia;
+            cmd.Parameters.Add("P_tipoAnterior", SqlDbType.VarChar).Value = objIncidencia.TipoIncidencia;
+            cmd.Parameters.Add("P_Opcion", SqlDbType.Int).Value = Opcion;
+            cmd.Parameters.Add("usuumod", SqlDbType.VarChar).Value = objIncidencia.UsuuMod;
+            cmd.Parameters.Add("prgumod", SqlDbType.VarChar).Value = objIncidencia.PrguMod;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtIncidencia = new DataTable();
+            Adapter.Fill(dtIncidencia);
+
+            return dtIncidencia;
+        }
 
     }
 }

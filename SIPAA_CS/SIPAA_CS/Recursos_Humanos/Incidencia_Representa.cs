@@ -54,7 +54,6 @@ namespace SIPAA_CS.Recursos_Humanos
                     imgCheckPerfiles.Name = "Seleccionar";
                     //imgCheckPerfiles.HeaderText = "";
                     dgvIncidencia.Columns.Insert(0, imgCheckPerfiles);
-                    ImageList imglt = new ImageList();
 
                     dgvIncidencia.Columns[1].Visible = false;
                     dgvIncidencia.Columns[3].Visible = false;
