@@ -41,7 +41,7 @@
             this.formasDeRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incapacidadRepresentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mensajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.áreasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.areasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidenciasNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diasFestivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mensajesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,7 +97,7 @@
             this.formasDeRegistroToolStripMenuItem,
             this.incapacidadRepresentaToolStripMenuItem,
             this.mensajesToolStripMenuItem,
-            this.áreasToolStripMenuItem,
+            this.areasToolStripMenuItem,
             this.incidenciasNominaToolStripMenuItem,
             this.diasFestivoToolStripMenuItem,
             this.mensajesToolStripMenuItem1,
@@ -194,14 +194,16 @@
             this.mensajesToolStripMenuItem.Text = "Mensajes";
             this.mensajesToolStripMenuItem.Click += new System.EventHandler(this.mensajesToolStripMenuItem_Click);
             // 
-            // áreasToolStripMenuItem
+            // areasToolStripMenuItem
             // 
-            this.áreasToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.áreasToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.áreasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("áreasToolStripMenuItem.Image")));
-            this.áreasToolStripMenuItem.Name = "áreasToolStripMenuItem";
-            this.áreasToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.áreasToolStripMenuItem.Text = "Áreas";
+            this.areasToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.areasToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.areasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("areasToolStripMenuItem.Image")));
+            this.areasToolStripMenuItem.Name = "areasToolStripMenuItem";
+            this.areasToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.areasToolStripMenuItem.Tag = "frmCompania_Plantel";
+            this.areasToolStripMenuItem.Text = "Áreas";
+            this.areasToolStripMenuItem.Click += new System.EventHandler(this.areasToolStripMenuItem_Click);
             // 
             // incidenciasNominaToolStripMenuItem
             // 
@@ -341,7 +343,7 @@
         private System.Windows.Forms.ToolStripMenuItem formasDeRegistroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem incapacidadRepresentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mensajesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem áreasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem areasToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

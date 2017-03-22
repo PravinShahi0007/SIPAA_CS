@@ -19,7 +19,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Asignacion_Area_Usuario());
+            Application.Run(new frmDiasFestivos());
         }
     }
 }

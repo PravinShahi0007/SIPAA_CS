@@ -363,7 +363,9 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
                 heightNueva = 768;
             }
 
-            if (heightNueva == 600)
+           
+
+            if (heightNueva <= 600)
             {
                 widthNueva = 800;
                 double dPorcentaje = 100-(((double)heightNueva / (double)heightActual) * 100);
@@ -376,17 +378,24 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
 
                 //double locationx = frm.Location.X
-                frm.DesktopLocation = new Point(300, 50);
+                frm.StartPosition = FormStartPosition.CenterScreen; 
+                frm.DesktopLocation = new Point(frm.Location.X, 50);
+            }
+            else if (heightSys <= 600 || widthSys <= 600)
+            {
+                frm.Size = new Size(640, 480);
+                frm.AutoScroll = true;
             }
             else
             {
                 widthNueva = 1024;
                 frm.Size = new Size(widthNueva, heightNueva);
 
-            }
+            } 
 
 
-          
+
+
 
         }
 
@@ -431,7 +440,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             if (TipoControl.Contains("Button") && Per != 0 ) {
 
-                ctrl.BackgroundImageLayout = ImageLayout.Center;
+               // ctrl.BackgroundImageLayout = ImageLayout.Center;
                 ctrlH = ctrl.Size.Height;
                 ctrlW = ctrl.Size.Width;
                 nCtrlH = ctrlH - (ctrlH * (Per*.25));

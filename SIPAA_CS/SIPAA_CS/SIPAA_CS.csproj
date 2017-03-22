@@ -184,7 +184,7 @@
     <Compile Include="Recursos_Humanos\frmFormReg.Designer.cs">
       <DependentUpon>frmFormReg.cs</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\FormReg.cs" />
+    <Compile Include="App_Code\FormaReg.cs" />
     <Compile Include="App_Code\Perfil.cs" />
     <Compile Include="App_Code\Proceso.cs" />
     <Compile Include="App_Code\PuestosSonarh.cs" />
@@ -203,11 +203,11 @@
     <Compile Include="Recursos_Humanos\Incidencia_Representa.Designer.cs">
       <DependentUpon>Incidencia_Representa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recursos_Humanos\Incapacidad_Tipo.cs">
+    <Compile Include="Recursos_Humanos\Incidencia_Tipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recursos_Humanos\Incapacidad_Tipo.Designer.cs">
-      <DependentUpon>Incapacidad_Tipo.cs</DependentUpon>
+    <Compile Include="Recursos_Humanos\Incidencia_Tipo.Designer.cs">
+      <DependentUpon>Incidencia_Tipo.cs</DependentUpon>
     </Compile>
     <Compile Include="Recursos_Humanos\IncidenciasNom.cs">
       <SubType>Form</SubType>
@@ -310,8 +310,8 @@
     <EmbeddedResource Include="Recursos_Humanos\frmFormReg.resx">
       <DependentUpon>frmFormReg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recursos_Humanos\Incapacidad_Tipo.resx">
-      <DependentUpon>Incapacidad_Tipo.cs</DependentUpon>
+    <EmbeddedResource Include="Recursos_Humanos\Incidencia_Tipo.resx">
+      <DependentUpon>Incidencia_Tipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recursos_Humanos\IncidenciasNom.resx">
       <DependentUpon>IncidenciasNom.cs</DependentUpon>
