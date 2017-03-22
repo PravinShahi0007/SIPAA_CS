@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.Recursos_Humanos.App_Code.Usuario;
 
 namespace SIPAA_CS.Recursos_Humanos.Administracion
 {
@@ -25,7 +26,8 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         public string CVModulo;
         public int ultimaseleccion = 0;
         public int iOpcionAdmin;
-
+        public List<string> ltPermisos = new List<string>();
+        public DataTable dtPermisos;
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -34,7 +36,76 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
 
+        private void llenarGridPerfiles(Perfil objPerfil) {
 
+
+            if (dgvPerfil.Columns.Count > 0) {
+
+                dgvPerfil.Columns.RemoveAt(2);
+            }
+            string cvPerfil = "%";
+            string strEstatus = "%";
+            if (objPerfil.CVPerfil != 0) { cvPerfil = objPerfil.CVPerfil.ToString(); }
+            if (objPerfil.Estatus != 0) { strEstatus = objPerfil.Estatus.ToString(); }
+
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda(cvPerfil
+                                                                    , objPerfil.Descripcion
+                                                                    , strEstatus);
+            dgvPerfil.DataSource = dtPerfiles;
+
+
+            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
+            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
+            imgCheckPerfiles.Name = "imgPerfiles";
+            dgvPerfil.Columns.Insert(2, imgCheckPerfiles);
+            dgvPerfil.Columns[2].HeaderText = "";
+
+            dgvPerfil.Columns[3].Visible = false;
+            dgvPerfil.Columns[4].Visible = false;
+            dgvPerfil.Columns[5].Visible = false;
+            dgvPerfil.Columns[6].Visible = false;
+            dgvPerfil.ClearSelection();
+
+
+        }
+
+
+        private void llenarGridModulos(Modulo objModulo) {
+
+
+
+            if (dgvModulos.Columns.Count > 0)
+            {
+
+                dgvModulos.Columns.RemoveAt(0);
+            }
+            string strEstatus = "%";
+            if (objModulo.Estatus != 0) { strEstatus = objModulo.Estatus.ToString(); }
+           
+            List<Modulo> ltModulo = objModulo.ObtenerListModulos(objModulo.CVModulo, objModulo.Descripcion
+                                                                , objModulo.Ambiente
+                                                                , objModulo.strModulo
+                                                                , strEstatus);
+
+            DataTable dtModulo = objModulo.ObtenerDataTableModulo(ltModulo);
+            dgvModulos.DataSource = dtModulo;
+
+            DataGridViewImageColumn imgCheckModulos = new DataGridViewImageColumn();
+            imgCheckModulos.Image = Resources.ic_lens_blue_grey_600_18dp;
+            imgCheckModulos.Name = "imgModulos";
+            dgvModulos.Columns.Insert(0, imgCheckModulos);
+            dgvModulos.Columns[0].HeaderText = "";
+
+            dgvModulos.ClearSelection();
+
+            dgvModulos.Columns["Orden"].Visible = false;
+            dgvModulos.Columns["Descripción"].Visible = false;
+            dgvPerfil.Columns["CVPERFIL"].Visible = false;
+            dgvModulos.Columns["Estatus"].Visible = false;
+
+
+
+        }
         private void dgvPerfil_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             for (int iContador = 0; iContador < dgvPerfil.Rows.Count; iContador++)
@@ -54,37 +125,40 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 row.Cells[2].Value = Resources.ic_check_circle_green_400_18dp;
 
                 Modulo objModulo = new Modulo();
-                List<string> ltPerfilesxUsuario = objModulo.obtenerModulosxPerfil(CVPerfil);
+                //List<string> ltPerfilesxUsuario = objModulo.obtenerModulosxPerfil(CVPerfil);
 
-                for (int iContador = 0; iContador < dgvModulos.Rows.Count; iContador++)
-                {
-                    string cvModulo = dgvModulos.Rows[iContador].Cells[1].Value.ToString();
-
-                  
-                        if (ltPerfilesxUsuario.Contains(cvModulo))
-                        {
-                            dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-
-                        }
-                        else
-                        {
-                            dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                        }
-                    
-
-                  
-                }
+                AsignarPermisos();                
 
 
             }
         }
 
+        private void AsignarPermisos() {
+
+
+            for (int iContador = 0; iContador < dgvModulos.Rows.Count; iContador++)
+            {
+                string cvModulo = dgvModulos.Rows[iContador].Cells[1].Value.ToString();
+                DataRow[] rows = dtPermisos.Select("CVMODULO = '" + cvModulo + "'");
+                if (rows.Count() != 0)
+                {
+
+                    dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                }
+                else
+                {
+                    dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                }
+            }
+
+
+        }
         private void dgvModulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
 
-           
-               
+
+
+
 
             if (CVPerfil != 0)
             {
@@ -106,50 +180,62 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
                     row.Cells[0].Value = Resources.ic_check_circle_blue_grey_600_18dp;
 
-                    Modulo objModulo = new Modulo();
-                    objModulo = objModulo.ObtenerPermisosxModulo(CVModulo, CVPerfil);
+                   
+                    //string cvModulo = dgvModulos.Rows[iContador].Cells[1].Value.ToString();
+                    DataRow[] rows = dtPermisos.Select("CVMODULO = '" + CVModulo + "'");
+
+                    // Modulo objModulo = new Modulo();
+                    // objModulo = objModulo.ObtenerPermisosxModulo(CVModulo, CVPerfil);
 
                     iOpcionAdmin = 1;
 
-                    if (objModulo.CVModulo == "0")
+                    if (rows.Count() == 0)
                     {
-                       btnGuardar.Image = Resources.b8;
+                        btnGuardar.Image = Resources.b8;
                         ckbEliminarAsig.Visible = false;
 
 
-                        panelPermisos.Enabled = false;
+                        // panelPermisos.Enabled = false;
                         ckbActualizar.Checked = false;
                         ckbAgregar.Checked = false;
                         ckbEliminar.Checked = false;
                         ckbEliminarAsig.Checked = false;
                         ckbImprimir.Checked = false;
-                        ckbLectura.Checked = false;
+                        ckbLectura.Checked = true;
                     }
-                    else {
+                    else
+                    {
+                        /* 0 CVModulo
+                         * 1 CREAR 
+                         * 2 ELIMINAR 
+                         * 3 ACTUALIZAR 
+                         * 4IMPRIMIR 
+                         * 5 LECTURA
+                    * */
                         btnGuardar.Image = Resources.Lb2;
                         ckbEliminarAsig.Visible = true;
-                        if (objModulo.steli == 1) { ckbEliminar.Checked = true; } else { ckbEliminar.Checked = false; }
-                        if (objModulo.stimp == 1) { ckbImprimir.Checked = true; } else { ckbImprimir.Checked = false; }
-                        if (objModulo.stact == 1) { ckbActualizar.Checked = true; } else { ckbActualizar.Checked = false; }
-                        if (objModulo.stlec == 1) { ckbLectura.Checked = true; } else { ckbLectura.Checked = false; }
-                        if (objModulo.stcre == 1) { ckbAgregar.Checked = true; } else { ckbAgregar.Checked = false; }
+                          if(rows[0].ItemArray[1].ToString() == "1") { ckbAgregar.Checked = true; } else { ckbAgregar.Checked = false; }
+                        if (rows[0].ItemArray[2].ToString() == "1") { ckbEliminar.Checked = true; } else { ckbEliminar.Checked = false; }
+                        if (rows[0].ItemArray[3].ToString() == "1") { ckbActualizar.Checked = true; } else { ckbActualizar.Checked = false; }
+                        if (rows[0].ItemArray[4].ToString() == "1") { ckbImprimir.Checked = true; } else { ckbImprimir.Checked = false; }
+                        if (rows[0].ItemArray[5].ToString() == "1") { ckbLectura.Checked = true; } else { ckbLectura.Checked = false; }
+                       
+
+
                     }
 
-                   
                 }
+                else
+                {
 
-            }
-            else
-            {
-
-                panelTag.Visible = true;
-                panelTag.BackColor = ColorTranslator.FromHtml("#29b6f6");
-                lbMensaje.Text = "No se ha Seleccionado a un Usuario";
-                dgvModulos.ClearSelection();
-                dgvPerfil.ClearSelection();
+                    panelTag.Visible = true;
+                    panelTag.BackColor = ColorTranslator.FromHtml("#29b6f6");
+                    lbMensaje.Text = "No se ha Seleccionado a un Usuario";
+                    dgvModulos.ClearSelection();
+                    dgvPerfil.ClearSelection();
+                }
             }
         }
-
 
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
@@ -271,42 +357,26 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         private void Asignar_Modulo_Load(object sender, EventArgs e)
         {
+            string idtrab = LoginInfo.IdTrab;
+            Modulo objModulo = new Modulo();
+             dtPermisos = objModulo.ObtenerPermisosxUsuario(idtrab);
+            DataRow[] row = dtPermisos.Select("CVModulo = 'frmCrear_Perfil'");
+            Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
+ 
+
 
             Perfil objPerfil = new Perfil();
-            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%", "%", "1");
-            dgvPerfil.DataSource = dtPerfiles;
+            objPerfil.CVPerfil = 0;
+            objPerfil.Descripcion = "%";
+            objPerfil.Estatus = 0;
+            llenarGridPerfiles(objPerfil);
 
-            Modulo objModulo = new Modulo();
-            List<Modulo> ltModulo = objModulo.ObtenerListModulos("%", "%", "%", "%", "1");
-            DataTable dtModulo = objModulo.ObtenerDataTableModulo(ltModulo);
-            dgvModulos.DataSource = dtModulo;
-
-
-
-            DataGridViewImageColumn imgCheckModulos = new DataGridViewImageColumn();
-            imgCheckModulos.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckModulos.Name = "imgModulos";
-            dgvModulos.Columns.Insert(0, imgCheckModulos);
-            dgvModulos.Columns[0].HeaderText = "";
-
-            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
-            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckPerfiles.Name = "imgPerfiles";
-            dgvPerfil.Columns.Insert(2, imgCheckPerfiles);
-            dgvPerfil.Columns[2].HeaderText = "";
-
-            dgvModulos.ClearSelection();
-            dgvPerfil.ClearSelection();
-
-            dgvPerfil.Columns[3].Visible = false;
-            dgvPerfil.Columns[4].Visible = false;
-            dgvPerfil.Columns[5].Visible = false;
-            dgvPerfil.Columns[6].Visible = false;
-
-            dgvModulos.Columns["Orden"].Visible = false;
-            dgvModulos.Columns["Descripción"].Visible = false;
-            dgvPerfil.Columns["CVPERFIL"].Visible = false;
-            dgvModulos.Columns["Estatus"].Visible = false;
+            objModulo.CVModulo = "%";
+            objModulo.Descripcion = "%";
+            objModulo.Ambiente = "%";
+            objModulo.strModulo = "%";
+            objModulo.Estatus = 0;
+            llenarGridModulos(objModulo);
 
 
 
@@ -377,13 +447,16 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 }
 
 
-                panelPermisos.Enabled = false;
-                ckbActualizar.Checked = false;
-                ckbAgregar.Checked = false;
-                ckbEliminar.Checked = false;
-                ckbEliminarAsig.Checked = false;
-                ckbImprimir.Checked = false;
-                ckbLectura.Checked = false;
+                string idtrab = LoginInfo.IdTrab;
+                dtPermisos = objModulo.ObtenerPermisosxUsuario(idtrab);
+                DataRow[] row = dtPermisos.Select("CVModulo = 'frmCrear_Perfil'");
+                Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
+
+                AsignarPermisos();
+
+                //Asignar_Modulo_Load(sender, e);
+                //dgvPerfil_CellContentClick(sender, e);
+
             }
             catch (Exception ex)
             {
@@ -412,6 +485,22 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         {
             panelTag.Visible = false;
             timer1.Stop();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            
+            this.Close();
         }
     }
 }

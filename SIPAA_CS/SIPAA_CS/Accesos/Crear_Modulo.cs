@@ -1,5 +1,6 @@
 ﻿using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
+using SIPAA_CS.Recursos_Humanos.Administracion;
 using SIPAA_CS.Recursos_Humanos.App_Code;
 using System;
 using System.Collections.Generic;
@@ -218,7 +219,7 @@ namespace SIPAA_CS.Recursos_Humanos
                 cvmodpad = txtCvModPad.Text;
                 ambiente = cbAmbiente.Text;
                 modulo = cbModulo.Text;
-                prgumod = txtPrgUmod.Text;
+                prgumod = this.Name;
                 usuumod = "140014";
 
                 orden = int.Parse(txtOrden.Text);
@@ -343,6 +344,23 @@ namespace SIPAA_CS.Recursos_Humanos
         private void panel12_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnRegresa_Click(object sender, EventArgs e)
+        {
+            
+            this.Close();
         }
 
         //-----------------------------------------------------------------------------------------------

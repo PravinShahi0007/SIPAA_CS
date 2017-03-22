@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SIPAA_CS.Recursos_Humanos.Administracion;
 using static SIPAA_CS.Recursos_Humanos.App_Code.Usuario;
+using SIPAA_CS.Recursos_Humanos;
 
 namespace SIPAA_CS
 {
@@ -89,7 +90,7 @@ namespace SIPAA_CS
         {
             Usuario objUsuario = new Usuario();
             string idtrab = LoginInfo.IdTrab;
-            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario("140414");
+            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab);
             Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
         }
 
@@ -109,7 +110,9 @@ namespace SIPAA_CS
 
         private void btnRecursosh_Click(object sender, EventArgs e)
         {
-           
+            this.Enabled = false;
+            RechDashboard form = new RechDashboard();
+            form.Show();
         }
 
         private void btnAccesos_Click(object sender, EventArgs e)

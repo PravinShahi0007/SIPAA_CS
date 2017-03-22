@@ -12,7 +12,7 @@ using SIPAA_CS.Properties;
 
 namespace SIPAA_CS.Recursos_Humanos
 {
-    public partial class Incapacidad_Representa : Form
+    public partial class Incidencia_Representa : Form
     {
         public int cvIncidencia;
         public int cvRepresenta;
@@ -65,6 +65,13 @@ namespace SIPAA_CS.Recursos_Humanos
             }
         }
 
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+            timer1.Stop();
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -97,7 +104,7 @@ namespace SIPAA_CS.Recursos_Humanos
                 cbIncidencia.Enabled = false;
                 PanelEditar.Visible = true;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                btnGuardar.Image = Resources.btnEdit;
+                btnGuardar.Image = Resources.b3;
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
 
                 iOpcionAdmin = 2;
@@ -122,7 +129,7 @@ namespace SIPAA_CS.Recursos_Humanos
             PanelEditar.Visible = true;
             iOpcionAdmin = 4;
             //btnEditar.Visible = false;
-            btnGuardar.Image = Resources.btnAdd;
+            btnGuardar.Image = Resources.b8;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -145,16 +152,38 @@ namespace SIPAA_CS.Recursos_Humanos
             {
                 DataTable reponse = objIncidencia.ObtenerRepresentaxIncidencia(objIncidencia, iOpcionAdmin);
                 ckbEliminar.Checked = false;
-
+                panelTag.Visible = true;
+                if (iOpcionAdmin == 2) {
+                   
+                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
+                    lbMensaje.Text = "Cambio Correcto";
+                    timer1.Start();
+                }
+                else if (iOpcionAdmin == 3)
+                {
+                    panelTag.Visible = true;
+                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
+                    lbMensaje.Text = "Asignación Eliminada.";
+                    timer1.Start();
+                }
+                else if (iOpcionAdmin == 4)
+                {
+                    panelTag.Visible = true;
+                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
+                    lbMensaje.Text = "Registro Completo.";
+                    timer1.Start();
+                }
 
                 LlenarComboRepresenta(cbIncidencia, 6);
 
+                
                 btnBuscar_Click_1(sender, e);
             }
             catch (Exception ex)
             {
 
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el Servidor. Intentarlo más tarde.");
+                timer1.Start();
             }
 
         }
@@ -169,7 +198,7 @@ namespace SIPAA_CS.Recursos_Humanos
             {
                 dgvIncidencia.Columns.Remove(columnName: "SELECCIONAR");
             }
-            panelTag.Visible = false;
+           
             PanelEditar.Visible = false;
 
             Incidencia objIncidencia = new Incidencia();
@@ -195,7 +224,7 @@ namespace SIPAA_CS.Recursos_Humanos
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
 
-        public Incapacidad_Representa()
+        public Incidencia_Representa()
         {
             InitializeComponent();
         }
@@ -215,7 +244,7 @@ namespace SIPAA_CS.Recursos_Humanos
         {
             if (ckbEliminar.Checked == true)
             {
-                btnGuardar.Image = Resources.btndel;
+                btnGuardar.Image = Resources.b6;
 
                 iOpcionAdmin = 3;
                 //Utilerias.CambioBoton(btnGuardar, btnEditar, btnGuardar, btnEliminar);
@@ -223,7 +252,7 @@ namespace SIPAA_CS.Recursos_Humanos
             else
             {
                 iOpcionAdmin = 2;
-                btnGuardar.Image = Resources.btnEdit;
+                btnGuardar.Image = Resources.b3;
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar, btnGuardar, btnEditar);
 
             }

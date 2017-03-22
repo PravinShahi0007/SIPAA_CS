@@ -70,6 +70,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         private void msAsignacionProceso_Click(object sender, EventArgs e)
         {
             Asignar_Proceso aproc = new Asignar_Proceso();
+            aproc.Show();
         }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -110,6 +111,30 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         }
 
-        
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que deseas salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            //Dashboard d = new Dashboard();
+            //d.Show();
+            this.Close();
+        }
     }
 }

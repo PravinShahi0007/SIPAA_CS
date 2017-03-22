@@ -1,4 +1,5 @@
 ﻿using SIPAA_CS.Properties;
+using SIPAA_CS.Recursos_Humanos.Administracion;
 using SIPAA_CS.Recursos_Humanos.App_Code;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.Recursos_Humanos.App_Code.Usuario;
 
 namespace SIPAA_CS
 {
@@ -76,7 +78,7 @@ namespace SIPAA_CS
             {
                 dgvPerfiles.Columns.Remove(columnName: "SELECCIONAR");
             }
-            panelTag.Visible = false;
+          
             PanelEditar.Visible = false;
             txtPerfil.Text = "Sin Selección";
 
@@ -116,20 +118,7 @@ namespace SIPAA_CS
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
-
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else if (result == DialogResult.No)
-            {
-
-            }
-            else if (result == DialogResult.Cancel)
-            {
-
-            }
+            this.Close();
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -141,14 +130,14 @@ namespace SIPAA_CS
         {
             ckbEliminar.Visible = false;
             ckbEliminar.Checked = false;
-            panelTag.Visible = false;
+           
             txtPerfil.Text = "";
             PanelEditar.Visible = true;
             lblAccion.Text = "     Nuevo Perfil";
 
             iOpcionAdmin = 1;
             //btnEditar.Visible = false;
-            btnGuardar.Image = Resources.btnAdd;
+            btnGuardar.Image = Resources.b8;
             //Utilerias.CambioBoton(btnGuardar,btnEliminar ,btnEditar, btnGuardar);
         }
 
@@ -160,7 +149,7 @@ namespace SIPAA_CS
             Perfil objPerfil = new Perfil();
             objPerfil.CVPerfil = IdPerfil;
             objPerfil.Descripcion = txtPerfil.Text.Trim();
-            objPerfil.PrguMod = "Recursos Humanos";
+            objPerfil.PrguMod = this.Name;
             objPerfil.UsuuMod = "vjiturburuv";
             string strMensaje = "";
 
@@ -211,8 +200,9 @@ namespace SIPAA_CS
 
             //Validar permisos x Pantalla
             Modulo objModulo = new Modulo();
-            DataTable dtPermisos = objModulo.ObtenerPermisosxUsuario("140414");
-            DataRow[] row = dtPermisos.Select("CVModulo = 'frmCrear_Perfil'");
+            string idTrab = LoginInfo.IdTrab;
+            DataTable dtPermisos = objModulo.ObtenerPermisosxUsuario(idTrab);
+            DataRow[] row = dtPermisos.Select("CVModulo = '"+this.Tag +"'");
             Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
             Utilerias.ApagarControlxPermiso(btnAgregar, "Crear", ltPermisos);
 
@@ -261,7 +251,7 @@ namespace SIPAA_CS
 
 
             ckbEliminar.Visible = true;
-
+            ckbEliminar.Checked = false;
             Utilerias.ApagarControlxPermiso(ckbEliminar, "Eliminar", ltPermisos);
             for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
             {
@@ -280,7 +270,7 @@ namespace SIPAA_CS
                 txtPerfil.Text = ValorRow;
                 PanelEditar.Visible = true;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                btnGuardar.Image = Resources.btnEdit;
+                btnGuardar.Image = Resources.b3;
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
 
                 iOpcionAdmin = 2;
@@ -319,12 +309,12 @@ namespace SIPAA_CS
                 if (strEstatus == "0")
                 {
 
-                    btnGuardar.Image = Resources.btnAlta;
+                    btnGuardar.Image = Resources.btalta;
                 }
                 else if (strEstatus == "1")
                 {
 
-                    btnGuardar.Image = Resources.btnRemove2;
+                    btnGuardar.Image = Resources.b6;
                 }
 
                 iOpcionAdmin = 3;
@@ -362,31 +352,87 @@ namespace SIPAA_CS
                     if (iResponse != 0)
                     {
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, strMensaje);
+                        timer1.Start();
                         return iResponse;
                     }
                     else if (iResponse == 0)
                     {
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El Perfil Ingresado ya se encuentra registrado.");
+                        timer1.Start();
                         return iResponse;
                     }
                 }
                 catch (Exception ex)
                 {
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde");
+                    timer1.Start();
                     return 0;
                 }
             }
             else
             {
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "El Campo Editar no puede ir Vacio");
+                timer1.Start();
                 return 0;
             }
             return 0;
         }
 
-        private void ckbEliminar_CheckedChanged_1(object sender, EventArgs e)
+    
+        private void btnRegresar_Click(object sender, EventArgs e)
         {
+           
+            this.Close();
+        }
 
+        private void txtBuscarPerfil_KeyUp(object sender, KeyEventArgs e)
+        {
+            ckbEliminar.Checked = false;
+            ckbEliminar.Visible = false;
+            lblAccion.Text = "       Perfil Seleccionado";
+            if (dgvPerfiles.Columns.Count > 3)
+            {
+                dgvPerfiles.Columns.Remove(columnName: "SELECCIONAR");
+            }
+           
+            PanelEditar.Visible = false;
+            txtPerfil.Text = "Sin Selección";
+
+            Perfil objPerfil = new Perfil();
+
+            string strPerfil = "%";
+
+            if (txtBuscarPerfil.Text != String.Empty)
+            {
+                strPerfil = txtBuscarPerfil.Text.Trim();
+            }
+
+            string strEstatus = "%";
+
+            if (cbEstatus.SelectedIndex > 0)
+            {
+                if (cbEstatus.SelectedIndex == 1)
+                {
+                    strEstatus = "1";
+                }
+                else if (cbEstatus.SelectedIndex == 2)
+                {
+                    strEstatus = "0";
+                }
+            }
+            else
+            {
+                strEstatus = "%";
+            }
+
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%", strPerfil, strEstatus);
+            LlenarGridPerfiles(dtPerfiles, false);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+            timer1.Stop();
         }
 
 

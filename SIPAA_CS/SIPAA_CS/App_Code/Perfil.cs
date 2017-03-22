@@ -14,6 +14,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
         public int CVPerfil;
         public string Descripcion;
+        public int Estatus;
         public string UsuuMod;
         public DateTime FhumMod;
         public string PrguMod;
@@ -61,7 +62,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_accecperfil_S";
+            cmd.CommandText = @"usp_acceperfil_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@CvPerfil", SqlDbType.VarChar).Value = CvPerfil;
@@ -88,7 +89,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
 
             List<int> ltPerfilesxUsuario = new List<int>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"sp_BuscarPerfilxUsuario";
+            cmd.CommandText = @"usp_acceusuper_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@cvUsuario", SqlDbType.VarChar).Value = cvUsuario;
@@ -148,7 +149,7 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "sp_AsignarModulo";
+            cmd.CommandText = "usp_acceasignamodulo_ui";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@P_CVModulo", SqlDbType.VarChar).Value = objModulo.CVModulo;
