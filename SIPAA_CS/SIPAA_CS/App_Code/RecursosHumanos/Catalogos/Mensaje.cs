@@ -16,29 +16,34 @@ using System.Data.SqlClient;
 
 namespace SIPAA_CS.App_Code
 {
-    class MensajesSonarh
+    class Mensaje
     {
         //se declaran variables
         public int popcion= 0;
         public string prespuesta="";
-        public string ptextoabuscar="";
         public int pidtrab = 0;
         public int pcvmensaje = 0;
         public string pdescripcion = "";
-        public DateTime pfecinicio;
-        public DateTime pfecfin;
+        public string pfecinicio = "";
+        public string pfecfin = "";
         public string pusuumod="";
-        public string pprgumodr="";
+        public string pprgumod="";
 
         //Metodo data table para el llenado del grid
-        public DataTable ObtenerMensajes(int popcion, string ptextoabuscar, int pidtrab, int pcvmensaje, DateTime pfecinicio, DateTime pfecfin, string pusuumod, string pprgumodr)
+        public DataTable ObtenerMensajes(int popcion, int pidtrab, int pcvmensaje, string pdescripcion, string pfecinicio, string pfecfin, string pusuumod, string pprgumod)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_mensajes_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
-            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = ptextoabuscar;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = pidtrab;
+            cmd.Parameters.Add("@p_cvmensaje", SqlDbType.Int).Value = pcvmensaje;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = pdescripcion;
+            cmd.Parameters.Add("@p_fecinicio", SqlDbType.VarChar).Value = pfecinicio;
+            cmd.Parameters.Add("@p_fecfin", SqlDbType.VarChar).Value = pfecfin;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = pusuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = pprgumod;
             objConexion.asignarConexion(cmd);
 
             //Ejecutar el SP con el SqlAdapter
@@ -51,27 +56,59 @@ namespace SIPAA_CS.App_Code
             return dtmensajes;
         }
 
-        public int mensajesudi(int popcion, int pidtrab, int pcvmensaje, string pdescripcion, string pusuumod, string pprgumodr)
+        public int fudimensajes(int popcion, int pidtrab, int pcvmensaje, string pdescripcion, string pfecinicio, string pfecfin, string pusuumod, string pprgumod)
         {
+            int p_respuesta = 0;
+            int p_respuestaValidacion = 0;
+
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_mensajes_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
-
-            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
-            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = pidtrab;
-            cmd.Parameters.Add("@p_cvmensaje", SqlDbType.Int).Value = pcvmensaje;
-            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = pdescripcion;
-            //cmd.Parameters.Add("@p_fecinicio", SqlDbType.Date).Value = pfecinicio;
-            //cmd.Parameters.Add("@p_fecfin", SqlDbType.Date).Value = pfecfin;
-            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = pusuumod;
-            cmd.Parameters.Add("@p_prgumodr", SqlDbType.VarChar).Value = pprgumodr;
-
             objConexion.asignarConexion(cmd);
-            int p_respuesta = Convert.ToInt32(cmd.ExecuteScalar());
-            objConexion.cerrarConexion();
 
+            if (popcion == 1)
+            {
+                cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
+                cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = pidtrab;
+                cmd.Parameters.Add("@p_cvmensaje", SqlDbType.Int).Value = pcvmensaje;
+                cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = pdescripcion;
+                cmd.Parameters.Add("@p_fecinicio", SqlDbType.VarChar).Value = pfecinicio;
+                cmd.Parameters.Add("@p_fecfin", SqlDbType.VarChar).Value = pfecfin;
+                cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = pusuumod;
+                cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = pprgumod;
+                objConexion.asignarConexion(cmd);
+                p_respuesta = Convert.ToInt32(cmd.ExecuteScalar());
+                if (p_respuesta > 0)
+                {
+                    p_respuestaValidacion = 99; // Intento de duplicar un registro
+                }
+            }
+
+            if (p_respuesta == 0)
+            {
+                cmd.Parameters.Clear();
+                cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
+                cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = pidtrab;
+                cmd.Parameters.Add("@p_cvmensaje", SqlDbType.Int).Value = pcvmensaje;
+                cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = pdescripcion;
+                cmd.Parameters.Add("@p_fecinicio", SqlDbType.VarChar).Value = pfecinicio;
+                cmd.Parameters.Add("@p_fecfin", SqlDbType.VarChar).Value = pfecfin;
+                cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = pusuumod;
+                cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = pprgumod;
+                objConexion.asignarConexion(cmd);
+                //
+                p_respuesta = Convert.ToInt32(cmd.ExecuteScalar());
+                //
+                objConexion.cerrarConexion();
+            }
+            if (p_respuestaValidacion == 99)
+            {
+                p_respuesta = p_respuestaValidacion;
+            }
+            //
+            objConexion.cerrarConexion();
             return (p_respuesta);
         }
-    }    
+    }
 }
