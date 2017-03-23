@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using SIPAA_CS.Accesos;
 using SIPAA_CS;
 using SIPAA_CS.RecursosHumanos;
+using SIPAA_CS.RecursosHumanos.Asignaciones;
 
 namespace SIPAA_CS
 {

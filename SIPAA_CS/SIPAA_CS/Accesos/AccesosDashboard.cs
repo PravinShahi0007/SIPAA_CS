@@ -57,7 +57,7 @@ namespace SIPAA_CS.Accesos
 
         private void msAsignacionPerfil_Click(object sender, EventArgs e)
         {
-            Perfiles ap = new Perfiles();
+            UsuarioPerfil ap = new UsuarioPerfil();
             ap.Show();
         }
 

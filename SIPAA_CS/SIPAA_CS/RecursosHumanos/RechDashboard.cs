@@ -1,6 +1,8 @@
 ﻿using SIPAA_CS.App_Code;
+using SIPAA_CS.RecursosHumanos.Catalogos;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
@@ -15,6 +17,11 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void RechDashboard_Load(object sender, EventArgs e)
         {
+
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
             Dashboard form = new Dashboard();
             form.Enabled = false;
 
@@ -112,6 +119,12 @@ namespace SIPAA_CS.RecursosHumanos
         private void areasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Areas form = new Areas();
+            form.Show();
+        }
+
+        private void tipoIncidenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IncidenciasTipo form = new IncidenciasTipo();
             form.Show();
         }
     }

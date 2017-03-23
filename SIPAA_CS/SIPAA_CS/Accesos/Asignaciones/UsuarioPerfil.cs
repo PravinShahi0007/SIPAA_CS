@@ -119,9 +119,8 @@ namespace SIPAA_CS.Accesos
             else
             {
 
-                panelTag.Visible = true;
-                panelTag.BackColor = ColorTranslator.FromHtml("#29b6f6");
-                lbMensaje.Text = "No se ha Seleccionado a un Usuario";
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Usuario");
+                timer1.Start();
             }
         }
 
@@ -287,6 +286,9 @@ namespace SIPAA_CS.Accesos
         private void Asignar_Perfil_Load(object sender, EventArgs e)
         {
 
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
             llenarGridUsuarios("%", "%");
             LlenarGridPerfil("%", "%",1);
@@ -333,14 +335,13 @@ namespace SIPAA_CS.Accesos
             imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
             imgCheckUsuarios.Name = "imgUsuarios";
             dgvUsuarios.Columns.Insert(3, imgCheckUsuarios);
-            dgvUsuarios.Columns[3].HeaderText = "";
+            dgvUsuarios.Columns[3].HeaderText = "Seleccionar";
             dgvUsuarios.Columns[0].Visible = false;
 
             dgvUsuarios.Columns[1].ReadOnly = true;
-            dgvUsuarios.Columns[1].Width = 80;
             dgvUsuarios.Columns[2].Width = 250;
             dgvUsuarios.Columns[3].Width = 50;
-            dgvUsuarios.Width = 400;
+  
             dgvUsuarios.ClearSelection();
 
         }
@@ -359,7 +360,7 @@ namespace SIPAA_CS.Accesos
             imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
             imgCheckPerfiles.Name = "imgPerfiles";
             dgvPerfiles.Columns.Insert(0, imgCheckPerfiles);
-            dgvPerfiles.Columns[0].HeaderText = "";
+            dgvPerfiles.Columns[0].HeaderText = "Seleccionar";
             ImageList imglt = new ImageList();
 
             dgvPerfiles.Columns[1].Visible = false;
@@ -368,9 +369,9 @@ namespace SIPAA_CS.Accesos
             dgvPerfiles.Columns[5].Visible = false;
             dgvPerfiles.Columns[6].Visible = false;
 
-            dgvPerfiles.Columns[0].Width = 50;
-            dgvPerfiles.Columns[2].Width = 270;
-            dgvPerfiles.Width = 322;
+            dgvPerfiles.Columns[0].Width = 70;
+            
+           
             dgvPerfiles.ClearSelection();
 
         }
@@ -400,13 +401,24 @@ namespace SIPAA_CS.Accesos
             }
         }
 
-   
-    
-
-        
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btnRegresar_Click_1(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click_2(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

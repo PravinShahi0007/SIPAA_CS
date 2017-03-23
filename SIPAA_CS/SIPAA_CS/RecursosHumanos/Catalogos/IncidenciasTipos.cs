@@ -13,6 +13,12 @@ using System.Windows.Forms;
 
 namespace SIPAA_CS.RecursosHumanos
 {
+    //***********************************************************************************************
+    //Autor: Victor Jesús Iturburu Vergara
+    //Fecha creación:23-03-2017       Última Modificacion: 23-03-2017
+    //Descripción: Catalogo de Tipos de Incidencia
+    //***********************************************************************************************
+
     public partial class IncidenciasTipo : Form
     {
         public int cvIncidencia;
@@ -26,29 +32,55 @@ namespace SIPAA_CS.RecursosHumanos
             InitializeComponent();
         }
 
-        private void Incapacidad_Tipo_Load(object sender, EventArgs e)
+        //-----------------------------------------------------------------------------------------------
+        //                                      C O M B O S
+        //-----------------------------------------------------------------------------------------------
+        private void LlenarComboTipoIncidencia(ComboBox cb, string Display, string Clave, int Opcion)
         {
-            int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            int sysW = SystemInformation.PrimaryMonitorSize.Width;
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            Incidencia objIncidencia = new Incidencia();
+            objIncidencia.CVIncidencia = 0;
+            objIncidencia.CVTipo = 0;
+            objIncidencia.Descripcion = "";
+            objIncidencia.TipoIncidencia = "";
+            objIncidencia.UsuuMod = "";
+            objIncidencia.PrguMod = "";
+            objIncidencia.Estatus = "";
+            //int iOpcion = 5;
+            DataTable dtIncidencia = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, Opcion);
 
-            LLenarGridIncapacidad(dgvIncidencia,"", "");
-            LlenarComboTipoIncidencia(cbTipo,"Tipo","cvtipo",5);
+
+
+            List<string> ltCombo = new List<string>();
+            foreach (DataRow row in dtIncidencia.Rows)
+            {
+                ltCombo.Add(row[Display].ToString());
+            }
+
+            ltCombo.Insert(0, "Seleccionar");
+            cb.DataSource = ltCombo;
+            cb.DisplayMember = Display;
+            if (cb.Items.Count == 0)
+            {
+                cb.Enabled = false;
+                cb.SelectedText = "Sin datos para Asignar";
+            }
+
         }
 
-        private void lbMensaje_Click(object sender, EventArgs e)
+        //-----------------------------------------------------------------------------------------------
+        //                                      G R I D // S
+        //-----------------------------------------------------------------------------------------------
+        private void LLenarGridIncapacidad(DataGridView dgvIncidencia, string strIncidencia, string Tipo)
         {
 
-        }
-
-        private void LLenarGridIncapacidad(DataGridView dgvIncidencia,string strIncidencia,string Tipo) {
-
-            if (dgvIncidencia.Columns.Count > 1) {
+            if (dgvIncidencia.Columns.Count > 1)
+            {
                 dgvIncidencia.Columns.RemoveAt(0);
             }
             Incidencia objIncidencia = new Incidencia();
 
-            switch (cbEstatus.SelectedIndex) {
+            switch (cbEstatus.SelectedIndex)
+            {
 
                 case 0: objIncidencia.Estatus = "%"; break;
                 case 1: objIncidencia.Estatus = "1"; break;
@@ -56,7 +88,7 @@ namespace SIPAA_CS.RecursosHumanos
 
 
             }
-            
+
             objIncidencia.CVIncidencia = 0;
             objIncidencia.CVTipo = 0;
             objIncidencia.Descripcion = strIncidencia;
@@ -84,90 +116,9 @@ namespace SIPAA_CS.RecursosHumanos
             dgvIncidencia.ClearSelection();
 
         }
-
-        private void dgvIncidencia_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            for (int iContador = 0; iContador < dgvIncidencia.Rows.Count; iContador++)
-            {
-                dgvIncidencia.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            }
-
-
-            if (dgvIncidencia.SelectedRows.Count != 0)
-            {
-
-               cbIncidencia.Visible = true;
-
-                DataGridViewRow row = this.dgvIncidencia.SelectedRows[0];
-                PanelEditar.Visible = true;
-                cvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
-                cvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
-                strIncidencia = row.Cells["Incidencia"].Value.ToString();
-                strTipoIncidencia = row.Cells["Tipo"].Value.ToString();
-                txtTipoEditar.Text = strTipoIncidencia;
-                strEstatus = row.Cells["Estatus"].Value.ToString();
-               
-                LlenarComboTipoIncidencia(cbIncidencia, "Incidencia", "cvincidencia",6);
-
-                if (strEstatus == String.Empty || strEstatus == "0")
-                {
-                    ckbEliminar.Text = "Alta";
-                }
-                else {
-                    ckbEliminar.Text = "Baja";
-                }
-
-                ckbEliminar.Visible = true;
-                ckbEliminar.Checked = false;
-                txtTipoEditar.Text = strTipoIncidencia;
-                //   LlenarComboRepresenta(cbRepresentaEditar,5);
-                cbIncidencia.SelectedItem = strIncidencia;
-                lblAccion.Text = "      Editar Incidencia";
-                cbIncidencia.Enabled = false;
-                PanelEditar.Visible = true;
-                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                btnGuardar.Image = Resources.b3;
-                //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
-
-                iOpcionAdmin = 2;
-
-
-            }
-        }
-
-
-        private void LlenarComboTipoIncidencia(ComboBox cb,string Display,string Clave,int Opcion)
-        {
-            Incidencia objIncidencia = new Incidencia();
-            objIncidencia.CVIncidencia = 0;
-            objIncidencia.CVTipo = 0;
-            objIncidencia.Descripcion = "";
-            objIncidencia.TipoIncidencia = "";
-            objIncidencia.UsuuMod = "";
-            objIncidencia.PrguMod = "";
-            objIncidencia.Estatus = "";
-            //int iOpcion = 5;
-            DataTable dtIncidencia = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, Opcion);
-           
-            
-
-            List<string> ltCombo = new List<string>();
-            foreach (DataRow row in dtIncidencia.Rows)
-            {
-                ltCombo.Add(row[Display].ToString());
-            }
-
-            ltCombo.Insert(0, "Seleccionar");
-            cb.DataSource = ltCombo;
-            cb.DisplayMember = Display;
-            if (cb.Items.Count == 0)
-            {
-                cb.Enabled = false;
-                cb.SelectedText = "Sin datos para Asignar";
-            }
-
-        }
-
+        //-----------------------------------------------------------------------------------------------
+        //                                     B O T O N E S
+        //-----------------------------------------------------------------------------------------------
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
         {
             if (ckbEliminar.Checked == true)
@@ -178,10 +129,11 @@ namespace SIPAA_CS.RecursosHumanos
 
                     btnGuardar.Image = Resources.btalta;
                 }
-                else {
+                else
+                {
                     btnGuardar.Image = Resources.b6;
                 }
-               
+
 
                 iOpcionAdmin = 3;
                 //Utilerias.CambioBoton(btnGuardar, btnEditar, btnGuardar, btnEliminar);
@@ -204,15 +156,15 @@ namespace SIPAA_CS.RecursosHumanos
             ckbEliminar.Checked = false;
             ckbEliminar.Visible = false;
             cbIncidencia.Enabled = true;
-         
-            LlenarComboTipoIncidencia(cbIncidencia,"Incidencia","cvincidencia",6);
+
+            LlenarComboTipoIncidencia(cbIncidencia, "Incidencia", "cvincidencia", 6);
             txtBuscarIncidencia.Text = "";
             PanelEditar.Visible = true;
             iOpcionAdmin = 1;
             //btnEditar.Visible = false;
             btnGuardar.Image = Resources.b8;
+            txtTipoEditar.Text = String.Empty;
 
-            
         }
 
         //boton minimizar
@@ -230,16 +182,11 @@ namespace SIPAA_CS.RecursosHumanos
             {
                 Application.Exit();
             }
-            else if (result == DialogResult.No)
-            {
-
-            }
+         
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
-            strIncidencia = cbIncidencia.SelectedItem.ToString();
-
+             strIncidencia = cbIncidencia.SelectedItem.ToString();
 
             lblAccion.Text = "       Asignar Tipo Incapacidad";
 
@@ -256,15 +203,18 @@ namespace SIPAA_CS.RecursosHumanos
             try
             {
                 string Mensaje = "";
-                if (strEstatus == "1") {
+                if (strEstatus == "1")
+                {
                     Mensaje = "¿Seguro que desea dar de BAJA el Registro?";
                 }
-                else {
+                else
+                {
                     Mensaje = "¿Seguro que desea dar de ALTA el Registro?";
                 }
 
                 DataTable response = new DataTable();
-                switch (iOpcionAdmin) {
+                switch (iOpcionAdmin)
+                {
 
                     case 3:
                         DialogResult result = MessageBox.Show(Mensaje, this.Name, MessageBoxButtons.YesNo);
@@ -277,7 +227,7 @@ namespace SIPAA_CS.RecursosHumanos
                         break;
 
                     default:
-                         response = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, iOpcionAdmin);
+                        response = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, iOpcionAdmin);
                         MostrarNotificacion(response);
 
                         break;
@@ -285,7 +235,7 @@ namespace SIPAA_CS.RecursosHumanos
                 // LlenarComboRepresenta(cbIncidencia, 6);
 
                 LlenarComboTipoIncidencia(cbTipo, "Tipo", "cvtipo", 5);
-                LLenarGridIncapacidad(dgvIncidencia,"%","%");
+                LLenarGridIncapacidad(dgvIncidencia, "%", "%");
 
             }
             catch (Exception ex)
@@ -297,7 +247,120 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
-        private void MostrarNotificacion(DataTable response) {
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string Incidencia;
+            string Tipo;
+
+
+
+            PanelEditar.Visible = false;
+
+            if (txtBuscarIncidencia.Text == String.Empty)
+            {
+
+                Incidencia = "%";
+            }
+            else
+            {
+                Incidencia = txtBuscarIncidencia.Text;
+            }
+
+            if (cbTipo.SelectedIndex == 0)
+            {
+                Tipo = "%";
+            }
+            else
+            {
+                Tipo = cbTipo.SelectedItem.ToString();
+            }
+
+            LLenarGridIncapacidad(dgvIncidencia, Incidencia, Tipo);
+            // LlenarComboTipoIncidencia(cbTipo, "Tipo", "cvtipo", 5);
+        }
+
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //-----------------------------------------------------------------------------------------------
+        //                           C A J A S      D E      T E X T O   
+        //-----------------------------------------------------------------------------------------------
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                     E V E N T O S
+        //-----------------------------------------------------------------------------------------------
+        private void Incapacidad_Tipo_Load(object sender, EventArgs e)
+        {
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
+            LLenarGridIncapacidad(dgvIncidencia, "", "");
+            LlenarComboTipoIncidencia(cbTipo, "Tipo", "cvtipo", 5);
+        }
+
+        private void dgvIncidencia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            for (int iContador = 0; iContador < dgvIncidencia.Rows.Count; iContador++)
+            {
+                dgvIncidencia.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+            }
+
+
+            if (dgvIncidencia.SelectedRows.Count != 0)
+            {
+
+                cbIncidencia.Visible = true;
+
+                DataGridViewRow row = this.dgvIncidencia.SelectedRows[0];
+                PanelEditar.Visible = true;
+                cvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
+                cvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
+                strIncidencia = row.Cells["Incidencia"].Value.ToString();
+                strTipoIncidencia = row.Cells["Tipo"].Value.ToString();
+                txtTipoEditar.Text = strTipoIncidencia;
+                strEstatus = row.Cells["Estatus"].Value.ToString();
+
+                LlenarComboTipoIncidencia(cbIncidencia, "Incidencia", "cvincidencia", 6);
+
+                if (strEstatus == String.Empty || strEstatus == "0")
+                {
+                    ckbEliminar.Text = "Alta";
+                }
+                else
+                {
+                    ckbEliminar.Text = "Baja";
+                }
+
+                ckbEliminar.Visible = true;
+                ckbEliminar.Checked = false;
+                txtTipoEditar.Text = strTipoIncidencia;
+                //   LlenarComboRepresenta(cbRepresentaEditar,5);
+                cbIncidencia.SelectedItem = strIncidencia;
+                lblAccion.Text = "      Editar Incidencia";
+                cbIncidencia.Enabled = false;
+                PanelEditar.Visible = true;
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                btnGuardar.Image = Resources.b3;
+                //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
+
+                iOpcionAdmin = 2;
+
+
+            }
+        }
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+
+        private void MostrarNotificacion(DataTable response)
+        {
 
 
             ckbEliminar.Checked = false;
@@ -326,44 +389,10 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            string Incidencia;
-            string Tipo;
 
-           
+        //-----------------------------------------------------------------------------------------------
+        //                                      R E P O R T E
+        //-----------------------------------------------------------------------------------------------
 
-            PanelEditar.Visible = false;
-
-            if (txtBuscarIncidencia.Text == String.Empty)
-            {
-
-                Incidencia = "%";
-            }
-            else {
-                Incidencia = txtBuscarIncidencia.Text;
-            }
-
-            if (cbTipo.SelectedIndex == 0)
-            {
-                Tipo = "%";
-            }
-            else {
-                Tipo = cbTipo.SelectedItem.ToString();
-            }
-
-            LLenarGridIncapacidad(dgvIncidencia, Incidencia, Tipo);
-           // LlenarComboTipoIncidencia(cbTipo, "Tipo", "cvtipo", 5);
-        }
-
-        private void cbTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

@@ -35,9 +35,10 @@
             System.Windows.Forms.Label label9;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Perfiles));
             System.Windows.Forms.Label label7;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label11;
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -63,6 +64,7 @@
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
             this.panelTag.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerfiles)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
@@ -158,6 +160,7 @@
             this.btnMinimizar.TabIndex = 115;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click_1);
             // 
             // btnCerrar
             // 
@@ -172,15 +175,16 @@
             this.btnCerrar.TabIndex = 114;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
             // 
             // panelTag
             // 
             this.panelTag.BackColor = System.Drawing.Color.Transparent;
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(2, 588);
+            this.panelTag.Location = new System.Drawing.Point(590, 567);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(455, 48);
+            this.panelTag.Size = new System.Drawing.Size(361, 29);
             this.panelTag.TabIndex = 113;
             this.panelTag.Visible = false;
             // 
@@ -191,7 +195,7 @@
             this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMensaje.ForeColor = System.Drawing.Color.White;
             this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbMensaje.Location = new System.Drawing.Point(45, 13);
+            this.lbMensaje.Location = new System.Drawing.Point(3, 4);
             this.lbMensaje.Name = "lbMensaje";
             this.lbMensaje.Size = new System.Drawing.Size(209, 20);
             this.lbMensaje.TabIndex = 26;
@@ -203,30 +207,30 @@
             this.dgvPerfiles.AllowUserToAddRows = false;
             this.dgvPerfiles.AllowUserToDeleteRows = false;
             this.dgvPerfiles.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvPerfiles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvPerfiles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPerfiles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPerfiles.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPerfiles.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvPerfiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPerfiles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPerfiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPerfiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPerfiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPerfiles.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPerfiles.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPerfiles.Location = new System.Drawing.Point(590, 199);
             this.dgvPerfiles.Name = "dgvPerfiles";
             this.dgvPerfiles.ReadOnly = true;
@@ -413,6 +417,18 @@
             this.timer1.Interval = 4000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label11.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            label11.Location = new System.Drawing.Point(587, 547);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(255, 15);
+            label11.TabIndex = 146;
+            label11.Text = "Selecciona un elemento del Grid para Editar";
+            // 
             // Perfiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,6 +436,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(label11);
             this.Controls.Add(label1);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMinimizar);
