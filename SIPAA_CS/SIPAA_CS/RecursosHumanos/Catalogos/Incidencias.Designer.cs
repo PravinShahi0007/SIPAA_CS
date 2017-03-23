@@ -479,6 +479,7 @@
             this.Name = "Incidencias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Incidencias";
+            this.Load += new System.EventHandler(this.Incidencias_Load);
             this.pnlAct.ResumeLayout(false);
             this.pnlAct.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncidencia)).EndInit();

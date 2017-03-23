@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SIPAA_CS.Conexiones;
 
-namespace SIPAA_CS.App_Code
+namespace SIPAA_CS.App_Code.RecursosHumanos
 {
     class Incidencia
     {
@@ -97,9 +97,9 @@ namespace SIPAA_CS.App_Code
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
-            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.VarChar).Value = p_cvincidencia;
+            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = p_cvincidencia;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
-            cmd.Parameters.Add("@p_orden", SqlDbType.VarChar).Value = p_orden;
+            cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = p_orden;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
 
@@ -107,9 +107,9 @@ namespace SIPAA_CS.App_Code
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
             objConexion.cerrarConexion();
 
-            DataTable FormaReg_S = new DataTable();
-            Adapter.Fill(FormaReg_S);
-            return FormaReg_S;
+            DataTable Incidencia_S = new DataTable();
+            Adapter.Fill(Incidencia_S);
+            return Incidencia_S;
 
         }
         //metodo actualizar, insertar, eliminar registro MTD
@@ -122,9 +122,9 @@ namespace SIPAA_CS.App_Code
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
-            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.VarChar).Value = p_cvincidencia;
+            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = p_cvincidencia;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
-            cmd.Parameters.Add("@p_orden", SqlDbType.VarChar).Value = p_orden;
+            cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = p_orden;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
 
@@ -144,9 +144,9 @@ namespace SIPAA_CS.App_Code
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
-            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.VarChar).Value = p_cvincidencia;
+            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = p_cvincidencia;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
-            cmd.Parameters.Add("@p_orden", SqlDbType.VarChar).Value = p_orden;
+            cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = p_orden;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
 

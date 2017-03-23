@@ -185,6 +185,11 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void frmFormReg_Load(object sender, EventArgs e)
         {
+            //Configuracion de la pantalla
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
             //LLAMA TOOL TIP
             sTooltip();
 
@@ -253,7 +258,7 @@ namespace SIPAA_CS.RecursosHumanos
             dgvForReg.Columns[0].HeaderText = "Selección";
 
             dgvForReg.Columns[1].Visible = false;
-            dgvForReg.Columns[0].Width = 75;
+            dgvForReg.Columns[0].Width = 55;
             dgvForReg.Columns[2].Width = 255;
 
             dgvForReg.ClearSelection();

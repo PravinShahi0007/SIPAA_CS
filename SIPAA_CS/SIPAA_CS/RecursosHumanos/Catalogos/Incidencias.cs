@@ -10,7 +10,9 @@ using System.Windows.Forms;
 
 using SIPAA_CS.Properties;
 using SIPAA_CS.Conexiones;
+using SIPAA_CS.App_Code.RecursosHumanos;
 using SIPAA_CS.App_Code;
+
 //***********************************************************************************************
 //Autor: Marco Dupont
 //Fecha creación: 22-Mar-2017       Última Modificacion: dd-mm-aaaa
@@ -185,6 +187,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void frmFormReg_Load(object sender, EventArgs e)
         {
+            //Configuracion de la pantalla
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
             //LLAMA TOOL TIP
             sTooltip();
 
@@ -245,7 +252,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             DataTable dtIncidencia = CIncidencias.Incidencia_S(p_opcion, p_cvIncidencia, p_descripcion, p_orden, p_usuumod, p_prgumodr);
             dgvIncidencia.DataSource = dtIncidencia;
-
+            
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
             imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
             imgCheckUsuarios.Name = "img";
@@ -333,8 +340,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
 
                 DataGridViewRow row = this.dgvIncidencia.SelectedRows[0];
-
-                iCvInc = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
+                
+                iCvFR = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
                 string ValorRow = row.Cells["Descripción"].Value.ToString();
 
                 txtCapInc.Text = ValorRow;
@@ -372,6 +379,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Incidencias_Load(object sender, EventArgs e)
         {
 
         }
