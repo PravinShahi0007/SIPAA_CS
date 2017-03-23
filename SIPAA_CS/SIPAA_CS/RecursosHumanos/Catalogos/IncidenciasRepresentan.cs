@@ -21,8 +21,8 @@ namespace SIPAA_CS.RecursosHumanos
         public string strIncidencia;
 
         //***********************************************************************************************
-        //Autor: -------------------------------------
-        //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
+        //Autor: Victor Jesús Iturburu Vergara
+        //Fecha creación:15-03-2017      Última Modificacion: 23-03-2017
         //Descripción: -------------------------------
         //***********************************************************************************************
 
@@ -188,7 +188,6 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
-
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
             ckbEliminar.Checked = false;
@@ -214,6 +213,27 @@ namespace SIPAA_CS.RecursosHumanos
             }
             LLenarGrid(1, objIncidencia);
         }
+    
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
 
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -231,6 +251,10 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void Incapacidad_Representa_Load(object sender, EventArgs e)
         {
+
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
             Incidencia objIncidencia = new Incidencia();
             objIncidencia.Descripcion = "%";
@@ -289,7 +313,7 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
-
+   
 
 
         //-----------------------------------------------------------------------------------------------
@@ -302,12 +326,12 @@ namespace SIPAA_CS.RecursosHumanos
 
 
 
-      
 
-    
 
-  
-    
+
+
+
+
 
 
     }
