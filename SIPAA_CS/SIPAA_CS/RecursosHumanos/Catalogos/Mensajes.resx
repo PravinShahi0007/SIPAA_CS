@@ -138,6 +138,12 @@
   <metadata name="label3.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
+  <metadata name="lblne.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="lblfi.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
   <data name="pnlimgusuario.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsN
@@ -280,9 +286,15 @@
   <data name="lbluid.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAAHhJREFUSEtjGAWjYOiB0tJSbiC2h3JpB4CW8ADxQSD+BcT+UGHaAKAFwkB8EYj/
+        vAAADrwBlbxySQAAAHhJREFUSEtjGAWjYOiB0tJSbiC2h3JpB4CW8ADxQSD+BcT+UGHaAKAFwkB8EYj/
         08tCESC+RE8LRQfCwsv0tFCM3ha2Qi0D4TVQYeoDoOGVSBZtAmJ2qBR1wahFZAOgwfJA/I3mFsEA0AJn
         IF5Bc4tGwSgYboCBAQBiZ3xasnXfyAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="lblff.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="lblff.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
 </root>

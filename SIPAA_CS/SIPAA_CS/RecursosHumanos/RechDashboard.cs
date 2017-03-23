@@ -1,4 +1,5 @@
 ﻿using SIPAA_CS.App_Code;
+using SIPAA_CS.RecursosHumanos.Catalogos;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
