@@ -16,7 +16,7 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
 
         }
 
-        public List<int> ObtenerAreaxUsuario(string cvusuario,int idcompania)
+        public List<int> ObtenerAreaxUsuario(int idcompania)
         {
 
             List<int> ltAreasxUsuario = new List<int>();
@@ -24,7 +24,7 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
             cmd.CommandText = "usp_accetusuare_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            //cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
             cmd.Parameters.Add("@idcompania", SqlDbType.Int).Value = idcompania;
 
             Conexion objConexion = new Conexion();
@@ -44,7 +44,34 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
             objConexion.cerrarConexion();
 
             return ltAreasxUsuario;
+            
+        }
+
+        public DataTable ObtenerAreaUsuario( int idcompania)
+        {
+            
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_accetusuare_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            //cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@idcompania", SqlDbType.Int).Value = idcompania;
+
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtAreaUsuario = new DataTable();
+            Adapter.Fill(dtAreaUsuario);
+            return dtAreaUsuario;
 
         }
+
+
     }
 }
