@@ -27,20 +27,20 @@ namespace SIPAA_CS.RecursosHumanos
                 ltCia.Add(row["Descripción"].ToString());
             }
             cbCia.DataSource = ltCia;
-            LlenarGridPlanteles(1, "", dgvPlantel);
+            LlenarGridPlanteles("", "", dgvPlantel);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            LlenarGridPlanteles((cbCia.SelectedIndex + 1), txtBuscarPerfil.Text, dgvPlantel);
+            LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
         }
 
         private void cbCia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LlenarGridPlanteles((cbCia.SelectedIndex + 1), txtBuscarPerfil.Text, dgvPlantel);
+            LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
         }
 
-        public void LlenarGridPlanteles(int idCia,string busqueda, DataGridView dgvPlantel) {
+        public void LlenarGridPlanteles(string idCia,string busqueda, DataGridView dgvPlantel) {
 
 
             SonaCompania objCia = new SonaCompania();
@@ -58,7 +58,7 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void txtBuscarPerfil_KeyUp(object sender, KeyEventArgs e)
         {
-            LlenarGridPlanteles((cbCia.SelectedIndex + 1), txtBuscarPerfil.Text, dgvPlantel);
+            LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
         }
 
         private void PanelPlantilla_Paint_1(object sender, PaintEventArgs e)
@@ -76,7 +76,7 @@ namespace SIPAA_CS.RecursosHumanos
                 ltCia.Add(row["Descripción"].ToString());
             }
             cbCia.DataSource = ltCia;
-            LlenarGridPlanteles(1, "", dgvPlantel);
+            LlenarGridPlanteles("", "", dgvPlantel);
         }
     }
 }

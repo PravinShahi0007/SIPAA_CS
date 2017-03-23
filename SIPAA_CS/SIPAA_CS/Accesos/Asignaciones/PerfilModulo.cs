@@ -359,7 +359,7 @@ namespace SIPAA_CS.Accesos
         {
             string idtrab = LoginInfo.IdTrab;
             Modulo objModulo = new Modulo();
-             dtPermisos = objModulo.ObtenerPermisosxUsuario(idtrab);
+             dtPermisos = objModulo.ObtenerPermisosxUsuario("ADMIN");
             DataRow[] row = dtPermisos.Select("CVModulo = 'frmCrear_Perfil'");
             Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
  
@@ -447,7 +447,7 @@ namespace SIPAA_CS.Accesos
                 }
 
 
-                string idtrab = LoginInfo.IdTrab;
+                string idtrab = "ADMIN";
                 dtPermisos = objModulo.ObtenerPermisosxUsuario(idtrab);
                 DataRow[] row = dtPermisos.Select("CVModulo = 'frmCrear_Perfil'");
                 Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);

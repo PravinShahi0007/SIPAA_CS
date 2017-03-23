@@ -331,6 +331,27 @@ namespace SIPAA_CS.App_Code
             objConexion.cerrarConexion();
             
         }
+
+        public void AsignarAreaUsuario(string cvusuario, int idcompania, int idplanta, string usuumod,string prgumod)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_accetusuare_ui";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@idcompania", SqlDbType.Int).Value = idcompania;
+            cmd.Parameters.Add("@idplanta", SqlDbType.Int).Value = idplanta;
+            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = prgumod;
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.ExecuteNonQuery();
+            objConexion.cerrarConexion();
+
+        }
     }
 
 }
