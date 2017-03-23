@@ -89,6 +89,10 @@ namespace SIPAA_CS.Accesos
 
         private void AccesosDashboard_Load(object sender, EventArgs e)
         {
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
             Usuario objUsuario = new Usuario();
             string IdTrab = LoginInfo.IdTrab;
             List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab);

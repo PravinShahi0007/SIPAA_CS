@@ -19,6 +19,7 @@ namespace SIPAA_CS.RecursosHumanos
         public int iOpcionAdmin;
         public string strIncidencia;
         public string strTipoIncidencia;
+        public string strEstatus;
         public IncidenciasTipo()
         {
             InitializeComponent();
@@ -39,15 +40,31 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
-        private void LLenarGridIncapacidad(DataGridView dgvIncidencia,string Incidencia,string Tipo) {
+        private void LLenarGridIncapacidad(DataGridView dgvIncidencia,string strIncidencia,string Tipo) {
 
+            if (dgvIncidencia.Columns.Count > 1) {
+                dgvIncidencia.Columns.RemoveAt(0);
+            }
             Incidencia objIncidencia = new Incidencia();
-            objIncidencia.Descripcion = Incidencia;
+
+            switch (cbEstatus.SelectedIndex) {
+
+                case 0: objIncidencia.Estatus = "%"; break;
+                case 1: objIncidencia.Estatus = "1"; break;
+                case 2: objIncidencia.Estatus = "0"; break;
+
+
+            }
+            
+            objIncidencia.CVIncidencia = 0;
+            objIncidencia.CVTipo = 0;
+            objIncidencia.Descripcion = strIncidencia;
             objIncidencia.TipoIncidencia = Tipo;
             objIncidencia.UsuuMod = "vjiturburuv";
             objIncidencia.PrguMod = this.Name;
-            DataTable dtIncidencia = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, 4,"");
+            DataTable dtIncidencia = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, 4);
             dgvIncidencia.DataSource = dtIncidencia;
+
 
 
             DataGridViewImageColumn imgCheck = new DataGridViewImageColumn();
@@ -59,6 +76,10 @@ namespace SIPAA_CS.RecursosHumanos
             dgvIncidencia.Columns[0].Width = 40;
             dgvIncidencia.Columns[1].Visible = false;
             dgvIncidencia.Columns[2].Visible = false;
+            dgvIncidencia.Columns[3].Width = 200;
+            dgvIncidencia.Columns[4].Width = 150;
+            dgvIncidencia.Columns[5].Width = 20;
+
             dgvIncidencia.ClearSelection();
 
         }
@@ -74,17 +95,30 @@ namespace SIPAA_CS.RecursosHumanos
             if (dgvIncidencia.SelectedRows.Count != 0)
             {
 
+               cbIncidencia.Visible = true;
+
                 DataGridViewRow row = this.dgvIncidencia.SelectedRows[0];
                 PanelEditar.Visible = true;
                 cvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
                 cvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
                 strIncidencia = row.Cells["Incidencia"].Value.ToString();
                 strTipoIncidencia = row.Cells["Tipo"].Value.ToString();
-                LlenarComboTipoIncidencia(cbTipoEditar,"Tipo","cvtipo",5);
+                txtTipoEditar.Text = strTipoIncidencia;
+                strEstatus = row.Cells["Estatus"].Value.ToString();
+               
                 LlenarComboTipoIncidencia(cbIncidencia, "Incidencia", "cvincidencia",6);
+
+                if (strEstatus == String.Empty || strEstatus == "0")
+                {
+                    ckbEliminar.Text = "Alta";
+                }
+                else {
+                    ckbEliminar.Text = "Baja";
+                }
+
                 ckbEliminar.Visible = true;
                 ckbEliminar.Checked = false;
-                cbTipoEditar.SelectedItem = strTipoIncidencia;
+                txtTipoEditar.Text = strTipoIncidencia;
                 //   LlenarComboRepresenta(cbRepresentaEditar,5);
                 cbIncidencia.SelectedItem = strIncidencia;
                 lblAccion.Text = "      Editar Incidencia";
@@ -104,13 +138,18 @@ namespace SIPAA_CS.RecursosHumanos
         private void LlenarComboTipoIncidencia(ComboBox cb,string Display,string Clave,int Opcion)
         {
             Incidencia objIncidencia = new Incidencia();
+            objIncidencia.CVIncidencia = 0;
+            objIncidencia.CVTipo = 0;
             objIncidencia.Descripcion = "";
             objIncidencia.TipoIncidencia = "";
             objIncidencia.UsuuMod = "";
             objIncidencia.PrguMod = "";
+            objIncidencia.Estatus = "";
             //int iOpcion = 5;
-            DataTable dtIncidencia = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, Opcion,"");
+            DataTable dtIncidencia = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, Opcion);
            
+            
+
             List<string> ltCombo = new List<string>();
             foreach (DataRow row in dtIncidencia.Rows)
             {
@@ -132,7 +171,16 @@ namespace SIPAA_CS.RecursosHumanos
         {
             if (ckbEliminar.Checked == true)
             {
-                btnGuardar.Image = Resources.b6;
+
+                if (strEstatus == String.Empty || strEstatus == "0")
+                {
+
+                    btnGuardar.Image = Resources.btalta;
+                }
+                else {
+                    btnGuardar.Image = Resources.b6;
+                }
+               
 
                 iOpcionAdmin = 3;
                 //Utilerias.CambioBoton(btnGuardar, btnEditar, btnGuardar, btnEliminar);
@@ -153,11 +201,10 @@ namespace SIPAA_CS.RecursosHumanos
             lblAccion.Text = "      Nueva Asignación";
             panelTag.Visible = false;
             ckbEliminar.Checked = false;
-
+            ckbEliminar.Visible = false;
             cbIncidencia.Enabled = true;
+         
             LlenarComboTipoIncidencia(cbIncidencia,"Incidencia","cvincidencia",6);
-            LlenarComboTipoIncidencia(cbTipoEditar, "Tipo", "cvtipo", 5);
-            //  LlenarComboRepresenta(cbRepresentaEditar, 5);
             txtBuscarIncidencia.Text = "";
             PanelEditar.Visible = true;
             iOpcionAdmin = 1;
@@ -167,9 +214,28 @@ namespace SIPAA_CS.RecursosHumanos
             
         }
 
+        //boton minimizar
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        //boton cerrar
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
 
             strIncidencia = cbIncidencia.SelectedItem.ToString();
 
@@ -177,45 +243,49 @@ namespace SIPAA_CS.RecursosHumanos
             lblAccion.Text = "       Asignar Tipo Incapacidad";
 
             Incidencia objIncidencia = new Incidencia();
-            //objIncidencia.CVIncidencia = cbIncidencia.SelectedIndex;
+            objIncidencia.CVIncidencia = cvIncidencia;
+            objIncidencia.CVTipo = cvTipo;
             objIncidencia.Descripcion = strIncidencia;
-            objIncidencia.TipoIncidencia = cbTipoEditar.SelectedItem.ToString();
-           
+            objIncidencia.Estatus = "";
+            objIncidencia.TipoIncidencia = txtTipoEditar.Text;
+
             objIncidencia.PrguMod = this.Name;
             // objIncidencia.FhuMod = DateTime.Now;
             objIncidencia.UsuuMod = "vjiturburuv";
             try
             {
-                DataTable response = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, iOpcionAdmin,strTipoIncidencia);
-                ckbEliminar.Checked = false;
-
-                if (response.Columns.Contains("INSERTAR"))
-                {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignación Correcta");
-                    timer1.Start();
+                string Mensaje = "";
+                if (strEstatus == "1") {
+                    Mensaje = "¿Seguro que desea dar de BAJA el Registro?";
                 }
-                else if (response.Columns.Contains("EXISTE"))
-                {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Esta Asignación ya existe");
-                    timer1.Start();
-                }
-                else if (response.Columns.Contains("ACTUALIZAR"))
-                {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Cambio de Asignación Correcto");
-                    timer1.Start();
-                }
-                else if (iOpcionAdmin == 4)
-                {
-                    panelTag.Visible = true;
-                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
-                    lbMensaje.Text = "Registro Completo.";
-                    timer1.Start();
+                else {
+                    Mensaje = "¿Seguro que desea dar de ALTA el Registro?";
                 }
 
+                DataTable response = new DataTable();
+                switch (iOpcionAdmin) {
+
+                    case 3:
+                        DialogResult result = MessageBox.Show(Mensaje, this.Name, MessageBoxButtons.YesNo);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            response = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, iOpcionAdmin);
+                            MostrarNotificacion(response);
+                        }
+                        break;
+
+                    default:
+                         response = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, iOpcionAdmin);
+                        MostrarNotificacion(response);
+
+                        break;
+                }
                 // LlenarComboRepresenta(cbIncidencia, 6);
 
-
+                LlenarComboTipoIncidencia(cbTipo, "Tipo", "cvtipo", 5);
                 LLenarGridIncapacidad(dgvIncidencia,"%","%");
+
             }
             catch (Exception ex)
             {
@@ -226,10 +296,43 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
+        private void MostrarNotificacion(DataTable response) {
+
+
+            ckbEliminar.Checked = false;
+            PanelEditar.Visible = false;
+
+            if (response.Columns.Contains("INSERTAR"))
+            {
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignación Correcta");
+                timer1.Start();
+            }
+            else if (response.Columns.Contains("EXISTE"))
+            {
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Esta Asignación ya existe");
+                timer1.Start();
+            }
+            else if (response.Columns.Contains("ACTUALIZAR"))
+            {
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Actualización Correcta");
+                timer1.Start();
+            }
+            else if (response.Columns.Contains("ESTATUS"))
+            {
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Cambio de Estatus Correcto");
+                timer1.Start();
+            }
+
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string Incidencia;
             string Tipo;
+
+           
+
+            PanelEditar.Visible = false;
 
             if (txtBuscarIncidencia.Text == String.Empty)
             {
@@ -255,6 +358,11 @@ namespace SIPAA_CS.RecursosHumanos
         private void cbTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

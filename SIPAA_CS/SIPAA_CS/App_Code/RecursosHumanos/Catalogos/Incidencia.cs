@@ -19,23 +19,13 @@ namespace SIPAA_CS.App_Code.RecursosHumanos
         public int CVRepresenta;
         public string Representa;
         public string UsuuMod;
+        public string Estatus;
         public DateTime FhuMod;
         public string PrguMod;
-        public int TipoID;
+        public int CVTipo;
         public string TipoIncidencia;
         public int p_respuesta;
 
-        //CONTRUCTOR
-        public Incidencia()
-        {
-            p_opcion = 0;
-            CVIncidencia = 0;
-            Descripcion = "";
-            p_orden = 0;
-            UsuuMod = "";
-            PrguMod = "";
-            p_respuesta = 0;
-        }
 
 
         public DataTable ObtenerRepresentaxIncidencia(Incidencia objIncidencia,int Opcion) {
@@ -63,7 +53,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos
         }
 
 
-        public DataTable ObtenerIncidenciaxTipo(Incidencia objIncidencia, int Opcion,string TipoAnterior)
+        public DataTable ObtenerIncidenciaxTipo(Incidencia objIncidencia, int Opcion)
         {
 
             Conexion objConexion = new Conexion();
@@ -71,9 +61,11 @@ namespace SIPAA_CS.App_Code.RecursosHumanos
             cmd.CommandText = @"usp_rechtipoincidencia_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.Add("P_cvincidencia", SqlDbType.Int).Value = objIncidencia.CVIncidencia;
             cmd.Parameters.Add("P_incidencia", SqlDbType.VarChar).Value = objIncidencia.Descripcion;
+            cmd.Parameters.Add("P_cvtipo", SqlDbType.Int).Value = objIncidencia.CVTipo;
             cmd.Parameters.Add("P_tipo", SqlDbType.VarChar).Value = objIncidencia.TipoIncidencia;
-            cmd.Parameters.Add("P_tipoAnterior", SqlDbType.VarChar).Value = objIncidencia.TipoIncidencia;
+            cmd.Parameters.Add("P_estatus", SqlDbType.VarChar).Value = objIncidencia.Estatus;
             cmd.Parameters.Add("P_Opcion", SqlDbType.Int).Value = Opcion;
             cmd.Parameters.Add("usuumod", SqlDbType.VarChar).Value = objIncidencia.UsuuMod;
             cmd.Parameters.Add("prgumod", SqlDbType.VarChar).Value = objIncidencia.PrguMod;

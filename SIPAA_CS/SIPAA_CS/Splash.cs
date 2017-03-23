@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIPAA_CS.App_Code;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,7 +43,7 @@ namespace SIPAA_CS
 
         private void CompaniasUsuario_Load(object sender, EventArgs e)
         {
-
+           
         }
     }
 }
