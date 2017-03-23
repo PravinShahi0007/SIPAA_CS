@@ -429,6 +429,11 @@ namespace SIPAA_CS.Accesos
             timer1.Stop();
         }
 
+        private void btnRegresar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

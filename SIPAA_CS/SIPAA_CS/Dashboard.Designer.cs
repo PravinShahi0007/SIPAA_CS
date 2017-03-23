@@ -195,6 +195,7 @@
             this.btnAlmacen.Text = "Almacén";
             this.btnAlmacen.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnAlmacen.UseVisualStyleBackColor = false;
+            this.btnAlmacen.Click += new System.EventHandler(this.btnAlmacen_Click);
             // 
             // btnRecursosh
             // 

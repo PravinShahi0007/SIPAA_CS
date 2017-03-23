@@ -202,6 +202,7 @@ namespace SIPAA_CS
         //-----------------------------------------------------------------------------------------------
         private void Acceso_Load(object sender, EventArgs e)
         {
+          
             txtUsuario.Focus();
         }
         private void panel1_MouseUp(object sender, MouseEventArgs e)

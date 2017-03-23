@@ -83,6 +83,10 @@ namespace SIPAA_CS
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
             Usuario objUsuario = new Usuario();
             string idtrab = LoginInfo.IdTrab;
             ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab);
@@ -105,7 +109,7 @@ namespace SIPAA_CS
 
         private void btnRecursosh_Click(object sender, EventArgs e)
         {
-            this.Enabled = false;
+            
             RechDashboard form = new RechDashboard();
             form.Show();
         }
@@ -115,6 +119,11 @@ namespace SIPAA_CS
             AccesosDashboard Ads = new AccesosDashboard();
             Ads.Show();
             //this.Hide();   
+        }
+
+        private void btnAlmacen_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
