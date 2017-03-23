@@ -102,7 +102,7 @@ namespace SIPAA_CS.RecursosHumanos
                     txtCapFR.Text = "";
                     txtCapFR.Focus();
                     pnlAct.Visible = false;
-                    DialogResult result = MessageBox.Show("El Registro ya existe", "SIPAA", MessageBoxButtons.OK);
+                    DialogResult result = MessageBox.Show("Registro existente", "SIPAA", MessageBoxButtons.OK);
                 }
             }
 
@@ -315,11 +315,15 @@ namespace SIPAA_CS.RecursosHumanos
         {
             if (ckbEliminar.Checked == true)
             {
-
                 btnGuardar.Visible = false;
                 btnEditar.Visible = false;
                 btnEliminar.Visible = true;
-
+            }
+            else
+            {
+                btnGuardar.Visible = false;
+                btnEditar.Visible = true;
+                btnEliminar.Visible = false;
             }
         }
 
@@ -354,15 +358,15 @@ namespace SIPAA_CS.RecursosHumanos
             FormasRegistro.formaReg_UID(iOpc, sCve, sDesc, sUsu, sProg);
             if (iOpc == 1)
             {
-                lbMensaje.Text = "Registro agregado correctamente";
+                lbMensaje.Text = "Registro almacenado";
             }
             else if (iOpc == 2)
             {
-                lbMensaje.Text = "Registro modificado correctamente";
+                lbMensaje.Text = "Registro actualizado";
             }
             else if (iOpc == 3)
             {
-                lbMensaje.Text = "Registro eliminado correctamente";
+                lbMensaje.Text = "Registro eliminado";
             }
         }
         private void sValIns(int iOpc, int sCve, string sDesc, string sUsu, string sProg)
