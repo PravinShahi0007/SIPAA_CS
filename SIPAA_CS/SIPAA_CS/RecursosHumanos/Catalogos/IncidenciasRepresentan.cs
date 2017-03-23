@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
+using SIPAA_CS.App_Code.RecursosHumanos;
 
 namespace SIPAA_CS.RecursosHumanos
 {
