@@ -354,12 +354,40 @@ namespace SIPAA_CS.App_Code
             int widthSys = dsize.Width;
             int heightSys = dsize.Height;
 
-            int heightNueva;
-            int widthNueva;
+            int heightNueva = 0;
+            int widthNueva = 0;
 
-            if (heightSys <= 768 || widthSys <= 768) {
+            double dPorcentaje= 0;
+
+            if (heightSys <= 600 || widthSys <= 600) {
+                widthNueva = 600;
+                heightNueva = 480;
+                frm.AutoScroll = true;
+                frm.BackgroundImageLayout = ImageLayout.Stretch;
+                dPorcentaje = (100 - (((double)heightNueva / (double)heightActual) * 100)) * 2;
+
+                if (heightSys >800 || widthSys > 800)
+                {
+                    frm.DesktopLocation = new Point((int)(frm.Location.X + 200), 50);
+                }
+                else {
+                    frm.DesktopLocation = new Point((int)(frm.Location.X + 100), 50);
+                }
+
+                
+
+            }
+            else if (heightSys <= 768 || widthSys <= 768)
+            {
+               
+                widthNueva = 800;
                 heightNueva = 600;
-            } else {
+                frm.BackgroundImageLayout = ImageLayout.Zoom;
+                dPorcentaje =100 - (((double)heightNueva / (double)heightActual) * 100);
+                frm.StartPosition = FormStartPosition.WindowsDefaultLocation;
+                frm.DesktopLocation = new Point((int)(frm.Location.X + 150), 80);
+            }
+            else  {
                 heightNueva = 768;
             }
 
@@ -367,10 +395,10 @@ namespace SIPAA_CS.App_Code
 
             if (heightNueva <= 600)
             {
-                widthNueva = 800;
-                double dPorcentaje = 100-(((double)heightNueva / (double)heightActual) * 100);
+               
+               
                 frm.Size = new Size(widthNueva, heightNueva);
-                frm.BackgroundImageLayout = ImageLayout.Zoom;
+               
                 foreach (Control ctrl in frm.Controls)
                 {
                     ResizeControl(ctrl, (dPorcentaje/100));
@@ -378,10 +406,9 @@ namespace SIPAA_CS.App_Code
 
 
                 //double locationx = frm.Location.X
-                frm.StartPosition = FormStartPosition.CenterScreen; 
-                frm.DesktopLocation = new Point(frm.Location.X, 50);
+              
             }
-            else if (heightSys <= 600 || widthSys <= 600)
+            else if (widthSys <= 600)
             {
                 frm.Size = new Size(640, 480);
                 frm.AutoScroll = true;
@@ -389,6 +416,7 @@ namespace SIPAA_CS.App_Code
             else
             {
                 widthNueva = 1024;
+                frm.StartPosition = FormStartPosition.CenterScreen;
                 frm.Size = new Size(widthNueva, heightNueva);
 
             } 
