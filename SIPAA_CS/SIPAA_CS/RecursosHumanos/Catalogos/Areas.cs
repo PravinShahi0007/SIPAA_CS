@@ -1,4 +1,4 @@
-﻿using SIPAA_CS.Recursos_Humanos.App_Code;
+﻿using SIPAA_CS.App_Code;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.RecursosHumanos
 {
-    public partial class Compania_Plantel : Form
+    public partial class Areas : Form
     {
-        public Compania_Plantel()
+        public Areas()
         {
             InitializeComponent();
         }
@@ -27,20 +27,20 @@ namespace SIPAA_CS.Recursos_Humanos
                 ltCia.Add(row["Descripción"].ToString());
             }
             cbCia.DataSource = ltCia;
-            LlenarGridPlanteles(1, "", dgvPlantel);
+            LlenarGridPlanteles("", "", dgvPlantel);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            LlenarGridPlanteles((cbCia.SelectedIndex + 1), txtBuscarPerfil.Text, dgvPlantel);
+            LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
         }
 
         private void cbCia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LlenarGridPlanteles((cbCia.SelectedIndex + 1), txtBuscarPerfil.Text, dgvPlantel);
+            LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
         }
 
-        public void LlenarGridPlanteles(int idCia,string busqueda, DataGridView dgvPlantel) {
+        public void LlenarGridPlanteles(string idCia,string busqueda, DataGridView dgvPlantel) {
 
 
             SonaCompania objCia = new SonaCompania();
@@ -58,7 +58,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void txtBuscarPerfil_KeyUp(object sender, KeyEventArgs e)
         {
-            LlenarGridPlanteles((cbCia.SelectedIndex + 1), txtBuscarPerfil.Text, dgvPlantel);
+            LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
         }
 
         private void PanelPlantilla_Paint_1(object sender, PaintEventArgs e)
@@ -76,7 +76,7 @@ namespace SIPAA_CS.Recursos_Humanos
                 ltCia.Add(row["Descripción"].ToString());
             }
             cbCia.DataSource = ltCia;
-            LlenarGridPlanteles(1, "", dgvPlantel);
+            LlenarGridPlanteles("", "", dgvPlantel);
         }
     }
 }

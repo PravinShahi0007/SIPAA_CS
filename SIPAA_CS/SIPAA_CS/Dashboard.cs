@@ -1,16 +1,11 @@
-﻿using SIPAA_CS.Recursos_Humanos.App_Code;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using SIPAA_CS.Recursos_Humanos.Administracion;
-using static SIPAA_CS.Recursos_Humanos.App_Code.Usuario;
-using SIPAA_CS.Recursos_Humanos;
+using SIPAA_CS.RecursosHumanos;
+using SIPAA_CS.App_Code;
+using static SIPAA_CS.App_Code.Usuario;
+using SIPAA_CS.Accesos;
 
 namespace SIPAA_CS
 {
@@ -88,6 +83,10 @@ namespace SIPAA_CS
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
             Usuario objUsuario = new Usuario();
             string idtrab = LoginInfo.IdTrab;
             ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab);
@@ -110,7 +109,7 @@ namespace SIPAA_CS
 
         private void btnRecursosh_Click(object sender, EventArgs e)
         {
-            this.Enabled = false;
+            
             RechDashboard form = new RechDashboard();
             form.Show();
         }
@@ -120,6 +119,11 @@ namespace SIPAA_CS
             AccesosDashboard Ads = new AccesosDashboard();
             Ads.Show();
             //this.Hide();   
+        }
+
+        private void btnAlmacen_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -6,26 +6,26 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SIPAA_CS.App_Code;
 
-namespace SIPAA_CS.App_Code
+namespace SIPAA_CS.App_Code.Accesos.Asignaciones
 {
-    class CompaniaUsuario
+    class AreaUsuario
     {
-        public CompaniaUsuario()
+        public AreaUsuario()
         {
 
         }
 
-        public List<int> ObtenerCompaniasxUsuario(string cvusuario)
+        public List<int> ObtenerAreaxUsuario(string cvusuario,int idcompania)
         {
 
-            List<int> ltCompaniasxUsuario = new List<int>();
+            List<int> ltAreasxUsuario = new List<int>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusucom_s";
+            cmd.CommandText = "usp_accetusuare_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@idcompania", SqlDbType.Int).Value = idcompania;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -36,18 +36,15 @@ namespace SIPAA_CS.App_Code
             while (reader.Read())
             {
 
-                int idcompania = reader.GetInt32(reader.GetOrdinal("idcompania"));
+                int idarea = reader.GetInt32(reader.GetOrdinal("idplanta"));
 
-                ltCompaniasxUsuario.Add(idcompania);
+                ltAreasxUsuario.Add(idarea);
             }
 
             objConexion.cerrarConexion();
 
-            return ltCompaniasxUsuario;
+            return ltAreasxUsuario;
 
         }
-
-
-
     }
 }

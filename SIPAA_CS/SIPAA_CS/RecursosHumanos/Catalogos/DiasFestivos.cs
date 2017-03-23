@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.App_Code;
 using SIPAA_CS.Conexiones;
+using SIPAA_CS.App_Code;
 
 //***********************************************************************************************
 //Autor: Benjamin Huizar Barajas
@@ -18,9 +18,9 @@ using SIPAA_CS.Conexiones;
 //Descripción: Días Festivos
 //***********************************************************************************************
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.RecursosHumanos
 {
-    public partial class frmDiasFestivos : Form
+    public partial class DiasFestivos : Form
     {
         #region
 
@@ -36,7 +36,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         DiaFestivo oDiasFestivos = new DiaFestivo();
         Utilerias Util = new Utilerias();
 
-        public frmDiasFestivos()
+        public DiasFestivos()
         {
             InitializeComponent();
         }

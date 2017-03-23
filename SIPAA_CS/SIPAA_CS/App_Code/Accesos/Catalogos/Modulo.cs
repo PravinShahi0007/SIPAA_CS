@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIPAA_CS.Recursos_Humanos.App_Code
+namespace SIPAA_CS.App_Code
 {
     class Modulo
     {

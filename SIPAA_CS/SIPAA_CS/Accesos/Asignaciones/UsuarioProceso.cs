@@ -1,19 +1,13 @@
-﻿using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.Administracion;
-using SIPAA_CS.Recursos_Humanos.App_Code;
+﻿using SIPAA_CS.App_Code;
+using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SIPAA_CS.Accesos
 {
-    public partial class Asignar_Proceso : Form
+    public partial class UsuarioProceso : Form
     {
         Usuario usuario = new Usuario();
         Proceso procesos = new Proceso();
@@ -27,7 +21,7 @@ namespace SIPAA_CS.Accesos
         public string descripcion;
         public string pass;
 
-        public Asignar_Proceso()
+        public UsuarioProceso()
         {
             InitializeComponent();
         }

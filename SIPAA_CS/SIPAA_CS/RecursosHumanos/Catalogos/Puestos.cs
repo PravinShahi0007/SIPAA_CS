@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.App_Code;
+using SIPAA_CS.App_Code;
 
 //***********************************************************************************************
 //Autor: Noe Alvarez Marquina
@@ -17,7 +17,7 @@ using SIPAA_CS.Recursos_Humanos.App_Code;
 //Descripción: Muestra y busca puestos sonarh
 //***********************************************************************************************
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.RecursosHumanos
 {
     public partial class Puestos : Form
     {

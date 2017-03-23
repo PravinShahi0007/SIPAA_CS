@@ -1,5 +1,5 @@
-﻿using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.App_Code;
+﻿using SIPAA_CS.App_Code;
+using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SIPAA_CS.Recursos_Humanos.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.Accesos
 {
 
 
@@ -20,7 +20,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
     //Fecha creación:13-03-2017      Última Modificacion: 13-03-2017
     //Descripción: Pantalla de Asignación de Módulos a Perfiles
     //***********************************************************************************************
-    public partial class Asignar_Modulo : Form
+    public partial class PerfilModulo : Form
     {
         public int CVPerfil = 0;
         public string CVModulo;
@@ -350,7 +350,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
 
-        public Asignar_Modulo()
+        public PerfilModulo()
         {
             InitializeComponent();
         }
@@ -359,7 +359,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         {
             string idtrab = LoginInfo.IdTrab;
             Modulo objModulo = new Modulo();
-             dtPermisos = objModulo.ObtenerPermisosxUsuario(idtrab);
+             dtPermisos = objModulo.ObtenerPermisosxUsuario("ADMIN");
             DataRow[] row = dtPermisos.Select("CVModulo = 'frmCrear_Perfil'");
             Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
  
@@ -447,7 +447,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
                 }
 
 
-                string idtrab = LoginInfo.IdTrab;
+                string idtrab = "ADMIN";
                 dtPermisos = objModulo.ObtenerPermisosxUsuario(idtrab);
                 DataRow[] row = dtPermisos.Select("CVModulo = 'frmCrear_Perfil'");
                 Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);

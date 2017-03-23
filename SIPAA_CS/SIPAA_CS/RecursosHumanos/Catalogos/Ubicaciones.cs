@@ -1,4 +1,4 @@
-﻿using SIPAA_CS.Recursos_Humanos.App_Code;
+﻿using SIPAA_CS.App_Code;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.RecursosHumanos
 {
-    public partial class Ubicacion_Plantel : Form
+    public partial class Ubicaciones : Form
     {
-        public Ubicacion_Plantel()
+        public Ubicaciones()
         {
             InitializeComponent();
         }

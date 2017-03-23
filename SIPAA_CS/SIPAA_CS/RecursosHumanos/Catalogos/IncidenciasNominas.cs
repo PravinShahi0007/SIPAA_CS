@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.App_Code;
 using SIPAA_CS.Conexiones;
+using SIPAA_CS.App_Code;
 
 //***********************************************************************************************
 //Autor: Noe Alvarez Marquina
@@ -18,9 +18,9 @@ using SIPAA_CS.Conexiones;
 //Descripción: administra incidencias de nomina
 //***********************************************************************************************
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.RecursosHumanos
 {
-    public partial class IncidenciasNom : Form
+    public partial class IncidenciasNomimas : Form
     {
         #region
 
@@ -42,7 +42,7 @@ namespace SIPAA_CS.Recursos_Humanos
         IncNomina IncNom = new IncNomina();
         Utilerias Util = new Utilerias();
 
-        public IncidenciasNom()
+        public IncidenciasNomimas()
         {
             InitializeComponent();
         }

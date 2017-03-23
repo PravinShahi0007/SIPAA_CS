@@ -1,17 +1,10 @@
-﻿using SIPAA_CS.Recursos_Humanos.Administracion;
-using SIPAA_CS.Recursos_Humanos.App_Code;
+﻿using SIPAA_CS.App_Code;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SIPAA_CS.Recursos_Humanos.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.RecursosHumanos
 {
     public partial class RechDashboard : Form
     {
@@ -62,7 +55,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void tsmiCompanias_Click(object sender, EventArgs e)
         {
-            frmCompanias form = new frmCompanias();
+            Companias form = new Companias();
             form.Show();
            
             
@@ -70,7 +63,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void diasFestivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDiasFestivos form = new frmDiasFestivos();
+            DiasFestivos form = new DiasFestivos();
             form.Show();
         }
 
@@ -82,7 +75,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void tsmiUbicacion_Click(object sender, EventArgs e)
         {
-            Ubicacion_Plantel form = new Ubicacion_Plantel();
+            Ubicaciones form = new Ubicaciones();
             form.Show();
         }
 
@@ -94,19 +87,19 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Empleados form = new Empleados();
+            Trabajadores form = new Trabajadores();
             form.Show();
         }
 
         private void formasDeRegistroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmFormReg form = new frmFormReg();
+            FormasRegistros form = new FormasRegistros();
             form.Show();
         }
 
         private void incapacidadRepresentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Incidencia_Representa form = new Incidencia_Representa();
+            IncidenciasRepresentan form = new IncidenciasRepresentan();
             form.Show();
         }
 
@@ -118,7 +111,7 @@ namespace SIPAA_CS.Recursos_Humanos
 
         private void areasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Compania_Plantel form = new Compania_Plantel();
+            Areas form = new Areas();
             form.Show();
         }
     }

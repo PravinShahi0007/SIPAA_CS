@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.Recursos_Humanos.App_Code
+namespace SIPAA_CS.App_Code
 {
     class Usuario
     {
@@ -330,6 +330,27 @@ namespace SIPAA_CS.Recursos_Humanos.App_Code
             cmd.ExecuteNonQuery();
             objConexion.cerrarConexion();
             
+        }
+
+        public void AsignarAreaUsuario(string cvusuario, int idcompania, int idplanta, string usuumod,string prgumod)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_accetusuare_ui";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@idcompania", SqlDbType.Int).Value = idcompania;
+            cmd.Parameters.Add("@idplanta", SqlDbType.Int).Value = idplanta;
+            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = prgumod;
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.ExecuteNonQuery();
+            objConexion.cerrarConexion();
+
         }
     }
 

@@ -1,19 +1,13 @@
-﻿using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.Administracion;
-using SIPAA_CS.Recursos_Humanos.App_Code;
+﻿using SIPAA_CS.App_Code;
+using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SIPAA_CS.Recursos_Humanos.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS
+namespace SIPAA_CS.Accesos
 {
 
 
@@ -23,7 +17,7 @@ namespace SIPAA_CS
     //Descripción: Pantalla que permite la gestión de Perfiles de usuario
     //***********************************************************************************************
 
-    public partial class Crear_Perfil : Form
+    public partial class Perfiles : Form
     {
         public Point formPosition;
         public Boolean mouseAction;
@@ -190,7 +184,7 @@ namespace SIPAA_CS
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
 
-        public Crear_Perfil()
+        public Perfiles()
         {
             InitializeComponent();
         }
@@ -433,6 +427,11 @@ namespace SIPAA_CS
         {
             panelTag.Visible = false;
             timer1.Stop();
+        }
+
+        private void btnRegresar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

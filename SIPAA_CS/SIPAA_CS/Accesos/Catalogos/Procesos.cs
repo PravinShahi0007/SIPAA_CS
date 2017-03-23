@@ -1,5 +1,5 @@
-﻿using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.App_Code;
+﻿using SIPAA_CS.App_Code;
+using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.Accesos
 {
-    public partial class Crear_Procesos : Form
+    public partial class Procesos : Form
     {
         Proceso proceso = new Proceso();
         Utilerias utilerias = new Utilerias();
@@ -21,7 +21,7 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         public string descripcion;
         public string buscar;
-        public Crear_Procesos()
+        public Procesos()
         {
             InitializeComponent();
         }

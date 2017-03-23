@@ -58,6 +58,7 @@
     <Compile Include="Accesos\Asignaciones\UsuarioProceso.Designer.cs">
       <DependentUpon>UsuarioProceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Accesos\Asignaciones\AreaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\CompaniaUsuario.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\IncNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Mensaje.cs" />
@@ -114,6 +115,12 @@
     </Compile>
     <!---<Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">-->
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Incidencia.cs" />
+    <Compile Include="RecursosHumanos\Catalogos\Incidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\Incidencias.Designer.cs">
+      <DependentUpon>Incidencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Trabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,11 +133,11 @@
     <Compile Include="RecursosHumanos\Catalogos\Mensajes.Designer.cs">
       <DependentUpon>Mensajes.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Asignaciones\AreaUsuario.cs">
+    <Compile Include="RecursosHumanos\Asignaciones\AreasUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Asignaciones\AreaUsuario.Designer.cs">
-      <DependentUpon>AreaUsuario.cs</DependentUpon>
+    <Compile Include="RecursosHumanos\Asignaciones\AreasUsuarios.Designer.cs">
+      <DependentUpon>AreasUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Asignaciones\CompaniasUsuario.cs">
       <SubType>Form</SubType>
@@ -269,14 +276,17 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\Incidencias.resx">
+      <DependentUpon>Incidencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Trabajadores.resx">
       <DependentUpon>Trabajadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Mensajes.resx">
       <DependentUpon>Mensajes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Asignaciones\AreaUsuario.resx">
-      <DependentUpon>AreaUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="RecursosHumanos\Asignaciones\AreasUsuarios.resx">
+      <DependentUpon>AreasUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Asignaciones\CompaniasUsuario.resx">
       <DependentUpon>CompaniasUsuario.cs</DependentUpon>

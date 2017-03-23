@@ -10,15 +10,18 @@ using System.Windows.Forms;
 
 using SIPAA_CS.Properties;
 using SIPAA_CS.Conexiones;
+using SIPAA_CS.App_Code.RecursosHumanos;
 using SIPAA_CS.App_Code;
+
 //***********************************************************************************************
 //Autor: Marco Dupont
-//Fecha creación: 17-Mar-2017       Última Modificacion: dd-mm-aaaa
-//Descripción: Administra Formas de Registro Empleado
+//Fecha creación: 22-Mar-2017       Última Modificacion: dd-mm-aaaa
+//Descripción: Administra Catálogo de Incidencias
 //***********************************************************************************************
-namespace SIPAA_CS.RecursosHumanos
+
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
-    public partial class FormasRegistros : Form
+    public partial class Incidencias : Form
     {
         #region
 
@@ -30,9 +33,8 @@ namespace SIPAA_CS.RecursosHumanos
 
         #endregion
 
-        FormaReg FormasRegistro = new FormaReg();
-
-        public FormasRegistros()
+        Incidencia CIncidencias = new Incidencia();
+        public Incidencias()
         {
             InitializeComponent();
         }
@@ -50,7 +52,7 @@ namespace SIPAA_CS.RecursosHumanos
         {
             //LLAMA METODO LLENAR GRID
             pnlAct.Visible = false;
-            SLlenaGrid(4,0, txtFormReg.Text.Trim(), "150076", "frmFormReg");
+            SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, "150076", "frmFormReg");
             txtFormReg.Text = "";
             txtFormReg.Focus();
             pnlAct.Visible = false;
@@ -65,8 +67,8 @@ namespace SIPAA_CS.RecursosHumanos
             btnEditar.Visible = false;
             ckbEliminar.Visible = false;
             btnGuardar.Visible = true;
-            txtCapFR.Text = "";
-            txtCapFR.Focus();
+            txtCapInc.Text = "";
+            txtCapInc.Focus();
         }
 
         //BOTON GUARDAR
@@ -74,7 +76,7 @@ namespace SIPAA_CS.RecursosHumanos
         {
 
             //VALIDA ESCRITURA DE ALGUN TEXTO
-            if (txtCapFR.Text.Trim() == "")
+            if (txtCapInc.Text.Trim() == "")
             {
 
                 DialogResult result = MessageBox.Show("Captura el dato a guardar", "SIPAA", MessageBoxButtons.OK);
@@ -82,25 +84,25 @@ namespace SIPAA_CS.RecursosHumanos
             }
             else
             {
-                sValIns(5, 0, txtCapFR.Text.Trim(), "150076", "frmFormReg");
+                sValIns(5, 0, txtCapInc.Text.Trim(), 0, "150076", "frmFormReg");
 
                 if (vValida <= 0)
                 {
-                    sGuardaMod(1, 0, txtCapFR.Text.Trim(), "150076", "frmFormReg");
-                    txtCapFR.Text = "";
+                    sGuardaMod(1, 0, txtCapInc.Text.Trim(), 1, "150076", "frmFormReg");
+                    txtCapInc.Text = "";
 
                     panelTag.Visible = true;
                     timer1.Start();
 
-                    SLlenaGrid(4, 0, txtFormReg.Text.Trim(), "150076", "frmFormReg");
-                    txtCapFR.Focus();
+                    SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, "150076", "frmFormReg");
+                    txtCapInc.Focus();
                     pnlAct.Visible = false;
                 }
                 else
                 {
-                    SLlenaGrid(4, 0, txtCapFR.Text.Trim(), "150076", "frmFormReg");
-                    txtCapFR.Text = "";
-                    txtCapFR.Focus();
+                    SLlenaGrid(4, 0, txtCapInc.Text.Trim(), 0, "150076", "frmFormReg");
+                    txtCapInc.Text = "";
+                    txtCapInc.Focus();
                     pnlAct.Visible = false;
                     DialogResult result = MessageBox.Show("El Registro ya existe", "SIPAA", MessageBoxButtons.OK);
                 }
@@ -113,7 +115,7 @@ namespace SIPAA_CS.RecursosHumanos
         {
 
             //VALIDA ESCRITURA DE ALGUN TEXTO
-            if (txtCapFR.Text.Trim() == "")
+            if (txtCapInc.Text.Trim() == "")
             {
                 DialogResult result = MessageBox.Show("Seleccione un dato en el grid a modificar", "SIPAA", MessageBoxButtons.OK);
             }
@@ -125,11 +127,11 @@ namespace SIPAA_CS.RecursosHumanos
                 }
                 else
                 {
-                    sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), "150076", "frmFormReg");
-                    txtCapFR.Text = "";
+                    sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), 0, "150076", "frmFormReg");
+                    txtCapInc.Text = "";
                     panelTag.Visible = true;
                     timer1.Start();
-                    SLlenaGrid(4, iCvFR, txtFormReg.Text.Trim(), "150076", "frmFormReg");
+                    SLlenaGrid(4, iCvFR, txtFormReg.Text.Trim(), 0, "150076", "frmFormReg");
                     iCvFR = 0;
                     pnlAct.Visible = false;
                 }
@@ -142,11 +144,11 @@ namespace SIPAA_CS.RecursosHumanos
             DialogResult result = MessageBox.Show("Esta acción elimina el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(),"150076", "frmFormReg");
-                txtCapFR.Text = "";
+                sGuardaMod(3, iCvFR, txtCapInc.Text.Trim(), 0, "150076", "frmFormReg");
+                txtCapInc.Text = "";
                 panelTag.Visible = true;
                 timer1.Start();
-                SLlenaGrid(4, 0, txtFormReg.Text.Trim(), "150076", "frmFormReg");
+                SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, "150076", "frmFormReg");
                 iCvFR = 0;
                 pnlAct.Visible = false;
             }
@@ -164,7 +166,7 @@ namespace SIPAA_CS.RecursosHumanos
 
         //BOTON CERRAR
         private void btnCerrar_Click(object sender, EventArgs e)
-         {
+        {
             DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
@@ -198,8 +200,8 @@ namespace SIPAA_CS.RecursosHumanos
             iEli = 1;
 
             //LLAMA METODO LLENAR GRID
-            SLlenaGrid(4, 0,"","","");
-            
+            SLlenaGrid(4, 0, "", 0, "", "");
+
             //HABILITA BOTON AGREGAR
             if (iAgr == 1)
             {
@@ -245,23 +247,24 @@ namespace SIPAA_CS.RecursosHumanos
         }
 
         //LLENA GRID
-        private void SLlenaGrid(int p_opcion, int p_cvforma, string p_descripcion, string p_usuumod, string p_prgumodr)
+        private void SLlenaGrid(int p_opcion, int p_cvIncidencia, string p_descripcion, int p_orden, string p_usuumod, string p_prgumodr)
         {
 
-            DataTable dtFormasRegistro = FormasRegistro.FormaReg_S(p_opcion, p_cvforma, p_descripcion, p_usuumod, p_prgumodr);
-            dgvForReg.DataSource = dtFormasRegistro;
+            DataTable dtIncidencia = CIncidencias.Incidencia_S(p_opcion, p_cvIncidencia, p_descripcion, p_orden, p_usuumod, p_prgumodr);
+            dgvIncidencia.DataSource = dtIncidencia;
             
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
             imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
             imgCheckUsuarios.Name = "img";
-            dgvForReg.Columns.Insert(0, imgCheckUsuarios);
-            dgvForReg.Columns[0].HeaderText = "Selección";
+            dgvIncidencia.Columns.Insert(0, imgCheckUsuarios);
+            dgvIncidencia.Columns[0].HeaderText = "Selección";
 
-            dgvForReg.Columns[1].Visible = false;
-            dgvForReg.Columns[0].Width = 55;
-            dgvForReg.Columns[2].Width = 255;
+            dgvIncidencia.Columns[1].Visible = false;
+            dgvIncidencia.Columns[0].Width = 75;
+            dgvIncidencia.Columns[2].Width = 255;
+            dgvIncidencia.Columns[3].Width = 90;
 
-            dgvForReg.ClearSelection();
+            dgvIncidencia.ClearSelection();
             sHabilitaPermisos();
         }
 
@@ -284,11 +287,11 @@ namespace SIPAA_CS.RecursosHumanos
 
                 lblModifElim.Visible = true;
                 lblModifElim.Text = "Si desea modificar o eliminar un registro seleccione en el grid";
-                
+
                 btnEditar.Visible = true;
 
             }
-            else if(iAct == 1)
+            else if (iAct == 1)
             {
 
                 pnlAct.Visible = true;
@@ -323,35 +326,35 @@ namespace SIPAA_CS.RecursosHumanos
             }
         }
 
-        private void dgvForReg_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvIncidencia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            for (int iContador = 0; iContador < dgvForReg.Rows.Count; iContador++)
+            for (int iContador = 0; iContador < dgvIncidencia.Rows.Count; iContador++)
             {
-                dgvForReg.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                dgvIncidencia.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
-            
+
             sHabilitaPermisos();
 
-            if (dgvForReg.SelectedRows.Count != 0)
+            if (dgvIncidencia.SelectedRows.Count != 0)
             {
 
-                DataGridViewRow row = this.dgvForReg.SelectedRows[0];
-
+                DataGridViewRow row = this.dgvIncidencia.SelectedRows[0];
+                
                 iCvFR = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
                 string ValorRow = row.Cells["Descripción"].Value.ToString();
 
-                txtCapFR.Text = ValorRow;
-                txtCapFR.Focus();
+                txtCapInc.Text = ValorRow;
+                txtCapInc.Focus();
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
         }
 
         //GUARDA MODIFICA BAJA
-        private void sGuardaMod(int iOpc, int sCve, string sDesc, string sUsu, string sProg)
+        private void sGuardaMod(int iOpc, int sCve, string sDesc, int sOrd, string sUsu, string sProg)
         {
-            FormasRegistro.formaReg_UID(iOpc, sCve, sDesc, sUsu, sProg);
+            CIncidencias.Incidencia_UID(iOpc, sCve, sDesc, sOrd, sUsu, sProg);
             if (iOpc == 1)
             {
                 lbMensaje.Text = "Registro agregado correctamente";
@@ -365,10 +368,10 @@ namespace SIPAA_CS.RecursosHumanos
                 lbMensaje.Text = "Registro eliminado correctamente";
             }
         }
-        private void sValIns(int iOpc, int sCve, string sDesc, string sUsu, string sProg)
+        private void sValIns(int iOpc, int sCve, string sDesc, int sOrd, string sUsu, string sProg)
         {
-            vValida = FormasRegistro.FormaReg_V(iOpc, sCve, sDesc, sUsu, sProg);
-            
+            vValida = CIncidencias.Incidencia_V(iOpc, sCve, sDesc, sOrd, sUsu, sProg);
+
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -380,8 +383,14 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
+        private void Incidencias_Load(object sender, EventArgs e)
+        {
+
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
+
     }
 }

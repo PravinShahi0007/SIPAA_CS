@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.App_Code;
+using SIPAA_CS.App_Code;
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.RecursosHumanos
 {
 
     #region variables
@@ -19,9 +19,9 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
     #endregion
 
-    public partial class Empleados : Form
+    public partial class Trabajadores : Form
     {
-        public Empleados()
+        public Trabajadores()
         {
             InitializeComponent();
         }

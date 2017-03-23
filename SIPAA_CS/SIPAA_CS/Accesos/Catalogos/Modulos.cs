@@ -1,21 +1,15 @@
-﻿using SIPAA_CS.Conexiones;
+﻿using SIPAA_CS.App_Code;
+using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
-using SIPAA_CS.Recursos_Humanos.Administracion;
-using SIPAA_CS.Recursos_Humanos.App_Code;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace SIPAA_CS.Recursos_Humanos
+namespace SIPAA_CS.Accesos
 {
-    public partial class Crear_Modulo : Form
+    public partial class Modulos : Form
     {
         public Point formPosition;
         public Boolean mouseAction;
@@ -25,7 +19,7 @@ namespace SIPAA_CS.Recursos_Humanos
         Utilerias u = new Utilerias();
 
         Conexion c = new Conexion();
-        public Crear_Modulo()
+        public Modulos()
         {
             InitializeComponent();
         }

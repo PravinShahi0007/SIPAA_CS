@@ -1,5 +1,5 @@
 ﻿using SIPAA_CS.Accesos;
-using SIPAA_CS.Recursos_Humanos.App_Code;
+using SIPAA_CS.App_Code;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SIPAA_CS.Recursos_Humanos.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.Recursos_Humanos.Administracion
+namespace SIPAA_CS.Accesos
 {
 
     //***********************************************************************************************
@@ -33,43 +33,43 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
         //-----------------------------------------------------------------------------------------------
         private void tsmiUsuarios_Click(object sender, EventArgs e)
         {
-            Crear_Acceso_Usuario cau = new Crear_Acceso_Usuario();
+            Usuarios cau = new Usuarios();
             cau.Show();
         }
 
         private void tsmiPerfiles_Click(object sender, EventArgs e)
         {
-            Crear_Perfil cp = new Crear_Perfil();
+            Perfiles cp = new Perfiles();
             cp.Show();
         }
 
         private void tsmiModulos_Click(object sender, EventArgs e)
         {
-            Crear_Modulo cm = new Crear_Modulo();
+            Modulos cm = new Modulos();
             cm.Show();
         }
 
         private void tsmiProcesos_Click(object sender, EventArgs e)
         {
-            Crear_Procesos cp = new Crear_Procesos();
+            Procesos cp = new Procesos();
             cp.Show();
         }
 
         private void msAsignacionPerfil_Click(object sender, EventArgs e)
         {
-            Asignar_Perfil ap = new Asignar_Perfil();
+            Perfiles ap = new Perfiles();
             ap.Show();
         }
 
         private void msAsignacionModulo_Click(object sender, EventArgs e)
         {
-            Asignar_Modulo am = new Asignar_Modulo();
+            PerfilModulo am = new PerfilModulo();
             am.Show();
         }
 
         private void msAsignacionProceso_Click(object sender, EventArgs e)
         {
-            Asignar_Proceso aproc = new Asignar_Proceso();
+            UsuarioProceso aproc = new UsuarioProceso();
             aproc.Show();
         }
         //-----------------------------------------------------------------------------------------------
@@ -89,6 +89,10 @@ namespace SIPAA_CS.Recursos_Humanos.Administracion
 
         private void AccesosDashboard_Load(object sender, EventArgs e)
         {
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
             Usuario objUsuario = new Usuario();
             string IdTrab = LoginInfo.IdTrab;
             List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab);
