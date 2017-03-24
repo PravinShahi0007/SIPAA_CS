@@ -282,6 +282,7 @@
             this.tsmAsignacionCompania.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.tsmAsignacionCompania.Name = "tsmAsignacionCompania";
             this.tsmAsignacionCompania.Size = new System.Drawing.Size(231, 22);
+            this.tsmAsignacionCompania.Tag = "frmCompaniasUsuario";
             this.tsmAsignacionCompania.Text = "Asignacion Compañia";
             this.tsmAsignacionCompania.Click += new System.EventHandler(this.tsmAsignacionCompania_Click);
             // 
@@ -292,6 +293,7 @@
             this.tsmAsignacionArea.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.tsmAsignacionArea.Name = "tsmAsignacionArea";
             this.tsmAsignacionArea.Size = new System.Drawing.Size(231, 22);
+            this.tsmAsignacionArea.Tag = "frmAreasUsuario";
             this.tsmAsignacionArea.Text = "Asignacion Área";
             this.tsmAsignacionArea.Click += new System.EventHandler(this.tsmAsignacionArea_Click);
             // 
