@@ -58,53 +58,53 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public static void CambioBoton(Button btnCentral,Button btnApagado1 ,Button btnApagado2, Button btnEncendido)
+        public static void CambioBoton(Button btnCentral, Button btnApagado1, Button btnApagado2, Button btnEncendido)
         {
             btnEncendido.Location = btnCentral.Location;
-             btnCentral.Visible = false;
+            btnCentral.Visible = false;
             btnApagado2.Visible = false;
             btnEncendido.Visible = true;
-           
+
 
         }
 
-        public static void ControlNotificaciones(Panel panelTag,Label lbMensaje, int iClase,string strMensaje)
+        public static void ControlNotificaciones(Panel panelTag, Label lbMensaje, int iClase, string strMensaje)
         {
-                switch (iClase)
-                {
+            switch (iClase)
+            {
 
-                    case 1:
-                        //Clase Success - Color Verde
-     
-                        panelTag.Visible = true;
-                        panelTag.BackColor = ColorTranslator.FromHtml("#2e7d32");
-                        lbMensaje.BackColor = ColorTranslator.FromHtml("#2e7d32");
-                        lbMensaje.Text = strMensaje;
+                case 1:
+                    //Clase Success - Color Verde
 
-                        break;
-                    case 2:
-                        //Clase Info - Color Azul
-                        panelTag.Visible = true;
-                        panelTag.BackColor = ColorTranslator.FromHtml("#0277bd");
+                    panelTag.Visible = true;
+                    panelTag.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                    lbMensaje.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                    lbMensaje.Text = strMensaje;
+
+                    break;
+                case 2:
+                    //Clase Info - Color Azul
+                    panelTag.Visible = true;
+                    panelTag.BackColor = ColorTranslator.FromHtml("#0277bd");
                     lbMensaje.BackColor = ColorTranslator.FromHtml("#0277bd");
                     lbMensaje.Text = strMensaje;
-                        break;
-                    case 3:
-                        //Clase Danger - Color Rojo    
-                        panelTag.Visible = true;
-                        panelTag.BackColor = ColorTranslator.FromHtml("#f44336");
+                    break;
+                case 3:
+                    //Clase Danger - Color Rojo    
+                    panelTag.Visible = true;
+                    panelTag.BackColor = ColorTranslator.FromHtml("#f44336");
                     lbMensaje.BackColor = ColorTranslator.FromHtml("#f44336");
                     lbMensaje.Text = strMensaje;
-                        break;
-                    default:
+                    break;
+                default:
 
-                        break;
-                }
+                    break;
             }
-           
+        }
+
         public string cifradoMd5(string pass)
         {
-            
+
             MD5 md5 = MD5.Create();
             byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pass);
             byte[] hash = md5.ComputeHash(inputBytes);
@@ -138,8 +138,8 @@ namespace SIPAA_CS.App_Code
                         int ibtnContador = iContador + 1;
                         while (PanelMetro.Controls[ibtnContador].Visible != true && ibtnContador < Ultimoboton)
                         {
-                            
-                           Point location = PanelMetro.Controls[ibtnContador].Location;
+
+                            Point location = PanelMetro.Controls[ibtnContador].Location;
 
                             btn.Location = location;
 
@@ -147,7 +147,7 @@ namespace SIPAA_CS.App_Code
 
                         }
 
-                       
+
 
                         if (ibtnContador < (Ultimoboton - 1))
                         {
@@ -224,7 +224,7 @@ namespace SIPAA_CS.App_Code
         }
 
         public static void CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos)
-        { 
+        {
             foreach (DataRow rows in row)
             {
 
@@ -268,7 +268,7 @@ namespace SIPAA_CS.App_Code
                         //Clase Success - Color Verde
                         //btn.Enabled = true;
                         btn.Image = Resources.btnAdd;
-                        
+
                         break;
                     case 2:
                         //Clase Info - Color Azul
@@ -280,7 +280,7 @@ namespace SIPAA_CS.App_Code
                         //Clase Danger - Color Rojo
                         //btn.Enabled = true;
                         btn.Image = Resources.btnRemove2;
-                        
+
                         break;
                     default:
 
@@ -289,7 +289,7 @@ namespace SIPAA_CS.App_Code
             }
 
         }
-    
+
 
         public static void ApagarControlxPermiso(Control ctrl, string Permiso, List<string> ltPermisos)
         {
@@ -322,7 +322,7 @@ namespace SIPAA_CS.App_Code
                 case "Eliminar":
                     if (!ltPermisos.Contains(Permiso))
                     {
-                       ctrl.Visible = false;
+                        ctrl.Visible = false;
                     }
 
                     break;
@@ -357,56 +357,60 @@ namespace SIPAA_CS.App_Code
             int heightNueva = 0;
             int widthNueva = 0;
 
-            double dPorcentaje= 0;
+            double dPorcentaje = 0;
 
-            if (heightSys <= 600 || widthSys <= 600) {
+            if (heightSys <= 600 || widthSys <= 600)
+            {
+
                 widthNueva = 600;
                 heightNueva = 480;
                 frm.AutoScroll = true;
                 frm.BackgroundImageLayout = ImageLayout.Stretch;
-                dPorcentaje = (100 - (((double)heightNueva / (double)heightActual) * 100)) * 2;
+                dPorcentaje = (100 - (((double)heightNueva / (double)heightActual) * 100)) * 1.9;
 
-                if (heightSys >800 || widthSys > 800)
+                if (heightSys > 800 || widthSys > 800)
                 {
                     frm.DesktopLocation = new Point((int)(frm.Location.X + 200), 50);
                 }
-                else {
+                else
+                {
                     frm.DesktopLocation = new Point((int)(frm.Location.X + 100), 50);
                 }
 
-                
+
 
             }
             else if (heightSys <= 768 || widthSys <= 768)
             {
-               
+
                 widthNueva = 800;
                 heightNueva = 600;
                 frm.BackgroundImageLayout = ImageLayout.Zoom;
-                dPorcentaje =100 - (((double)heightNueva / (double)heightActual) * 100);
+                dPorcentaje = 100 - (((double)heightNueva / (double)heightActual) * 100);
                 frm.StartPosition = FormStartPosition.WindowsDefaultLocation;
                 frm.DesktopLocation = new Point((int)(frm.Location.X + 150), 80);
             }
-            else  {
+            else
+            {
                 heightNueva = 768;
             }
 
-           
+
 
             if (heightNueva <= 600)
             {
-               
-               
+
+
                 frm.Size = new Size(widthNueva, heightNueva);
-               
+
                 foreach (Control ctrl in frm.Controls)
                 {
-                    ResizeControl(ctrl, (dPorcentaje/100));
+                    ResizeControl(ctrl, (dPorcentaje / 100));
                 }
 
 
                 //double locationx = frm.Location.X
-              
+
             }
             else if (widthSys <= 600)
             {
@@ -419,7 +423,7 @@ namespace SIPAA_CS.App_Code
                 frm.StartPosition = FormStartPosition.CenterScreen;
                 frm.Size = new Size(widthNueva, heightNueva);
 
-            } 
+            }
 
 
 
@@ -428,7 +432,8 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public static void ResizeControl(Control ctrl, double Per) {
+        public static void ResizeControl(Control ctrl, double Per)
+        {
 
             int cposx;
             int cposy;
@@ -439,15 +444,17 @@ namespace SIPAA_CS.App_Code
             double nCtrlH;
             double nCtrlW;
             string TipoControl = ctrl.AccessibilityObject.ToString();
+            string strPixeles;
 
+            if (ctrl.Controls.Count != 0)
+            {
 
-            if (ctrl.Controls.Count != 0) {
-
-                foreach (Control ctrlHijo in ctrl.Controls) {
+                foreach (Control ctrlHijo in ctrl.Controls)
+                {
 
                     ResizeControl(ctrlHijo, Per);
-                }     
-           }
+                }
+            }
 
 
             float fsize = ctrl.Font.Size;
@@ -466,22 +473,66 @@ namespace SIPAA_CS.App_Code
             nCtrlW = ctrlW - (ctrlW * Per);
             ctrl.Size = new Size((int)nCtrlW, (int)nCtrlH);
 
-            if (TipoControl.Contains("Button") && Per != 0 ) {
+            if (TipoControl.Contains("Button") && Per != 0)
+            {
 
-               // ctrl.BackgroundImageLayout = ImageLayout.Center;
+                Button btn = (Button)ctrl;
+
+                if (Per > .25)
+                {
+                    strPixeles = "20x20";
+                }
+                else
+                {
+
+                    strPixeles = "30x30";
+                }
+
+                if (btn.Tag != null)
+                {
+
+                    try
+                    {
+                        btn.Image = (Image)Resources.ResourceManager.GetObject(btn.Tag.ToString() + strPixeles);
+                    }
+                    catch (Exception ex)
+                    {
+
+                        btn.Image = btn.Image;
+                    }
+                }
+                // ctrl.BackgroundImageLayout = ImageLayout.Center;
                 ctrlH = ctrl.Size.Height;
                 ctrlW = ctrl.Size.Width;
-                nCtrlH = ctrlH - (ctrlH * (Per*.25));
-                nCtrlW = ctrlW - (ctrlW * (Per*.25));
+                nCtrlH = ctrlH - (ctrlH * (Per * .25));
+                nCtrlW = ctrlW - (ctrlW * (Per * .25));
                 ctrl.Size = new Size((int)nCtrlW, (int)nCtrlH);
             }
-         
-            
 
-           
 
         }
-        
+
+        public static void AsignarBotonResize(Button btn, Size size,string Icono)
+        {
+
+            if (size.Width <= 600 || size.Height <= 600)
+            {
+
+                btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "20x20");
+            }
+            else  if (size.Width <= 768 || size.Height <= 768) {
+
+                btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "30x30");
+
+            }  
+            else {
+
+                btn.Image = (Image)Resources.ResourceManager.GetObject(Icono);
+
+            }
+
+        }
+
     }
 
  

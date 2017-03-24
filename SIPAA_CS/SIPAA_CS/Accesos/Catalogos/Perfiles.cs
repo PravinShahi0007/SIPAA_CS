@@ -131,7 +131,7 @@ namespace SIPAA_CS.Accesos
 
             iOpcionAdmin = 1;
             //btnEditar.Visible = false;
-            btnGuardar.Image = Resources.b8;
+            btnGuardar.Image = Resources.Guardar;
             //Utilerias.CambioBoton(btnGuardar,btnEliminar ,btnEditar, btnGuardar);
         }
 
@@ -270,7 +270,7 @@ namespace SIPAA_CS.Accesos
                 txtPerfil.Text = ValorRow;
                 PanelEditar.Visible = true;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                btnGuardar.Image = Resources.b3;
+                btnGuardar.Image = Resources.Editar;
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
 
                 iOpcionAdmin = 2;
@@ -307,12 +307,12 @@ namespace SIPAA_CS.Accesos
                 if (strEstatus == "0")
                 {
 
-                    btnGuardar.Image = Resources.btalta;
+                    btnGuardar.Image = Resources.Alta;
                 }
                 else if (strEstatus == "1")
                 {
 
-                    btnGuardar.Image = Resources.b6;
+                    btnGuardar.Image = Resources.Baja;
                 }
 
                 iOpcionAdmin = 3;
