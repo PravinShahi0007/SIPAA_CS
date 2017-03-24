@@ -72,7 +72,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
                 }
                 else if (result == DialogResult.No)
                 {
-                    cbCompania.SelectedItem = comp;
+                    llenaCombo();
                 }
                 
             }
@@ -340,7 +340,20 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             }
 
         }
-        
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            
+            WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

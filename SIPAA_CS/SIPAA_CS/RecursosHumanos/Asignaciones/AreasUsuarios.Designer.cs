@@ -211,6 +211,7 @@
             this.btnRegresar.TabIndex = 117;
             this.btnRegresar.TabStop = false;
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // btnMinimizar
             // 
@@ -225,6 +226,7 @@
             this.btnMinimizar.TabIndex = 116;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
             // 
