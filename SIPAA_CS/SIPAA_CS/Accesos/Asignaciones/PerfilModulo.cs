@@ -171,7 +171,7 @@ namespace SIPAA_CS.Accesos
 
                     if (rows.Count() == 0)
                     {
-                        btnGuardar.Image = Resources.b8;
+                        btnGuardar.Image = Resources.Guardar;
                         ckbEliminarAsig.Visible = false;
 
 
@@ -192,7 +192,7 @@ namespace SIPAA_CS.Accesos
                          * 4IMPRIMIR 
                          * 5 LECTURA
                     * */
-                        btnGuardar.Image = Resources.b3;
+                        btnGuardar.Image = Resources.Editar;
                         ckbEliminarAsig.Visible = true;
                         ckbEliminarAsig.Checked = false;
                         if (rows[0].ItemArray[1].ToString() == "1") { ckbAgregar.Checked = true; } else { ckbAgregar.Checked = false; }
@@ -365,7 +365,7 @@ namespace SIPAA_CS.Accesos
                              response = objPerfil.AsignarModuloAPerfil(objModulo, CVPerfil, iOpcionAdmin);
                             iOpcionAdmin = 1;
                             ckbEliminarAsig.Visible = false;
-                            btnGuardar.Image = Resources.b8;
+                            btnGuardar.Image = Resources.Guardar;
                             ckbEliminar.Checked = false;
                             ckbActualizar.Checked = false;
                             ckbAgregar.Checked = false;
@@ -483,12 +483,12 @@ namespace SIPAA_CS.Accesos
         {
             if (ckbEliminarAsig.Checked != false)
             {
-                btnGuardar.Image = Resources.b7;
+                btnGuardar.Image = Resources.Borrar;
                 iOpcionAdmin = 2;
             }
             else
             {
-                btnGuardar.Image = Resources.b3;
+                btnGuardar.Image = Resources.Editar;
                 iOpcionAdmin = 1;
             }
         }

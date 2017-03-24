@@ -133,7 +133,7 @@
   <data name="ic_create_white_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_create_white_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Agregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnremove" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -199,7 +199,7 @@
   <data name="btnsave1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_material\btnsave1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ic_monetization_on_white_48dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -232,7 +232,7 @@
   <data name="ic_help_outline_white_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_help_outline_white_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Baja" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ic_fingerprint_white_48dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -349,16 +349,16 @@
   <data name="btndel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_material\btndel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Borrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ic_remove_circle_outline_white_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_remove_circle_outline_white_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnEdit" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -376,7 +376,49 @@
   <data name="ic_account_circle_white_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_account_circle_white_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btalta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Alta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btalta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Agregar20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Agregar20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Agregar30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Agregar30x30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Alta20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alta20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Alta30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alta30x30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Baja20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Baja20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Baja30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Baja30x30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Borrar20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Borrar20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Borrar30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Borrar30x30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Buscar20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buscar20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Buscar30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buscar30x30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Editar20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Editar20x20png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Editar30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Editar30x30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Guardar20x20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Guardar20x20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Guardar30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Guardar30x30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

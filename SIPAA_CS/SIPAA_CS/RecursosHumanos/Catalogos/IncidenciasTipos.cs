@@ -27,6 +27,8 @@ namespace SIPAA_CS.RecursosHumanos
         public string strIncidencia;
         public string strTipoIncidencia;
         public string strEstatus;
+        public int sysH;
+        public int sysW;
         public IncidenciasTipo()
         {
             InitializeComponent();
@@ -127,11 +129,13 @@ namespace SIPAA_CS.RecursosHumanos
                 if (strEstatus == String.Empty || strEstatus == "0")
                 {
 
-                    btnGuardar.Image = Resources.btalta;
+                 //   btnGuardar.Image = Resources.Alta;
+                    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Alta");
                 }
                 else
                 {
-                    btnGuardar.Image = Resources.b6;
+                  //  btnGuardar.Image = Resources.Baja;
+                    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Baja");
                 }
 
 
@@ -141,7 +145,8 @@ namespace SIPAA_CS.RecursosHumanos
             else
             {
                 iOpcionAdmin = 2;
-                btnGuardar.Image = Resources.b3;
+               // btnGuardar.Image = Resources.Editar;
+                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar, btnGuardar, btnEditar);
 
             }
@@ -161,8 +166,10 @@ namespace SIPAA_CS.RecursosHumanos
             txtBuscarIncidencia.Text = "";
             PanelEditar.Visible = true;
             iOpcionAdmin = 1;
-            //btnEditar.Visible = false;
-            btnGuardar.Image = Resources.b8;
+    
+
+            Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Guardar");
+           
             txtTipoEditar.Text = String.Empty;
 
         }
@@ -295,8 +302,8 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void Incapacidad_Tipo_Load(object sender, EventArgs e)
         {
-            int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+             sysH = SystemInformation.PrimaryMonitorSize.Height;
+             sysW = SystemInformation.PrimaryMonitorSize.Width;
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
             LLenarGridIncapacidad(dgvIncidencia, "", "");
@@ -345,7 +352,8 @@ namespace SIPAA_CS.RecursosHumanos
                 cbIncidencia.Enabled = false;
                 PanelEditar.Visible = true;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                btnGuardar.Image = Resources.b3;
+                //btnGuardar.Image = Resources.Editar;
+                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
 
                 iOpcionAdmin = 2;
@@ -358,6 +366,9 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
+
+
+        
 
         private void MostrarNotificacion(DataTable response)
         {

@@ -159,7 +159,7 @@
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.b1;
+            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
             this.btnGuardar.Location = new System.Drawing.Point(365, 61);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
@@ -231,7 +231,7 @@
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.b5;
+            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
             this.btnBuscar.Location = new System.Drawing.Point(311, 36);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
@@ -376,7 +376,7 @@
             this.btnBuscarSipaa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscarSipaa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarSipaa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscarSipaa.Image = global::SIPAA_CS.Properties.Resources.b5;
+            this.btnBuscarSipaa.Image = global::SIPAA_CS.Properties.Resources.Buscar;
             this.btnBuscarSipaa.Location = new System.Drawing.Point(311, 36);
             this.btnBuscarSipaa.Name = "btnBuscarSipaa";
             this.btnBuscarSipaa.Size = new System.Drawing.Size(50, 50);
@@ -446,7 +446,7 @@
             this.btnSipaa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnSipaa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSipaa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnSipaa.Image = global::SIPAA_CS.Properties.Resources.b8;
+            this.btnSipaa.Image = global::SIPAA_CS.Properties.Resources.Guardar;
             this.btnSipaa.Location = new System.Drawing.Point(387, 41);
             this.btnSipaa.Name = "btnSipaa";
             this.btnSipaa.Size = new System.Drawing.Size(50, 50);
