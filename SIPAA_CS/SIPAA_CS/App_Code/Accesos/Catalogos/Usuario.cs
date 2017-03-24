@@ -165,27 +165,23 @@ namespace SIPAA_CS.App_Code
         {
             SqlCommand cmd = new SqlCommand();
             Conexion objConexion = new Conexion();
-            SqlConnection sqlcn = objConexion.conexionSonarh();
             Usuario objusuario = new Usuario();
+            
 
-            cmd.Connection = sqlcn;
-
-
-            cmd.CommandText = "Trabajador_Usu";
+            cmd.CommandText = "usp_TrabajadorUsu_s";
             cmd.CommandType = CommandType.StoredProcedure;
-
             cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Idtrab;
-
             cmd.Parameters.Add("@Nom", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
             cmd.Parameters.Add("@Sta", SqlDbType.Int, 50).Direction = ParameterDirection.Output;
             cmd.Parameters.Add("@Enc", SqlDbType.Int, 50).Direction = ParameterDirection.Output;
+            objConexion.asignarConexion(cmd);
             cmd.ExecuteNonQuery();
 
             objusuario.Nombre = Convert.ToString(cmd.Parameters["@Nom"].Value.ToString());
             objusuario.st = Convert.ToInt32(cmd.Parameters["@Sta"].Value.ToString());
             objusuario.enc = Convert.ToInt32(cmd.Parameters["@Enc"].Value.ToString());
-
-            sqlcn.Close();
+            
+            objConexion.cerrarConexion();
             return objusuario;
         }
 
