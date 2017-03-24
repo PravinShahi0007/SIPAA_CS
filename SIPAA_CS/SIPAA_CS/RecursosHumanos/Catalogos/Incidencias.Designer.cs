@@ -38,7 +38,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pnlAct = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.texCapOrd = new System.Windows.Forms.TextBox();
+            this.txtCapOrd = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.ckbEliminar = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -75,13 +75,14 @@
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
+            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.b1;
             this.btnAgregar.Location = new System.Drawing.Point(884, 145);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
             this.btnAgregar.TabIndex = 151;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // panel2
             // 
@@ -109,7 +110,7 @@
             // pnlAct
             // 
             this.pnlAct.Controls.Add(this.panel1);
-            this.pnlAct.Controls.Add(this.texCapOrd);
+            this.pnlAct.Controls.Add(this.txtCapOrd);
             this.pnlAct.Controls.Add(this.label6);
             this.pnlAct.Controls.Add(this.ckbEliminar);
             this.pnlAct.Controls.Add(this.label2);
@@ -121,7 +122,7 @@
             this.pnlAct.Controls.Add(this.btnEditar);
             this.pnlAct.Location = new System.Drawing.Point(36, 353);
             this.pnlAct.Name = "pnlAct";
-            this.pnlAct.Size = new System.Drawing.Size(434, 151);
+            this.pnlAct.Size = new System.Drawing.Size(437, 151);
             this.pnlAct.TabIndex = 147;
             this.pnlAct.TabStop = true;
             this.pnlAct.Visible = false;
@@ -134,16 +135,16 @@
             this.panel1.Size = new System.Drawing.Size(250, 2);
             this.panel1.TabIndex = 44;
             // 
-            // texCapOrd
+            // txtCapOrd
             // 
-            this.texCapOrd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.texCapOrd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.texCapOrd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.texCapOrd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texCapOrd.Location = new System.Drawing.Point(34, 108);
-            this.texCapOrd.Name = "texCapOrd";
-            this.texCapOrd.Size = new System.Drawing.Size(250, 15);
-            this.texCapOrd.TabIndex = 58;
+            this.txtCapOrd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtCapOrd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCapOrd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCapOrd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCapOrd.Location = new System.Drawing.Point(34, 108);
+            this.txtCapOrd.Name = "txtCapOrd";
+            this.txtCapOrd.Size = new System.Drawing.Size(250, 15);
+            this.txtCapOrd.TabIndex = 58;
             // 
             // label6
             // 
@@ -168,6 +169,7 @@
             this.ckbEliminar.Text = "Baja";
             this.ckbEliminar.UseVisualStyleBackColor = true;
             this.ckbEliminar.Visible = false;
+            this.ckbEliminar.CheckedChanged += new System.EventHandler(this.ckbEliminar_CheckedChanged);
             // 
             // label2
             // 
@@ -218,13 +220,14 @@
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.btnRemove2;
-            this.btnEliminar.Location = new System.Drawing.Point(359, 23);
+            this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.b6;
+            this.btnEliminar.Location = new System.Drawing.Point(362, 18);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(50, 50);
             this.btnEliminar.TabIndex = 54;
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Visible = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnGuardar
             // 
@@ -237,28 +240,28 @@
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 52;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnEditar.Image = global::SIPAA_CS.Properties.Resources.btnEdit;
-            this.btnEditar.Location = new System.Drawing.Point(359, 23);
+            this.btnEditar.Image = global::SIPAA_CS.Properties.Resources.b3;
+            this.btnEditar.Location = new System.Drawing.Point(362, 19);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
             this.btnEditar.TabIndex = 56;
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Visible = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
             // 
             // dgvIncidencia
             // 
             this.dgvIncidencia.AllowUserToAddRows = false;
             this.dgvIncidencia.AllowUserToDeleteRows = false;
-            this.dgvIncidencia.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.dgvIncidencia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvIncidencia.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvIncidencia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvIncidencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvIncidencia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -289,6 +292,7 @@
             this.dgvIncidencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvIncidencia.Size = new System.Drawing.Size(361, 345);
             this.dgvIncidencia.TabIndex = 148;
+            this.dgvIncidencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIncidencia_CellContentClick_1);
             // 
             // pnlBusqueda
             // 
@@ -320,14 +324,13 @@
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.b5;
             this.btnBuscar.Location = new System.Drawing.Point(362, 11);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
             this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // panel5
             // 
@@ -391,11 +394,11 @@
             this.lblModifElim.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModifElim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.lblModifElim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblModifElim.Location = new System.Drawing.Point(335, 372);
+            this.lblModifElim.Location = new System.Drawing.Point(570, 560);
             this.lblModifElim.Name = "lblModifElim";
-            this.lblModifElim.Size = new System.Drawing.Size(12, 16);
+            this.lblModifElim.Size = new System.Drawing.Size(93, 16);
             this.lblModifElim.TabIndex = 152;
-            this.lblModifElim.Text = ".";
+            this.lblModifElim.Text = "Seleccion Grid";
             this.lblModifElim.Visible = false;
             // 
             // timer1
@@ -427,6 +430,7 @@
             this.btnRegresar.Size = new System.Drawing.Size(50, 24);
             this.btnRegresar.TabIndex = 156;
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // btnMinimizar
             // 
@@ -441,6 +445,7 @@
             this.btnMinimizar.TabIndex = 155;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click_1);
             // 
             // btnCerrar
             // 
@@ -455,6 +460,7 @@
             this.btnCerrar.TabIndex = 154;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
             // 
             // Incidencias
             // 
@@ -523,7 +529,7 @@
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.TextBox texCapOrd;
+        private System.Windows.Forms.TextBox txtCapOrd;
         private System.Windows.Forms.Panel panel1;
     }
 }

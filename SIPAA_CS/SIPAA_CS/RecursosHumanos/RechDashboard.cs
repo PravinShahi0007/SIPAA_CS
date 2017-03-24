@@ -1,4 +1,5 @@
 ﻿using SIPAA_CS.App_Code;
+using SIPAA_CS.RecursosHumanos.Asignaciones;
 using SIPAA_CS.RecursosHumanos.Catalogos;
 using System;
 using System.Collections.Generic;
@@ -126,6 +127,34 @@ namespace SIPAA_CS.RecursosHumanos
         {
             IncidenciasTipo form = new IncidenciasTipo();
             form.Show();
+        }
+
+        private void msAsignacionPerfil_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void msAsignacionModulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void msAsignacionProceso_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmAsignacionCompania_Click(object sender, EventArgs e)
+        {
+            
+            CompaniasUsuario cu = new CompaniasUsuario();
+            cu.Show();
+        }
+
+        private void tsmAsignacionArea_Click(object sender, EventArgs e)
+        {
+            AreasUsuarios au = new AreasUsuarios();
+            au.Show();
         }
     }
 }
