@@ -37,10 +37,10 @@
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label5;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label label5;
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnGuardar = new System.Windows.Forms.Button();
             this.ckbEliminar = new System.Windows.Forms.CheckBox();
@@ -62,9 +62,9 @@
             this.cbIncidencia = new System.Windows.Forms.ComboBox();
             this.dgvIncidencia = new System.Windows.Forms.DataGridView();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.cbEstatus = new System.Windows.Forms.ComboBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.cbEstatus = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -138,7 +138,7 @@
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(243, 15);
             label2.TabIndex = 128;
-            label2.Text = "Seleccione el Grid para editar un Registro";
+            label2.Text = "Selecciona el Grid para editar un Registro";
             // 
             // label4
             // 
@@ -164,6 +164,18 @@
             label7.TabIndex = 62;
             label7.Text = "Descripción";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label5.Location = new System.Drawing.Point(35, 126);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(41, 16);
+            label5.TabIndex = 60;
+            label5.Text = "Estatus";
+            // 
             // timer1
             // 
             this.timer1.Interval = 4000;
@@ -173,12 +185,12 @@
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.b8;
+            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
             this.btnGuardar.Location = new System.Drawing.Point(359, 28);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 52;
-            this.btnGuardar.Tag = "Crear";
+            this.btnGuardar.Tag = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -218,11 +230,12 @@
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.b5;
+            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
             this.btnBuscar.Location = new System.Drawing.Point(363, 26);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
             this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -262,12 +275,12 @@
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.b1;
+            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
             this.btnAgregar.Location = new System.Drawing.Point(901, 143);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
             this.btnAgregar.TabIndex = 122;
-            this.btnAgregar.Tag = "Crear";
+            this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -284,17 +297,17 @@
             this.lbMensaje.TabIndex = 26;
             this.lbMensaje.Text = "Administración de Perfiles    ";
             this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbMensaje.Click += new System.EventHandler(this.lbMensaje_Click);
             // 
             // btnRegresar
             // 
             this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnRegresar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
+            this.btnRegresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
             this.btnRegresar.Location = new System.Drawing.Point(890, 0);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
+            this.btnRegresar.Size = new System.Drawing.Size(40, 25);
             this.btnRegresar.TabIndex = 126;
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
@@ -464,18 +477,6 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(437, 184);
             this.pnlBusqueda.TabIndex = 119;
             this.pnlBusqueda.TabStop = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(35, 126);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(41, 16);
-            label5.TabIndex = 60;
-            label5.Text = "Estatus";
             // 
             // cbEstatus
             // 

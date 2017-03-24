@@ -7,6 +7,7 @@ using SIPAA_CS.Accesos;
 using SIPAA_CS;
 using SIPAA_CS.RecursosHumanos;
 using SIPAA_CS.RecursosHumanos.Asignaciones;
+using SIPAA_CS.RecursosHumanos.Catalogos;
 
 namespace SIPAA_CS
 {
@@ -20,7 +21,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AreasUsuarios());
+            Application.Run(new Splash());
         }
     }
 }

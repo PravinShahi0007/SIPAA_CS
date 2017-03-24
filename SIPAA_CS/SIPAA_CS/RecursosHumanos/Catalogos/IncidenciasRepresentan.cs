@@ -21,8 +21,8 @@ namespace SIPAA_CS.RecursosHumanos
         public string strIncidencia;
 
         //***********************************************************************************************
-        //Autor: -------------------------------------
-        //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
+        //Autor: Victor Jesús Iturburu Vergara
+        //Fecha creación:15-03-2017      Última Modificacion: 23-03-2017
         //Descripción: -------------------------------
         //***********************************************************************************************
 
@@ -104,7 +104,7 @@ namespace SIPAA_CS.RecursosHumanos
                 cbIncidencia.Enabled = false;
                 PanelEditar.Visible = true;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                btnGuardar.Image = Resources.b3;
+                btnGuardar.Image = Resources.Editar;
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
 
                 iOpcionAdmin = 2;
@@ -129,7 +129,7 @@ namespace SIPAA_CS.RecursosHumanos
             PanelEditar.Visible = true;
             iOpcionAdmin = 4;
             //btnEditar.Visible = false;
-            btnGuardar.Image = Resources.b8;
+            btnGuardar.Image = Resources.Guardar;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -188,7 +188,6 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
-
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
             ckbEliminar.Checked = false;
@@ -214,6 +213,27 @@ namespace SIPAA_CS.RecursosHumanos
             }
             LLenarGrid(1, objIncidencia);
         }
+    
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
 
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -232,6 +252,10 @@ namespace SIPAA_CS.RecursosHumanos
         private void Incapacidad_Representa_Load(object sender, EventArgs e)
         {
 
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
             Incidencia objIncidencia = new Incidencia();
             objIncidencia.Descripcion = "%";
             objIncidencia.Representa = "%";
@@ -244,7 +268,7 @@ namespace SIPAA_CS.RecursosHumanos
         {
             if (ckbEliminar.Checked == true)
             {
-                btnGuardar.Image = Resources.b6;
+                btnGuardar.Image = Resources.Baja;
 
                 iOpcionAdmin = 3;
                 //Utilerias.CambioBoton(btnGuardar, btnEditar, btnGuardar, btnEliminar);
@@ -252,7 +276,7 @@ namespace SIPAA_CS.RecursosHumanos
             else
             {
                 iOpcionAdmin = 2;
-                btnGuardar.Image = Resources.b3;
+                btnGuardar.Image = Resources.Editar;
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar, btnGuardar, btnEditar);
 
             }
@@ -289,7 +313,7 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
-
+   
 
 
         //-----------------------------------------------------------------------------------------------
@@ -302,12 +326,12 @@ namespace SIPAA_CS.RecursosHumanos
 
 
 
-      
 
-    
 
-  
-    
+
+
+
+
 
 
     }

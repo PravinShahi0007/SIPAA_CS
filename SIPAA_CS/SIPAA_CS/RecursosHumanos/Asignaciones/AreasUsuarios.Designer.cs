@@ -211,6 +211,7 @@
             this.btnRegresar.TabIndex = 117;
             this.btnRegresar.TabStop = false;
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // btnMinimizar
             // 
@@ -225,6 +226,7 @@
             this.btnMinimizar.TabIndex = 116;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
             // 
@@ -473,7 +475,7 @@
             this.btnBuscarPlantel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBuscarPlantel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarPlantel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscarPlantel.Image = global::SIPAA_CS.Properties.Resources.b5;
+            this.btnBuscarPlantel.Image = global::SIPAA_CS.Properties.Resources.Buscar;
             this.btnBuscarPlantel.Location = new System.Drawing.Point(363, 49);
             this.btnBuscarPlantel.Name = "btnBuscarPlantel";
             this.btnBuscarPlantel.Size = new System.Drawing.Size(50, 50);
@@ -516,7 +518,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.b8;
+            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
             this.btnGuardar.Location = new System.Drawing.Point(363, 17);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);

@@ -40,11 +40,11 @@
             this.tsmiModulos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiProcesos = new System.Windows.Forms.ToolStripMenuItem();
             this.msAsignacionPerfil = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.asignaciónDePerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignaciónDeMódulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignaciónDeProcesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.MenuAccesos.SuspendLayout();
             this.SuspendLayout();
@@ -135,7 +135,7 @@
             this.tsmiUsuarios.ForeColor = System.Drawing.Color.White;
             this.tsmiUsuarios.Image = global::SIPAA_CS.Properties.Resources.ic_account_circle_white_24dp;
             this.tsmiUsuarios.Name = "tsmiUsuarios";
-            this.tsmiUsuarios.Size = new System.Drawing.Size(152, 22);
+            this.tsmiUsuarios.Size = new System.Drawing.Size(143, 22);
             this.tsmiUsuarios.Tag = "frmCrear_Usuario";
             this.tsmiUsuarios.Text = "Usuarios";
             this.tsmiUsuarios.Click += new System.EventHandler(this.tsmiUsuarios_Click);
@@ -146,7 +146,7 @@
             this.tsmiPerfiles.ForeColor = System.Drawing.Color.White;
             this.tsmiPerfiles.Image = global::SIPAA_CS.Properties.Resources.ic_work_white_24dp;
             this.tsmiPerfiles.Name = "tsmiPerfiles";
-            this.tsmiPerfiles.Size = new System.Drawing.Size(152, 22);
+            this.tsmiPerfiles.Size = new System.Drawing.Size(143, 22);
             this.tsmiPerfiles.Tag = "frmCrear_Perfil";
             this.tsmiPerfiles.Text = "Perfiles";
             this.tsmiPerfiles.Click += new System.EventHandler(this.tsmiPerfiles_Click);
@@ -157,7 +157,7 @@
             this.tsmiModulos.ForeColor = System.Drawing.Color.White;
             this.tsmiModulos.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.tsmiModulos.Name = "tsmiModulos";
-            this.tsmiModulos.Size = new System.Drawing.Size(152, 22);
+            this.tsmiModulos.Size = new System.Drawing.Size(143, 22);
             this.tsmiModulos.Tag = "frmCrear_Modulo";
             this.tsmiModulos.Text = "Módulos";
             this.tsmiModulos.Click += new System.EventHandler(this.tsmiModulos_Click);
@@ -168,7 +168,7 @@
             this.tsmiProcesos.ForeColor = System.Drawing.Color.White;
             this.tsmiProcesos.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
             this.tsmiProcesos.Name = "tsmiProcesos";
-            this.tsmiProcesos.Size = new System.Drawing.Size(152, 22);
+            this.tsmiProcesos.Size = new System.Drawing.Size(143, 22);
             this.tsmiProcesos.Tag = "frmProceso";
             this.tsmiProcesos.Text = "Procesos";
             this.tsmiProcesos.Click += new System.EventHandler(this.tsmiProcesos_Click);
@@ -185,30 +185,6 @@
             this.msAsignacionPerfil.Size = new System.Drawing.Size(131, 22);
             this.msAsignacionPerfil.Tag = "frmAsignaciones";
             this.msAsignacionPerfil.Text = "Asignaciones";
-            this.msAsignacionPerfil.Click += new System.EventHandler(this.msAsignacionPerfil_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.panel3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.panel3.Location = new System.Drawing.Point(1, 129);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1024, 1);
-            this.panel3.TabIndex = 25;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(924, 1);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
-            this.btnRegresar.TabIndex = 115;
-            this.btnRegresar.UseVisualStyleBackColor = false;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // asignaciónDePerfilToolStripMenuItem
             // 
@@ -242,6 +218,29 @@
             this.asignaciónDeProcesosToolStripMenuItem.Tag = "frmAsignar_Proceso";
             this.asignaciónDeProcesosToolStripMenuItem.Text = "Asignación de Procesos";
             this.asignaciónDeProcesosToolStripMenuItem.Click += new System.EventHandler(this.msAsignacionProceso_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.panel3.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.panel3.Location = new System.Drawing.Point(1, 129);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1024, 1);
+            this.panel3.TabIndex = 25;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
+            this.btnRegresar.Location = new System.Drawing.Point(924, 1);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
+            this.btnRegresar.TabIndex = 115;
+            this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // AccesosDashboard
             // 

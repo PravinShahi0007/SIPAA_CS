@@ -37,6 +37,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerfilModulo));
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label9;
+            System.Windows.Forms.Label label10;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -79,6 +81,8 @@
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.PanelBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModulos)).BeginInit();
@@ -147,11 +151,11 @@
             label2.ForeColor = System.Drawing.Color.Gray;
             label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(39, 7);
+            label2.Location = new System.Drawing.Point(12, 5);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(119, 20);
+            label2.Size = new System.Drawing.Size(123, 20);
             label2.TabIndex = 41;
-            label2.Text = "     Buscar Módulo";
+            label2.Text = "      Buscar Módulo";
             // 
             // label3
             // 
@@ -163,9 +167,9 @@
             label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label3.Location = new System.Drawing.Point(27, 7);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(104, 20);
+            label3.Size = new System.Drawing.Size(108, 20);
             label3.TabIndex = 41;
-            label3.Text = "     Buscar Perfil";
+            label3.Text = "      Buscar Perfil";
             // 
             // label7
             // 
@@ -175,11 +179,35 @@
             label7.ForeColor = System.Drawing.Color.Gray;
             label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(35, 3);
+            label7.Location = new System.Drawing.Point(8, 3);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(135, 20);
+            label7.Size = new System.Drawing.Size(139, 20);
             label7.TabIndex = 48;
-            label7.Text = "     Asignar Permisos";
+            label7.Text = "      Asignar Permisos";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label9.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            label9.Location = new System.Drawing.Point(405, 689);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(251, 15);
+            label9.TabIndex = 129;
+            label9.Text = "Selecciona los Modulos que desea Asignar";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label10.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            label10.Location = new System.Drawing.Point(13, 689);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(120, 15);
+            label10.TabIndex = 130;
+            label10.Text = "Selecciona un Perfil";
             // 
             // panel4
             // 
@@ -404,7 +432,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.b8;
+            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
             this.btnGuardar.Location = new System.Drawing.Point(368, 8);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
@@ -456,9 +484,9 @@
             // 
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(-1, 298);
+            this.panelTag.Location = new System.Drawing.Point(408, 708);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(351, 48);
+            this.panelTag.Size = new System.Drawing.Size(570, 28);
             this.panelTag.TabIndex = 109;
             this.panelTag.Visible = false;
             // 
@@ -469,7 +497,7 @@
             this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMensaje.ForeColor = System.Drawing.Color.White;
             this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbMensaje.Location = new System.Drawing.Point(12, 13);
+            this.lbMensaje.Location = new System.Drawing.Point(4, 4);
             this.lbMensaje.Name = "lbMensaje";
             this.lbMensaje.Size = new System.Drawing.Size(209, 20);
             this.lbMensaje.TabIndex = 26;
