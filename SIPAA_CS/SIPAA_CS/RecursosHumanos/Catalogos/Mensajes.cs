@@ -112,16 +112,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvMensajes.Columns[1].Width = 80;
             dgvMensajes.Columns[2].Width = 80;
             dgvMensajes.Columns[3].Width = 80;
-            dgvMensajes.Columns[4].Width = 350;
+            dgvMensajes.Columns[4].Width = 300;
         }
 
         //boton agregar
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             pnldatos.Visible = true;
-            //txtfechainicial.Visible = true;
-            //txtfechafin.Visible = true;
-            //txtidtrab.Visible = true;
 
             ckbEliminar.Visible = false;
             pnlmensajes.Visible = true;
@@ -130,8 +127,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             pactbtn = 1;
             txtidtrab.Text = "";
             txtmensajeiu.Text = "";
-            txtfechainicial.Text = "";
-            txtfechafin.Text = "";
+            dtpfechainicial.Text = "";
+            dtpfechafin.Text = "";
+//            txtfechainicial.Text = "";
+            //txtfechafin.Text = "";
             txtidtrab.Focus();
         }
 
@@ -145,14 +144,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 1)//insertar
             {
                 //inserta registro nuevo 
-                fuidMensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), txtfechainicial.Text.Trim(), txtfechafin.Text.Trim(), "JLA", "InsMensajes");
+                fuidMensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), "JLA", "InsMensajes");
                 dgvMensajes.DataSource = null;
                 dgvMensajes.Columns.RemoveAt(0);
                 panelTag.Visible = true;
                 txtidtrab.Text = "";
                 txtmensajeiu.Text = "";
-                txtfechainicial.Text = "";
-                txtfechafin.Text = "";
+                //txtfechainicial.Text = "";
+                //txtfechafin.Text = "";
                 txtidtrab.Focus();
                 //llena grid con datos existente
                 gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
@@ -163,7 +162,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 2)//actualizar
             {
                 //Actualizar
-                fuidMensajes(2, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), txtfechainicial.Text.Trim(), txtfechafin.Text.Trim(), "JLA", "InsMensajes");
+                fuidMensajes(2, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), "JLA", "InsMensajes");
                 dgvMensajes.DataSource = null;
                 dgvMensajes.Columns.RemoveAt(0);
                 panelTag.Visible = true;
@@ -183,7 +182,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     //Eliminar
-                    fuidMensajes(3, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), txtfechainicial.Text.Trim(), txtfechafin.Text.Trim(), "JLA", "InsMensajes");
+                    fuidMensajes(3, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), "JLA", "InsMensajes");
                     dgvMensajes.DataSource = null;
                     dgvMensajes.Columns.RemoveAt(0);
                     panelTag.Visible = true;
@@ -302,7 +301,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns[1].Width = 80;
                 dgvMensajes.Columns[2].Width = 80;
                 dgvMensajes.Columns[3].Width = 80;
-                dgvMensajes.Columns[4].Width = 350;
+                dgvMensajes.Columns[4].Width = 300;
                 dgvMensajes.ClearSelection();
             }
             else if (pins == 1 && pact == 1)
@@ -320,7 +319,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns[1].Width = 80;
                 dgvMensajes.Columns[2].Width = 80;
                 dgvMensajes.Columns[3].Width = 80;
-                dgvMensajes.Columns[4].Width = 350;
+                dgvMensajes.Columns[4].Width = 300;
                 dgvMensajes.ClearSelection();
 
             }
@@ -339,7 +338,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns[1].Width = 80;
                 dgvMensajes.Columns[2].Width = 80;
                 dgvMensajes.Columns[3].Width = 80;
-                dgvMensajes.Columns[4].Width = 350;
+                dgvMensajes.Columns[4].Width = 300;
                 dgvMensajes.ClearSelection();
             }
             else if (pact == 1 && pelim == 1)
@@ -357,7 +356,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns[1].Width = 80;
                 dgvMensajes.Columns[2].Width = 80;
                 dgvMensajes.Columns[3].Width = 80;
-                dgvMensajes.Columns[4].Width = 350;
+                dgvMensajes.Columns[4].Width = 300;
                 dgvMensajes.ClearSelection();
             }
             else if (pins == 1)
@@ -369,7 +368,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns[1].Width = 80;
                 dgvMensajes.Columns[2].Width = 80;
                 dgvMensajes.Columns[3].Width = 80;
-                dgvMensajes.Columns[4].Width = 350;
+                dgvMensajes.Columns[4].Width = 300;
 
                 dgvMensajes.ClearSelection();
             }
@@ -384,10 +383,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns.Insert(0, imgCheckUsuarios);
                 dgvMensajes.Columns[0].HeaderText = "Selección";
 
-                dgvMensajes.Columns[0].Width = 75;
-                dgvMensajes.Columns[1].Width = 90;
-                dgvMensajes.Columns[2].Width = 90;
-                dgvMensajes.Columns[3].Width = 90;
+                dgvMensajes.Columns[0].Width = 65;
+                dgvMensajes.Columns[1].Width = 80;
+                dgvMensajes.Columns[2].Width = 80;
+                dgvMensajes.Columns[3].Width = 80;
                 dgvMensajes.Columns[4].Width = 300;
                 dgvMensajes.ClearSelection();
             }
@@ -402,10 +401,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns.Insert(0, imgCheckUsuarios);
                 dgvMensajes.Columns[0].HeaderText = "Selección";
 
-                dgvMensajes.Columns[0].Width = 75;
-                dgvMensajes.Columns[1].Width = 90;
-                dgvMensajes.Columns[2].Width = 90;
-                dgvMensajes.Columns[3].Width = 90;
+                dgvMensajes.Columns[0].Width = 65;
+                dgvMensajes.Columns[1].Width = 80;
+                dgvMensajes.Columns[2].Width = 80;
+                dgvMensajes.Columns[3].Width = 80;
                 dgvMensajes.Columns[4].Width = 300;
                 dgvMensajes.ClearSelection();
             }
@@ -415,9 +414,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.DataSource = dtDiaFestivo;
 
                 dgvMensajes.Columns[0].Visible = false;
-                dgvMensajes.Columns[1].Width = 90;
-                dgvMensajes.Columns[2].Width = 90;
-                dgvMensajes.Columns[3].Width = 90;
+                dgvMensajes.Columns[1].Width = 80;
+                dgvMensajes.Columns[2].Width = 80;
+                dgvMensajes.Columns[3].Width = 80;
                 dgvMensajes.Columns[4].Width = 300;
                 dgvMensajes.ClearSelection();
             }
@@ -483,8 +482,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 pnlmensajes.Visible = true;
                 lbluid.Text = "     Modifica Mensaje";
-                txtfechainicial.Text = valor1;
-                txtfechafin.Text = valor2;
+                //txtfechainicial.Text = valor1;
+                //txtfechafin.Text = valor2;
+                
+                dtpfechainicial.Text= valor1;
+                dtpfechafin.Text = valor2;
                 txtidtrab.Text = valor3;
                 txtmensajeiu.Text = ValorRow;
                 //dejo solo el mensaje
@@ -493,6 +495,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
+        }
+
+        private void fcombotrabajador(int popc, string pbusqueda)
+        {
+            
         }
     }
 }
