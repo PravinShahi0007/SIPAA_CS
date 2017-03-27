@@ -40,6 +40,7 @@ namespace SIPAA_CS.Accesos
             if (dgvModulos.SelectedRows.Count != 0)
             {
                 ckbEliminar.Visible = true;
+                PanelEditar.Visible = true;
                 //utilerias.ChangeButton(btnGuardar,3,true);
                 DataGridViewRow row = this.dgvModulos.SelectedRows[0];
                 //cvusuario = row.Cells["cvusuario"].Value.ToString();
@@ -98,7 +99,7 @@ namespace SIPAA_CS.Accesos
             dgvModulos.Columns[5].Visible = false;
             dgvModulos.Columns[6].Visible = false;
             dgvModulos.Columns[7].Visible = false;
-            dgvModulos.Columns[8].Visible = false;
+            //dgvModulos.Columns[8].Visible = false;
             dgvModulos.Columns[9].Visible = false;
             dgvModulos.Columns[10].Visible = false;
 
