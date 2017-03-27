@@ -179,9 +179,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             }
         }
+        //BOTON REGRESAR
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         //-----------------------------------------------------------------------------------------------

@@ -43,6 +43,7 @@
             this.dgvForReg = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlAct = new System.Windows.Forms.Panel();
+            this.btnActiva = new System.Windows.Forms.Button();
             this.ckbEliminar = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtCapFR = new System.Windows.Forms.TextBox();
@@ -61,7 +62,6 @@
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnActiva = new System.Windows.Forms.Button();
             this.pnlBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvForReg)).BeginInit();
             this.pnlAct.SuspendLayout();
@@ -208,6 +208,21 @@
             this.pnlAct.TabIndex = 3;
             this.pnlAct.TabStop = true;
             this.pnlAct.Visible = false;
+            // 
+            // btnActiva
+            // 
+            this.btnActiva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnActiva.BackgroundImage = global::SIPAA_CS.Properties.Resources.Alta;
+            this.btnActiva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActiva.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnActiva.Location = new System.Drawing.Point(359, 23);
+            this.btnActiva.Name = "btnActiva";
+            this.btnActiva.Size = new System.Drawing.Size(50, 50);
+            this.btnActiva.TabIndex = 57;
+            this.btnActiva.Tag = "Alta";
+            this.btnActiva.UseVisualStyleBackColor = false;
+            this.btnActiva.Visible = false;
+            this.btnActiva.Click += new System.EventHandler(this.btnActiva_Click);
             // 
             // ckbEliminar
             // 
@@ -386,7 +401,7 @@
             this.label5.TabIndex = 108;
             this.label5.Text = "     Marco Dupont";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+ //           this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnAgregar
             // 
@@ -431,18 +446,6 @@
             // 
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnActiva
-            // 
-            this.btnActiva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnActiva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActiva.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnActiva.Location = new System.Drawing.Point(192, 18);
-            this.btnActiva.Name = "btnActiva";
-            this.btnActiva.Size = new System.Drawing.Size(50, 50);
-            this.btnActiva.TabIndex = 57;
-            this.btnActiva.UseVisualStyleBackColor = false;
-            this.btnActiva.Visible = false;
             // 
             // FormasRegistros
             // 
