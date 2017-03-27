@@ -66,6 +66,7 @@ namespace SIPAA_CS.RecursosHumanos
             btnEditar.Visible = false;
             ckbEliminar.Visible = false;
             btnGuardar.Visible = true;
+            btnActiva.Visible = false;
             iSt = 1;
             txtCapFR.Text = "";
             txtCapFR.Focus();
@@ -74,28 +75,7 @@ namespace SIPAA_CS.RecursosHumanos
         //BOTON GUARDAR
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (iSt == 0)
-            {
-                DialogResult result = MessageBox.Show("Esta acción habilita el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    iSt = 1;
-                    sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, "150076", "frmFormReg");
-                    txtCapFR.Text = "";
-                    panelTag.Visible = true;
-                    timer1.Start();
-                    SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, "", "");
-                    iCvFR = 0;
-                    pnlAct.Visible = false;
-                }
-                else if (result == DialogResult.No)
-                {
-
-                }
-            }
-            else
-            {
-                //VALIDA ESCRITURA DE ALGUN TEXTO
+            //VALIDA ESCRITURA DE ALGUN TEXTO
                 if (txtCapFR.Text.Trim() == "")
                 {
 
@@ -127,8 +107,7 @@ namespace SIPAA_CS.RecursosHumanos
                         DialogResult result = MessageBox.Show("Registro existente", "SIPAA", MessageBoxButtons.OK);
                     }
                 }
-            }
-        }
+           }
 
         //BOTON EDITAR
         private void btnEditar_Click(object sender, EventArgs e)
@@ -178,6 +157,27 @@ namespace SIPAA_CS.RecursosHumanos
 
             }
         }
+        //BOTON ALTA
+        private void btnActiva_Click(object sender, EventArgs e)
+        {
+                DialogResult result = MessageBox.Show("Esta acción habilita el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    iSt = 1;
+                    sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, "150076", "frmFormReg");
+                    txtCapFR.Text = "";
+                    panelTag.Visible = true;
+                    timer1.Start();
+                    SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, "", "");
+                    iCvFR = 0;
+                    pnlAct.Visible = false;
+                }
+                else if (result == DialogResult.No)
+                {
+
+                }
+        }
+
 
         //BOTON MINIMIZAR
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -346,12 +346,14 @@ namespace SIPAA_CS.RecursosHumanos
                     btnGuardar.Visible = false;
                     btnEditar.Visible = false;
                     btnEliminar.Visible = true;
+                    btnActiva.Visible = false;
                 }
                 else
                 {
-                    btnGuardar.Visible = true;
+                    btnGuardar.Visible = false;
                     btnEditar.Visible = false;
                     btnEliminar.Visible = false;
+                    btnActiva.Visible = true;
                 }
 
             }
@@ -360,6 +362,7 @@ namespace SIPAA_CS.RecursosHumanos
                 btnGuardar.Visible = false;
                 btnEditar.Visible = true;
                 btnEliminar.Visible = false;
+                btnActiva.Visible = false;
             }
         }
 
@@ -386,6 +389,16 @@ namespace SIPAA_CS.RecursosHumanos
                 txtCapFR.Focus();
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                if (iSt == 0)
+                {
+                    ckbEliminar.Text = "Alta";
+                }
+                else
+                {
+                    ckbEliminar.Text = "Baja";
+                }
+
+
             }
         }
 
@@ -418,16 +431,7 @@ namespace SIPAA_CS.RecursosHumanos
             vValida = FormasRegistro.FormaReg_V(iOpc, sCve, sDesc, iStT, sUsu, sProg);
             
         }
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
