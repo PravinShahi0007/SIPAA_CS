@@ -766,8 +766,12 @@
     <Content Include="Resources\user24x24.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Accesos\DataSet\" />
+    <Folder Include="Accesos\Reportes\" />
     <Folder Include="App_Code\RecursosHumanos\Asistencias\" />
     <Folder Include="App_Code\RecursosHumanos\Incidencias\" />
+    <Folder Include="RecursosHumanos\DataSet\" />
+    <Folder Include="RecursosHumanos\Reportes\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
