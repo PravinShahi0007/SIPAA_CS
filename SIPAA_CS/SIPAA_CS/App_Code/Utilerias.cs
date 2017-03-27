@@ -14,6 +14,8 @@ namespace SIPAA_CS.App_Code
 {
     class Utilerias
     {
+        public int p_inicbo;
+
         public void DisableBotones(Button btn, int iClase, Boolean Apagar)
         {
 
@@ -339,11 +341,12 @@ namespace SIPAA_CS.App_Code
 
         public void cargarcombo(ComboBox nombre, DataTable datoscbo)
         {
-
+            p_inicbo = 0;
             nombre.DataSource = datoscbo;
             nombre.DisplayMember = "Descripción";
             nombre.ValueMember = "Clave";
-            nombre.Text = "";
+            p_inicbo = 1;
+            //nombre.Text = "";
         }
 
         public static void ResizeForm(Form frm, Size dsize)
