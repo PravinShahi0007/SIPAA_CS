@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using SIPAA_CS.Conexiones;
+
 using System.Data;
 using System.Data.SqlClient;
 
@@ -23,6 +23,7 @@ namespace SIPAA_CS.App_Code
         public int p_opcion;
         public int p_cvforma;
         public string p_descripcion;
+        public int p_stforma;
         public string p_usuumod;
         public string p_prgumodr;
         public int p_respuesta;
@@ -34,13 +35,14 @@ namespace SIPAA_CS.App_Code
             p_opcion = 0;
             p_cvforma = 0;
             p_descripcion = "";
+            p_stforma = 0;
             p_usuumod = "";
             p_prgumodr = "";
             p_respuesta = 0;
         }
 
         //METODO FORMAS DE REGISTRO LLENA GRID
-        public DataTable FormaReg_S(int p_opcion, int p_cvforma, string p_descripcion, string p_usuumod, string p_prgumodr)
+        public DataTable FormaReg_S(int p_opcion, int p_cvforma, string p_descripcion, int p_stforma, string p_usuumod, string p_prgumodr)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechformareg_suid";
@@ -51,6 +53,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
             cmd.Parameters.Add("@p_cvforma", SqlDbType.VarChar).Value = p_cvforma;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
+            cmd.Parameters.Add("@p_stforma", SqlDbType.VarChar).Value = p_stforma;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
 
@@ -64,7 +67,7 @@ namespace SIPAA_CS.App_Code
 
         }
         //metodo actualizar, insertar, eliminar registro
-        public int formaReg_UID(int p_opcion, int p_cvforma, string p_descripcion, string p_usuumod, string p_prgumodr)
+        public int formaReg_UID(int p_opcion, int p_cvforma, string p_descripcion, int p_stforma, string p_usuumod, string p_prgumodr)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechformareg_suid";
@@ -75,6 +78,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
             cmd.Parameters.Add("@p_cvforma", SqlDbType.VarChar).Value = p_cvforma;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
+            cmd.Parameters.Add("@p_stforma", SqlDbType.VarChar).Value = p_stforma;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
 
@@ -85,7 +89,7 @@ namespace SIPAA_CS.App_Code
             return iResponse;
         }
         //METODO FORMAS DE REGISTRO VALIDA CREA REGISTRO
-        public int FormaReg_V(int p_opcion, int p_cvforma, string p_descripcion, string p_usuumod, string p_prgumodr)
+        public int FormaReg_V(int p_opcion, int p_cvforma, string p_descripcion, int p_stforma, string p_usuumod, string p_prgumodr)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechformareg_suid";
@@ -96,6 +100,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
             cmd.Parameters.Add("@p_cvforma", SqlDbType.VarChar).Value = p_cvforma;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
+            cmd.Parameters.Add("@p_stforma", SqlDbType.VarChar).Value = p_stforma;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
 

@@ -135,6 +135,7 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
+            cvusuario = null;
             string IdTrab = txtIdTrab.Text;
             string nombre = txtUsuario.Text;
             dgvUsuarios.Columns.Remove(columnName: "Seleccionar");
