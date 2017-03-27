@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using SIPAA_CS.Properties;
-using SIPAA_CS.Conexiones;
 using SIPAA_CS.App_Code;
+using SIPAA_CS.Conexiones;
+using SIPAA_CS.Properties;
 
 //***********************************************************************************************
 //Autor: Benjamin Huizar Barajas
@@ -22,7 +22,7 @@ namespace SIPAA_CS.RecursosHumanos
 {
     public partial class DiasFestivos : Form
     {
-        #region
+        #region Variables
 
         int pins;
         int pact;
@@ -235,7 +235,7 @@ namespace SIPAA_CS.RecursosHumanos
         private void frmDiasFestivos_Load(object sender, EventArgs e)
         {
             //LLAMA TOOL TIP
-            sTooltip();
+            fTooltip();
 
             //LLAMA METODO LLENAR GRID
             //SLlenaGrid(1, "");
@@ -251,8 +251,8 @@ namespace SIPAA_CS.RecursosHumanos
             }
             //
             fgDiasFestivos(4, "0", "", "bhb", "DiasFestivos");
-//            txtBuscarDF.Focus();
-        }
+            //txtBuscarDF.Focus();
+        } // private void frmDiasFestivos_Load(object sender, EventArgs e)
 
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
         {
@@ -278,8 +278,9 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
+
         //TOOL TIP PARA OBJETOS
-        private void sTooltip()
+        private void fTooltip()
         {
 
             //CREA TOOL TIP
@@ -301,7 +302,7 @@ namespace SIPAA_CS.RecursosHumanos
 //            toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
             toolTip1.SetToolTip(this.btnInsertar, "Insertar Registro");
 
-        } // private void sTooltip()
+        } // private void fTooltip()
 
         private void fgDiasFestivos(int p_opcion, string p_fecha, string p_descripcion, string p_usuumod, string p_prgumodr)
         {
@@ -319,10 +320,8 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvDiasFestivos.Columns[0].HeaderText = "Selección";
 
                 dgvDiasFestivos.Columns[0].Width = 75;
-//                dgvDiasFestivos.Columns[1].Visible = false;
                 dgvDiasFestivos.Columns[1].Width = 90;
                 dgvDiasFestivos.Columns[2].Width = 300;
-//                dgvDiasFestivos.Columns[3].Visible = false;
                 dgvDiasFestivos.ClearSelection();
             }
             else if (pins == 1 && pact == 1)
@@ -337,10 +336,8 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvDiasFestivos.Columns[0].HeaderText = "Selección";
 
                 dgvDiasFestivos.Columns[0].Width = 75;
-                //                dgvDiasFestivos.Columns[1].Visible = false;
                 dgvDiasFestivos.Columns[1].Width = 90;
                 dgvDiasFestivos.Columns[2].Width = 300;
-//                dgvDiasFestivos.Columns[3].Visible = false;
                 dgvDiasFestivos.ClearSelection();
 
             }
@@ -356,10 +353,8 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvDiasFestivos.Columns[0].HeaderText = "Selección";
 
                 dgvDiasFestivos.Columns[0].Width = 75;
-                //                dgvDiasFestivos.Columns[1].Visible = false;
                 dgvDiasFestivos.Columns[1].Width = 90;
                 dgvDiasFestivos.Columns[2].Width = 300;
-//                dgvDiasFestivos.Columns[3].Visible = false;
                 dgvDiasFestivos.ClearSelection();
             }
             else if (pact == 1 && pelim == 1)
@@ -374,10 +369,8 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvDiasFestivos.Columns[0].HeaderText = "Selección";
 
                 dgvDiasFestivos.Columns[0].Width = 75;
-                //                dgvDiasFestivos.Columns[1].Visible = false;
                 dgvDiasFestivos.Columns[1].Width = 90;
                 dgvDiasFestivos.Columns[2].Width = 300;
-//                dgvDiasFestivos.Columns[3].Visible = false;
                 dgvDiasFestivos.ClearSelection();
             }
             else if (pins == 1)
@@ -386,7 +379,6 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvDiasFestivos.DataSource = dtDiaFestivo;
 
                 dgvDiasFestivos.Columns[0].Visible = false;
-                //                dgvDiasFestivos.Columns[2].Visible = false;
                 dgvDiasFestivos.Columns[1].Width = 90;
                 dgvDiasFestivos.Columns[2].Width = 300;
 
@@ -404,10 +396,8 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvDiasFestivos.Columns[0].HeaderText = "Selección";
 
                 dgvDiasFestivos.Columns[0].Width = 75;
-                //                dgvDiasFestivos.Columns[1].Visible = false;
                 dgvDiasFestivos.Columns[1].Width = 90;
                 dgvDiasFestivos.Columns[2].Width = 300;
-//                dgvDiasFestivos.Columns[3].Visible = false;
                 dgvDiasFestivos.ClearSelection();
             }
             else if (pelim == 1)
@@ -422,10 +412,8 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvDiasFestivos.Columns[0].HeaderText = "Selección";
 
                 dgvDiasFestivos.Columns[0].Width = 75;
-                //                dgvDiasFestivos.Columns[1].Visible = false;
                 dgvDiasFestivos.Columns[1].Width = 90;
                 dgvDiasFestivos.Columns[2].Width = 300;
-//                dgvDiasFestivos.Columns[3].Visible = false;
                 dgvDiasFestivos.ClearSelection();
             }
             else
@@ -435,7 +423,6 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvDiasFestivos.DataSource = dtDiaFestivo;
 
                 dgvDiasFestivos.Columns[0].Visible = false;
-//                dgvDiasFestivos.Columns[2].Visible = false;
                 dgvDiasFestivos.Columns[1].Width = 90;
                 dgvDiasFestivos.Columns[2].Width = 300;
                 dgvDiasFestivos.ClearSelection();
