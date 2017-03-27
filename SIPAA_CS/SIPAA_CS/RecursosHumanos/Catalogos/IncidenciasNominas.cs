@@ -130,7 +130,7 @@ namespace SIPAA_CS.RecursosHumanos
             ckbEliminar.Visible = false;
             pnlincnom.Visible = true;
             lbluid.Text = "     Agregar Incidencia Nomina";
-            btninsertar.Image = Resources.b8;
+            btninsertar.Image = Resources.Guardar;
             fcargarcbo();
             cbotipohr.Enabled = true;
             cbotipohr.Text = "";
