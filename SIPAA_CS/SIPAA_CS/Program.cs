@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using SIPAA_CS.Accesos;
 using SIPAA_CS;
 using SIPAA_CS.RecursosHumanos;
+using SIPAA_CS.RecursosHumanos.Asignaciones;
+using SIPAA_CS.RecursosHumanos.Catalogos;
 
 namespace SIPAA_CS
 {

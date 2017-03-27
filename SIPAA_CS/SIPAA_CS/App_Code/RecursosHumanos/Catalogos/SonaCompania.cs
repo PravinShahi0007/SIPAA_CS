@@ -60,22 +60,22 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public DataTable ObtenerPlantelxCompania(int IdCompania, string PlantaDesc)
+        public DataTable ObtenerPlantelxCompania(string CompaniaDesc, string PlantaDesc)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechPlantaxCompania_S";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
-            SqlConnection sqlcn = objConexion.conexionSonarh();
+            objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@IdCompania", SqlDbType.Int).Value = IdCompania;
+            cmd.Parameters.Add("@Compania", SqlDbType.VarChar).Value = CompaniaDesc;
             cmd.Parameters.Add("@Planta", SqlDbType.VarChar).Value = PlantaDesc;
 
-            objConexion.asignarConexions(cmd);
+            objConexion.asignarConexion(cmd);
 
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
 
-            objConexion.cerrarConexions();
+            objConexion.cerrarConexion();
 
             DataTable dtPlanta = new DataTable();
             Adapter.Fill(dtPlanta);

@@ -46,6 +46,10 @@
             this.diasFestivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mensajesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoHorarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoIncidenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAsignacionCompania = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAsignacionArea = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -79,10 +83,11 @@
             this.MenuAccesos.Dock = System.Windows.Forms.DockStyle.None;
             this.MenuAccesos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuAccesos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msCatalogo});
+            this.msCatalogo,
+            this.asignacionesToolStripMenuItem});
             this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(208, 26);
+            this.MenuAccesos.Size = new System.Drawing.Size(339, 26);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
@@ -101,7 +106,8 @@
             this.incidenciasNominaToolStripMenuItem,
             this.diasFestivoToolStripMenuItem,
             this.mensajesToolStripMenuItem1,
-            this.tipoHorarioToolStripMenuItem});
+            this.tipoHorarioToolStripMenuItem,
+            this.tipoIncidenciaToolStripMenuItem});
             this.msCatalogo.ForeColor = System.Drawing.Color.White;
             this.msCatalogo.Image = global::SIPAA_CS.Properties.Resources.ic_view_list_white_18dp;
             this.msCatalogo.Name = "msCatalogo";
@@ -246,13 +252,58 @@
             this.tipoHorarioToolStripMenuItem.Tag = "frmTipoHorario";
             this.tipoHorarioToolStripMenuItem.Text = "Tipo Horario";
             // 
+            // tipoIncidenciaToolStripMenuItem
+            // 
+            this.tipoIncidenciaToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.tipoIncidenciaToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.tipoIncidenciaToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
+            this.tipoIncidenciaToolStripMenuItem.Name = "tipoIncidenciaToolStripMenuItem";
+            this.tipoIncidenciaToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.tipoIncidenciaToolStripMenuItem.Tag = "frmIncidenciasTipos";
+            this.tipoIncidenciaToolStripMenuItem.Text = "Tipos de Incidencia";
+            this.tipoIncidenciaToolStripMenuItem.Click += new System.EventHandler(this.tipoIncidenciaToolStripMenuItem_Click);
+            // 
+            // asignacionesToolStripMenuItem
+            // 
+            this.asignacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmAsignacionCompania,
+            this.tsmAsignacionArea});
+            this.asignacionesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.asignacionesToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.asignacionesToolStripMenuItem.Name = "asignacionesToolStripMenuItem";
+            this.asignacionesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.asignacionesToolStripMenuItem.Tag = "frmAsignaciones";
+            this.asignacionesToolStripMenuItem.Text = "Asignaciones";
+            // 
+            // tsmAsignacionCompania
+            // 
+            this.tsmAsignacionCompania.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.tsmAsignacionCompania.ForeColor = System.Drawing.Color.White;
+            this.tsmAsignacionCompania.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.tsmAsignacionCompania.Name = "tsmAsignacionCompania";
+            this.tsmAsignacionCompania.Size = new System.Drawing.Size(231, 22);
+            this.tsmAsignacionCompania.Tag = "frmCompaniasUsuario";
+            this.tsmAsignacionCompania.Text = "Asignacion Compañia";
+            this.tsmAsignacionCompania.Click += new System.EventHandler(this.tsmAsignacionCompania_Click);
+            // 
+            // tsmAsignacionArea
+            // 
+            this.tsmAsignacionArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.tsmAsignacionArea.ForeColor = System.Drawing.Color.White;
+            this.tsmAsignacionArea.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.tsmAsignacionArea.Name = "tsmAsignacionArea";
+            this.tsmAsignacionArea.Size = new System.Drawing.Size(231, 22);
+            this.tsmAsignacionArea.Tag = "frmAreasUsuario";
+            this.tsmAsignacionArea.Text = "Asignacion Área";
+            this.tsmAsignacionArea.Click += new System.EventHandler(this.tsmAsignacionArea_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.button1.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.button1.Location = new System.Drawing.Point(893, 1);
+            this.button1.Location = new System.Drawing.Point(920, 1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 24);
             this.button1.TabIndex = 144;
@@ -282,7 +333,7 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.button3.Location = new System.Drawing.Point(996, 1);
+            this.button3.Location = new System.Drawing.Point(995, 1);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(24, 24);
             this.button3.TabIndex = 142;
@@ -300,9 +351,9 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(413, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 23);
+            this.label3.Size = new System.Drawing.Size(249, 23);
             this.label3.TabIndex = 145;
-            this.label3.Text = "       Accesos                    ";
+            this.label3.Text = "       Recursos Humanos                  ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RechDashboard
@@ -353,5 +404,9 @@
         private System.Windows.Forms.ToolStripMenuItem mensajesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tipoHorarioToolStripMenuItem;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem tipoIncidenciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asignacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmAsignacionCompania;
+        private System.Windows.Forms.ToolStripMenuItem tsmAsignacionArea;
     }
 }

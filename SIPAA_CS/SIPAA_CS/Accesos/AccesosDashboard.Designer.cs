@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccesosDashboard));
             this.label3 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -39,8 +40,9 @@
             this.tsmiModulos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiProcesos = new System.Windows.Forms.ToolStripMenuItem();
             this.msAsignacionPerfil = new System.Windows.Forms.ToolStripMenuItem();
-            this.msAsignacionModulo = new System.Windows.Forms.ToolStripMenuItem();
-            this.msAsignacionProceso = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignaciónDePerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignaciónDeMódulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignaciónDeProcesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
@@ -94,7 +96,7 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
             this.panelMenu.Controls.Add(this.MenuAccesos);
-            this.panelMenu.Location = new System.Drawing.Point(0, 134);
+            this.panelMenu.Location = new System.Drawing.Point(0, 97);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(1024, 32);
             this.panelMenu.TabIndex = 5;
@@ -106,12 +108,10 @@
             this.MenuAccesos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuAccesos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.msCatalogo,
-            this.msAsignacionPerfil,
-            this.msAsignacionModulo,
-            this.msAsignacionProceso});
+            this.msAsignacionPerfil});
             this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(790, 26);
+            this.MenuAccesos.Size = new System.Drawing.Size(247, 26);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
@@ -135,7 +135,7 @@
             this.tsmiUsuarios.ForeColor = System.Drawing.Color.White;
             this.tsmiUsuarios.Image = global::SIPAA_CS.Properties.Resources.ic_account_circle_white_24dp;
             this.tsmiUsuarios.Name = "tsmiUsuarios";
-            this.tsmiUsuarios.Size = new System.Drawing.Size(152, 22);
+            this.tsmiUsuarios.Size = new System.Drawing.Size(143, 22);
             this.tsmiUsuarios.Tag = "frmCrear_Usuario";
             this.tsmiUsuarios.Text = "Usuarios";
             this.tsmiUsuarios.Click += new System.EventHandler(this.tsmiUsuarios_Click);
@@ -146,7 +146,7 @@
             this.tsmiPerfiles.ForeColor = System.Drawing.Color.White;
             this.tsmiPerfiles.Image = global::SIPAA_CS.Properties.Resources.ic_work_white_24dp;
             this.tsmiPerfiles.Name = "tsmiPerfiles";
-            this.tsmiPerfiles.Size = new System.Drawing.Size(152, 22);
+            this.tsmiPerfiles.Size = new System.Drawing.Size(143, 22);
             this.tsmiPerfiles.Tag = "frmCrear_Perfil";
             this.tsmiPerfiles.Text = "Perfiles";
             this.tsmiPerfiles.Click += new System.EventHandler(this.tsmiPerfiles_Click);
@@ -157,7 +157,7 @@
             this.tsmiModulos.ForeColor = System.Drawing.Color.White;
             this.tsmiModulos.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.tsmiModulos.Name = "tsmiModulos";
-            this.tsmiModulos.Size = new System.Drawing.Size(152, 22);
+            this.tsmiModulos.Size = new System.Drawing.Size(143, 22);
             this.tsmiModulos.Tag = "frmCrear_Modulo";
             this.tsmiModulos.Text = "Módulos";
             this.tsmiModulos.Click += new System.EventHandler(this.tsmiModulos_Click);
@@ -168,46 +168,62 @@
             this.tsmiProcesos.ForeColor = System.Drawing.Color.White;
             this.tsmiProcesos.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
             this.tsmiProcesos.Name = "tsmiProcesos";
-            this.tsmiProcesos.Size = new System.Drawing.Size(152, 22);
+            this.tsmiProcesos.Size = new System.Drawing.Size(143, 22);
             this.tsmiProcesos.Tag = "frmProceso";
             this.tsmiProcesos.Text = "Procesos";
             this.tsmiProcesos.Click += new System.EventHandler(this.tsmiProcesos_Click);
             // 
             // msAsignacionPerfil
             // 
+            this.msAsignacionPerfil.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.asignaciónDePerfilToolStripMenuItem,
+            this.asignaciónDeMódulosToolStripMenuItem,
+            this.asignaciónDeProcesosToolStripMenuItem});
             this.msAsignacionPerfil.ForeColor = System.Drawing.Color.White;
             this.msAsignacionPerfil.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.msAsignacionPerfil.Name = "msAsignacionPerfil";
-            this.msAsignacionPerfil.Size = new System.Drawing.Size(176, 22);
-            this.msAsignacionPerfil.Tag = "frmAsignar_Perfil";
-            this.msAsignacionPerfil.Text = "Asignación de Perfil";
-            this.msAsignacionPerfil.Click += new System.EventHandler(this.msAsignacionPerfil_Click);
+            this.msAsignacionPerfil.Size = new System.Drawing.Size(131, 22);
+            this.msAsignacionPerfil.Tag = "frmAsignaciones";
+            this.msAsignacionPerfil.Text = "Asignaciones";
             // 
-            // msAsignacionModulo
+            // asignaciónDePerfilToolStripMenuItem
             // 
-            this.msAsignacionModulo.ForeColor = System.Drawing.Color.White;
-            this.msAsignacionModulo.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
-            this.msAsignacionModulo.Name = "msAsignacionModulo";
-            this.msAsignacionModulo.Size = new System.Drawing.Size(199, 22);
-            this.msAsignacionModulo.Tag = "frmAsignar_Modulo";
-            this.msAsignacionModulo.Text = "Asignación de Modulos";
-            this.msAsignacionModulo.Click += new System.EventHandler(this.msAsignacionModulo_Click);
+            this.asignaciónDePerfilToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.asignaciónDePerfilToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.asignaciónDePerfilToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("asignaciónDePerfilToolStripMenuItem.Image")));
+            this.asignaciónDePerfilToolStripMenuItem.Name = "asignaciónDePerfilToolStripMenuItem";
+            this.asignaciónDePerfilToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.asignaciónDePerfilToolStripMenuItem.Tag = "frmAsignar_Perfil";
+            this.asignaciónDePerfilToolStripMenuItem.Text = "Asignación de Perfil";
+            this.asignaciónDePerfilToolStripMenuItem.Click += new System.EventHandler(this.msAsignacionPerfil_Click);
             // 
-            // msAsignacionProceso
+            // asignaciónDeMódulosToolStripMenuItem
             // 
-            this.msAsignacionProceso.ForeColor = System.Drawing.Color.White;
-            this.msAsignacionProceso.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
-            this.msAsignacionProceso.Name = "msAsignacionProceso";
-            this.msAsignacionProceso.Size = new System.Drawing.Size(207, 22);
-            this.msAsignacionProceso.Tag = "frmAsignar_Proceso";
-            this.msAsignacionProceso.Text = "Asignación de Procesos";
-            this.msAsignacionProceso.Click += new System.EventHandler(this.msAsignacionProceso_Click);
+            this.asignaciónDeMódulosToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.asignaciónDeMódulosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.asignaciónDeMódulosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("asignaciónDeMódulosToolStripMenuItem.Image")));
+            this.asignaciónDeMódulosToolStripMenuItem.Name = "asignaciónDeMódulosToolStripMenuItem";
+            this.asignaciónDeMódulosToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.asignaciónDeMódulosToolStripMenuItem.Tag = "frmAsignar_Modulo";
+            this.asignaciónDeMódulosToolStripMenuItem.Text = "Asignación de Módulos";
+            this.asignaciónDeMódulosToolStripMenuItem.Click += new System.EventHandler(this.msAsignacionModulo_Click);
+            // 
+            // asignaciónDeProcesosToolStripMenuItem
+            // 
+            this.asignaciónDeProcesosToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.asignaciónDeProcesosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.asignaciónDeProcesosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("asignaciónDeProcesosToolStripMenuItem.Image")));
+            this.asignaciónDeProcesosToolStripMenuItem.Name = "asignaciónDeProcesosToolStripMenuItem";
+            this.asignaciónDeProcesosToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.asignaciónDeProcesosToolStripMenuItem.Tag = "frmAsignar_Proceso";
+            this.asignaciónDeProcesosToolStripMenuItem.Text = "Asignación de Procesos";
+            this.asignaciónDeProcesosToolStripMenuItem.Click += new System.EventHandler(this.msAsignacionProceso_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.panel3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.panel3.Location = new System.Drawing.Point(1, 165);
+            this.panel3.Location = new System.Drawing.Point(1, 129);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1024, 1);
             this.panel3.TabIndex = 25;
@@ -265,9 +281,10 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiModulos;
         private System.Windows.Forms.ToolStripMenuItem tsmiProcesos;
         private System.Windows.Forms.ToolStripMenuItem msAsignacionPerfil;
-        private System.Windows.Forms.ToolStripMenuItem msAsignacionModulo;
-        private System.Windows.Forms.ToolStripMenuItem msAsignacionProceso;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.ToolStripMenuItem asignaciónDePerfilToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asignaciónDeMódulosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asignaciónDeProcesosToolStripMenuItem;
     }
 }

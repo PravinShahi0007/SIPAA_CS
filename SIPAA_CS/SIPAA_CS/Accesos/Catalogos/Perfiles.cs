@@ -131,7 +131,7 @@ namespace SIPAA_CS.Accesos
 
             iOpcionAdmin = 1;
             //btnEditar.Visible = false;
-            btnGuardar.Image = Resources.b8;
+            btnGuardar.Image = Resources.Guardar;
             //Utilerias.CambioBoton(btnGuardar,btnEliminar ,btnEditar, btnGuardar);
         }
 
@@ -173,7 +173,11 @@ namespace SIPAA_CS.Accesos
 
         }
 
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
 
+            this.Close();
+        }
 
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -191,6 +195,10 @@ namespace SIPAA_CS.Accesos
 
         private void Crear_Perfil_Load(object sender, EventArgs e)
         {
+
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
             //Validar permisos x Pantalla
             Modulo objModulo = new Modulo();
@@ -236,8 +244,6 @@ namespace SIPAA_CS.Accesos
             LlenarGridPerfiles(dtPerfiles, false);
 
         }
-
-
        
         private void dgvPerfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -264,7 +270,7 @@ namespace SIPAA_CS.Accesos
                 txtPerfil.Text = ValorRow;
                 PanelEditar.Visible = true;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                btnGuardar.Image = Resources.b3;
+                btnGuardar.Image = Resources.Editar;
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
 
                 iOpcionAdmin = 2;
@@ -287,8 +293,6 @@ namespace SIPAA_CS.Accesos
             }
         }
 
-     
-
         private void PanelEditar_Paint(object sender, PaintEventArgs e)
         {
 
@@ -303,12 +307,12 @@ namespace SIPAA_CS.Accesos
                 if (strEstatus == "0")
                 {
 
-                    btnGuardar.Image = Resources.btalta;
+                    btnGuardar.Image = Resources.Alta;
                 }
                 else if (strEstatus == "1")
                 {
 
-                    btnGuardar.Image = Resources.b6;
+                    btnGuardar.Image = Resources.Baja;
                 }
 
                 iOpcionAdmin = 3;
@@ -333,8 +337,6 @@ namespace SIPAA_CS.Accesos
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
 
-      
-
         private int GestionarPefilesxOpcion(TextBox txt, Perfil objPerfil,
                      string strMensaje, int iOpcion, object sender, EventArgs e)
         {
@@ -342,7 +344,40 @@ namespace SIPAA_CS.Accesos
             {
                 try
                 {
-                    int iResponse = objPerfil.GestionarPerfiles(objPerfil, iOpcion);
+                    int iResponse = 0;
+                    string Mensaje = "";
+
+                    if (strEstatus == "1")
+                    {
+                        Mensaje = "¿Seguro que desea dar de BAJA el Registro?";
+                    }
+                    else
+                    {
+                        Mensaje = "¿Seguro que desea dar de ALTA el Registro?";
+                    }
+
+                    
+                    switch (iOpcionAdmin)
+                    {
+
+                        case 3:
+                            DialogResult result = MessageBox.Show(Mensaje, this.Name, MessageBoxButtons.YesNo);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                 iResponse = objPerfil.GestionarPerfiles(objPerfil, iOpcion);
+                                
+                            }
+                            break;
+
+                        default:
+                                 iResponse = objPerfil.GestionarPerfiles(objPerfil, iOpcion);
+
+
+                            break;
+                    }
+
+
                     if (iResponse != 0)
                     {
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, strMensaje);
@@ -370,13 +405,6 @@ namespace SIPAA_CS.Accesos
                 return 0;
             }
             return 0;
-        }
-
-    
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-           
-            this.Close();
         }
 
         private void txtBuscarPerfil_KeyUp(object sender, KeyEventArgs e)
@@ -427,6 +455,30 @@ namespace SIPAA_CS.Accesos
         {
             panelTag.Visible = false;
             timer1.Stop();
+        }
+
+        private void btnRegresar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
         }
 
 
