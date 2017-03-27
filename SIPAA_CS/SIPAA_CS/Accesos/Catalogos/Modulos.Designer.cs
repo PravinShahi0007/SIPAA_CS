@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label3;
@@ -36,13 +37,18 @@
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Modulos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label label11;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label10;
             this.btnAgregar = new System.Windows.Forms.Button();
             this.PanelEditar = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtOrden = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtModPad = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.ckbEliminar = new System.Windows.Forms.CheckBox();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -61,6 +67,11 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panelTag = new System.Windows.Forms.Panel();
+            this.lbMensaje = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtCvModulo = new System.Windows.Forms.TextBox();
             label5 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -68,9 +79,13 @@
             label2 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
             this.PanelEditar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModulos)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
+            this.panelTag.SuspendLayout();
             this.SuspendLayout();
             // 
             // label5
@@ -79,7 +94,7 @@
             label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(35, 206);
+            label5.Location = new System.Drawing.Point(35, 307);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(63, 16);
             label5.TabIndex = 58;
@@ -91,7 +106,7 @@
             label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(35, 281);
+            label4.Location = new System.Drawing.Point(35, 382);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(50, 16);
             label4.TabIndex = 57;
@@ -103,7 +118,7 @@
             label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(35, 110);
+            label3.Location = new System.Drawing.Point(35, 154);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(70, 16);
             label3.TabIndex = 56;
@@ -115,7 +130,7 @@
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(36, 37);
+            label7.Location = new System.Drawing.Point(36, 81);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(76, 16);
             label7.TabIndex = 44;
@@ -160,6 +175,31 @@
             label9.TabIndex = 41;
             label9.Text = "     Buscar Mòdulo";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label6.Location = new System.Drawing.Point(41, 228);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(43, 16);
+            label6.TabIndex = 61;
+            label6.Text = "Orden";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            label11.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label11.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            label11.Location = new System.Drawing.Point(538, 633);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(255, 15);
+            label11.TabIndex = 147;
+            label11.Text = "Selecciona un elemento del Grid para Editar";
+            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -176,8 +216,14 @@
             // PanelEditar
             // 
             this.PanelEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.PanelEditar.Controls.Add(label10);
+            this.PanelEditar.Controls.Add(this.panel3);
+            this.PanelEditar.Controls.Add(this.txtCvModulo);
+            this.PanelEditar.Controls.Add(this.panel2);
+            this.PanelEditar.Controls.Add(this.txtOrden);
+            this.PanelEditar.Controls.Add(label6);
             this.PanelEditar.Controls.Add(this.panel1);
-            this.PanelEditar.Controls.Add(this.textBox1);
+            this.PanelEditar.Controls.Add(this.txtModPad);
             this.PanelEditar.Controls.Add(label5);
             this.PanelEditar.Controls.Add(label3);
             this.PanelEditar.Controls.Add(this.btnGuardar);
@@ -196,23 +242,41 @@
             this.PanelEditar.TabStop = true;
             this.PanelEditar.Visible = false;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel2.Location = new System.Drawing.Point(30, 274);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(250, 2);
+            this.panel2.TabIndex = 63;
+            // 
+            // txtOrden
+            // 
+            this.txtOrden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtOrden.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOrden.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOrden.Location = new System.Drawing.Point(31, 252);
+            this.txtOrden.Name = "txtOrden";
+            this.txtOrden.Size = new System.Drawing.Size(250, 15);
+            this.txtOrden.TabIndex = 62;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(31, 157);
+            this.panel1.Location = new System.Drawing.Point(31, 201);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 2);
             this.panel1.TabIndex = 60;
             // 
-            // textBox1
+            // txtModPad
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(32, 135);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 15);
-            this.textBox1.TabIndex = 59;
+            this.txtModPad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtModPad.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtModPad.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtModPad.Location = new System.Drawing.Point(32, 179);
+            this.txtModPad.Name = "txtModPad";
+            this.txtModPad.Size = new System.Drawing.Size(250, 15);
+            this.txtModPad.TabIndex = 59;
             // 
             // btnGuardar
             // 
@@ -226,6 +290,7 @@
             this.btnGuardar.TabIndex = 52;
             this.btnGuardar.Tag = "Crear";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // ckbEliminar
             // 
@@ -239,11 +304,12 @@
             this.ckbEliminar.Text = "Baja";
             this.ckbEliminar.UseVisualStyleBackColor = true;
             this.ckbEliminar.Visible = false;
+            this.ckbEliminar.CheckedChanged += new System.EventHandler(this.ckbEliminar_CheckedChanged);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel6.Location = new System.Drawing.Point(32, 80);
+            this.panel6.Location = new System.Drawing.Point(32, 124);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(250, 2);
             this.panel6.TabIndex = 43;
@@ -253,7 +319,7 @@
             this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescripcion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(33, 58);
+            this.txtDescripcion.Location = new System.Drawing.Point(33, 102);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(250, 15);
             this.txtDescripcion.TabIndex = 4;
@@ -280,7 +346,7 @@
             this.cbAmbiente.Items.AddRange(new object[] {
             "WEB",
             "CS"});
-            this.cbAmbiente.Location = new System.Drawing.Point(31, 225);
+            this.cbAmbiente.Location = new System.Drawing.Point(31, 326);
             this.cbAmbiente.Name = "cbAmbiente";
             this.cbAmbiente.Size = new System.Drawing.Size(250, 25);
             this.cbAmbiente.TabIndex = 33;
@@ -295,7 +361,7 @@
             this.cbModulo.Items.AddRange(new object[] {
             "ACCESOS",
             "RECURSOS HUMANOS"});
-            this.cbModulo.Location = new System.Drawing.Point(31, 300);
+            this.cbModulo.Location = new System.Drawing.Point(31, 401);
             this.cbModulo.Name = "cbModulo";
             this.cbModulo.Size = new System.Drawing.Size(250, 25);
             this.cbModulo.TabIndex = 34;
@@ -306,30 +372,30 @@
             this.dgvModulos.AllowUserToAddRows = false;
             this.dgvModulos.AllowUserToDeleteRows = false;
             this.dgvModulos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvModulos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvModulos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvModulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvModulos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvModulos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvModulos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvModulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvModulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvModulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvModulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvModulos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvModulos.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvModulos.Location = new System.Drawing.Point(541, 247);
             this.dgvModulos.Name = "dgvModulos";
             this.dgvModulos.ReadOnly = true;
@@ -362,6 +428,7 @@
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
             this.btnBuscar.Location = new System.Drawing.Point(365, 25);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
@@ -462,6 +529,66 @@
             this.label1.TabIndex = 127;
             this.label1.Text = "      Crear Módulo";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panelTag
+            // 
+            this.panelTag.BackColor = System.Drawing.Color.Transparent;
+            this.panelTag.Controls.Add(this.lbMensaje);
+            this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTag.Location = new System.Drawing.Point(541, 662);
+            this.panelTag.Name = "panelTag";
+            this.panelTag.Size = new System.Drawing.Size(409, 29);
+            this.panelTag.TabIndex = 136;
+            this.panelTag.Visible = false;
+            // 
+            // lbMensaje
+            // 
+            this.lbMensaje.AutoSize = true;
+            this.lbMensaje.BackColor = System.Drawing.Color.Transparent;
+            this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMensaje.ForeColor = System.Drawing.Color.White;
+            this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbMensaje.Location = new System.Drawing.Point(3, 4);
+            this.lbMensaje.Name = "lbMensaje";
+            this.lbMensaje.Size = new System.Drawing.Size(212, 20);
+            this.lbMensaje.TabIndex = 26;
+            this.lbMensaje.Text = "       Administración de Mòdulos   ";
+            this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label10.Location = new System.Drawing.Point(38, 25);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(64, 16);
+            label10.TabIndex = 66;
+            label10.Text = "CvModulo";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel3.Location = new System.Drawing.Point(34, 68);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(250, 2);
+            this.panel3.TabIndex = 65;
+            // 
+            // txtCvModulo
+            // 
+            this.txtCvModulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtCvModulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCvModulo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCvModulo.Location = new System.Drawing.Point(35, 46);
+            this.txtCvModulo.Name = "txtCvModulo";
+            this.txtCvModulo.Size = new System.Drawing.Size(250, 15);
+            this.txtCvModulo.TabIndex = 64;
+            // 
             // Modulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,6 +596,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(label11);
+            this.Controls.Add(this.panelTag);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.PanelEditar);
             this.Controls.Add(label2);
@@ -490,6 +619,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvModulos)).EndInit();
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
+            this.panelTag.ResumeLayout(false);
+            this.panelTag.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -500,7 +631,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel PanelEditar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtModPad;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.CheckBox ckbEliminar;
         private System.Windows.Forms.Panel panel6;
@@ -519,5 +650,12 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtOrden;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panelTag;
+        private System.Windows.Forms.Label lbMensaje;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox txtCvModulo;
     }
 }
