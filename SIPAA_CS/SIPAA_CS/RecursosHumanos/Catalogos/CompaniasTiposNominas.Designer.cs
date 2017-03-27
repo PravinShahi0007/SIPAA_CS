@@ -138,7 +138,7 @@
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.BackgroundImage = global::SIPAA_CS.Properties.Resources.b5;
+            this.btnBuscar.BackgroundImage = global::SIPAA_CS.Properties.Resources.Buscar;
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBuscar.Enabled = false;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
