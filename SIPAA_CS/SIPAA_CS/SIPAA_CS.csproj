@@ -134,6 +134,11 @@
     <Compile Include="Accesos\Catalogos\Modulos.Designer.cs">
       <DependentUpon>Modulos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Catalogos\CompaniasTiposNominas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,14 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Accesos\Catalogos\Modulos.resx">
       <DependentUpon>Modulos.cs</DependentUpon>
     </EmbeddedResource>
@@ -726,22 +726,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\16388379_1936191480000670_4493751231525441480_n.png" />
-    <None Include="Resources\icon_material\btnadd1.png" />
-    <None Include="Resources\icon_material\btncre.png" />
-    <None Include="Resources\icon_material\btncre1.png" />
-    <None Include="Resources\icon_material\btncreinfo.png" />
-    <None Include="Resources\icon_material\btncreinfo1.png" />
-    <None Include="Resources\icon_material\btndel.png" />
-    <None Include="Resources\icon_material\btndel1.png" />
-    <None Include="Resources\icon_material\btnremove.png" />
-    <None Include="Resources\icon_material\btnremove1.png" />
-    <None Include="Resources\icon_material\btnsave.png" />
-    <None Include="Resources\icon_material\btnsave1.png" />
-    <None Include="Resources\icon_material\btnsearch.png" />
-    <None Include="Resources\icon_material\btnsearch1.png" />
-    <None Include="Resources\icon_material\btnsearchinfo.png" />
-    <None Include="Resources\icon_material\btnsearchinfo1.png" />
-    <None Include="Resources\icon_material\btnadd.png" />
     <None Include="Resources\f8.png" />
     <None Include="Resources\f9.png" />
     <None Include="Resources\b6.png" />
@@ -771,10 +755,6 @@
     <None Include="Resources\Editar30x30.png" />
     <None Include="Resources\Guardar20x20.png" />
     <None Include="Resources\Guardar30x30.png" />
-    <Content Include="Resources\pass24x24.png" />
-    <None Include="Resources\user24x241.png" />
-    <None Include="Resources\pass24x241.png" />
-    <Content Include="Resources\user24x24.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Accesos\DataSet\" />
