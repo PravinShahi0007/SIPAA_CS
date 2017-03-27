@@ -41,14 +41,15 @@ namespace SIPAA_CS.App_Code
         public DataTable cboInc(int p_opcion)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechcincidencia_suid";
+            cmd.CommandText = @"usp_rechincidencia_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
-            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
 
@@ -92,7 +93,7 @@ namespace SIPAA_CS.App_Code
         public DataTable cboEsNoPr(int p_opcion)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechcincnomina_suid";
+            cmd.CommandText = @"usp_rechincnomina_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -122,12 +123,68 @@ namespace SIPAA_CS.App_Code
             return EsNoPr;
         }
 
+        //metodo llenar combo dias u horas
+        //public DataTable cboDiaHr(int p_opcion)
+        //{
+        //    SqlCommand cmd = new SqlCommand();
+        //    cmd.CommandText = @"usp_rechincnomina_suid";
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    Conexion objConexion = new Conexion();
+        //    objConexion.asignarConexion(cmd);
+
+        //    cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
+        //    cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = 0;
+        //    cmd.Parameters.Add("@p_cvrepresenta", SqlDbType.Int).Value = 0;
+        //    cmd.Parameters.Add("@p_stdir", SqlDbType.Int).Value = 0;
+        //    cmd.Parameters.Add("@p_cvtipohr", SqlDbType.Int).Value = 0;
+        //    cmd.Parameters.Add("@p_stpremio", SqlDbType.Int).Value = 0;
+        //    cmd.Parameters.Add("@p_cvafecta", SqlDbType.Int).Value = 0;
+        //    cmd.Parameters.Add("@p_stpasanom", SqlDbType.Int).Value = 0;
+        //    cmd.Parameters.Add("@p_imphrsdias", SqlDbType.Int).Value = 0;
+        //    cmd.Parameters.Add("@p_campo", SqlDbType.VarChar).Value = "";
+        //    cmd.Parameters.Add("@p_formula", SqlDbType.VarChar).Value = "";
+        //    cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
+        //    cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
+
+        //    objConexion.asignarConexion(cmd);
+
+        //    SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+        //    objConexion.cerrarConexion();
+
+        //    DataTable DiaHr = new DataTable();
+        //    Adapter.Fill(DiaHr);
+        //    return DiaHr;
+        //}
+
+        //metodo llenar combo afecta
+        public DataTable cboAfec(int p_opcion)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_sonaConcAfec_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
+
+            //objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable Afec = new DataTable();
+            Adapter.Fill(Afec);
+            return Afec;
+        }
+
 
         //metodo data table para llenar grid de busqueda
         public DataTable obtincnomina(int p_opcion)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechcincnomina_suid";
+            cmd.CommandText = @"usp_rechincnomina_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -158,25 +215,25 @@ namespace SIPAA_CS.App_Code
         }
 
         //bsuqueda de registro por cvincidencia y cvrepresenta
-        public DataTable obtincnominair(int p_opcion, int p_cvincidencia, string p_representa)
+        public DataTable obtincnominair(int p_opcion, int p_cvincidencia, int p_cvrepresenta)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechcincnomina_suid";
+            cmd.CommandText = @"usp_rechincnomina_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
             cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = p_cvincidencia;
-            cmd.Parameters.Add("@p_cvrepresenta", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_cvrepresenta", SqlDbType.Int).Value = p_cvrepresenta;
             cmd.Parameters.Add("@p_stdir", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@p_cvtipohr", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@p_stpremio", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@p_cvafecta", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@p_stpasanom", SqlDbType.Int).Value = 0;
-            cmd.Parameters.Add("@p_imphrsdias", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_imphrsdias", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@p_campo", SqlDbType.VarChar).Value = "";
-            cmd.Parameters.Add("@p_formula", SqlDbType.VarChar).Value = p_representa;
+            cmd.Parameters.Add("@p_formula", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
 
@@ -191,20 +248,57 @@ namespace SIPAA_CS.App_Code
             return gridbusoncnomir;
         }
 
-        //metodo insertar, actualizar, eliminar registro
-        public int uditipohr(int p_opcion, int p_cvtipohr, string p_descripcion, string p_usuumod, string p_prgumodr)
+        // combo representa "tabla rechcincrep", "usp_rechincapacidadrepresenta_SUID"
+        public DataTable cboRep(int p_opcion, string p_incidencia)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechctipohr_suid";
+            cmd.CommandText = @"usp_rechincapacidadrepresenta_SUID";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@P_incidencia", SqlDbType.VarChar).Value = p_incidencia;
+            cmd.Parameters.Add("@P_representa", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@cvrepresenta", SqlDbType.Int).Value = p_opcion;
+            cmd.Parameters.Add("@Opcion", SqlDbType.Int).Value = p_opcion;
+            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = "";
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable cborepresenta = new DataTable();
+            Adapter.Fill(cborepresenta);
+            return cborepresenta;
+        }
+
+        //metodo insertar, actualizar, eliminar registro
+        public int rechincnominasuid(int p_opcion, int p_cvincidencia, int p_cvrepresenta, int p_stdir, int p_cvtipohr,
+                             int p_stpremio, int p_cvafecta, int p_stpasanom, string p_imphrsdias, string p_campo,
+                             string p_formula, string p_usuumod, string p_prgumod)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechincnomina_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
-            cmd.Parameters.Add("@p_cvtipohr", SqlDbType.VarChar).Value = p_cvtipohr;
-            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
+            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = p_cvincidencia;
+            cmd.Parameters.Add("@p_cvrepresenta", SqlDbType.Int).Value = p_cvrepresenta;
+            cmd.Parameters.Add("@p_stdir", SqlDbType.Int).Value = p_stdir;
+            cmd.Parameters.Add("@p_cvtipohr", SqlDbType.Int).Value = p_cvtipohr;
+            cmd.Parameters.Add("@p_stpremio", SqlDbType.Int).Value = p_stpremio;
+            cmd.Parameters.Add("@p_cvafecta", SqlDbType.Int).Value = p_cvafecta;
+            cmd.Parameters.Add("@p_stpasanom", SqlDbType.Int).Value = p_stpasanom;
+            cmd.Parameters.Add("@p_imphrsdias", SqlDbType.VarChar).Value = p_imphrsdias;
+            cmd.Parameters.Add("@p_campo", SqlDbType.VarChar).Value = p_campo;
+            cmd.Parameters.Add("@p_formula", SqlDbType.VarChar).Value = p_formula;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
-            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumod;
             objConexion.asignarConexion(cmd);
 
             int p_respuesta = Convert.ToInt32(cmd.ExecuteScalar());

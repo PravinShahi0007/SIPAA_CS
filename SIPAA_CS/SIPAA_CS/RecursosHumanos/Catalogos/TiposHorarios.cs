@@ -230,8 +230,8 @@ namespace SIPAA_CS.RecursosHumanos
             ftooltip();
 
             //variable para inserta nuevo registro
-            pins = 1;
-            pact = 1;
+            pins = 0;
+            pact = 0;
             pelim = 1;
             pcvtipohr = 0;
             pactbtn = 0;
