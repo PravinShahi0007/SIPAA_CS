@@ -40,6 +40,33 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
+        private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbEliminar.Checked == true)
+            {
+                //btnGuardar.Image = Resources.Alta;
+                variable = 3;
+                if (stmodulo == 0)
+                {
+
+                    btnGuardar.Image = Resources.Alta;
+                    //Utilerias.AsignarBotonResize(btnGuardar,);
+                }
+                else if (stmodulo == 1)
+                {
+
+                    btnGuardar.Image = Resources.Borrar;
+                }
+
+            }
+            else
+            {
+                variable = 0;
+                btnGuardar.Image = Resources.Editar;
+
+
+            }
+        }
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
@@ -109,54 +136,6 @@ namespace SIPAA_CS.Accesos
             utilerias.ChangeButton(btnGuardar,1,false);
             txtCvModulo.Focus();
         }
-
-
-        //-----------------------------------------------------------------------------------------------
-        //                           C A J A S      D E      T E X T O   
-        //-----------------------------------------------------------------------------------------------
-
-        //-----------------------------------------------------------------------------------------------
-        //                                     E V E N T O S
-        //-----------------------------------------------------------------------------------------------
-        private void Modulos_Load(object sender, EventArgs e)
-        {
-            LlenarGridModulos("", "", "", 0, "", "", "", 0, "", "", 4,dgvModulos);
-        }
-
-        //-----------------------------------------------------------------------------------------------
-        //                                      F U N C I O N E S 
-        //-----------------------------------------------------------------------------------------------
-        public void LlenarGridModulos(string cvmodulo, string descripcion, string cvmodpad, int orden, string ambiente, string modulo, string rutaaaceso, int stmodulo, string usumod, string prgumod, int opcion, DataGridView dgvModulo)
-        {
-
-            if (dgvModulo.Columns.Count > 1)
-            {
-                dgvModulo.Columns.RemoveAt(0);
-            }
-            Modulo objModulo = new Modulo();
-            DataTable dtModulo = objModulo.ObtenerModulo(cvmodulo, descripcion, cvmodpad, orden, ambiente, modulo, rutaaaceso, stmodulo, usumod, prgumod, opcion);
-
-            dgvModulo.DataSource = dtModulo;
-
-            DataGridViewImageColumn imgCheckProcesos = new DataGridViewImageColumn();
-            imgCheckProcesos.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckProcesos.Name = "Seleccionar";
-            dgvModulo.Columns.Insert(0, imgCheckProcesos);
-            dgvModulo.Columns[0].HeaderText = "Seleccionar";
-            dgvModulos.Columns[1].Visible = false;
-            //dgvModulos.Columns[2].Visible = false;
-            dgvModulos.Columns[3].Visible = false;
-            dgvModulos.Columns[4].Visible = false;
-            dgvModulos.Columns[5].Visible = false;
-            dgvModulos.Columns[6].Visible = false;
-            dgvModulos.Columns[7].Visible = false;
-            //dgvModulos.Columns[8].Visible = false;
-            dgvModulos.Columns[9].Visible = false;
-            dgvModulos.Columns[10].Visible = false;
-
-            dgvModulo.ClearSelection();
-        }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             modulo = txtBuscarModulo.Text;
@@ -171,10 +150,10 @@ namespace SIPAA_CS.Accesos
             //agregar
             if (variable == 1)
             {
-                
-                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text !="" && cbAmbiente.SelectedIndex == 0 && cbModulo.SelectedIndex == 0)
+
+                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" && cbAmbiente.SelectedIndex == 0 && cbModulo.SelectedIndex == 0)
                 {
-                   
+
                     if (utilerias.IsNumber(txtOrden.Text))
                     {
                         cvmodulo = txtCvModulo.Text;
@@ -187,7 +166,7 @@ namespace SIPAA_CS.Accesos
                         prgmod = this.Name;
 
 
-                        response = objModulo.CrearModulo(cvmodulo, descripcion, cvmodpad, orden, ambiente, modulo, "", 1, usuumod, prgmod,2);
+                        response = objModulo.CrearModulo(cvmodulo, descripcion, cvmodpad, orden, ambiente, modulo, "", 1, usuumod, prgmod, 2);
 
                         Modulos_Load(sender, e);
                         if (response == 1)
@@ -207,7 +186,7 @@ namespace SIPAA_CS.Accesos
                         timer1.Start();
                         txtOrden.Focus();
                     }
-                    
+
                 }
                 else
                 {
@@ -219,8 +198,8 @@ namespace SIPAA_CS.Accesos
             //update
             if (variable == 2)
             {
-                
-                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" )
+
+                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "")
                 {
 
                     if (utilerias.IsNumber(txtOrden.Text))
@@ -267,7 +246,7 @@ namespace SIPAA_CS.Accesos
             //cambio de status
             if (variable == 3)
             {
-                
+
                 if (dgvModulos.SelectedRows.Count != 0)
                 {
                     ckbEliminar.Checked = false;
@@ -281,42 +260,57 @@ namespace SIPAA_CS.Accesos
                 }
             }
         }
+        //-----------------------------------------------------------------------------------------------
+        //                           C A J A S      D E      T E X T O   
+        //-----------------------------------------------------------------------------------------------
+
+        //-----------------------------------------------------------------------------------------------
+        //                                     E V E N T O S
+        //-----------------------------------------------------------------------------------------------
+        private void Modulos_Load(object sender, EventArgs e)
+        {
+            LlenarGridModulos("", "", "", 0, "", "", "", 0, "", "", 4,dgvModulos);
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             panelTag.Visible = false;
             timer1.Stop();
         }
-
-        private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+        public void LlenarGridModulos(string cvmodulo, string descripcion, string cvmodpad, int orden, string ambiente, string modulo, string rutaaaceso, int stmodulo, string usumod, string prgumod, int opcion, DataGridView dgvModulo)
         {
-            if (ckbEliminar.Checked == true)
+
+            if (dgvModulo.Columns.Count > 1)
             {
-                //btnGuardar.Image = Resources.Alta;
-                variable = 3;
-                if (stmodulo == 0)
-                {
-
-                    btnGuardar.Image = Resources.Alta;
-                    //Utilerias.AsignarBotonResize(btnGuardar,);
-                }
-                else if (stmodulo == 1)
-                {
-
-                    btnGuardar.Image = Resources.Borrar;
-                }
-                
+                dgvModulo.Columns.RemoveAt(0);
             }
-            else
-            {
-                variable = 0;
-                btnGuardar.Image = Resources.Editar;
+            Modulo objModulo = new Modulo();
+            DataTable dtModulo = objModulo.ObtenerModulo(cvmodulo, descripcion, cvmodpad, orden, ambiente, modulo, rutaaaceso, stmodulo, usumod, prgumod, opcion);
 
+            dgvModulo.DataSource = dtModulo;
 
-            }
+            DataGridViewImageColumn imgCheckProcesos = new DataGridViewImageColumn();
+            imgCheckProcesos.Image = Resources.ic_lens_blue_grey_600_18dp;
+            imgCheckProcesos.Name = "Seleccionar";
+            dgvModulo.Columns.Insert(0, imgCheckProcesos);
+            dgvModulo.Columns[0].HeaderText = "Seleccionar";
+            dgvModulos.Columns[1].Visible = false;
+            //dgvModulos.Columns[2].Visible = false;
+            dgvModulos.Columns[3].Visible = false;
+            dgvModulos.Columns[4].Visible = false;
+            dgvModulos.Columns[5].Visible = false;
+            dgvModulos.Columns[6].Visible = false;
+            dgvModulos.Columns[7].Visible = false;
+            //dgvModulos.Columns[8].Visible = false;
+            dgvModulos.Columns[9].Visible = false;
+            dgvModulos.Columns[10].Visible = false;
+
+            dgvModulo.ClearSelection();
         }
-
-
+        
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="App_Code\Accesos\Asignaciones\AreaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\CompaniaUsuario.cs" />
+    <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\DiaSemana.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\IncNomina.cs" />
@@ -138,6 +139,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Asignaciones\UbicacionesUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Asignaciones\UbicacionesUsuario.Designer.cs">
+      <DependentUpon>UbicacionesUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\CompaniasTiposNominas.cs">
       <SubType>Form</SubType>
@@ -318,6 +325,9 @@
       <DependentUpon>Modulos.cs</DependentUpon>
     </EmbeddedResource>
     <!--<EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">-->
+    <EmbeddedResource Include="RecursosHumanos\Asignaciones\UbicacionesUsuario.resx">
+      <DependentUpon>UbicacionesUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\CompaniasTiposNominas.resx">
       <DependentUpon>CompaniasTiposNominas.cs</DependentUpon>
     </EmbeddedResource>
@@ -431,19 +441,10 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_local_shipping_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_power_settings_new_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\drawable-hdpi\ic_input_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\drawable-hdpi\ic_help_outline_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_reply_white_18dp.png" />
@@ -452,34 +453,10 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_add_circle_outline_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_delete_forever_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_save_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_create_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_grey_600_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_home_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_lens_blue_grey_600_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_green_400_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_account_circle_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_fingerprint_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_view_list_white_18dp.png" />
@@ -515,15 +492,6 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_settings_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_check_white_24dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_local_shipping_black_24dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_local_shipping_black_24dp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_local_shipping_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
@@ -531,15 +499,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_local_shipping_black_24dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drawable-hdpi\ic_check_circle_blue_grey_600_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_blue_dark_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_white_18dp.png" />
@@ -555,9 +514,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\drawable-xhdpi\ic_group_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drawable-xhdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\drawable-xhdpi\ic_monetization_on_white_48dp.png" />
@@ -745,7 +701,6 @@
     <None Include="Resources\b3.png" />
     <None Include="Resources\b4.png" />
     <None Include="Resources\b5.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_light_blue_A100_18dp.png" />
     <None Include="Resources\log2.png" />
     <None Include="Resources\btningresar3.png" />
     <None Include="Resources\btnpass.png" />
