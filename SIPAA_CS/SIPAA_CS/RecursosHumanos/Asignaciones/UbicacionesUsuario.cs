@@ -121,9 +121,11 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         }
 
         private void btnBuscarUbicaciones_Click(object sender, EventArgs e)
-        {
-            ubicacion = txtUbicacion.Text;
-            llenarGridUbicaciones(ubicacion.Trim());
+        {   
+            string ubi = txtUbicacion.Text;
+            dgvUbicaciones.Columns.Remove(columnName: "Seleccionar");
+            llenarGridUbicaciones(ubi.Trim());
+            txtUbicacion.Text = "";
         }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -218,9 +220,9 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
 
             for (int iContador = 0; iContador < dgvUbicaciones.Rows.Count; iContador++)
             {
-                int idcompanias = Convert.ToInt32(dgvUbicaciones.Rows[iContador].Cells[1].Value.ToString());
+                int idubicacion = Convert.ToInt32(dgvUbicaciones.Rows[iContador].Cells[1].Value.ToString());
 
-                if (ltUbicacionesxUsuario.Contains(idcompanias))
+                if (ltUbicacionesxUsuario.Contains(idubicacion))
                 {
                     dgvUbicaciones.Rows[iContador].Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                     dgvUbicaciones.Rows[iContador].Cells[0].Tag = "check";
