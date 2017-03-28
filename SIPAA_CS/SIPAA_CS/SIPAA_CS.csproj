@@ -140,6 +140,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Asignaciones\DepartamentosUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Asignaciones\DepartamentosUsuario.Designer.cs">
+      <DependentUpon>DepartamentosUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Asignaciones\UbicacionesUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +331,9 @@
       <DependentUpon>Modulos.cs</DependentUpon>
     </EmbeddedResource>
     <!--<EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">-->
+    <EmbeddedResource Include="RecursosHumanos\Asignaciones\DepartamentosUsuario.resx">
+      <DependentUpon>DepartamentosUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Asignaciones\UbicacionesUsuario.resx">
       <DependentUpon>UbicacionesUsuario.cs</DependentUpon>
     </EmbeddedResource>
