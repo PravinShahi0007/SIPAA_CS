@@ -123,6 +123,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         private void btnBuscarUbicaciones_Click(object sender, EventArgs e)
         {   
             string ubi = txtUbicacion.Text;
+            panelPermisos.Enabled = false;
             dgvUbicaciones.Columns.Remove(columnName: "Seleccionar");
             llenarGridUbicaciones(ubi.Trim());
             txtUbicacion.Text = "";
