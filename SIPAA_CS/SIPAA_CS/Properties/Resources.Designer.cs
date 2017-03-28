@@ -213,69 +213,9 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnadd1 {
-            get {
-                object obj = ResourceManager.GetObject("btnadd1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnadd2 {
-            get {
-                object obj = ResourceManager.GetObject("btnadd2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap btnAlta {
             get {
                 object obj = ResourceManager.GetObject("btnAlta", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btncre {
-            get {
-                object obj = ResourceManager.GetObject("btncre", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btncre1 {
-            get {
-                object obj = ResourceManager.GetObject("btncre1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btncreinfo {
-            get {
-                object obj = ResourceManager.GetObject("btncreinfo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btncreinfo1 {
-            get {
-                object obj = ResourceManager.GetObject("btncreinfo1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,39 +233,9 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btndel1 {
-            get {
-                object obj = ResourceManager.GetObject("btndel1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btndel11 {
-            get {
-                object obj = ResourceManager.GetObject("btndel11", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap btnEdit {
             get {
                 object obj = ResourceManager.GetObject("btnEdit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btninfo {
-            get {
-                object obj = ResourceManager.GetObject("btninfo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,26 +263,6 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnremove {
-            get {
-                object obj = ResourceManager.GetObject("btnremove", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnremove1 {
-            get {
-                object obj = ResourceManager.GetObject("btnremove1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap btnRemove2 {
             get {
                 object obj = ResourceManager.GetObject("btnRemove2", resourceCulture);
@@ -393,69 +283,9 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnsave {
-            get {
-                object obj = ResourceManager.GetObject("btnsave", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnsave1 {
-            get {
-                object obj = ResourceManager.GetObject("btnsave1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap btnSearch {
             get {
                 object obj = ResourceManager.GetObject("btnSearch", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnsearch1 {
-            get {
-                object obj = ResourceManager.GetObject("btnsearch1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnsearch11 {
-            get {
-                object obj = ResourceManager.GetObject("btnsearch11", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnsearchinfo {
-            get {
-                object obj = ResourceManager.GetObject("btnsearchinfo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnsearchinfo1 {
-            get {
-                object obj = ResourceManager.GetObject("btnsearchinfo1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -783,16 +613,6 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ic_keyboard_arrow_right_light_blue_A700_24dp {
-            get {
-                object obj = ResourceManager.GetObject("ic_keyboard_arrow_right_light_blue_A700_24dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ic_keyboard_arrow_right_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_keyboard_arrow_right_white_18dp", resourceCulture);
@@ -806,16 +626,6 @@ namespace SIPAA_CS.Properties {
         internal static System.Drawing.Bitmap ic_lens_blue_grey_600_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_lens_blue_grey_600_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ic_local_shipping_black_24dp {
-            get {
-                object obj = ResourceManager.GetObject("ic_local_shipping_black_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1076,26 +886,6 @@ namespace SIPAA_CS.Properties {
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pass24x24 {
-            get {
-                object obj = ResourceManager.GetObject("pass24x24", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap user24x24 {
-            get {
-                object obj = ResourceManager.GetObject("user24x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

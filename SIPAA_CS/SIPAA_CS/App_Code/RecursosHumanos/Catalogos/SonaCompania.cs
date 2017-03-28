@@ -39,7 +39,7 @@ namespace SIPAA_CS.App_Code
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_sonacompania_s";
+            cmd.CommandText = @"usp_compania_s";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -85,23 +85,24 @@ namespace SIPAA_CS.App_Code
 
         public DataTable ObtenerUbicacionPlantel( string PlantaDesc)
         {
+            
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_sonaubicacion_s";
+            cmd.CommandText = "usp_sonaubicacion_s";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
 
-         
             cmd.Parameters.Add("@p_ubicacion", SqlDbType.VarChar).Value = PlantaDesc;
-
+            
             objConexion.asignarConexion(cmd);
 
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
 
             objConexion.cerrarConexion();
 
-            DataTable dtPlanta = new DataTable();
-            Adapter.Fill(dtPlanta);
-            return dtPlanta;
+            DataTable dtProceso = new DataTable();
+            Adapter.Fill(dtProceso);
+            return dtProceso;
         }
 
     }

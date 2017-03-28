@@ -271,19 +271,19 @@ namespace SIPAA_CS.App_Code
                     case 1:
                         //Clase Success - Color Verde
                         //btn.Enabled = true;
-                        btn.Image = Resources.btnAdd;
+                        btn.Image = Resources.Guardar;
 
                         break;
                     case 2:
                         //Clase Info - Color Azul
                         //btn.Enabled = true;
-                        btn.Image = Resources.btnEdit;
+                        btn.Image = Resources.Editar;
 
                         break;
                     case 3:
                         //Clase Danger - Color Rojo
                         //btn.Enabled = true;
-                        btn.Image = Resources.btnRemove2;
+                        btn.Image = Resources.Borrar;
 
                         break;
                     default:

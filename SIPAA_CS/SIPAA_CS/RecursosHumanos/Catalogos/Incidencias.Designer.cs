@@ -30,13 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Incidencias));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlAct = new System.Windows.Forms.Panel();
+            this.btnActiva = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtCapOrd = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,8 +46,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtCapInc = new System.Windows.Forms.TextBox();
             this.lblAct = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvIncidencia = new System.Windows.Forms.DataGridView();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
@@ -76,7 +77,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
-            this.btnAgregar.Location = new System.Drawing.Point(884, 145);
+            this.btnAgregar.Location = new System.Drawing.Point(926, 156);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
             this.btnAgregar.TabIndex = 151;
@@ -109,6 +110,7 @@
             // 
             // pnlAct
             // 
+            this.pnlAct.Controls.Add(this.btnActiva);
             this.pnlAct.Controls.Add(this.panel1);
             this.pnlAct.Controls.Add(this.txtCapOrd);
             this.pnlAct.Controls.Add(this.label6);
@@ -117,8 +119,8 @@
             this.pnlAct.Controls.Add(this.panel3);
             this.pnlAct.Controls.Add(this.txtCapInc);
             this.pnlAct.Controls.Add(this.lblAct);
-            this.pnlAct.Controls.Add(this.btnEliminar);
             this.pnlAct.Controls.Add(this.btnGuardar);
+            this.pnlAct.Controls.Add(this.btnEliminar);
             this.pnlAct.Controls.Add(this.btnEditar);
             this.pnlAct.Location = new System.Drawing.Point(36, 353);
             this.pnlAct.Name = "pnlAct";
@@ -126,6 +128,20 @@
             this.pnlAct.TabIndex = 147;
             this.pnlAct.TabStop = true;
             this.pnlAct.Visible = false;
+            // 
+            // btnActiva
+            // 
+            this.btnActiva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnActiva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActiva.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnActiva.Image = global::SIPAA_CS.Properties.Resources.Alta;
+            this.btnActiva.Location = new System.Drawing.Point(362, 18);
+            this.btnActiva.Name = "btnActiva";
+            this.btnActiva.Size = new System.Drawing.Size(59, 50);
+            this.btnActiva.TabIndex = 158;
+            this.btnActiva.UseVisualStyleBackColor = false;
+            this.btnActiva.Visible = false;
+            this.btnActiva.Click += new System.EventHandler(this.btnActiva_Click);
             // 
             // panel1
             // 
@@ -215,6 +231,19 @@
             this.lblAct.TabIndex = 41;
             this.lblAct.Text = "     Agregar Incidencia";
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.btnGuardar.Location = new System.Drawing.Point(362, 18);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(59, 50);
+            this.btnGuardar.TabIndex = 52;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
+            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -223,24 +252,11 @@
             this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.Baja;
             this.btnEliminar.Location = new System.Drawing.Point(362, 18);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(50, 50);
+            this.btnEliminar.Size = new System.Drawing.Size(59, 50);
             this.btnEliminar.TabIndex = 54;
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Visible = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardar.Location = new System.Drawing.Point(359, 23);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(50, 50);
-            this.btnGuardar.TabIndex = 52;
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
             // btnEditar
             // 
@@ -260,29 +276,29 @@
             // 
             this.dgvIncidencia.AllowUserToAddRows = false;
             this.dgvIncidencia.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvIncidencia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvIncidencia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvIncidencia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvIncidencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvIncidencia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIncidencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIncidencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvIncidencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvIncidencia.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvIncidencia.Location = new System.Drawing.Point(573, 212);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvIncidencia.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvIncidencia.Location = new System.Drawing.Point(538, 212);
             this.dgvIncidencia.Name = "dgvIncidencia";
             this.dgvIncidencia.ReadOnly = true;
             this.dgvIncidencia.RowHeadersVisible = false;
@@ -290,7 +306,7 @@
             this.dgvIncidencia.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvIncidencia.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvIncidencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIncidencia.Size = new System.Drawing.Size(361, 345);
+            this.dgvIncidencia.Size = new System.Drawing.Size(438, 345);
             this.dgvIncidencia.TabIndex = 148;
             this.dgvIncidencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIncidencia_CellContentClick_1);
             // 
@@ -369,9 +385,9 @@
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTag.ForeColor = System.Drawing.Color.White;
-            this.panelTag.Location = new System.Drawing.Point(573, 563);
+            this.panelTag.Location = new System.Drawing.Point(538, 563);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(361, 25);
+            this.panelTag.Size = new System.Drawing.Size(438, 25);
             this.panelTag.TabIndex = 153;
             this.panelTag.Visible = false;
             // 
@@ -394,7 +410,7 @@
             this.lblModifElim.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModifElim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.lblModifElim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblModifElim.Location = new System.Drawing.Point(570, 560);
+            this.lblModifElim.Location = new System.Drawing.Point(535, 560);
             this.lblModifElim.Name = "lblModifElim";
             this.lblModifElim.Size = new System.Drawing.Size(93, 16);
             this.lblModifElim.TabIndex = 152;
@@ -531,5 +547,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.TextBox txtCapOrd;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnActiva;
     }
 }

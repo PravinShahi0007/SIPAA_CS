@@ -82,10 +82,13 @@
     </Compile>
     <Compile Include="App_Code\Accesos\Asignaciones\AreaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\CompaniaUsuario.cs" />
+    <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\DiaSemana.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\IncNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Mensaje.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaCompania2.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaFormaPago.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
     <Compile Include="Accesos\AccesosDashboard.cs">
@@ -132,6 +135,23 @@
     <Compile Include="Accesos\Catalogos\Modulos.Designer.cs">
       <DependentUpon>Modulos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Asignaciones\DepartamentosUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Asignaciones\DepartamentosUsuario.Designer.cs">
+      <DependentUpon>DepartamentosUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Asignaciones\UbicacionesUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Asignaciones\UbicacionesUsuario.Designer.cs">
+      <DependentUpon>UbicacionesUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Catalogos\CompaniasTiposNominas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +166,18 @@
     </Compile>
     <!---<Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">-->
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Incidencia.cs" />
+    <Compile Include="RecursosHumanos\Catalogos\DiasSemana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\DiasSemana.designer.cs">
+      <DependentUpon>DiasSemana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\FormasPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\FormasPagos.Designer.cs">
+      <DependentUpon>FormasPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Incidencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,23 +356,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Accesos\Catalogos\Modulos.resx">
       <DependentUpon>Modulos.cs</DependentUpon>
     </EmbeddedResource>
     <!--<EmbeddedResource Include="Recursos_Humanos\frmCompanias.resx">-->
+    <EmbeddedResource Include="RecursosHumanos\Asignaciones\DepartamentosUsuario.resx">
+      <DependentUpon>DepartamentosUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Asignaciones\UbicacionesUsuario.resx">
+      <DependentUpon>UbicacionesUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\CompaniasTiposNominas.resx">
       <DependentUpon>CompaniasTiposNominas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\DiasSemana.resx">
+      <DependentUpon>DiasSemana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\FormasPagos.resx">
+      <DependentUpon>FormasPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Incidencias.resx">
       <DependentUpon>Incidencias.cs</DependentUpon>
@@ -468,19 +507,10 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_local_shipping_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_power_settings_new_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\drawable-hdpi\ic_input_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\drawable-hdpi\ic_help_outline_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_reply_white_18dp.png" />
@@ -489,34 +519,10 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_add_circle_outline_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_delete_forever_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_save_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_create_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_grey_600_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_home_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_lens_blue_grey_600_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_green_400_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_account_circle_white_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_fingerprint_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_view_list_white_18dp.png" />
@@ -552,15 +558,6 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_settings_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_check_white_24dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_local_shipping_black_24dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_local_shipping_black_24dp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_local_shipping_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
@@ -568,15 +565,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_local_shipping_black_24dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drawable-hdpi\ic_check_circle_blue_grey_600_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_blue_dark_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\drawable-hdpi\ic_keyboard_arrow_right_white_18dp.png" />
@@ -592,9 +580,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\drawable-xhdpi\ic_group_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drawable-xhdpi\ic_keyboard_arrow_right_light_blue_A700_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\drawable-xhdpi\ic_monetization_on_white_48dp.png" />
@@ -772,22 +757,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\16388379_1936191480000670_4493751231525441480_n.png" />
-    <None Include="Resources\icon_material\btnadd1.png" />
-    <None Include="Resources\icon_material\btncre.png" />
-    <None Include="Resources\icon_material\btncre1.png" />
-    <None Include="Resources\icon_material\btncreinfo.png" />
-    <None Include="Resources\icon_material\btncreinfo1.png" />
-    <None Include="Resources\icon_material\btndel.png" />
-    <None Include="Resources\icon_material\btndel1.png" />
-    <None Include="Resources\icon_material\btnremove.png" />
-    <None Include="Resources\icon_material\btnremove1.png" />
-    <None Include="Resources\icon_material\btnsave.png" />
-    <None Include="Resources\icon_material\btnsave1.png" />
-    <None Include="Resources\icon_material\btnsearch.png" />
-    <None Include="Resources\icon_material\btnsearch1.png" />
-    <None Include="Resources\icon_material\btnsearchinfo.png" />
-    <None Include="Resources\icon_material\btnsearchinfo1.png" />
-    <None Include="Resources\icon_material\btnadd.png" />
     <None Include="Resources\f8.png" />
     <None Include="Resources\f9.png" />
     <None Include="Resources\b6.png" />
@@ -798,7 +767,6 @@
     <None Include="Resources\b3.png" />
     <None Include="Resources\b4.png" />
     <None Include="Resources\b5.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\ic_check_circle_light_blue_A100_18dp.png" />
     <None Include="Resources\log2.png" />
     <None Include="Resources\btningresar3.png" />
     <None Include="Resources\btnpass.png" />
