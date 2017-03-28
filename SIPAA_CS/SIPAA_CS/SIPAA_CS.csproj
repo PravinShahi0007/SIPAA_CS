@@ -159,6 +159,12 @@
     <Compile Include="RecursosHumanos\Catalogos\DiasSemana.designer.cs">
       <DependentUpon>DiasSemana.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\FoarmasPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\FoarmasPagos.Designer.cs">
+      <DependentUpon>FoarmasPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Incidencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\DiasSemana.resx">
       <DependentUpon>DiasSemana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\FoarmasPagos.resx">
+      <DependentUpon>FoarmasPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Incidencias.resx">
       <DependentUpon>Incidencias.cs</DependentUpon>
