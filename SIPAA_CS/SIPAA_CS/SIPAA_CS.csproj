@@ -173,11 +173,11 @@
     <Compile Include="RecursosHumanos\Catalogos\DiasSemana.designer.cs">
       <DependentUpon>DiasSemana.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Catalogos\FoarmasPagos.cs">
+    <Compile Include="RecursosHumanos\Catalogos\FormasPagos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Catalogos\FoarmasPagos.Designer.cs">
-      <DependentUpon>FoarmasPagos.cs</DependentUpon>
+    <Compile Include="RecursosHumanos\Catalogos\FormasPagos.Designer.cs">
+      <DependentUpon>FormasPagos.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Incidencias.cs">
       <SubType>Form</SubType>
@@ -281,6 +281,14 @@
     <Compile Include="RecursosHumanos\Catalogos\IncidenciasNominas.Designer.cs">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.cs">
+      <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\RechDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +300,30 @@
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Ubicaciones.Designer.cs">
       <DependentUpon>Ubicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.Designer.cs">
+      <DependentUpon>FiltrosRegistroGeneradoDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\Observaciones.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Observaciones.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RegistroGeneradoDetalle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistroGeneradoDetalle.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\ViewerReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\ViewerReporte.Designer.cs">
+      <DependentUpon>ViewerReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
@@ -347,8 +379,8 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\DiasSemana.resx">
       <DependentUpon>DiasSemana.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Catalogos\FoarmasPagos.resx">
-      <DependentUpon>FoarmasPagos.cs</DependentUpon>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\FormasPagos.resx">
+      <DependentUpon>FormasPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Incidencias.resx">
       <DependentUpon>Incidencias.cs</DependentUpon>
@@ -401,6 +433,20 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\TiposHorarios.resx">
       <DependentUpon>TiposHorarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.resx">
+      <DependentUpon>FiltrosRegistroGeneradoDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\Observaciones.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Observaciones.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RegistroGeneradoDetalle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RegistroGeneradoDetalle.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\ViewerReporte.resx">
+      <DependentUpon>ViewerReporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
@@ -439,6 +485,17 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.xsc">
+      <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RegistroGeneradoDetalle.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.xss">
+      <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
+    </None>
     <None Include="Resources\drawable-xhdpi\ic_insert_chart_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
@@ -729,14 +786,19 @@
     <None Include="Resources\Editar30x30.png" />
     <None Include="Resources\Guardar20x20.png" />
     <None Include="Resources\Guardar30x30.png" />
+    <None Include="Resources\Imprimir.png" />
+    <None Include="Resources\Imprimir20x20.png" />
+    <None Include="Resources\Imprimir30x30.png" />
+    <Content Include="Resources\pass24x24.png" />
+    <None Include="Resources\user24x241.png" />
+    <None Include="Resources\pass24x241.png" />
+    <Content Include="Resources\user24x24.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Accesos\DataSet\" />
     <Folder Include="Accesos\Reportes\" />
     <Folder Include="App_Code\RecursosHumanos\Asistencias\" />
     <Folder Include="App_Code\RecursosHumanos\Incidencias\" />
-    <Folder Include="RecursosHumanos\DataSet\" />
-    <Folder Include="RecursosHumanos\Reportes\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
