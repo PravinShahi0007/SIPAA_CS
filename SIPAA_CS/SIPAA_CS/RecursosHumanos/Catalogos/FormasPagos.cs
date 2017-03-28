@@ -22,11 +22,11 @@ using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 
 namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
-    public partial class FoarmasPagos : Form
+    public partial class FormasPagos : Form
     {
 
         SonaFormaPago CFormaPago = new SonaFormaPago();
-        public FoarmasPagos()
+        public FormasPagos()
         {
             InitializeComponent();
         }
@@ -79,9 +79,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void FoarmasPagos_Load(object sender, EventArgs e)
         {
             //Configuracion de la pantalla
-            //int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            //int sysW = SystemInformation.PrimaryMonitorSize.Width;
-            //Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
             //LLAMA TOOL TIP
             sTooltip();
@@ -125,7 +125,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvConsulta.DataSource = dtConsulta;
 
             dgvConsulta.Columns[0].Visible = false;
-            dgvConsulta.Columns[1].Width = 225;
+            dgvConsulta.Columns[1].Width = 210;
             txtBusca.Focus();
         }
         //-----------------------------------------------------------------------------------------------
