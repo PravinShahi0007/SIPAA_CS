@@ -127,6 +127,20 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             llenarGridUbicaciones(ubi.Trim());
             txtUbicacion.Text = "";
         }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -235,8 +249,6 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             }
 
         }
-
-
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
