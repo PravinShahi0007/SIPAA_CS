@@ -49,6 +49,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.label1.Location = new System.Drawing.Point(521, 196);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 16);
@@ -60,6 +61,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.label2.Location = new System.Drawing.Point(521, 290);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 16);
@@ -171,14 +173,14 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(571, 118);
+            this.label3.Location = new System.Drawing.Point(12, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 29);
+            this.label3.Size = new System.Drawing.Size(418, 23);
             this.label3.TabIndex = 48;
-            this.label3.Text = "Acceso  -";
+            this.label3.Text = "Sistema Integral de Procesos Académicos y Administrativos";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -188,11 +190,11 @@
             this.label4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(660, 118);
+            this.label4.Location = new System.Drawing.Point(562, 125);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 29);
+            this.label4.Size = new System.Drawing.Size(190, 29);
             this.label4.TabIndex = 49;
-            this.label4.Text = "SIPAA";
+            this.label4.Text = "Acceso - SIPAA";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Acceso
