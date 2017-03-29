@@ -17,6 +17,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
     {
         public string cvusuario = "";
         public string nombre;
+        public string temporal;
 
         public int idplanta;
         public int idcompania;
@@ -40,13 +41,13 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         private void cbCompania_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //string comp1;
             int compania = cbCompania.SelectedIndex;
 
-            string comp = cbCompania.SelectedItem.ToString();
+            
 
             if (ltArea.Count == 0)
             {
-
                 if (compania == 0)
                 {
                     LlenarGridPlanteles(cbCompania.SelectedItem.ToString(), txtBuscarPlantel.Text, dgvPlantel);
@@ -61,18 +62,24 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
                 }
             }
             else {
-
+                
                 DialogResult result = MessageBox.Show("Se perderan tus asignaciones,¿Seguro que deseas cambiar de Compañia?", "SIPAA", MessageBoxButtons.YesNo);
+                
 
                 if (result == DialogResult.Yes)
                 {
                     LlenarGridPlanteles(cbCompania.SelectedItem.ToString(), txtBuscarPlantel.Text, dgvPlantel);
                     
                     AsignarPlantel();
+                    ltArea.Clear();
                 }
                 else if (result == DialogResult.No)
                 {
-                    llenaCombo();
+                    ltArea.Clear();
+                    cbCompania.SelectedIndex = cbCompania.FindStringExact(temporal);
+                    //LlenarGridPlanteles(cbCompania.SelectedItem.ToString(), txtBuscarPlantel.Text, dgvPlantel);
+                    AsignarPlantel();
+                    
                 }
                 
             }
@@ -115,7 +122,14 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
                         panelPermisos.Enabled = true;
 
                         ltArea.Add(idplanta);
+
+                        if (cbCompania.SelectedIndex > 0)
+                        {
+                            temporal = cbCompania.SelectedValue.ToString();
+                        }
                         
+
+
                         if (row.Cells[0].Tag.ToString() == "check")
                         {
 
@@ -154,6 +168,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
             cvusuario = null;
+            cbCompania.Enabled = false;
             string IdTrab = txtIdTrab.Text;
             string nombre = txtUsuario.Text;
             dgvUsuarios.Columns.Remove(columnName: "Seleccionar");
@@ -185,6 +200,8 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
                     timer1.Start();
                     llenaCombo();
+                    cbCompania.Enabled = false;
+                    LlenarGridPlanteles("", "", dgvPlantel);
                 }
                 catch (Exception ex)
                 {
@@ -205,8 +222,8 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
 
         private void btnBuscarPlantel_Click(object sender, EventArgs e)
         {
-            
-            LlenarGridPlanteles(cbCompania.SelectedItem.ToString(), txtBuscarPlantel.Text, dgvPlantel);
+            cbCompania.Enabled = false;
+            LlenarGridPlanteles("", txtBuscarPlantel.Text, dgvPlantel);
             txtBuscarPlantel.Text="";
             
         }
@@ -244,7 +261,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         public void llenaCombo()
         {
             SonaCompania objCia = new SonaCompania();
-            DataTable dtCia = objCia.obtcomp(1, "");
+            DataTable dtCia = objCia.obtcomp(5, "");
 
 
             List<string> ltCia = new List<string>();
@@ -293,6 +310,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             
             dgvPlantel.Columns[1].Visible = false;
             dgvPlantel.Columns[2].Visible = false;
+            dgvPlantel.Columns[3].Visible = false;
             dgvPlantel.ClearSelection();
             
         }
@@ -314,7 +332,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             imgCheckProcesos.Name = "Seleccionar";
             dgvPlantel.Columns.Insert(0, imgCheckProcesos);
             dgvPlantel.Columns[0].HeaderText = "Seleccionar";
-            
+            dgvPlantel.Columns["IdPlanta"].Visible = true;
             dgvPlantel.ClearSelection();
         }
 

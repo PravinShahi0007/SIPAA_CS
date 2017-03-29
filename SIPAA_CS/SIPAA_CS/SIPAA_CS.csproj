@@ -289,7 +289,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\FiltrosRegistroGeneradoDetallle.cs" />
     <Compile Include="RecursosHumanos\RechDashboard.cs">
       <SubType>Form</SubType>
     </Compile>

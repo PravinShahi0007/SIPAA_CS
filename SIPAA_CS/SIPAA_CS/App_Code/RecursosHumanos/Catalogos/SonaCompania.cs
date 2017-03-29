@@ -39,7 +39,7 @@ namespace SIPAA_CS.App_Code
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_compania_s";
+            cmd.CommandText = @"usp_sonacompania_s";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
