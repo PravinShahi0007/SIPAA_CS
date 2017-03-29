@@ -16,7 +16,7 @@ namespace SIPAA_CS.App_Code
         {
 
         }
-
+        //VALIDACION PERMISO COMPAÑIA
         public List<int> ObtenerCompaniasxUsuario(string cvusuario)
         {
 
@@ -39,6 +39,8 @@ namespace SIPAA_CS.App_Code
                 int idcompania = reader.GetInt32(reader.GetOrdinal("idcompania"));
 
                 ltCompaniasxUsuario.Add(idcompania);
+                //MUESTRA LAS COMPAÑIAS ASIGNADAS A UN USUARIO
+                Console.WriteLine(idcompania);
             }
 
             objConexion.cerrarConexion();

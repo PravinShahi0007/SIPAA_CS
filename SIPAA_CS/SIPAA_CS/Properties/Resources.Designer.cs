@@ -433,6 +433,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_assignment_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_assignment_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_check_circle_blue_grey_600_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_check_circle_blue_grey_600_18dp", resourceCulture);
@@ -546,6 +556,16 @@ namespace SIPAA_CS.Properties {
         internal static System.Drawing.Bitmap ic_fitness_center_white_48dp {
             get {
                 object obj = ResourceManager.GetObject("ic_fitness_center_white_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_group_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_group_white_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -816,6 +836,36 @@ namespace SIPAA_CS.Properties {
         internal static System.Drawing.Bitmap ic_work_white_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_work_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Imprimir {
+            get {
+                object obj = ResourceManager.GetObject("Imprimir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Imprimir20x20 {
+            get {
+                object obj = ResourceManager.GetObject("Imprimir20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Imprimir30x30 {
+            get {
+                object obj = ResourceManager.GetObject("Imprimir30x30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

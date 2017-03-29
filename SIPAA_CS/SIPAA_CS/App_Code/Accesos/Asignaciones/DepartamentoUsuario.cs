@@ -9,24 +9,24 @@ using System.Threading.Tasks;
 
 namespace SIPAA_CS.App_Code.Accesos.Asignaciones
 {
-    class UbicacionUsuario
+    class DepartamentoUsuario
     {
 
-        public UbicacionUsuario()
+        public DepartamentoUsuario()
         {
 
         }
-        //VALIDA PERMISO HUBICACION DE UN USUARIO
-        public List<int> ObtenerUbicacionesxUsuario(string cvusuario, int ubicacion, string usuumod, string prgumod, int opcion)
+        //VALIDACION PERMISO COMPAÑIA
+        public List<string> ObtenerDepartamentosxUsuario(string cvusuario, string iddepartamento, string usuumod, string prgumod, int opcion)
         {
 
-            List<int> ltUbicacionesxUsuario = new List<int>();
+            List<string> ltDepartamentosxUsuario = new List<string>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusuubi_sui";
+            cmd.CommandText = "usp_accetusudep_sui";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@p_idubicacion", SqlDbType.Int).Value = ubicacion;
+            cmd.Parameters.Add("@p_iddepartamento", SqlDbType.VarChar).Value = iddepartamento;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
@@ -40,23 +40,17 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
             while (reader.Read())
             {
 
-                int idubicacion = reader.GetInt32(reader.GetOrdinal("idubicacion"));
+                string iddep = reader.GetString(reader.GetOrdinal("iddepto"));
 
-                ltUbicacionesxUsuario.Add(idubicacion);
-
-                //MUESTRA LAS UBICACIONES ASIGNADAS A UN USUARIO
-                Console.WriteLine(idubicacion);
-
-
+                ltDepartamentosxUsuario.Add(iddep);
+                //MUESTRA LOS DEPARTAMENTOS ASIGNADOS A UN USUARIO
+                Console.WriteLine(iddep);
             }
 
             objConexion.cerrarConexion();
 
-            return ltUbicacionesxUsuario;
+            return ltDepartamentosxUsuario;
 
         }
     }
-
-    
-
 }

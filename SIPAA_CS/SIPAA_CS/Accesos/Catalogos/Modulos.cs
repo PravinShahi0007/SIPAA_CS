@@ -151,9 +151,10 @@ namespace SIPAA_CS.Accesos
             if (variable == 1)
             {
 
-                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" && cbAmbiente.SelectedIndex == 0 && cbModulo.SelectedIndex == 0)
+                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" && cbAmbiente.SelectedIndex != -1 && cbModulo.SelectedIndex != -1)
                 {
-
+                    //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "ja");
+                    //timer1.Start();
                     if (utilerias.IsNumber(txtOrden.Text))
                     {
                         cvmodulo = txtCvModulo.Text;
@@ -166,17 +167,24 @@ namespace SIPAA_CS.Accesos
                         prgmod = this.Name;
 
 
-                        response = objModulo.CrearModulo(cvmodulo, descripcion, cvmodpad, orden, ambiente, modulo, "", 1, usuumod, prgmod, 2);
+                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo, "", 1, usuumod, prgmod, 1);
 
+                        txtCvModulo.Text = "";
+                        txtDescripcion.Text = "";
+                        txtModPad.Text = "";
+                        txtOrden.Text = "";
+                        cbAmbiente.Text = "Selecciona un Ambiente";
+                        cbModulo.Text = "Selecciona un Módulo";
+                        txtCvModulo.Focus();
                         Modulos_Load(sender, e);
                         if (response == 1)
                         {
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Se creo correctamente");
                             timer1.Start();
                         }
-                        else
+                        if(response == 0)
                         {
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Intentalo mas tarde");
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El registro ya existe");
                             timer1.Start();
                         }
                     }
@@ -214,7 +222,7 @@ namespace SIPAA_CS.Accesos
                         prgmod = this.Name;
 
 
-                        response = objModulo.CrearModulo(cvmodulo, descripcion, cvmodpad, orden, ambiente, modulo, "", 0, usuumod, prgmod, 2);
+                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo, "", 0, usuumod, prgmod, 2);
                         Modulos_Load(sender, e);
                         if (response == 1)
                         {
@@ -250,7 +258,7 @@ namespace SIPAA_CS.Accesos
                 if (dgvModulos.SelectedRows.Count != 0)
                 {
                     ckbEliminar.Checked = false;
-                    response = objModulo.CrearModulo(cvmodulo, "", "", 0, "", "", "", 0, "", "", 3);
+                    response = objModulo.CrearModulo(cvmodulo.Trim(), "", "", 0, "", "", "", 0, "", "", 3);
                     Modulos_Load(sender, e);
                 }
                 else

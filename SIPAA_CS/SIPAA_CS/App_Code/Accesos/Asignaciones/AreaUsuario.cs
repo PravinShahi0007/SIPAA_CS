@@ -16,6 +16,7 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
 
         }
 
+        //VALIDACION PERMISO AREA (CENTRO DE COSTO)
         public List<int> ObtenerAreaxUsuario(int idcompania)
         {
 
@@ -25,7 +26,7 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
             cmd.CommandType = CommandType.StoredProcedure;
 
             //cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@idcompania", SqlDbType.Int).Value = idcompania;
+            cmd.Parameters.Add("@p_idcompania", SqlDbType.Int).Value = idcompania;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -37,8 +38,13 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
             {
 
                 int idarea = reader.GetInt32(reader.GetOrdinal("idplanta"));
+                //int idcomp = reader.GetInt32(reader.GetOrdinal("idcompania"));
 
                 ltAreasxUsuario.Add(idarea);
+                //MUESTRA LAS AREAS ASIGNADAS A UN USUARIO
+                Console.WriteLine(idarea);
+                //Console.WriteLine(idcomp);
+
             }
 
             objConexion.cerrarConexion();

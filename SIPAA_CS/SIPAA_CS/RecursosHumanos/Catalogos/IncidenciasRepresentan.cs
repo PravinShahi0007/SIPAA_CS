@@ -11,6 +11,9 @@ using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos;
 
+using CrystalDecisions.CrystalReports.Engine;
+using SIPAA_CS.RecursosHumanos.Reportes;
+
 namespace SIPAA_CS.RecursosHumanos
 {
     public partial class IncidenciasRepresentan : Form
@@ -313,7 +316,13 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
-   
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+          
+        }
+
+
 
 
         //-----------------------------------------------------------------------------------------------

@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="App_Code\Accesos\Asignaciones\AreaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\CompaniaUsuario.cs" />
+    <Compile Include="App_Code\Accesos\Asignaciones\DepartamentoUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
     <Compile Include="App_Code\Generales\status.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
@@ -281,6 +282,14 @@
     <Compile Include="RecursosHumanos\Catalogos\IncidenciasNominas.Designer.cs">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.cs">
+      <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\RechDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +301,36 @@
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Ubicaciones.Designer.cs">
       <DependentUpon>Ubicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroObservaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroObservaciones.Designer.cs">
+      <DependentUpon>FiltroObservaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.Designer.cs">
+      <DependentUpon>FiltrosRegistroGeneradoDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\Observaciones.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Observaciones.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RegistroGeneradoDetalle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistroGeneradoDetalle.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\ViewerReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\ViewerReporte.Designer.cs">
+      <DependentUpon>ViewerReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
@@ -401,6 +440,23 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\TiposHorarios.resx">
       <DependentUpon>TiposHorarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroObservaciones.resx">
+      <DependentUpon>FiltroObservaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.resx">
+      <DependentUpon>FiltrosRegistroGeneradoDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\Observaciones.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Observaciones.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RegistroGeneradoDetalle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RegistroGeneradoDetalle.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\ViewerReporte.resx">
+      <DependentUpon>ViewerReporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
@@ -439,6 +495,17 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.xsc">
+      <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RegistroGeneradoDetalle.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.xss">
+      <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
+    </None>
     <None Include="Resources\drawable-xhdpi\ic_insert_chart_white_48dp.png" />
   </ItemGroup>
   <ItemGroup>
@@ -729,14 +796,18 @@
     <None Include="Resources\Editar30x30.png" />
     <None Include="Resources\Guardar20x20.png" />
     <None Include="Resources\Guardar30x30.png" />
+    <None Include="Resources\Imprimir.png" />
+    <None Include="Resources\Imprimir20x20.png" />
+    <None Include="Resources\Imprimir30x30.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_assignment_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_group_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_group_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Accesos\DataSet\" />
     <Folder Include="Accesos\Reportes\" />
     <Folder Include="App_Code\RecursosHumanos\Asistencias\" />
     <Folder Include="App_Code\RecursosHumanos\Incidencias\" />
-    <Folder Include="RecursosHumanos\DataSet\" />
-    <Folder Include="RecursosHumanos\Reportes\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
