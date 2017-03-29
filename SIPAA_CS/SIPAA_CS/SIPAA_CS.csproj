@@ -789,10 +789,6 @@
     <None Include="Resources\Imprimir.png" />
     <None Include="Resources\Imprimir20x20.png" />
     <None Include="Resources\Imprimir30x30.png" />
-    <Content Include="Resources\pass24x24.png" />
-    <None Include="Resources\user24x241.png" />
-    <None Include="Resources\pass24x241.png" />
-    <Content Include="Resources\user24x24.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Accesos\DataSet\" />
