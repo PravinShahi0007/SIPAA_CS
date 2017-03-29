@@ -81,6 +81,7 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
             this.btnAgregar.TabIndex = 151;
+            this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -119,9 +120,9 @@
             this.pnlAct.Controls.Add(this.panel3);
             this.pnlAct.Controls.Add(this.txtCapInc);
             this.pnlAct.Controls.Add(this.lblAct);
-            this.pnlAct.Controls.Add(this.btnGuardar);
             this.pnlAct.Controls.Add(this.btnEliminar);
             this.pnlAct.Controls.Add(this.btnEditar);
+            this.pnlAct.Controls.Add(this.btnGuardar);
             this.pnlAct.Location = new System.Drawing.Point(36, 353);
             this.pnlAct.Name = "pnlAct";
             this.pnlAct.Size = new System.Drawing.Size(437, 151);
@@ -135,10 +136,11 @@
             this.btnActiva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActiva.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnActiva.Image = global::SIPAA_CS.Properties.Resources.Alta;
-            this.btnActiva.Location = new System.Drawing.Point(362, 18);
+            this.btnActiva.Location = new System.Drawing.Point(362, 19);
             this.btnActiva.Name = "btnActiva";
-            this.btnActiva.Size = new System.Drawing.Size(59, 50);
+            this.btnActiva.Size = new System.Drawing.Size(50, 50);
             this.btnActiva.TabIndex = 158;
+            this.btnActiva.Tag = "Alta";
             this.btnActiva.UseVisualStyleBackColor = false;
             this.btnActiva.Visible = false;
             this.btnActiva.Click += new System.EventHandler(this.btnActiva_Click);
@@ -237,10 +239,11 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardar.Location = new System.Drawing.Point(362, 18);
+            this.btnGuardar.Location = new System.Drawing.Point(362, 19);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(59, 50);
+            this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 52;
+            this.btnGuardar.Tag = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
@@ -250,10 +253,11 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.Baja;
-            this.btnEliminar.Location = new System.Drawing.Point(362, 18);
+            this.btnEliminar.Location = new System.Drawing.Point(362, 19);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(59, 50);
+            this.btnEliminar.Size = new System.Drawing.Size(50, 50);
             this.btnEliminar.TabIndex = 54;
+            this.btnEliminar.Tag = "Baja";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Visible = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -268,6 +272,7 @@
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
             this.btnEditar.TabIndex = 56;
+            this.btnEditar.Tag = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Visible = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
@@ -345,6 +350,7 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
             this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
