@@ -64,8 +64,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "RecursosHumanos", dtrpt.ResourceName);
 
                     ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                    ReportDoc.SetParameterValue("FechaInicio", dtFechaInicio);
-                    ReportDoc.SetParameterValue("FechaTermino", dtFechaFin);
+                    ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
+                    ReportDoc.SetParameterValue("FechaTermino", dpFechaFin.Value);
                     form.RptDoc = ReportDoc;
                     form.Show();
                     break;
