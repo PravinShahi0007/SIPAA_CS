@@ -86,6 +86,7 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\DiaSemana.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\IncNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Mensaje.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\PlantillaDetalle.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaCompania2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
@@ -158,6 +159,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Incidencias.Designer.cs">
       <DependentUpon>Incidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\PlantillasDetalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\PlantillasDetalles.Designer.cs">
+      <DependentUpon>PlantillasDetalles.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Trabajadores.cs">
       <SubType>Form</SubType>
@@ -322,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Incidencias.resx">
       <DependentUpon>Incidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\PlantillasDetalles.resx">
+      <DependentUpon>PlantillasDetalles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Trabajadores.resx">
       <DependentUpon>Trabajadores.cs</DependentUpon>
