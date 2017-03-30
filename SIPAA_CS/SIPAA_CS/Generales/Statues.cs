@@ -39,6 +39,7 @@ namespace SIPAA_CS.Generales
         #endregion
 
         statue Cstatus = new statue();
+        Utilerias Util = new Utilerias();
         public Statues()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace SIPAA_CS.Generales
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
+
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
@@ -57,12 +59,23 @@ namespace SIPAA_CS.Generales
         {
             //LLAMA METODO LLENAR GRID
             pnlAct.Visible = false;
-            SLlenaGrid(4, txtBusca.Text.Trim(), 0, "", 0, "", "");
-            txtBusca.Text = "";
-            txtBusca.Focus();
+            SLlenaGrid(4, "", 0, "", 0, "", "");
+            //txtBusca.Text = "";
+            cbobusq.Focus();
             pnlAct.Visible = false;
 
         }
+        private void cbobusq_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //LLAMA METODO LLENAR GRID
+            pnlAct.Visible = false;
+            SLlenaGrid(4, cbobusq.SelectedValue.ToString(), 0, "", 0, "", "");
+            //txtBusca.Text = "";
+            cbobusq.Focus();
+            pnlAct.Visible = false;
+
+        }
+
         //BOTOS AGREGAR REGISTRO NUEVO
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -73,7 +86,11 @@ namespace SIPAA_CS.Generales
             ckbEliminar.Visible = false;
             btnGuardar.Visible = true;
             txtCapcv.Text = "";
+            txtCapcv.Visible = false;
+            panel3.Visible = false;
+            cboCrea.Visible = true;
             txtCapSt.Text = "";
+            txtCapSt.ReadOnly = false;
             txtCapDes.Text = "";
             iSt_c = 1;
             txtCapcv.Focus();
@@ -86,16 +103,16 @@ namespace SIPAA_CS.Generales
             {
                 iSt_c = 0;
                 sGuardaMod(3, txtCapcv.Text.Trim(), ivst_c, "", iSt_c, "150076", "Statues");
+                SLlenaGrid(4, txtCapcv.Text.Trim(), 0, "", 0, "", "");
                 txtCapcv.Text = "";
                 txtCapSt.Text = "";
                 txtCapDes.Text = "";
                 panelTag.Visible = true;
                 timer1.Start();
-                SLlenaGrid(4, "", 0, "", 0, "", "");
                 sCv_c = "";
                 ivst_c = 0;
                 pnlAct.Visible = false;
-                txtBusca.Focus();
+                cbobusq.Focus();
             }
             else if (result == DialogResult.No)
             {
@@ -110,16 +127,16 @@ namespace SIPAA_CS.Generales
             {
                 iSt_c = 1;
                 sGuardaMod(3, txtCapcv.Text.Trim(), ivst_c, "", iSt_c, "150076", "Statues");
+                SLlenaGrid(4, txtCapcv.Text.Trim(), 0, "", 0, "", "");
                 txtCapcv.Text = "";
                 txtCapSt.Text = "";
                 txtCapDes.Text = "";
                 panelTag.Visible = true;
                 timer1.Start();
-                SLlenaGrid(4, "", 0, "", 0, "", "");
                 sCv_c = "";
                 ivst_c = 0;
                 pnlAct.Visible = false;
-                txtBusca.Focus();
+                cbobusq.Focus();
             }
             else if (result == DialogResult.No)
             {
@@ -152,7 +169,7 @@ namespace SIPAA_CS.Generales
                     sCv_c = "";
                     ivst_c = 0;
                     pnlAct.Visible = false;
-                    txtBusca.Focus();
+                    cbobusq.Focus();
                 }
             }
         }
@@ -161,10 +178,10 @@ namespace SIPAA_CS.Generales
         {
             //VALIDA ESCRITURA DE ALGUN TEXTO
 
-            if (txtCapcv.Text.Trim() == "")
+            if (cboCrea.SelectedValue.ToString() == "")
             {
                 DialogResult result = MessageBox.Show("Captura el dato a guardar", "SIPAA", MessageBoxButtons.OK);
-                txtCapcv.Focus();
+                cboCrea.Focus();
             }
             else
             {
@@ -176,11 +193,11 @@ namespace SIPAA_CS.Generales
                 else
                 {
                     ivst_c = int.Parse(txtCapSt.Text);
-                    sValIns(5, txtCapcv.Text.Trim(), ivst_c, "", 0, "", "");
+                    sValIns(5, cboCrea.SelectedValue.ToString(), ivst_c, "", 0, "", "");
 
                     if (iVld_c <= 0)
                     {
-                        if (txtCapSt.Text.Trim() == "")
+                        if (txtCapDes.Text.Trim() == "")
                         {
                             DialogResult result = MessageBox.Show("Captura el dato a guardar", "SIPAA", MessageBoxButtons.OK);
                             txtCapDes.Focus();
@@ -188,27 +205,27 @@ namespace SIPAA_CS.Generales
                         else
                         {
                             ivst_c = int.Parse(txtCapSt.Text);
-                            sGuardaMod(1, txtCapcv.Text, ivst_c, txtCapDes.Text, 1, "150076", "Statues");
+                            sGuardaMod(1, cboCrea.SelectedValue.ToString(), ivst_c, txtCapDes.Text, 1, "150076", "Statues");
                             txtCapcv.Text = "";
                             txtCapSt.Text = "";
                             txtCapDes.Text = "";
                             panelTag.Visible = true;
                             timer1.Start();
 
-                            SLlenaGrid(4, "", 0, "", 0, "", "");
+                            SLlenaGrid(4, cboCrea.SelectedValue.ToString(), 0, "", 0, "", "");
                             pnlAct.Visible = false;
-                            txtBusca.Focus();
+                            cbobusq.Focus();
                         }
                     }
                     else
                     {
-                        SLlenaGrid(4, "", 0, "", 0, "", "");
+                        SLlenaGrid(4, cboCrea.SelectedValue.ToString(), 0, "", 0, "", "");
                         txtCapcv.Text = "";
                         txtCapSt.Text = "";
                         txtCapDes.Text = "";
                         pnlAct.Visible = false;
                         DialogResult result = MessageBox.Show("Registro ya existente", "SIPAA", MessageBoxButtons.OK);
-                        txtBusca.Focus();
+                        cbobusq.Focus();
                     }
                 }
             }
@@ -258,6 +275,9 @@ namespace SIPAA_CS.Generales
             iAgr = 1;
             iAct = 1;
             iEli = 1;
+
+            Util.cargarcombo(cbobusq, Cstatus.cboTab(9));
+            Util.cargarcombo(cboCrea, Cstatus.cboTab(9));
 
             //LLAMA METODO LLENAR GRID
             SLlenaGrid(4, "", 0, "", 0, "", "");
@@ -430,6 +450,10 @@ namespace SIPAA_CS.Generales
                 ivst_c = int.Parse(txtCapSt.Text);
                 txtCapcv.ReadOnly = true;
                 txtCapSt.ReadOnly = true;
+                txtCapcv.Visible = true;
+                panel3.Visible = true;
+                cboCrea.Visible = false;
+
                 txtCapDes.Focus();
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;

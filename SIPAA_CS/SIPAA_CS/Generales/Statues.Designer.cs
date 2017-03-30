@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Statues));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -61,13 +61,13 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.cbobusq = new System.Windows.Forms.ComboBox();
             this.lblBusca = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.txtBusca = new System.Windows.Forms.TextBox();
             this.lblPanelBusca = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.cboCrea = new System.Windows.Forms.ComboBox();
             this.panelTag.SuspendLayout();
             this.pnlAct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
@@ -209,6 +209,7 @@
             // 
             // pnlAct
             // 
+            this.pnlAct.Controls.Add(this.cboCrea);
             this.pnlAct.Controls.Add(this.panel4);
             this.pnlAct.Controls.Add(this.txtCapDes);
             this.pnlAct.Controls.Add(this.lbldescrip);
@@ -413,28 +414,28 @@
             // 
             this.dgvConsulta.AllowUserToAddRows = false;
             this.dgvConsulta.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvConsulta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvConsulta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvConsulta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvConsulta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvConsulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConsulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvConsulta.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvConsulta.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvConsulta.Location = new System.Drawing.Point(538, 211);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
@@ -449,10 +450,9 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.cbobusq);
             this.pnlBusqueda.Controls.Add(this.lblBusca);
             this.pnlBusqueda.Controls.Add(this.btnBuscar);
-            this.pnlBusqueda.Controls.Add(this.panel5);
-            this.pnlBusqueda.Controls.Add(this.txtBusca);
             this.pnlBusqueda.Controls.Add(this.lblPanelBusca);
             this.pnlBusqueda.Location = new System.Drawing.Point(36, 211);
             this.pnlBusqueda.Name = "pnlBusqueda";
@@ -460,13 +460,24 @@
             this.pnlBusqueda.TabIndex = 158;
             this.pnlBusqueda.TabStop = true;
             // 
+            // cbobusq
+            // 
+            this.cbobusq.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbobusq.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbobusq.FormattingEnabled = true;
+            this.cbobusq.Location = new System.Drawing.Point(34, 47);
+            this.cbobusq.Name = "cbobusq";
+            this.cbobusq.Size = new System.Drawing.Size(250, 21);
+            this.cbobusq.TabIndex = 45;
+            this.cbobusq.SelectedIndexChanged += new System.EventHandler(this.cbobusq_SelectedIndexChanged);
+            // 
             // lblBusca
             // 
             this.lblBusca.AutoSize = true;
             this.lblBusca.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBusca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.lblBusca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblBusca.Location = new System.Drawing.Point(35, 21);
+            this.lblBusca.Location = new System.Drawing.Point(29, 28);
             this.lblBusca.Name = "lblBusca";
             this.lblBusca.Size = new System.Drawing.Size(38, 16);
             this.lblBusca.TabIndex = 44;
@@ -486,24 +497,6 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel5.Location = new System.Drawing.Point(32, 62);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(250, 2);
-            this.panel5.TabIndex = 43;
-            // 
-            // txtBusca
-            // 
-            this.txtBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtBusca.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBusca.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusca.Location = new System.Drawing.Point(34, 46);
-            this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(250, 15);
-            this.txtBusca.TabIndex = 1;
-            // 
             // lblPanelBusca
             // 
             this.lblPanelBusca.AutoSize = true;
@@ -521,6 +514,16 @@
             // 
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
+            // cboCrea
+            // 
+            this.cboCrea.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboCrea.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboCrea.FormattingEnabled = true;
+            this.cboCrea.Location = new System.Drawing.Point(32, 48);
+            this.cboCrea.Name = "cboCrea";
+            this.cboCrea.Size = new System.Drawing.Size(252, 21);
+            this.cboCrea.TabIndex = 46;
             // 
             // Statues
             // 
@@ -586,13 +589,13 @@
         private System.Windows.Forms.Panel pnlBusqueda;
         private System.Windows.Forms.Label lblBusca;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtBusca;
         private System.Windows.Forms.Label lblPanelBusca;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtCapDes;
         private System.Windows.Forms.Label lbldescrip;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ComboBox cbobusq;
+        private System.Windows.Forms.ComboBox cboCrea;
     }
 }
