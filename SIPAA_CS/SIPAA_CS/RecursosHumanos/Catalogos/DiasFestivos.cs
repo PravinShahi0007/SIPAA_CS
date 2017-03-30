@@ -41,12 +41,6 @@ namespace SIPAA_CS.RecursosHumanos
             InitializeComponent();
         }
 
-        //***********************************************************************************************
-        //Autor: Benjamin Huizar Barajas
-        //Fecha creación: 13-Mar-2017       Última Modificacion: dd-mm-aaaa
-        //Descripción: Administra Días Festivos
-        //***********************************************************************************************
-
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
@@ -496,6 +490,11 @@ namespace SIPAA_CS.RecursosHumanos
                 txtDescripcionDF.Text = ValorRow;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
+        }
+
+        private void pnlBusqueda_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------

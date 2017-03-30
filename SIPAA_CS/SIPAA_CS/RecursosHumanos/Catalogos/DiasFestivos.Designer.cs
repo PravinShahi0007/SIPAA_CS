@@ -155,6 +155,7 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(360, 87);
             this.pnlBusqueda.TabIndex = 116;
             this.pnlBusqueda.TabStop = true;
+            this.pnlBusqueda.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBusqueda_Paint);
             // 
             // btnBuscar
             // 
