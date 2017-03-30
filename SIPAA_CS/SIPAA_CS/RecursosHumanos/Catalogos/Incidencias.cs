@@ -219,6 +219,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void Incidencias_Load(object sender, EventArgs e)
         {
 
+
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;

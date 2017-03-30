@@ -80,6 +80,12 @@
     <Compile Include="Accesos\Asignaciones\UsuarioProceso.Designer.cs">
       <DependentUpon>UsuarioProceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\Reportes\FiltroUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroUsuarios.Designer.cs">
+      <DependentUpon>FiltroUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\Accesos\Asignaciones\AreaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\CompaniaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\DepartamentoUsuario.cs" />
@@ -89,9 +95,12 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\DiaSemana.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\IncNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Mensaje.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\PlantillaDetalle.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\Plantilla.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaCompania2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaFormaPago.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\PeriodoProcesoIncidencia.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
     <Compile Include="Accesos\AccesosDashboard.cs">
       <SubType>Form</SubType>
@@ -191,6 +200,18 @@
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Incidencias.Designer.cs">
       <DependentUpon>Incidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\PlantillasDetalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\PlantillasDetalles.Designer.cs">
+      <DependentUpon>PlantillasDetalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\Plantillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\Plantillas.Designer.cs">
+      <DependentUpon>Plantillas.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Trabajadores.cs">
       <SubType>Form</SubType>
@@ -296,6 +317,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.Designer.cs">
+      <DependentUpon>PeriodosProcesoIncidencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\RechDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +392,9 @@
     <EmbeddedResource Include="Accesos\Catalogos\Perfiles.resx">
       <DependentUpon>Perfiles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroUsuarios.resx">
+      <DependentUpon>FiltroUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -400,6 +430,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Incidencias.resx">
       <DependentUpon>Incidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\PlantillasDetalles.resx">
+      <DependentUpon>PlantillasDetalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\Plantillas.resx">
+      <DependentUpon>Plantillas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Trabajadores.resx">
       <DependentUpon>Trabajadores.cs</DependentUpon>
@@ -439,6 +475,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\IncidenciasNominas.resx">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.resx">
+      <DependentUpon>PeriodosProcesoIncidencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\RechDashboard.resx">
       <DependentUpon>RechDashboard.cs</DependentUpon>
@@ -811,10 +850,15 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_assignment_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_group_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_group_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_assignment_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_group_white_24dp.png" />
+    <Content Include="Resources\pass24x24.png" />
+    <None Include="Resources\user24x241.png" />
+    <None Include="Resources\pass24x241.png" />
+    <Content Include="Resources\user24x24.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Accesos\DataSet\" />
-    <Folder Include="Accesos\Reportes\" />
     <Folder Include="App_Code\RecursosHumanos\Asistencias\" />
     <Folder Include="App_Code\RecursosHumanos\Incidencias\" />
   </ItemGroup>

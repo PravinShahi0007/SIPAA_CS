@@ -1,5 +1,4 @@
-﻿using SIPAA_CS.App_Code;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,22 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.RecursosHumanos
+using SIPAA_CS.App_Code;
+using SIPAA_CS.RecursosHumanos.Reportes;
+
+//***********************************************************************************************
+//Autor: Noe Alvarez Marquina
+//Fecha creación:27-Mar-2017      Última Modificacion: dd-mm-aaaa
+//Descripción: Reporteador RH
+//***********************************************************************************************
+
+namespace SIPAA_CS.RecursosHumanos.Asignaciones
 {
-
-    //***********************************************************************************************
-    //Autor: Victor Jesús Iturburu Vergara
-    //Fecha creación:23-03-2017       Última Modificacion: 23-03-2017
-    //Descripción: Consulta a Sonar de Ubicaciones
-    //***********************************************************************************************
-
-    public partial class Ubicaciones : Form
+    public partial class Reporteador : Form
     {
-        public Ubicaciones()
+
+        Utilerias Util = new Utilerias();
+
+        public Reporteador()
         {
             InitializeComponent();
         }
 
+        
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
@@ -34,54 +39,53 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            llenarGrid(txtBuscarUbicacion.Text);
-        }
 
+        //boton cerrar
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
-
-
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void Ubicacion_Load(object sender, EventArgs e)
+        private void Reporteador_Load(object sender, EventArgs e)
         {
 
-            llenarGrid("");
-        }
 
-        private void txtBuscarUbicacion_KeyUp(object sender, KeyEventArgs e)
-        {
-            llenarGrid(txtBuscarUbicacion.Text);
         }
-
-      
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
-
-        private void llenarGrid(string Descripcion)
+        //funcion para tool tip
+        private void ftooltip()
         {
-            SonaCompania objCia = new SonaCompania();
-            DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(Descripcion);
-            dgvUbicacion.DataSource = dtUbicacion;
-            dgvUbicacion.Columns[0].Visible = false;
-            dgvUbicacion.ClearSelection();
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
 
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
         }
-
         //-----------------------------------------------------------------------------------------------
-        //                                      R E P O R T E
+        //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------
-
-
-
-
-
-     
-      
     }
 }

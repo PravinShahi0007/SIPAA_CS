@@ -302,7 +302,8 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void Incapacidad_Tipo_Load(object sender, EventArgs e)
         {
-             sysH = SystemInformation.PrimaryMonitorSize.Height;
+
+            sysH = SystemInformation.PrimaryMonitorSize.Height;
              sysW = SystemInformation.PrimaryMonitorSize.Width;
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 

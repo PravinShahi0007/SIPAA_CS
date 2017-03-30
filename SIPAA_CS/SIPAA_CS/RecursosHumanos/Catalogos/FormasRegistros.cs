@@ -206,6 +206,7 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void frmFormReg_Load(object sender, EventArgs e)
         {
+            
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;

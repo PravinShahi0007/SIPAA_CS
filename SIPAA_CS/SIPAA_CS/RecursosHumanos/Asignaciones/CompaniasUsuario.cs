@@ -194,6 +194,7 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void Asignacion_Companias_Usuario_Load(object sender, EventArgs e)
         {
+
             llenarGridUsuarios("", 0, "", "", 0, "", "", 7);
             llenarGridCompanias(5,"");
         }
