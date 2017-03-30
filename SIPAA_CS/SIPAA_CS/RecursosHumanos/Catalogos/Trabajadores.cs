@@ -112,6 +112,7 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void Empleados_Load(object sender, EventArgs e)
         {
+            
             //llama el tooltip
             ftooltip();
 

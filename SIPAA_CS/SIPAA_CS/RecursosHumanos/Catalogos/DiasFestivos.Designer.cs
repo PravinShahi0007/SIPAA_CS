@@ -155,6 +155,7 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(360, 87);
             this.pnlBusqueda.TabIndex = 116;
             this.pnlBusqueda.TabStop = true;
+            this.pnlBusqueda.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBusqueda_Paint);
             // 
             // btnBuscar
             // 
@@ -430,7 +431,7 @@
             this.btnInsertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.btnsave1;
+            this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
             this.btnInsertar.Location = new System.Drawing.Point(366, 30);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(50, 50);

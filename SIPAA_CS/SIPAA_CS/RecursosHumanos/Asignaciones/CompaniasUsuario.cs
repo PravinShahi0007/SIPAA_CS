@@ -194,8 +194,9 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void Asignacion_Companias_Usuario_Load(object sender, EventArgs e)
         {
+
             llenarGridUsuarios("", 0, "", "", 0, "", "", 7);
-            llenarGridCompanias(1,"");
+            llenarGridCompanias(5,"");
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -227,7 +228,7 @@ namespace SIPAA_CS.RecursosHumanos
             dgvCompanias.Columns.Insert(0, imgCheckProcesos);
 
             dgvCompanias.Columns[1].Visible = false;
-            dgvCompanias.Columns[3].Visible = false;
+            //dgvCompanias.Columns[3].Visible = false;
             dgvCompanias.Columns[0].HeaderText = "Seleccionar";
             dgvCompanias.Columns[0].Width = 100;
             dgvCompanias.ClearSelection();

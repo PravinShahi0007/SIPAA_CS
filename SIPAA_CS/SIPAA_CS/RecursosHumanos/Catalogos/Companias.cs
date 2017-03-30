@@ -83,6 +83,7 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void frmCompanias_Load(object sender, EventArgs e)
         {
+            
             //inicializa tool tip
             ftooltip();
 

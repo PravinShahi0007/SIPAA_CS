@@ -1,6 +1,7 @@
 ﻿using SIPAA_CS.App_Code;
 using SIPAA_CS.RecursosHumanos.Asignaciones;
 using SIPAA_CS.RecursosHumanos.Catalogos;
+using SIPAA_CS.RecursosHumanos.Reportes;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -47,17 +48,10 @@ namespace SIPAA_CS.RecursosHumanos
             {
                 Application.Exit();
             }
-            else if (result == DialogResult.No)
-            {
-
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Dashboard form = new Dashboard();
-            form.Enabled = true;
-            form.Show();
             this.Close();
         }
 
@@ -155,6 +149,24 @@ namespace SIPAA_CS.RecursosHumanos
         {
             AreasUsuarios au = new AreasUsuarios();
             au.Show();
+        }
+
+        private void registroGeneradoDetalleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FiltrosRegistroGeneradoDetalle rpt = new FiltrosRegistroGeneradoDetalle();
+            rpt.Show();
+        }
+
+        private void tsmAsignacionUbicacion_Click(object sender, EventArgs e)
+        {
+            UbicacionesUsuario uu = new UbicacionesUsuario();
+            uu.Show();
+        }
+
+        private void tsmAsignacionDepartamento_Click(object sender, EventArgs e)
+        {
+            DepartamentosUsuario du = new DepartamentosUsuario();
+            du.Show();
         }
     }
 }
