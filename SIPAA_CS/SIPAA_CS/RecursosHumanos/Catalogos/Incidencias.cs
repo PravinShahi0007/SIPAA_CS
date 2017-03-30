@@ -276,6 +276,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnGuardar, "Guarda Registro");
             toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
             toolTip1.SetToolTip(this.btnEliminar, "Elimina Registro");
+            toolTip1.SetToolTip(this.btnActiva, "Activa Registro");
         }
 
         //LLENA GRID
