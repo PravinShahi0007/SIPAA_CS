@@ -443,6 +443,7 @@ namespace SIPAA_CS.Accesos
         private void Asignar_Modulo_Load(object sender, EventArgs e)
         {
 
+
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));

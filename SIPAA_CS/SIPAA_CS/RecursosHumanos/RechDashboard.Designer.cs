@@ -50,6 +50,10 @@
             this.asignacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAsignacionCompania = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAsignacionArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAsignacionUbicacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAsignacionDepartamento = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registroGeneradoDetalleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -63,7 +67,8 @@
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
             this.panelMenu.Controls.Add(this.panel3);
             this.panelMenu.Controls.Add(this.MenuAccesos);
-            this.panelMenu.Location = new System.Drawing.Point(0, 97);
+            this.panelMenu.ForeColor = System.Drawing.Color.Transparent;
+            this.panelMenu.Location = new System.Drawing.Point(0, 96);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(1024, 32);
             this.panelMenu.TabIndex = 6;
@@ -84,10 +89,11 @@
             this.MenuAccesos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuAccesos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.msCatalogo,
-            this.asignacionesToolStripMenuItem});
+            this.asignacionesToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(339, 26);
+            this.MenuAccesos.Size = new System.Drawing.Size(439, 26);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
@@ -267,7 +273,9 @@
             // 
             this.asignacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmAsignacionCompania,
-            this.tsmAsignacionArea});
+            this.tsmAsignacionArea,
+            this.tsmAsignacionUbicacion,
+            this.tsmAsignacionDepartamento});
             this.asignacionesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.asignacionesToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.asignacionesToolStripMenuItem.Name = "asignacionesToolStripMenuItem";
@@ -281,7 +289,7 @@
             this.tsmAsignacionCompania.ForeColor = System.Drawing.Color.White;
             this.tsmAsignacionCompania.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.tsmAsignacionCompania.Name = "tsmAsignacionCompania";
-            this.tsmAsignacionCompania.Size = new System.Drawing.Size(231, 22);
+            this.tsmAsignacionCompania.Size = new System.Drawing.Size(258, 22);
             this.tsmAsignacionCompania.Tag = "frmCompaniasUsuario";
             this.tsmAsignacionCompania.Text = "Asignacion Compañia";
             this.tsmAsignacionCompania.Click += new System.EventHandler(this.tsmAsignacionCompania_Click);
@@ -292,20 +300,64 @@
             this.tsmAsignacionArea.ForeColor = System.Drawing.Color.White;
             this.tsmAsignacionArea.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.tsmAsignacionArea.Name = "tsmAsignacionArea";
-            this.tsmAsignacionArea.Size = new System.Drawing.Size(231, 22);
+            this.tsmAsignacionArea.Size = new System.Drawing.Size(258, 22);
             this.tsmAsignacionArea.Tag = "frmAreasUsuario";
             this.tsmAsignacionArea.Text = "Asignacion Área";
             this.tsmAsignacionArea.Click += new System.EventHandler(this.tsmAsignacionArea_Click);
             // 
+            // tsmAsignacionUbicacion
+            // 
+            this.tsmAsignacionUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.tsmAsignacionUbicacion.ForeColor = System.Drawing.Color.White;
+            this.tsmAsignacionUbicacion.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.tsmAsignacionUbicacion.Name = "tsmAsignacionUbicacion";
+            this.tsmAsignacionUbicacion.Size = new System.Drawing.Size(258, 22);
+            this.tsmAsignacionUbicacion.Tag = "frmUbicacionesUsuario";
+            this.tsmAsignacionUbicacion.Text = "Asignación Ubicación";
+            this.tsmAsignacionUbicacion.Click += new System.EventHandler(this.tsmAsignacionUbicacion_Click);
+            // 
+            // tsmAsignacionDepartamento
+            // 
+            this.tsmAsignacionDepartamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.tsmAsignacionDepartamento.ForeColor = System.Drawing.Color.White;
+            this.tsmAsignacionDepartamento.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.tsmAsignacionDepartamento.Name = "tsmAsignacionDepartamento";
+            this.tsmAsignacionDepartamento.Size = new System.Drawing.Size(258, 22);
+            this.tsmAsignacionDepartamento.Tag = "frmDepartamentosUsuario";
+            this.tsmAsignacionDepartamento.Text = "Asignación Departamento";
+            this.tsmAsignacionDepartamento.Click += new System.EventHandler(this.tsmAsignacionDepartamento_Click);
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registroGeneradoDetalleToolStripMenuItem});
+            this.reportesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.reportesToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_assignment_white_24dp;
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // registroGeneradoDetalleToolStripMenuItem
+            // 
+            this.registroGeneradoDetalleToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.registroGeneradoDetalleToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.registroGeneradoDetalleToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_assignment_white_24dp;
+            this.registroGeneradoDetalleToolStripMenuItem.Name = "registroGeneradoDetalleToolStripMenuItem";
+            this.registroGeneradoDetalleToolStripMenuItem.Size = new System.Drawing.Size(262, 22);
+            this.registroGeneradoDetalleToolStripMenuItem.Tag = "frmRptRegGenDetalle";
+            this.registroGeneradoDetalleToolStripMenuItem.Text = "Registro Generado Detalle";
+            this.registroGeneradoDetalleToolStripMenuItem.Click += new System.EventHandler(this.registroGeneradoDetalleToolStripMenuItem_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.button1.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.button1.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.button1.Location = new System.Drawing.Point(920, 1);
+            this.button1.Location = new System.Drawing.Point(909, 1);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 24);
+            this.button1.Size = new System.Drawing.Size(30, 24);
             this.button1.TabIndex = 144;
             this.button1.TabStop = false;
             this.button1.UseVisualStyleBackColor = false;
@@ -347,7 +399,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_keyboard_arrow_right_white_18dp;
+            this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_group_white_24dp;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(413, 2);
             this.label3.Name = "label3";
@@ -367,6 +419,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panelMenu);
+            this.ForeColor = System.Drawing.Color.Red;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RechDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -408,5 +461,9 @@
         private System.Windows.Forms.ToolStripMenuItem asignacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmAsignacionCompania;
         private System.Windows.Forms.ToolStripMenuItem tsmAsignacionArea;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registroGeneradoDetalleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmAsignacionUbicacion;
+        private System.Windows.Forms.ToolStripMenuItem tsmAsignacionDepartamento;
     }
 }

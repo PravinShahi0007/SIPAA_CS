@@ -251,6 +251,7 @@ namespace SIPAA_CS.Accesos
         private void LlenaGridProcesos(int cvproceso, string descripcion, int stproceso, string usuumod, string prgumod, int opcion)
         {
          
+
             DataTable dtProcesos = procesos.ObtenerProceso(cvproceso, descripcion, stproceso, usuumod, prgumod, opcion);
             dgvProceso.DataSource = dtProcesos;
             
@@ -282,6 +283,11 @@ namespace SIPAA_CS.Accesos
         {
             
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------

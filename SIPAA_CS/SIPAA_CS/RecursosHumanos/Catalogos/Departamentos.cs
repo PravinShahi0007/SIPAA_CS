@@ -85,6 +85,7 @@ namespace SIPAA_CS.RecursosHumanos
         private void Departamentos_Load(object sender, EventArgs e)
         {
 
+
             //DataTable listadeptos = departamentos.obtdepto(1, "%");
             //dgvComp.DataSource = listadeptos;
             //txtComp.Text = "";

@@ -71,6 +71,7 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void Puestos_Load(object sender, EventArgs e)
         {
+            
             //inicializa tool tip
             ftooltip();
 

@@ -253,9 +253,9 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(332, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(312, 22);
+            this.label1.Size = new System.Drawing.Size(266, 22);
             this.label1.TabIndex = 124;
-            this.label1.Text = "      Asiganación Compañias Usuario";
+            this.label1.Text = "      Asiganación Áreas Usuario";
             // 
             // PanelBuscar
             // 

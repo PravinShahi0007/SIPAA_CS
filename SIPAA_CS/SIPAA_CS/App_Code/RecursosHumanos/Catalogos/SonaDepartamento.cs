@@ -32,24 +32,25 @@ namespace SIPAA_CS.App_Code
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_departamentos_s";
+            cmd.CommandText = "usp_sonadepartamentos_s";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
-            SqlConnection sqlcn = objConexion.conexionSonarh();
+            objConexion.asignarConexion(cmd);
+           
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = ptextobuscar;
 
-            objConexion.asignarConexions(cmd);
+            objConexion.asignarConexion(cmd);
 
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
 
-            objConexion.cerrarConexions();
+            objConexion.cerrarConexion();
 
             DataTable dtdepto = new DataTable();
             Adapter.Fill(dtdepto);
             return dtdepto;
-
+            
         }
 
     }
