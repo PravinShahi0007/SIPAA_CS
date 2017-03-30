@@ -121,6 +121,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void CompaniasTiposNominas_Load(object sender, EventArgs e)
         {
+            
             // Entorno de permisos
             pins = 0;
             pact = 0;

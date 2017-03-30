@@ -444,6 +444,7 @@ namespace SIPAA_CS.Accesos
         private void Crear_Acceso_Usuario_Load(object sender, EventArgs e)
         {
 
+
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
             Utilerias.ResizeForm(this,new Size(new Point(sysH, sysW)));

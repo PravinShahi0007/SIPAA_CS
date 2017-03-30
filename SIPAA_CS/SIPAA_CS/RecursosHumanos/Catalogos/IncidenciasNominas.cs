@@ -304,6 +304,7 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void IncidenciasNom_Load(object sender, EventArgs e)
         {
+            
             //habilita tool tip
             ftooltip();
 

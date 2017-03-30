@@ -234,6 +234,7 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void frmDiasFestivos_Load(object sender, EventArgs e)
         {
+            
             //LLAMA TOOL TIP
             fTooltip();
 

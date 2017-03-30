@@ -243,6 +243,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         private void Asignacion_Area_Usuario_Load(object sender, EventArgs e)
         {
+
             cbCompania.Enabled = false;
             llenarGridUsuarios("", 0, "", "", 0, "", "", 7);
             

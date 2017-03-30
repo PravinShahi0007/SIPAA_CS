@@ -284,6 +284,7 @@ namespace SIPAA_CS.Accesos
         {
             panelTag.Visible = false;
             timer1.Stop();
+
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
