@@ -340,7 +340,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         {
             idcompania = cbCompania.SelectedIndex;
             AreaUsuario objAreasUsu = new AreaUsuario();
-            ltAreaxUsuario = objAreasUsu.ObtenerAreaxUsuario(idcompania);
+            ltAreaxUsuario = objAreasUsu.ObtenerAreaxUsuario(idcompania,4);
             for (int iContador = 0; iContador < dgvPlantel.Rows.Count; iContador++)
             {
                 int idplanta = Convert.ToInt32(dgvPlantel.Rows[iContador].Cells[3].Value.ToString());

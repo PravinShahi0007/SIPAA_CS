@@ -17,7 +17,7 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
         }
 
         //VALIDACION PERMISO AREA (CENTRO DE COSTO)
-        public List<int> ObtenerAreaxUsuario(int idcompania)
+        public List<int> ObtenerAreaxUsuario(int idcompania, int opcion)
         {
 
             List<int> ltAreasxUsuario = new List<int>();
@@ -27,6 +27,7 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
 
             //cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
             cmd.Parameters.Add("@p_idcompania", SqlDbType.Int).Value = idcompania;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
