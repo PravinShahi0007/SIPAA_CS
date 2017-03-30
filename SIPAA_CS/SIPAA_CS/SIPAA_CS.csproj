@@ -85,6 +85,7 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\IncNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Mensaje.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\Plantilla.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaCompania2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
@@ -151,6 +152,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Incidencias.Designer.cs">
       <DependentUpon>Incidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\Plantillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\Plantillas.Designer.cs">
+      <DependentUpon>Plantillas.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Trabajadores.cs">
       <SubType>Form</SubType>
@@ -312,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Incidencias.resx">
       <DependentUpon>Incidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\Plantillas.resx">
+      <DependentUpon>Plantillas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Trabajadores.resx">
       <DependentUpon>Trabajadores.cs</DependentUpon>
@@ -760,6 +770,8 @@
     <None Include="Resources\Editar30x30.png" />
     <None Include="Resources\Guardar20x20.png" />
     <None Include="Resources\Guardar30x30.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_assignment_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_group_white_24dp.png" />
     <Content Include="Resources\pass24x24.png" />
     <None Include="Resources\user24x241.png" />
     <None Include="Resources\pass24x241.png" />
