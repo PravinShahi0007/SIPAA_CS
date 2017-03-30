@@ -227,6 +227,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Mensajes_Load(object sender, EventArgs e)
         {
+
             ftooltip();
             pnldatos.Visible = false;
 

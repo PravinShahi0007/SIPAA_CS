@@ -206,6 +206,7 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void frmFormReg_Load(object sender, EventArgs e)
         {
+            
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
@@ -263,6 +264,7 @@ namespace SIPAA_CS.RecursosHumanos
             toolTip1.SetToolTip(this.btnGuardar, "Guarda Registro");
             toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
             toolTip1.SetToolTip(this.btnEliminar, "Elimina Registro");
+            toolTip1.SetToolTip(this.btnActiva, "Activa Registro");
         }
 
         //LLENA GRID
@@ -416,11 +418,11 @@ namespace SIPAA_CS.RecursosHumanos
             {
                 if (iSt == 0)
                 {
-                    lbMensaje.Text = "Registro eliminado";
+                    lbMensaje.Text = "Registro dado de baja";
                 }
                 else
                 {
-                    lbMensaje.Text = "Registro habilitado";
+                    lbMensaje.Text = "Registro dado de alta";
                 }
             }
         }

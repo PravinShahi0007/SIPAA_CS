@@ -11,6 +11,9 @@ using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos;
 
+using CrystalDecisions.CrystalReports.Engine;
+using SIPAA_CS.RecursosHumanos.Reportes;
+
 namespace SIPAA_CS.RecursosHumanos
 {
     public partial class IncidenciasRepresentan : Form
@@ -252,6 +255,7 @@ namespace SIPAA_CS.RecursosHumanos
         private void Incapacidad_Representa_Load(object sender, EventArgs e)
         {
 
+
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
@@ -313,7 +317,13 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
-   
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+          
+        }
+
+
 
 
         //-----------------------------------------------------------------------------------------------

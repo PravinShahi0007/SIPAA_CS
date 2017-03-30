@@ -219,6 +219,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void Incidencias_Load(object sender, EventArgs e)
         {
 
+
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
@@ -276,6 +277,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnGuardar, "Guarda Registro");
             toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
             toolTip1.SetToolTip(this.btnEliminar, "Elimina Registro");
+            toolTip1.SetToolTip(this.btnActiva, "Activa Registro");
         }
 
         //LLENA GRID
@@ -429,7 +431,15 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else if (iOpc == 3)
             {
-                lbMensaje.Text = "Registro eliminado";
+                if (iSt == 0)
+                {
+                    lbMensaje.Text = "Registro dado de baja";
+                }
+                else
+                {
+                    lbMensaje.Text = "Registro dado de alta";
+                }
+
             }
         }
         private void sValIns(int iOpc, int sCve, string sDesc, int sOrd, int iStT, string sUsu, string sProg)
