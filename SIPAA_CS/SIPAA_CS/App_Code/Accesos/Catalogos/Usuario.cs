@@ -348,6 +348,48 @@ namespace SIPAA_CS.App_Code
             objConexion.cerrarConexion();
 
         }
+
+        public void AsignarUbicacionUsuario(string cvusuario, int idubicacion, string usuumod, string prgumod, int opcion)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_accetusuubi_sui";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idubicacion", SqlDbType.Int).Value = idubicacion;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.ExecuteNonQuery();
+            objConexion.cerrarConexion();
+
+        }
+
+        public void AsignarDepartamentosUsuario(string cvusuario, string iddepartamento, string usuumod, string prgumod, int opcion)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_accetusudep_sui";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_iddepartamento", SqlDbType.VarChar).Value = iddepartamento;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.ExecuteNonQuery();
+            objConexion.cerrarConexion();
+
+        }
     }
 
 }

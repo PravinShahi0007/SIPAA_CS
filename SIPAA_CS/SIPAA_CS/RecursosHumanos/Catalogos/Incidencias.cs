@@ -32,6 +32,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         int iEli;
         int iCvFR;
         int v_Orden;
+        int iSt;
 
         #endregion
 
@@ -54,7 +55,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             //LLAMA METODO LLENAR GRID
             pnlAct.Visible = false;
-            SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, "", "");
+            SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, 0, "", "");
             txtFormReg.Text = "";
             txtFormReg.Focus();
             pnlAct.Visible = false;
@@ -71,6 +72,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             btnGuardar.Visible = true;
             txtCapInc.Text = "";
             txtCapOrd.Text = "";
+            iSt = 1;
             txtCapInc.Focus();
         }
         //BOTON GUARDAR
@@ -84,24 +86,24 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else
             {
-                sValIns(5, 0, txtCapInc.Text.Trim(), 0, "150076", "Incidencias");
+                sValIns(5, 0, txtCapInc.Text.Trim(), 0, 0, "150076", "Incidencias");
 
                 if (vValida <= 0)
                 {
                     v_Orden = int.Parse(txtCapOrd.Text);
-                    sGuardaMod(1, 0, txtCapInc.Text.Trim(), v_Orden, "150076", "Incidencias");
+                    sGuardaMod(1, 0, txtCapInc.Text.Trim(), v_Orden, iSt, "150076", "Incidencias");
                     txtCapInc.Text = "";
 
                     panelTag.Visible = true;
                     timer1.Start();
 
-                    SLlenaGrid(4, 0, "", 0, "", "");
+                    SLlenaGrid(4, 0, "", 0, 0, "", "");
                     pnlAct.Visible = false;
                     txtFormReg.Focus();
                 }
                 else
                 {
-                    SLlenaGrid(4, 0, txtCapInc.Text.Trim(), 0, "", "");
+                    SLlenaGrid(4, 0, txtCapInc.Text.Trim(), 0, 0, "", "");
                     txtCapInc.Text = "";
                     pnlAct.Visible = false;
                     DialogResult result = MessageBox.Show("Registro ya existente", "SIPAA", MessageBoxButtons.OK);
@@ -126,11 +128,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 else
                 {
                     v_Orden = int.Parse(txtCapOrd.Text);
-                    sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), v_Orden, "150076", "Incidencias");
+                    sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), v_Orden, 0, "150076", "Incidencias");
                     txtCapInc.Text = "";
                     panelTag.Visible = true;
                     timer1.Start();
-                    SLlenaGrid(4, iCvFR, "", 0, "", "");
+                    SLlenaGrid(4, iCvFR, "", 0, 0, "", "");
                     iCvFR = 0;
                     pnlAct.Visible = false;
                     txtFormReg.Focus();
@@ -144,11 +146,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             DialogResult result = MessageBox.Show("Esta acción elimina el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                sGuardaMod(3, iCvFR, txtCapInc.Text.Trim(), 0, "150076", "Incidencias");
+                iSt = 0;
+                sGuardaMod(3, iCvFR, txtCapInc.Text.Trim(), 0, iSt, "150076", "Incidencias");
                 txtCapInc.Text = "";
                 panelTag.Visible = true;
                 timer1.Start();
-                SLlenaGrid(4, 0, "", 0, "", "");
+                SLlenaGrid(4, 0, "", 0, 0, "", "");
                 iCvFR = 0;
                 pnlAct.Visible = false;
                 txtFormReg.Focus();
@@ -158,6 +161,28 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             }
         }
+        //BOTON ALTA
+        private void btnActiva_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Esta acción habilita el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                iSt = 1;
+                v_Orden = int.Parse(txtCapOrd.Text);
+                sGuardaMod(3, iCvFR, txtCapInc.Text.Trim(), v_Orden, iSt, "150076", "frmFormReg");
+                txtCapInc.Text = "";
+                panelTag.Visible = true;
+                timer1.Start();
+                SLlenaGrid(4, 0, "", 0, 0, "", "");
+                iCvFR = 0;
+                pnlAct.Visible = false;
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
+        }
+
 
         //BOTON MINIMIZAR
         private void btnMinimizar_Click_1(object sender, EventArgs e)
@@ -207,7 +232,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             iEli = 1;
 
             //LLAMA METODO LLENAR GRID
-            SLlenaGrid(4, 0, "", 0, "", "");
+            SLlenaGrid(4, 0, "", 0, 0, "", "");
 
             //HABILITA BOTON AGREGAR
             if (iAgr == 1)
@@ -251,13 +276,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnGuardar, "Guarda Registro");
             toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
             toolTip1.SetToolTip(this.btnEliminar, "Elimina Registro");
+            toolTip1.SetToolTip(this.btnActiva, "Activa Registro");
         }
 
         //LLENA GRID
-        private void SLlenaGrid(int p_opcion, int p_cvIncidencia, string p_descripcion, int p_orden, string p_usuumod, string p_prgumodr)
+        private void SLlenaGrid(int p_opcion, int p_cvIncidencia, string p_descripcion, int p_orden, int p_stincidencia, string p_usuumod, string p_prgumodr)
         {
 
-            DataTable dtIncidencia = CIncidencias.ConcepInc_S(p_opcion, p_cvIncidencia, p_descripcion, p_orden, p_usuumod, p_prgumodr);
+            DataTable dtIncidencia = CIncidencias.ConcepInc_S(p_opcion, p_cvIncidencia, p_descripcion, p_orden, p_stincidencia, p_usuumod, p_prgumodr);
             dgvIncidencia.DataSource = dtIncidencia;
             
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
@@ -273,6 +299,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvIncidencia.Columns[1].Visible = false;
             dgvIncidencia.Columns[2].Width = 155;
             dgvIncidencia.Columns[3].Width = 35;
+            dgvIncidencia.Columns[4].Width = 35;
 
             dgvIncidencia.ClearSelection();
             sHabilitaPermisos();
@@ -328,15 +355,27 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             if (ckbEliminar.Checked == true)
             {
-                btnGuardar.Visible = false;
-                btnEditar.Visible = false;
-                btnEliminar.Visible = true;
+                if (iSt == 1)
+                {
+                    btnGuardar.Visible = false;
+                    btnEditar.Visible = false;
+                    btnEliminar.Visible = true;
+                    btnActiva.Visible = false;
+                }
+                else
+                {
+                    btnGuardar.Visible = false;
+                    btnEditar.Visible = true;
+                    btnEliminar.Visible = false;
+                    btnActiva.Visible = true;
+                }
             }
             else
             {
                 btnGuardar.Visible = false;
                 btnEditar.Visible = true;
                 btnEliminar.Visible = false;
+                btnActiva.Visible = false;
             }
         }
 
@@ -358,19 +397,29 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 iCvFR = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
                 string ValorRow = row.Cells["Descripción"].Value.ToString();
                 string ValorRowO = row.Cells["Orden"].Value.ToString();
+                iSt = Convert.ToInt32(row.Cells["Status"].Value.ToString());
 
                 txtCapInc.Text = ValorRow;
                 txtCapOrd.Text = ValorRowO;
                 txtCapInc.Focus();
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                if (iSt == 0)
+                {
+                    ckbEliminar.Text = "Alta";
+                }
+                else
+                {
+                    ckbEliminar.Text = "Baja";
+                }
+
             }
         }
 
         //GUARDA MODIFICA BAJA
-        private void sGuardaMod(int iOpc, int sCve, string sDesc, int sOrd, string sUsu, string sProg)
+        private void sGuardaMod(int iOpc, int sCve, string sDesc, int sOrd, int iStT, string sUsu, string sProg)
         {
-            CIncidencias.ConcepInc_UID(iOpc, sCve, sDesc, sOrd, sUsu, sProg);
+            CIncidencias.ConcepInc_UID(iOpc, sCve, sDesc, sOrd, iStT, sUsu, sProg);
             if (iOpc == 1)
             {
                 lbMensaje.Text = "Registro almacenado";
@@ -381,12 +430,20 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else if (iOpc == 3)
             {
-                lbMensaje.Text = "Registro eliminado";
+                if (iSt == 0)
+                {
+                    lbMensaje.Text = "Registro dado de baja";
+                }
+                else
+                {
+                    lbMensaje.Text = "Registro dado de alta";
+                }
+
             }
         }
-        private void sValIns(int iOpc, int sCve, string sDesc, int sOrd, string sUsu, string sProg)
+        private void sValIns(int iOpc, int sCve, string sDesc, int sOrd, int iStT, string sUsu, string sProg)
         {
-            vValida = CIncidencias.ConcepInc_V(iOpc, sCve, sDesc, sOrd, sUsu, sProg);
+            vValida = CIncidencias.ConcepInc_V(iOpc, sCve, sDesc, sOrd, iStT, sUsu, sProg);
 
         }
 

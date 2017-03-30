@@ -1,8 +1,10 @@
+using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -269,19 +271,19 @@ namespace SIPAA_CS.App_Code
                     case 1:
                         //Clase Success - Color Verde
                         //btn.Enabled = true;
-                        btn.Image = Resources.btnAdd;
+                        btn.Image = Resources.Guardar;
 
                         break;
                     case 2:
                         //Clase Info - Color Azul
                         //btn.Enabled = true;
-                        btn.Image = Resources.btnEdit;
+                        btn.Image = Resources.Editar;
 
                         break;
                     case 3:
                         //Clase Danger - Color Rojo
                         //btn.Enabled = true;
-                        btn.Image = Resources.btnRemove2;
+                        btn.Image = Resources.Borrar;
 
                         break;
                     default:
@@ -476,7 +478,7 @@ namespace SIPAA_CS.App_Code
             nCtrlW = ctrlW - (ctrlW * Per);
             ctrl.Size = new Size((int)nCtrlW, (int)nCtrlH);
 
-            if (TipoControl.Contains("Button") && Per != 0)
+            if (TipoControl.Contains("System.Windows.Forms.Button") && Per != 0)
             {
 
                 Button btn = (Button)ctrl;
@@ -536,6 +538,18 @@ namespace SIPAA_CS.App_Code
 
         }
 
+
+        public static ReportDocument ObtenerObjetoReporte(DataTable dtRpt, string strModulo, string NombreReporte)
+        {
+
+            ReportDocument ReportDoc = new ReportDocument();
+            string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            string file = path + "\\" + strModulo + "\\Reportes\\" + NombreReporte;
+            ReportDoc.Load(file);
+            ReportDoc.SetDataSource(dtRpt);
+            return ReportDoc;
+
+        }
 
     }
 
