@@ -9,7 +9,6 @@ using SIPAA_CS.RecursosHumanos;
 using SIPAA_CS.RecursosHumanos.Asignaciones;
 using SIPAA_CS.RecursosHumanos.Catalogos;
 using SIPAA_CS.RecursosHumanos.Reportes;
-using SIPAA_CS.Generales;
 
 namespace SIPAA_CS
 {
@@ -23,7 +22,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Statues());
+            Application.Run(new Splash());
         }
     }
 }

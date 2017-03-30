@@ -156,5 +156,17 @@ namespace SIPAA_CS.RecursosHumanos
             FiltrosRegistroGeneradoDetalle rpt = new FiltrosRegistroGeneradoDetalle();
             rpt.Show();
         }
+
+        private void tsmAsignacionUbicacion_Click(object sender, EventArgs e)
+        {
+            UbicacionesUsuario uu = new UbicacionesUsuario();
+            uu.Show();
+        }
+
+        private void tsmAsignacionDepartamento_Click(object sender, EventArgs e)
+        {
+            DepartamentosUsuario du = new DepartamentosUsuario();
+            du.Show();
+        }
     }
 }
