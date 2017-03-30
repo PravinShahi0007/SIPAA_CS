@@ -83,6 +83,7 @@
     <Compile Include="App_Code\Accesos\Asignaciones\AreaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\CompaniaUsuario.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\RelojChecador.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\DiaSemana.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\IncNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Mensaje.cs" />
@@ -147,6 +148,12 @@
     </Compile>
     <!---<Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">-->
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Incidencia.cs" />
+    <Compile Include="RecursosHumanos\Catalogos\RelojesChecadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\RelojesChecadores.Designer.cs">
+      <DependentUpon>RelojesChecadores.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Catalogos\DiasSemana.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\RelojesChecadores.resx">
+      <DependentUpon>RelojesChecadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\DiasSemana.resx">
       <DependentUpon>DiasSemana.cs</DependentUpon>
