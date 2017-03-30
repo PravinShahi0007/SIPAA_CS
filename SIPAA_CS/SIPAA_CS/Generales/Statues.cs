@@ -11,29 +11,35 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.App_Code;
+using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
+using SIPAA_CS.App_Code.Generales;
+
 //***********************************************************************************************
 //Autor: Marco Dupont
-//Fecha creación: 17-Mar-2017       Última Modificacion: dd-mm-aaaa
-//Descripción: Administra Formas de Registro Empleado
+//Fecha creación: 29-Mar-2017       Última Modificacion: dd-mm-aaaa
+//Descripción: Administra Valores de los Status
 //***********************************************************************************************
-namespace SIPAA_CS.RecursosHumanos
+
+namespace SIPAA_CS.Generales
 {
-    public partial class FormasRegistros : Form
+    public partial class Statues : Form
     {
         #region
 
-        int vValida;
         int iAgr;
         int iAct;
         int iEli;
-        int iCvFR;
-        int iSt;
+
+        int iVld_c;
+        string sCv_c;
+        int ivst_c;
+        int iSt_c;
+        
 
         #endregion
 
-        FormaReg FormasRegistro = new FormaReg();
-
-        public FormasRegistros()
+        statue Cstatus = new statue();
+        public Statues()
         {
             InitializeComponent();
         }
@@ -51,68 +57,80 @@ namespace SIPAA_CS.RecursosHumanos
         {
             //LLAMA METODO LLENAR GRID
             pnlAct.Visible = false;
-            SLlenaGrid(4,0, txtFormReg.Text.Trim(), 0, "", "");
-            txtFormReg.Text = "";
-            txtFormReg.Focus();
+            SLlenaGrid(4, txtBusca.Text.Trim(), 0, "", 0, "", "");
+            txtBusca.Text = "";
+            txtBusca.Focus();
             pnlAct.Visible = false;
-        }
 
+        }
         //BOTOS AGREGAR REGISTRO NUEVO
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             pnlAct.Visible = true;
-            lblAct.Text = "     Agregar forma de registro";
+            lblAct.Text = "     Agregar Status";
             btnEliminar.Visible = false;
             btnEditar.Visible = false;
             ckbEliminar.Visible = false;
             btnGuardar.Visible = true;
-            btnActiva.Visible = false;
-            iSt = 1;
-            txtCapFR.Text = "";
-            txtCapFR.Focus();
+            txtCapcv.Text = "";
+            txtCapSt.Text = "";
+            txtCapDes.Text = "";
+            iSt_c = 1;
+            txtCapcv.Focus();
         }
-
-        //BOTON GUARDAR
-        private void btnGuardar_Click(object sender, EventArgs e)
+        //BOTON BAJA
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-            //VALIDA ESCRITURA DE ALGUN TEXTO
-                if (txtCapFR.Text.Trim() == "")
-                {
-                    DialogResult result = MessageBox.Show("Captura el dato a guardar", "SIPAA", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    sValIns(5, 0, txtCapFR.Text.Trim(), 0, "", "");
+            DialogResult result = MessageBox.Show("Esta acción da de baja el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                iSt_c = 0;
+                sGuardaMod(3, txtCapcv.Text.Trim(), ivst_c, "", iSt_c, "150076", "Statues");
+                txtCapcv.Text = "";
+                txtCapSt.Text = "";
+                txtCapDes.Text = "";
+                panelTag.Visible = true;
+                timer1.Start();
+                SLlenaGrid(4, "", 0, "", 0, "", "");
+                sCv_c = "";
+                ivst_c = 0;
+                pnlAct.Visible = false;
+                txtBusca.Focus();
+            }
+            else if (result == DialogResult.No)
+            {
 
-                    if (vValida <= 0)
-                    {
-                        sGuardaMod(1, 0, txtCapFR.Text.Trim(), iSt, "150076", "frmFormReg");
-                        txtCapFR.Text = "";
+            }
+        }
+        //BOTON ALTA
+        private void btnActiva_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Esta acción habilita el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                iSt_c = 1;
+                sGuardaMod(3, txtCapcv.Text.Trim(), ivst_c, "", iSt_c, "150076", "Statues");
+                txtCapcv.Text = "";
+                txtCapSt.Text = "";
+                txtCapDes.Text = "";
+                panelTag.Visible = true;
+                timer1.Start();
+                SLlenaGrid(4, "", 0, "", 0, "", "");
+                sCv_c = "";
+                ivst_c = 0;
+                pnlAct.Visible = false;
+                txtBusca.Focus();
+            }
+            else if (result == DialogResult.No)
+            {
 
-                        panelTag.Visible = true;
-                        timer1.Start();
-
-                        SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, "", "");
-                        txtCapFR.Focus();
-                        pnlAct.Visible = false;
-                    }
-                    else
-                    {
-                        SLlenaGrid(4, 0, txtCapFR.Text.Trim(), 0, "", "");
-                        txtCapFR.Text = "";
-                        txtCapFR.Focus();
-                        pnlAct.Visible = false;
-                        DialogResult result = MessageBox.Show("Registro existente", "SIPAA", MessageBoxButtons.OK);
-                    }
-                }
-           }
-
+            }
+        }
         //BOTON EDITAR
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
             //VALIDA ESCRITURA DE ALGUN TEXTO
-            if (txtCapFR.Text.Trim() == "")
+            if (txtCapDes.Text.Trim() == "")
             {
                 DialogResult result = MessageBox.Show("Seleccione un dato en el grid a modificar", "SIPAA", MessageBoxButtons.OK);
             }
@@ -124,68 +142,90 @@ namespace SIPAA_CS.RecursosHumanos
                 }
                 else
                 {
-                    sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), 0, "150076", "frmFormReg");
-                    txtCapFR.Text = "";
+                    sGuardaMod(2, txtCapcv.Text, ivst_c, txtCapDes.Text, iSt_c, "150076", "Statues");
+                    txtCapcv.Text = "";
+                    txtCapSt.Text = "";
+                    txtCapDes.Text = "";
                     panelTag.Visible = true;
                     timer1.Start();
-                    SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, "", "");
-                    iCvFR = 0;
+                    SLlenaGrid(4, "", 0, "", 0, "", "");
+                    sCv_c = "";
+                    ivst_c = 0;
                     pnlAct.Visible = false;
+                    txtBusca.Focus();
                 }
             }
         }
-
-        //BOTON ELIMINAR
-        private void btnEliminar_Click(object sender, EventArgs e)
+        //BOTON GUARDAR
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Esta acción elimina el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                iSt = 0;
-                sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, "150076", "frmFormReg");
-                txtCapFR.Text = "";
-                panelTag.Visible = true;
-                timer1.Start();
-                SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, "", "");
-                iCvFR = 0;
-                pnlAct.Visible = false;
-            }
-            else if (result == DialogResult.No)
-            {
+            //VALIDA ESCRITURA DE ALGUN TEXTO
 
+            if (txtCapcv.Text.Trim() == "")
+            {
+                DialogResult result = MessageBox.Show("Captura el dato a guardar", "SIPAA", MessageBoxButtons.OK);
+                txtCapcv.Focus();
+            }
+            else
+            {
+                if (txtCapSt.Text.Trim() == "")
+                {
+                    DialogResult result = MessageBox.Show("Captura el dato a guardar", "SIPAA", MessageBoxButtons.OK);
+                    txtCapSt.Focus();
+                }
+                else
+                {
+                    ivst_c = int.Parse(txtCapSt.Text);
+                    sValIns(5, txtCapcv.Text.Trim(), ivst_c, "", 0, "", "");
+
+                    if (iVld_c <= 0)
+                    {
+                        if (txtCapSt.Text.Trim() == "")
+                        {
+                            DialogResult result = MessageBox.Show("Captura el dato a guardar", "SIPAA", MessageBoxButtons.OK);
+                            txtCapDes.Focus();
+                        }
+                        else
+                        {
+                            ivst_c = int.Parse(txtCapSt.Text);
+                            sGuardaMod(1, txtCapcv.Text, ivst_c, txtCapDes.Text, 1, "150076", "Statues");
+                            txtCapcv.Text = "";
+                            txtCapSt.Text = "";
+                            txtCapDes.Text = "";
+                            panelTag.Visible = true;
+                            timer1.Start();
+
+                            SLlenaGrid(4, "", 0, "", 0, "", "");
+                            pnlAct.Visible = false;
+                            txtBusca.Focus();
+                        }
+                    }
+                    else
+                    {
+                        SLlenaGrid(4, "", 0, "", 0, "", "");
+                        txtCapcv.Text = "";
+                        txtCapSt.Text = "";
+                        txtCapDes.Text = "";
+                        pnlAct.Visible = false;
+                        DialogResult result = MessageBox.Show("Registro ya existente", "SIPAA", MessageBoxButtons.OK);
+                        txtBusca.Focus();
+                    }
+                }
             }
         }
-        //BOTON ALTA
-        private void btnActiva_Click(object sender, EventArgs e)
+        //BOTON REGRESAR
+        private void btnRegresar_Click(object sender, EventArgs e)
         {
-                DialogResult result = MessageBox.Show("Esta acción habilita el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    iSt = 1;
-                    sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, "150076", "frmFormReg");
-                    txtCapFR.Text = "";
-                    panelTag.Visible = true;
-                    timer1.Start();
-                    SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, "", "");
-                    iCvFR = 0;
-                    pnlAct.Visible = false;
-                }
-                else if (result == DialogResult.No)
-                {
-
-                }
+            this.Close();
         }
-
-
         //BOTON MINIMIZAR
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
         //BOTON CERRAR
         private void btnCerrar_Click(object sender, EventArgs e)
-         {
+        {
             DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
@@ -197,16 +237,16 @@ namespace SIPAA_CS.RecursosHumanos
 
             }
         }
+
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
-
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void frmFormReg_Load(object sender, EventArgs e)
+
+        private void Statues_Load(object sender, EventArgs e)
         {
-            
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
@@ -220,8 +260,8 @@ namespace SIPAA_CS.RecursosHumanos
             iEli = 1;
 
             //LLAMA METODO LLENAR GRID
-            SLlenaGrid(4, 0,"",0,"","");
-            
+            SLlenaGrid(4, "", 0, "", 0, "", "");
+
             //HABILITA BOTON AGREGAR
             if (iAgr == 1)
             {
@@ -230,7 +270,7 @@ namespace SIPAA_CS.RecursosHumanos
             }
         }
         //evento tick de timer de mensajes
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick_1(object sender, EventArgs e)
         {
             panelTag.Visible = false;
             timer1.Stop();
@@ -268,26 +308,28 @@ namespace SIPAA_CS.RecursosHumanos
         }
 
         //LLENA GRID
-        private void SLlenaGrid(int p_opcion, int p_cvforma, string p_descripcion, int p_stforma, string p_usuumod, string p_prgumodr)
+        private void SLlenaGrid(int p_opcion, string p_cvtabla, int p_stvalor, string p_descripcion, int p_ststatus, string p_usuumod, string p_prgumodr)
         {
 
-            DataTable dtFormasRegistro = FormasRegistro.FormaReg_S(p_opcion, p_cvforma, p_descripcion, p_stforma, p_usuumod, p_prgumodr);
-            dgvForReg.DataSource = dtFormasRegistro;
-            
-            DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
-            imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
-            if (dgvForReg.Columns[0].HeaderText != "Selección")
-            {
-                imgCheckUsuarios.Name = "img";
-                dgvForReg.Columns.Insert(0, imgCheckUsuarios);
-                dgvForReg.Columns[0].HeaderText = "Selección";
-            }
-            dgvForReg.Columns[0].Width = 55;
-            dgvForReg.Columns[1].Visible = false;
-            dgvForReg.Columns[2].Width = 155;
-            dgvForReg.Columns[3].Width = 35;
+            DataTable dtConsulta = Cstatus.statue_S(p_opcion, p_cvtabla, p_stvalor, p_descripcion, p_ststatus, p_usuumod, p_prgumodr);
+            dgvConsulta.DataSource = dtConsulta;
 
-            dgvForReg.ClearSelection();
+            DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
+            if (dgvConsulta.Columns[0].HeaderText != "Selección")
+            {
+                imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
+                imgCheckUsuarios.Name = "img";
+                dgvConsulta.Columns.Insert(0, imgCheckUsuarios);
+                dgvConsulta.Columns[0].HeaderText = "Selección";
+            }
+
+            dgvConsulta.Columns[0].Width = 55;
+            dgvConsulta.Columns[1].Width = 90;
+            dgvConsulta.Columns[2].Width = 35;
+            dgvConsulta.Columns[3].Width = 135;
+            dgvConsulta.Columns[4].Width = 35;
+
+            dgvConsulta.ClearSelection();
             sHabilitaPermisos();
         }
 
@@ -310,11 +352,11 @@ namespace SIPAA_CS.RecursosHumanos
 
                 lblModifElim.Visible = true;
                 lblModifElim.Text = "Si desea modificar o eliminar un registro seleccione en el grid";
-                
+
                 btnEditar.Visible = true;
 
             }
-            else if(iAct == 1)
+            else if (iAct == 1)
             {
 
                 pnlAct.Visible = true;
@@ -337,11 +379,11 @@ namespace SIPAA_CS.RecursosHumanos
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void ckbEliminar_CheckedChanged_1(object sender, EventArgs e)
         {
             if (ckbEliminar.Checked == true)
             {
-                if(iSt == 1)
+                if (iSt_c == 1)
                 {
                     btnGuardar.Visible = false;
                     btnEditar.Visible = false;
@@ -351,11 +393,10 @@ namespace SIPAA_CS.RecursosHumanos
                 else
                 {
                     btnGuardar.Visible = false;
-                    btnEditar.Visible = false;
+                    btnEditar.Visible = true;
                     btnEliminar.Visible = false;
                     btnActiva.Visible = true;
                 }
-
             }
             else
             {
@@ -366,30 +407,33 @@ namespace SIPAA_CS.RecursosHumanos
             }
         }
 
-        private void dgvForReg_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            for (int iContador = 0; iContador < dgvForReg.Rows.Count; iContador++)
+            for (int iContador = 0; iContador < dgvConsulta.Rows.Count; iContador++)
             {
-                dgvForReg.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                dgvConsulta.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
-            
+
             sHabilitaPermisos();
 
-            if (dgvForReg.SelectedRows.Count != 0)
+            if (dgvConsulta.SelectedRows.Count != 0)
             {
 
-                DataGridViewRow row = this.dgvForReg.SelectedRows[0];
+                DataGridViewRow row = this.dgvConsulta.SelectedRows[0];
 
-                iCvFR = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
-                string ValorRow = row.Cells["Descripción"].Value.ToString();
-                iSt = Convert.ToInt32(row.Cells["Status"].Value.ToString());
+                txtCapcv.Text = row.Cells["Clave"].Value.ToString();
+                txtCapSt.Text = row.Cells["Val Status"].Value.ToString();
+                txtCapDes.Text = row.Cells["Descripción"].Value.ToString();
+                iSt_c = Convert.ToInt32(row.Cells["Status"].Value.ToString());
 
-                txtCapFR.Text = ValorRow;
-                txtCapFR.Focus();
+                sCv_c = txtCapcv.Text;
+                ivst_c = int.Parse(txtCapSt.Text);
+                txtCapcv.ReadOnly = true;
+                txtCapSt.ReadOnly = true;
+                txtCapDes.Focus();
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                if (iSt == 0)
+                if (iSt_c == 0)
                 {
                     ckbEliminar.Text = "Alta";
                 }
@@ -398,14 +442,13 @@ namespace SIPAA_CS.RecursosHumanos
                     ckbEliminar.Text = "Baja";
                 }
 
-
             }
         }
 
         //GUARDA MODIFICA BAJA
-        private void sGuardaMod(int iOpc, int sCve, string sDesc, int iStT, string sUsu, string sProg)
+        private void sGuardaMod(int iOpc, string sCve, int ivst, string sDesc, int iStT, string sUsu, string sProg)
         {
-            FormasRegistro.formaReg_UID(iOpc, sCve, sDesc, iStT, sUsu, sProg);
+            Cstatus.statue_UID(iOpc, sCve, ivst, sDesc, iStT, sUsu, sProg);
             if (iOpc == 1)
             {
                 lbMensaje.Text = "Registro almacenado";
@@ -416,7 +459,7 @@ namespace SIPAA_CS.RecursosHumanos
             }
             else if (iOpc == 3)
             {
-                if (iSt == 0)
+                if(iSt_c == 0)
                 {
                     lbMensaje.Text = "Registro dado de baja";
                 }
@@ -426,14 +469,15 @@ namespace SIPAA_CS.RecursosHumanos
                 }
             }
         }
-        private void sValIns(int iOpc, int sCve, string sDesc, int iStT, string sUsu, string sProg)
+        private void sValIns(int iOpc, string sCve, int ivst, string sDesc, int iStT, string sUsu, string sProg)
         {
-            vValida = FormasRegistro.FormaReg_V(iOpc, sCve, sDesc, iStT, sUsu, sProg);
-            
+            iVld_c = Cstatus.statue_V(iOpc, sCve, ivst, sDesc, iStT, sUsu, sProg);
         }
-        
+
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
+
     }
 }

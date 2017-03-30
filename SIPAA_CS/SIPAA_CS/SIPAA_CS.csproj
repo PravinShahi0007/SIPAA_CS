@@ -90,11 +90,12 @@
     <Compile Include="App_Code\Accesos\Asignaciones\CompaniaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\DepartamentoUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
-    <Compile Include="App_Code\Generales\status.cs" />
+    <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\DiaSemana.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\IncNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Mensaje.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\PlantillaDetalle.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaCompania2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaFormaPago.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
@@ -134,6 +135,12 @@
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\Statues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generales\Statues.Designer.cs">
+      <DependentUpon>Statues.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -191,6 +198,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Incidencias.Designer.cs">
       <DependentUpon>Incidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\PlantillasDetalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\PlantillasDetalles.Designer.cs">
+      <DependentUpon>PlantillasDetalles.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Trabajadores.cs">
       <SubType>Form</SubType>
@@ -371,6 +384,9 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Generales\Statues.resx">
+      <DependentUpon>Statues.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -400,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Incidencias.resx">
       <DependentUpon>Incidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\PlantillasDetalles.resx">
+      <DependentUpon>PlantillasDetalles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Trabajadores.resx">
       <DependentUpon>Trabajadores.cs</DependentUpon>

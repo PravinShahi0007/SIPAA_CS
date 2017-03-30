@@ -15,7 +15,7 @@ using System.Data.SqlClient;
 
 namespace SIPAA_CS.App_Code.Generales
 {
-    class status
+    class statue
     {
         //SE DECLARAN VARIABLES
         public int p_opcion;
@@ -28,7 +28,7 @@ namespace SIPAA_CS.App_Code.Generales
         public int p_respuesta;
 
         //CONTRUCTOR
-        public status()
+        public statue()
         {
             p_opcion = 0;
             p_cvtabla = "";
@@ -40,7 +40,7 @@ namespace SIPAA_CS.App_Code.Generales
             p_respuesta = 0;
         }
         //METODO FORMAS DE REGISTRO LLENA GRID
-        public DataTable status_S(int p_opcion, string p_cvtabla, int p_stvalor, string p_descripcion, int p_ststatus, string p_usuumod, string p_prgumodr)
+        public DataTable statue_S(int p_opcion, string p_cvtabla, int p_stvalor, string p_descripcion, int p_ststatus, string p_usuumod, string p_prgumodr)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_genestatus_suid";
@@ -60,13 +60,13 @@ namespace SIPAA_CS.App_Code.Generales
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
             objConexion.cerrarConexion();
 
-            DataTable status_S = new DataTable();
-            Adapter.Fill(status_S);
-            return status_S;
+            DataTable statue_S = new DataTable();
+            Adapter.Fill(statue_S);
+            return statue_S;
 
         }
         //metodo actualizar, insertar, eliminar registro
-        public int status_UID(int p_opcion, string p_cvtabla, int p_stvalor, string p_descripcion, int p_ststatus, string p_usuumod, string p_prgumodr)
+        public int statue_UID(int p_opcion, string p_cvtabla, int p_stvalor, string p_descripcion, int p_ststatus, string p_usuumod, string p_prgumodr)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_genestatus_suid";
@@ -89,7 +89,7 @@ namespace SIPAA_CS.App_Code.Generales
             return iResponse;
         }
         //METODO FORMAS DE REGISTRO VALIDA CREA REGISTRO
-        public int status_V(int p_opcion, string p_cvtabla, int p_stvalor, string p_descripcion, int p_ststatus, string p_usuumod, string p_prgumodr)
+        public int statue_V(int p_opcion, string p_cvtabla, int p_stvalor, string p_descripcion, int p_ststatus, string p_usuumod, string p_prgumodr)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_genestatus_suid";

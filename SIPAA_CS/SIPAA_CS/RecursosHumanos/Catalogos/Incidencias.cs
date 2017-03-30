@@ -431,7 +431,15 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else if (iOpc == 3)
             {
-                lbMensaje.Text = "Registro eliminado";
+                if (iSt == 0)
+                {
+                    lbMensaje.Text = "Registro dado de baja";
+                }
+                else
+                {
+                    lbMensaje.Text = "Registro dado de alta";
+                }
+
             }
         }
         private void sValIns(int iOpc, int sCve, string sDesc, int sOrd, int iStT, string sUsu, string sProg)
