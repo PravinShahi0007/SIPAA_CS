@@ -36,9 +36,9 @@
             System.Windows.Forms.Label lblne;
             System.Windows.Forms.Label lblfi;
             System.Windows.Forms.Label lblff;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -52,6 +52,8 @@
             this.lbltitulo = new System.Windows.Forms.Label();
             this.pnlmensajes = new System.Windows.Forms.Panel();
             this.pnldatos = new System.Windows.Forms.Panel();
+            this.dtpfechafin = new System.Windows.Forms.DateTimePicker();
+            this.dtpfechainicial = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtidtrab = new System.Windows.Forms.TextBox();
             this.ckbEliminar = new System.Windows.Forms.CheckBox();
@@ -62,8 +64,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panelTag = new System.Windows.Forms.Panel();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.dtpfechainicial = new System.Windows.Forms.DateTimePicker();
-            this.dtpfechafin = new System.Windows.Forms.DateTimePicker();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -216,30 +216,30 @@
             this.dgvMensajes.AllowUserToAddRows = false;
             this.dgvMensajes.AllowUserToDeleteRows = false;
             this.dgvMensajes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvMensajes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvMensajes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvMensajes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMensajes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMensajes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvMensajes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMensajes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMensajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMensajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvMensajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMensajes.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMensajes.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvMensajes.Location = new System.Drawing.Point(350, 179);
             this.dgvMensajes.Name = "dgvMensajes";
             this.dgvMensajes.ReadOnly = true;
@@ -365,6 +365,24 @@
             this.pnldatos.Size = new System.Drawing.Size(334, 74);
             this.pnldatos.TabIndex = 145;
             // 
+            // dtpfechafin
+            // 
+            this.dtpfechafin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpfechafin.Location = new System.Drawing.Point(216, 45);
+            this.dtpfechafin.MinDate = new System.DateTime(1995, 1, 1, 0, 0, 0, 0);
+            this.dtpfechafin.Name = "dtpfechafin";
+            this.dtpfechafin.Size = new System.Drawing.Size(98, 20);
+            this.dtpfechafin.TabIndex = 145;
+            // 
+            // dtpfechainicial
+            // 
+            this.dtpfechainicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpfechainicial.Location = new System.Drawing.Point(65, 43);
+            this.dtpfechainicial.MinDate = new System.DateTime(1995, 1, 1, 0, 0, 0, 0);
+            this.dtpfechainicial.Name = "dtpfechainicial";
+            this.dtpfechainicial.Size = new System.Drawing.Size(97, 20);
+            this.dtpfechainicial.TabIndex = 145;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
@@ -477,24 +495,6 @@
             this.lblMensaje.Text = "Barra de mensajes";
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dtpfechainicial
-            // 
-            this.dtpfechainicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpfechainicial.Location = new System.Drawing.Point(65, 43);
-            this.dtpfechainicial.MinDate = new System.DateTime(1995, 1, 1, 0, 0, 0, 0);
-            this.dtpfechainicial.Name = "dtpfechainicial";
-            this.dtpfechainicial.Size = new System.Drawing.Size(97, 20);
-            this.dtpfechainicial.TabIndex = 145;
-            // 
-            // dtpfechafin
-            // 
-            this.dtpfechafin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpfechafin.Location = new System.Drawing.Point(216, 45);
-            this.dtpfechafin.MinDate = new System.DateTime(1995, 1, 1, 0, 0, 0, 0);
-            this.dtpfechafin.Name = "dtpfechafin";
-            this.dtpfechafin.Size = new System.Drawing.Size(98, 20);
-            this.dtpfechafin.TabIndex = 145;
-            // 
             // Mensajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -516,6 +516,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Mensajes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "";
             this.Text = "Mensajes";
             this.Load += new System.EventHandler(this.Mensajes_Load);
             this.pnlBusqueda.ResumeLayout(false);

@@ -216,6 +216,7 @@
             this.btnImprimirResumen.TabIndex = 3;
             this.btnImprimirResumen.Tag = "Buscar";
             this.btnImprimirResumen.UseVisualStyleBackColor = false;
+            this.btnImprimirResumen.Click += new System.EventHandler(this.btnImprimirResumen_Click);
             // 
             // btnImprimirDetalle
             // 
@@ -278,6 +279,7 @@
             this.Name = "FiltroUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FiltroUsuarios";
+            this.Load += new System.EventHandler(this.FiltroUsuarios_Load);
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
             this.panel1.ResumeLayout(false);
