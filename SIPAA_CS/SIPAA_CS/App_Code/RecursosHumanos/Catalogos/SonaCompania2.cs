@@ -13,28 +13,26 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
     class SonaCompania2
     {
         //variables
-        public int p_opcion;
-        public int p_idcompania;
-        public string p_descripcion;
-        public string p_rfc;
-        public string p_usuumod;
-        public string p_prgumodr;
-        public int p_respuesta;
+        public int iOpcion;
+        public string sDescripcion;
+        public string sRfc;
+        public string sUsuumod;
+        public string sPrgumodr;
+        public int iRespuesta;
 
         public SonaCompania2()
         {
             //inician variables
-            p_opcion = 0;
-            p_idcompania = 0;
-            p_descripcion = "";
-            p_rfc = "";
-            p_usuumod = "";
-            p_prgumodr = "";
-            p_respuesta = 0;
+            iOpcion = 0;
+            sDescripcion = "";
+            sRfc = "";
+            sUsuumod = "";
+            sPrgumodr = "";
+            iRespuesta = 0;
         } // public SonaCompania2()
 
         // Metodo DataTable para regresar Compañias
-        public DataTable obtCompania2(int p_opcion, int p_IdCompania, string p_TextoBuscar)
+        public DataTable obtCompania2(int iOpcion, string sTextoBuscar)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_sonacompania_s";
@@ -42,9 +40,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
-            cmd.Parameters.Add("@p_IdCompania", SqlDbType.Int).Value = p_IdCompania;
-            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_TextoBuscar;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = sTextoBuscar;
 
             objConexion.asignarConexions(cmd);
 

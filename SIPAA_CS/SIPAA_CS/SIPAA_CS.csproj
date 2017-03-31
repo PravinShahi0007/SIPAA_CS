@@ -112,13 +112,16 @@
     <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\RelojChecador.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\DiaSemana.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\IncNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Mensaje.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\PlantillaDetalle.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\Plantilla.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaCompania2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaFormaPago.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\PeriodoProcesoIncidencia.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
     <Compile Include="Accesos\AccesosDashboard.cs">
       <SubType>Form</SubType>
@@ -201,6 +204,12 @@
     </Compile>
     <!---<Compile Include="Recursos_Humanos\Administracion\frmCompanias.cs">-->
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Incidencia.cs" />
+    <Compile Include="RecursosHumanos\Catalogos\RelojesChecadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\RelojesChecadores.Designer.cs">
+      <DependentUpon>RelojesChecadores.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Catalogos\DiasSemana.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +233,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\PlantillasDetalles.Designer.cs">
       <DependentUpon>PlantillasDetalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\Plantillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\Plantillas.Designer.cs">
+      <DependentUpon>Plantillas.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\Trabajadores.cs">
       <SubType>Form</SubType>
@@ -328,6 +343,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.Designer.cs">
+      <DependentUpon>PeriodosProcesoIncidencia.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\RechDashboard.cs">
       <SubType>Form</SubType>
@@ -435,6 +456,9 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Departamentos.resx">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\RelojesChecadores.resx">
+      <DependentUpon>RelojesChecadores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\DiasSemana.resx">
       <DependentUpon>DiasSemana.cs</DependentUpon>
     </EmbeddedResource>
@@ -446,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\PlantillasDetalles.resx">
       <DependentUpon>PlantillasDetalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\Plantillas.resx">
+      <DependentUpon>Plantillas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Trabajadores.resx">
       <DependentUpon>Trabajadores.cs</DependentUpon>
@@ -485,6 +512,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\IncidenciasNominas.resx">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.resx">
+      <DependentUpon>PeriodosProcesoIncidencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\RechDashboard.resx">
       <DependentUpon>RechDashboard.cs</DependentUpon>
@@ -868,6 +898,12 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_assignment_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_group_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_group_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_assignment_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_group_white_24dp.png" />
+    <Content Include="Resources\pass24x24.png" />
+    <None Include="Resources\user24x241.png" />
+    <None Include="Resources\pass24x241.png" />
+    <Content Include="Resources\user24x24.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\RecursosHumanos\Asistencias\" />
