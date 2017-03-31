@@ -169,9 +169,10 @@ namespace SIPAA_CS.RecursosHumanos
             du.Show();
         }
 
-        private void mensajesToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void plantillasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Plantillas oPlantillas = new Plantillas();
+            oPlantillas.Show();
         }
     }
 }

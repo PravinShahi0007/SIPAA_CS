@@ -57,6 +57,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.plantillasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.MenuAccesos.SuspendLayout();
             this.SuspendLayout();
@@ -111,7 +112,8 @@
             this.incidenciasNominaToolStripMenuItem,
             this.diasFestivoToolStripMenuItem,
             this.tipoHorarioToolStripMenuItem,
-            this.tipoIncidenciaToolStripMenuItem});
+            this.tipoIncidenciaToolStripMenuItem,
+            this.plantillasToolStripMenuItem});
             this.msCatalogo.ForeColor = System.Drawing.Color.White;
             this.msCatalogo.Image = global::SIPAA_CS.Properties.Resources.ic_view_list_white_18dp;
             this.msCatalogo.Name = "msCatalogo";
@@ -397,6 +399,17 @@
             this.label3.Text = "       Recursos Humanos                  ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // plantillasToolStripMenuItem
+            // 
+            this.plantillasToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.plantillasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.plantillasToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
+            this.plantillasToolStripMenuItem.Name = "plantillasToolStripMenuItem";
+            this.plantillasToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.plantillasToolStripMenuItem.Tag = "frmPlantillas";
+            this.plantillasToolStripMenuItem.Text = "Plantillas";
+            this.plantillasToolStripMenuItem.Click += new System.EventHandler(this.plantillasToolStripMenuItem_Click);
+            // 
             // RechDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,5 +466,6 @@
         private System.Windows.Forms.ToolStripMenuItem registroGeneradoDetalleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmAsignacionUbicacion;
         private System.Windows.Forms.ToolStripMenuItem tsmAsignacionDepartamento;
+        private System.Windows.Forms.ToolStripMenuItem plantillasToolStripMenuItem;
     }
 }
