@@ -17,7 +17,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
         public int iIdCompania;
         public int iIdTipoNomina;
         public string sDescripcion;
-        public string sRespuesta;
+        public int iRespuesta;
 
         public SonaTipoNomina()
         {
@@ -25,11 +25,11 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             iIdCompania = 0;
             iIdTipoNomina = 0;
             sDescripcion = "";
-            sRespuesta = "";
+            iRespuesta = 0;
         } // public SonaTipoNomina()
 
         // Metodo DataTable para regresar Tipos de Nomina
-        public DataTable obtTipoNomina(int p_opcion, int p_IdCompania, int p_IdTipoNomina, string p_TextoBuscar)
+        public DataTable obtTipoNomina(int iOpcion, int iIdCompania, int iIdTipoNomina, string sTextoBuscar)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_sonatiponomina_s";
@@ -37,10 +37,10 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
-            cmd.Parameters.Add("@p_IdCompania", SqlDbType.Int).Value = p_IdCompania;
-            cmd.Parameters.Add("@p_IdTipoNomina", SqlDbType.Int).Value = p_IdCompania;
-            cmd.Parameters.Add("@p_Descripcion", SqlDbType.VarChar).Value = p_TextoBuscar;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_IdCompania", SqlDbType.Int).Value = iIdCompania;
+            cmd.Parameters.Add("@p_IdTipoNomina", SqlDbType.Int).Value = iIdTipoNomina;
+            cmd.Parameters.Add("@p_Descripcion", SqlDbType.VarChar).Value = sTextoBuscar;
 
             objConexion.asignarConexions(cmd);
 

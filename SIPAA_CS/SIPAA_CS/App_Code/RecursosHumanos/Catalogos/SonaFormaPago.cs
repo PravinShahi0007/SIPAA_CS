@@ -19,18 +19,18 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
     class SonaFormaPago
     {
         //SE DECLARAN VARIABLES
-        public int p_opcion;
-        public int p_idformapago;
-        public string p_descripcion;
+        public int iOpcion;
+        public int iIdFormaPago;
+        public string sDescripcion;
 
         public SonaFormaPago()
         {
-            p_opcion = 0;
-            p_idformapago = 0;
-            p_descripcion = "";
+            iOpcion = 0;
+            iIdFormaPago = 0;
+            sDescripcion = "";
         }
         //METODO FORMAS DE REGISTRO LLENA GRID
-        public DataTable FormaPago_S(int p_opcion, int p_idformapago, string p_descripcion)
+        public DataTable FormaPago_S(int iOpcion, int iIdFormaPago, string sDescripcion)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_sonaformapago_s";
@@ -38,9 +38,9 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
-            cmd.Parameters.Add("@p_idformapago", SqlDbType.VarChar).Value = p_idformapago;
-            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_idformapago", SqlDbType.VarChar).Value = iIdFormaPago;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = sDescripcion;
 
             objConexion.asignarConexion(cmd);
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
