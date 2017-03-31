@@ -1,4 +1,5 @@
-﻿using SIPAA_CS.App_Code;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using SIPAA_CS.App_Code;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace SIPAA_CS.Accesos.Reportes
     public partial class FiltroUsuarios : Form
     {
         public int estatus;
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
         //***********************************************************************************************
         //Autor: Gamaliel Lobato Solis
         //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
@@ -36,6 +39,7 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void btnImprimirDetalle_Click(object sender, EventArgs e)
         {
+            Utilerias.AsignarBotonResize(btnImprimirDetalle,new Size(sysW,sysH),"Imprimir");
             estatus = cbEstatus.SelectedIndex;
 
             if (estatus <= 0)
@@ -62,15 +66,15 @@ namespace SIPAA_CS.Accesos.Reportes
                         break;
 
                     default:
-                        //ViewerReporte form = new ViewerReporte();
-                        //RegistroGeneradoDetalle dtrpt = new RegistroGeneradoDetalle();
-                        //ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "RecursosHumanos", dtrpt.ResourceName);
+                        ViewerReporteUsuarios form = new ViewerReporteUsuarios();
+                        ReporteUsuarios dtrpt = new ReporteUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
-                        //ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                         //ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
                         //ReportDoc.SetParameterValue("FechaTermino", dpFechaFin.Value);
-                        //form.RptDoc = ReportDoc;
-                        //form.Show();
+                        form.RptDoc = ReportDoc;
+                        form.Show();
                         break;
 
                 }
@@ -89,7 +93,10 @@ namespace SIPAA_CS.Accesos.Reportes
             }
         }
 
-
+        private void btnImprimirResumen_Click(object sender, EventArgs e)
+        {
+            Utilerias.AsignarBotonResize(btnImprimirResumen, new Size(sysW, sysH), "Imprimir");
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -103,6 +110,13 @@ namespace SIPAA_CS.Accesos.Reportes
             panelTag.Visible = false;
             timer1.Stop();
         }
+
+        private void FiltroUsuarios_Load(object sender, EventArgs e)
+        {
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+        }
+
+        
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
