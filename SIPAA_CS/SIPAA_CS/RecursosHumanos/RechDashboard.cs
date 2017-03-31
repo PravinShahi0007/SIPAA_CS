@@ -168,5 +168,11 @@ namespace SIPAA_CS.RecursosHumanos
             DepartamentosUsuario du = new DepartamentosUsuario();
             du.Show();
         }
+
+        private void plantillasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Plantillas oPlantillas = new Plantillas();
+            oPlantillas.Show();
+        }
     }
 }
