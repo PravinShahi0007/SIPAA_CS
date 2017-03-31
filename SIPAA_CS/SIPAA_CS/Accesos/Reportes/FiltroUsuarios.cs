@@ -51,8 +51,8 @@ namespace SIPAA_CS.Accesos.Reportes
             if (estatus == 1)
             {
 
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
-                timer1.Start();
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
+                //timer1.Start();
 
                 Usuario objUsuario = new Usuario();
                 DataTable dtReporte;
@@ -71,25 +71,73 @@ namespace SIPAA_CS.Accesos.Reportes
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        //ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
-                        //ReportDoc.SetParameterValue("FechaTermino", dpFechaFin.Value);
+                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
 
                 }
             }
+
             if (estatus == 2)
             {
 
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
-                timer1.Start();
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
+                //timer1.Start();
+
+                Usuario objUsuario = new Usuario();
+                DataTable dtReporte;
+                dtReporte = objUsuario.ReporteUsuarios("", 0, "", "", 0, "", "", 6);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporteUsuarios form = new ViewerReporteUsuarios();
+                        ReporteUsuarios dtrpt = new ReporteUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
             }
+
             if (estatus == 3)
             {
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
+                //timer1.Start();
 
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
-                timer1.Start();
+                Usuario objUsuario = new Usuario();
+                DataTable dtReporte;
+                dtReporte = objUsuario.ReporteUsuarios("", 0, "", "", 0, "", "", 7);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporteUsuarios form = new ViewerReporteUsuarios();
+                        ReporteUsuarios dtrpt = new ReporteUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
             }
         }
 

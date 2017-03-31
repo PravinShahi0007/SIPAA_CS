@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIPAA_CS.App_Code;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,24 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CrystalDecisions.CrystalReports.Engine;
-using SIPAA_CS.App_Code;
 
 namespace SIPAA_CS.Accesos.Reportes
 {
-    public partial class ViewerReporteUsuarios : Form
+    public partial class FiltroPerfiles : Form
     {
-        public ReportDocument RptDoc;
-        public DataTable dtRpt;
-        public int sysH = SystemInformation.PrimaryMonitorSize.Height;
-        public int sysW = SystemInformation.PrimaryMonitorSize.Width;
-
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
         //***********************************************************************************************
         //Autor: Gamaliel Lobato Solis
         //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
         //Descripción: -------------------------------
         //***********************************************************************************************
-        public ViewerReporteUsuarios()
+        public FiltroPerfiles()
         {
             InitializeComponent();
         }
@@ -37,10 +33,6 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -49,11 +41,9 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void ViewerReporteUsuarios_Load(object sender, EventArgs e)
+        private void FiltroPerfiles_Load(object sender, EventArgs e)
         {
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-
-            ReporteView.ReportSource = RptDoc;
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -64,17 +54,6 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
-
-            
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
+        
     }
 }

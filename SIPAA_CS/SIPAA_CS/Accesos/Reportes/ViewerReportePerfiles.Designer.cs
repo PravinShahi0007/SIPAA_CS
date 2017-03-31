@@ -1,6 +1,6 @@
 ﻿namespace SIPAA_CS.Accesos.Reportes
 {
-    partial class ViewerReporteUsuarios
+    partial class ViewerReportePerfiles
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,7 @@
             this.btnRegresar.Location = new System.Drawing.Point(915, 0);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 25);
-            this.btnRegresar.TabIndex = 138;
+            this.btnRegresar.TabIndex = 141;
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
@@ -58,7 +58,7 @@
             this.btnMinimizar.Location = new System.Drawing.Point(974, 0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
-            this.btnMinimizar.TabIndex = 137;
+            this.btnMinimizar.TabIndex = 140;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -73,7 +73,7 @@
             this.btnCerrar.Location = new System.Drawing.Point(998, 0);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
-            this.btnCerrar.TabIndex = 136;
+            this.btnCerrar.TabIndex = 139;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -90,7 +90,7 @@
             this.ReporteView.TabIndex = 0;
             this.ReporteView.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // ViewerReporteUsuarios
+            // ViewerReportePerfiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,10 +101,10 @@
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ViewerReporteUsuarios";
+            this.Name = "ViewerReportePerfiles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ViewerReporteUsuarios";
-            this.Load += new System.EventHandler(this.ViewerReporteUsuarios_Load);
+            this.Text = "ViewerReportePerfiles";
+            this.Load += new System.EventHandler(this.ViewerReportePerfiles_Load);
             this.ResumeLayout(false);
 
         }

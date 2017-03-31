@@ -168,5 +168,10 @@ namespace SIPAA_CS.RecursosHumanos
             DepartamentosUsuario du = new DepartamentosUsuario();
             du.Show();
         }
+
+        private void mensajesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

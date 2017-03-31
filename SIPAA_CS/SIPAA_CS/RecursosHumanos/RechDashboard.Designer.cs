@@ -44,7 +44,6 @@
             this.areasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidenciasNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diasFestivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mensajesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoHorarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoIncidenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,7 +110,6 @@
             this.areasToolStripMenuItem,
             this.incidenciasNominaToolStripMenuItem,
             this.diasFestivoToolStripMenuItem,
-            this.mensajesToolStripMenuItem1,
             this.tipoHorarioToolStripMenuItem,
             this.tipoIncidenciaToolStripMenuItem});
             this.msCatalogo.ForeColor = System.Drawing.Color.White;
@@ -203,6 +201,7 @@
             this.mensajesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mensajesToolStripMenuItem.Image")));
             this.mensajesToolStripMenuItem.Name = "mensajesToolStripMenuItem";
             this.mensajesToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.mensajesToolStripMenuItem.Tag = "frmMensajes";
             this.mensajesToolStripMenuItem.Text = "Mensajes";
             this.mensajesToolStripMenuItem.Click += new System.EventHandler(this.mensajesToolStripMenuItem_Click);
             // 
@@ -237,16 +236,6 @@
             this.diasFestivoToolStripMenuItem.Tag = "frmDiasFestivos";
             this.diasFestivoToolStripMenuItem.Text = "Días Festivos";
             this.diasFestivoToolStripMenuItem.Click += new System.EventHandler(this.diasFestivoToolStripMenuItem_Click);
-            // 
-            // mensajesToolStripMenuItem1
-            // 
-            this.mensajesToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.mensajesToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.mensajesToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("mensajesToolStripMenuItem1.Image")));
-            this.mensajesToolStripMenuItem1.Name = "mensajesToolStripMenuItem1";
-            this.mensajesToolStripMenuItem1.Size = new System.Drawing.Size(246, 22);
-            this.mensajesToolStripMenuItem1.Tag = "frmMensajes";
-            this.mensajesToolStripMenuItem1.Text = "Mensajes";
             // 
             // tipoHorarioToolStripMenuItem
             // 
@@ -454,7 +443,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ToolStripMenuItem incidenciasNominaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem diasFestivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mensajesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tipoHorarioToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem tipoIncidenciaToolStripMenuItem;
