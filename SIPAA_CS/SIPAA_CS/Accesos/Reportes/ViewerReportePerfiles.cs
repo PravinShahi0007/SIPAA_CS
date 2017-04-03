@@ -1,4 +1,5 @@
-﻿using SIPAA_CS.App_Code;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using SIPAA_CS.App_Code;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace SIPAA_CS.Accesos.Reportes
 {
     public partial class ViewerReportePerfiles : Form
     {
+        public ReportDocument RptDoc;
         public int sysH = SystemInformation.PrimaryMonitorSize.Height;
         public int sysW = SystemInformation.PrimaryMonitorSize.Width;
         //***********************************************************************************************
@@ -57,6 +59,7 @@ namespace SIPAA_CS.Accesos.Reportes
         private void ViewerReportePerfiles_Load(object sender, EventArgs e)
         {
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            ReporteView.ReportSource = RptDoc;
         }
 
         

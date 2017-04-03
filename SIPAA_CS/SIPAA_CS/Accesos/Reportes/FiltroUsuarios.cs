@@ -37,18 +37,35 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        private void btnImprimirResumen_Click(object sender, EventArgs e)
+        {
+            Utilerias.AsignarBotonResize(btnImprimirResumen, new Size(sysW, sysH), "Imprimir");
+
+        }
         private void btnImprimirDetalle_Click(object sender, EventArgs e)
         {
             Utilerias.AsignarBotonResize(btnImprimirDetalle,new Size(sysW,sysH),"Imprimir");
             estatus = cbEstatus.SelectedIndex;
-
-            if (estatus <= 0)
+            
+            if (estatus < 0)
             {
 
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Selecciona un Status");
                 timer1.Start();
             }
-            if (estatus == 1)
+            if (estatus == 0)
             {
 
                 //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
@@ -79,7 +96,7 @@ namespace SIPAA_CS.Accesos.Reportes
                 }
             }
 
-            if (estatus == 2)
+            if (estatus == 1)
             {
 
                 //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
@@ -110,7 +127,7 @@ namespace SIPAA_CS.Accesos.Reportes
                 }
             }
 
-            if (estatus == 3)
+            if (estatus == 2)
             {
                 //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
                 //timer1.Start();
@@ -141,10 +158,7 @@ namespace SIPAA_CS.Accesos.Reportes
             }
         }
 
-        private void btnImprimirResumen_Click(object sender, EventArgs e)
-        {
-            Utilerias.AsignarBotonResize(btnImprimirResumen, new Size(sysW, sysH), "Imprimir");
-        }
+        
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -163,8 +177,6 @@ namespace SIPAA_CS.Accesos.Reportes
         {
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
         }
-
-        
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------

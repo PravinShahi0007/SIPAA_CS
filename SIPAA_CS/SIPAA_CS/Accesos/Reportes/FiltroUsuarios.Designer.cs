@@ -63,9 +63,9 @@
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label6.Location = new System.Drawing.Point(39, 46);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(76, 16);
+            label6.Size = new System.Drawing.Size(81, 16);
             label6.TabIndex = 58;
-            label6.Text = "Status Usuario";
+            label6.Text = "Estatus Usuario";
             // 
             // label9
             // 
@@ -118,6 +118,7 @@
             this.btnRegresar.Size = new System.Drawing.Size(30, 25);
             this.btnRegresar.TabIndex = 136;
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // btnMinimizar
             // 
@@ -132,6 +133,7 @@
             this.btnMinimizar.TabIndex = 135;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
             // 
@@ -146,6 +148,7 @@
             this.btnCerrar.TabIndex = 134;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // label3
             // 
@@ -182,15 +185,14 @@
             this.cbEstatus.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstatus.FormattingEnabled = true;
             this.cbEstatus.Items.AddRange(new object[] {
-            "Seleccionar ",
-            "Activos",
-            "Inactivos",
+            "Activo",
+            "Inactivo",
             "Todos"});
             this.cbEstatus.Location = new System.Drawing.Point(42, 66);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(291, 25);
             this.cbEstatus.TabIndex = 57;
-            this.cbEstatus.Text = "Seleccionar un Status";
+            this.cbEstatus.Text = "Seleccionar un Estatus";
             // 
             // panel1
             // 

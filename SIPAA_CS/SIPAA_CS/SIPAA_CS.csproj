@@ -80,6 +80,11 @@
     <Compile Include="Accesos\Asignaciones\UsuarioProceso.Designer.cs">
       <DependentUpon>UsuarioProceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\DataSets\ReportePerfiles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportePerfiles.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\DataSets\ReporteUsuarios.cs">
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
     </Compile>
@@ -99,6 +104,12 @@
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroUsuarios.Designer.cs">
       <DependentUpon>FiltroUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ReportePerfiles.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportePerfiles.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Accesos\Reportes\ReporteUsuarios.cs">
       <AutoGen>True</AutoGen>
@@ -437,6 +448,10 @@
     <EmbeddedResource Include="Accesos\Reportes\FiltroUsuarios.resx">
       <DependentUpon>FiltroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReportePerfiles.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportePerfiles.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ReporteUsuarios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteUsuarios.cs</LastGenOutput>
@@ -563,6 +578,17 @@
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Accesos\DataSets\ReportePerfiles.xsc">
+      <DependentUpon>ReportePerfiles.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReportePerfiles.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportePerfiles.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReportePerfiles.xss">
+      <DependentUpon>ReportePerfiles.xsd</DependentUpon>
+    </None>
     <None Include="Accesos\DataSets\ReporteUsuarios.xsc">
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
     </None>
