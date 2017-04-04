@@ -217,13 +217,22 @@ namespace SIPAA_CS.Accesos
                         cvmodpad = txtModPad.Text;
                         orden = Convert.ToInt32(txtOrden.Text);
                         ambiente = cbAmbiente.SelectedItem.ToString();
-                        modulo = cbModulo.SelectedItem.ToString();
+                        modulo = txtModPad.Text;
                         usuumod = "140414";
                         prgmod = this.Name;
 
 
-                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo, "", 0, usuumod, prgmod, 2);
+                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo.Trim(), "", 0, usuumod, prgmod, 2);
                         Modulos_Load(sender, e);
+
+                        txtCvModulo.Text = "";
+                        txtDescripcion.Text = "";
+                        txtModPad.Text = "";
+                        txtOrden.Text = "";
+                        cbAmbiente.Text = "Selecciona un Ambiente";
+                        cbModulo.Text = "Selecciona un Módulo";
+                        usuumod = "140414";
+                        prgmod = this.Name;
                         if (response == 1)
                         {
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Se actualizo correctamente");
