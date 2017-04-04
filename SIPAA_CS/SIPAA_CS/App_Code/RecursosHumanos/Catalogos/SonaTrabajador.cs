@@ -48,5 +48,52 @@ namespace SIPAA_CS.App_Code
             return (dtEmpleados);
         }
 
+
+        public DataTable ObtenerInformacionTrabajador(int popcion, string ptextoabuscar)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_sonatrabajador_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            SqlConnection sqlcn = objConexion.conexionSonarh();
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = ptextoabuscar;
+
+            objConexion.asignarConexions(cmd);
+
+            SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexions();
+
+            DataTable dtEmpleados = new DataTable();
+            dadapter.Fill(dtEmpleados);
+            return (dtEmpleados);
+        }
+
+        public DataTable ObtenerPerfilTrabajador(string sIdtrab,int iOpcion,string sCheca,string sEstatus)
+        {
+            SqlCommand cmd = new SqlCommand();
+            Conexion objConexion = new Conexion();
+            Usuario objusuario = new Usuario();
+
+
+            cmd.CommandText = "usp_rechtrabajadorperfil_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = sIdtrab;
+            cmd.Parameters.Add("@P_opcion", SqlDbType.VarChar).Value = iOpcion;
+            cmd.Parameters.Add("@P_checa", SqlDbType.VarChar).Value = sCheca;
+            cmd.Parameters.Add("@P_activo", SqlDbType.VarChar).Value = sEstatus;
+            objConexion.asignarConexion(cmd);
+            
+            SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtTrabajador = new DataTable();
+            dadapter.Fill(dtTrabajador);
+            return (dtTrabajador);
+        }
+
     }
 }

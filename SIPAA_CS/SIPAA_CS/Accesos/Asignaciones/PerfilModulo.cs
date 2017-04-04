@@ -28,6 +28,8 @@ namespace SIPAA_CS.Accesos
         public int iOpcionAdmin;
         public List<string> ltPermisos = new List<string>();
         public DataTable dtPermisos;
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -443,9 +445,7 @@ namespace SIPAA_CS.Accesos
         private void Asignar_Modulo_Load(object sender, EventArgs e)
         {
 
-
-            int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
             string idtrab = LoginInfo.IdTrab;

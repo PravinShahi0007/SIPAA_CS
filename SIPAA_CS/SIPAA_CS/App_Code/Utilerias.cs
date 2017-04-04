@@ -531,9 +531,7 @@ namespace SIPAA_CS.App_Code
 
             }  
             else {
-
                 btn.Image = (Image)Resources.ResourceManager.GetObject(Icono);
-
             }
 
         }

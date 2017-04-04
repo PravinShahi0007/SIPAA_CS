@@ -382,6 +382,14 @@
     <Compile Include="RecursosHumanos\Catalogos\IncidenciasNominas.Designer.cs">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\Observaciones.cs">
+      <DependentUpon>Observaciones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\Observaciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Observaciones.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.cs">
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
     </Compile>
@@ -389,6 +397,32 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\Resumen.cs">
+      <DependentUpon>Resumen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\Resumen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resumen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignacionTrabajadorPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignacionTrabajadorPerfil.Designer.cs">
+      <DependentUpon>AsignacionTrabajadorPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.Designer.cs">
+      <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\TrabajadoresPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\TrabajadoresPerfil.Designer.cs">
+      <DependentUpon>TrabajadoresPerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.cs">
       <SubType>Form</SubType>
@@ -430,6 +464,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RegistroGeneradoDetalle.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroResumen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroResumen.Designer.cs">
+      <DependentUpon>FiltroResumen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\Resumen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resumen.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\ViewerReporte.cs">
@@ -579,6 +625,15 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\IncidenciasNominas.resx">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignacionTrabajadorPerfil.resx">
+      <DependentUpon>AsignacionTrabajadorPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.resx">
+      <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\TrabajadoresPerfil.resx">
+      <DependentUpon>TrabajadoresPerfil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.resx">
       <DependentUpon>PeriodosProcesoIncidencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -604,6 +659,13 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\RegistroGeneradoDetalle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RegistroGeneradoDetalle.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroResumen.resx">
+      <DependentUpon>FiltroResumen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\Resumen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Resumen.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
@@ -679,6 +741,17 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RecursosHumanos\DataSets\Observaciones.xsc">
+      <DependentUpon>Observaciones.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Observaciones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Observaciones.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Observaciones.xss">
+      <DependentUpon>Observaciones.xsd</DependentUpon>
+    </None>
     <None Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.xsc">
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
     </None>
@@ -689,6 +762,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.xss">
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Resumen.xsc">
+      <DependentUpon>Resumen.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Resumen.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Resumen.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Resumen.xss">
+      <DependentUpon>Resumen.xsd</DependentUpon>
     </None>
     <None Include="Resources\drawable-xhdpi\ic_insert_chart_white_48dp.png" />
   </ItemGroup>
