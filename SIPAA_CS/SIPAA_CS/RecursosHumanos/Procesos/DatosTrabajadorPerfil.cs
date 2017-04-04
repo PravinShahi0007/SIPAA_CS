@@ -40,6 +40,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 lbIdTrab.Text = row["idtrab"].ToString();
                 lbNombre.Text = row["Nombre"].ToString();
+                TrabajadorInfo.Nombre = row["Nombre"].ToString();
                 lbCia.Text = row["Compañia"].ToString();
                 lbUbicacion.Text = row["Ubicación"].ToString();
                 if (row["Estatus"].ToString() == "1") { lbEstatus.Text = "Activo"; } else { lbEstatus.Text = "Inactivo"; }
@@ -99,6 +100,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             {
                 Application.Exit();
             }
+        }
+
+        private void btnAsignaciones_Click(object sender, EventArgs e)
+        {
+            AsignacionTrabajadorPerfil form = new AsignacionTrabajadorPerfil();
+            form.Show();
         }
     }
 }

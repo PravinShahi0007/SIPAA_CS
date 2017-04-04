@@ -78,7 +78,7 @@ namespace SIPAA_CS.App_Code
             Usuario objusuario = new Usuario();
 
 
-            cmd.CommandText = "usp_rechtrabajadorperfil_s";
+            cmd.CommandText = "usp_rechtrabajadorperfil_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = sIdtrab;
             cmd.Parameters.Add("@P_opcion", SqlDbType.VarChar).Value = iOpcion;

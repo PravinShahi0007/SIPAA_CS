@@ -13,11 +13,11 @@ using static SIPAA_CS.App_Code.SonaCompania;
 
 namespace SIPAA_CS.RecursosHumanos.Procesos
 {
-    public partial class dgvTrabajador : Form
+    public partial class TrabajadoresPerfil : Form
     {
         int sysH = SystemInformation.PrimaryMonitorSize.Height;
         int sysW = SystemInformation.PrimaryMonitorSize.Width;
-        public dgvTrabajador()
+        public TrabajadoresPerfil()
         {
             InitializeComponent();
         }

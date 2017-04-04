@@ -16,6 +16,7 @@ namespace SIPAA_CS.App_Code
         public static class TrabajadorInfo
         {
             public static string IdTrab;
+            public static string Nombre;
         }
 
 

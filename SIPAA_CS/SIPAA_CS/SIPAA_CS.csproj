@@ -165,6 +165,7 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaFormaPago.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\PeriodoProcesoIncidencia.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorHorario.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
     <Compile Include="Accesos\AccesosDashboard.cs">
       <SubType>Form</SubType>

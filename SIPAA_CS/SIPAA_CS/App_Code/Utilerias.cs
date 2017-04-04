@@ -549,6 +549,23 @@ namespace SIPAA_CS.App_Code
 
         }
 
+        public static void llenarComboxDataTable(ComboBox cb, DataTable dt,string sClave ,string sDescripcion)
+        {
+
+            DataRow row = dt.NewRow();
+            row[sClave] = "0";
+            row[sDescripcion] = "Seleccionar";
+            dt.Rows.InsertAt(row,0);
+
+            cb.DataSource = dt;
+            cb.DisplayMember = sDescripcion;
+            cb.ValueMember = sClave;
+        }
+
+      public enum DiasSemana { Domingo = 1, Lunes = 2, Martes = 3, Miércoles = 4, Jueves = 5, Viernes = 6, Sábado = 7 };
+
+
+
     }
 
  
