@@ -90,9 +90,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportePerfiles.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Accesos\DataSets\ReporteUsuarios.cs">
-      <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Accesos\DataSets\ReporteUsuarios.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
