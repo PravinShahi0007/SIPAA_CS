@@ -43,15 +43,15 @@
             this.btnImprimirResumen = new System.Windows.Forms.Button();
             this.btnImprimirDetalle = new System.Windows.Forms.Button();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.cbModulo = new System.Windows.Forms.ComboBox();
+            this.cbAmbiente = new System.Windows.Forms.ComboBox();
+            this.cbModPad = new System.Windows.Forms.ComboBox();
             this.cbEstatus = new System.Windows.Forms.ComboBox();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.cbModPad = new System.Windows.Forms.ComboBox();
-            this.cbAmbiente = new System.Windows.Forms.ComboBox();
-            this.cbModulo = new System.Windows.Forms.ComboBox();
             label7 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -114,6 +114,42 @@
             label9.Size = new System.Drawing.Size(133, 17);
             label9.TabIndex = 41;
             label9.Text = "       Buscar Módulo";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.Location = new System.Drawing.Point(39, 109);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(62, 16);
+            label1.TabIndex = 60;
+            label1.Text = "CvModPad";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label2.Location = new System.Drawing.Point(39, 178);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(51, 16);
+            label2.TabIndex = 62;
+            label2.Text = "Ambiente";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label5.Location = new System.Drawing.Point(39, 247);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(43, 16);
+            label5.TabIndex = 64;
+            label5.Text = "Módulo";
             // 
             // panelTag
             // 
@@ -197,6 +233,45 @@
             this.pnlBusqueda.TabIndex = 151;
             this.pnlBusqueda.TabStop = true;
             // 
+            // cbModulo
+            // 
+            this.cbModulo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbModulo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbModulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbModulo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbModulo.FormattingEnabled = true;
+            this.cbModulo.Location = new System.Drawing.Point(42, 267);
+            this.cbModulo.Name = "cbModulo";
+            this.cbModulo.Size = new System.Drawing.Size(291, 25);
+            this.cbModulo.TabIndex = 63;
+            this.cbModulo.Text = "Seleccionar un Módulo";
+            // 
+            // cbAmbiente
+            // 
+            this.cbAmbiente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbAmbiente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbAmbiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbAmbiente.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAmbiente.FormattingEnabled = true;
+            this.cbAmbiente.Location = new System.Drawing.Point(42, 198);
+            this.cbAmbiente.Name = "cbAmbiente";
+            this.cbAmbiente.Size = new System.Drawing.Size(291, 25);
+            this.cbAmbiente.TabIndex = 61;
+            this.cbAmbiente.Text = "Seleccionar un Ambiente";
+            // 
+            // cbModPad
+            // 
+            this.cbModPad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbModPad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbModPad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbModPad.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbModPad.FormattingEnabled = true;
+            this.cbModPad.Location = new System.Drawing.Point(42, 129);
+            this.cbModPad.Name = "cbModPad";
+            this.cbModPad.Size = new System.Drawing.Size(291, 25);
+            this.cbModPad.TabIndex = 59;
+            this.cbModPad.Text = "Seleccionar CvModPad";
+            // 
             // cbEstatus
             // 
             this.cbEstatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -205,6 +280,7 @@
             this.cbEstatus.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstatus.FormattingEnabled = true;
             this.cbEstatus.Items.AddRange(new object[] {
+            "Seleccionar un Estatus",
             "Activo",
             "Inactivo",
             "Todos"});
@@ -226,6 +302,7 @@
             this.btnRegresar.Size = new System.Drawing.Size(30, 25);
             this.btnRegresar.TabIndex = 150;
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // btnMinimizar
             // 
@@ -255,6 +332,7 @@
             this.btnCerrar.TabIndex = 148;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // label3
             // 
@@ -275,81 +353,6 @@
             // 
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(39, 109);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(62, 16);
-            label1.TabIndex = 60;
-            label1.Text = "CvModPad";
-            // 
-            // cbModPad
-            // 
-            this.cbModPad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbModPad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbModPad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbModPad.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbModPad.FormattingEnabled = true;
-            this.cbModPad.Location = new System.Drawing.Point(42, 129);
-            this.cbModPad.Name = "cbModPad";
-            this.cbModPad.Size = new System.Drawing.Size(291, 25);
-            this.cbModPad.TabIndex = 59;
-            this.cbModPad.Text = "Seleccionar CvModPad";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(39, 178);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(51, 16);
-            label2.TabIndex = 62;
-            label2.Text = "Ambiente";
-            // 
-            // cbAmbiente
-            // 
-            this.cbAmbiente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbAmbiente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbAmbiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbAmbiente.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAmbiente.FormattingEnabled = true;
-            this.cbAmbiente.Location = new System.Drawing.Point(42, 198);
-            this.cbAmbiente.Name = "cbAmbiente";
-            this.cbAmbiente.Size = new System.Drawing.Size(291, 25);
-            this.cbAmbiente.TabIndex = 61;
-            this.cbAmbiente.Text = "Seleccionar un Ambiente";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(39, 247);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(43, 16);
-            label5.TabIndex = 64;
-            label5.Text = "Módulo";
-            // 
-            // cbModulo
-            // 
-            this.cbModulo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbModulo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbModulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbModulo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbModulo.FormattingEnabled = true;
-            this.cbModulo.Location = new System.Drawing.Point(42, 267);
-            this.cbModulo.Name = "cbModulo";
-            this.cbModulo.Size = new System.Drawing.Size(291, 25);
-            this.cbModulo.TabIndex = 63;
-            this.cbModulo.Text = "Seleccionar un Módulo";
             // 
             // FiltroModulos
             // 
