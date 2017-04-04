@@ -240,6 +240,7 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void DiaSemana_Load(object sender, EventArgs e)
         {
+            
             //LLAMA TOOL TIP
             sTooltip();
 

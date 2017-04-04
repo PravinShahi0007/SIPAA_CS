@@ -49,6 +49,7 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void Ubicacion_Load(object sender, EventArgs e)
         {
+
             llenarGrid("");
         }
 

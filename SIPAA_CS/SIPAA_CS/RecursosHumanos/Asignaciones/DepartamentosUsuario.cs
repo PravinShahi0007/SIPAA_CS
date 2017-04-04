@@ -82,7 +82,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             panelPermisos.Enabled = false;
             panelTag.Enabled = true;
             dgvDepartamentos.Columns.Remove(columnName: "Seleccionar");
-            llenarGridDepartamentos(1, depto.Trim());
+            llenarGridDepartamentos(5, depto.Trim());
             txtDepartamento.Text = "";
             
         }
@@ -169,8 +169,9 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         private void DepartamentosUsuario_Load(object sender, EventArgs e)
         {
+
             llenarGridUsuarios("", 0, "", "", 0, "", "", 7);
-            llenarGridDepartamentos(1, "");
+            llenarGridDepartamentos(4, "");
         }
         private void timer1_Tick(object sender, EventArgs e)
         {

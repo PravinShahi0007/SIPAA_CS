@@ -26,14 +26,16 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
     {
         #region Variables
 
-        int pins;
-        int pact;
-        int pelim;
+        int iIns;
+        int iAct;
+        int iElim;
 
         bool bPuedeBuscar = false;
+        bool bClickPrimeraVezCompania = true;
 
         #endregion
 
+        SonaCompania2 oCompania = new SonaCompania2();
         SonaTipoNomina oSonaTipoNomina = new SonaTipoNomina();
 
         public CompaniasTiposNominas()
@@ -50,27 +52,40 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
+
+        //
+        // Llena Combox Box de Compañias con la tabla de SONARH
+        private void cbCompania_Click(object sender, EventArgs e)
+        {
+            if (bClickPrimeraVezCompania)
+            {
+                DataTable dtCompania = oCompania.obtCompania2(5, "");
+                cbCompania.DataSource = dtCompania;
+                cbCompania.DisplayMember = "Descripción";
+                cbCompania.ValueMember = "Clave";
+                bClickPrimeraVezCompania = false;
+            } // if (bClickPrimeraVezCompania)
+        } // private void cbCompania_Click(object sender, EventArgs e)
+
         private void cbCompania_SelectedIndexChanged(object sender, EventArgs e)
         {
             int iIdCompaniaBuscar;
-            if (cbCompania.SelectedValue.ToString() != "System.Data.DataRowView")
+            if (!bClickPrimeraVezCompania)
             {
                 if (!bPuedeBuscar)
                 {
                     bPuedeBuscar = true;
                     btnBuscar.Enabled = true;
                     txtBuscarTipoNomina.Enabled = true;
-                }
+                } // if (!bPuedeBuscar)
                 txtBuscarTipoNomina.Text = "";
-
-                // Se uso esto para evaluar que trae el cbCompania.SelectedValue.ToString()
-                //MessageBox.Show("Valor de la Compañia del cbCompania " + cbCompania.SelectedValue.ToString(), "SIPAA", MessageBoxButtons.OK);
                 iIdCompaniaBuscar = Convert.ToInt32(cbCompania.SelectedValue.ToString());
                 //
-                // Llama a la función que procesa el DataGridView
+                // Llama a la función que procesa el DataGridView de Tipo de Nómina
                 fgTiposNominas(5, iIdCompaniaBuscar, "");
-            }
-        }
+            } // if (!bClickPrimeraVezCompania)
+              //            }
+        } // private void cbCompania_SelectedIndexChanged(object sender, EventArgs e)
 
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
@@ -121,26 +136,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void CompaniasTiposNominas_Load(object sender, EventArgs e)
         {
+            
             // Entorno de permisos
-            pins = 0;
-            pact = 0;
-            pelim = 0;
-
-            SonaCompania2 oCompania = new SonaCompania2();
-            DataTable dtCompania = oCompania.obtCompania2(5, 0, "");
-            List<string> lstCompania = new List<string>();
-            /*
-             * lstCompania.Add("Seleccionar...");
-            foreach (DataRow row in dtCompania.Rows)
-            {
-                lstCompania.Add(row["Descripción"].ToString());
-            }
-            cbCompania.DataSource = lstCompania;
-            */
-            cbCompania.DataSource = dtCompania;
-            cbCompania.DisplayMember = "Descripción";
-            cbCompania.ValueMember = "Clave";
-        }
+            iIns = 0;
+            iAct = 0;
+            iElim = 0;
+        } // private void CompaniasTiposNominas_Load(object sender, EventArgs e)
 
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -173,9 +174,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         //
         // Grid para mostrar Tipos de Nómina
-        private void fgTiposNominas(int iOpcion, int iIdCompania, string sDescripcionTIpoNomina)
+        private void fgTiposNominas(int iOpcion, int iIdCompania, string sDescripcionTipoNomina)
         {
-            DataTable dtTipoNomina = oSonaTipoNomina.obtTipoNomina(iOpcion, iIdCompania, 0, sDescripcionTIpoNomina);
+            DataTable dtTipoNomina = oSonaTipoNomina.obtTipoNomina(iOpcion, iIdCompania, 0, sDescripcionTipoNomina);
             dgvTiposNomina.DataSource = dtTipoNomina;
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
             imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;

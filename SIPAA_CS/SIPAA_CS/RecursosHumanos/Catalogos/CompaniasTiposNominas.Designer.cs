@@ -132,8 +132,9 @@
             this.cbCompania.Name = "cbCompania";
             this.cbCompania.Size = new System.Drawing.Size(386, 25);
             this.cbCompania.TabIndex = 57;
-            this.cbCompania.Text = "Seleccionar";
+            this.cbCompania.Text = "Seleccionar...";
             this.cbCompania.SelectedIndexChanged += new System.EventHandler(this.cbCompania_SelectedIndexChanged);
+            this.cbCompania.Click += new System.EventHandler(this.cbCompania_Click);
             // 
             // btnBuscar
             // 

@@ -284,6 +284,7 @@ namespace SIPAA_CS.Accesos
         {
             panelTag.Visible = false;
             timer1.Stop();
+
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -318,7 +319,12 @@ namespace SIPAA_CS.Accesos
 
             dgvModulo.ClearSelection();
         }
-        
+
+        private void btnRegresa_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

@@ -390,6 +390,35 @@ namespace SIPAA_CS.App_Code
             objConexion.cerrarConexion();
 
         }
+
+        public DataTable ReporteUsuarios(string cvusuario, int idtrab, string nombre, string passw, int stusuario, string usuumod, string prgmod, int opcion)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_acceusuario_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idtrab;
+            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = nombre;
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = passw;
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.Int).Value = stusuario;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgmod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
+
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtIncidencia = new DataTable();
+            Adapter.Fill(dtIncidencia);
+
+            return dtIncidencia;
+        }
     }
 
 }

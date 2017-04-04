@@ -44,18 +44,20 @@
             this.areasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidenciasNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diasFestivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mensajesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoHorarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoIncidenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAsignacionCompania = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAsignacionArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAsignacionUbicacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAsignacionDepartamento = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroGeneradoDetalleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.plantillasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.MenuAccesos.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +93,7 @@
             this.reportesToolStripMenuItem});
             this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(347, 26);
+            this.MenuAccesos.Size = new System.Drawing.Size(439, 26);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
@@ -109,9 +111,9 @@
             this.areasToolStripMenuItem,
             this.incidenciasNominaToolStripMenuItem,
             this.diasFestivoToolStripMenuItem,
-            this.mensajesToolStripMenuItem1,
             this.tipoHorarioToolStripMenuItem,
-            this.tipoIncidenciaToolStripMenuItem});
+            this.tipoIncidenciaToolStripMenuItem,
+            this.plantillasToolStripMenuItem});
             this.msCatalogo.ForeColor = System.Drawing.Color.White;
             this.msCatalogo.Image = global::SIPAA_CS.Properties.Resources.ic_view_list_white_18dp;
             this.msCatalogo.Name = "msCatalogo";
@@ -201,6 +203,7 @@
             this.mensajesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mensajesToolStripMenuItem.Image")));
             this.mensajesToolStripMenuItem.Name = "mensajesToolStripMenuItem";
             this.mensajesToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.mensajesToolStripMenuItem.Tag = "frmMensajes";
             this.mensajesToolStripMenuItem.Text = "Mensajes";
             this.mensajesToolStripMenuItem.Click += new System.EventHandler(this.mensajesToolStripMenuItem_Click);
             // 
@@ -236,16 +239,6 @@
             this.diasFestivoToolStripMenuItem.Text = "Días Festivos";
             this.diasFestivoToolStripMenuItem.Click += new System.EventHandler(this.diasFestivoToolStripMenuItem_Click);
             // 
-            // mensajesToolStripMenuItem1
-            // 
-            this.mensajesToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.mensajesToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.mensajesToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("mensajesToolStripMenuItem1.Image")));
-            this.mensajesToolStripMenuItem1.Name = "mensajesToolStripMenuItem1";
-            this.mensajesToolStripMenuItem1.Size = new System.Drawing.Size(246, 22);
-            this.mensajesToolStripMenuItem1.Tag = "frmMensajes";
-            this.mensajesToolStripMenuItem1.Text = "Mensajes";
-            // 
             // tipoHorarioToolStripMenuItem
             // 
             this.tipoHorarioToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
@@ -271,7 +264,9 @@
             // 
             this.asignacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmAsignacionCompania,
-            this.tsmAsignacionArea});
+            this.tsmAsignacionArea,
+            this.tsmAsignacionUbicacion,
+            this.tsmAsignacionDepartamento});
             this.asignacionesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.asignacionesToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.asignacionesToolStripMenuItem.Name = "asignacionesToolStripMenuItem";
@@ -285,7 +280,7 @@
             this.tsmAsignacionCompania.ForeColor = System.Drawing.Color.White;
             this.tsmAsignacionCompania.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.tsmAsignacionCompania.Name = "tsmAsignacionCompania";
-            this.tsmAsignacionCompania.Size = new System.Drawing.Size(231, 22);
+            this.tsmAsignacionCompania.Size = new System.Drawing.Size(258, 22);
             this.tsmAsignacionCompania.Tag = "frmCompaniasUsuario";
             this.tsmAsignacionCompania.Text = "Asignacion Compañia";
             this.tsmAsignacionCompania.Click += new System.EventHandler(this.tsmAsignacionCompania_Click);
@@ -296,10 +291,32 @@
             this.tsmAsignacionArea.ForeColor = System.Drawing.Color.White;
             this.tsmAsignacionArea.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.tsmAsignacionArea.Name = "tsmAsignacionArea";
-            this.tsmAsignacionArea.Size = new System.Drawing.Size(231, 22);
+            this.tsmAsignacionArea.Size = new System.Drawing.Size(258, 22);
             this.tsmAsignacionArea.Tag = "frmAreasUsuario";
             this.tsmAsignacionArea.Text = "Asignacion Área";
             this.tsmAsignacionArea.Click += new System.EventHandler(this.tsmAsignacionArea_Click);
+            // 
+            // tsmAsignacionUbicacion
+            // 
+            this.tsmAsignacionUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.tsmAsignacionUbicacion.ForeColor = System.Drawing.Color.White;
+            this.tsmAsignacionUbicacion.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.tsmAsignacionUbicacion.Name = "tsmAsignacionUbicacion";
+            this.tsmAsignacionUbicacion.Size = new System.Drawing.Size(258, 22);
+            this.tsmAsignacionUbicacion.Tag = "frmUbicacionesUsuario";
+            this.tsmAsignacionUbicacion.Text = "Asignación Ubicación";
+            this.tsmAsignacionUbicacion.Click += new System.EventHandler(this.tsmAsignacionUbicacion_Click);
+            // 
+            // tsmAsignacionDepartamento
+            // 
+            this.tsmAsignacionDepartamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.tsmAsignacionDepartamento.ForeColor = System.Drawing.Color.White;
+            this.tsmAsignacionDepartamento.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.tsmAsignacionDepartamento.Name = "tsmAsignacionDepartamento";
+            this.tsmAsignacionDepartamento.Size = new System.Drawing.Size(258, 22);
+            this.tsmAsignacionDepartamento.Tag = "frmDepartamentosUsuario";
+            this.tsmAsignacionDepartamento.Text = "Asignación Departamento";
+            this.tsmAsignacionDepartamento.Click += new System.EventHandler(this.tsmAsignacionDepartamento_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -382,6 +399,17 @@
             this.label3.Text = "       Recursos Humanos                  ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // plantillasToolStripMenuItem
+            // 
+            this.plantillasToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.plantillasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.plantillasToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
+            this.plantillasToolStripMenuItem.Name = "plantillasToolStripMenuItem";
+            this.plantillasToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.plantillasToolStripMenuItem.Tag = "frmPlantillas";
+            this.plantillasToolStripMenuItem.Text = "Plantillas";
+            this.plantillasToolStripMenuItem.Click += new System.EventHandler(this.plantillasToolStripMenuItem_Click);
+            // 
             // RechDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,7 +456,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ToolStripMenuItem incidenciasNominaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem diasFestivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mensajesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tipoHorarioToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem tipoIncidenciaToolStripMenuItem;
@@ -437,5 +464,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmAsignacionArea;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroGeneradoDetalleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmAsignacionUbicacion;
+        private System.Windows.Forms.ToolStripMenuItem tsmAsignacionDepartamento;
+        private System.Windows.Forms.ToolStripMenuItem plantillasToolStripMenuItem;
     }
 }

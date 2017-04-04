@@ -152,6 +152,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         private void UbicacionesUsuario_Load(object sender, EventArgs e)
         {
+
             llenarGridUsuarios("", 0, "", "", 0, "", "", 7);
             llenarGridUbicaciones("");
         }

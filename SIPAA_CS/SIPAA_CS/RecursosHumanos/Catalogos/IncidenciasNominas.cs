@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
+using SIPAA_CS.RecursosHumanos.Asignaciones;
+
 
 //***********************************************************************************************
 //Autor: Noe Alvarez Marquina
@@ -30,11 +32,13 @@ namespace SIPAA_CS.RecursosHumanos
         
         int p_rep;
 
-        int p_cvincidencia;
-        int p_cvrepresenta;
-        int p_stdir;
-        int p_cvtipohr;
-        int p_stpremio;
+        int icvincidencia;
+        int icvrepresenta;
+        int istdir;
+        int iidformapago;
+        int istpremio;
+        int icvtipohr;
+        int iverifpk;
 
         string svalidacampos;
 
@@ -140,6 +144,8 @@ namespace SIPAA_CS.RecursosHumanos
             cbopremio.Text = "";
             cbopasanom.Text = "";
             cboafect.Text = "";
+            cbformapago.Text = "";
+            cbformapago.Enabled = true;
             txtcampo.Text = "";
             ckbEliminar.Checked = false;
             cbostdir.Focus();
@@ -165,33 +171,55 @@ namespace SIPAA_CS.RecursosHumanos
                 else
                 {
 
-                    //inserta registro nuevo
-                    p_rep = IncNom.rechincnominasuid(1, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()), Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()), Int32.Parse(cbopremio.SelectedValue.ToString()),
-                                            Int32.Parse(cboafect.SelectedValue.ToString()), Int32.Parse(cbopasanom.SelectedValue.ToString()), "D", txtcampo.Text.Trim(), "FF", "nam", "TipoHorario");
-                    dgvincnomia.DataSource = null;
+                    //verifica llave primaria
+                    iverifpk = IncNom.rechincnominapk(6, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()),
+                                                     Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
+                                                     Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
+                                                     Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
+                                                     txtcampo.Text.Trim(), "null", 1, "nam", "IncidenciasNominas");
 
-                    if (pins == 1 && pact == 0 && pelim == 0)
+                    if (iverifpk > 0)
                     {
-
+                        DialogResult result = MessageBox.Show("El registro uque intenta guardar ya existe", "SIPAA", MessageBoxButtons.OK);
                     }
                     else
                     {
-                        dgvincnomia.Columns.RemoveAt(0);
-                    }
 
-                    pnlincnom.Visible = false;
-                    panelTag.Visible = true;
-                    timer1.Start();
-                    //llena grid con datos existente
-                    fllenagridbusqueda();
+                        //inserta registro nuevo
+                        p_rep = IncNom.rechincnominasuid(1, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()),
+                                                         Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
+                                                         Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
+                                                         Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
+                                                         txtcampo.Text.Trim(), "null", 1, "nam", "IncidenciasNominas");
+                        dgvincnomia.DataSource = null;
+
+                        if (pins == 1 && pact == 0 && pelim == 0)
+                        {
+
+                        }
+                        else
+                        {
+                            dgvincnomia.Columns.RemoveAt(0);
+                        }
+
+                        pnlincnom.Visible = false;
+                        panelTag.Visible = true;
+                        timer1.Start();
+                        //llena grid con datos existente
+                        fllenagridbusqueda();
+
+                    }
                 }
 
             }
             else if (pactbtn == 2)//actualizar
             {
-                //inserta registro nuevo
-                p_rep = IncNom.rechincnominasuid(2, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()), Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()), Int32.Parse(cbopremio.SelectedValue.ToString()),
-                                        Int32.Parse(cboafect.SelectedValue.ToString()), Int32.Parse(cbopasanom.SelectedValue.ToString()), "D", txtcampo.Text.Trim(), "FF", "nam", "TipoHorario");
+                //actualizar registro nuevo
+                p_rep = IncNom.rechincnominasuid(2, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()),
+                                                Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
+                                                Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
+                                                Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
+                                                txtcampo.Text.Trim(), "null", 1, "nam", "IncidenciasNominas");
                 dgvincnomia.DataSource = null;
 
                 if (pins == 1 && pact == 0 && pelim == 0)
@@ -216,8 +244,11 @@ namespace SIPAA_CS.RecursosHumanos
 
                 if (result == DialogResult.Yes)
                 {
-                    p_rep = IncNom.rechincnominasuid(3, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()), Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()), Int32.Parse(cbopremio.SelectedValue.ToString()),
-                                                    Int32.Parse(cboafect.SelectedValue.ToString()), Int32.Parse(cbopasanom.SelectedValue.ToString()), "D", txtcampo.Text.Trim(), "FF", "nam", "TipoHorario");
+                    p_rep = IncNom.rechincnominasuid(3, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()),
+                                                     Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
+                                                     Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
+                                                     Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
+                                                     txtcampo.Text.Trim(), "null", 1, "nam", "IncidenciasNominas");
                     dgvincnomia.DataSource = null;
 
                     if (pins == 1 && pact == 0 && pelim == 0)
@@ -304,6 +335,7 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void IncidenciasNom_Load(object sender, EventArgs e)
         {
+            
             //habilita tool tip
             ftooltip();
 
@@ -374,35 +406,35 @@ namespace SIPAA_CS.RecursosHumanos
             {
                 if (pins == 1 && pact == 1 && pelim == 1)
                 {
-                    fformatgrididb(7, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
+                    fformatgrididb(4, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
                 }
                 else if (pins == 1 && pact == 1)
                 {
-                    fformatgrididb(7, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
+                    fformatgrididb(4, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
                 }
                 else if (pins == 1 && pelim == 1)
                 {
-                    fformatgrididb(7, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
+                    fformatgrididb(4, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
                 }
                 else if (pact == 1 && pelim == 1)
                 {
-                    fformatgrididb(7, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
+                    fformatgrididb(4, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
                 }
                 else if (pins == 1)
                 {
-                    fformatgrididbsm(7, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
+                    fformatgrididbsm(4, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
                 }
                 else if (pact == 1)
                 {
-                    fformatgrididbsm(7, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
+                    fformatgrididbsm(4, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
                 }
                 else if (pelim == 1)
                 {
-                    fformatgrididb(7, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
+                    fformatgrididb(4, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
                 }
                 else
                 {
-                    fformatgrididbsm(7, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
+                    fformatgrididbsm(4, Int32.Parse(cboincnombusq.SelectedValue.ToString()), Int32.Parse(cborepbusq.SelectedValue.ToString()));
                 }
 
             }
@@ -438,13 +470,16 @@ namespace SIPAA_CS.RecursosHumanos
             dgvincnomia.Columns[5].Visible = false;
             dgvincnomia.Columns[6].Visible = false;
             dgvincnomia.Columns[7].Visible = false;
-            dgvincnomia.Columns[8].Width = 75;
+            dgvincnomia.Columns[8].Visible = false;
             dgvincnomia.Columns[9].Width = 75;
-            dgvincnomia.Columns[10].Width = 75;
-            dgvincnomia.Columns[11].Width = 120;
-            dgvincnomia.Columns[12].Width = 90;
-            dgvincnomia.Columns[13].Visible = false;
-            dgvincnomia.Columns[14].Width = 140;
+            dgvincnomia.Columns[10].Width = 100;
+            dgvincnomia.Columns[11].Width = 65;
+            dgvincnomia.Columns[12].Width = 180;
+            dgvincnomia.Columns[13].Width = 90;
+            dgvincnomia.Columns[14].Width = 90;
+            dgvincnomia.Columns[15].Width = 120;
+            dgvincnomia.Columns[16].Visible = false;
+            dgvincnomia.Columns[17].Visible = false;
             dgvincnomia.ClearSelection();
             lblModif.Visible = true;
         }
@@ -461,14 +496,15 @@ namespace SIPAA_CS.RecursosHumanos
             dgvincnomia.Columns[3].Visible = false;
             dgvincnomia.Columns[4].Visible = false;
             dgvincnomia.Columns[5].Visible = false;
-            dgvincnomia.Columns[6].Visible = false;
+            dgvincnomia.Columns[6].Width = 75;
             dgvincnomia.Columns[7].Width = 75;
             dgvincnomia.Columns[8].Width = 75;
-            dgvincnomia.Columns[9].Width = 75;
-            dgvincnomia.Columns[10].Width =120;
+            dgvincnomia.Columns[9].Width = 120;
+            dgvincnomia.Columns[10].Width =90;
             dgvincnomia.Columns[11].Width = 90;
-            dgvincnomia.Columns[12].Visible = false;
-            dgvincnomia.Columns[13].Width = 130;
+            dgvincnomia.Columns[12].Width = 140;
+            dgvincnomia.Columns[13].Visible = false;
+            dgvincnomia.Columns[14].Visible = false;
             dgvincnomia.ClearSelection();
             lblModif.Visible = false;
         }
@@ -477,21 +513,12 @@ namespace SIPAA_CS.RecursosHumanos
         //llena los combos para guardar nuevo registro
         private void fcargarcbo()
         {
-
-            Util.cargarcombo(cbotipohr, IncNom.cboTipoHr(4));
-            
-
             Util.cargarcombo(cbostdir, IncNom.cboEsNoPr(5));
-            
-
+            Util.cargarcombo(cbformapago, IncNom.cboPeriodoTipo(4));
             Util.cargarcombo(cbopremio, IncNom.cboEsNoPr(5));
-            
-
-            Util.cargarcombo(cbopasanom, IncNom.cboEsNoPr(5));
-            
-
             Util.cargarcombo(cboafect, IncNom.cboAfec(4));
-
+            Util.cargarcombo(cbopasanom, IncNom.cboEsNoPr(5));
+            Util.cargarcombo(cbotipohr, IncNom.cboTipoHr(4));
         }
 
         //llena datos al dar click en registro
@@ -510,34 +537,37 @@ namespace SIPAA_CS.RecursosHumanos
                 if (dgvincnomia.SelectedRows.Count != 0)
                 {
                     pnlincnom.Visible = true;
-
                     DataGridViewRow row = this.dgvincnomia.SelectedRows[0];
-
-                    p_cvincidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
-                    p_cvrepresenta = Convert.ToInt32(row.Cells["cvrepresenta"].Value.ToString());
-                    p_stdir = Convert.ToInt32(row.Cells["stdir"].Value.ToString());
-                    p_cvtipohr = Convert.ToInt32(row.Cells["cvtipohr"].Value.ToString());
-                    p_stpremio = Convert.ToInt32(row.Cells["stpremio"].Value.ToString());
-
+                    icvincidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
+                    icvrepresenta = Convert.ToInt32(row.Cells["cvrepresenta"].Value.ToString());
+                    istdir = Convert.ToInt32(row.Cells["stdir"].Value.ToString());
+                    iidformapago = Convert.ToInt32(row.Cells["stpremio"].Value.ToString());
+                    istpremio = Convert.ToInt32(row.Cells["stpremio"].Value.ToString());
+                    icvtipohr = Convert.ToInt32(row.Cells["cvtipohr"].Value.ToString());
                     lbluid.Text = "     Modifica Incidencia de Nomina";
-
                     row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
-
-                    Util.cargarcombo(cbotipohr, IncNom.cboTipoHr(4));
-                    cbotipohr.Text = row.Cells["Horario"].Value.ToString();
-                    cbotipohr.Enabled = false;
                     Util.cargarcombo(cbostdir, IncNom.cboEsNoPr(5));
                     cbostdir.Text = row.Cells["AutDir"].Value.ToString();
                     cbostdir.Enabled = false;
+
+                    Util.cargarcombo(cbformapago, IncNom.cboPeriodoTipo(4));
+                    cbformapago.Text = row.Cells["FormaPago"].Value.ToString();
+                    cbformapago.Enabled = false;
+
                     Util.cargarcombo(cbopremio, IncNom.cboEsNoPr(5));
                     cbopremio.Text = row.Cells["Premio"].Value.ToString();
                     cbopremio.Enabled = false;
-                    Util.cargarcombo(cbopasanom, IncNom.cboEsNoPr(5));
-                    cbopasanom.Text = row.Cells["PasaNomina"].Value.ToString();
 
                     Util.cargarcombo(cboafect, IncNom.cboAfec(4));
                     cboafect.Text = row.Cells["ConceptoNomina"].Value.ToString();
+
+                    Util.cargarcombo(cbopasanom, IncNom.cboEsNoPr(5));
+                    cbopasanom.Text = row.Cells["PasaNomina"].Value.ToString();
+
+                    Util.cargarcombo(cbotipohr, IncNom.cboTipoHr(4));
+                    cbotipohr.Text = row.Cells["TipoHorario"].Value.ToString();
+                    cbotipohr.Enabled = false;
 
                     txtcampo.Text = row.Cells["Campo"].Value.ToString();
                     cboafect.Focus();
@@ -558,8 +588,8 @@ namespace SIPAA_CS.RecursosHumanos
             else if (cbostdir.Text == "") { svalidacampos = "Selecione si autoriza Director"; cbostdir.Focus(); }
             else if (cbostdir.SelectedIndex == -1) { svalidacampos = "Selecione si autoriza Director"; cbostdir.Focus(); }
 
-            else if (cbotipohr.Text == "") { svalidacampos = "Selecione tipo de horario"; cbotipohr.Focus(); }
-            else if (cbotipohr.SelectedIndex == -1) { svalidacampos = "Selecione tipo de horario"; cbotipohr.Focus(); }
+            else if (cbformapago.Text == "") { svalidacampos = "Selecione un periodo"; cbformapago.Focus(); }
+            else if (cbformapago.SelectedIndex == -1) { svalidacampos = "Selecione un periodo"; cbformapago.Focus(); }
 
             else if (cbopremio.Text == "") { svalidacampos = "Selecione si afecta premio"; cbopremio.Focus(); }
             else if (cbopremio.SelectedIndex == -1) { svalidacampos = "Selecione si afecta premio"; cbopremio.Focus(); }
@@ -570,14 +600,14 @@ namespace SIPAA_CS.RecursosHumanos
             else if (cbopasanom.Text == "") { svalidacampos = "Selecione si pasa a nomina"; cbopasanom.Focus(); }
             else if (cbopasanom.SelectedIndex == -1) { svalidacampos = "Selecione si pasa a nomina"; cbopasanom.Focus(); }
 
+            else if (cbotipohr.Text == "") { svalidacampos = "Selecione tipo de horario"; cbotipohr.Focus(); }
+            else if (cbotipohr.SelectedIndex == -1) { svalidacampos = "Selecione tipo de horario"; cbotipohr.Focus(); }
+
             //else if (txtcampo.Text == "") { svalidacampos = "Capture un comentario"; txtcampo.Focus(); }
 
             else { svalidacampos = "0";}
             return svalidacampos;
         }
-
-
-
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S

@@ -16,7 +16,7 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
         {
 
         }
-
+        //VALIDACION PERMISO COMPAÑIA
         public List<string> ObtenerDepartamentosxUsuario(string cvusuario, string iddepartamento, string usuumod, string prgumod, int opcion)
         {
 
@@ -43,6 +43,8 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
                 string iddep = reader.GetString(reader.GetOrdinal("iddepto"));
 
                 ltDepartamentosxUsuario.Add(iddep);
+                //MUESTRA LOS DEPARTAMENTOS ASIGNADOS A UN USUARIO
+                Console.WriteLine(iddep);
             }
 
             objConexion.cerrarConexion();

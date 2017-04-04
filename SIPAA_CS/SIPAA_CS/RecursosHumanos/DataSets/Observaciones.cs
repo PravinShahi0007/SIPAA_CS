@@ -1,8 +1,6 @@
-﻿namespace SIPAA_CS.RecursosHumanos.DataSets
+﻿namespace SIPAA_CS.RecursosHumanos
 {
-
-
-    partial class Observaciones
+    internal class FiltrosRegistroGeneradoDetallle
     {
     }
 }

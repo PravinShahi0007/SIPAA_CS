@@ -16,7 +16,7 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
         {
 
         }
-
+        //VALIDA PERMISO HUBICACION DE UN USUARIO
         public List<int> ObtenerUbicacionesxUsuario(string cvusuario, int ubicacion, string usuumod, string prgumod, int opcion)
         {
 
@@ -43,6 +43,11 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
                 int idubicacion = reader.GetInt32(reader.GetOrdinal("idubicacion"));
 
                 ltUbicacionesxUsuario.Add(idubicacion);
+
+                //MUESTRA LAS UBICACIONES ASIGNADAS A UN USUARIO
+                Console.WriteLine(idubicacion);
+
+
             }
 
             objConexion.cerrarConexion();
