@@ -13,17 +13,18 @@ using System.Windows.Forms;
 
 namespace SIPAA_CS.RecursosHumanos.Reportes
 {
-    public partial class FiltroObservaciones : Form
+    public partial class FiltroResumen : Form
     {
         int sysH = SystemInformation.PrimaryMonitorSize.Height;
         int sysW = SystemInformation.PrimaryMonitorSize.Width;
-        public FiltroObservaciones()
+        public FiltroResumen()
         {
             InitializeComponent();
         }
 
-        private void FiltroObservaciones_Load(object sender, EventArgs e)
+        private void FiltroResumen_Load(object sender, EventArgs e)
         {
+           
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             SonaCompania objCia = new SonaCompania();
             DataTable dtCia = objCia.obtcomp(5, "");
@@ -36,15 +37,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             DataTable dtDepto = objDepto.obtdepto(5, "");
             llenarCombo(cbDepartamento, dtDepto, "Descripción");
 
-            ConcepInc objInc = new ConcepInc();
-            DataTable dtInc = objInc.ConcepInc_S(4, 0, "", 0, 0, "", "");
-            llenarCombo(cbIncidencia, dtInc, "Descripción");
-
-
             cbTipoNomina.Enabled = false;
             cbArea.Enabled = false;
-
+           
         }
+
 
         private void ValidarFechaDataPicker(object sender, EventArgs e)
         {
@@ -55,24 +52,23 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
                 timer1.Start();
 
-                //  dpFechaFin.Value = dpFechaInicio.Value;
-                btnImprimirObs.Enabled = false;
-
+              //  dpFechaFin.Value = dpFechaInicio.Value;
+                btnImprimirResumen.Enabled = false;
+     
             }
             else
             {
-                btnImprimirObs.Enabled = true;
-
+                btnImprimirResumen.Enabled = true;
+              
             }
+
 
         }
 
-        public void llenarCombo(ComboBox cb, DataTable dt, string sValor)
-        {
+        public void llenarCombo(ComboBox cb, DataTable dt, string sValor) {
 
             List<string> ltvalores = new List<string>();
-            foreach (DataRow row in dt.Rows)
-            {
+            foreach (DataRow row in dt.Rows) {
 
                 ltvalores.Add(row[sValor].ToString());
             }
@@ -94,15 +90,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
                 cbArea.Enabled = true;
                 SonaCompania objCia = new SonaCompania();
-                DataTable dtPlanta = objCia.ObtenerPlantel(4, 0, cbCia.SelectedItem.ToString(), "");
+                DataTable dtPlanta = objCia.ObtenerPlantel(4, 0,cbCia.SelectedItem.ToString(), "");
                 llenarCombo(cbArea, dtPlanta, "Descripción");
             }
-            else
-            {
+            else {
                 cbTipoNomina.Enabled = false;
                 cbArea.Enabled = false;
             }
-
+           
 
         }
 
@@ -112,7 +107,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             timer1.Stop();
         }
 
-        private void btnImprimirObs_Click(object sender, EventArgs e)
+        private void btnImprimirResumen_Click(object sender, EventArgs e)
         {
             DateTime dtFechaInicio = dpFechaInicio.Value.AddDays(-1);
             DateTime dtFechaFin = dpFechaFin.Value.AddDays(-1);
@@ -121,22 +116,20 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             string sUbicacion = AsignarVariableCombo(cbUbicacion);
             string sTipoNom = AsignarVariableCombo(cbTipoNomina);
             string sDepto = AsignarVariableCombo(cbDepartamento);
-            string sIncidencia = AsignarVariableCombo(cbIncidencia);
 
             string sIdtrab = "";
             if (txtIdTrab.Text == String.Empty)
             {
                 sIdtrab = "%";
             }
-            else
-            {
+            else {
                 sIdtrab = txtIdTrab.Text;
             }
 
 
             Incidencia objInc = new Incidencia();
 
-            DataTable dtRpt = objInc.ReporteObservaciones(sIdtrab, dtFechaInicio, dtFechaFin, sDepto, sCia, sTipoNom, sUbicacion, sArea,sIncidencia);
+            DataTable dtRpt = objInc.ReporteResumen(sIdtrab, dtFechaInicio,dtFechaFin,sDepto,sCia, sTipoNom,sUbicacion,sArea);
 
             switch (dtRpt.Rows.Count)
             {
@@ -147,33 +140,31 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
                 default:
                     ViewerReporte form = new ViewerReporte();
-                    Observaciones dtrpt = new Observaciones();
+                    Resumen dtrpt = new Resumen();
                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, "RecursosHumanos", dtrpt.ResourceName);
 
-                    //ReportDoc.SetParameterValue("TotalRegistros", dtRpt.Rows.Count.ToString());
-                    //ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
-                    //ReportDoc.SetParameterValue("FechaTermino", dpFechaFin.Value);
-                    //ReportDoc.SetParameterValue("Comp", sCia);
-                    //ReportDoc.SetParameterValue("Ubicacion", sUbicacion);
-                    //ReportDoc.SetParameterValue("Area", sArea);
-                    //ReportDoc.SetParameterValue("TipoNomina", sTipoNom);
+                    ReportDoc.SetParameterValue("TotalRegistros", dtRpt.Rows.Count.ToString());
+                    ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
+                    ReportDoc.SetParameterValue("FechaTermino", dpFechaFin.Value);
+                    ReportDoc.SetParameterValue("Comp", sCia);
+                    ReportDoc.SetParameterValue("Ubicacion", sUbicacion);
+                    ReportDoc.SetParameterValue("Area",sArea);
+                    ReportDoc.SetParameterValue("TipoNomina", sTipoNom);
                     form.RptDoc = ReportDoc;
                     form.Show();
                     break;
 
             }
+
         }
 
-        public string AsignarVariableCombo(ComboBox cb)
-        {
+        public string AsignarVariableCombo(ComboBox cb) {
 
             string sAsignacion;
 
-            if (cb.SelectedIndex == 0)
-            {
+            if (cb.SelectedIndex == 0) {
                 sAsignacion = "%";
-            }
-            else
+            }else
             {
                 sAsignacion = cb.SelectedItem.ToString();
 
@@ -201,22 +192,6 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             {
                 Application.Exit();
             }
-        }
-
-        private void timer1_Tick_1(object sender, EventArgs e)
-        {
-            panelTag.Visible = false;
-            timer1.Stop();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

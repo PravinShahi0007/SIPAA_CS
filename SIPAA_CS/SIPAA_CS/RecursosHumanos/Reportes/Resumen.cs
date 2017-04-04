@@ -16,14 +16,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Observaciones : ReportClass {
+    public class Resumen : ReportClass {
         
-        public Observaciones() {
+        public Resumen() {
         }
         
         public override string ResourceName {
             get {
-                return "Observaciones.rpt";
+                return "Resumen.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         
         public override string FullResourceName {
             get {
-                return "SIPAA_CS.RecursosHumanos.Reportes.Observaciones.rpt";
+                return "SIPAA_CS.RecursosHumanos.Reportes.Resumen.rpt";
             }
             set {
                 // Do nothing
@@ -103,12 +103,68 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
                 return this.ReportDefinition.Sections[6];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_FechaInicio {
+            get {
+                return this.DataDefinition.ParameterFields[0];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_FechaTermino {
+            get {
+                return this.DataDefinition.ParameterFields[1];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_TotalRegistros {
+            get {
+                return this.DataDefinition.ParameterFields[2];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_TipoNomina {
+            get {
+                return this.DataDefinition.ParameterFields[3];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Area {
+            get {
+                return this.DataDefinition.ParameterFields[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Ubicacion {
+            get {
+                return this.DataDefinition.ParameterFields[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Comp {
+            get {
+                return this.DataDefinition.ParameterFields[6];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedObservaciones : Component, ICachedReport {
+    public class CachedResumen : Component, ICachedReport {
         
-        public CachedObservaciones() {
+        public CachedResumen() {
         }
         
         [Browsable(false)]
@@ -145,7 +201,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Observaciones rpt = new Observaciones();
+            Resumen rpt = new Resumen();
             rpt.Site = this.Site;
             return rpt;
         }

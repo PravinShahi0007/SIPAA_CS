@@ -13,6 +13,12 @@ namespace SIPAA_CS.App_Code
     class SonaCompania
     {
 
+        public static class TrabajadorInfo
+        {
+            public static string IdTrab;
+        }
+
+
         //se declaran variables
         public int popcion;
         public string prespuesta;
@@ -39,7 +45,7 @@ namespace SIPAA_CS.App_Code
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_compania_s";
+            cmd.CommandText = @"usp_sonacompania_s";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -104,6 +110,33 @@ namespace SIPAA_CS.App_Code
             Adapter.Fill(dtProceso);
             return dtProceso;
         }
+
+
+        public DataTable ObtenerPlantel(int iOpcion,int iIdCompania,string sCompania,string sPlanta)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_sonaplanta_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.VarChar).Value = iOpcion;
+            cmd.Parameters.Add("@P_idCompania", SqlDbType.VarChar).Value = iIdCompania;
+            cmd.Parameters.Add("@P_DescripcionCia", SqlDbType.VarChar).Value = sCompania;
+            cmd.Parameters.Add("@P_Planta", SqlDbType.VarChar).Value = sPlanta;
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtProceso = new DataTable();
+            Adapter.Fill(dtProceso);
+            return dtProceso;
+        }
+
 
     }
 }

@@ -37,7 +37,6 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label4;
-            System.Windows.Forms.Label label7;
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -51,7 +50,6 @@
             this.txtIdTrab = new System.Windows.Forms.TextBox();
             this.btnImprimirDetalle = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnImprimirResumen = new System.Windows.Forms.Button();
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -62,7 +60,6 @@
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
-            label7 = new System.Windows.Forms.Label();
             this.pnlBusqueda.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelTag.SuspendLayout();
@@ -115,7 +112,7 @@
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(152, 17);
             label9.TabIndex = 41;
-            label9.Text = "       Buscar Incidencia";
+            label9.Text = "       Filtros de Reporte";
             // 
             // label1
             // 
@@ -153,19 +150,6 @@
             label4.Size = new System.Drawing.Size(138, 17);
             label4.TabIndex = 65;
             label4.Text = "       Imprimir Detalle";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.ForeColor = System.Drawing.Color.Gray;
-            label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
-            label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(70, 171);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(157, 17);
-            label7.TabIndex = 66;
-            label7.Text = "       Imprimir Resumen";
             // 
             // btnRegresar
             // 
@@ -332,27 +316,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(label7);
             this.panel1.Controls.Add(label4);
-            this.panel1.Controls.Add(this.btnImprimirResumen);
             this.panel1.Controls.Add(this.btnImprimirDetalle);
             this.panel1.Location = new System.Drawing.Point(596, 202);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(399, 252);
+            this.panel1.Size = new System.Drawing.Size(399, 119);
             this.panel1.TabIndex = 133;
-            // 
-            // btnImprimirResumen
-            // 
-            this.btnImprimirResumen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnImprimirResumen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirResumen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnImprimirResumen.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
-            this.btnImprimirResumen.Location = new System.Drawing.Point(281, 155);
-            this.btnImprimirResumen.Name = "btnImprimirResumen";
-            this.btnImprimirResumen.Size = new System.Drawing.Size(50, 50);
-            this.btnImprimirResumen.TabIndex = 3;
-            this.btnImprimirResumen.Tag = "Buscar";
-            this.btnImprimirResumen.UseVisualStyleBackColor = false;
             // 
             // panelTag
             // 
@@ -428,7 +397,6 @@
         private System.Windows.Forms.DateTimePicker dpFechaInicio;
         private System.Windows.Forms.DateTimePicker dpFechaFin;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnImprimirResumen;
         private System.Windows.Forms.Panel panelTag;
         private System.Windows.Forms.Label lbMensaje;
         private System.Windows.Forms.Timer timer1;
