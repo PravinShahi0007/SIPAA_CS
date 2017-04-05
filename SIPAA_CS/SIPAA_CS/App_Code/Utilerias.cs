@@ -227,36 +227,39 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public static void CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos)
+        public static List<string>  CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos)
         {
+            List<string> listPermisos = new List<string>();
+
             foreach (DataRow rows in row)
             {
 
                 if (Convert.ToInt32(rows["Crear"]) == 1)
                 {
-                    ltPermisos.Add("Crear");
+                    listPermisos.Add("Crear");
                 }
 
                 if (Convert.ToInt32(rows["Eliminar"]) == 1)
                 {
-                    ltPermisos.Add("Eliminar");
+                    listPermisos.Add("Eliminar");
                 }
 
                 if (Convert.ToInt32(rows["Actualizar"]) == 1)
                 {
-                    ltPermisos.Add("Actualizar");
+                    listPermisos.Add("Actualizar");
                 }
                 if (Convert.ToInt32(rows["Imprimir"]) == 1)
                 {
-                    ltPermisos.Add("Imprimir");
+                    listPermisos.Add("Imprimir");
                 }
 
-                if (Convert.ToInt32(rows["Lectura"]) == 1)
-                {
-                    ltPermisos.Add("Lectura");
-                }
+                //if (Convert.ToInt32(rows["Lectura"]) == 1)
+                //{
+                //    listPermisos.Add("Lectura");
+                //}
             }
 
+            return listPermisos;
         }
 
         public void ChangeButton(Button btn, int iClase, Boolean Apagar)
@@ -295,51 +298,22 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public static void ApagarControlxPermiso(Control ctrl, string Permiso, List<string> ltPermisos)
+        public static bool ControlPermiso(string sPermiso, List<string> ltPermisos)
         {
-
-            switch (Permiso)
+            bool bBandera = false;
+            if (ltPermisos.Contains(sPermiso))
             {
-                case "Crear":
-                    if (!ltPermisos.Contains(Permiso))
-                    {
-                        ctrl.Visible = false;
-                    }
-
-                    break;
-                case "Actualizar":
-                    if (!ltPermisos.Contains(Permiso))
-                    {
-                        ctrl.Visible = false;
-                    }
-
-                    break;
-
-                case "Lectura":
-                    if (!ltPermisos.Contains(Permiso))
-                    {
-                        ctrl.Visible = false;
-                    }
-
-                    break;
-
-                case "Eliminar":
-                    if (!ltPermisos.Contains(Permiso))
-                    {
-                        ctrl.Visible = false;
-                    }
-
-                    break;
-
-                case "Imprimir":
-                    if (!ltPermisos.Contains(Permiso))
-                    {
-                        ctrl.Visible = false;
-                    }
-
-                    break;
+                bBandera = true;
             }
+            else
+            {
+
+                bBandera = false;
+            }
+
+            return bBandera;
         }
+
 
         public void cargarcombo(ComboBox nombre, DataTable datoscbo)
         {

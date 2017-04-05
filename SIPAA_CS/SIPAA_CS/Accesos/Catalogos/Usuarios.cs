@@ -83,7 +83,7 @@ namespace SIPAA_CS.Accesos
                 //txt.Text = cvusuario;
                 txtNombreSipaa.Text = nombre;
                 variable = 5;
-                utilerias.ChangeButton(btnSipaa, 2, false);
+               // utilerias.ChangeButton(btnSipaa, 2, false);
 
                 //txtPassSipaa.Text = Convert.ToString(idtrab);
 

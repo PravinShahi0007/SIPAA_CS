@@ -69,7 +69,7 @@ namespace SIPAA_CS.Accesos
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
-                utilerias.ChangeButton(btnGuardar, 2, false);
+                //utilerias.ChangeButton(btnGuardar, 2, false);
 
                 txtDescripcion.Focus();
 

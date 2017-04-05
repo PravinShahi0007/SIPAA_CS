@@ -104,7 +104,7 @@ namespace SIPAA_CS.Accesos
                 cbModulo.SelectedItem = modulo;
                 //AsignarPlantel();
 
-                utilerias.ChangeButton(btnGuardar, 2, false);
+               // utilerias.ChangeButton(btnGuardar, 2, false);
 
                 ckbEliminar.Checked = false;
 
@@ -134,7 +134,7 @@ namespace SIPAA_CS.Accesos
             cbModulo.Text = "Selecciona un Módulo";
             cbAmbiente.Text = "Selecciona un Ambiente";
             PanelEditar.Visible = true;
-            utilerias.ChangeButton(btnGuardar,1,false);
+           // utilerias.ChangeButton(btnGuardar,1,false);
             txtCvModulo.Focus();
         }
         private void btnBuscar_Click(object sender, EventArgs e)
