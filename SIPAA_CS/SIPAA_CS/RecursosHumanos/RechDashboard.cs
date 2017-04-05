@@ -153,8 +153,10 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void registroGeneradoDetalleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             FiltrosRegistroGeneradoDetalle rpt = new FiltrosRegistroGeneradoDetalle();
             rpt.Show();
+            
         }
 
         private void tsmAsignacionUbicacion_Click(object sender, EventArgs e)
@@ -167,6 +169,12 @@ namespace SIPAA_CS.RecursosHumanos
         {
             DepartamentosUsuario du = new DepartamentosUsuario();
             du.Show();
+        }
+
+        private void plantillasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Plantillas oPlantillas = new Plantillas();
+            oPlantillas.Show();
         }
     }
 }

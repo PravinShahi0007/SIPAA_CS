@@ -40,9 +40,9 @@
             this.ReporteView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ReporteView.Cursor = System.Windows.Forms.Cursors.Default;
             this.ReporteView.DisplayBackgroundEdge = false;
-            this.ReporteView.Location = new System.Drawing.Point(-2, 97);
+            this.ReporteView.Location = new System.Drawing.Point(0, 97);
             this.ReporteView.Name = "ReporteView";
-            this.ReporteView.Size = new System.Drawing.Size(1026, 672);
+            this.ReporteView.Size = new System.Drawing.Size(1024, 672);
             this.ReporteView.TabIndex = 0;
             this.ReporteView.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 

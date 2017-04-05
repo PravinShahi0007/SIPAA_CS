@@ -104,5 +104,75 @@ namespace SIPAA_CS.App_Code
             return dtIncidencia;
         }
 
+        /* @P_idtrab as varchar(50)
+	,@P_fechainicio AS DATETIME
+	,@P_fechafin AS DATETIME
+	,@P_Depto AS VARCHAR(150)
+	,@P_cia  AS VARCHAR(150)
+	,@P_tnom  AS VARCHAR(150)
+	,@P_ubicacion  AS VARCHAR(150)
+	,@P_plantel  AS VARCHAR(150)
+        */
+
+        public DataTable ReporteResumen(string sIdTrab, DateTime dtFechaInicio
+                                                     , DateTime dtFechaFin, string sDepto, string sCompania,string sTNom
+                                                     , string sUbicacion,string sArea)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechresumen_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("P_idtrab", SqlDbType.VarChar).Value = sIdTrab;
+            cmd.Parameters.Add("P_fechainicio", SqlDbType.DateTime).Value = dtFechaInicio;
+            cmd.Parameters.Add("P_fechafin", SqlDbType.DateTime).Value = dtFechaFin;
+            cmd.Parameters.Add("P_Depto", SqlDbType.VarChar).Value = sDepto;
+            cmd.Parameters.Add("P_cia", SqlDbType.VarChar).Value = sCompania;
+            cmd.Parameters.Add("P_tnom", SqlDbType.VarChar).Value = sTNom;
+            cmd.Parameters.Add("P_Ubicacion", SqlDbType.VarChar).Value = sUbicacion;
+            cmd.Parameters.Add("P_plantel", SqlDbType.VarChar).Value = sArea;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtIncidencia = new DataTable();
+            Adapter.Fill(dtIncidencia);
+
+            return dtIncidencia;
+        }
+
+
+        public DataTable ReporteObservaciones(string sIdTrab, DateTime dtFechaInicio
+                                                   , DateTime dtFechaFin, string sDepto, string sCompania, string sTNom
+                                                   , string sUbicacion, string sArea,string sIncidencia)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechobservaciones_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("P_idtrab", SqlDbType.VarChar).Value = sIdTrab;
+            cmd.Parameters.Add("P_fechainicio", SqlDbType.DateTime).Value = dtFechaInicio;
+            cmd.Parameters.Add("P_fechafin", SqlDbType.DateTime).Value = dtFechaFin;
+            cmd.Parameters.Add("P_Depto", SqlDbType.VarChar).Value = sDepto;
+            cmd.Parameters.Add("P_cia", SqlDbType.VarChar).Value = sCompania;
+            cmd.Parameters.Add("P_tnom", SqlDbType.VarChar).Value = sTNom;
+            cmd.Parameters.Add("P_Ubicacion", SqlDbType.VarChar).Value = sUbicacion;
+            cmd.Parameters.Add("P_plantel", SqlDbType.VarChar).Value = sArea;
+            cmd.Parameters.Add("P_Incidencia", SqlDbType.VarChar).Value = sIncidencia;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtIncidencia = new DataTable();
+            Adapter.Fill(dtIncidencia);
+
+            return dtIncidencia;
+        }
+
     }
 }

@@ -31,6 +31,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
            
             ReporteView.ReportSource = RptDoc;
+             
+            
 
         }
 

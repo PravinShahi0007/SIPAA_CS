@@ -44,7 +44,6 @@
             this.areasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidenciasNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diasFestivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mensajesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoHorarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoIncidenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +57,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.plantillasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.MenuAccesos.SuspendLayout();
             this.SuspendLayout();
@@ -111,9 +111,9 @@
             this.areasToolStripMenuItem,
             this.incidenciasNominaToolStripMenuItem,
             this.diasFestivoToolStripMenuItem,
-            this.mensajesToolStripMenuItem1,
             this.tipoHorarioToolStripMenuItem,
-            this.tipoIncidenciaToolStripMenuItem});
+            this.tipoIncidenciaToolStripMenuItem,
+            this.plantillasToolStripMenuItem});
             this.msCatalogo.ForeColor = System.Drawing.Color.White;
             this.msCatalogo.Image = global::SIPAA_CS.Properties.Resources.ic_view_list_white_18dp;
             this.msCatalogo.Name = "msCatalogo";
@@ -203,6 +203,7 @@
             this.mensajesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mensajesToolStripMenuItem.Image")));
             this.mensajesToolStripMenuItem.Name = "mensajesToolStripMenuItem";
             this.mensajesToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.mensajesToolStripMenuItem.Tag = "frmMensajes";
             this.mensajesToolStripMenuItem.Text = "Mensajes";
             this.mensajesToolStripMenuItem.Click += new System.EventHandler(this.mensajesToolStripMenuItem_Click);
             // 
@@ -237,16 +238,6 @@
             this.diasFestivoToolStripMenuItem.Tag = "frmDiasFestivos";
             this.diasFestivoToolStripMenuItem.Text = "Días Festivos";
             this.diasFestivoToolStripMenuItem.Click += new System.EventHandler(this.diasFestivoToolStripMenuItem_Click);
-            // 
-            // mensajesToolStripMenuItem1
-            // 
-            this.mensajesToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.mensajesToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.mensajesToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("mensajesToolStripMenuItem1.Image")));
-            this.mensajesToolStripMenuItem1.Name = "mensajesToolStripMenuItem1";
-            this.mensajesToolStripMenuItem1.Size = new System.Drawing.Size(246, 22);
-            this.mensajesToolStripMenuItem1.Tag = "frmMensajes";
-            this.mensajesToolStripMenuItem1.Text = "Mensajes";
             // 
             // tipoHorarioToolStripMenuItem
             // 
@@ -408,6 +399,17 @@
             this.label3.Text = "       Recursos Humanos                  ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // plantillasToolStripMenuItem
+            // 
+            this.plantillasToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.plantillasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.plantillasToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
+            this.plantillasToolStripMenuItem.Name = "plantillasToolStripMenuItem";
+            this.plantillasToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.plantillasToolStripMenuItem.Tag = "frmPlantillas";
+            this.plantillasToolStripMenuItem.Text = "Plantillas";
+            this.plantillasToolStripMenuItem.Click += new System.EventHandler(this.plantillasToolStripMenuItem_Click);
+            // 
             // RechDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -454,7 +456,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ToolStripMenuItem incidenciasNominaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem diasFestivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mensajesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tipoHorarioToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem tipoIncidenciaToolStripMenuItem;
@@ -465,5 +466,6 @@
         private System.Windows.Forms.ToolStripMenuItem registroGeneradoDetalleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmAsignacionUbicacion;
         private System.Windows.Forms.ToolStripMenuItem tsmAsignacionDepartamento;
+        private System.Windows.Forms.ToolStripMenuItem plantillasToolStripMenuItem;
     }
 }

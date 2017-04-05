@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportePerfiles" targetNamespace="http://tempuri.org/ReportePerfiles.xsd" xmlns:mstns="http://tempuri.org/ReportePerfiles.xsd" xmlns="http://tempuri.org/ReportePerfiles.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportePerfiles" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReportePerfiles" msprop:Generator_UserDSName="ReportePerfiles">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ReportePerfiles" msprop:Generator_TableClassName="ReportePerfilesDataTable" msprop:Generator_TableVarName="tableReportePerfiles" msprop:Generator_RowChangedName="ReportePerfilesRowChanged" msprop:Generator_TablePropName="_ReportePerfiles" msprop:Generator_RowDeletingName="ReportePerfilesRowDeleting" msprop:Generator_RowChangingName="ReportePerfilesRowChanging" msprop:Generator_RowEvHandlerName="ReportePerfilesRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportePerfilesRowDeleted" msprop:Generator_RowClassName="ReportePerfilesRow" msprop:Generator_UserTableName="ReportePerfiles" msprop:Generator_RowEvArgName="ReportePerfilesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cvperfil" msprop:Generator_ColumnVarNameInTable="columncvperfil" msprop:Generator_ColumnPropNameInRow="cvperfil" msprop:Generator_ColumnPropNameInTable="cvperfilColumn" msprop:Generator_UserColumnName="cvperfil" type="xs:string" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="stperfil" msprop:Generator_ColumnVarNameInTable="columnstperfil" msprop:Generator_ColumnPropNameInRow="stperfil" msprop:Generator_ColumnPropNameInTable="stperfilColumn" msprop:Generator_UserColumnName="stperfil" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
