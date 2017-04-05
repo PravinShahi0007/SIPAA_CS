@@ -186,7 +186,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //BOTON ELIMINAR
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Esta acción elimina el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Esta acción da de baja el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 iSt = 0;
@@ -261,8 +261,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Incidencias_Load(object sender, EventArgs e)
         {
-
-
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
@@ -394,7 +392,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 lblModifElim.Visible = false;
             }
         }
-
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
         {
             if (ckbEliminar.Checked == true)
@@ -422,7 +419,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 btnActiva.Visible = false;
             }
         }
-
         private void dgvIncidencia_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -435,7 +431,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             if (dgvIncidencia.SelectedRows.Count != 0)
             {
-
                 DataGridViewRow row = this.dgvIncidencia.SelectedRows[0];
                 
                 iCvFR = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
@@ -484,17 +479,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 {
                     lbMensaje.Text = "Registro dado de alta";
                 }
-
             }
         }
         private void sValIns(int iOpc, int sCve, string sDesc, int sOrd, int iStT, string sUsu, string sProg)
         {
             vValida = CIncidencias.ConcepInc_V(iOpc, sCve, sDesc, sOrd, iStT, sUsu, sProg);
-
         }
-
-
-
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

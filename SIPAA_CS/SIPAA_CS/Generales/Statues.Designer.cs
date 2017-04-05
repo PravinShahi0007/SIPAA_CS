@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Statues));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -44,6 +44,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlAct = new System.Windows.Forms.Panel();
+            this.cboCrea = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtCapDes = new System.Windows.Forms.TextBox();
             this.lbldescrip = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@
             this.lblPanelBusca = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.cboCrea = new System.Windows.Forms.ComboBox();
             this.panelTag.SuspendLayout();
             this.pnlAct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
@@ -137,9 +137,9 @@
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTag.ForeColor = System.Drawing.Color.White;
-            this.panelTag.Location = new System.Drawing.Point(538, 559);
+            this.panelTag.Location = new System.Drawing.Point(524, 559);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(474, 24);
+            this.panelTag.Size = new System.Drawing.Size(488, 24);
             this.panelTag.TabIndex = 165;
             this.panelTag.Visible = false;
             // 
@@ -162,7 +162,7 @@
             this.lblModifElim.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModifElim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.lblModifElim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblModifElim.Location = new System.Drawing.Point(542, 559);
+            this.lblModifElim.Location = new System.Drawing.Point(531, 559);
             this.lblModifElim.Name = "lblModifElim";
             this.lblModifElim.Size = new System.Drawing.Size(93, 16);
             this.lblModifElim.TabIndex = 164;
@@ -178,7 +178,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(962, 155);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
-            this.btnAgregar.TabIndex = 163;
+            this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
@@ -232,6 +232,16 @@
             this.pnlAct.TabStop = true;
             this.pnlAct.Visible = false;
             // 
+            // cboCrea
+            // 
+            this.cboCrea.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboCrea.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboCrea.FormattingEnabled = true;
+            this.cboCrea.Location = new System.Drawing.Point(32, 48);
+            this.cboCrea.Name = "cboCrea";
+            this.cboCrea.Size = new System.Drawing.Size(252, 21);
+            this.cboCrea.TabIndex = 5;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
@@ -249,7 +259,7 @@
             this.txtCapDes.Location = new System.Drawing.Point(34, 165);
             this.txtCapDes.Name = "txtCapDes";
             this.txtCapDes.Size = new System.Drawing.Size(250, 15);
-            this.txtCapDes.TabIndex = 160;
+            this.txtCapDes.TabIndex = 7;
             // 
             // lbldescrip
             // 
@@ -272,7 +282,7 @@
             this.btnActiva.Location = new System.Drawing.Point(362, 19);
             this.btnActiva.Name = "btnActiva";
             this.btnActiva.Size = new System.Drawing.Size(50, 50);
-            this.btnActiva.TabIndex = 158;
+            this.btnActiva.TabIndex = 8;
             this.btnActiva.Tag = "Alta";
             this.btnActiva.UseVisualStyleBackColor = false;
             this.btnActiva.Visible = false;
@@ -295,7 +305,7 @@
             this.txtCapSt.Location = new System.Drawing.Point(34, 108);
             this.txtCapSt.Name = "txtCapSt";
             this.txtCapSt.Size = new System.Drawing.Size(250, 15);
-            this.txtCapSt.TabIndex = 58;
+            this.txtCapSt.TabIndex = 6;
             // 
             // lblStatus
             // 
@@ -316,7 +326,7 @@
             this.ckbEliminar.Location = new System.Drawing.Point(290, 48);
             this.ckbEliminar.Name = "ckbEliminar";
             this.ckbEliminar.Size = new System.Drawing.Size(47, 17);
-            this.ckbEliminar.TabIndex = 55;
+            this.ckbEliminar.TabIndex = 20;
             this.ckbEliminar.Text = "Baja";
             this.ckbEliminar.UseVisualStyleBackColor = true;
             this.ckbEliminar.Visible = false;
@@ -375,7 +385,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(362, 19);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(50, 50);
-            this.btnEliminar.TabIndex = 54;
+            this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Tag = "Baja";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Visible = false;
@@ -390,7 +400,7 @@
             this.btnEditar.Location = new System.Drawing.Point(362, 19);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
-            this.btnEditar.TabIndex = 56;
+            this.btnEditar.TabIndex = 8;
             this.btnEditar.Tag = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Visible = false;
@@ -405,7 +415,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(362, 19);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
-            this.btnGuardar.TabIndex = 52;
+            this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Tag = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -414,29 +424,29 @@
             // 
             this.dgvConsulta.AllowUserToAddRows = false;
             this.dgvConsulta.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvConsulta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvConsulta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvConsulta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvConsulta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvConsulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConsulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvConsulta.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dgvConsulta.Location = new System.Drawing.Point(538, 211);
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvConsulta.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvConsulta.Location = new System.Drawing.Point(524, 211);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
             this.dgvConsulta.RowHeadersVisible = false;
@@ -444,8 +454,8 @@
             this.dgvConsulta.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvConsulta.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConsulta.Size = new System.Drawing.Size(474, 345);
-            this.dgvConsulta.TabIndex = 160;
+            this.dgvConsulta.Size = new System.Drawing.Size(488, 345);
+            this.dgvConsulta.TabIndex = 3;
             this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_CellContentClick);
             // 
             // pnlBusqueda
@@ -468,7 +478,7 @@
             this.cbobusq.Location = new System.Drawing.Point(34, 47);
             this.cbobusq.Name = "cbobusq";
             this.cbobusq.Size = new System.Drawing.Size(250, 21);
-            this.cbobusq.TabIndex = 45;
+            this.cbobusq.TabIndex = 1;
             this.cbobusq.SelectedIndexChanged += new System.EventHandler(this.cbobusq_SelectedIndexChanged);
             // 
             // lblBusca
@@ -514,16 +524,6 @@
             // 
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
-            // 
-            // cboCrea
-            // 
-            this.cboCrea.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboCrea.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboCrea.FormattingEnabled = true;
-            this.cboCrea.Location = new System.Drawing.Point(32, 48);
-            this.cboCrea.Name = "cboCrea";
-            this.cboCrea.Size = new System.Drawing.Size(252, 21);
-            this.cboCrea.TabIndex = 46;
             // 
             // Statues
             // 
