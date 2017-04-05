@@ -173,7 +173,8 @@ namespace SIPAA_CS.Accesos
 
                     if (rows.Count() == 0)
                     {
-                        btnGuardar.Image = Resources.Guardar;
+                        //btnGuardar.Image = Resources.Guardar;
+                        Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Guardar");
                         ckbEliminarAsig.Visible = false;
 
 
@@ -194,7 +195,9 @@ namespace SIPAA_CS.Accesos
                          * 4IMPRIMIR 
                          * 5 LECTURA
                     * */
-                        btnGuardar.Image = Resources.Editar;
+
+                        Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
+                        //btnGuardar.Image = Resources.Editar;
                         ckbEliminarAsig.Visible = true;
                         ckbEliminarAsig.Checked = false;
                         if (rows[0].ItemArray[1].ToString() == "1") { ckbAgregar.Checked = true; } else { ckbAgregar.Checked = false; }
@@ -364,16 +367,19 @@ namespace SIPAA_CS.Accesos
 
                         if (result == DialogResult.Yes)
                         {
-                             response = objPerfil.AsignarModuloAPerfil(objModulo, CVPerfil, iOpcionAdmin);
+                            response = objPerfil.AsignarModuloAPerfil(objModulo, CVPerfil, iOpcionAdmin);
                             iOpcionAdmin = 1;
                             ckbEliminarAsig.Visible = false;
-                            btnGuardar.Image = Resources.Guardar;
+                            Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Guardar");
                             ckbEliminar.Checked = false;
                             ckbActualizar.Checked = false;
                             ckbAgregar.Checked = false;
                             ckbImprimir.Checked = false;
                             ckbLectura.Checked = true;
 
+                        }
+                        else if(result == DialogResult.No) {
+                            response = 3;
                         }
                         break;
 
@@ -385,26 +391,27 @@ namespace SIPAA_CS.Accesos
 
 
                
-                panelTag.Visible = true;
-                timer1.Start();
+               //
+                //timer1.Start();
                 if (response == 0)
                 {
-                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
-                    lbMensaje.Text = "Actualización Correcta";
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Actualización Correcta");
+                    timer1.Start();
 
                 }
                 else if (response == 1)
                 {
-                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignación Correcta");
                     lbMensaje.Text = "Asignación Correcta";
-
+                    timer1.Start();
                 }
                 else if (response == 2)
                 {
-                    panelTag.BackColor = ColorTranslator.FromHtml("#439047");
-                    lbMensaje.Text = "Asignación eliminada";
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignación eliminada");
+                    timer1.Start();
 
                 }
+               
 
 
                 string idtrab = LoginInfo.IdTrab;
@@ -484,12 +491,14 @@ namespace SIPAA_CS.Accesos
         {
             if (ckbEliminarAsig.Checked != false)
             {
-                btnGuardar.Image = Resources.Borrar;
+                //btnGuardar.Image = Resources.Borrar;
+                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Borrar");
                 iOpcionAdmin = 2;
             }
             else
             {
-                btnGuardar.Image = Resources.Editar;
+                //btnGuardar.Image = Resources.Editar;
+                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
                 iOpcionAdmin = 1;
             }
         }
@@ -517,6 +526,7 @@ namespace SIPAA_CS.Accesos
                 {
 
                     dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+
                 }
                 else
                 {

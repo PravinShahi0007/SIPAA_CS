@@ -22,7 +22,8 @@ namespace SIPAA_CS.Accesos
         public string prgmod;
         public int stmodulo;
         public int response;
-
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
         Utilerias utilerias = new Utilerias();
         Modulo objModulo = new Modulo();
         
@@ -286,7 +287,12 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void Modulos_Load(object sender, EventArgs e)
         {
+
+          
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             LlenarGridModulos("", "", "", 0, "", "", "", 0, "", "", 4,dgvModulos);
+           
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

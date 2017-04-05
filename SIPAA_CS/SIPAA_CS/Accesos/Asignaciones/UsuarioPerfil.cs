@@ -30,7 +30,8 @@ namespace SIPAA_CS.Accesos
         public List<int> ltPerfiles = new List<int>();
         public List<int> ltPerfilesxUsuario = new List<int>();
         public List<string> ltPermisos = new List<string>();
-
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
@@ -287,8 +288,7 @@ namespace SIPAA_CS.Accesos
         {
 
 
-            int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+           
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
             llenarGridUsuarios("%", "%");
