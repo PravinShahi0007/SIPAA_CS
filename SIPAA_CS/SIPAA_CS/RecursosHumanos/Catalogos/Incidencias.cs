@@ -33,6 +33,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         int iCvFR;
         int v_Orden;
         int iSt;
+        string sDescAnt;
 
         #endregion
 
@@ -90,7 +91,15 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 if (vValida <= 0)
                 {
-                    v_Orden = int.Parse(txtCapOrd.Text);
+                    if (txtCapOrd.Text.Trim() != "")
+                    {
+                        v_Orden = int.Parse(txtCapOrd.Text);
+                    }
+                    else
+                    {
+                        v_Orden = 0;
+                    }
+
                     sGuardaMod(1, 0, txtCapInc.Text.Trim(), v_Orden, iSt, "150076", "Incidencias");
                     txtCapInc.Text = "";
 
@@ -117,17 +126,21 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //VALIDA ESCRITURA DE ALGUN TEXTO
             if (txtCapInc.Text.Trim() == "")
             {
-                DialogResult result = MessageBox.Show("Seleccione un dato en el grid a modificar", "SIPAA", MessageBoxButtons.OK);
+                DialogResult result = MessageBox.Show("La Descripción no puede esta en blanco", "SIPAA", MessageBoxButtons.OK);
+                txtCapInc.Focus();
             }
             else
             {
-                if (ckbEliminar.Checked == true)
+                if (sDescAnt == txtCapInc.Text.Trim())
                 {
-
-                }
-                else
-                {
-                    v_Orden = int.Parse(txtCapOrd.Text);
+                    if (txtCapOrd.Text.Trim() != "")
+                    {
+                        v_Orden = int.Parse(txtCapOrd.Text);
+                    }
+                    else
+                    {
+                        v_Orden = 0;
+                    }
                     sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), v_Orden, 0, "150076", "Incidencias");
                     txtCapInc.Text = "";
                     panelTag.Visible = true;
@@ -137,9 +150,39 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     pnlAct.Visible = false;
                     txtFormReg.Focus();
                 }
+                else
+                {
+                    sValIns(5, 0, txtCapInc.Text.Trim(), 0, 0, "150076", "Incidencias");
+                    if (vValida >= 1)
+                    {
+                        SLlenaGrid(4, 0, txtCapInc.Text.Trim(), 0, 0, "", "");
+                        txtCapInc.Text = "";
+                        pnlAct.Visible = false;
+                        DialogResult result = MessageBox.Show("Registro ya existente", "SIPAA", MessageBoxButtons.OK);
+                        txtFormReg.Focus();
+                    }
+                    else
+                    {
+                        if (txtCapOrd.Text.Trim() != "")
+                        {
+                            v_Orden = int.Parse(txtCapOrd.Text);
+                        }
+                        else
+                        {
+                            v_Orden = 0;
+                        }
+                        sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), v_Orden, 0, "150076", "Incidencias");
+                        txtCapInc.Text = "";
+                        panelTag.Visible = true;
+                        timer1.Start();
+                        SLlenaGrid(4, iCvFR, "", 0, 0, "", "");
+                        iCvFR = 0;
+                        pnlAct.Visible = false;
+                        txtFormReg.Focus();
+                    }
+                }
             }
         }
-
         //BOTON ELIMINAR
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -243,7 +286,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
         }
         //evento tick de timer de mensajes
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick_1(object sender, EventArgs e)
         {
             panelTag.Visible = false;
             timer1.Stop();
@@ -298,10 +341,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             
             dgvIncidencia.Columns[0].Width = 55;
             dgvIncidencia.Columns[1].Visible = false;
-            dgvIncidencia.Columns[2].Width = 155;
+            dgvIncidencia.Columns[2].Width = 175;
             dgvIncidencia.Columns[3].Width = 35;
-            dgvIncidencia.Columns[4].Width = 35;
-
+            dgvIncidencia.Columns[5].Width = 45;
+            dgvIncidencia.Columns[4].Visible = false;
             dgvIncidencia.ClearSelection();
             sHabilitaPermisos();
         }
@@ -398,11 +441,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 iCvFR = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
                 string ValorRow = row.Cells["Descripción"].Value.ToString();
                 string ValorRowO = row.Cells["Orden"].Value.ToString();
-                iSt = Convert.ToInt32(row.Cells["Status"].Value.ToString());
+                iSt = Convert.ToInt32(row.Cells["ST"].Value.ToString());
 
+                
                 txtCapInc.Text = ValorRow;
                 txtCapOrd.Text = ValorRowO;
                 txtCapInc.Focus();
+                sDescAnt = txtCapInc.Text.Trim();
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                 if (iSt == 0)
@@ -447,6 +492,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             vValida = CIncidencias.ConcepInc_V(iOpc, sCve, sDesc, sOrd, iStT, sUsu, sProg);
 
         }
+
+
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

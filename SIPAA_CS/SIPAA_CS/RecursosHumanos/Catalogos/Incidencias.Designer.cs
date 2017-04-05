@@ -46,9 +46,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtCapInc = new System.Windows.Forms.TextBox();
             this.lblAct = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvIncidencia = new System.Windows.Forms.DataGridView();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -139,7 +139,7 @@
             this.btnActiva.Location = new System.Drawing.Point(362, 19);
             this.btnActiva.Name = "btnActiva";
             this.btnActiva.Size = new System.Drawing.Size(50, 50);
-            this.btnActiva.TabIndex = 158;
+            this.btnActiva.TabIndex = 6;
             this.btnActiva.Tag = "Alta";
             this.btnActiva.UseVisualStyleBackColor = false;
             this.btnActiva.Visible = false;
@@ -162,7 +162,7 @@
             this.txtCapOrd.Location = new System.Drawing.Point(34, 108);
             this.txtCapOrd.Name = "txtCapOrd";
             this.txtCapOrd.Size = new System.Drawing.Size(250, 15);
-            this.txtCapOrd.TabIndex = 58;
+            this.txtCapOrd.TabIndex = 5;
             // 
             // label6
             // 
@@ -233,20 +233,6 @@
             this.lblAct.TabIndex = 41;
             this.lblAct.Text = "     Agregar Incidencia";
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardar.Location = new System.Drawing.Point(362, 19);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(50, 50);
-            this.btnGuardar.TabIndex = 52;
-            this.btnGuardar.Tag = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
-            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -256,7 +242,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(362, 19);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(50, 50);
-            this.btnEliminar.TabIndex = 54;
+            this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Tag = "Baja";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Visible = false;
@@ -271,11 +257,25 @@
             this.btnEditar.Location = new System.Drawing.Point(362, 19);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
-            this.btnEditar.TabIndex = 56;
+            this.btnEditar.TabIndex = 6;
             this.btnEditar.Tag = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Visible = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.btnGuardar.Location = new System.Drawing.Point(362, 19);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(50, 50);
+            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.Tag = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
             // dgvIncidencia
             // 
@@ -426,6 +426,7 @@
             // timer1
             // 
             this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // label3
             // 
