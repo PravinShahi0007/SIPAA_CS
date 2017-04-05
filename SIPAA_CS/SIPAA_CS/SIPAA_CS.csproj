@@ -90,6 +90,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportePerfiles.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\DataSets\ReporteProcesos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteProcesos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\DataSets\ReporteUsuarios.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +111,12 @@
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroPerfiles.Designer.cs">
       <DependentUpon>FiltroPerfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroProcesos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroProcesos.Designer.cs">
+      <DependentUpon>FiltroProcesos.cs</DependentUpon>
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroUsuarios.cs">
       <SubType>Form</SubType>
@@ -125,6 +136,12 @@
       <DependentUpon>ReportePerfiles.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Accesos\Reportes\ReporteProcesos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteProcesos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Accesos\Reportes\ReporteUsuarios.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -142,6 +159,12 @@
     </Compile>
     <Compile Include="Accesos\Reportes\ViewerReportePerfiles.Designer.cs">
       <DependentUpon>ViewerReportePerfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ViewerReporteProcesos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ViewerReporteProcesos.Designer.cs">
+      <DependentUpon>ViewerReporteProcesos.cs</DependentUpon>
     </Compile>
     <Compile Include="Accesos\Reportes\ViewerReporteUsuarios.cs">
       <SubType>Form</SubType>
@@ -515,6 +538,9 @@
     <EmbeddedResource Include="Accesos\Reportes\FiltroPerfiles.resx">
       <DependentUpon>FiltroPerfiles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroProcesos.resx">
+      <DependentUpon>FiltroProcesos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\FiltroUsuarios.resx">
       <DependentUpon>FiltroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -526,6 +552,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportePerfiles.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteProcesos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteProcesos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ReporteUsuarios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteUsuarios.cs</LastGenOutput>
@@ -535,6 +565,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ViewerReportePerfiles.resx">
       <DependentUpon>ViewerReportePerfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ViewerReporteProcesos.resx">
+      <DependentUpon>ViewerReporteProcesos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ViewerReporteUsuarios.resx">
       <DependentUpon>ViewerReporteUsuarios.cs</DependentUpon>
@@ -692,6 +725,17 @@
     </None>
     <None Include="Accesos\DataSets\ReportePerfiles.xss">
       <DependentUpon>ReportePerfiles.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteProcesos.xsc">
+      <DependentUpon>ReporteProcesos.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteProcesos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteProcesos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteProcesos.xss">
+      <DependentUpon>ReporteProcesos.xsd</DependentUpon>
     </None>
     <None Include="Accesos\DataSets\ReporteUsuarios.xsc">
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>

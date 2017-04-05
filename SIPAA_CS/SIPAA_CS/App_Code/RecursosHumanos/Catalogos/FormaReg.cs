@@ -110,5 +110,37 @@ namespace SIPAA_CS.App_Code
             objConexion.cerrarConexion();
             return iResponse;
         }
+
+
+        public List<string> FormasxUsuario(string sIdTrab,int iCvforma,int iOpcion,string sUsuumod,string sPrgmod)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechtrabforeg_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_cvforma", SqlDbType.Int).Value = iCvforma;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = sUsuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sPrgmod;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sIdTrab;
+           
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtForReg = new DataTable();
+            Adapter.Fill(dtForReg);
+            List<string> ltCVforma = new List<string>();
+            foreach(DataRow row in dtForReg.Rows)
+            {
+                ltCVforma.Add(row["cvforma"].ToString());
+            }
+
+            return ltCVforma;
+
+        }
     }
 }
