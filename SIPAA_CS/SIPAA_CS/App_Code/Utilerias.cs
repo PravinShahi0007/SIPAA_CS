@@ -572,7 +572,18 @@ namespace SIPAA_CS.App_Code
 
         }
 
+
+        public static Size PantallaSistema()
+        {
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+
+            return new Size(sysW, sysH);
+        }
+
     }
+
+
 
  
 }

@@ -6,6 +6,7 @@ using SIPAA_CS.RecursosHumanos;
 using SIPAA_CS.App_Code;
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.Accesos;
+using System.Data;
 
 namespace SIPAA_CS
 {
@@ -14,8 +15,7 @@ namespace SIPAA_CS
         public Point formPosition;
         public Boolean mouseAction;
         public List<string> ltModulosxUsuario = new List<string>();
-        int sysH = SystemInformation.PrimaryMonitorSize.Height;
-        int sysW = SystemInformation.PrimaryMonitorSize.Width;
+       
         public Dashboard()
         {
             InitializeComponent();
@@ -85,13 +85,26 @@ namespace SIPAA_CS
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            // Se crea lista de permisos por pantalla
+            LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
+            DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
+            LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            // variables de permisos
+            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
+            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
+            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
+            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////////////////////////////////////////
 
             Usuario objUsuario = new Usuario();
             string idtrab = LoginInfo.IdTrab;
             ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab);
             Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
+
         }
 
         private void PanelMetro_Paint(object sender, PaintEventArgs e)

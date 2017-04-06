@@ -203,16 +203,25 @@ namespace SIPAA_CS.Accesos
         {
 
 
-          
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
-            ////Validar permisos x Pantalla
+            // Se crea lista de permisos por pantalla
+            LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
+            DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
+            LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            // variables de permisos
+            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
+            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
+            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
+            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////////////////////////////////////////
+
+
             Modulo objModulo = new Modulo();
-            string idTrab = LoginInfo.IdTrab;
-            DataTable dtPermisos = objModulo.ObtenerPermisosxUsuario(idTrab);
-            DataRow[] row = dtPermisos.Select("CVModulo = '" + this.Tag + "'");
-           ltPermisos =  Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
-            // Utilerias.ApagarControlxPermiso(btnAgregar, "Crear", ltPermisos);
+            
 
             if (!Utilerias.ControlPermiso("Crear",ltPermisos)) {
 

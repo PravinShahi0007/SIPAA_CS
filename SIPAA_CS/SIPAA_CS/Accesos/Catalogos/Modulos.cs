@@ -5,7 +5,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.Accesos
 {
@@ -288,8 +288,22 @@ namespace SIPAA_CS.Accesos
         private void Modulos_Load(object sender, EventArgs e)
         {
 
-          
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
+            // Se crea lista de permisos por pantalla
+            LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
+            DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
+            LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            // variables de permisos
+            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
+            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
+            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
+            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////////////////////////////////////////
+
             LlenarGridModulos("", "", "", 0, "", "", "", 0, "", "", 4,dgvModulos);
            
 

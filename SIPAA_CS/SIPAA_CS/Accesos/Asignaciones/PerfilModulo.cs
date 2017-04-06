@@ -415,12 +415,7 @@ namespace SIPAA_CS.Accesos
 
 
                 string idtrab = LoginInfo.IdTrab;
-                dtPermisos = objModulo.ObtenerPermisosxUsuario(idtrab);
-                DataRow[] row = dtPermisos.Select("CVModulo = 'frmCrear_Perfil'");
-                Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
-
-                AsignarPermisos();
-
+                
                 //Asignar_Modulo_Load(sender, e);
                 //dgvPerfil_CellContentClick(sender, e);
 
@@ -453,22 +448,15 @@ namespace SIPAA_CS.Accesos
         {
 
             
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-
-            string idtrab = LoginInfo.IdTrab;
-            Modulo objModulo = new Modulo();
-             dtPermisos = objModulo.ObtenerPermisosxUsuario(idtrab);
-            DataRow[] row = dtPermisos.Select("CVModulo = 'frmCrear_Perfil'");
-            Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
- 
-
-
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            
             Perfil objPerfil = new Perfil();
             objPerfil.CVPerfil = 0;
             objPerfil.Descripcion = "%";
             objPerfil.Estatus = 0;
             llenarGridPerfiles(objPerfil);
 
+            Modulo objModulo = new Modulo();
             objModulo.CVModulo = "%";
             objModulo.Descripcion = "%";
             objModulo.Ambiente = "%";

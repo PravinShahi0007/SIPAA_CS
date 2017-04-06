@@ -286,23 +286,9 @@ namespace SIPAA_CS.Accesos
 
         private void Asignar_Perfil_Load(object sender, EventArgs e)
         {
-
-
-           
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-
             llenarGridUsuarios("%", "%");
             LlenarGridPerfil("%", "%",1);
-
-
-            Modulo objModulo = new Modulo();
-            string idtrab = LoginInfo.IdTrab;
-            DataTable dtPermisos = objModulo.ObtenerPermisosxUsuario(idtrab);
-            DataRow[] row = dtPermisos.Select("CVModulo = '" + this.Tag + "'");
-            Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
-          //  Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
-
-
         }
 
 

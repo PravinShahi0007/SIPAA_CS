@@ -191,7 +191,7 @@ namespace SIPAA_CS.App_Code
             return ltModulosxPerfil;
         }
 
-        public DataTable ObtenerPermisosxUsuario(string CVUsuario)
+        public static DataTable ObtenerPermisosxUsuario(string CVUsuario)
         {
 
             DataTable dtPermisos = new DataTable();
@@ -278,7 +278,7 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public void CambioEstatusPermiso(DataRow row,int valorEstatus ,string ColumnaDataTable) {
+        public static void CambioEstatusPermiso(DataRow row,int valorEstatus ,string ColumnaDataTable) {
             if (valorEstatus == 1)
             {
                 row[ColumnaDataTable] = 1;
