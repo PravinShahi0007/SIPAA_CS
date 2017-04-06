@@ -114,6 +114,31 @@ namespace SIPAA_CS.App_Code
 
             objConexion.cerrarConexion();
         }
+
+        public DataTable ReporteProcesos(int cvproceso, string descripcion, int stproceso, string usuumod, string prgumod,int opcion)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_acceproceso_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@p_cvproceso", SqlDbType.Int).Value = cvproceso;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
+            cmd.Parameters.Add("@p_stproceso", SqlDbType.Int).Value = stproceso;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtProcesos = new DataTable();
+            Adapter.Fill(dtProcesos);
+
+            return dtProcesos;
+        }
     }
 
 

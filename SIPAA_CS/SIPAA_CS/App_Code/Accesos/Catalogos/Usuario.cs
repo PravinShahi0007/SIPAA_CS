@@ -125,7 +125,7 @@ namespace SIPAA_CS.App_Code
         {
 
             Perfil objPerfil = new Perfil();
-            List<int> ltPerfiles = objPerfil.ObtenerPerfilesxUsuario(CVUsuario);
+            List<int> ltPerfiles = objPerfil.ObtenerPerfilesxUsuario(CVUsuario,0,4);
 
             List<string> ltModulosxUsuario = new List<string>();
 
@@ -275,6 +275,9 @@ namespace SIPAA_CS.App_Code
         public static class LoginInfo
         {
             public static string IdTrab;
+            public static string Nombre;
+            public static DataTable dtPermisosTrabajador;
+            public static List<string> ltPermisosPantalla;
         }
 
 
@@ -418,6 +421,15 @@ namespace SIPAA_CS.App_Code
             Adapter.Fill(dtIncidencia);
 
             return dtIncidencia;
+        }
+
+        public static class Permisos
+        {
+            public static bool Crear;
+            public static bool Actualizar;
+            public static bool Eliminar;
+            public static bool Imprimir;
+            public static bool Lectura;
         }
     }
 

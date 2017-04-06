@@ -227,36 +227,39 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public static void CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos)
+        public static List<string>  CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos)
         {
+            List<string> listPermisos = new List<string>();
+
             foreach (DataRow rows in row)
             {
 
                 if (Convert.ToInt32(rows["Crear"]) == 1)
                 {
-                    ltPermisos.Add("Crear");
+                    listPermisos.Add("Crear");
                 }
 
                 if (Convert.ToInt32(rows["Eliminar"]) == 1)
                 {
-                    ltPermisos.Add("Eliminar");
+                    listPermisos.Add("Eliminar");
                 }
 
                 if (Convert.ToInt32(rows["Actualizar"]) == 1)
                 {
-                    ltPermisos.Add("Actualizar");
+                    listPermisos.Add("Actualizar");
                 }
                 if (Convert.ToInt32(rows["Imprimir"]) == 1)
                 {
-                    ltPermisos.Add("Imprimir");
+                    listPermisos.Add("Imprimir");
                 }
 
-                if (Convert.ToInt32(rows["Lectura"]) == 1)
-                {
-                    ltPermisos.Add("Lectura");
-                }
+                //if (Convert.ToInt32(rows["Lectura"]) == 1)
+                //{
+                //    listPermisos.Add("Lectura");
+                //}
             }
 
+            return listPermisos;
         }
 
         public void ChangeButton(Button btn, int iClase, Boolean Apagar)
@@ -295,51 +298,22 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public static void ApagarControlxPermiso(Control ctrl, string Permiso, List<string> ltPermisos)
+        public static bool ControlPermiso(string sPermiso, List<string> ltPermisos)
         {
-
-            switch (Permiso)
+            bool bBandera = false;
+            if (ltPermisos.Contains(sPermiso))
             {
-                case "Crear":
-                    if (!ltPermisos.Contains(Permiso))
-                    {
-                        ctrl.Visible = false;
-                    }
-
-                    break;
-                case "Actualizar":
-                    if (!ltPermisos.Contains(Permiso))
-                    {
-                        ctrl.Visible = false;
-                    }
-
-                    break;
-
-                case "Lectura":
-                    if (!ltPermisos.Contains(Permiso))
-                    {
-                        ctrl.Visible = false;
-                    }
-
-                    break;
-
-                case "Eliminar":
-                    if (!ltPermisos.Contains(Permiso))
-                    {
-                        ctrl.Visible = false;
-                    }
-
-                    break;
-
-                case "Imprimir":
-                    if (!ltPermisos.Contains(Permiso))
-                    {
-                        ctrl.Visible = false;
-                    }
-
-                    break;
+                bBandera = true;
             }
+            else
+            {
+
+                bBandera = false;
+            }
+
+            return bBandera;
         }
+
 
         public void cargarcombo(ComboBox nombre, DataTable datoscbo)
         {
@@ -453,25 +427,20 @@ namespace SIPAA_CS.App_Code
 
             if (ctrl.Controls.Count != 0)
             {
-
                 foreach (Control ctrlHijo in ctrl.Controls)
                 {
-
                     ResizeControl(ctrlHijo, Per);
                 }
             }
 
-
             float fsize = ctrl.Font.Size;
             double dsize = fsize - (fsize * Per);
             ctrl.Font = new Font(ctrl.Font.FontFamily, (float)dsize, ctrl.Font.Style);
-
             cposx = ctrl.Location.X;
             cposy = ctrl.Location.Y;
             dcposx = cposx - (cposx * Per);
             dcposy = cposy - (cposy * Per);
             ctrl.Location = new Point((int)dcposx, (int)dcposy);
-
             ctrlH = ctrl.Size.Height;
             ctrlW = ctrl.Size.Width;
             nCtrlH = ctrlH - (ctrlH * Per);
@@ -480,31 +449,19 @@ namespace SIPAA_CS.App_Code
 
             if (TipoControl.Contains("System.Windows.Forms.Button") && Per != 0)
             {
-
                 Button btn = (Button)ctrl;
 
                 if (Per > .25)
-                {
-                    strPixeles = "20x20";
-                }
+                {strPixeles = "20x20"; }
                 else
-                {
-
-                    strPixeles = "30x30";
-                }
+                {strPixeles = "30x30"; }
 
                 if (btn.Tag != null)
                 {
-
                     try
-                    {
-                        btn.Image = (Image)Resources.ResourceManager.GetObject(btn.Tag.ToString() + strPixeles);
-                    }
+                    { btn.Image = (Image)Resources.ResourceManager.GetObject(btn.Tag.ToString() + strPixeles);}
                     catch (Exception ex)
-                    {
-
-                        btn.Image = btn.Image;
-                    }
+                    {  btn.Image = btn.Image;}
                 }
                 // ctrl.BackgroundImageLayout = ImageLayout.Center;
                 ctrlH = ctrl.Size.Height;
@@ -521,37 +478,112 @@ namespace SIPAA_CS.App_Code
         {
 
             if (size.Width <= 600 || size.Height <= 600)
+            {  btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "20x20");}
+            else  if (size.Width <= 768 || size.Height <= 768)
             {
-
-                btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "20x20");
-            }
-            else  if (size.Width <= 768 || size.Height <= 768) {
-
-                btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "30x30");
-
+                  btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "30x30");
             }  
             else {
-
                 btn.Image = (Image)Resources.ResourceManager.GetObject(Icono);
-
-            }
+                }
 
         }
 
 
         public static ReportDocument ObtenerObjetoReporte(DataTable dtRpt, string strModulo, string NombreReporte)
         {
-
             ReportDocument ReportDoc = new ReportDocument();
             string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             string file = path + "\\" + strModulo + "\\Reportes\\" + NombreReporte;
             ReportDoc.Load(file);
             ReportDoc.SetDataSource(dtRpt);
             return ReportDoc;
+        }
+
+        public static void llenarComboxDataTable(ComboBox cb, DataTable dt,string sClave ,string sDescripcion)
+        {
+            DataRow row = dt.NewRow();
+            row[sClave] = "0";
+            row[sDescripcion] = "Seleccionar";
+            dt.Rows.InsertAt(row,0);
+            cb.DataSource = dt;
+            cb.DisplayMember = sDescripcion;
+            cb.ValueMember = sClave;
+        }
+
+      public enum DiasSemana { Domingo = 1, Lunes = 2, Martes = 3, Miércoles = 4, Jueves = 5, Viernes = 6, Sábado = 7 };
+
+        public static void AgregarCheck(DataGridView dgv, int iPosicion)
+        {
+            DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
+            imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
+            imgCheckUsuarios.Name = "img";
+            dgv.Columns.Insert(0, imgCheckUsuarios);
+            dgv.Columns[0].HeaderText = "Seleccionar";
+        }
+
+        public static void MultiSeleccionGridView(DataGridView dgv, int iPositionClave, List<int> ltCv, Control ctrl)
+        {
+            DataGridViewRow row = dgv.SelectedRows[0];
+            int iCv = Convert.ToInt32(row.Cells[iPositionClave].Value.ToString());
+
+            if (ltCv.Contains(iCv))
+            {  ltCv.Remove(iCv); }
+            else
+            { ltCv.Add(iCv);}
+
+            if (ltCv.Count == 0)
+            { ctrl.Enabled = false; }
+            else
+            { ctrl.Enabled = true; }
+
+            switch (row.Cells[0].Tag.ToString())
+            {
+                case "check":
+                    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                    row.Cells[0].Tag = "uncheck";
+                    break;
+                case "uncheck":
+                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                    row.Cells[0].Tag = "check";
+                    break;
+            }
+        }
+
+        public static void ImprimirAsignacionesGrid(DataGridView dgv,int iPosicionCheck,int iPosicionClave,List<string> ltcv)
+        {
+
+            for (int iContador = 0; iContador < dgv.Rows.Count; iContador++)
+            {
+                string sCv = dgv.Rows[iContador].Cells[iPosicionClave].Value.ToString();
+
+                if (ltcv.Contains(sCv))
+                {
+                    dgv.Rows[iContador].Cells[iPosicionCheck].Value = Resources.ic_check_circle_green_400_18dp;
+                    dgv.Rows[iContador].Cells[iPosicionCheck].Tag = "check";
+                }
+                else
+                {
+                    dgv.Rows[iContador].Cells[iPosicionCheck].Value = Resources.ic_lens_blue_grey_600_18dp;
+                    dgv.Rows[iContador].Cells[iPosicionCheck].Tag = "uncheck";
+                }
+            }
+
 
         }
 
+
+        public static Size PantallaSistema()
+        {
+            int sysH = SystemInformation.PrimaryMonitorSize.Height;
+            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+
+            return new Size(sysW, sysH);
+        }
+
     }
+
+
 
  
 }

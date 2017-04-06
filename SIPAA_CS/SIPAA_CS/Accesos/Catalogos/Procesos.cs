@@ -21,6 +21,9 @@ namespace SIPAA_CS.Accesos
 
         public string descripcion;
         public string buscar;
+
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
         public Procesos()
         {
             InitializeComponent();
@@ -66,7 +69,7 @@ namespace SIPAA_CS.Accesos
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
-                utilerias.ChangeButton(btnGuardar, 2, false);
+                //utilerias.ChangeButton(btnGuardar, 2, false);
 
                 txtDescripcion.Focus();
 
@@ -87,7 +90,8 @@ namespace SIPAA_CS.Accesos
 
             variable = 1;
 
-            utilerias.ChangeButton(btnGuardar,1,false);
+            //utilerias.ChangeButton(btnGuardar,1,false);
+            Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Guardar");
 
 
         }
@@ -218,13 +222,14 @@ namespace SIPAA_CS.Accesos
             if (cbEliminar.Checked == true)
             {
                 variable = 3;
-                utilerias.ChangeButton(btnGuardar, 3, false);
-               
+             //   utilerias.ChangeButton(btnGuardar, 3, false);
+                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Borrar");
             }
             else if (cbEliminar.Checked == false)
             {
                 variable = 2;
-                utilerias.ChangeButton(btnGuardar, 2, false);
+               // utilerias.ChangeButton(btnGuardar, 2, false);
+                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
             }
         }
         //-----------------------------------------------------------------------------------------------
@@ -237,7 +242,7 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void Crear_Procesos_Load(object sender, EventArgs e)
         {
-           
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             LlenaGrid(0, "", 0, "0", "", 5);
             txtBuscar.Focus();
         }
@@ -283,6 +288,8 @@ namespace SIPAA_CS.Accesos
 
             this.Close();
         }
+
+       
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

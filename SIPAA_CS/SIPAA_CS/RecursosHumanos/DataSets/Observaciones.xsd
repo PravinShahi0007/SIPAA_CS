@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Observaciones" targetNamespace="http://tempuri.org/Observaciones.xsd" xmlns:mstns="http://tempuri.org/Observaciones.xsd" xmlns="http://tempuri.org/Observaciones.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Observaciones" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Observaciones" msprop:Generator_UserDSName="Observaciones">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ReporteObservaciones" msprop:Generator_TableClassName="ReporteObservacionesDataTable" msprop:Generator_TableVarName="tableReporteObservaciones" msprop:Generator_TablePropName="ReporteObservaciones" msprop:Generator_RowDeletingName="ReporteObservacionesRowDeleting" msprop:Generator_RowChangingName="ReporteObservacionesRowChanging" msprop:Generator_RowEvHandlerName="ReporteObservacionesRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteObservacionesRowDeleted" msprop:Generator_UserTableName="ReporteObservaciones" msprop:Generator_RowChangedName="ReporteObservacionesRowChanged" msprop:Generator_RowEvArgName="ReporteObservacionesRowChangeEvent" msprop:Generator_RowClassName="ReporteObservacionesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idtrab" msprop:Generator_ColumnVarNameInTable="columnidtrab" msprop:Generator_ColumnPropNameInRow="idtrab" msprop:Generator_ColumnPropNameInTable="idtrabColumn" msprop:Generator_UserColumnName="idtrab" type="xs:string" minOccurs="0" />
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="Incidencia" msprop:Generator_ColumnVarNameInTable="columnIncidencia" msprop:Generator_ColumnPropNameInRow="Incidencia" msprop:Generator_ColumnPropNameInTable="IncidenciaColumn" msprop:Generator_UserColumnName="Incidencia" type="xs:string" minOccurs="0" />
+              <xs:element name="Representa" msprop:Generator_ColumnVarNameInTable="columnRepresenta" msprop:Generator_ColumnPropNameInRow="Representa" msprop:Generator_ColumnPropNameInTable="RepresentaColumn" msprop:Generator_UserColumnName="Representa" type="xs:string" minOccurs="0" />
+              <xs:element name="Id_Aut" msprop:Generator_ColumnVarNameInTable="columnId_Aut" msprop:Generator_ColumnPropNameInRow="Id_Aut" msprop:Generator_ColumnPropNameInTable="Id_AutColumn" msprop:Generator_UserColumnName="Id_Aut" type="xs:string" minOccurs="0" />
+              <xs:element name="Tipo" msprop:Generator_ColumnVarNameInTable="columnTipo" msprop:Generator_ColumnPropNameInRow="Tipo" msprop:Generator_ColumnPropNameInTable="TipoColumn" msprop:Generator_UserColumnName="Tipo" type="xs:string" minOccurs="0" />
+              <xs:element name="Observaciones" msprop:Generator_ColumnVarNameInTable="columnObservaciones" msprop:Generator_ColumnPropNameInRow="Observaciones" msprop:Generator_ColumnPropNameInTable="ObservacionesColumn" msprop:Generator_UserColumnName="Observaciones" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

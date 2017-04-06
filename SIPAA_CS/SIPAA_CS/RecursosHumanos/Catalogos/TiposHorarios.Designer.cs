@@ -157,12 +157,13 @@
             // btnRegresar
             // 
             this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnRegresar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
+            this.btnRegresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
             this.btnRegresar.Location = new System.Drawing.Point(895, 1);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
+            this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 126;
             this.btnRegresar.TabStop = false;
             this.btnRegresar.UseVisualStyleBackColor = false;
@@ -203,12 +204,13 @@
             this.lbltitulo.BackColor = System.Drawing.Color.Transparent;
             this.lbltitulo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
+            this.lbltitulo.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbltitulo.Location = new System.Drawing.Point(428, 3);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(221, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(249, 23);
             this.lbltitulo.TabIndex = 123;
-            this.lbltitulo.Text = "Catalogo de Tipos de Horario  ";
+            this.lbltitulo.Text = "       Catalogo de Tipos de Horario  ";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvtiphr
@@ -271,12 +273,12 @@
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
             this.btnBuscar.Location = new System.Drawing.Point(339, 16);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
             this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -333,11 +335,12 @@
             this.btninsertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
+            this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
             this.btninsertar.Location = new System.Drawing.Point(339, 13);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(50, 50);
             this.btninsertar.TabIndex = 134;
+            this.btninsertar.Tag = "Guardar";
             this.btninsertar.UseVisualStyleBackColor = false;
             this.btninsertar.Click += new System.EventHandler(this.btninsertar_Click);
             // 
@@ -364,11 +367,12 @@
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
+            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
             this.btnAgregar.Location = new System.Drawing.Point(941, 130);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
             this.btnAgregar.TabIndex = 133;
+            this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -402,7 +406,7 @@
             this.lbMensaje.Text = "Administración de Perfiles    ";
             this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // TipoHorario
+            // TiposHorario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -421,7 +425,7 @@
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lbltitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "TipoHorario";
+            this.Name = "TiposHorario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TipoHorario";
             this.Load += new System.EventHandler(this.TipoHorario_Load);

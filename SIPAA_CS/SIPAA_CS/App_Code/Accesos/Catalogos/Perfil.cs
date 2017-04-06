@@ -84,7 +84,7 @@ namespace SIPAA_CS.App_Code
 
       
 
-        public List<int> ObtenerPerfilesxUsuario(string cvUsuario)
+        public List<int> ObtenerPerfilesxUsuario(string scvUsuario,int iCvPerfil,int iOpcion)
         {
 
             List<int> ltPerfilesxUsuario = new List<int>();
@@ -92,7 +92,9 @@ namespace SIPAA_CS.App_Code
             cmd.CommandText = @"usp_acceusuper_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@cvUsuario", SqlDbType.VarChar).Value = cvUsuario;
+            cmd.Parameters.Add("@P_cvUsuario", SqlDbType.VarChar).Value = scvUsuario;
+            cmd.Parameters.Add("@P_cvPerfil", SqlDbType.VarChar).Value = iCvPerfil;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.VarChar).Value = iOpcion;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -126,11 +128,11 @@ namespace SIPAA_CS.App_Code
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@CvPerfil", SqlDbType.Int).Value = objPerfil.CVPerfil;
-            cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = objPerfil.Descripcion;
-            cmd.Parameters.Add("@UsuarioUMod", SqlDbType.VarChar).Value = objPerfil.UsuuMod;
-            cmd.Parameters.Add("@ProgramaUMod", SqlDbType.VarChar).Value = objPerfil.PrguMod;
-            cmd.Parameters.Add("@Opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_CvPerfil", SqlDbType.Int).Value = objPerfil.CVPerfil;
+            cmd.Parameters.Add("@p_Descripcion", SqlDbType.VarChar).Value = objPerfil.Descripcion;
+            cmd.Parameters.Add("@p_UsuarioUMod", SqlDbType.VarChar).Value = objPerfil.UsuuMod;
+            cmd.Parameters.Add("@p_ProgramaUMod", SqlDbType.VarChar).Value = objPerfil.PrguMod;
+            cmd.Parameters.Add("@p_Opcion", SqlDbType.Int).Value = iOpcion;
 
 
 
@@ -172,5 +174,54 @@ namespace SIPAA_CS.App_Code
             return response;
 
         }
+
+
+        public DataTable ReportePerfiles(int cvperfil, string descripcion, string usuarioumod, string programaumod, int opcion)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_acceperfil_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@p_cvperfil", SqlDbType.Int).Value = cvperfil;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
+            cmd.Parameters.Add("@p_usuarioumod", SqlDbType.VarChar).Value = usuarioumod;
+            cmd.Parameters.Add("@p_programaumod", SqlDbType.VarChar).Value = programaumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+            
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtPerfiles = new DataTable();
+            Adapter.Fill(dtPerfiles);
+
+            return dtPerfiles;
+        }
+
+        public DataTable ReportePerfilesUsuarios(string  cvperfil, int descripcion, int opcion)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_acceusuper_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvperfil;
+            cmd.Parameters.Add("@p_cvperfil", SqlDbType.Int).Value = descripcion;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtPerfilesUsuarios = new DataTable();
+            Adapter.Fill(dtPerfilesUsuarios);
+
+            return dtPerfilesUsuarios;
+        }
+
+
     }
 }

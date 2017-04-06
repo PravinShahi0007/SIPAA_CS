@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label3;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Procesos));
-            System.Windows.Forms.Label label4;
-            System.Windows.Forms.Label label5;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.Windows.Forms.Label label5;
+            System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label3;
+            this.lblusuario = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
+            this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -53,100 +54,62 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblusuario = new System.Windows.Forms.Label();
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
-            label3 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            label4 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProceso)).BeginInit();
             this.pnlAct.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label3
+            // lblusuario
             // 
-            label3.AutoSize = true;
-            label3.Enabled = false;
-            label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.ForeColor = System.Drawing.SystemColors.GrayText;
-            label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
-            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(3, 3);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(140, 18);
-            label3.TabIndex = 42;
-            label3.Text = "     Buscar Proceso";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Enabled = false;
-            label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label4.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label4.Location = new System.Drawing.Point(25, 20);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(91, 16);
-            label4.TabIndex = 48;
-            label4.Text = "Clave Proceso";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Enabled = false;
-            label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label5.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label5.Location = new System.Drawing.Point(27, 21);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(76, 16);
-            label5.TabIndex = 49;
-            label5.Text = "Descripción";
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::SIPAA_CS.Properties.Resources.JSierra;
-            this.panel1.Controls.Add(this.lblusuario);
-            this.panel1.Controls.Add(this.btnRegresar);
-            this.panel1.Controls.Add(this.pnlimgusuario);
-            this.panel1.Controls.Add(this.btnAgregar);
-            this.panel1.Controls.Add(this.btnMinimizar);
-            this.panel1.Controls.Add(this.btnCerrar);
-            this.panel1.Controls.Add(this.dgvProceso);
-            this.panel1.Controls.Add(this.pnlAct);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(-1, -8);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1024, 768);
-            this.panel1.TabIndex = 0;
+            this.lblusuario.AutoSize = true;
+            this.lblusuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.ForeColor = System.Drawing.Color.White;
+            this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblusuario.Location = new System.Drawing.Point(7, 70);
+            this.lblusuario.Name = "lblusuario";
+            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.TabIndex = 129;
+            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegresar
             // 
             this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnRegresar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
+            this.btnRegresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(921, 8);
+            this.btnRegresar.Location = new System.Drawing.Point(919, 2);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
-            this.btnRegresar.TabIndex = 109;
+            this.btnRegresar.Size = new System.Drawing.Size(30, 24);
+            this.btnRegresar.TabIndex = 127;
             this.btnRegresar.UseVisualStyleBackColor = false;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
+            // pnlimgusuario
+            // 
+            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
+            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlimgusuario.Location = new System.Drawing.Point(11, 26);
+            this.pnlimgusuario.Name = "pnlimgusuario";
+            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
+            this.pnlimgusuario.TabIndex = 128;
             // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
-            this.btnAgregar.Location = new System.Drawing.Point(594, 124);
+            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
+            this.btnAgregar.Location = new System.Drawing.Point(889, 118);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
-            this.btnAgregar.TabIndex = 51;
+            this.btnAgregar.TabIndex = 124;
+            this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnMinimizar
             // 
@@ -155,13 +118,12 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(971, 8);
+            this.btnMinimizar.Location = new System.Drawing.Point(969, 2);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
-            this.btnMinimizar.TabIndex = 108;
+            this.btnMinimizar.TabIndex = 126;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
             // 
@@ -170,13 +132,12 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(995, 8);
+            this.btnCerrar.Location = new System.Drawing.Point(993, 2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
-            this.btnCerrar.TabIndex = 107;
+            this.btnCerrar.TabIndex = 125;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // dgvProceso
             // 
@@ -207,7 +168,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvProceso.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvProceso.Location = new System.Drawing.Point(594, 180);
+            this.dgvProceso.Location = new System.Drawing.Point(592, 174);
             this.dgvProceso.Name = "dgvProceso";
             this.dgvProceso.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -221,8 +182,7 @@
             this.dgvProceso.RowHeadersVisible = false;
             this.dgvProceso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProceso.Size = new System.Drawing.Size(347, 364);
-            this.dgvProceso.TabIndex = 29;
-            this.dgvProceso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProceso_CellContentClick);
+            this.dgvProceso.TabIndex = 123;
             // 
             // pnlAct
             // 
@@ -233,10 +193,10 @@
             this.pnlAct.Controls.Add(this.lblActividad);
             this.pnlAct.Controls.Add(this.panel6);
             this.pnlAct.Controls.Add(label5);
-            this.pnlAct.Location = new System.Drawing.Point(87, 357);
+            this.pnlAct.Location = new System.Drawing.Point(85, 351);
             this.pnlAct.Name = "pnlAct";
             this.pnlAct.Size = new System.Drawing.Size(437, 87);
-            this.pnlAct.TabIndex = 28;
+            this.pnlAct.TabIndex = 122;
             this.pnlAct.Visible = false;
             // 
             // txtDescripcion
@@ -254,13 +214,13 @@
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
+            this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
             this.btnGuardar.Location = new System.Drawing.Point(369, 21);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 52;
+            this.btnGuardar.Tag = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cbEliminar
             // 
@@ -272,7 +232,6 @@
             this.cbEliminar.TabIndex = 59;
             this.cbEliminar.Text = "Baja";
             this.cbEliminar.UseVisualStyleBackColor = true;
-            this.cbEliminar.CheckedChanged += new System.EventHandler(this.cbEliminar_CheckedChanged);
             // 
             // lblActividad
             // 
@@ -296,6 +255,19 @@
             this.panel6.Size = new System.Drawing.Size(250, 2);
             this.panel6.TabIndex = 50;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Enabled = false;
+            label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label5.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            label5.Location = new System.Drawing.Point(27, 21);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(76, 16);
+            label5.TabIndex = 49;
+            label5.Text = "Descripción";
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -304,10 +276,10 @@
             this.panel5.Controls.Add(label4);
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Controls.Add(label3);
-            this.panel5.Location = new System.Drawing.Point(87, 201);
+            this.panel5.Location = new System.Drawing.Point(85, 195);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(437, 87);
-            this.panel5.TabIndex = 26;
+            this.panel5.TabIndex = 121;
             // 
             // txtBuscar
             // 
@@ -324,13 +296,26 @@
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
+            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
             this.btnBuscar.Location = new System.Drawing.Point(321, 15);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
             this.btnBuscar.TabIndex = 49;
+            this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Enabled = false;
+            label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label4.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            label4.Location = new System.Drawing.Point(25, 20);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(91, 16);
+            label4.TabIndex = 48;
+            label4.Text = "Clave Proceso";
             // 
             // panel4
             // 
@@ -340,85 +325,84 @@
             this.panel4.Size = new System.Drawing.Size(250, 2);
             this.panel4.TabIndex = 43;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Enabled = false;
+            label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.ForeColor = System.Drawing.SystemColors.GrayText;
+            label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
+            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label3.Location = new System.Drawing.Point(3, 3);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(140, 18);
+            label3.TabIndex = 42;
+            label3.Text = "     Buscar Proceso";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_18dp;
+            this.label1.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(404, 8);
+            this.label1.Location = new System.Drawing.Point(402, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(164, 22);
-            this.label1.TabIndex = 4;
+            this.label1.TabIndex = 120;
             this.label1.Text = "      Crear Proceso";
-            // 
-            // lblusuario
-            // 
-            this.lblusuario.AutoSize = true;
-            this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblusuario.ForeColor = System.Drawing.Color.White;
-            this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblusuario.Location = new System.Drawing.Point(9, 76);
-            this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(172, 23);
-            this.lblusuario.TabIndex = 119;
-            this.lblusuario.Text = "Noe Alvarez Marquina  ";
-            this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlimgusuario
-            // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(13, 32);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 118;
             // 
             // Procesos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lblusuario);
+            this.Controls.Add(this.btnRegresar);
+            this.Controls.Add(this.pnlimgusuario);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnMinimizar);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.dgvProceso);
+            this.Controls.Add(this.pnlAct);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Procesos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear_Procesos";
             this.Load += new System.EventHandler(this.Crear_Procesos_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProceso)).EndInit();
             this.pnlAct.ResumeLayout(false);
             this.pnlAct.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Panel pnlAct;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DataGridView dgvProceso;
-        private System.Windows.Forms.Label lblActividad;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.CheckBox cbEliminar;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.Panel pnlimgusuario;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Label lblusuario;
-        private System.Windows.Forms.Panel pnlimgusuario;
+        private System.Windows.Forms.DataGridView dgvProceso;
+        private System.Windows.Forms.Panel pnlAct;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.CheckBox cbEliminar;
+        private System.Windows.Forms.Label lblActividad;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label1;
     }
 }

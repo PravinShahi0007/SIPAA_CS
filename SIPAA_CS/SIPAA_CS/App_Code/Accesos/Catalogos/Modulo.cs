@@ -191,7 +191,7 @@ namespace SIPAA_CS.App_Code
             return ltModulosxPerfil;
         }
 
-        public DataTable ObtenerPermisosxUsuario(string CVUsuario)
+        public static DataTable ObtenerPermisosxUsuario(string CVUsuario)
         {
 
             DataTable dtPermisos = new DataTable();
@@ -278,7 +278,7 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public void CambioEstatusPermiso(DataRow row,int valorEstatus ,string ColumnaDataTable) {
+        public static void CambioEstatusPermiso(DataRow row,int valorEstatus ,string ColumnaDataTable) {
             if (valorEstatus == 1)
             {
                 row[ColumnaDataTable] = 1;
@@ -346,6 +346,38 @@ namespace SIPAA_CS.App_Code
 
             return response;
 
+        }
+
+        public DataTable ReporteModulos(string cvmodulo, string descripcion, string cvmodpad, int orden, string ambiente, string modulo, string rutaaaceso, int stmodulo, string usumod, string prgumod, int opcion)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_accemodulo_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_cvmodulo", SqlDbType.VarChar).Value = cvmodulo;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
+            cmd.Parameters.Add("@p_cvmodpad", SqlDbType.VarChar).Value = cvmodpad;
+            cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = orden;
+            cmd.Parameters.Add("@p_ambiente", SqlDbType.VarChar).Value = ambiente;
+            cmd.Parameters.Add("@p_modulo", SqlDbType.VarChar).Value = modulo;
+            cmd.Parameters.Add("@p_rutaaaceso", SqlDbType.VarChar).Value = rutaaaceso;
+            cmd.Parameters.Add("@p_stmodulo", SqlDbType.Int).Value = stmodulo;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtModulo = new DataTable();
+            Adapter.Fill(dtModulo);
+            return dtModulo;
         }
     }
 }

@@ -10,6 +10,12 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
 
+//***********************************************************************************************
+//Autor: Jose Luis Alvarez Delgado
+//Fecha creación: 20-Mar-2017       Última Modificacion: 30-Mar-2017 
+//Descripción: Catalogo Mensajes
+//***********************************************************************************************
+
 namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
 
@@ -39,6 +45,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         //se "instancia" la clase para usar todos los metodos que contenga
         Mensaje pantallaMensajes = new Mensaje();
+        SonaTrabajador oTrabajador = new SonaTrabajador();
 
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
@@ -103,6 +110,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //boton buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            txtidtrab.Text = "";
+            cbTrabajador.Text = "Seleccionar Empleado...";
+
             pnlmensajes.Visible = false;
             gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
             txtMensaje.Text = "";
@@ -119,7 +129,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             pnldatos.Visible = true;
-
+            btnInsertar.Image = Resources.Guardar;
             ckbEliminar.Visible = false;
             pnlmensajes.Visible = true;
             lbluid.Text = "     Agregar Mensaje";
@@ -129,9 +139,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             txtmensajeiu.Text = "";
             dtpfechainicial.Text = "";
             dtpfechafin.Text = "";
-//            txtfechainicial.Text = "";
-            //txtfechafin.Text = "";
-            txtidtrab.Focus();
+            //cbTrabajador.Text = "Seleccionar Empleado...";
+            //cbTrabajador.Focus();
         }
 
         //boton
@@ -150,8 +159,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 panelTag.Visible = true;
                 txtidtrab.Text = "";
                 txtmensajeiu.Text = "";
-                //txtfechainicial.Text = "";
-                //txtfechafin.Text = "";
                 txtidtrab.Focus();
                 //llena grid con datos existente
                 gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
@@ -210,7 +217,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //boton cerrar
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("¿Está seguro, que desea abandonar la aplicación?", "SIPAA", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -240,9 +247,15 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 btnAgregar.Visible = true;
             }
 
-            //txtMensaje.Focus();
             gridMensajes(4,0,0,"","","","","");
 
+            //genero el listado
+            DataTable dtempleados = oTrabajador.obtenerempleados(7, "");
+            //lo vacio en el combo
+            //cbTrabajador.DataSource = dtempleados;
+            //cbTrabajador.DisplayMember = "Nombre";
+            //cbTrabajador.ValueMember = "Clave";
+            //cbTrabajador.Text = "Seleccionar Empleado...";
         }
 
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
@@ -259,6 +272,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 lbluid.Text = "     Modifica Mensaje";
                 pactbtn = 2;
             }
+        }
+
+        //Selección del combo
+        private void cbTrabajador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtidtrab.Text = cbTrabajador.SelectedValue.ToString();
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -322,7 +341,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns[3].Width = 80;
                 dgvMensajes.Columns[4].Width = 300;
                 dgvMensajes.ClearSelection();
-
             }
             else if (pins == 1 && pelim == 1)
             {
@@ -461,7 +479,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 default:
                     lblMensaje.Text = "";
                     break;
-            } // switch (p_rep.ToString())
+            } 
         } //
 
 
@@ -483,8 +501,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 pnlmensajes.Visible = true;
                 lbluid.Text = "     Modifica Mensaje";
-                //txtfechainicial.Text = valor1;
-                //txtfechafin.Text = valor2;
                 
                 dtpfechainicial.Text= valor1;
                 dtpfechafin.Text = valor2;
@@ -496,11 +512,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
-        }
-
-        private void fcombotrabajador(int popc, string pbusqueda)
-        {
-            
         }
     }
 }

@@ -157,13 +157,13 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
                 dpFechaFin.Value = dpFechaInicio.Value;
                 btnImprimirDetalle.Enabled = false;
-                btnImprimirResumen.Enabled = false;
+                //btnImprimirResumen.Enabled = false;
 
             }
             else {
 
                 btnImprimirDetalle.Enabled = true;
-                btnImprimirResumen.Enabled = true;
+                //btnImprimirResumen.Enabled = true;
 
             }
            

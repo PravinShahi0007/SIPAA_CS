@@ -5,7 +5,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.Accesos
 {
@@ -22,7 +22,8 @@ namespace SIPAA_CS.Accesos
         public string prgmod;
         public int stmodulo;
         public int response;
-
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
         Utilerias utilerias = new Utilerias();
         Modulo objModulo = new Modulo();
         
@@ -103,7 +104,7 @@ namespace SIPAA_CS.Accesos
                 cbModulo.SelectedItem = modulo;
                 //AsignarPlantel();
 
-                utilerias.ChangeButton(btnGuardar, 2, false);
+               // utilerias.ChangeButton(btnGuardar, 2, false);
 
                 ckbEliminar.Checked = false;
 
@@ -133,7 +134,7 @@ namespace SIPAA_CS.Accesos
             cbModulo.Text = "Selecciona un Módulo";
             cbAmbiente.Text = "Selecciona un Ambiente";
             PanelEditar.Visible = true;
-            utilerias.ChangeButton(btnGuardar,1,false);
+           // utilerias.ChangeButton(btnGuardar,1,false);
             txtCvModulo.Focus();
         }
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -217,13 +218,22 @@ namespace SIPAA_CS.Accesos
                         cvmodpad = txtModPad.Text;
                         orden = Convert.ToInt32(txtOrden.Text);
                         ambiente = cbAmbiente.SelectedItem.ToString();
-                        modulo = cbModulo.SelectedItem.ToString();
+                        modulo = txtModPad.Text;
                         usuumod = "140414";
                         prgmod = this.Name;
 
 
-                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo, "", 0, usuumod, prgmod, 2);
+                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo.Trim(), "", 0, usuumod, prgmod, 2);
                         Modulos_Load(sender, e);
+
+                        txtCvModulo.Text = "";
+                        txtDescripcion.Text = "";
+                        txtModPad.Text = "";
+                        txtOrden.Text = "";
+                        cbAmbiente.Text = "Selecciona un Ambiente";
+                        cbModulo.Text = "Selecciona un Módulo";
+                        usuumod = "140414";
+                        prgmod = this.Name;
                         if (response == 1)
                         {
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Se actualizo correctamente");
@@ -277,7 +287,26 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void Modulos_Load(object sender, EventArgs e)
         {
+
+
+            // Se crea lista de permisos por pantalla
+            LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
+            DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
+            LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            // variables de permisos
+            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
+            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
+            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
+            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////////////////////////////////////////
+
             LlenarGridModulos("", "", "", 0, "", "", "", 0, "", "", 4,dgvModulos);
+           
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

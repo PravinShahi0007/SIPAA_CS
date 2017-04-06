@@ -31,7 +31,8 @@ namespace SIPAA_CS.Accesos
         public int response;
         public string buscar;
         public string stusuario;
-
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
 
         public int variable = 3;
 
@@ -82,7 +83,7 @@ namespace SIPAA_CS.Accesos
                 //txt.Text = cvusuario;
                 txtNombreSipaa.Text = nombre;
                 variable = 5;
-                utilerias.ChangeButton(btnSipaa, 2, false);
+               // utilerias.ChangeButton(btnSipaa, 2, false);
 
                 //txtPassSipaa.Text = Convert.ToString(idtrab);
 
@@ -142,7 +143,7 @@ namespace SIPAA_CS.Accesos
             if (variable == 1)
             {
 
-                MessageBox.Show("pasa var 1");
+               // MessageBox.Show("pasa var 1");
                
                 if (cvusuario != String.Empty && nombre != String.Empty && passw != String.Empty)
                 {
@@ -443,8 +444,7 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void Crear_Acceso_Usuario_Load(object sender, EventArgs e)
         {
-
-
+          
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
             Utilerias.ResizeForm(this,new Size(new Point(sysH, sysW)));
