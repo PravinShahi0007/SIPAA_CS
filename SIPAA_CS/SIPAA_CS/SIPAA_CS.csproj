@@ -211,6 +211,7 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaFormaPago.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\PeriodoProcesoIncidencia.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\ReasignaSupyDirector.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorHorario.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
     <Compile Include="Accesos\AccesosDashboard.cs">
@@ -462,6 +463,12 @@
     <Compile Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.Designer.cs">
       <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.Designer.cs">
+      <DependentUpon>ReasignaSupyDirectores.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\TrabajadoresPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -694,6 +701,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.resx">
       <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.resx">
+      <DependentUpon>ReasignaSupyDirectores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\TrabajadoresPerfil.resx">
       <DependentUpon>TrabajadoresPerfil.cs</DependentUpon>
