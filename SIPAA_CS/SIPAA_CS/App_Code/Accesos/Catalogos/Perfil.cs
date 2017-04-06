@@ -199,5 +199,29 @@ namespace SIPAA_CS.App_Code
 
             return dtPerfiles;
         }
+
+        public DataTable ReportePerfilesUsuarios(string  cvperfil, int descripcion, int opcion)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_acceusuper_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvperfil;
+            cmd.Parameters.Add("@p_cvperfil", SqlDbType.Int).Value = descripcion;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtPerfilesUsuarios = new DataTable();
+            Adapter.Fill(dtPerfilesUsuarios);
+
+            return dtPerfilesUsuarios;
+        }
+
+
     }
 }
