@@ -14,6 +14,8 @@ namespace SIPAA_CS
         public Point formPosition;
         public Boolean mouseAction;
         public List<string> ltModulosxUsuario = new List<string>();
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
         public Dashboard()
         {
             InitializeComponent();
@@ -83,8 +85,7 @@ namespace SIPAA_CS
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+            
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
             Usuario objUsuario = new Usuario();

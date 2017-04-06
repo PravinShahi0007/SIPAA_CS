@@ -68,7 +68,7 @@ namespace SIPAA_CS.Accesos
         private void AsignarPerfiles() {
 
             Perfil objPerfil = new Perfil();
-            ltPerfilesxUsuario = objPerfil.ObtenerPerfilesxUsuario(CVUsuario);
+            ltPerfilesxUsuario = objPerfil.ObtenerPerfilesxUsuario(CVUsuario,0,4);
 
            // Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
 

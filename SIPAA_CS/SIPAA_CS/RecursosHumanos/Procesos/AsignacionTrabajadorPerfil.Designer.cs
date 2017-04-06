@@ -44,15 +44,20 @@
             System.Windows.Forms.Label label17;
             System.Windows.Forms.Label label18;
             System.Windows.Forms.Label label19;
+            System.Windows.Forms.Label label21;
+            System.Windows.Forms.Label label22;
+            System.Windows.Forms.Label label23;
+            System.Windows.Forms.Label label25;
+            System.Windows.Forms.Label label26;
+            System.Windows.Forms.Label label27;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label label21;
-            System.Windows.Forms.Label label22;
-            System.Windows.Forms.Label label23;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.lblusuario = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -91,7 +96,33 @@
             this.cbDiaEntrada = new System.Windows.Forms.ComboBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tabFormasRegistro = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
+            this.panelTagForReg = new System.Windows.Forms.Panel();
+            this.lbMensajeForReg = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnBuscarForReg = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.txtBuscarForReg = new System.Windows.Forms.TextBox();
+            this.panelPermisos = new System.Windows.Forms.Panel();
+            this.btnGuardarForReg = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dgvForReg = new System.Windows.Forms.DataGridView();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
             this.tabReloj = new System.Windows.Forms.TabPage();
+            this.lbGridReloj = new System.Windows.Forms.Label();
+            this.panelTagRelojCheck = new System.Windows.Forms.Panel();
+            this.lbMensajeRelojCheck = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnBuscarReloj = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.txtBuscarReloj = new System.Windows.Forms.TextBox();
+            this.PanelReloj = new System.Windows.Forms.Panel();
+            this.btnGuardarReloj = new System.Windows.Forms.Button();
+            this.dgvReloj = new System.Windows.Forms.DataGridView();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
             this.tabHuella = new System.Windows.Forms.TabPage();
             this.lbNombre = new System.Windows.Forms.Label();
             this.lbIdTrab = new System.Windows.Forms.Label();
@@ -99,17 +130,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dgvForReg = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panelPermisos = new System.Windows.Forms.Panel();
-            this.btnGuardarForReg = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnBuscarForReg = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.txtBuscarForReg = new System.Windows.Forms.TextBox();
-            this.panelTagForReg = new System.Windows.Forms.Panel();
-            this.lbMensajeForReg = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -127,6 +147,9 @@
             label21 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
             label23 = new System.Windows.Forms.Label();
+            label25 = new System.Windows.Forms.Label();
+            label26 = new System.Windows.Forms.Label();
+            label27 = new System.Windows.Forms.Label();
             this.tabAsignacion.SuspendLayout();
             this.tabPlantillaHorario.SuspendLayout();
             this.panelTag.SuspendLayout();
@@ -135,10 +158,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlantilla)).BeginInit();
             this.panelEditar.SuspendLayout();
             this.tabFormasRegistro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvForReg)).BeginInit();
-            this.panelPermisos.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panelTagForReg.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panelPermisos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvForReg)).BeginInit();
+            this.panel10.SuspendLayout();
+            this.tabReloj.SuspendLayout();
+            this.panelTagRelojCheck.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.PanelReloj.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReloj)).BeginInit();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // label13
@@ -311,6 +341,82 @@
             label19.Size = new System.Drawing.Size(155, 16);
             label19.TabIndex = 83;
             label19.Text = "Horas Jornada de Trabajo";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label21.ForeColor = System.Drawing.Color.Gray;
+            label21.Image = ((System.Drawing.Image)(resources.GetObject("label21.Image")));
+            label21.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label21.Location = new System.Drawing.Point(18, 31);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(175, 17);
+            label21.TabIndex = 194;
+            label21.Text = "      Guardar Asignaciones";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label22.Location = new System.Drawing.Point(35, 51);
+            label22.Name = "label22";
+            label22.Size = new System.Drawing.Size(76, 16);
+            label22.TabIndex = 44;
+            label22.Text = "Descripción";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label23.ForeColor = System.Drawing.Color.Gray;
+            label23.Image = ((System.Drawing.Image)(resources.GetObject("label23.Image")));
+            label23.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label23.Location = new System.Drawing.Point(5, 0);
+            label23.Name = "label23";
+            label23.Size = new System.Drawing.Size(205, 17);
+            label23.TabIndex = 41;
+            label23.Text = "      Buscar Forma de Registro";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label25.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label25.Location = new System.Drawing.Point(35, 51);
+            label25.Name = "label25";
+            label25.Size = new System.Drawing.Size(76, 16);
+            label25.TabIndex = 44;
+            label25.Text = "Descripción";
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label26.ForeColor = System.Drawing.Color.Gray;
+            label26.Image = ((System.Drawing.Image)(resources.GetObject("label26.Image")));
+            label26.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label26.Location = new System.Drawing.Point(5, 0);
+            label26.Name = "label26";
+            label26.Size = new System.Drawing.Size(205, 17);
+            label26.TabIndex = 41;
+            label26.Text = "      Buscar Forma de Registro";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label27.ForeColor = System.Drawing.Color.Gray;
+            label27.Image = ((System.Drawing.Image)(resources.GetObject("label27.Image")));
+            label27.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label27.Location = new System.Drawing.Point(18, 31);
+            label27.Name = "label27";
+            label27.Size = new System.Drawing.Size(175, 17);
+            label27.TabIndex = 194;
+            label27.Text = "      Guardar Asignaciones";
             // 
             // pnlimgusuario
             // 
@@ -863,6 +969,7 @@
             this.tabFormasRegistro.Controls.Add(this.panelPermisos);
             this.tabFormasRegistro.Controls.Add(this.label12);
             this.tabFormasRegistro.Controls.Add(this.dgvForReg);
+            this.tabFormasRegistro.Controls.Add(this.panel10);
             this.tabFormasRegistro.Location = new System.Drawing.Point(4, 29);
             this.tabFormasRegistro.Name = "tabFormasRegistro";
             this.tabFormasRegistro.Padding = new System.Windows.Forms.Padding(3);
@@ -871,15 +978,375 @@
             this.tabFormasRegistro.Text = "Formas de Registro";
             this.tabFormasRegistro.Click += new System.EventHandler(this.tabFormasRegistro_Click);
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label24.Location = new System.Drawing.Point(418, 443);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(267, 20);
+            this.label24.TabIndex = 198;
+            this.label24.Text = "Seleccione un dato del Grid para Asignarlo";
+            // 
+            // panelTagForReg
+            // 
+            this.panelTagForReg.BackColor = System.Drawing.Color.Transparent;
+            this.panelTagForReg.Controls.Add(this.lbMensajeForReg);
+            this.panelTagForReg.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTagForReg.Location = new System.Drawing.Point(422, 474);
+            this.panelTagForReg.Name = "panelTagForReg";
+            this.panelTagForReg.Size = new System.Drawing.Size(512, 30);
+            this.panelTagForReg.TabIndex = 197;
+            this.panelTagForReg.Visible = false;
+            // 
+            // lbMensajeForReg
+            // 
+            this.lbMensajeForReg.AutoSize = true;
+            this.lbMensajeForReg.BackColor = System.Drawing.Color.Transparent;
+            this.lbMensajeForReg.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMensajeForReg.ForeColor = System.Drawing.Color.White;
+            this.lbMensajeForReg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbMensajeForReg.Location = new System.Drawing.Point(5, 5);
+            this.lbMensajeForReg.Name = "lbMensajeForReg";
+            this.lbMensajeForReg.Size = new System.Drawing.Size(209, 20);
+            this.lbMensajeForReg.TabIndex = 26;
+            this.lbMensajeForReg.Text = "       Administración de Perfiles    ";
+            this.lbMensajeForReg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel2.Controls.Add(label22);
+            this.panel2.Controls.Add(this.btnBuscarForReg);
+            this.panel2.Controls.Add(this.panel9);
+            this.panel2.Controls.Add(this.txtBuscarForReg);
+            this.panel2.Controls.Add(label23);
+            this.panel2.Location = new System.Drawing.Point(19, 116);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(377, 131);
+            this.panel2.TabIndex = 196;
+            this.panel2.TabStop = true;
+            // 
+            // btnBuscarForReg
+            // 
+            this.btnBuscarForReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnBuscarForReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarForReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnBuscarForReg.Image = global::SIPAA_CS.Properties.Resources.Buscar;
+            this.btnBuscarForReg.Location = new System.Drawing.Point(310, 49);
+            this.btnBuscarForReg.Name = "btnBuscarForReg";
+            this.btnBuscarForReg.Size = new System.Drawing.Size(50, 50);
+            this.btnBuscarForReg.TabIndex = 2;
+            this.btnBuscarForReg.Tag = "Buscar";
+            this.btnBuscarForReg.UseVisualStyleBackColor = false;
+            this.btnBuscarForReg.Click += new System.EventHandler(this.btnBuscarForReg_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel9.Location = new System.Drawing.Point(32, 94);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(250, 2);
+            this.panel9.TabIndex = 43;
+            // 
+            // txtBuscarForReg
+            // 
+            this.txtBuscarForReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtBuscarForReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBuscarForReg.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarForReg.Location = new System.Drawing.Point(32, 73);
+            this.txtBuscarForReg.Name = "txtBuscarForReg";
+            this.txtBuscarForReg.Size = new System.Drawing.Size(250, 15);
+            this.txtBuscarForReg.TabIndex = 1;
+            // 
+            // panelPermisos
+            // 
+            this.panelPermisos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panelPermisos.Controls.Add(this.btnGuardarForReg);
+            this.panelPermisos.Controls.Add(label21);
+            this.panelPermisos.Enabled = false;
+            this.panelPermisos.Location = new System.Drawing.Point(668, 14);
+            this.panelPermisos.Name = "panelPermisos";
+            this.panelPermisos.Size = new System.Drawing.Size(309, 77);
+            this.panelPermisos.TabIndex = 195;
+            this.panelPermisos.TabStop = true;
+            // 
+            // btnGuardarForReg
+            // 
+            this.btnGuardarForReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnGuardarForReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarForReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnGuardarForReg.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.btnGuardarForReg.Location = new System.Drawing.Point(225, 14);
+            this.btnGuardarForReg.Name = "btnGuardarForReg";
+            this.btnGuardarForReg.Size = new System.Drawing.Size(50, 50);
+            this.btnGuardarForReg.TabIndex = 2;
+            this.btnGuardarForReg.Tag = "Guardar";
+            this.btnGuardarForReg.UseVisualStyleBackColor = false;
+            this.btnGuardarForReg.Click += new System.EventHandler(this.btnGuardarForReg_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label12.Location = new System.Drawing.Point(418, 93);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(128, 20);
+            this.label12.TabIndex = 193;
+            this.label12.Text = "Formas de Registro";
+            // 
+            // dgvForReg
+            // 
+            this.dgvForReg.AllowUserToAddRows = false;
+            this.dgvForReg.AllowUserToDeleteRows = false;
+            this.dgvForReg.AllowUserToResizeColumns = false;
+            this.dgvForReg.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvForReg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvForReg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvForReg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.dgvForReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvForReg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvForReg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvForReg.Location = new System.Drawing.Point(422, 116);
+            this.dgvForReg.Name = "dgvForReg";
+            this.dgvForReg.ReadOnly = true;
+            this.dgvForReg.RowHeadersVisible = false;
+            this.dgvForReg.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvForReg.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
+            this.dgvForReg.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
+            this.dgvForReg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvForReg.Size = new System.Drawing.Size(512, 324);
+            this.dgvForReg.TabIndex = 192;
+            this.dgvForReg.Tag = "Editar";
+            this.dgvForReg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvForReg_CellContentClick);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel10.Controls.Add(this.label20);
+            this.panel10.Location = new System.Drawing.Point(0, 29);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(424, 25);
+            this.panel10.TabIndex = 44;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.label20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label20.Location = new System.Drawing.Point(15, 2);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(280, 20);
+            this.label20.TabIndex = 183;
+            this.label20.Text = "        Asignar Forma de Registro a Trabajador";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tabReloj
             // 
             this.tabReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.tabReloj.Controls.Add(this.lbGridReloj);
+            this.tabReloj.Controls.Add(this.panelTagRelojCheck);
+            this.tabReloj.Controls.Add(this.label29);
+            this.tabReloj.Controls.Add(this.panel11);
+            this.tabReloj.Controls.Add(this.PanelReloj);
+            this.tabReloj.Controls.Add(this.dgvReloj);
+            this.tabReloj.Controls.Add(this.panel14);
             this.tabReloj.Location = new System.Drawing.Point(4, 29);
             this.tabReloj.Name = "tabReloj";
             this.tabReloj.Padding = new System.Windows.Forms.Padding(3);
             this.tabReloj.Size = new System.Drawing.Size(1022, 565);
             this.tabReloj.TabIndex = 2;
             this.tabReloj.Text = "Reloj Checador";
+            // 
+            // lbGridReloj
+            // 
+            this.lbGridReloj.AutoSize = true;
+            this.lbGridReloj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.lbGridReloj.Location = new System.Drawing.Point(345, 441);
+            this.lbGridReloj.Name = "lbGridReloj";
+            this.lbGridReloj.Size = new System.Drawing.Size(267, 20);
+            this.lbGridReloj.TabIndex = 203;
+            this.lbGridReloj.Text = "Seleccione un dato del Grid para Asignarlo";
+            // 
+            // panelTagRelojCheck
+            // 
+            this.panelTagRelojCheck.BackColor = System.Drawing.Color.Transparent;
+            this.panelTagRelojCheck.Controls.Add(this.lbMensajeRelojCheck);
+            this.panelTagRelojCheck.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTagRelojCheck.Location = new System.Drawing.Point(349, 475);
+            this.panelTagRelojCheck.Name = "panelTagRelojCheck";
+            this.panelTagRelojCheck.Size = new System.Drawing.Size(628, 30);
+            this.panelTagRelojCheck.TabIndex = 202;
+            this.panelTagRelojCheck.Visible = false;
+            // 
+            // lbMensajeRelojCheck
+            // 
+            this.lbMensajeRelojCheck.AutoSize = true;
+            this.lbMensajeRelojCheck.BackColor = System.Drawing.Color.Transparent;
+            this.lbMensajeRelojCheck.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMensajeRelojCheck.ForeColor = System.Drawing.Color.White;
+            this.lbMensajeRelojCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbMensajeRelojCheck.Location = new System.Drawing.Point(5, 5);
+            this.lbMensajeRelojCheck.Name = "lbMensajeRelojCheck";
+            this.lbMensajeRelojCheck.Size = new System.Drawing.Size(209, 20);
+            this.lbMensajeRelojCheck.TabIndex = 26;
+            this.lbMensajeRelojCheck.Text = "       Administración de Perfiles    ";
+            this.lbMensajeRelojCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label29.Location = new System.Drawing.Point(349, 91);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(102, 20);
+            this.label29.TabIndex = 201;
+            this.label29.Text = "Reloj Checador";
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel11.Controls.Add(label25);
+            this.panel11.Controls.Add(this.btnBuscarReloj);
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Controls.Add(this.txtBuscarReloj);
+            this.panel11.Controls.Add(label26);
+            this.panel11.Location = new System.Drawing.Point(20, 114);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(306, 131);
+            this.panel11.TabIndex = 200;
+            this.panel11.TabStop = true;
+            // 
+            // btnBuscarReloj
+            // 
+            this.btnBuscarReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnBuscarReloj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarReloj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnBuscarReloj.Image = global::SIPAA_CS.Properties.Resources.Buscar;
+            this.btnBuscarReloj.Location = new System.Drawing.Point(248, 49);
+            this.btnBuscarReloj.Name = "btnBuscarReloj";
+            this.btnBuscarReloj.Size = new System.Drawing.Size(50, 50);
+            this.btnBuscarReloj.TabIndex = 2;
+            this.btnBuscarReloj.Tag = "Buscar";
+            this.btnBuscarReloj.UseVisualStyleBackColor = false;
+            this.btnBuscarReloj.Click += new System.EventHandler(this.btnBuscarReloj_Click);
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel12.Location = new System.Drawing.Point(32, 92);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(203, 2);
+            this.panel12.TabIndex = 43;
+            // 
+            // txtBuscarReloj
+            // 
+            this.txtBuscarReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtBuscarReloj.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBuscarReloj.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarReloj.Location = new System.Drawing.Point(32, 73);
+            this.txtBuscarReloj.Name = "txtBuscarReloj";
+            this.txtBuscarReloj.Size = new System.Drawing.Size(197, 15);
+            this.txtBuscarReloj.TabIndex = 1;
+            // 
+            // PanelReloj
+            // 
+            this.PanelReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.PanelReloj.Controls.Add(this.btnGuardarReloj);
+            this.PanelReloj.Controls.Add(label27);
+            this.PanelReloj.Enabled = false;
+            this.PanelReloj.Location = new System.Drawing.Point(668, 14);
+            this.PanelReloj.Name = "PanelReloj";
+            this.PanelReloj.Size = new System.Drawing.Size(309, 77);
+            this.PanelReloj.TabIndex = 199;
+            this.PanelReloj.TabStop = true;
+            // 
+            // btnGuardarReloj
+            // 
+            this.btnGuardarReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnGuardarReloj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarReloj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnGuardarReloj.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.btnGuardarReloj.Location = new System.Drawing.Point(225, 14);
+            this.btnGuardarReloj.Name = "btnGuardarReloj";
+            this.btnGuardarReloj.Size = new System.Drawing.Size(50, 50);
+            this.btnGuardarReloj.TabIndex = 2;
+            this.btnGuardarReloj.Tag = "Guardar";
+            this.btnGuardarReloj.UseVisualStyleBackColor = false;
+            this.btnGuardarReloj.Click += new System.EventHandler(this.btnGuardarReloj_Click);
+            // 
+            // dgvReloj
+            // 
+            this.dgvReloj.AllowUserToAddRows = false;
+            this.dgvReloj.AllowUserToDeleteRows = false;
+            this.dgvReloj.AllowUserToResizeColumns = false;
+            this.dgvReloj.AllowUserToResizeRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvReloj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvReloj.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvReloj.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.dgvReloj.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvReloj.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvReloj.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReloj.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvReloj.Location = new System.Drawing.Point(349, 114);
+            this.dgvReloj.Name = "dgvReloj";
+            this.dgvReloj.ReadOnly = true;
+            this.dgvReloj.RowHeadersVisible = false;
+            this.dgvReloj.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvReloj.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
+            this.dgvReloj.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
+            this.dgvReloj.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvReloj.Size = new System.Drawing.Size(628, 324);
+            this.dgvReloj.TabIndex = 198;
+            this.dgvReloj.Tag = "Editar";
+            this.dgvReloj.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReloj_CellContentClick);
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel14.Controls.Add(this.label28);
+            this.panel14.Location = new System.Drawing.Point(1, 30);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(353, 25);
+            this.panel14.TabIndex = 197;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.BackColor = System.Drawing.Color.Transparent;
+            this.label28.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.label28.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label28.Location = new System.Drawing.Point(19, 3);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(183, 20);
+            this.label28.TabIndex = 183;
+            this.label28.Text = "        Asignar Reloj Checador";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabHuella
             // 
@@ -944,194 +1411,6 @@
             this.timer1.Interval = 4000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // dgvForReg
-            // 
-            this.dgvForReg.AllowUserToAddRows = false;
-            this.dgvForReg.AllowUserToDeleteRows = false;
-            this.dgvForReg.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvForReg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvForReg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvForReg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.dgvForReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvForReg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            this.dgvForReg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvForReg.Location = new System.Drawing.Point(422, 116);
-            this.dgvForReg.Name = "dgvForReg";
-            this.dgvForReg.ReadOnly = true;
-            this.dgvForReg.RowHeadersVisible = false;
-            this.dgvForReg.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvForReg.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
-            this.dgvForReg.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
-            this.dgvForReg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvForReg.Size = new System.Drawing.Size(512, 324);
-            this.dgvForReg.TabIndex = 192;
-            this.dgvForReg.Tag = "Editar";
-            this.dgvForReg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvForReg_CellContentClick);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label12.Location = new System.Drawing.Point(418, 93);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(128, 20);
-            this.label12.TabIndex = 193;
-            this.label12.Text = "Formas de Registro";
-            // 
-            // panelPermisos
-            // 
-            this.panelPermisos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.panelPermisos.Controls.Add(this.btnGuardarForReg);
-            this.panelPermisos.Controls.Add(label21);
-            this.panelPermisos.Location = new System.Drawing.Point(668, 15);
-            this.panelPermisos.Name = "panelPermisos";
-            this.panelPermisos.Size = new System.Drawing.Size(309, 77);
-            this.panelPermisos.TabIndex = 195;
-            this.panelPermisos.TabStop = true;
-            // 
-            // btnGuardarForReg
-            // 
-            this.btnGuardarForReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardarForReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarForReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardarForReg.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardarForReg.Location = new System.Drawing.Point(225, 14);
-            this.btnGuardarForReg.Name = "btnGuardarForReg";
-            this.btnGuardarForReg.Size = new System.Drawing.Size(50, 50);
-            this.btnGuardarForReg.TabIndex = 2;
-            this.btnGuardarForReg.Tag = "Guardar";
-            this.btnGuardarForReg.UseVisualStyleBackColor = false;
-            this.btnGuardarForReg.Click += new System.EventHandler(this.btnGuardarForReg_Click);
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label21.ForeColor = System.Drawing.Color.Gray;
-            label21.Image = ((System.Drawing.Image)(resources.GetObject("label21.Image")));
-            label21.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label21.Location = new System.Drawing.Point(18, 31);
-            label21.Name = "label21";
-            label21.Size = new System.Drawing.Size(175, 17);
-            label21.TabIndex = 194;
-            label21.Text = "      Guardar Asignaciones";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.panel2.Controls.Add(label22);
-            this.panel2.Controls.Add(this.btnBuscarForReg);
-            this.panel2.Controls.Add(this.panel9);
-            this.panel2.Controls.Add(this.txtBuscarForReg);
-            this.panel2.Controls.Add(label23);
-            this.panel2.Location = new System.Drawing.Point(23, 116);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(377, 131);
-            this.panel2.TabIndex = 196;
-            this.panel2.TabStop = true;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label22.Location = new System.Drawing.Point(35, 21);
-            label22.Name = "label22";
-            label22.Size = new System.Drawing.Size(76, 16);
-            label22.TabIndex = 44;
-            label22.Text = "Descripción";
-            // 
-            // btnBuscarForReg
-            // 
-            this.btnBuscarForReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscarForReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarForReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscarForReg.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscarForReg.Location = new System.Drawing.Point(311, 26);
-            this.btnBuscarForReg.Name = "btnBuscarForReg";
-            this.btnBuscarForReg.Size = new System.Drawing.Size(50, 50);
-            this.btnBuscarForReg.TabIndex = 2;
-            this.btnBuscarForReg.Tag = "Buscar";
-            this.btnBuscarForReg.UseVisualStyleBackColor = false;
-            this.btnBuscarForReg.Click += new System.EventHandler(this.btnBuscarForReg_Click);
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel9.Location = new System.Drawing.Point(32, 63);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(250, 2);
-            this.panel9.TabIndex = 43;
-            // 
-            // txtBuscarForReg
-            // 
-            this.txtBuscarForReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtBuscarForReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBuscarForReg.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarForReg.Location = new System.Drawing.Point(32, 43);
-            this.txtBuscarForReg.Name = "txtBuscarForReg";
-            this.txtBuscarForReg.Size = new System.Drawing.Size(250, 15);
-            this.txtBuscarForReg.TabIndex = 1;
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label23.ForeColor = System.Drawing.Color.Gray;
-            label23.Image = ((System.Drawing.Image)(resources.GetObject("label23.Image")));
-            label23.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label23.Location = new System.Drawing.Point(5, 0);
-            label23.Name = "label23";
-            label23.Size = new System.Drawing.Size(75, 17);
-            label23.TabIndex = 41;
-            label23.Text = "     Buscar";
-            // 
-            // panelTagForReg
-            // 
-            this.panelTagForReg.BackColor = System.Drawing.Color.Transparent;
-            this.panelTagForReg.Controls.Add(this.lbMensajeForReg);
-            this.panelTagForReg.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTagForReg.Location = new System.Drawing.Point(422, 474);
-            this.panelTagForReg.Name = "panelTagForReg";
-            this.panelTagForReg.Size = new System.Drawing.Size(512, 30);
-            this.panelTagForReg.TabIndex = 197;
-            this.panelTagForReg.Visible = false;
-            // 
-            // lbMensajeForReg
-            // 
-            this.lbMensajeForReg.AutoSize = true;
-            this.lbMensajeForReg.BackColor = System.Drawing.Color.Transparent;
-            this.lbMensajeForReg.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMensajeForReg.ForeColor = System.Drawing.Color.White;
-            this.lbMensajeForReg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbMensajeForReg.Location = new System.Drawing.Point(5, 5);
-            this.lbMensajeForReg.Name = "lbMensajeForReg";
-            this.lbMensajeForReg.Size = new System.Drawing.Size(209, 20);
-            this.lbMensajeForReg.TabIndex = 26;
-            this.lbMensajeForReg.Text = "       Administración de Perfiles    ";
-            this.lbMensajeForReg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label24.Location = new System.Drawing.Point(418, 443);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(267, 20);
-            this.label24.TabIndex = 198;
-            this.label24.Text = "Seleccione un dato del Grid para Asignarlo";
-            // 
             // AsignacionTrabajadorPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1170,13 +1449,26 @@
             this.panelEditar.PerformLayout();
             this.tabFormasRegistro.ResumeLayout(false);
             this.tabFormasRegistro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvForReg)).EndInit();
-            this.panelPermisos.ResumeLayout(false);
-            this.panelPermisos.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panelTagForReg.ResumeLayout(false);
             this.panelTagForReg.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panelPermisos.ResumeLayout(false);
+            this.panelPermisos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvForReg)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.tabReloj.ResumeLayout(false);
+            this.tabReloj.PerformLayout();
+            this.panelTagRelojCheck.ResumeLayout(false);
+            this.panelTagRelojCheck.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.PanelReloj.ResumeLayout(false);
+            this.PanelReloj.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReloj)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1241,5 +1533,20 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel panelTagForReg;
         private System.Windows.Forms.Label lbMensajeForReg;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lbGridReloj;
+        private System.Windows.Forms.Panel panelTagRelojCheck;
+        private System.Windows.Forms.Label lbMensajeRelojCheck;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button btnBuscarReloj;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.TextBox txtBuscarReloj;
+        private System.Windows.Forms.Panel PanelReloj;
+        private System.Windows.Forms.Button btnGuardarReloj;
+        private System.Windows.Forms.DataGridView dgvReloj;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label28;
     }
 }

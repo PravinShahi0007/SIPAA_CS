@@ -23,7 +23,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         public int iOpcionAdmin;
         public List<int> ltFormasReg = new List<int>();
         public List<string> ltFormasxUsuario = new List<string>();
-        public List<string> ltPermisos = new List<string>();
+        public List<int> ltReloj = new List<int>();
+        public List<string> ltRelojxUsuario = new List<string>();
 
         public AsignacionTrabajadorPerfil()
         {
@@ -140,12 +141,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             DataTable dtHorario = objHorario.GestionHorario(iOpcionAdmin, objHorario);
             dgvHorario.DataSource = dtHorario;
 
-            DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
-            imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckUsuarios.Name = "img";
-            dgvHorario.Columns.Insert(0, imgCheckUsuarios);
-            dgvHorario.Columns[0].HeaderText = "Selección";
 
+            Utilerias.AgregarCheck(dgvHorario, 0);
             dgvHorario.Columns[1].Visible = false;
         }
         private void btnGuardarPlantilla_Click(object sender, EventArgs e)
@@ -264,6 +261,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         private void timer1_Tick(object sender, EventArgs e)
         {
             panelTag.Visible = false;
+            panelTagForReg.Visible = false;
             timer1.Stop();
         }
 
@@ -544,54 +542,21 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             FormaReg objFr = new FormaReg();
             DataTable dtFormasRegistro = objFr.FormaReg_S(4, 0, sBusqueda, 0, "", "");
             dgvForReg.DataSource = dtFormasRegistro;
-
-            DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
-            imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckUsuarios.Name = "img";
-            dgvForReg.Columns.Insert(0, imgCheckUsuarios);
-            dgvForReg.Columns[0].HeaderText = "Selección";
-
-            dgvForReg.Columns[0].Width = 55;
+            Utilerias.AgregarCheck(dgvForReg, 0);
             dgvForReg.Columns[1].Visible = false;
-            dgvForReg.Columns[2].Visible = true;
+            dgvForReg.Columns[4].Visible = false;
             dgvForReg.Columns[3].Visible = false;
+            dgvForReg.Columns[0].Width = 65;
 
             dgvForReg.ClearSelection();
         }
 
         private void dgvForReg_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            //for (int iContador = 0; iContador < dgvForReg.Rows.Count; iContador++)
-            //{
-            //    dgvForReg.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            //}
-
-
             if (dgvForReg.SelectedRows.Count != 0)
             {
-
-                panelPermisos.Enabled = true;
-                DataGridViewRow row = this.dgvForReg.SelectedRows[0];
-
-                int iCvforma = Convert.ToInt32(row.Cells[1].Value.ToString());
-
-                ltFormasReg.Add(iCvforma);
-                if (row.Cells[0].Tag.ToString() == "check")
-                {
-
-                    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                    row.Cells[0].Tag = "uncheck";
-
-                }
-                else
-                {
-                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    row.Cells[0].Tag = "check";
-
-                }
+                Utilerias.MultiSeleccionGridView(dgvForReg, 1, ltFormasReg, panelPermisos);
             }
-
         }
 
 
@@ -600,25 +565,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             FormaReg objfr = new FormaReg();
             ltFormasxUsuario = objfr.FormasxUsuario(sIdtrab, 0, 4,"","");
+            Utilerias.ImprimirAsignacionesGrid(dgvForReg, 0, 1, ltFormasxUsuario);
 
-            // Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
-
-
-            for (int iContador = 0; iContador < dgvForReg.Rows.Count; iContador++)
-            {
-                string sCvForma = dgvForReg.Rows[iContador].Cells[1].Value.ToString();
-
-                if (ltFormasxUsuario.Contains(sCvForma))
-                {
-                    dgvForReg.Rows[iContador].Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    dgvForReg.Rows[iContador].Cells[0].Tag = "check";
-                }
-                else
-                {
-                    dgvForReg.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                    dgvForReg.Rows[iContador].Cells[0].Tag = "uncheck";
-                }
-            }
         }
 
         private void tabAsignacion_SelectedIndexChanged(object sender, EventArgs e)
@@ -626,10 +574,25 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             switch (tabAsignacion.SelectedIndex) {
 
+                case 0:
+                    TrabajadorHorario objHorario = AsignarObjeto();
+                    llenarGridHorario(objHorario);
+                    break;
+
                 case 1:
                     LlenarGridFormasRegistro("%");
                     AsignarFormas(TrabajadorInfo.IdTrab);
+                    panelPermisos.Enabled = false;
+                    ltFormasReg.Clear();
                     break;
+
+                case 2:
+                    llenarGridReloj("%");
+                    AsignarReloj(TrabajadorInfo.IdTrab);
+                    PanelReloj.Enabled = false;
+                    ltReloj.Clear();
+                    break;
+
             }
 
             
@@ -648,28 +611,41 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
 
             LlenarGridFormasRegistro(sBusqueda);
+            AsignarFormas(TrabajadorInfo.IdTrab);
+            panelPermisos.Enabled = false;
+            ltFormasReg.Clear();
         }
 
         private void btnGuardarForReg_Click(object sender, EventArgs e)
         {
-            panelPermisos.Enabled = false;
+           
             try
             {
                 string UsuuMod = "vjiturburuv";
                 string PrguMod = this.Name;
                 FormaReg objFr = new FormaReg();
-
-                foreach (int cv in ltFormasReg)
-                {
-                    objFr.FormasxUsuario(TrabajadorInfo.IdTrab,cv,1, UsuuMod, PrguMod);
-                }
-
-                ltFormasReg.Clear();
-
-                Utilerias.ControlNotificaciones(panelTagForReg, lbMensajeForReg, 1, "Asignaciones Guardadas Correctamente");
-                timer1.Start();
+                LlenarGridFormasRegistro("%");
                 AsignarFormas(TrabajadorInfo.IdTrab);
 
+                if (SinAsignaciones(dgvForReg,0,1,ltFormasReg) == true)
+                {
+                    CrearAsignaciones_FormasRegistro(UsuuMod, PrguMod);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("¿Seguro que desea quitar todas las Asignaciones?", "SIPAA", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        CrearAsignaciones_FormasRegistro(UsuuMod, PrguMod);
+                    }
+                    else {
+
+                        AsignarFormas(TrabajadorInfo.IdTrab);
+                        panelPermisos.Enabled = false;
+                        ltFormasReg.Clear();
+                    }
+                }
 
             }
             catch (Exception ex)
@@ -677,7 +653,164 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 Utilerias.ControlNotificaciones(panelTagForReg, lbMensajeForReg, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
                 timer1.Start();
                 AsignarFormas(TrabajadorInfo.IdTrab);
+                panelPermisos.Enabled = false;
+                ltFormasReg.Clear();
             }
         }
-    }
+
+     
+
+        private void CrearAsignaciones_FormasRegistro(string sUsuuMod,string sPrguMod) {
+            FormaReg objFr = new FormaReg();
+
+            foreach (int cv in ltFormasReg)
+            {
+                objFr.FormasxUsuario(TrabajadorInfo.IdTrab, cv, 1, sUsuuMod, sPrguMod);
+            }
+
+            Utilerias.ControlNotificaciones(panelTagForReg, lbMensajeForReg, 1, "Asignaciones Guardadas Correctamente");
+            timer1.Start();
+            AsignarFormas(TrabajadorInfo.IdTrab);
+            panelPermisos.Enabled = false;
+            ltFormasReg.Clear();
+
+        }
+
+
+        public static bool SinAsignaciones(DataGridView dgv, int iPosicionCheck,int iPosicionClave,List<int> ltFormas)
+        {
+            bool bBandera = false;
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                int iCV = Convert.ToInt32(row.Cells[iPosicionClave].Value.ToString());
+
+                if (ltFormas.Contains(iCV)) {
+
+                    switch (row.Cells[0].Tag.ToString())
+                    {
+                        case "check":
+                            row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                            row.Cells[0].Tag = "uncheck";
+                            break;
+
+                        case "uncheck":
+                            row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                            row.Cells[0].Tag = "check";
+                            break;
+                    }
+                }
+
+                    if (row.Cells[iPosicionCheck].Tag.ToString() != "uncheck")
+                    {
+                        bBandera = true;
+                    }
+            }
+            return bBandera;
+        }
+
+        private void llenarGridReloj(string sDescripcion)
+        {
+            if (dgvForReg.Columns.Count > 1)
+            {
+                dgvForReg.Columns.RemoveAt(0);
+            }
+
+            RelojChecador objReloj = new RelojChecador();
+            DataTable dtRelojChecador = objReloj.obtrelojeschecadores(4,0,sDescripcion,"","",0,"","");
+            dgvReloj.DataSource = dtRelojChecador;
+
+            Utilerias.AgregarCheck(dgvReloj, 0);
+            //dgvRelojesChecadores.Columns[0].Width = 75;
+            //dgvRelojesChecadores.Columns[1].Width = 50;
+            dgvReloj.Columns[1].Visible = false;
+            dgvReloj.Columns[3].Visible = false;
+            dgvReloj.Columns[4].Visible = false;
+            dgvReloj.Columns[5].Visible = false;
+            dgvReloj.Columns[0].Width = 65;
+            
+
+            dgvReloj.ClearSelection();
+
+        }
+
+
+        private void AsignarReloj(string sIdtrab)
+        {
+            RelojChecador objReloj = new RelojChecador();
+            ltRelojxUsuario = objReloj.RelojesxTrabajador(sIdtrab, 0, 4, "", "");
+            Utilerias.ImprimirAsignacionesGrid(dgvReloj, 0, 1, ltRelojxUsuario);
+        }
+
+        private void dgvReloj_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dgvReloj.SelectedRows.Count != 0)
+            {
+                Utilerias.MultiSeleccionGridView(dgvReloj, 1, ltReloj, PanelReloj);
+            }
+        }
+
+        private void btnBuscarReloj_Click(object sender, EventArgs e)
+        {
+
+            string sBusqueda = "";
+            if (txtBuscarReloj.Text != String.Empty)
+            {
+                sBusqueda = txtBuscarReloj.Text;
+            }
+            else
+            {
+                sBusqueda = "%";
+            }
+
+            llenarGridReloj(sBusqueda);
+            AsignarReloj(TrabajadorInfo.IdTrab);
+            PanelReloj.Enabled = false;
+            ltReloj.Clear();
+
+        }
+
+        private void btnGuardarReloj_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string UsuuMod = "vjiturburuv";
+                string PrguMod = this.Name;
+                FormaReg objFr = new FormaReg();
+                LlenarGridFormasRegistro("%");
+                AsignarFormas(TrabajadorInfo.IdTrab);
+
+                if (SinAsignaciones(dgvReloj, 0, 1, ltReloj) == true)
+                {
+                    CrearAsignaciones_FormasRegistro(UsuuMod, PrguMod);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("¿Seguro que desea quitar todas las Asignaciones?", "SIPAA", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        CrearAsignaciones_FormasRegistro(UsuuMod, PrguMod);
+                    }
+                    else
+                    {
+
+                        AsignarFormas(TrabajadorInfo.IdTrab);
+                        panelPermisos.Enabled = false;
+                        ltFormasReg.Clear();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utilerias.ControlNotificaciones(panelTagForReg, lbMensajeForReg, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
+                timer1.Start();
+                AsignarFormas(TrabajadorInfo.IdTrab);
+                panelPermisos.Enabled = false;
+                ltFormasReg.Clear();
+            }
+        }
+        }
 }

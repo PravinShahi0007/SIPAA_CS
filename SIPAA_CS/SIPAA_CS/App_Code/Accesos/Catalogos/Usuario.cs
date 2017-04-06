@@ -125,7 +125,7 @@ namespace SIPAA_CS.App_Code
         {
 
             Perfil objPerfil = new Perfil();
-            List<int> ltPerfiles = objPerfil.ObtenerPerfilesxUsuario(CVUsuario);
+            List<int> ltPerfiles = objPerfil.ObtenerPerfilesxUsuario(CVUsuario,0,4);
 
             List<string> ltModulosxUsuario = new List<string>();
 
