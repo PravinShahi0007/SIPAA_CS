@@ -157,7 +157,7 @@ namespace SIPAA_CS.App_Code
             Usuario objusuario = new Usuario();
             
 
-            cmd.CommandText = "usp_TrabajadorUsu_s";
+            cmd.CommandText = "usp_sonatrabajador_s";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Idtrab;
             cmd.Parameters.Add("@Nom", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;

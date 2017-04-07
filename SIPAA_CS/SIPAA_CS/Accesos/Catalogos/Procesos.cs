@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Utilerias;
 
 namespace SIPAA_CS.Accesos
 {
@@ -18,7 +19,7 @@ namespace SIPAA_CS.Accesos
         Utilerias utilerias = new Utilerias();
         public int variable = 0;
         public int cvproceso;
-
+        public int stproceso;
         public string descripcion;
         public string buscar;
 
@@ -49,51 +50,98 @@ namespace SIPAA_CS.Accesos
                 dgvProceso.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
 
-
             //sHabilitaPermisos();
 
             if (dgvProceso.SelectedRows.Count != 0)
             {
                 variable = 2;
-
                 pnlAct.Visible = true;
-
+                cbEliminar.Checked = false;
                 DataGridViewRow row = this.dgvProceso.SelectedRows[0];
-
                 cvproceso = Convert.ToInt32(row.Cells["cvproceso"].Value.ToString());
+                stproceso = Convert.ToInt32(row.Cells["stproceso"].Value.ToString());
                 string ValorRow = row.Cells["descripcion"].Value.ToString();
-
                 txtDescripcion.Text = ValorRow;
                 cbEliminar.Visible = true;
-                //txtCapFR.Focus();
-
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
                 //utilerias.ChangeButton(btnGuardar, 2, false);
+                Utilerias.AsignarBotonResize(btnGuardar,Utilerias.PantallaSistema(),Botones.Editar);
 
-                txtDescripcion.Focus();
+                //txtDescripcion.Focus();
+
+                if (stproceso == 0)
+                {
+                    cbEliminar.Text = "Alta";
+
+                }
+                else if (stproceso == 1)
+                {
+                    cbEliminar.Text = "Baja";
+
+                }
 
             }
+        
         }
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+
+        private void cbEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            //variable = 3;
+
+            //if (stproceso == 1)
+            //{
+            //    variable = 3;
+            //    //   utilerias.ChangeButton(btnGuardar, 3, false);
+            //    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), Botones.Baja);
+            //}
+            //else if (stproceso == 0)
+            //{
+            //    variable = 2;
+            //    // utilerias.ChangeButton(btnGuardar, 2, false);
+            //    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), Botones.Editar);
+            //}
+
+
+            if (cbEliminar.Checked == true)
+            {
+
+                
+                if (stproceso == 0)
+                {
+                    variable = 3;
+                    lblActividad.Text = "      Alta Usuario SIPAA";
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Alta);
+                }
+                else if (stproceso== 1)
+                {
+                    variable = 2;
+                    lblActividad.Text = "      Baja Usuario SIPAA";
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Baja);
+                }
+
+            }
+            else
+            {
+                
+                lblActividad.Text = "      Editar Usuario SIPAA";
+                Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Editar);
+
+            }
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            variable = 1;
             pnlAct.Visible = true;
             lblActividad.Text = "     Crear Proceso";
-            txtDescripcion.Focus();
-
             cbEliminar.Visible = false;
             txtDescripcion.Text = "";
-            
-
-            variable = 1;
-
-            //utilerias.ChangeButton(btnGuardar,1,false);
+            txtDescripcion.Focus();
             Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Guardar");
-
-
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -126,111 +174,22 @@ namespace SIPAA_CS.Accesos
                 //dgvProceso.ClearSelection();
             }
         }
+        
 
-
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
-            descripcion = txtDescripcion.Text;
-            descripcion.Trim();
-
-            //cvproceso;
-
-
-            //agregar
-            if (variable == 1)
-            {
-                //MessageBox.Show("Ingresa una 1");
-                if (descripcion.Trim() != String.Empty)
-                {
-                    string prgmod = this.Name;
-                    int regreso = proceso.AgregarProceso(0, descripcion.Trim(), 0, "", prgmod, 1);
-                    if (regreso == 1)
-                    {
-                        MessageBox.Show("Sea agrego proceso");
-                        Crear_Procesos_Load(sender, e);
-                        txtDescripcion.Text = "";
-                        txtDescripcion.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("El proceso ya existe");
-                        txtDescripcion.Focus();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Ingresa una descripcion");
-                    txtDescripcion.Focus();
-                }
-            }
-            //editar
-            if (variable == 2)
-            {
-                //MessageBox.Show("Ingresa una 2");
-                if (descripcion.Trim() != String.Empty)
-                {
-                    int regreso =  proceso.AgregarProceso(cvproceso, descripcion.Trim(),0,"","",3);
-                    if (regreso == 1)
-                    {
-                        MessageBox.Show("Sea actualizo proceso");
-                        Crear_Procesos_Load(sender, e);
-                        txtDescripcion.Text = "";
-                        txtDescripcion.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("El proceso no se actualizo");
-                        txtDescripcion.Focus();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Ingresa una descripcion");
-                    txtDescripcion.Focus();
-                }
-            }
-            //eliminar
-            if (variable == 3)
-            {
-                //MessageBox.Show("Ingresa una 3");
-                int regreso = proceso.AgregarProceso(cvproceso, "", 0, "", "", 4);
-                if (regreso == 1)
-                {
-                    MessageBox.Show("Sea activo proceso");
-                    Crear_Procesos_Load(sender, e);
-                    txtDescripcion.Text = "";
-                    txtDescripcion.Focus();
-                    cbEliminar.Checked = false;
-
-                }
-                else if(regreso == 0)
-                {
-                    MessageBox.Show("Sea desactivo proceso");
-                    Crear_Procesos_Load(sender, e);
-                    txtDescripcion.Text = "";
-                    txtDescripcion.Focus();
-                    cbEliminar.Checked = false;
-                }
-            }
-
-
+            this.Close();
         }
-        private void cbEliminar_CheckedChanged(object sender, EventArgs e)
-        {
-            //variable = 3;
 
-            if (cbEliminar.Checked == true)
-            {
-                variable = 3;
-             //   utilerias.ChangeButton(btnGuardar, 3, false);
-                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Borrar");
-            }
-            else if (cbEliminar.Checked == false)
-            {
-                variable = 2;
-               // utilerias.ChangeButton(btnGuardar, 2, false);
-                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
-            }
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -251,45 +210,27 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void LlenaGrid(int cvproceso,string descripcion,int stproceso,string usuumod,string prgumod, int opcion)
         {
-
             DataTable dtFormasRegistro = proceso.ObtenerProceso(cvproceso,descripcion,stproceso,usuumod,prgumod,opcion);
             dgvProceso.DataSource = dtFormasRegistro;
-
-
-
             DataGridViewImageColumn imgCheckProcesos = new DataGridViewImageColumn();
             imgCheckProcesos.Image = Resources.ic_lens_blue_grey_600_18dp;
             imgCheckProcesos.Name = "Seleccionar";
             dgvProceso.Columns.Insert(0, imgCheckProcesos);
-            dgvProceso.Columns[0].HeaderText = "";
-
+            dgvProceso.Columns[0].HeaderText = "Seleccionar";
             dgvProceso.Columns[1].Visible = false;
-            dgvProceso.Columns[0].Width = 55;
-            dgvProceso.Columns[2].Width = 302;
-
             dgvProceso.ClearSelection();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            this.Close();
+            panelTag.Visible = false;
+            timer1.Stop();
         }
 
-        private void btnMinimizar_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            WindowState = FormWindowState.Minimized;
         }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            
-
-
-            this.Close();
-        }
-
-       
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

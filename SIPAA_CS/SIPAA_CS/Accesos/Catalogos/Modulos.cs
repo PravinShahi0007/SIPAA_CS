@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Utilerias;
 
 namespace SIPAA_CS.Accesos
 {
@@ -36,8 +37,6 @@ namespace SIPAA_CS.Accesos
         {
             InitializeComponent();
         }
-
-
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
@@ -45,27 +44,23 @@ namespace SIPAA_CS.Accesos
         {
             if (ckbEliminar.Checked == true)
             {
-                //btnGuardar.Image = Resources.Alta;
                 variable = 3;
                 if (stmodulo == 0)
                 {
-
-                    btnGuardar.Image = Resources.Alta;
-                    //Utilerias.AsignarBotonResize(btnGuardar,);
+                    lblAccion.Text = "      Alta Módulo";
+                    Utilerias.AsignarBotonResize(btnGuardar,Utilerias.PantallaSistema(),Botones.Alta);
                 }
                 else if (stmodulo == 1)
                 {
-
-                    btnGuardar.Image = Resources.Borrar;
+                    lblAccion.Text = "      Baja Módulo";
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(),Botones.Baja);
                 }
-
             }
             else
             {
                 variable = 0;
-                btnGuardar.Image = Resources.Editar;
-
-
+                lblAccion.Text = "      Editar Módulo";
+                Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Editar);
             }
         }
         //-----------------------------------------------------------------------------------------------
@@ -81,6 +76,7 @@ namespace SIPAA_CS.Accesos
             if (dgvModulos.SelectedRows.Count != 0)
             {
                 variable = 2;
+                lblAccion.Text = "      Editar Módulo";
                 txtCvModulo.Enabled = false;
                 ckbEliminar.Visible = true;
                 PanelEditar.Visible = true;
@@ -104,7 +100,7 @@ namespace SIPAA_CS.Accesos
                 cbModulo.SelectedItem = modulo;
                 //AsignarPlantel();
 
-               // utilerias.ChangeButton(btnGuardar, 2, false);
+                Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
 
                 ckbEliminar.Checked = false;
 
@@ -126,6 +122,7 @@ namespace SIPAA_CS.Accesos
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             variable = 1;
+            lblAccion.Text = "      Agregar Módulo";
             txtCvModulo.Enabled = true;
             txtCvModulo.Text = "";
             txtDescripcion.Text = "";
@@ -134,16 +131,15 @@ namespace SIPAA_CS.Accesos
             cbModulo.Text = "Selecciona un Módulo";
             cbAmbiente.Text = "Selecciona un Ambiente";
             PanelEditar.Visible = true;
-           // utilerias.ChangeButton(btnGuardar,1,false);
+            ckbEliminar.Visible = false;
+            Utilerias.AsignarBotonResize(btnGuardar,Utilerias.PantallaSistema(),"Guardar");
             txtCvModulo.Focus();
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             modulo = txtBuscarModulo.Text;
-
             LlenarGridModulos("", modulo.Trim(), "", 0, "", "", "", 0, "", "", 5, dgvModulos);
-
-            txtBuscarModulo.Text = "";
+            //txtBuscarModulo.Text = "";
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -154,8 +150,6 @@ namespace SIPAA_CS.Accesos
 
                 if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" && cbAmbiente.SelectedIndex != -1 && cbModulo.SelectedIndex != -1)
                 {
-                    //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "ja");
-                    //timer1.Start();
                     if (utilerias.IsNumber(txtOrden.Text))
                     {
                         cvmodulo = txtCvModulo.Text;
@@ -166,8 +160,7 @@ namespace SIPAA_CS.Accesos
                         modulo = cbModulo.SelectedItem.ToString();
                         usuumod = "140414";
                         prgmod = this.Name;
-
-
+                        
                         response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo, "", 1, usuumod, prgmod, 1);
 
                         txtCvModulo.Text = "";
@@ -269,7 +262,20 @@ namespace SIPAA_CS.Accesos
                 {
                     ckbEliminar.Checked = false;
                     response = objModulo.CrearModulo(cvmodulo.Trim(), "", "", 0, "", "", "", 0, "", "", 3);
-                    Modulos_Load(sender, e);
+
+                    if (response == 1)
+                    {
+                        Modulos_Load(sender, e);
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El Módulo esta Activado");
+                        timer1.Start();
+                    }
+                    else if (response == 0)
+                    {
+                        Modulos_Load(sender, e);
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El Módulo esta Inactivo");
+                        timer1.Start();
+                    }
+                    
                 }
                 else
                 {
@@ -277,6 +283,10 @@ namespace SIPAA_CS.Accesos
                     timer1.Start();
                 }
             }
+        }
+        private void btnRegresa_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -289,20 +299,20 @@ namespace SIPAA_CS.Accesos
         {
 
 
-            // Se crea lista de permisos por pantalla
-            LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
-            DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
-            LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
-            //////////////////////////////////////////////////////
-            // resize 
-            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-            ///////////////////////////////////////////////////////////////////////////////////////////////////
-            // variables de permisos
-            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
-            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
-            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
-            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
-            //////////////////////////////////////////////////////////////////////////////////////////
+            //// Se crea lista de permisos por pantalla
+            //LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
+            //DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
+            //LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            ////////////////////////////////////////////////////////
+            //// resize 
+            //Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            /////////////////////////////////////////////////////////////////////////////////////////////////////
+            //// variables de permisos
+            //Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
+            //Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
+            //Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
+            //Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
+            ////////////////////////////////////////////////////////////////////////////////////////////
 
             LlenarGridModulos("", "", "", 0, "", "", "", 0, "", "", 4,dgvModulos);
            
@@ -348,12 +358,6 @@ namespace SIPAA_CS.Accesos
 
             dgvModulo.ClearSelection();
         }
-
-        private void btnRegresa_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

@@ -40,9 +40,9 @@
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label10;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.PanelEditar = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -95,7 +95,7 @@
             label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(35, 307);
+            label5.Location = new System.Drawing.Point(35, 313);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(63, 16);
             label5.TabIndex = 58;
@@ -107,7 +107,7 @@
             label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(35, 382);
+            label4.Location = new System.Drawing.Point(35, 388);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(50, 16);
             label4.TabIndex = 57;
@@ -119,7 +119,7 @@
             label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(35, 154);
+            label3.Location = new System.Drawing.Point(33, 160);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(70, 16);
             label3.TabIndex = 56;
@@ -131,7 +131,7 @@
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(36, 81);
+            label7.Location = new System.Drawing.Point(34, 95);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(76, 16);
             label7.TabIndex = 44;
@@ -149,7 +149,7 @@
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(56, 15);
             label2.TabIndex = 133;
-            label2.Text = "Mòdulos";
+            label2.Text = "Módulos";
             // 
             // label8
             // 
@@ -182,7 +182,7 @@
             label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(41, 228);
+            label6.Location = new System.Drawing.Point(37, 234);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(43, 16);
             label6.TabIndex = 61;
@@ -207,7 +207,7 @@
             label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label10.Location = new System.Drawing.Point(38, 25);
+            label10.Location = new System.Drawing.Point(36, 33);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(64, 16);
             label10.TabIndex = 66;
@@ -259,7 +259,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel3.Location = new System.Drawing.Point(34, 68);
+            this.panel3.Location = new System.Drawing.Point(34, 74);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(250, 2);
             this.panel3.TabIndex = 65;
@@ -269,7 +269,7 @@
             this.txtCvModulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtCvModulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCvModulo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCvModulo.Location = new System.Drawing.Point(35, 46);
+            this.txtCvModulo.Location = new System.Drawing.Point(35, 52);
             this.txtCvModulo.Name = "txtCvModulo";
             this.txtCvModulo.Size = new System.Drawing.Size(250, 15);
             this.txtCvModulo.TabIndex = 64;
@@ -277,7 +277,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(30, 274);
+            this.panel2.Location = new System.Drawing.Point(30, 280);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 2);
             this.panel2.TabIndex = 63;
@@ -287,7 +287,7 @@
             this.txtOrden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtOrden.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOrden.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOrden.Location = new System.Drawing.Point(31, 252);
+            this.txtOrden.Location = new System.Drawing.Point(31, 258);
             this.txtOrden.Name = "txtOrden";
             this.txtOrden.Size = new System.Drawing.Size(250, 15);
             this.txtOrden.TabIndex = 62;
@@ -295,7 +295,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(31, 201);
+            this.panel1.Location = new System.Drawing.Point(31, 207);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 2);
             this.panel1.TabIndex = 60;
@@ -305,7 +305,7 @@
             this.txtModPad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtModPad.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModPad.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModPad.Location = new System.Drawing.Point(32, 179);
+            this.txtModPad.Location = new System.Drawing.Point(32, 185);
             this.txtModPad.Name = "txtModPad";
             this.txtModPad.Size = new System.Drawing.Size(250, 15);
             this.txtModPad.TabIndex = 59;
@@ -341,7 +341,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel6.Location = new System.Drawing.Point(32, 124);
+            this.panel6.Location = new System.Drawing.Point(32, 138);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(250, 2);
             this.panel6.TabIndex = 43;
@@ -351,7 +351,7 @@
             this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescripcion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(33, 102);
+            this.txtDescripcion.Location = new System.Drawing.Point(33, 116);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(250, 15);
             this.txtDescripcion.TabIndex = 4;
@@ -378,7 +378,7 @@
             this.cbAmbiente.Items.AddRange(new object[] {
             "WEB",
             "CS"});
-            this.cbAmbiente.Location = new System.Drawing.Point(31, 326);
+            this.cbAmbiente.Location = new System.Drawing.Point(31, 332);
             this.cbAmbiente.Name = "cbAmbiente";
             this.cbAmbiente.Size = new System.Drawing.Size(250, 25);
             this.cbAmbiente.TabIndex = 33;
@@ -393,7 +393,7 @@
             this.cbModulo.Items.AddRange(new object[] {
             "ACCESOS",
             "RECURSOS HUMANOS"});
-            this.cbModulo.Location = new System.Drawing.Point(31, 401);
+            this.cbModulo.Location = new System.Drawing.Point(31, 407);
             this.cbModulo.Name = "cbModulo";
             this.cbModulo.Size = new System.Drawing.Size(250, 25);
             this.cbModulo.TabIndex = 34;
@@ -404,30 +404,30 @@
             this.dgvModulos.AllowUserToAddRows = false;
             this.dgvModulos.AllowUserToDeleteRows = false;
             this.dgvModulos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvModulos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvModulos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvModulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvModulos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvModulos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvModulos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvModulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvModulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvModulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvModulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvModulos.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvModulos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvModulos.Location = new System.Drawing.Point(541, 247);
             this.dgvModulos.Name = "dgvModulos";
             this.dgvModulos.ReadOnly = true;
