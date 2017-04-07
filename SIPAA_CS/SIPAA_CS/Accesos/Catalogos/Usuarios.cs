@@ -362,7 +362,7 @@ namespace SIPAA_CS.Accesos
             //LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
             ////////////////////////////////////////////////////////
             //// resize 
-            //Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             /////////////////////////////////////////////////////////////////////////////////////////////////////
             //// variables de permisos
             //Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
