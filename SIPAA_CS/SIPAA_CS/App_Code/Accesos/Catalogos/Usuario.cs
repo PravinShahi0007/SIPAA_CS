@@ -188,17 +188,17 @@ namespace SIPAA_CS.App_Code
         public int AsignarAccesoUsuario(string cvusuario, int idtrab, string nombre, string passw, int stusuario, string usuumod, string prgmod, int opcion)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_administracionaccesousuario_suid";
+            cmd.CommandText = "usp_acceusuario_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@CVUsuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@IdTrab", SqlDbType.Int).Value = idtrab;
-            cmd.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = nombre;
-            cmd.Parameters.Add("@Passw", SqlDbType.VarChar).Value = passw;
-            cmd.Parameters.Add("@StUsuario", SqlDbType.Int).Value = stusuario;
-            cmd.Parameters.Add("@UsuUmod", SqlDbType.VarChar).Value = usuumod;
-            cmd.Parameters.Add("@PrguMod", SqlDbType.VarChar).Value = prgmod;
-            cmd.Parameters.Add("@Opcion", SqlDbType.VarChar).Value = opcion;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idtrab;
+            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = nombre;
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = passw;
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.Int).Value = stusuario;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgmod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.VarChar).Value = opcion;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -285,19 +285,19 @@ namespace SIPAA_CS.App_Code
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_administracionaccesousuario_suid";
+            cmd.CommandText = @"usp_acceusuario_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@idtrab", SqlDbType.Int).Value = idtrab;
-            cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = nombre;
-            cmd.Parameters.Add("@passw", SqlDbType.VarChar).Value = pass;
-            cmd.Parameters.Add("@stusuario", SqlDbType.Int).Value = stusuario;
-            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = usumod;
-            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = prgmod;
-            cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = opcion;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idtrab;
+            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = nombre;
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = pass;
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.Int).Value = stusuario;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgmod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
 
 
             objConexion.asignarConexion(cmd);
@@ -306,9 +306,9 @@ namespace SIPAA_CS.App_Code
 
             objConexion.cerrarConexion();
 
-            DataTable dtProceso = new DataTable();
-            Adapter.Fill(dtProceso);
-            return dtProceso;
+            DataTable dtUsuario = new DataTable();
+            Adapter.Fill(dtUsuario);
+            return dtUsuario;
         }
 
         public void AsignarCompaniaUsuario(string cvusuario, int idcompania, string usuumod, string prgumod)
