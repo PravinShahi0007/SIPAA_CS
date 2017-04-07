@@ -135,6 +135,7 @@ namespace SIPAA_CS.App_Code
 
             cmd.Parameters.Add("@p_CvPerfil", SqlDbType.Int).Value = objPerfil.CVPerfil;
             cmd.Parameters.Add("@p_Descripcion", SqlDbType.VarChar).Value = objPerfil.Descripcion;
+            cmd.Parameters.Add("@p_estatus", SqlDbType.VarChar).Value = objPerfil.Estatus;
             cmd.Parameters.Add("@p_UsuarioUMod", SqlDbType.VarChar).Value = objPerfil.UsuuMod;
             cmd.Parameters.Add("@p_ProgramaUMod", SqlDbType.VarChar).Value = objPerfil.PrguMod;
             cmd.Parameters.Add("@p_Opcion", SqlDbType.Int).Value = iOpcion;
@@ -156,7 +157,7 @@ namespace SIPAA_CS.App_Code
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_acceasignamodulo_ui";
+            cmd.CommandText = "usp_accepermod_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@P_CVModulo", SqlDbType.VarChar).Value = objModulo.CVModulo;
@@ -167,6 +168,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@P_steli", SqlDbType.Int).Value = objModulo.steli;
             cmd.Parameters.Add("@P_stcre", SqlDbType.Int).Value = objModulo.stcre;
             cmd.Parameters.Add("@P_stimp", SqlDbType.Int).Value = objModulo.stimp;
+            cmd.Parameters.Add("@P_stlec", SqlDbType.Int).Value = objModulo.stlec;
             cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = Opcion;
 
             Conexion objConexion = new Conexion();

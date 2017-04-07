@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Utilerias;
 
 namespace SIPAA_CS.Accesos
 {
@@ -136,60 +137,7 @@ namespace SIPAA_CS.Accesos
 
                 if (dgvModulos.SelectedRows.Count != 0)
                 {
-
-                    panelPermisos.Enabled = true;
-                    DataGridViewRow row = this.dgvModulos.SelectedRows[0];
-
-                    ultimaseleccion = row.Index;
-
-                    CVModulo = row.Cells[1].Value.ToString();
-
-                    row.Cells[0].Value = Resources.ic_check_circle_blue_grey_600_18dp;
-
-
-                    //string cvModulo = dgvModulos.Rows[iContador].Cells[1].Value.ToString();
-                    DataRow[] rows = dtPermisos.Select("CVMODULO = '" + CVModulo + "'");
-
-                    // Modulo objModulo = new Modulo();
-                    // objModulo = objModulo.ObtenerPermisosxModulo(CVModulo, CVPerfil);
-
-                    iOpcionAdmin = 1;
-
-                    if (rows.Count() == 0)
-                    {
-                        //btnGuardar.Image = Resources.Guardar;
-                        Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Guardar");
-                        ckbEliminarAsig.Visible = false;
-
-
-                        // panelPermisos.Enabled = false;
-                        ckbActualizar.Checked = false;
-                        ckbAgregar.Checked = false;
-                        ckbEliminar.Checked = false;
-                        ckbEliminarAsig.Checked = false;
-                        ckbImprimir.Checked = false;
-                        ckbLectura.Checked = true;
-                    }
-                    else
-                    {
-                        /* 0 CVModulo
-                         * 1 CREAR 
-                         * 2 ELIMINAR 
-                         * 3 ACTUALIZAR 
-                         * 4IMPRIMIR 
-                         * 5 LECTURA
-                    * */
-
-                        Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
-                        //btnGuardar.Image = Resources.Editar;
-                        ckbEliminarAsig.Visible = true;
-                        ckbEliminarAsig.Checked = false;
-                        if (rows[0].ItemArray[1].ToString() == "1") { ckbAgregar.Checked = true; } else { ckbAgregar.Checked = false; }
-                        if (rows[0].ItemArray[2].ToString() == "1") { ckbEliminar.Checked = true; } else { ckbEliminar.Checked = false; }
-                        if (rows[0].ItemArray[3].ToString() == "1") { ckbActualizar.Checked = true; } else { ckbActualizar.Checked = false; }
-                        if (rows[0].ItemArray[4].ToString() == "1") { ckbImprimir.Checked = true; } else { ckbImprimir.Checked = false; }
-                        if (rows[0].ItemArray[5].ToString() == "1") { ckbLectura.Checked = true; } else { ckbLectura.Checked = false; }
-                    }
+                    BotonActual();
 
                 }
                 else
@@ -204,6 +152,58 @@ namespace SIPAA_CS.Accesos
                 dgvModulos.ClearSelection();
                 dgvPerfil.ClearSelection();
 
+            }
+        }
+
+
+        private void BotonActual() {
+            Modulo objModulo = new Modulo();
+            dtPermisos = objModulo.obtenerModulosxCvPerfil(CVPerfil);
+            panelPermisos.Enabled = true;
+            DataGridViewRow row = this.dgvModulos.SelectedRows[0];
+            ultimaseleccion = row.Index;
+            CVModulo = row.Cells[1].Value.ToString();
+            row.Cells[0].Value = Resources.ic_check_circle_blue_grey_600_18dp;
+            //string cvModulo = dgvModulos.Rows[iContador].Cells[1].Value.ToString();
+            DataRow[] rows = dtPermisos.Select("CVMODULO = '" + CVModulo + "'");
+            iOpcionAdmin = 1;
+
+            if (rows.Count() == 0)
+            {
+               
+                AsignarBotonResize(btnGuardar, PantallaSistema(), Botones.Guardar);
+                ckbEliminarAsig.Visible = false;
+
+
+                // panelPermisos.Enabled = false;
+                ckbActualizar.Checked = false;
+                ckbAgregar.Checked = false;
+                ckbEliminar.Checked = false;
+                ckbEliminarAsig.Checked = false;
+                ckbImprimir.Checked = false;
+                ckbLectura.Checked = true;
+                AsignarBotonResize(btnGuardar, PantallaSistema(), Botones.Guardar);
+
+            }
+            else
+            {
+                /* 0 CVModulo
+                 * 1 CREAR 
+                 * 2 ELIMINAR 
+                 * 3 ACTUALIZAR 
+                 * 4IMPRIMIR 
+                 * 5 LECTURA
+            * */
+                iOpcionAdmin = 1;
+                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), Botones.Editar);
+                //btnGuardar.Image = Resources.Editar;
+                ckbEliminarAsig.Visible = true;
+                ckbEliminarAsig.Checked = false;
+                if (rows[0].ItemArray[2].ToString() == "1") { ckbLectura.Checked = true; } else { ckbLectura.Checked = false; }
+                if (rows[0].ItemArray[3].ToString() == "1") { ckbActualizar.Checked = true; } else { ckbActualizar.Checked = false; }
+                if (rows[0].ItemArray[4].ToString() == "1") { ckbEliminar.Checked = true; } else { ckbEliminar.Checked = false; }
+                if (rows[0].ItemArray[5].ToString() == "1") { ckbImprimir.Checked = true; } else { ckbImprimir.Checked = false; }
+                if (rows[0].ItemArray[6].ToString() == "1") { ckbAgregar.Checked = true; } else { ckbAgregar.Checked = false; }
             }
         }
 
@@ -252,7 +252,7 @@ namespace SIPAA_CS.Accesos
         {
             panelPermisos.Enabled = false;
             CVPerfil = 0;
-            dgvModulos.Columns.Remove(columnName: "imgModulos");
+            //dgvModulos.Columns.RemoveAt(0);
             panelTag.Visible = false;
 
             string strNombreModulo = "";
@@ -288,16 +288,16 @@ namespace SIPAA_CS.Accesos
                 strAmbiente = "%";
             }
 
-            Modulo objModulo = new Modulo();
-            List<Modulo> ltModulo = objModulo.ObtenerListModulos(strNombreModulo, "%", strAmbiente, strModulo, "1");
-            DataTable dtModulo = objModulo.ObtenerDataTableModulo(ltModulo);
-            dgvModulos.DataSource = dtModulo;
+           
 
-            DataGridViewImageColumn imgCheckModulos = new DataGridViewImageColumn();
-            imgCheckModulos.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckModulos.Name = "imgModulos";
-            dgvModulos.Columns.Insert(0, imgCheckModulos);
-            dgvModulos.Columns[0].HeaderText = "";
+            Modulo objModulo = new Modulo();
+            objModulo.CVModulo = strNombreModulo;
+            objModulo.Descripcion = "%";
+            objModulo.Ambiente = strAmbiente;
+            objModulo.strModulo = strModulo;
+            objModulo.Estatus = 1;
+            llenarGridModulos(objModulo);
+
 
             for (int iContador = 0; iContador < dgvPerfil.Rows.Count; iContador++)
             {
@@ -332,17 +332,21 @@ namespace SIPAA_CS.Accesos
                 Perfil objPerfil = new Perfil();
                 Modulo objModulo = new Modulo();
                 objModulo.CVModulo = CVModulo;
-                objModulo.UsuuMod = "vjiturburuv";
+                objModulo.UsuuMod = LoginInfo.IdTrab;
                 objModulo.PrguMod = this.Name;
                 AsignarPermisosObjeto(objModulo);
                 int response= 0;
 
-
+                objModulo = asignarObjeto(objModulo);
 
                 switch (iOpcionAdmin)
                 {
 
-                    case 2:
+                    case 1:
+                        response = objPerfil.AsignarModuloAPerfil(objModulo, CVPerfil, iOpcionAdmin);
+                        break;
+
+                    case 3:
                         DialogResult result = MessageBox.Show("¿Seguro que desea Eliminar la Asignación?", this.Name, MessageBoxButtons.YesNo);
 
                         if (result == DialogResult.Yes)
@@ -350,7 +354,7 @@ namespace SIPAA_CS.Accesos
                             response = objPerfil.AsignarModuloAPerfil(objModulo, CVPerfil, iOpcionAdmin);
                             iOpcionAdmin = 1;
                             ckbEliminarAsig.Visible = false;
-                            Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Guardar");
+                            Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), Botones.Guardar);
                             ckbEliminar.Checked = false;
                             ckbActualizar.Checked = false;
                             ckbAgregar.Checked = false;
@@ -359,19 +363,16 @@ namespace SIPAA_CS.Accesos
 
                         }
                         else if(result == DialogResult.No) {
-                            response = 3;
+                            response = 10;
                         }
                         break;
 
-                    default:
-                        response = objPerfil.AsignarModuloAPerfil(objModulo, CVPerfil, iOpcionAdmin);
-
-                        break;
+ 
                 }
 
+              
 
-               
-               //
+                //
                 //timer1.Start();
                 if (response == 0)
                 {
@@ -383,6 +384,7 @@ namespace SIPAA_CS.Accesos
                 {
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignación Correcta");
                     lbMensaje.Text = "Asignación Correcta";
+                   
                     timer1.Start();
                 }
                 else if (response == 2)
@@ -394,11 +396,10 @@ namespace SIPAA_CS.Accesos
                
 
 
-                string idtrab = LoginInfo.IdTrab;
-                dtPermisos = objModulo.obtenerModulosxCvPerfil(CVPerfil);
+                //string idtrab = LoginInfo.IdTrab;
+               
                 AsignarPermisos();
-                //dgvPerfil_CellContentClick(sender, e);
-
+                BotonActual();
             }
             catch (Exception ex)
             {
@@ -406,8 +407,19 @@ namespace SIPAA_CS.Accesos
                 panelTag.Visible = true;
                 panelTag.BackColor = ColorTranslator.FromHtml("#ef5350");
                 lbMensaje.Text = "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.";
-
+                timer1.Start();
             }
+        }
+
+        private Modulo asignarObjeto(Modulo objModulo) {
+
+            if (ckbActualizar.Checked) { objModulo.stact = 1; } else { objModulo.stact = 0; }
+            if (ckbAgregar.Checked) { objModulo.stcre = 1; } else { objModulo.stcre = 0; }
+            if (ckbEliminar.Checked) { objModulo.steli = 1; } else { objModulo.steli = 0; }
+            if (ckbImprimir.Checked) { objModulo.stimp = 1; } else { objModulo.stimp = 0; }
+            if (ckbLectura.Checked) { objModulo.stlec = 1; } else { objModulo.stlec = 0; }
+
+            return objModulo;
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -459,13 +471,13 @@ namespace SIPAA_CS.Accesos
             if (ckbEliminarAsig.Checked != false)
             {
                 //btnGuardar.Image = Resources.Borrar;
-                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Borrar");
-                iOpcionAdmin = 2;
+                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), Botones.Borrar);
+                iOpcionAdmin = 3;
             }
             else
             {
                 //btnGuardar.Image = Resources.Editar;
-                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
+                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), Botones.Editar);
                 iOpcionAdmin = 1;
             }
         }

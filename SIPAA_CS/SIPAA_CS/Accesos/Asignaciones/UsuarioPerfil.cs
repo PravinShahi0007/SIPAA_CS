@@ -57,8 +57,6 @@ namespace SIPAA_CS.Accesos
                 int IdTrab = Convert.ToInt32(row.Cells["IdTrab"].Value.ToString());
                 string ValorRow = row.Cells["Nombre"].Value.ToString();
 
-                row.Cells[3].Value = Resources.ic_check_circle_green_400_18dp;
-
               
                 AsignarPerfiles();
             }
@@ -180,7 +178,7 @@ namespace SIPAA_CS.Accesos
 
             foreach (int cv in ltPerfiles)
             {
-                objUsuario.AsignarPerfilaUsuario(CVUsuario, cv, sUsuuMod, sPrguMod);
+                objUsuario.AsignarPerfilaUsuario(CVUsuario, cv,1,sUsuuMod, sPrguMod);
             }
 
             ltPerfiles.Clear();
@@ -245,11 +243,14 @@ namespace SIPAA_CS.Accesos
 
             llenarGridUsuarios(strUsuario,IdTrab);
 
-            for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
-            {
-                dgvPerfiles.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            }
+         
+                for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
+                {
+                    dgvPerfiles.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                }
+           
 
+            PermisosPantalla();
             dgvPerfiles.ClearSelection();
             dgvUsuarios.ClearSelection();
 
@@ -278,7 +279,7 @@ namespace SIPAA_CS.Accesos
             {
                 dgvUsuarios.Rows[iContador].Cells[3].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
-
+            PermisosPantalla();
             dgvPerfiles.ClearSelection();
             dgvUsuarios.ClearSelection();
         }
@@ -300,14 +301,26 @@ namespace SIPAA_CS.Accesos
         private void Asignar_Perfil_Load(object sender, EventArgs e)
         {
 
+            // Se crea lista de permisos por pantalla
+            LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
+            DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
+            LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            // variables de permisos
+            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
+            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
+            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
+            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////////////////////////////////////////
 
-
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             llenarGridUsuarios("%", "%");
-            LlenarGridPerfil("%", "%",1);
+            LlenarGridPerfil("%", "%", 1);
+
+            PermisosPantalla();
         }
-
-
      
 
         private void timer_Tick(object sender, EventArgs e)
@@ -323,8 +336,7 @@ namespace SIPAA_CS.Accesos
 
         private void llenarGridUsuarios(string Nombre, string IdTrab)
         {
-
-            if (dgvUsuarios.Columns.Count > 1)
+            if (dgvUsuarios.Columns.Count > 0)
             {
                 dgvUsuarios.Columns.RemoveAt(3);
             }
@@ -333,45 +345,58 @@ namespace SIPAA_CS.Accesos
             List<Usuario> ltUsuario = objUsuario.ObtenerUsuariosxBusqueda(Nombre, IdTrab);
             DataTable dtUsuarios = objUsuario.ObtenerDataTableUsuarios(ltUsuario);
             dgvUsuarios.DataSource = dtUsuarios;
-
-
             Utilerias.AgregarCheck(dgvUsuarios, 3);
-
-            //dgvUsuarios.Columns[1].ReadOnly = true;
-            //dgvUsuarios.Columns[2].Width = 250;
-            //dgvUsuarios.Columns[3].Width = 50;
-  
+            dgvUsuarios.Columns[0].Visible = false;
+          //  dgvUsuarios.Columns[1].Visible = false;
             dgvUsuarios.ClearSelection();
+
+            
+              
+          
+
 
         }
 
+        private void PermisosPantalla() {
+
+            if (!Permisos.Eliminar && !Permisos.Actualizar && !Permisos.Crear)
+            {
+                panelPermisos.Visible = false;
+            }
+
+            if (!Permisos.Eliminar && !Permisos.Actualizar)
+            {
+
+                dgvUsuarios.ReadOnly = true;
+                dgvPerfiles.ReadOnly = true;
+                label10.Text = "Usuarios Registrados";
+                label12.Text = "Perfiles Registrados";
+
+                dgvPerfiles.Columns[0].Visible = false;
+                dgvUsuarios.Columns[3].Visible = false;
+            }
+
+
+        }
         private void LlenarGridPerfil(string CVPerfil, string Descripcion, int iEstatus)
         {
-            if (dgvPerfiles.Columns.Count > 1) {
+            if (dgvPerfiles.Columns.Count > 0) {
                 dgvPerfiles.Columns.RemoveAt(0);
             }
 
             Perfil objPerfil = new Perfil();
             DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda(CVPerfil, Descripcion, iEstatus.ToString());
             dgvPerfiles.DataSource = dtPerfiles;
-
-            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
-            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckPerfiles.Name = "imgPerfiles";
-            dgvPerfiles.Columns.Insert(0, imgCheckPerfiles);
-            dgvPerfiles.Columns[0].HeaderText = "Seleccionar";
-            ImageList imglt = new ImageList();
-
+            Utilerias.AgregarCheck(dgvPerfiles, 0);
             dgvPerfiles.Columns[1].Visible = false;
             dgvPerfiles.Columns[3].Visible = false;
             dgvPerfiles.Columns[4].Visible = false;
             dgvPerfiles.Columns[5].Visible = false;
             dgvPerfiles.Columns[6].Visible = false;
 
-            dgvPerfiles.Columns[0].Width = 70;
-            
+        
            
-            dgvPerfiles.ClearSelection();
+             dgvPerfiles.ClearSelection();
 
         }
 

@@ -171,6 +171,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@P_stact", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_steli", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_stcre", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_stlec", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_stimp", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = 5;
 
@@ -211,7 +212,19 @@ namespace SIPAA_CS.App_Code
             cmd.CommandType = CommandType.StoredProcedure;
 
 
-            cmd.Parameters.Add("@CVPerfil", SqlDbType.Int).Value = CVPerfil;
+            cmd.Parameters.Add("@P_cvperfil", SqlDbType.Int).Value = CVPerfil;
+            cmd.Parameters.Add("@P_cvmodulo", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@P_stact", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_steli", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_stcre", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_stimp", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_stlec", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = 5;
+            
+
+          
 
             Conexion objConexion = new Conexion();
 
@@ -248,7 +261,7 @@ namespace SIPAA_CS.App_Code
 
             cmd.Parameters.Add("@p_cv", SqlDbType.VarChar).Value = CVUsuario;
             cmd.Parameters.Add("@p_cvmodulo", SqlDbType.VarChar).Value = "";
-            cmd.Parameters.Add("@p_Opcion", SqlDbType.VarChar).Value = 1;
+            cmd.Parameters.Add("@p_Opcion", SqlDbType.VarChar).Value = 4;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 

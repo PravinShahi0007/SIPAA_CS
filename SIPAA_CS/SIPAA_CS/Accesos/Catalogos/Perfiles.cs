@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Utilerias;
 
 namespace SIPAA_CS.Accesos
 {
@@ -46,8 +47,6 @@ namespace SIPAA_CS.Accesos
                     Utilerias.AgregarCheck(dgvPerfiles, 0);
                    
                 }
-
-
             }
             else {
               label2.Text  = "Perfiles Registrados";
@@ -369,24 +368,24 @@ namespace SIPAA_CS.Accesos
                 if (strEstatus == "0")
                 {
 
-                    btnGuardar.Image = Resources.Alta;
+                    Utilerias.AsignarBotonResize(btnGuardar, PantallaSistema(), Botones.Alta);
                 }
                 else if (strEstatus == "1")
                 {
 
-                    btnGuardar.Image = Resources.Baja;
+                    Utilerias.AsignarBotonResize(btnGuardar, PantallaSistema(), Botones.Baja);
                 }
 
                 iOpcionAdmin = 3;
                 //Utilerias.CambioBoton(btnGuardar, btnEditar, btnGuardar, btnEliminar);
-                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Borrar");
+              //  Utilerias.AsignarBotonResize(btnGuardar, PantallaSistema(), Botones.Alta);
             }
             else
             {
                 iOpcionAdmin = 2;
                 btnGuardar.Image = Resources.btnEdit;
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar, btnGuardar, btnEditar);
-                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
+                Utilerias.AsignarBotonResize(btnGuardar, PantallaSistema(), Botones.Editar);
 
             }
 

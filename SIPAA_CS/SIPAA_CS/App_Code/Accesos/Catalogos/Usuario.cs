@@ -97,17 +97,18 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public void AsignarPerfilaUsuario(string CVUsuario, int CVPerfil, string UsuuMod, string PrguMod)
+        public void AsignarPerfilaUsuario(string iCVUsuario, int iCVPerfil,int iOpcion, string sUsuuMod, string sPrguMod)
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_acceasignaperfil_ui";
+            cmd.CommandText = "usp_acceusuper_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@CVUsuario", SqlDbType.VarChar).Value = CVUsuario;
-            cmd.Parameters.Add("@CvPerfil", SqlDbType.Int).Value = CVPerfil;
-            cmd.Parameters.Add("@USUUMOD", SqlDbType.VarChar).Value = UsuuMod;
-            cmd.Parameters.Add("@PRGUMOD", SqlDbType.VarChar).Value = PrguMod;
+            cmd.Parameters.Add("@P_CVUsuario", SqlDbType.VarChar).Value = iCVUsuario;
+            cmd.Parameters.Add("@P_CvPerfil", SqlDbType.Int).Value = iCVPerfil;
+            cmd.Parameters.Add("@P_USUUMOD", SqlDbType.VarChar).Value = sUsuuMod;
+            cmd.Parameters.Add("@P_PRGUMOD", SqlDbType.VarChar).Value = sPrguMod;
+            cmd.Parameters.Add("@P_opcion", SqlDbType.Int).Value = iOpcion;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);

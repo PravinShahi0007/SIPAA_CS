@@ -527,7 +527,7 @@ namespace SIPAA_CS.App_Code
         {
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
             imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckUsuarios.Name = "img";
+            imgCheckUsuarios.Tag = "checkGrid";
             dgv.Columns.Insert(iPosicion, imgCheckUsuarios);
             dgv.Columns[iPosicion].HeaderText = "Seleccionar";
             dgv.Columns[iPosicion].Width = 65;
