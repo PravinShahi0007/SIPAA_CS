@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SIPAA_CS.App_Code;
+using SIPAA_CS.App_Code.Generales;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
 using SIPAA_CS.Conexiones;
@@ -42,6 +43,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         #endregion
 
+        statue oStatus = new statue();
         SonaFormaPago oSonaFormaPago = new SonaFormaPago();
         PeriodoProcesoIncidencia oPeriodoProcesoIncidencia = new PeriodoProcesoIncidencia();
         Utilerias Util = new Utilerias();
@@ -75,24 +77,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             int iIdFormaPagoBuscar = 0;
             if (!bClickPrimeraVezFormaPago)
             {
+                //
+                // 
                 pnlActPeriodoIncidencia.Visible = false;
-                /*
-                 * if (cbFormaPago.SelectedIndex == 0)
-                                {
-                                    iIdFormaPagoBuscar = 1;
-                                }
-                                else
-                                {
-                                    if (cbFormaPago.SelectedIndex == 1)
-                                    {
-                                        iIdFormaPagoBuscar = 2;
-                                    }
-                              }
-                */
-
                 iIdFormaPagoBuscar = Convert.ToInt32(cbFormaPago.SelectedValue.ToString());
                 iIdFormaPago = iIdFormaPagoBuscar;
-                txtDescripcionPeriodoIncidencia.Text = cbFormaPago.SelectedItem.ToString();
                 fgPeriodosProcesoIncidencia(6, iIdFormaPagoBuscar, "", "", "", iStPeriodoIncidencia, "bhb", "PeriodosProcesoIncidencia");
             } // if (!bClickPrimeraVezFormaPago)
         } // private void cbFormaPago_SelectedIndexChanged(object sender, EventArgs e)
@@ -207,10 +196,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 pnlActPeriodoIncidencia.Visible = true;
                 lblActPeriodoIncidencia.Text = "     Agregar Período Proceso Incidencia";
                 Util.ChangeButton(btnAgregar, 1, false);
+                txtDescripcionPeriodoIncidencia.Text = cbFormaPago.Text;
                 iActbtn = 1;
 
-                cbStatusPeriodo.SelectedItem = "Procesar";
-                cbStatusPeriodo.SelectedValue = 2;
+                //cbStatusPeriodo.SelectedItem = "Procesar";
+                //cbStatusPeriodo.SelectedValue = 2;
+                fStatusPeriodoIncidencia(4, "rechtperiodopro", 0, "", 0, "bhb", "PeriodosProcesoIncidencia");
+//                cbStatusPeriodo.SelectedText = "Procesar";
+                cbStatusPeriodo.Text = "Procesar";
 
                 dtpFechaInicioPeriodoIncidencia.Text = "";
                 dtpFechaFinPeriodoIncidencia.Text = "";
@@ -398,7 +391,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
                 imgCheckUsuarios.Name = "img";
-                if(dgvPeriodosProcesoIncidencias.Columns.Count>5)
+                if(dgvPeriodosProcesoIncidencias.Columns.Count > 6)
                 {
                     dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
                 }
@@ -406,11 +399,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
 
-                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false; ;
+                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
                 dgvPeriodosProcesoIncidencias.Columns[2].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[3].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[4].Width = 130;
                 dgvPeriodosProcesoIncidencias.Columns[5].Width = 60;
+                dgvPeriodosProcesoIncidencias.Columns[5].Visible = false;
+                dgvPeriodosProcesoIncidencias.Columns[6].Width = 80;
                 dgvPeriodosProcesoIncidencias.ClearSelection();
             }
             else if (iIns == 1 && iAct == 1)
@@ -421,7 +416,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
                 imgCheckUsuarios.Name = "img";
-                if (dgvPeriodosProcesoIncidencias.Columns.Count > 5)
+                if (dgvPeriodosProcesoIncidencias.Columns.Count > 6)
                 {
                     dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
                 }
@@ -429,11 +424,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
 
-                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false; ;
+                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
                 dgvPeriodosProcesoIncidencias.Columns[2].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[3].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[4].Width = 130;
                 dgvPeriodosProcesoIncidencias.Columns[5].Width = 60;
+                dgvPeriodosProcesoIncidencias.Columns[5].Visible = false;
+                dgvPeriodosProcesoIncidencias.Columns[6].Width = 80;
                 dgvPeriodosProcesoIncidencias.ClearSelection();
 
             }
@@ -445,7 +442,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
                 imgCheckUsuarios.Name = "img";
-                if (dgvPeriodosProcesoIncidencias.Columns.Count > 5)
+                if (dgvPeriodosProcesoIncidencias.Columns.Count > 6)
                 {
                     dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
                 }
@@ -453,11 +450,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
 
-                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false; ;
+                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
                 dgvPeriodosProcesoIncidencias.Columns[2].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[3].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[4].Width = 130;
                 dgvPeriodosProcesoIncidencias.Columns[5].Width = 60;
+                dgvPeriodosProcesoIncidencias.Columns[5].Visible = false;
+                dgvPeriodosProcesoIncidencias.Columns[6].Width = 80;
                 dgvPeriodosProcesoIncidencias.ClearSelection();
             }
             else if (iAct == 1 && iElim == 1)
@@ -468,7 +467,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
                 imgCheckUsuarios.Name = "img";
-                if (dgvPeriodosProcesoIncidencias.Columns.Count > 5)
+                if (dgvPeriodosProcesoIncidencias.Columns.Count > 6)
                 {
                     dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
                 }
@@ -476,11 +475,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
 
-                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false; ;
+                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
                 dgvPeriodosProcesoIncidencias.Columns[2].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[3].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[4].Width = 130;
                 dgvPeriodosProcesoIncidencias.Columns[5].Width = 60;
+                dgvPeriodosProcesoIncidencias.Columns[5].Visible = false;
+                dgvPeriodosProcesoIncidencias.Columns[6].Width = 80;
                 dgvPeriodosProcesoIncidencias.ClearSelection();
             }
             else if (iIns == 1)
@@ -488,11 +489,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
 
-                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false; ;
+                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
                 dgvPeriodosProcesoIncidencias.Columns[2].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[3].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[4].Width = 130;
                 dgvPeriodosProcesoIncidencias.Columns[5].Width = 60;
+                dgvPeriodosProcesoIncidencias.Columns[5].Visible = false;
+                dgvPeriodosProcesoIncidencias.Columns[6].Width = 80;
                 dgvPeriodosProcesoIncidencias.ClearSelection();
             }
             else if (iAct == 1)
@@ -503,7 +506,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
                 imgCheckUsuarios.Name = "img";
-                if (dgvPeriodosProcesoIncidencias.Columns.Count > 5)
+                if (dgvPeriodosProcesoIncidencias.Columns.Count > 6)
                 {
                     dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
                 }
@@ -511,11 +514,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
 
-                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false; ;
+                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
                 dgvPeriodosProcesoIncidencias.Columns[2].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[3].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[4].Width = 130;
                 dgvPeriodosProcesoIncidencias.Columns[5].Width = 60;
+                dgvPeriodosProcesoIncidencias.Columns[5].Visible = false;
+                dgvPeriodosProcesoIncidencias.Columns[6].Width = 80;
                 dgvPeriodosProcesoIncidencias.ClearSelection();
             }
             else if (iElim == 1)
@@ -526,7 +531,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
                 imgCheckUsuarios.Name = "img";
-                if (dgvPeriodosProcesoIncidencias.Columns.Count > 5)
+                if (dgvPeriodosProcesoIncidencias.Columns.Count > 6)
                 {
                     dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
                 }
@@ -534,11 +539,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
 
-                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false; ;
+                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
                 dgvPeriodosProcesoIncidencias.Columns[2].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[3].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[4].Width = 130;
                 dgvPeriodosProcesoIncidencias.Columns[5].Width = 60;
+                dgvPeriodosProcesoIncidencias.Columns[5].Visible = false;
+                dgvPeriodosProcesoIncidencias.Columns[6].Width = 80;
                 dgvPeriodosProcesoIncidencias.ClearSelection();
             }
             else
@@ -547,15 +554,24 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
 
-                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false; ;
+                dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
                 dgvPeriodosProcesoIncidencias.Columns[2].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[3].Width = 100;
                 dgvPeriodosProcesoIncidencias.Columns[4].Width = 130;
                 dgvPeriodosProcesoIncidencias.Columns[5].Width = 60;
+                dgvPeriodosProcesoIncidencias.Columns[5].Visible = false;
+                dgvPeriodosProcesoIncidencias.Columns[6].Width = 80;
                 dgvPeriodosProcesoIncidencias.ClearSelection();
             }
         }
 
+        private void fStatusPeriodoIncidencia(int iOpcion, string sTablaStatus, int iStValor, string sDescripcion, int iStStatus, string sUsuumod, string sPrgumod)
+        {
+            DataTable dtStatusPeriodoIncidencia = oStatus.statue_S(iOpcion, sTablaStatus, iStValor, sDescripcion, iStStatus, sUsuumod, sPrgumod);
+            cbStatusPeriodo.DataSource = dtStatusPeriodoIncidencia;
+            cbStatusPeriodo.DisplayMember = "Descripción";
+            cbStatusPeriodo.ValueMember = "Val Status";
+        }
         private void fuidPeriodosProcesoIncidencia(int iOpcion, int iIdFormaPago, string sFechaInicioPeriodoIncidencia, string sFechaFinPeriodoIncidencia, string sDescripcion, int iStPeriodoIncidencia, string sUsuumod, string sPrgumod)
         {
             //agrega registro
@@ -617,8 +633,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 sFechaInicioPeriodoIncidencia = row.Cells["FechaInicio"].Value.ToString();
                 sFechaFinPeriodoIncidencia = row.Cells["FechaFin"].Value.ToString();
                 sDescripcion = row.Cells["Descripción"].Value.ToString();
-                cbStatusPeriodo.Items.Clear();
-                cbStatusPeriodo.SelectedText = "";
+                //cbStatusPeriodo.Items.Clear();
+                //cbStatusPeriodo.SelectedText = "";
+
+                fStatusPeriodoIncidencia(4, "rechtperiodopro", 0, "", 0, "bhb", "PeriodosProcesoIncidencia");
+
                 switch (row.Cells["Estatus"].Value.ToString())
                 {
                     case "2":
@@ -638,7 +657,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dtpFechaFinPeriodoIncidencia.Text = sFechaFinPeriodoIncidencia;
                 dtpFechaInicioPeriodoIncidencia.Focus();
                 txtDescripcionPeriodoIncidencia.Text = sDescripcion;
-                cbStatusPeriodo.SelectedText = sStPeriodoIncidencia;
+//                cbStatusPeriodo.SelectedText = sStPeriodoIncidencia;
+                cbStatusPeriodo.Text = sStPeriodoIncidencia;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
         }
