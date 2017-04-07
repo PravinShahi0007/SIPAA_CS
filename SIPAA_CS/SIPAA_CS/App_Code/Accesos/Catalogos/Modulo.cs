@@ -155,16 +155,25 @@ namespace SIPAA_CS.App_Code
 
       
 
-        public List<string> obtenerModulosxPerfil(int CVPerfil)
+        public List<string> obtenerModulosxPerfil(int iCVPerfil)
         {
 
             List<string> ltModulosxPerfil = new List<string>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_accepermod_s";
+            cmd.CommandText = @"usp_accepermod_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
 
-            cmd.Parameters.Add("@CVPerfil", SqlDbType.Int).Value = CVPerfil;
+            cmd.Parameters.Add("@P_CVPerfil", SqlDbType.Int).Value = iCVPerfil;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@P_stact", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_steli", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_stcre", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_stimp", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = 4;
+
+        
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -191,6 +200,33 @@ namespace SIPAA_CS.App_Code
             return ltModulosxPerfil;
         }
 
+
+        public DataTable obtenerModulosxCvPerfil(int CVPerfil)
+        {
+
+            List<string> ltModulosxPerfil = new List<string>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_accepermod_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            cmd.Parameters.Add("@CVPerfil", SqlDbType.Int).Value = CVPerfil;
+
+            Conexion objConexion = new Conexion();
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtModulo = new DataTable();
+            Adapter.Fill(dtModulo);
+
+            return dtModulo;
+        }
+
+
         public static DataTable ObtenerPermisosxUsuario(string CVUsuario)
         {
 
@@ -206,12 +242,12 @@ namespace SIPAA_CS.App_Code
 
             List<Modulo> ltModulos = new List<Modulo>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechpermisos_s";
+            cmd.CommandText = @"usp_accepermisos_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@cv", SqlDbType.VarChar).Value = CVUsuario;
-            cmd.Parameters.Add("@cvmodulo", SqlDbType.VarChar).Value = "";
-            cmd.Parameters.Add("@Opcion", SqlDbType.VarChar).Value = 1;
+            cmd.Parameters.Add("@p_cv", SqlDbType.VarChar).Value = CVUsuario;
+            cmd.Parameters.Add("@p_cvmodulo", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_Opcion", SqlDbType.VarChar).Value = 1;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 

@@ -513,13 +513,16 @@ namespace SIPAA_CS.App_Code
 
       public enum DiasSemana { Domingo = 1, Lunes = 2, Martes = 3, Miércoles = 4, Jueves = 5, Viernes = 6, Sábado = 7 };
 
+      public enum Botones { Guardar , Editar , Borrar, Agregar, Baja, Alta, Imprimir };
+
         public static void AgregarCheck(DataGridView dgv, int iPosicion)
         {
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
             imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
             imgCheckUsuarios.Name = "img";
-            dgv.Columns.Insert(0, imgCheckUsuarios);
-            dgv.Columns[0].HeaderText = "Seleccionar";
+            dgv.Columns.Insert(iPosicion, imgCheckUsuarios);
+            dgv.Columns[iPosicion].HeaderText = "Seleccionar";
+            dgv.Columns[iPosicion].Width = 65;
         }
 
         public static void MultiSeleccionGridView(DataGridView dgv, int iPositionClave, List<int> ltCv, Control ctrl)
@@ -570,6 +573,38 @@ namespace SIPAA_CS.App_Code
             }
 
 
+        }
+        public static bool SinAsignaciones(DataGridView dgv, int iPosicionCheck, int iPosicionClave, List<int> ltFormas)
+        {
+            bool bBandera = false;
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                int iCV = Convert.ToInt32(row.Cells[iPosicionClave].Value.ToString());
+
+                if (ltFormas.Contains(iCV))
+                {
+
+                    switch (row.Cells[0].Tag.ToString())
+                    {
+                        case "check":
+                            row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                            row.Cells[0].Tag = "uncheck";
+                            break;
+
+                        case "uncheck":
+                            row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                            row.Cells[0].Tag = "check";
+                            break;
+                    }
+                }
+
+                if (row.Cells[iPosicionCheck].Tag.ToString() != "uncheck")
+                {
+                    bBandera = true;
+                }
+            }
+            return bBandera;
         }
 
 

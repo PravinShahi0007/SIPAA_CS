@@ -50,20 +50,9 @@ namespace SIPAA_CS.Accesos
             if (objPerfil.CVPerfil != 0) { cvPerfil = objPerfil.CVPerfil.ToString(); }
             if (objPerfil.Estatus != 0) { strEstatus = objPerfil.Estatus.ToString(); }
 
-            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda(cvPerfil
-                                                                    , objPerfil.Descripcion
-                                                                    , strEstatus);
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda(cvPerfil , objPerfil.Descripcion, strEstatus);
             dgvPerfil.DataSource = dtPerfiles;
-
-
-            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
-            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckPerfiles.Name = "imgPerfiles";
-            dgvPerfil.Columns.Insert(2, imgCheckPerfiles);
-            dgvPerfil.Columns[2].HeaderText = "Seleccionar";
-            dgvPerfil.Columns[2].Width = 40;
-
-
+            Utilerias.AgregarCheck(dgvPerfil, 2);
             dgvPerfil.Columns[3].Visible = false;
             dgvPerfil.Columns[4].Visible = false;
             dgvPerfil.Columns[5].Visible = false;
@@ -94,12 +83,7 @@ namespace SIPAA_CS.Accesos
             DataTable dtModulo = objModulo.ObtenerDataTableModulo(ltModulo);
             dgvModulos.DataSource = dtModulo;
 
-            DataGridViewImageColumn imgCheckModulos = new DataGridViewImageColumn();
-            imgCheckModulos.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckModulos.Name = "imgModulos";
-            dgvModulos.Columns.Insert(0, imgCheckModulos);
-            dgvModulos.Columns[0].HeaderText = "Seleccionar";
-            dgvModulos.Columns[0].Width = 40;
+            Utilerias.AgregarCheck(dgvModulos, 0);
 
             dgvModulos.ClearSelection();
             dgvPerfil.Columns["CVPERFIL"].Visible = false;
@@ -130,8 +114,8 @@ namespace SIPAA_CS.Accesos
                 row.Cells[2].Value = Resources.ic_check_circle_green_400_18dp;
 
                 Modulo objModulo = new Modulo();
-                //List<string> ltPerfilesxUsuario = objModulo.obtenerModulosxPerfil(CVPerfil);
-
+                //List<string> ltPerfilesxUsuario = 
+                 dtPermisos = objModulo.obtenerModulosxCvPerfil(CVPerfil);
                 AsignarPermisos();                
 
 
@@ -232,8 +216,7 @@ namespace SIPAA_CS.Accesos
             panelPermisos.Enabled = false;
             panelTag.Visible = false;
             CVPerfil = 0;
-            dgvPerfil.Columns.Remove(columnName: "imgPerfiles");
-
+            ultimaseleccion = 0;
             string strPerfil = "";
             string IdTrab = "";
 
@@ -248,17 +231,14 @@ namespace SIPAA_CS.Accesos
             }
 
             Perfil objPerfil = new Perfil();
-            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%", strPerfil, "1");
-            dgvPerfil.DataSource = dtPerfiles;
+            objPerfil.CVPerfil = 0;
+            objPerfil.Estatus = 0;
+            objPerfil.Descripcion = strPerfil;
+            //DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda("%", strPerfil, "1");
+            //dgvPerfil.DataSource = dtPerfiles;
 
-
-
-            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
-            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckPerfiles.Name = "imgPerfiles";
-            dgvPerfil.Columns.Insert(2, imgCheckPerfiles);
-            dgvPerfil.Columns[2].HeaderText = "";
-
+            llenarGridPerfiles(objPerfil);
+            
             for (int iContador = 0; iContador < dgvModulos.Rows.Count; iContador++)
             {
                 dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
@@ -415,8 +395,8 @@ namespace SIPAA_CS.Accesos
 
 
                 string idtrab = LoginInfo.IdTrab;
-                
-                //Asignar_Modulo_Load(sender, e);
+                dtPermisos = objModulo.obtenerModulosxCvPerfil(CVPerfil);
+                AsignarPermisos();
                 //dgvPerfil_CellContentClick(sender, e);
 
             }
@@ -446,8 +426,7 @@ namespace SIPAA_CS.Accesos
 
         private void Asignar_Modulo_Load(object sender, EventArgs e)
         {
-
-            
+            string idtrab = LoginInfo.IdTrab;
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             
             Perfil objPerfil = new Perfil();
@@ -512,9 +491,7 @@ namespace SIPAA_CS.Accesos
                 DataRow[] rows = dtPermisos.Select("CVMODULO = '" + cvModulo + "'");
                 if (rows.Count() != 0)
                 {
-
                     dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-
                 }
                 else
                 {

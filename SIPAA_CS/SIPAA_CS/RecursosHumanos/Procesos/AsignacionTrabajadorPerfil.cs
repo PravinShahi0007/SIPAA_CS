@@ -627,7 +627,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 LlenarGridFormasRegistro("%");
                 AsignarFormas(TrabajadorInfo.IdTrab);
 
-                if (SinAsignaciones(dgvForReg,0,1,ltFormasReg) == true)
+                if (Utilerias.SinAsignaciones(dgvForReg,0,1,ltFormasReg) == true)
                 {
                     CrearAsignaciones_FormasRegistro(UsuuMod, PrguMod);
                 }
@@ -677,37 +677,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         }
 
 
-        public static bool SinAsignaciones(DataGridView dgv, int iPosicionCheck,int iPosicionClave,List<int> ltFormas)
-        {
-            bool bBandera = false;
-
-            foreach (DataGridViewRow row in dgv.Rows)
-            {
-                int iCV = Convert.ToInt32(row.Cells[iPosicionClave].Value.ToString());
-
-                if (ltFormas.Contains(iCV)) {
-
-                    switch (row.Cells[0].Tag.ToString())
-                    {
-                        case "check":
-                            row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                            row.Cells[0].Tag = "uncheck";
-                            break;
-
-                        case "uncheck":
-                            row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                            row.Cells[0].Tag = "check";
-                            break;
-                    }
-                }
-
-                    if (row.Cells[iPosicionCheck].Tag.ToString() != "uncheck")
-                    {
-                        bBandera = true;
-                    }
-            }
-            return bBandera;
-        }
+       
 
         private void llenarGridReloj(string sDescripcion)
         {
@@ -781,7 +751,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 LlenarGridFormasRegistro("%");
                 AsignarFormas(TrabajadorInfo.IdTrab);
 
-                if (SinAsignaciones(dgvReloj, 0, 1, ltReloj) == true)
+                if (Utilerias.SinAsignaciones(dgvReloj, 0, 1, ltReloj) == true)
                 {
                     CrearAsignaciones_FormasRegistro(UsuuMod, PrguMod);
                 }
