@@ -57,17 +57,22 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public DataTable ObtenerPerfilesxBusqueda(string CvPerfil, string Descripcion,string Estatus)
+        public DataTable ObtenerPerfilesxBusqueda(string sCvPerfil, string sDescripcion,string sEstatus)
         {
 
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_acceperfil_s";
+            cmd.CommandText = @"usp_acceperfil_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@CvPerfil", SqlDbType.VarChar).Value = CvPerfil;
-            cmd.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = Descripcion;
-            cmd.Parameters.Add("@Estatus", SqlDbType.VarChar).Value = Estatus;
+            cmd.Parameters.Add("@P_CvPerfil", SqlDbType.VarChar).Value = sCvPerfil;
+            cmd.Parameters.Add("@P_Descripcion", SqlDbType.VarChar).Value = sDescripcion;
+            cmd.Parameters.Add("@P_Estatus", SqlDbType.VarChar).Value = sEstatus;
+            cmd.Parameters.Add("@p_usuarioumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_programaumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = 8;
+
+       
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);

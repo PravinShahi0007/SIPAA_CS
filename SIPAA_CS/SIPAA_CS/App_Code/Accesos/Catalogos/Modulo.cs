@@ -165,13 +165,14 @@ namespace SIPAA_CS.App_Code
 
 
             cmd.Parameters.Add("@P_CVPerfil", SqlDbType.Int).Value = iCVPerfil;
+            cmd.Parameters.Add("@P_CVModulo", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@P_stact", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_steli", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_stcre", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_stimp", SqlDbType.Int).Value = 0;
-            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = 4;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = 5;
 
         
 
@@ -206,7 +207,7 @@ namespace SIPAA_CS.App_Code
 
             List<string> ltModulosxPerfil = new List<string>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_accepermod_s";
+            cmd.CommandText = @"usp_accepermod_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
 

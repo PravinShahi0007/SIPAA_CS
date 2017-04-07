@@ -513,7 +513,15 @@ namespace SIPAA_CS.App_Code
 
       public enum DiasSemana { Domingo = 1, Lunes = 2, Martes = 3, Miércoles = 4, Jueves = 5, Viernes = 6, Sábado = 7 };
 
-      public enum Botones { Guardar , Editar , Borrar, Agregar, Baja, Alta, Imprimir };
+      public static class Botones {
+            public static string Guardar = "Guardar";
+            public static string Editar = "Editar";
+            public static string Borrar = "Borrar";
+            public static string Agregar = "Agregar";
+            public static string Baja = "Baja";
+            public static string Alta = "Alta";
+            public static string Imprimir = "Imprimir";
+        }
 
         public static void AgregarCheck(DataGridView dgv, int iPosicion)
         {

@@ -146,18 +146,7 @@ namespace SIPAA_CS.App_Code
             }
             return ltModulosxUsuario;
 
-            //for (int iContador = 0; iContador < ltPerfiles.Count(); iContador++)
-            //{
-            //    Modulo objModulo = new Modulo();
-            //    int iCVPerfil = ltPerfiles.ElementAt(iContador);
-            //    List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCVPerfil);
-
-            //    for (int iCont = 0; iCont < ltModulos.Count(); iContador++)
-            //    {
-            //        string strCVMod = ltModulos.ElementAt(iCont);
-            //        ltModulosxUsuario.Add(strCVMod);
-            //    }
-            //}
+           
 
         }
 

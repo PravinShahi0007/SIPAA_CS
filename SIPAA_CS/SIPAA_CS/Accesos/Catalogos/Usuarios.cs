@@ -11,13 +11,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Utilerias;
 
 namespace SIPAA_CS.Accesos
 {
     public partial class Usuarios : Form
     {
-        public Point formPosition;
-        public Boolean mouseAction;
 
         public string cvusuario;
         public string CVusuario;
@@ -31,8 +31,6 @@ namespace SIPAA_CS.Accesos
         public int response;
         public string buscar;
         public string stusuario;
-        int sysH = SystemInformation.PrimaryMonitorSize.Height;
-        int sysW = SystemInformation.PrimaryMonitorSize.Width;
 
         public int variable = 0;
 
@@ -72,11 +70,11 @@ namespace SIPAA_CS.Accesos
                 ckbElimina.Visible = true;
                 ckbElimina.Checked = false;
                 txtPassword.Enabled = false;
-                //Utilerias.AsignarBotonResize(btnSipaa,Utilerias.PantallaSistema(),Utilerias.Botones());
+                Utilerias.AsignarBotonResize(btnSipaa,Utilerias.PantallaSistema(),"Editar");
                 DataGridViewRow row = this.dgvAccesoUsuario.SelectedRows[0];
 
                 cvusuario = row.Cells["cvusuario"].Value.ToString();
-                nombre = row.Cells["NOMBRE"].Value.ToString();
+                nombre = row.Cells["nombre"].Value.ToString();
                 stusuario = row.Cells["stusuario"].Value.ToString();
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
@@ -367,6 +365,9 @@ namespace SIPAA_CS.Accesos
         {
             panel1.Visible = true;
             variable = 3;
+            Utilerias.AsignarBotonResize(btnSipaa, Utilerias.PantallaSistema(), "Guardar");
+
+           
         }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -377,20 +378,35 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void Crear_Acceso_Usuario_Load(object sender, EventArgs e)
         {
+            // Se crea lista de permisos por pantalla
+            LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
+            DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
+            LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            // variables de permisos
+            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
+            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
+            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
+            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////////////////////////////////////////
 
-            panel1.Visible = false;
-    
-            int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            int sysW = SystemInformation.PrimaryMonitorSize.Width;
-            Utilerias.ResizeForm(this,new Size(new Point(sysH, sysW)));
-            
+            panel1.Visible = false;        
             ckbElimina.Visible = false;
             btnGuardar.Enabled = false;
             txtPassword.Enabled = false;
             LlenaGridUsuarios("", 0, "", "", 0, "", "", 4);
-            txtBuscarSipaa.Focus();
+            //txtBuscarSipaa.Focus();
+            if (Permisos.Crear )
+            {
+                btnAgregar.Visible = false;
+            }
+            else
+            {
 
-
+            }
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -660,19 +676,18 @@ namespace SIPAA_CS.Accesos
                 variable = 6;
                 if (stusuario == "0")
                 {
-                    //ckbElimina.Text = "Alta";
-                    btnSipaa.Image = Resources.btnAlta;
+                    Utilerias.AsignarBotonResize(btnSipaa, Utilerias.PantallaSistema(), Botones.Alta);
                 }
                 else if (stusuario == "1")
                 {
-                    //ckbElimina.Text = "Baja";
-                    btnSipaa.Image = Resources.btnRemove2;
+                   
+                    Utilerias.AsignarBotonResize(btnSipaa,Utilerias.PantallaSistema(),Botones.Baja);
                 }
                 
             }
             else
             {
-                btnSipaa.Image = Resources.btnEdit;
+                Utilerias.AsignarBotonResize(btnSipaa, Utilerias.PantallaSistema(), Botones.Editar);
 
             }
         }
