@@ -71,23 +71,37 @@ namespace SIPAA_CS.Accesos
                 ckbElimina.Visible = true;
                 ckbElimina.Checked = false;
                 txtPassword.Enabled = false;
-                Utilerias.AsignarBotonResize(btnSipaa,Utilerias.PantallaSistema(),"Editar");
+                Utilerias.AsignarBotonResize(btnSipaa,Utilerias.PantallaSistema(),Botones.Editar);
                 DataGridViewRow row = this.dgvAccesoUsuario.SelectedRows[0];
 
                 cvusuario = row.Cells["cvusuario"].Value.ToString();
                 nombre = row.Cells["nombre"].Value.ToString();
                 stusuario = row.Cells["stusuario"].Value.ToString();
+                idtrab = Convert.ToInt32(row.Cells["idtrab"].Value.ToString());
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+
+                txtCvUsuario1.Text = cvusuario;
                 txtNombreSipaa.Text = nombre;
                 variable = 5;
 
-                if (stusuario == "0")
+                if (idtrab != 0)
+                {
+                    txtCvUsuario1.Enabled = false;
+                    txtNombreSipaa.Enabled = false;
+                }
+                else
+                {
+                    txtCvUsuario1.Enabled = true;
+                    txtNombreSipaa.Enabled = true;
+                }
+
+                if (stusuario == "Inactivo")
                 {
                     ckbElimina.Text = "Alta";
 
                 }
-                else if (stusuario == "1")
+                else if (stusuario == "Activo")
                 {
                     ckbElimina.Text = "Baja";
 
@@ -160,6 +174,7 @@ namespace SIPAA_CS.Accesos
                         txtPassword.Text = "";
                         MessageBox.Show("El usuario " + nombre + " ya existe");
                         txtBuscar.Focus();
+                        panel10.Visible = false;
                     }
 
                     if (response == 1)
@@ -169,12 +184,14 @@ namespace SIPAA_CS.Accesos
                         txtNombre.Text = "";
                         txtPassword.Text = "";
                         MessageBox.Show("El usuario " + nombre + " se agrego correctamente");
+                        panel10.Visible = false;
                     }
 
                     txtBuscar.Text = "";
                     txtCvUsuario.Text = "";
                     txtNombre.Text = "";
                     txtPassword.Text = "";
+                    panel10.Visible = false;
                 }
                 else
                 {
@@ -260,6 +277,7 @@ namespace SIPAA_CS.Accesos
                             {
                                 ///asigna valores de sp
                                 ///
+                                panel10.Visible = true;
                                 txtCvUsuario.Enabled = false;
                                 txtNombre.Enabled = false;
                                 txtPassword.Enabled = false;
@@ -274,7 +292,7 @@ namespace SIPAA_CS.Accesos
                             else
                             {
                                 //MessageBox.Show("El usuario " + usuario.Nombre + " esta inactivo");
-                                Utilerias.AsignarBotonResize(btnSipaa, Utilerias.PantallaSistema(), "Guardar");
+                                Utilerias.AsignarBotonResize(btnSipaa, Utilerias.PantallaSistema(), Botones.Guardar);
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El usuario " + usuario.Nombre + " esta Inactivo");
                                 timer1.Start();
                             }
@@ -327,7 +345,15 @@ namespace SIPAA_CS.Accesos
                 txtBuscar.Focus();
             }
         }
-       
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            variable = 3;
+            label13.Text = "      Crear Usuario SIPAA";
+            txtNombreSipaa.Text = "";
+            panel1.Visible = true;
+            ckbElimina.Visible = false;
+            Utilerias.AsignarBotonResize(btnSipaa, Utilerias.PantallaSistema(), Botones.Guardar);
+        }
         private void btnBuscarSipaa_Click(object sender, EventArgs e)
         {
             //variable = 3;
@@ -338,15 +364,7 @@ namespace SIPAA_CS.Accesos
             LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "", 8);
         }
 
-        private void btnAgregar_Click_1(object sender, EventArgs e)
-        {
-            variable = 3;
-            label13.Text = "      Crear Usuario SIPAA";
-            txtNombreSipaa.Text = "";
-            panel1.Visible = true;
-            ckbElimina.Visible = false;
-            Utilerias.AsignarBotonResize(btnSipaa, Utilerias.PantallaSistema(), "Guardar");
-        }
+        
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -371,11 +389,12 @@ namespace SIPAA_CS.Accesos
             //Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
             //////////////////////////////////////////////////////////////////////////////////////////
 
-            panel1.Visible = false;        
+            panel1.Visible = false;
+            panel10.Visible = false;
             ckbElimina.Visible = false;
             btnGuardar.Enabled = false;
             txtPassword.Enabled = false;
-            LlenaGridUsuarios("", 0, "", "", 0, "", "", 4);
+            LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
             //txtBuscarSipaa.Focus();
             if (Permisos.Crear )
             {
@@ -405,6 +424,10 @@ namespace SIPAA_CS.Accesos
             imgCheckProcesos.Name = "Seleccionar";
             dgvAccesoUsuario.Columns.Insert(0, imgCheckProcesos);
             dgvAccesoUsuario.Columns[0].HeaderText = "Seleccionar";
+            dgvAccesoUsuario.Columns[1].HeaderText = "Clave Usuario";
+            dgvAccesoUsuario.Columns[2].HeaderText = "IdTrabajador";
+            dgvAccesoUsuario.Columns[3].HeaderText = "Nombre";
+            dgvAccesoUsuario.Columns[4].HeaderText = "Estatus";
             dgvAccesoUsuario.ClearSelection();
         }
 
@@ -415,13 +438,14 @@ namespace SIPAA_CS.Accesos
                 if (variable == 3)
                 {
                     //MessageBox.Show("variable 3");
-                    cvusuario = txtNombreSipaa.Text;
+                    cvusuario = txtCvUsuario1.Text;
+                    nombre = txtNombreSipaa.Text;
                     string pass = utilerias.cifradoMd5(cvusuario);
                     usumod = "140114";
                     prgmod = this.Name;
-                    response = usuario.AsignarAccesoUsuario(cvusuario.Trim(), 0, cvusuario.Trim(), pass, 1, usumod, prgmod, 1);
+                    response = usuario.AsignarAccesoUsuario(cvusuario.Trim(), 0, nombre.Trim(), pass, 1, usumod, prgmod, 1);
                     dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
-                    LlenaGridUsuarios("", 0, "", "", 0, "", "", 8);
+                    LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
 
                     if (response == 0)
                     {
@@ -430,26 +454,26 @@ namespace SIPAA_CS.Accesos
                         txtNombre.Text = "";
                         txtPassword.Text = "";
                         txtNombreSipaa.Text = "";
-                        //panel1.Visible = false;
+                        panel1.Visible = false;
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El usuario " + nombre + " ya existe");
                         timer1.Start();
                     }
 
-                    if (response == 1)
+                    else if (response == 1)
                     {
                         txtBuscar.Text = "";
                         txtCvUsuario.Text = "";
                         txtNombre.Text = "";
                         txtPassword.Text = "";
                         txtNombreSipaa.Text = "";
-                        //panel1.Visible = false;
+                        panel1.Visible = false;
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El usuario " + nombre + " se agrego correctamente");
                         timer1.Start();
                         
                     }
                 }
                 //bloquea usuario sipaa
-                if (variable == 4)
+                else if (variable == 4)
                 {
                     if (cvusuario != String.Empty)
                     {   
@@ -460,7 +484,7 @@ namespace SIPAA_CS.Accesos
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El usuario esta Activado");
                             timer1.Start();
                             dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
-                            LlenaGridUsuarios("", 0, "", "", 0, "", "", 8);
+                            LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
 
                         }
                         else if (response == 0)
@@ -468,7 +492,7 @@ namespace SIPAA_CS.Accesos
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El usuario esta inactivo");
                             timer1.Start();
                             dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
-                            LlenaGridUsuarios("", 0, "", "", 0, "", "", 8);
+                            LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
                         }
                     }
                     else
@@ -478,7 +502,7 @@ namespace SIPAA_CS.Accesos
                     }
                 }
                 //edita nombre usuario
-                if (variable == 5)
+                else if (variable == 5)
                 {
                     if (cvusuario != String.Empty)
                     {
@@ -498,11 +522,11 @@ namespace SIPAA_CS.Accesos
                             txtNombre.Text = "";
                             txtPassword.Text = "";
                             txtNombreSipaa.Text = "";
-                            //panel1.Visible = false;
+                            panel1.Visible = false;
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Usuario actualizado");
                             timer1.Start();
                             dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
-                            LlenaGridUsuarios("", 0, "", "", 0, "", "", 8);
+                            LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
 
                         }
                         else if (response == 0)
@@ -512,11 +536,11 @@ namespace SIPAA_CS.Accesos
                             txtNombre.Text = "";
                             txtPassword.Text = "";
                             txtNombreSipaa.Text = "";
-                            //panel1.Visible = false;
+                            panel1.Visible = false;
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Usuario no actualizado");
                             timer1.Start();
                             dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
-                            LlenaGridUsuarios("", 0, "", "", 0, "", "", 8);
+                            LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
                         }
                     }
                     else
@@ -544,12 +568,12 @@ namespace SIPAA_CS.Accesos
                                 txtNombre.Text = "";
                                 txtPassword.Text = "";
                                 txtNombreSipaa.Text = "";
-                                //panel1.Visible = false;
+                                panel1.Visible = false;
                                 ckbElimina.Checked = false;
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El usuario esta Activado");
                                 timer1.Start();
                                 dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
-                                LlenaGridUsuarios("", 0, "", "", 0, "", "", 8);
+                                LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
 
                             }
                             else if (response == 0)
@@ -559,12 +583,12 @@ namespace SIPAA_CS.Accesos
                                 txtNombre.Text = "";
                                 txtPassword.Text = "";
                                 txtNombreSipaa.Text = "";
-                                //panel1.Visible = false;
+                                panel1.Visible = false;
                                 ckbElimina.Checked = false;
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El usuario esta Inactivo");
                                 timer1.Start();
                                 dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
-                                LlenaGridUsuarios("", 0, "", "", 0, "", "", 8);
+                                LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
                             }
                         }
                         else
@@ -586,22 +610,6 @@ namespace SIPAA_CS.Accesos
                 timer1.Start();
             }
         }
-
-        private void btnMinimizar_Click_1(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnCerrar_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            
-            this.Close();
-        }
         
         private void ckbElimina_CheckedChanged(object sender, EventArgs e)
         {
@@ -609,12 +617,12 @@ namespace SIPAA_CS.Accesos
             {
                 
                 variable = 6;
-                if (stusuario == "0")
+                if (stusuario == "Inactivo")
                 {
                     label13.Text = "      Alta Usuario SIPAA";
                     Utilerias.AsignarBotonResize(btnSipaa, Utilerias.PantallaSistema(), Botones.Alta);
                 }
-                else if (stusuario == "1")
+                else if (stusuario == "Activo")
                 {
                     label13.Text = "      Baja Usuario SIPAA";
                     Utilerias.AsignarBotonResize(btnSipaa,Utilerias.PantallaSistema(),Botones.Baja);
@@ -629,6 +637,13 @@ namespace SIPAA_CS.Accesos
 
             }
         }
+
+       
+
+
+
+
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
