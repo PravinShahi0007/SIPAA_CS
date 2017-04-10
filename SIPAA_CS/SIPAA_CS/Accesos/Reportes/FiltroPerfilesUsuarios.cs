@@ -63,22 +63,28 @@ namespace SIPAA_CS.Accesos.Reportes
         private void btnImprimirDetalle_Click(object sender, EventArgs e)
         {
             perfil = cbPerfil.SelectedIndex;
-            usuario = cbPerfil.SelectedIndex;
+            usuario = cbUsuario.SelectedIndex;
+
+            string cvusuario = cbUsuario.SelectedValue.ToString();
+            string cvperfil = cbPerfil.SelectedValue.ToString();
+
+            //MessageBox.Show(a);
+            //MessageBox.Show(b);
             //VALIDA SI ESTA SELECCIONADO
-            if (perfil < 0 && usuario < 0)
-            {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Selecciona un filtro");
-                timer1.Start();
-            }
+            //if (perfil < 0 && usuario < 0)
+            //{
+            //    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Selecciona un filtro");
+            //    timer1.Start();
+            //}
             // VALIDA SI SELECCIONO OPCION TODOS EN AMBOS
-            if (perfil == 0)
+            if (usuario == 0 && perfil == 0)
             {
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
                 timer1.Start();
 
                 Perfil objPerfil = new Perfil();
                 DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfilesUsuarios("",0,5);
+                dtReporte = objPerfil.ReportePerfilesUsuarios("",0,"","", 5);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -92,7 +98,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
-                        //ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
                         form.RptDoc = ReportDoc;
                         form.Show();
@@ -100,17 +106,95 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 }
             }
-            // VALIDA SELECCION DE PERFIL
-            if (perfil > 0 )
+            // VALIDA SELECCION DE USUARIO x Y PERFIL x
+            else if (!(usuario == 0) && !(perfil == 0 ))
             {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado perfil");
-                timer1.Start();
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado perfil y usuario");
+                //timer1.Start();
+
+                Perfil objPerfil = new Perfil();
+                DataTable dtReporte;
+                dtReporte = objPerfil.ReportePerfilesUsuarios(cvusuario, Convert.ToInt32(cvperfil),"","", 6);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReportePerfilesUsuarios form = new ViewerReportePerfilesUsuarios();
+                        ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
             }
-            // VALIDA SELECCION DE USUARIO
-            if (usuario > 0)
+            // VALIDA SELECCION DE USUARIO x Y PERFIL TODOS
+            else if (usuario > 0 && perfil == 0)
             {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado usuario");
-                timer1.Start();
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado usuario");
+                //timer1.Start();
+
+                Perfil objPerfil = new Perfil();
+                DataTable dtReporte;
+                dtReporte = objPerfil.ReportePerfilesUsuarios(cvusuario, 0, "", "", 7);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReportePerfilesUsuarios form = new ViewerReportePerfilesUsuarios();
+                        ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
+            // VALIDA SELECCION DE USUARIO TODOS Y PERFIL x
+            else if (usuario == 0 && perfil > 0)
+            {
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado usuario");
+                //timer1.Start();
+
+                Perfil objPerfil = new Perfil();
+                DataTable dtReporte;
+                dtReporte = objPerfil.ReportePerfilesUsuarios("", Convert.ToInt32(cvperfil), "", "", 8);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReportePerfilesUsuarios form = new ViewerReportePerfilesUsuarios();
+                        ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
             }
 
         }
@@ -124,7 +208,15 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void FiltroPerfilesUsuarios_Load(object sender, EventArgs e)
         {
+            Perfil objPerfil = new Perfil();
+            Usuario objUsuario = new Usuario();
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
+            DataTable dtPerfil = objPerfil.ObtenerPerfiles("", "", "", 10);
+            DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("",0,"","",0,"","",11);
+
+            llenaCombo(cbPerfil,dtPerfil,"cvperfil","Descripcion");
+            llenaCombo(cbUsuario, dtUsuario, "cvusuario", "nombre");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -133,12 +225,21 @@ namespace SIPAA_CS.Accesos.Reportes
             timer1.Stop();
         }
 
-        
+
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
 
-
+        public static void llenaCombo(ComboBox cb, DataTable dt, string sClave, string sDescripcion)
+        {
+            DataRow row = dt.NewRow();
+            row[sClave] = "0";
+            row[sDescripcion] = "Todos";
+            dt.Rows.InsertAt(row, 0);
+            cb.DataSource = dt;
+            cb.DisplayMember = sDescripcion;
+            cb.ValueMember = sClave;
+        }
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

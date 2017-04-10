@@ -90,7 +90,7 @@
             label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(39, 46);
+            label6.Location = new System.Drawing.Point(39, 126);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(42, 16);
             label6.TabIndex = 58;
@@ -115,7 +115,7 @@
             label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(39, 123);
+            label1.Location = new System.Drawing.Point(39, 45);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(50, 16);
             label1.TabIndex = 60;
@@ -208,7 +208,7 @@
             this.cbUsuario.FormattingEnabled = true;
             this.cbUsuario.Items.AddRange(new object[] {
             "Todos"});
-            this.cbUsuario.Location = new System.Drawing.Point(42, 143);
+            this.cbUsuario.Location = new System.Drawing.Point(42, 65);
             this.cbUsuario.Name = "cbUsuario";
             this.cbUsuario.Size = new System.Drawing.Size(291, 25);
             this.cbUsuario.TabIndex = 59;
@@ -221,9 +221,7 @@
             this.cbPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbPerfil.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPerfil.FormattingEnabled = true;
-            this.cbPerfil.Items.AddRange(new object[] {
-            "Todos"});
-            this.cbPerfil.Location = new System.Drawing.Point(42, 66);
+            this.cbPerfil.Location = new System.Drawing.Point(42, 146);
             this.cbPerfil.Name = "cbPerfil";
             this.cbPerfil.Size = new System.Drawing.Size(291, 25);
             this.cbPerfil.TabIndex = 57;
