@@ -144,6 +144,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             Utilerias.AgregarCheck(dgvHorario, 0);
             dgvHorario.Columns[1].Visible = false;
+
         }
         private void btnGuardarPlantilla_Click(object sender, EventArgs e)
         {
@@ -262,6 +263,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             panelTag.Visible = false;
             panelTagForReg.Visible = false;
+            panelTagRelojCheck.Visible = false;
             timer1.Stop();
         }
 
@@ -336,7 +338,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 try
                 {
                     DataTable dtresponse = objHorario.GestionHorario(iOpcionAdmin, objHorario);
-                    LimpiarFormulario();
+                   
                     switch (dtresponse.Columns[0].ToString())
                     {
 
@@ -347,18 +349,22 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         case "INSERTAR_NUEVO":
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Guardado con Exito.");
                             timer1.Start();
+                            LimpiarFormulario();
                             break;
                         case "ACTUALIZAR":
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Cambio Guardado con Exito.");
                             timer1.Start();
+                            LimpiarFormulario();
                             break;
                         case "ACTUALIZA_NUEVO":
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Guardado con Exito.");
                             timer1.Start();
+                            LimpiarFormulario();
                             break;
                         case "ELIMINAR":
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Eliminado con Exito.");
                             timer1.Start();
+                            LimpiarFormulario();
                             break;
                     }
                 }
@@ -676,14 +682,38 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         }
 
+        private void CrearAsignaciones_Reloj(string sUsuuMod, string sPrguMod,int iOpcion)
+        {
+            RelojChecador objReloj = new RelojChecador();
 
-       
+            switch (iOpcion) {
+
+                case 5: objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 0, 3, sUsuuMod, sPrguMod);
+                    break;
+            }
+
+            foreach (int cv in ltReloj)
+            {
+                  objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab,cv, iOpcion, sUsuuMod, sPrguMod);
+            }
+
+            Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Asignaciones Guardadas Correctamente");
+            timer1.Start();
+            AsignarReloj(TrabajadorInfo.IdTrab);
+            PanelReloj.Enabled = false;
+            ltReloj.Clear();
+
+        }
+
+
+
+
 
         private void llenarGridReloj(string sDescripcion)
         {
-            if (dgvForReg.Columns.Count > 1)
+            if (dgvReloj.Columns.Count > 1)
             {
-                dgvForReg.Columns.RemoveAt(0);
+                dgvReloj.Columns.RemoveAt(0);
             }
 
             RelojChecador objReloj = new RelojChecador();
@@ -702,9 +732,42 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             dgvReloj.ClearSelection();
 
+
+            CheckBox ckbHeader = Utilerias.AgregarCheckboxHeader(dgvReloj, 0);
+            ckbHeader.CheckedChanged += Checkheader_CheckedChanged;
+        }
+
+        private void Checkheader_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox ckb = (CheckBox)sender;
+
+            if (ckb.Checked == true)
+            {
+                iOpcionAdmin = 5;
+                foreach (DataGridViewRow row in dgvReloj.Rows)
+                {
+                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                    row.Cells[0].Tag = "check";
+
+                    ltReloj.Add(Convert.ToInt32(row.Cells[1].Value.ToString()));
+                    PanelReloj.Enabled = true;
+                   
+                }
+            }
+            else {
+                iOpcionAdmin = 1;
+                foreach (DataGridViewRow row in dgvReloj.Rows)
+                {
+                    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                    row.Cells[0].Tag = "uncheck";
+                    ltReloj.Clear();
+                    PanelReloj.Enabled = false;
+                }
+            }
         }
 
 
+       
         private void AsignarReloj(string sIdtrab)
         {
             RelojChecador objReloj = new RelojChecador();
@@ -717,6 +780,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             if (dgvReloj.SelectedRows.Count != 0)
             {
+                iOpcionAdmin = 1;
                 Utilerias.MultiSeleccionGridView(dgvReloj, 1, ltReloj, PanelReloj);
             }
         }
@@ -748,12 +812,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 string UsuuMod = "vjiturburuv";
                 string PrguMod = this.Name;
                 FormaReg objFr = new FormaReg();
-                LlenarGridFormasRegistro("%");
-                AsignarFormas(TrabajadorInfo.IdTrab);
+                llenarGridReloj("%");
+                AsignarReloj(TrabajadorInfo.IdTrab);
 
                 if (Utilerias.SinAsignaciones(dgvReloj, 0, 1, ltReloj) == true)
                 {
-                    CrearAsignaciones_FormasRegistro(UsuuMod, PrguMod);
+                    CrearAsignaciones_Reloj(UsuuMod, PrguMod,iOpcionAdmin);
                 }
                 else
                 {
@@ -765,10 +829,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     }
                     else
                     {
-
-                        AsignarFormas(TrabajadorInfo.IdTrab);
-                        panelPermisos.Enabled = false;
-                        ltFormasReg.Clear();
+                        AsignarReloj(TrabajadorInfo.IdTrab);
+                        PanelReloj.Enabled = false;
+                        ltReloj.Clear();
                     }
                 }
 
@@ -777,10 +840,20 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             {
                 Utilerias.ControlNotificaciones(panelTagForReg, lbMensajeForReg, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
                 timer1.Start();
-                AsignarFormas(TrabajadorInfo.IdTrab);
-                panelPermisos.Enabled = false;
-                ltFormasReg.Clear();
+                AsignarReloj(TrabajadorInfo.IdTrab);
+                PanelReloj.Enabled = false;
+                ltReloj.Clear();
             }
         }
+
+        private void dgvReloj_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dgvReloj.SelectedColumns.Count < 0) {
+
+
+
+
+            } 
         }
+    }
 }

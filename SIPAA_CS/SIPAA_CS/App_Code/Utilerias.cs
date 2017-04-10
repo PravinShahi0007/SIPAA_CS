@@ -615,6 +615,25 @@ namespace SIPAA_CS.App_Code
             return bBandera;
         }
 
+        public static CheckBox AgregarCheckboxHeader(DataGridView dgv,int iPosicionCheck) {
+
+
+            Rectangle rect = dgv.GetCellDisplayRectangle(iPosicionCheck, -1, true);
+            rect.X = rect.Location.X + 8;
+            rect.Y = rect.Location.Y + 5;
+            rect.Width = rect.Size.Width;
+            rect.Height = rect.Size.Height;
+
+            CheckBox checkheader = new CheckBox();
+            checkheader.Name = "checkboxHeader";
+            checkheader.Size = new Size(15, 15);
+            checkheader.Location = rect.Location;
+            dgv.Columns[iPosicionCheck].HeaderText = "      Seleccionar";
+            dgv.Columns[iPosicionCheck].Width = 100;
+            dgv.Controls.Add(checkheader);
+
+            return checkheader;
+        }
 
         public static Size PantallaSistema()
         {
