@@ -148,7 +148,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     {
                         v_Orden = 0;
                     }
-                    sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), v_Orden, iStGen, iStGen, 0, "150076", "Incidencias");
+                    iStGen =  Int32.Parse(cboGen.SelectedValue.ToString());
+                    iStRep = Int32.Parse(cboRep.SelectedValue.ToString());
+                    sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), v_Orden, iStGen, iStRep, 0, "150076", "Incidencias");
                     txtCapInc.Text = "";
                     panelTag.Visible = true;
                     timer1.Start();
@@ -178,6 +180,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                         {
                             v_Orden = 0;
                         }
+                        iStGen = Int32.Parse(cboGen.SelectedValue.ToString());
+                        iStRep = Int32.Parse(cboRep.SelectedValue.ToString());
                         sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), v_Orden, iStGen, iStRep, 0, "150076", "Incidencias");
                         txtCapInc.Text = "";
                         panelTag.Visible = true;
@@ -454,8 +458,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 Util.cargarcombo(cboRep, Cstatus.cbo(7, "rechcincidencia"));
                 Util.cargarcombo(cboGen, Cstatus.cbo(8, "rechcincidencia"));
 
-                cboGen.SelectedIndex = iStGen;
-                cboRep.SelectedIndex = iStRep;
+                cboGen.SelectedValue = iStGen;
+                cboRep.SelectedValue = iStRep;
 
                 txtCapInc.Text = ValorRow;
                 txtCapOrd.Text = ValorRowO;
