@@ -87,7 +87,105 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            descripcion = txtDescripcion.Text;
+            descripcion.Trim();
 
+            //cvproceso;
+
+
+            //agregar
+            if (variable == 1)
+            {
+                //MessageBox.Show("Ingresa una 1");
+                if (descripcion.Trim() != String.Empty)
+                {
+                    string prgmod = this.Name;
+                    int regreso = proceso.AgregarProceso(0, descripcion.Trim(), 0, "", prgmod, 1);
+                    if (regreso == 1)
+                    {
+                        //MessageBox.Show("Se agrego proceso");
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Se agregó Proceso");
+                        timer1.Start();
+                        Crear_Procesos_Load(sender, e);
+                        txtDescripcion.Text = "";
+                        //txtDescripcion.Focus();
+                    }
+                    else
+                    {
+                        //MessageBox.Show("El proceso ya existe");
+                        //txtDescripcion.Focus();
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El Proceso ya existe");
+                        timer1.Start();
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("Ingresa una descripcion");
+                    //txtDescripcion.Focus();
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ingresa una Descripción");
+                    timer1.Start();
+                }
+            }
+            //editar
+            if (variable == 2)
+            {
+                //MessageBox.Show("Ingresa una 2");
+                if (descripcion.Trim() != String.Empty)
+                {
+                    int regreso = proceso.AgregarProceso(cvproceso, descripcion.Trim(), 0, "", "", 2);
+                    if (regreso == 1)
+                    {
+                        //MessageBox.Show("Sea actualizo proceso");
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Se actualizó Proceso");
+                        timer1.Start();
+                        Crear_Procesos_Load(sender, e);
+                        txtDescripcion.Text = "";
+                        txtDescripcion.Focus();
+                    }
+                    else
+                    {
+                        //MessageBox.Show("El proceso no se actualizo");
+                        //txtDescripcion.Focus();
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El Proceso no se actualizó");
+                        timer1.Start();
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("Ingresa una descripcion");
+                    //txtDescripcion.Focus();
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ingresa una Descripción");
+                    timer1.Start();
+                }
+            }
+            //eliminar
+            if (variable == 3)
+            {
+                //MessageBox.Show("Ingresa una 3");
+                int regreso = proceso.AgregarProceso(cvproceso, "", 0, "", "", 3);
+                if (regreso == 1)
+                {
+                    MessageBox.Show("Sea activo proceso");
+                    Crear_Procesos_Load(sender, e);
+                    txtDescripcion.Text = "";
+                    txtDescripcion.Focus();
+                    cbEliminar.Checked = false;
+
+                }
+                else if (regreso == 0)
+                {
+                    MessageBox.Show("Sea desactivo proceso");
+                    Crear_Procesos_Load(sender, e);
+                    txtDescripcion.Text = "";
+                    txtDescripcion.Focus();
+                    cbEliminar.Checked = false;
+                }
+            }
+
+        }
         private void cbEliminar_CheckedChanged(object sender, EventArgs e)
         {
             //variable = 3;
@@ -227,10 +325,7 @@ namespace SIPAA_CS.Accesos
             timer1.Stop();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

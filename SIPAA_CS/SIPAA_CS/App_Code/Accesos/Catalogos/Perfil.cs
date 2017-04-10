@@ -207,16 +207,18 @@ namespace SIPAA_CS.App_Code
             return dtPerfiles;
         }
 
-        public DataTable ReportePerfilesUsuarios(string  cvperfil, int descripcion, int opcion)
+        public DataTable ReportePerfilesUsuarios(string cvusuario, int cvperfil, string usuumod, string prgumod, int opcion)
         {
 
             Conexion objConexion = new Conexion();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_acceusuper_s";
+            cmd.CommandText = @"usp_acceusuper_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvperfil;
-            cmd.Parameters.Add("@p_cvperfil", SqlDbType.Int).Value = descripcion;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_cvperfil", SqlDbType.Int).Value = cvperfil;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
 
             objConexion.asignarConexion(cmd);
@@ -227,6 +229,36 @@ namespace SIPAA_CS.App_Code
             Adapter.Fill(dtPerfilesUsuarios);
 
             return dtPerfilesUsuarios;
+        }
+
+        public DataTable ObtenerPerfiles(string sCvPerfil, string sDescripcion, string sEstatus, int opcion)
+        {
+
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_acceperfil_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@P_CvPerfil", SqlDbType.VarChar).Value = sCvPerfil;
+            cmd.Parameters.Add("@P_Descripcion", SqlDbType.VarChar).Value = sDescripcion;
+            cmd.Parameters.Add("@P_Estatus", SqlDbType.VarChar).Value = sEstatus;
+            cmd.Parameters.Add("@p_usuarioumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_programaumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
+
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtPerfiles = new DataTable();
+            Adapter.Fill(dtPerfiles);
+            return dtPerfiles;
+
         }
 
 
