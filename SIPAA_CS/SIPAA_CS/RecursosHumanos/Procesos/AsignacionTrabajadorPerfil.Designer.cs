@@ -1323,6 +1323,7 @@
             this.dgvReloj.TabIndex = 198;
             this.dgvReloj.Tag = "Editar";
             this.dgvReloj.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReloj_CellContentClick);
+            this.dgvReloj.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvReloj_ColumnHeaderMouseClick);
             // 
             // panel14
             // 

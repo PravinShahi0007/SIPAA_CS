@@ -34,7 +34,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             string sIdtrab = TrabajadorInfo.IdTrab;
             List<string> ltTnom = new List<string>();
             SonaTrabajador objTrab = new SonaTrabajador();
-            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(sIdtrab, 6, "%", "%");
+            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(sIdtrab, 5, "%", "%");
 
             foreach (DataRow row in dtTrab.Rows) {
 

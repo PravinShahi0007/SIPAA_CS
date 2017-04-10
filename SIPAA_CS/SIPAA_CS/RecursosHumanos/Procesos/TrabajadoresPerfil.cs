@@ -26,7 +26,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             SonaTrabajador objTrab = new SonaTrabajador();
-            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%", 7, "%", "%");
+            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%",6, "%", "%");
          //   llenarListView(dtTrab, ltvTrabajador);
             llenarGrid(dtTrab, dgvTrab);
         }
