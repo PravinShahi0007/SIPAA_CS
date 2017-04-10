@@ -37,7 +37,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             llenarCombo(cbDepartamento, dtDepto, "Descripción");
 
             ConcepInc objInc = new ConcepInc();
-            DataTable dtInc = objInc.ConcepInc_S(4, 0, "", 0, 0, "", "");
+            DataTable dtInc = objInc.ConcepInc_S(4, 0, "", 0, 0, 0, 0, "", "");
             llenarCombo(cbIncidencia, dtInc, "Descripción");
 
 

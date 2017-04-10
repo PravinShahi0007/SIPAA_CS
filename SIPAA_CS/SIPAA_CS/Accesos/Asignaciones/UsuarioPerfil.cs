@@ -57,7 +57,7 @@ namespace SIPAA_CS.Accesos
                 int IdTrab = Convert.ToInt32(row.Cells["IdTrab"].Value.ToString());
                 string ValorRow = row.Cells["Nombre"].Value.ToString();
 
-              
+                row.Cells[3].Value = Resources.ic_check_circle_green_400_18dp;
                 AsignarPerfiles();
             }
         }
