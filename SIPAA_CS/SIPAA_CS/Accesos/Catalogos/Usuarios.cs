@@ -328,30 +328,44 @@ namespace SIPAA_CS.Accesos
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            variable = 1;
-            cvusuario = txtCvUsuario.Text;
-            nombre = txtNombre.Text;
-            passw = txtPassword.Text;
+        //private void btnAgregar_Click(object sender, EventArgs e)
+        //{
+        //    variable = 1;
+        //    cvusuario = txtCvUsuario.Text;
+        //    nombre = txtNombre.Text;
+        //    passw = txtPassword.Text;
 
-            if (cvusuario != String.Empty && nombre != String.Empty && passw != String.Empty)
-            {
-                utilerias.DisableBotones(btnGuardar, 1, false);
-            }
-            else
-            {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Asigna primero una busqueda");
-                txtBuscar.Focus();
-            }
-        }
-        private void btnAgregar_Click_1(object sender, EventArgs e)
+        //    if (cvusuario != String.Empty && nombre != String.Empty && passw != String.Empty)
+        //    {
+        //        utilerias.DisableBotones(btnGuardar, 1, false);
+        //    }
+        //    else
+        //    {
+        //        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Asigna primero una busqueda");
+        //        txtBuscar.Focus();
+        //    }
+        //}
+        //private void btnAgregar_Click(object sender, EventArgs e)
+        //{
+        //    variable = 3;
+        //    label13.Text = "      Crear Usuario SIPAA";
+        //    txtNombreSipaa.Text = "";
+        //    panel1.Visible = true;
+        //    ckbElimina.Visible = false;
+        //    Utilerias.AsignarBotonResize(btnSipaa, Utilerias.PantallaSistema(), Botones.Guardar);
+        //}
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             variable = 3;
             label13.Text = "      Crear Usuario SIPAA";
+            txtCvUsuario1.Text = "";
             txtNombreSipaa.Text = "";
-            panel1.Visible = true;
+            txtCvUsuario1.Enabled = true;
+            txtNombreSipaa.Enabled = true;
             ckbElimina.Visible = false;
+            panel1.Visible = true;
+            panel10.Visible = false;
+            txtCvUsuario1.Focus();
             Utilerias.AsignarBotonResize(btnSipaa, Utilerias.PantallaSistema(), Botones.Guardar);
         }
         private void btnBuscarSipaa_Click(object sender, EventArgs e)
@@ -360,8 +374,10 @@ namespace SIPAA_CS.Accesos
             txtNombreSipaa.Text = "";
             ckbElimina.Visible = false;
             buscar = txtBuscarSipaa.Text;
+            panel10.Visible = false;
+            panel1.Visible = false;
             dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
-            LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "", 8);
+            LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "", 12);
         }
 
         
@@ -375,18 +391,18 @@ namespace SIPAA_CS.Accesos
         private void Crear_Acceso_Usuario_Load(object sender, EventArgs e)
         {
             //// Se crea lista de permisos por pantalla
-            //LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
-            //DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
-            //LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
+            DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
+            LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
             ////////////////////////////////////////////////////////
             //// resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             /////////////////////////////////////////////////////////////////////////////////////////////////////
             //// variables de permisos
-            //Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
-            //Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
-            //Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
-            //Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
+            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
+            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
+            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
+            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
             //////////////////////////////////////////////////////////////////////////////////////////
 
             panel1.Visible = false;
@@ -638,11 +654,7 @@ namespace SIPAA_CS.Accesos
             }
         }
 
-       
-
-
-
-
+        
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
