@@ -23,16 +23,12 @@ namespace SIPAA_CS.RecursosHumanos
 
     public partial class TiposHorario : Form
     {
-
         #region
-
-        int pins;
-        int pact;
-        int pelim;
-        int pactbtn;
-        int pcvtipohr;
-        int p_rep;
-
+        //variables utilizadas
+        int iins, iact, ielim, ivalresp;
+        int iactbtn;
+        int icvtipohr;
+        int iresp;
         #endregion
 
         TipoHr TipHr = new TipoHr();
@@ -51,57 +47,63 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void dgvtiphr_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (pins == 1 && pact == 1 && pelim == 1)
+            if (iins == 1 && iact == 1 && ielim == 1)
             {
                 factgrid();
                 Util.ChangeButton(btninsertar, 2, false);
-                ckbEliminar.Visible = true;
-                pactbtn = 2;
+                btnagregar.Image = Resources.Editar;
+                cbxEliminar.Visible = true;
+                iactbtn = 2;
             }
-            else if (pins == 1 && pact == 1)
+            else if (iins == 1 && iact == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
+                btnagregar.Image = Resources.Editar;
                 factgrid();
-                pactbtn = 2;
+                iactbtn = 2;
             }
-            else if (pins == 1 && pelim == 1)
+            else if (iins == 1 && ielim == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
+                btnagregar.Image = Resources.Editar;
                 factgrid();
-                ckbEliminar.Visible = true;
-                pactbtn = 2;
+                cbxEliminar.Visible = true;
+                iactbtn = 2;
             }
-            else if (pact == 1 && pelim == 1)
+            else if (iact == 1 && ielim == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
+                btnagregar.Image = Resources.Editar;
                 factgrid();
-                ckbEliminar.Visible = true;
-                pactbtn = 2;
+                cbxEliminar.Visible = true;
+                iactbtn = 2;
             }
-            else if (pins == 1)
+            else if (iins == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
+                btnagregar.Image = Resources.Editar;
                 factgrid();
-                pactbtn = 2;
+                iactbtn = 2;
             }
-            else if (pact == 1)
+            else if (iact == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
+                btnagregar.Image = Resources.Editar;
                 factgrid();
-                pactbtn = 2;
+                iactbtn = 2;
             }
-            else if (pelim == 1)
+            else if (ielim == 1)
             {
                 Util.ChangeButton(btninsertar, 3, false);
+                btnagregar.Image = Resources.Baja;
                 factgrid();
-                ckbEliminar.Visible = true;
-                pactbtn = 3;
+                cbxEliminar.Visible = true;
+                iactbtn = 3;
             }
             else
             {
                 
             }
-
         }
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
@@ -119,47 +121,107 @@ namespace SIPAA_CS.RecursosHumanos
         //boton agregar
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            ckbEliminar.Visible = false;
+            cbxEliminar.Visible = false;
             pnltiphr.Visible = true;
             lbluid.Text = "     Agregar Tipo de Horario";
             Util.ChangeButton(btninsertar, 1, false);
-            pactbtn = 1;
+            btnagregar.Image = Resources.Guardar;
+            iactbtn = 1;
             txttipohriu.Text = "";
             txttipohriu.Focus();
         }
         private void btninsertar_Click(object sender, EventArgs e)
         {
-            if (txttipohriu.Text.Trim() == "" && pactbtn ==1)
+            if (txttipohriu.Text.Trim() == "" && iactbtn ==1)
             {
                 lbMensaje.Text = "Capture un dato a guardar";
             }
-            else if(pactbtn == 1)//insertar
+            else if(iactbtn == 1)//insertar
             {
-                //inserta registro nuevo
-                fuidtiphr(1,0,txttipohriu.Text.Trim(), "nam", "TipoHorario");
-                dgvtiphr.DataSource = null;
-                if (pins == 1 && pact == 0 && pelim == 0)
+                //valida registros identicos
+                ivalresp = TipHr.valtipohr(5,0, txttipohriu.Text.Trim());
+
+                if (ivalresp > 0)
                 {
-                    
+                    DialogResult result = MessageBox.Show("El registro que intenta insertar ya existe, Favor de verificar", "SIPAA", MessageBoxButtons.OK);
+                    dgvtiphr.DataSource = null;
+                    dgvtiphr.Columns.RemoveAt(0);
+                    //llena grid con datos existente
+                    fgtphr(4, 0, txttipohriu.Text.Trim(), "nam", "TipoHorario");
                 }
                 else
                 {
-                    dgvtiphr.Columns.RemoveAt(0);
+                    //valida registro similares
+                    ivalresp = TipHr.valtipohr(6, 0, txttipohriu.Text.Trim());
+
+                    if (ivalresp > 0)
+                    {
+                        dgvtiphr.DataSource = null;
+                        dgvtiphr.Columns.RemoveAt(0);
+                        //llena grid con datos existente
+                        fgtphr(4, 0, txttipohriu.Text.Trim(), "nam", "TipoHorario");
+
+                        DialogResult result = MessageBox.Show("Exiten " + ivalresp + " registros similares, desea agregar el registro", "SIPAA", MessageBoxButtons.YesNo);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            //inserta registro nuevo
+                            fuidtiphr(1, 0, txttipohriu.Text.Trim(), "nam", "TipoHorario");
+                            dgvtiphr.DataSource = null;
+                            if (iins == 1 && iact == 0 && ielim == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                dgvtiphr.Columns.RemoveAt(0);
+                            }
+                            panelTag.Visible = true;
+                            txttipohriu.Text = "";
+                            txttipohriu.Focus();
+                            timer1.Start();
+                            //llena grid con datos existente
+                            fgtphr(4, 0, "", "nam", "TipoHorario");
+                            cbxEliminar.Checked = false;
+                            cbxEliminar.Visible = false;
+                            pnltiphr.Visible = false;
+                        }
+                        else if (result == DialogResult.No)
+                        {
+
+                        }
+
+                    }
+                    else
+                    {
+                        //inserta registro nuevo
+                        fuidtiphr(1, 0, txttipohriu.Text.Trim(), "nam", "TipoHorario");
+                        dgvtiphr.DataSource = null;
+                        if (iins == 1 && iact == 0 && ielim == 0)
+                        {
+
+                        }
+                        else
+                        {
+                            dgvtiphr.Columns.RemoveAt(0);
+                        }
+                        panelTag.Visible = true;
+                        txttipohriu.Text = "";
+                        txttipohriu.Focus();
+                        timer1.Start();
+                        //llena grid con datos existente
+                        fgtphr(4, 0, "", "nam", "TipoHorario");
+                        cbxEliminar.Checked = false;
+                        cbxEliminar.Visible = false;
+                        pnltiphr.Visible = false;
+                    }
                 }
-                panelTag.Visible = true;
-                txttipohriu.Text = "";
-                txttipohriu.Focus();
-                timer1.Start();
-                //llena grid con datos existente
-                fgtphr(4, 0, "", "nam", "TipoHorario");
-                ckbEliminar.Checked = false;
-                ckbEliminar.Visible = false;
-                pnltiphr.Visible = false;
+
             }
-            else if (pactbtn == 2)//actualizar
+            else if (iactbtn == 2)//actualizar
             {
                 //inserta registro nuevo
-                fuidtiphr(2, pcvtipohr, txttipohriu.Text.Trim(), "nam", "TipoHorario");
+                fuidtiphr(2, icvtipohr, txttipohriu.Text.Trim(), "nam", "TipoHorario");
                 dgvtiphr.DataSource = null;
                 dgvtiphr.Columns.RemoveAt(0);
                 panelTag.Visible = true;
@@ -168,18 +230,18 @@ namespace SIPAA_CS.RecursosHumanos
                 timer1.Start();
                 //llena grid con datos existente
                 fgtphr(4, 0, "", "nam", "TipoHorario");
-                ckbEliminar.Checked = false;
-                ckbEliminar.Visible = false;
+                cbxEliminar.Checked = false;
+                cbxEliminar.Visible = false;
                 pnltiphr.Visible = false;
             }
-            else if (pactbtn == 3)//eliminar
+            else if (iactbtn == 3)//eliminar
             {
                 DialogResult result = MessageBox.Show("Esta acción elimina el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
                 {
                     //inserta registro nuevo
-                    fuidtiphr(3, pcvtipohr, txttipohriu.Text.Trim(), "nam", "TipoHorario");
+                    fuidtiphr(3, icvtipohr, txttipohriu.Text.Trim(), "nam", "TipoHorario");
                     dgvtiphr.DataSource = null;
                     dgvtiphr.Columns.RemoveAt(0);
                     panelTag.Visible = true;
@@ -188,8 +250,8 @@ namespace SIPAA_CS.RecursosHumanos
                     timer1.Start();
                     //llena grid con datos existente
                     fgtphr(4, 0, "", "nam", "TipoHorario");
-                    ckbEliminar.Checked = false;
-                    ckbEliminar.Visible = false;
+                    cbxEliminar.Checked = false;
+                    cbxEliminar.Visible = false;
                     pnltiphr.Visible = false;
                 }
                 else if (result == DialogResult.No)
@@ -226,21 +288,20 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void TipoHorario_Load(object sender, EventArgs e)
         {
-            
             //habilita tool tip
             ftooltip();
 
             //variable para inserta nuevo registro
-            pins = 0;
-            pact = 0;
-            pelim = 1;
-            pcvtipohr = 0;
-            pactbtn = 0;
-            p_rep = 0;
+            iins = 1;
+            iact = 1;
+            ielim = 1;
+            icvtipohr = 0;
+            iactbtn = 0;
+            iresp = 0;
 
-            if (pins == 1)
+            if (iins == 1)
             {
-                btnAgregar.Visible = true;
+                btnagregar.Visible = true;
             }
 
             //llena grid con datos existente
@@ -254,17 +315,19 @@ namespace SIPAA_CS.RecursosHumanos
         }
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
         {
-            if (ckbEliminar.Checked == true)
+            if (cbxEliminar.Checked == true)
             {
                 Util.ChangeButton(btninsertar, 3, false);
+                btnagregar.Image = Resources.Baja;
                 lbluid.Text = "     Elimina Tipo de Horario";
-                pactbtn = 3;
+                iactbtn = 3;
             }
             else
             {
                 Util.ChangeButton(btninsertar, 2, false);
+                btnagregar.Image = Resources.Editar;
                 lbluid.Text = "     Modifica Tipo de Horario";
-                pactbtn = 2;
+                iactbtn = 2;
             }
         }
         //-----------------------------------------------------------------------------------------------
@@ -283,15 +346,15 @@ namespace SIPAA_CS.RecursosHumanos
             toolTip1.ShowAlways = true;
 
             //configura texto del objeto
-            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
-            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
-            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
-            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btncerrar, "Cerrar Sistema");
+            toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnregresar, "Regresar");
+            toolTip1.SetToolTip(this.btnbuscar, "Busca Registro");
         }
         private void fgtphr(int p_opcion, int p_cvtipohr, string p_descripcion, string p_usuumod, string p_prgumodr)
         {
 
-            if (pins == 1 && pact == 1 && pelim == 1)
+            if (iins == 1 && iact == 1 && ielim == 1)
             {
                 DataTable dttipohr = TipHr.obttipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
                 dgvtiphr.DataSource = dttipohr;
@@ -308,25 +371,7 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvtiphr.Columns[3].Visible = false;
                 dgvtiphr.ClearSelection();
             }
-            else if (pins == 1 && pact == 1)
-            {
-                DataTable dttipohr = TipHr.obttipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
-                dgvtiphr.DataSource = dttipohr;
-
-                DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
-                imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
-                imgCheckUsuarios.Name = "img";
-                dgvtiphr.Columns.Insert(0, imgCheckUsuarios);
-                dgvtiphr.Columns[0].HeaderText = "Selección";
-
-                dgvtiphr.Columns[0].Width = 75;
-                dgvtiphr.Columns[1].Visible = false;
-                dgvtiphr.Columns[2].Width = 400;
-                dgvtiphr.Columns[3].Visible = false;
-                dgvtiphr.ClearSelection();
-
-            }
-            else if (pins == 1 && pelim == 1)
+            else if (iins == 1 && iact == 1)
             {
                 DataTable dttipohr = TipHr.obttipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
                 dgvtiphr.DataSource = dttipohr;
@@ -343,7 +388,7 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvtiphr.Columns[3].Visible = false;
                 dgvtiphr.ClearSelection();
             }
-            else if (pact == 1 && pelim == 1)
+            else if (iins == 1 && ielim == 1)
             {
                 DataTable dttipohr = TipHr.obttipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
                 dgvtiphr.DataSource = dttipohr;
@@ -360,7 +405,24 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvtiphr.Columns[3].Visible = false;
                 dgvtiphr.ClearSelection();
             }
-            else if (pins == 1)
+            else if (iact == 1 && ielim == 1)
+            {
+                DataTable dttipohr = TipHr.obttipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
+                dgvtiphr.DataSource = dttipohr;
+
+                DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
+                imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
+                imgCheckUsuarios.Name = "img";
+                dgvtiphr.Columns.Insert(0, imgCheckUsuarios);
+                dgvtiphr.Columns[0].HeaderText = "Selección";
+
+                dgvtiphr.Columns[0].Width = 75;
+                dgvtiphr.Columns[1].Visible = false;
+                dgvtiphr.Columns[2].Width = 400;
+                dgvtiphr.Columns[3].Visible = false;
+                dgvtiphr.ClearSelection();
+            }
+            else if (iins == 1)
             {
                 DataTable dttipohr = TipHr.obttipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
                 dgvtiphr.DataSource = dttipohr;
@@ -371,7 +433,7 @@ namespace SIPAA_CS.RecursosHumanos
 
                 dgvtiphr.ClearSelection();
             }
-            else if (pact == 1)
+            else if (iact == 1)
             {
                 DataTable dttipohr = TipHr.obttipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
                 dgvtiphr.DataSource = dttipohr;
@@ -388,7 +450,7 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvtiphr.Columns[3].Visible = false;
                 dgvtiphr.ClearSelection();
             }
-            else if (pelim == 1)
+            else if (ielim == 1)
             {
                 DataTable dttipohr = TipHr.obttipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
                 dgvtiphr.DataSource = dttipohr;
@@ -422,31 +484,31 @@ namespace SIPAA_CS.RecursosHumanos
         private void fuidtiphr(int p_opcion, int p_cvtipohr, string p_descripcion, string p_usuumod, string p_prgumodr)
         {
             //agrega registro
-            if (pactbtn == 1)
+            if (iactbtn == 1)
             {
 
-                p_rep = TipHr.uditipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
+                iresp = TipHr.uditipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
                 //lbMensaje.Text = p_rep.ToString();
                 txttipohriu.Text = "";
             }
             //actualiza registro
-            else if (pactbtn == 2)
+            else if (iactbtn == 2)
             {
 
-                p_rep = TipHr.uditipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
+                iresp = TipHr.uditipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
                 //lbMensaje.Text = p_rep.ToString();
                 txttipohriu.Text = "";
             }
             //elimina registro
-            else if (pactbtn == 3)
+            else if (iactbtn == 3)
             {
 
-                p_rep = TipHr.uditipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
+                iresp = TipHr.uditipohr(p_opcion, p_cvtipohr, p_descripcion, p_usuumod, p_prgumodr);
                 //lbMensaje.Text = p_rep.ToString();
                 txttipohriu.Text = "";
             }
 
-            switch (p_rep.ToString())
+            switch (iresp.ToString())
             {
                 case "1":
                     lbMensaje.Text = "Registro agregado correctamente";
@@ -465,7 +527,7 @@ namespace SIPAA_CS.RecursosHumanos
         }
         private void factgrid()
         {
-            if (pins == 1 && pact == 0 && pelim == 0)
+            if (iins == 1 && iact == 0 && ielim == 0)
             {
             }
             else
@@ -480,7 +542,7 @@ namespace SIPAA_CS.RecursosHumanos
 
                     DataGridViewRow row = this.dgvtiphr.SelectedRows[0];
 
-                    pcvtipohr = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
+                    icvtipohr = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
                     string ValorRow = row.Cells["Descripción"].Value.ToString();
 
                     pnltiphr.Visible = true;
@@ -491,11 +553,6 @@ namespace SIPAA_CS.RecursosHumanos
                     row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                 }
             }
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-
         }
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
