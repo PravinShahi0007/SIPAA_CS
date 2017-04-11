@@ -46,7 +46,6 @@
             this.lbltitulo = new System.Windows.Forms.Label();
             this.dgvtiphr = new System.Windows.Forms.DataGridView();
             this.pnlbusqueda = new System.Windows.Forms.Panel();
-            this.btnbuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txttipohr = new System.Windows.Forms.TextBox();
             this.pnltiphr = new System.Windows.Forms.Panel();
@@ -58,6 +57,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
+            this.btnbuscar = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -156,16 +156,16 @@
             // 
             // btnregresar
             // 
-            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(895, 1);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
-            this.btnRegresar.TabIndex = 126;
-            this.btnRegresar.TabStop = false;
-            this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnregresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnregresar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
+            this.btnregresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnregresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnregresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnregresar.Location = new System.Drawing.Point(936, 1);
+            this.btnregresar.Name = "btnregresar";
+            this.btnregresar.Size = new System.Drawing.Size(30, 24);
+            this.btnregresar.TabIndex = 136;
+            this.btnregresar.UseVisualStyleBackColor = false;
             // 
             // btnminimizar
             // 
@@ -256,8 +256,8 @@
             // pnlbusqueda
             // 
             this.pnlbusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.pnlbusqueda.Controls.Add(label4);
             this.pnlbusqueda.Controls.Add(this.btnbuscar);
+            this.pnlbusqueda.Controls.Add(label4);
             this.pnlbusqueda.Controls.Add(this.panel5);
             this.pnlbusqueda.Controls.Add(this.txttipohr);
             this.pnlbusqueda.Controls.Add(label1);
@@ -266,21 +266,6 @@
             this.pnlbusqueda.Size = new System.Drawing.Size(397, 87);
             this.pnlbusqueda.TabIndex = 131;
             this.pnlbusqueda.TabStop = true;
-            // 
-            // btnbuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnBuscar.Location = new System.Drawing.Point(339, 16);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(50, 50);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // panel5
             // 
@@ -363,17 +348,17 @@
             // 
             // btnagregar
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
-            this.btnAgregar.Location = new System.Drawing.Point(941, 130);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(50, 50);
-            this.btnAgregar.TabIndex = 133;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Visible = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnagregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnagregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnagregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnagregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
+            this.btnagregar.Location = new System.Drawing.Point(941, 131);
+            this.btnagregar.Name = "btnagregar";
+            this.btnagregar.Size = new System.Drawing.Size(50, 50);
+            this.btnagregar.TabIndex = 135;
+            this.btnagregar.UseVisualStyleBackColor = false;
+            this.btnagregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // timer1
             // 
@@ -403,6 +388,18 @@
             this.lbMensaje.TabIndex = 26;
             this.lbMensaje.Text = "Administración de Perfiles    ";
             this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnbuscar
+            // 
+            this.btnbuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnbuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
+            this.btnbuscar.Location = new System.Drawing.Point(339, 14);
+            this.btnbuscar.Name = "btnbuscar";
+            this.btnbuscar.Size = new System.Drawing.Size(50, 50);
+            this.btnbuscar.TabIndex = 137;
+            this.btnbuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // TiposHorario
             // 
@@ -449,7 +446,6 @@
         private System.Windows.Forms.Label lbltitulo;
         private System.Windows.Forms.DataGridView dgvtiphr;
         private System.Windows.Forms.Panel pnlbusqueda;
-        private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txttipohr;
         private System.Windows.Forms.Panel pnltiphr;
@@ -462,5 +458,6 @@
         private System.Windows.Forms.Label lbMensaje;
         private System.Windows.Forms.CheckBox cbxEliminar;
         private System.Windows.Forms.Label lbluid;
+        private System.Windows.Forms.Button btnbuscar;
     }
 }
