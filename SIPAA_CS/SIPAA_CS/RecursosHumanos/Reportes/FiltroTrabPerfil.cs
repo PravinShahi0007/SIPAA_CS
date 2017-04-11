@@ -83,7 +83,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             //LLENA COMBOS
             Util.cargarcombo(cboCia, CComUbi.obtcomp(5, ""));
-            Util.cargarcombo(cboUbicacion, CComUbi.ObtenerUbicacionPlantel(""));
+            Util.cargarcombo(cboUbicacion, CComUbi.ObtenerUbicacionPlantel(5,""));
 
             txtIdTrab.Focus();
 
