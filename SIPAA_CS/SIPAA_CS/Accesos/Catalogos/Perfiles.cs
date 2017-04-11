@@ -232,9 +232,9 @@ namespace SIPAA_CS.Accesos
             Modulo objModulo = new Modulo();
             
 
-            if (!Permisos.Crear) {
+            if (Permisos.Crear) {
 
-                btnAgregar.Visible = false;
+                btnAgregar.Visible = true;
             }
 
            
