@@ -35,22 +35,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pnlBusqueda = new System.Windows.Forms.Panel();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.pnlbusqueda = new System.Windows.Forms.Panel();
+            this.btnbuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtPuestos = new System.Windows.Forms.TextBox();
-            this.dgvPuestos = new System.Windows.Forms.DataGridView();
+            this.txtpuestos = new System.Windows.Forms.TextBox();
+            this.dgvpuestos = new System.Windows.Forms.DataGridView();
             this.lblusuario = new System.Windows.Forms.Label();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
-            this.btnRegresar = new System.Windows.Forms.Button();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnregresar = new System.Windows.Forms.Button();
+            this.btnminimizar = new System.Windows.Forms.Button();
+            this.btncerrar = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
-            this.pnlBusqueda.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPuestos)).BeginInit();
+            this.pnlbusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvpuestos)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -91,34 +91,33 @@
             label1.TabIndex = 41;
             label1.Text = "     Buscar Puestos";
             // 
-            // pnlBusqueda
+            // pnlbusqueda
             // 
-            this.pnlBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.pnlBusqueda.Controls.Add(label4);
-            this.pnlBusqueda.Controls.Add(this.btnBuscar);
-            this.pnlBusqueda.Controls.Add(this.panel5);
-            this.pnlBusqueda.Controls.Add(this.txtPuestos);
-            this.pnlBusqueda.Controls.Add(label1);
-            this.pnlBusqueda.Location = new System.Drawing.Point(48, 144);
-            this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(360, 87);
-            this.pnlBusqueda.TabIndex = 0;
-            this.pnlBusqueda.TabStop = true;
+            this.pnlbusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlbusqueda.Controls.Add(label4);
+            this.pnlbusqueda.Controls.Add(this.btnbuscar);
+            this.pnlbusqueda.Controls.Add(this.panel5);
+            this.pnlbusqueda.Controls.Add(this.txtpuestos);
+            this.pnlbusqueda.Controls.Add(label1);
+            this.pnlbusqueda.Location = new System.Drawing.Point(48, 144);
+            this.pnlbusqueda.Name = "pnlbusqueda";
+            this.pnlbusqueda.Size = new System.Drawing.Size(360, 87);
+            this.pnlbusqueda.TabIndex = 0;
+            this.pnlbusqueda.TabStop = true;
             // 
-            // btnBuscar
+            // btnbuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnBuscar.Location = new System.Drawing.Point(296, 14);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(50, 50);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnbuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnbuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
+            this.btnbuscar.Location = new System.Drawing.Point(296, 14);
+            this.btnbuscar.Name = "btnbuscar";
+            this.btnbuscar.Size = new System.Drawing.Size(50, 50);
+            this.btnbuscar.TabIndex = 2;
+            this.btnbuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnbuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // panel5
             // 
@@ -128,27 +127,27 @@
             this.panel5.Size = new System.Drawing.Size(250, 1);
             this.panel5.TabIndex = 43;
             // 
-            // txtPuestos
+            // txtpuestos
             // 
-            this.txtPuestos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtPuestos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPuestos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPuestos.Location = new System.Drawing.Point(30, 46);
-            this.txtPuestos.Name = "txtPuestos";
-            this.txtPuestos.Size = new System.Drawing.Size(250, 15);
-            this.txtPuestos.TabIndex = 1;
+            this.txtpuestos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtpuestos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtpuestos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpuestos.Location = new System.Drawing.Point(30, 46);
+            this.txtpuestos.Name = "txtpuestos";
+            this.txtpuestos.Size = new System.Drawing.Size(250, 15);
+            this.txtpuestos.TabIndex = 1;
             // 
-            // dgvPuestos
+            // dgvpuestos
             // 
-            this.dgvPuestos.AllowUserToAddRows = false;
-            this.dgvPuestos.AllowUserToDeleteRows = false;
-            this.dgvPuestos.AllowUserToResizeRows = false;
+            this.dgvpuestos.AllowUserToAddRows = false;
+            this.dgvpuestos.AllowUserToDeleteRows = false;
+            this.dgvpuestos.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvPuestos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvPuestos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvPuestos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.dgvPuestos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvPuestos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvpuestos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvpuestos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvpuestos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.dgvpuestos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvpuestos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -156,8 +155,8 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPuestos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvpuestos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvpuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -165,18 +164,18 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPuestos.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvPuestos.Location = new System.Drawing.Point(461, 145);
-            this.dgvPuestos.Name = "dgvPuestos";
-            this.dgvPuestos.ReadOnly = true;
-            this.dgvPuestos.RowHeadersVisible = false;
-            this.dgvPuestos.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvPuestos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
-            this.dgvPuestos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
-            this.dgvPuestos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPuestos.Size = new System.Drawing.Size(512, 547);
-            this.dgvPuestos.TabIndex = 123;
-            this.dgvPuestos.TabStop = false;
+            this.dgvpuestos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvpuestos.Location = new System.Drawing.Point(461, 145);
+            this.dgvpuestos.Name = "dgvpuestos";
+            this.dgvpuestos.ReadOnly = true;
+            this.dgvpuestos.RowHeadersVisible = false;
+            this.dgvpuestos.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvpuestos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
+            this.dgvpuestos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
+            this.dgvpuestos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvpuestos.Size = new System.Drawing.Size(512, 547);
+            this.dgvpuestos.TabIndex = 123;
+            this.dgvpuestos.TabStop = false;
             // 
             // lblusuario
             // 
@@ -215,73 +214,73 @@
             this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
             this.pnlimgusuario.TabIndex = 122;
             // 
-            // btnRegresar
+            // btnregresar
             // 
-            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(897, 1);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
-            this.btnRegresar.TabIndex = 120;
-            this.btnRegresar.TabStop = false;
-            this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnregresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnregresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnregresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnregresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
+            this.btnregresar.Location = new System.Drawing.Point(897, 1);
+            this.btnregresar.Name = "btnregresar";
+            this.btnregresar.Size = new System.Drawing.Size(50, 24);
+            this.btnregresar.TabIndex = 120;
+            this.btnregresar.TabStop = false;
+            this.btnregresar.UseVisualStyleBackColor = false;
             // 
-            // btnMinimizar
+            // btnminimizar
             // 
-            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_remove_white_18dp;
-            this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(974, 1);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
-            this.btnMinimizar.TabIndex = 119;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.UseVisualStyleBackColor = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.btnminimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnminimizar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_remove_white_18dp;
+            this.btnminimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnminimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnminimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnminimizar.Location = new System.Drawing.Point(974, 1);
+            this.btnminimizar.Name = "btnminimizar";
+            this.btnminimizar.Size = new System.Drawing.Size(24, 24);
+            this.btnminimizar.TabIndex = 119;
+            this.btnminimizar.TabStop = false;
+            this.btnminimizar.UseVisualStyleBackColor = false;
+            this.btnminimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
-            // btnCerrar
+            // btncerrar
             // 
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_clear_white_18dp;
-            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(1000, 1);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(24, 24);
-            this.btnCerrar.TabIndex = 118;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btncerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btncerrar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_clear_white_18dp;
+            this.btncerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btncerrar.Location = new System.Drawing.Point(1000, 1);
+            this.btncerrar.Name = "btncerrar";
+            this.btncerrar.Size = new System.Drawing.Size(24, 24);
+            this.btncerrar.TabIndex = 118;
+            this.btncerrar.TabStop = false;
+            this.btncerrar.UseVisualStyleBackColor = false;
+            this.btncerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // Puestos
             // 
-            this.AcceptButton = this.btnBuscar;
+            this.AcceptButton = this.btnbuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(label2);
-            this.Controls.Add(this.pnlBusqueda);
-            this.Controls.Add(this.dgvPuestos);
+            this.Controls.Add(this.pnlbusqueda);
+            this.Controls.Add(this.dgvpuestos);
             this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.btnRegresar);
-            this.Controls.Add(this.btnMinimizar);
-            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnregresar);
+            this.Controls.Add(this.btnminimizar);
+            this.Controls.Add(this.btncerrar);
             this.Controls.Add(this.lbltitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Puestos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Puestos";
             this.Load += new System.EventHandler(this.Puestos_Load);
-            this.pnlBusqueda.ResumeLayout(false);
-            this.pnlBusqueda.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPuestos)).EndInit();
+            this.pnlbusqueda.ResumeLayout(false);
+            this.pnlbusqueda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvpuestos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,16 +288,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlBusqueda;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Panel pnlbusqueda;
+        private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtPuestos;
-        private System.Windows.Forms.DataGridView dgvPuestos;
+        private System.Windows.Forms.TextBox txtpuestos;
+        private System.Windows.Forms.DataGridView dgvpuestos;
         private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.Label lblusuario;
-        private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.Button btnMinimizar;
-        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnregresar;
+        private System.Windows.Forms.Button btnminimizar;
+        private System.Windows.Forms.Button btncerrar;
         private System.Windows.Forms.Label lbltitulo;
     }
 }

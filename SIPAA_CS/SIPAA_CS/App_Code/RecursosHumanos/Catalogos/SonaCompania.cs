@@ -14,17 +14,17 @@ namespace SIPAA_CS.App_Code
     {
 
         //se declaran variables
-        public int popcion;
-        public string prespuesta;
-        public string ptextobuscar;
+        public int iopcion;
+        public string srespuesta;
+        public string stextobuscar;
 
         public SonaCompania()
         {
 
 
-            popcion = 0;
-            prespuesta = "";
-            ptextobuscar = "";
+            iopcion = 0;
+            srespuesta = "";
+            stextobuscar = "";
 
         }
 
@@ -35,7 +35,7 @@ namespace SIPAA_CS.App_Code
         public string DireccionPlanta;
 
         //data table 
-        public DataTable obtcomp(int popcion, string ptextobuscar)
+        public DataTable obtcomp(int iopcion, string stextobuscar)
         {
 
             SqlCommand cmd = new SqlCommand();
@@ -44,8 +44,8 @@ namespace SIPAA_CS.App_Code
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
-            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = ptextobuscar;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = stextobuscar;
 
             objConexion.asignarConexions(cmd);
 
