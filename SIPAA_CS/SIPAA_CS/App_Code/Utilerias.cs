@@ -635,6 +635,49 @@ namespace SIPAA_CS.App_Code
             return checkheader;
         }
 
+
+
+        public static string ValidarHoras(string sText) {
+
+
+
+
+            string[] arrSa = sText.Split(':');
+
+            string sHora = arrSa[0].Replace(' ', '0');
+
+            if (sHora == String.Empty) {
+                sHora = "00";
+            }
+
+            if (Int32.Parse(sHora) > 23) {
+
+                if (sHora.ElementAt(0) > 0)
+                {
+                    sHora = "0" + sHora.ElementAt(0);
+                }
+            }
+
+
+            string sMinutos = arrSa[1].Replace(' ', '0');
+
+            if (sMinutos == String.Empty)
+            {
+                sMinutos = "00";
+            }
+
+            if (Int32.Parse(sMinutos) > 60)
+            {
+                if (sMinutos.ElementAt(0) > 0)
+                {
+                    sMinutos = "0" + sMinutos.ElementAt(0);
+                }
+            }
+            sHora = sHora + ":" + sMinutos;
+
+            return sHora;
+
+        }
         public static Size PantallaSistema()
         {
             int sysH = SystemInformation.PrimaryMonitorSize.Height;

@@ -94,12 +94,15 @@ namespace SIPAA_CS.App_Code
 
             List<int> ltPerfilesxUsuario = new List<int>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_acceusuper_s";
+            cmd.CommandText = @"usp_acceusuper_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@P_cvUsuario", SqlDbType.VarChar).Value = scvUsuario;
             cmd.Parameters.Add("@P_cvPerfil", SqlDbType.VarChar).Value = iCvPerfil;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@P_Opcion", SqlDbType.VarChar).Value = iOpcion;
+            
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);

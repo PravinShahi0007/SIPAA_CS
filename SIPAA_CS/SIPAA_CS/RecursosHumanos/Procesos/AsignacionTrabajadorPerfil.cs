@@ -41,13 +41,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             Utilerias.llenarComboxDataTable(cbPlantilla, objPlantilla.cbplantilla(5), "Clave", "Descripción");
             Utilerias.llenarComboxDataTable(cbDiaEntrada, objPlantilla.cbdias(6), "Clave", "Descripción");
             Utilerias.llenarComboxDataTable(cbDiaSalida, objPlantilla.cbdias(6), "Clave", "Descripción");
-            Utilerias.llenarComboxDataTable(cbComidaInicio, objPlantilla.cbdias(6), "Clave", "Descripción");
-            Utilerias.llenarComboxDataTable(cbComidaFin, objPlantilla.cbdias(6), "Clave", "Descripción");
-
-
+           
             TrabajadorHorario objHorario = AsignarObjeto();
 
             llenarGridHorario(objHorario);
+            LimpiarFormulario();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -230,8 +228,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 cbDiaEntrada.SelectedValue = objHorario.iCvDia;
                 cbDiaSalida.SelectedValue = objHorario.iCvdiaSalidaTurno;
-                cbComidaInicio.SelectedValue = objHorario.iCvdiaComidaInicio;
-                cbComidaFin.SelectedValue = objHorario.iCvdiaComidaFin;
+                cbDiaEntrada.SelectedValue = objHorario.iCvdiaComidaInicio;
+                cbDiaEntrada.SelectedValue = objHorario.iCvdiaComidaFin;
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                 // TrabajadorInfo.IdTrab = row.Cells["idtrab"].Value.ToString();
@@ -319,62 +317,96 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 objHorario.iTiempoComida = Convert.ToInt32(mtxtTiempoComida.Text);
                 objHorario.iCvDia = Convert.ToInt32(cbDiaEntrada.SelectedValue);
                 objHorario.iCvdiaSalidaTurno = Convert.ToInt32(cbDiaSalida.SelectedValue);
-                objHorario.iCvdiaComidaInicio = Convert.ToInt32(cbComidaInicio.SelectedValue);
-                objHorario.iCvdiaComidaFin = Convert.ToInt32(cbComidaFin.SelectedValue);
+                objHorario.iCvdiaComidaInicio = Convert.ToInt32(cbDiaEntrada.SelectedValue);
+                objHorario.iCvdiaComidaFin = Convert.ToInt32(cbDiaEntrada.SelectedValue);
                 objHorario.sUsuumod = "vjiturburuv"; //LoginInfo.IdTrab;
                 objHorario.sPrgumod = this.Name;
 
-                //TimeSpan tsEntrada = TimeSpan.Parse(objHorario.sHoraEntrada);
-                //TimeSpan tsSalida = TimeSpan.Parse(objHorario.sHoraSalidaTurno);
-                //TimeSpan horasTrabajo = tsSalida - tsEntrada;
+                TimeSpan tsEntrada = TimeSpan.Parse(objHorario.sHoraEntrada);
+                TimeSpan tsSalida = TimeSpan.Parse(objHorario.sHoraSalidaTurno);
+                TimeSpan horasTrabajo = new TimeSpan();
+                if (tsSalida > tsEntrada)
+                {
+                     horasTrabajo = tsSalida - tsEntrada;
+                }
+                else {
+                     horasTrabajo =tsEntrada - tsSalida;
+                }
 
-                //TimeSpan tsComidaInicio = TimeSpan.Parse(objHorario.sHoraComidaInicio);
-                //TimeSpan tsComidaFin = TimeSpan.Parse(objHorario.sHoraComidaFin);
-                //TimeSpan MinComida = tsComidaInicio - tsComidaFin;
+                TimeSpan tsComidaInicio = TimeSpan.Parse(objHorario.sHoraComidaInicio);
+                TimeSpan tsComidaFin = TimeSpan.Parse(objHorario.sHoraComidaFin);
 
+
+                TimeSpan MinComida = tsComidaFin - tsComidaInicio;
+                string MinutosComida = (60 * MinComida.Hours).ToString();
                 //objHorario.iHorasTotalTrabajo = horasTrabajo.Hours;
                 //objHorario.iTiempoComida = MinComida.Minutes;
 
-                try
-                {
-                    DataTable dtresponse = objHorario.GestionHorario(iOpcionAdmin, objHorario);
-                   
-                    switch (dtresponse.Columns[0].ToString())
-                    {
 
-                        case "EXISTE":
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ese día ya se encuentra Asignado al Trabajador.");
-                            timer1.Start();
-                            break;
-                        case "INSERTAR_NUEVO":
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Guardado con Exito.");
-                            timer1.Start();
-                            LimpiarFormulario();
-                            break;
-                        case "ACTUALIZAR":
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Cambio Guardado con Exito.");
-                            timer1.Start();
-                            LimpiarFormulario();
-                            break;
-                        case "ACTUALIZA_NUEVO":
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Guardado con Exito.");
-                            timer1.Start();
-                            LimpiarFormulario();
-                            break;
-                        case "ELIMINAR":
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Eliminado con Exito.");
-                            timer1.Start();
-                            LimpiarFormulario();
-                            break;
-                    }
-                }
-                catch (Exception ex)
+                if (horasTrabajo.Hours.ToString() != mtxtTiempoTrabajo.Text)
                 {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el Servidor. Intentelo más tarde.");
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El número total de horas no concuerda con la hora de Entrada y Salida.");
                     timer1.Start();
                 }
-                llenarGridHorario(objHorario);
+                else if (tsComidaInicio < tsEntrada || tsComidaFin > tsEntrada
+                   || tsComidaInicio > tsSalida || tsComidaFin > tsSalida)
+                {
 
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El horario de Comida debe ser entre la hora de Entrada y Salida.");
+                    timer1.Start();
+
+                }
+                //else if (MinutosComida != mtxtTiempoComida.Text)
+                //{
+
+                //    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El número total de tiempo de Comida no concuerda con la hora de Inicio y Fin.");
+                //    timer1.Start();
+
+                //}
+                else
+                {
+
+                    try
+                    {
+                        DataTable dtresponse = objHorario.GestionHorario(iOpcionAdmin, objHorario);
+
+                        switch (dtresponse.Columns[0].ToString())
+                        {
+
+                            case "EXISTE":
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ese día ya se encuentra Asignado al Trabajador.");
+                                timer1.Start();
+                                break;
+                            case "INSERTAR_NUEVO":
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Guardado con Exito.");
+                                timer1.Start();
+                                LimpiarFormulario();
+                                break;
+                            case "ACTUALIZAR":
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Cambio Guardado con Exito.");
+                                timer1.Start();
+                                LimpiarFormulario();
+                                break;
+                            case "ACTUALIZA_NUEVO":
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Guardado con Exito.");
+                                timer1.Start();
+                                LimpiarFormulario();
+                                break;
+                            case "ELIMINAR":
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Eliminado con Exito.");
+                                timer1.Start();
+                                LimpiarFormulario();
+                                break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el Servidor. Intentelo más tarde.");
+                        timer1.Start();
+                    }
+                    llenarGridHorario(objHorario);
+
+                }
             }
             else
             {
@@ -430,15 +462,21 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             cbDiaEntrada.SelectedIndex = 0;
             cbDiaSalida.SelectedIndex = 0;
-            cbComidaInicio.SelectedIndex = 0;
-            cbComidaFin.SelectedIndex = 0;
 
-            mtxtEntradaTurno.Text = String.Empty;
-            mtxtSalida.Text = String.Empty;
-            mtxtComidaInicio.Text = String.Empty;
-            mtxtComidaFin.Text = String.Empty;
-            mtxtTiempoComida.Text = String.Empty;
-            mtxtTiempoTrabajo.Text = String.Empty;
+            mtxtEntradaTurno.Text = "00:00";
+          //  mtxtEntradaTurno.SelectionLength = 5;
+            mtxtSalida.Text = "00:00";
+         //   mtxtSalida.SelectionLength = 5;
+            mtxtComidaInicio.Text = "00:00";
+        //    mtxtComidaInicio.SelectionLength = 5;
+            mtxtComidaFin.Text = "00:00";
+         //   mtxtComidaFin.SelectionLength = 5;
+            mtxtTiempoComida.Text = "00:00";
+        //    mtxtTiempoComida.SelectionLength = 3;
+            mtxtTiempoTrabajo.Text = "00:00";
+        //    mtxtTiempoTrabajo.SelectionLength = 3;
+
+
         }
 
 
@@ -449,6 +487,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void cbDiaEntrada_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            cbDiaSalida.SelectedIndex = cbDiaEntrada.SelectedIndex;
 
             //int iOut = 0;
             //if (Int32.TryParse(cbDiaEntrada.SelectedValue.ToString(), out iOut))
@@ -489,16 +529,34 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         private void mtxtSalida_Leave(object sender, EventArgs e)
         {
 
-            string s1 = mtxtSalida.Text + "00";
-            string s2 = mtxtEntradaTurno.Text + "00";
+            string s1 =  mtxtSalida.Text + "00";
+            string s2 =  mtxtEntradaTurno.Text + "00";
 
-            mtxtSalida.Text = s1;
-            mtxtEntradaTurno.Text = s2;
+
             TimeSpan ts = new TimeSpan();
+            TimeSpan tsEntrada = new TimeSpan();
+            TimeSpan tsSalida = new TimeSpan();
             if (TimeSpan.TryParse(mtxtSalida.Text, out ts) && TimeSpan.TryParse(mtxtEntradaTurno.Text, out ts))
             {
-                TimeSpan tsEntrada = TimeSpan.Parse(mtxtEntradaTurno.Text);
-                TimeSpan tsSalida = TimeSpan.Parse(mtxtSalida.Text);
+                 tsEntrada = TimeSpan.Parse(mtxtEntradaTurno.Text);
+                 tsSalida = TimeSpan.Parse(mtxtSalida.Text);
+               
+            }
+            else
+            {
+                string sEntrada = Utilerias.ValidarHoras(mtxtEntradaTurno.Text);
+                string sSalida = Utilerias.ValidarHoras(mtxtSalida.Text);
+
+                mtxtEntradaTurno.Text = sEntrada;
+                mtxtSalida.Text = sSalida;
+
+                tsEntrada = TimeSpan.Parse(sEntrada);
+                tsSalida = TimeSpan.Parse(sSalida);
+
+            }
+
+            if (tsEntrada.ToString() != "00:00" && tsSalida.ToString() != "00:00")
+            {
 
                 if (tsEntrada > tsSalida)
                 {
@@ -513,11 +571,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     mtxtTiempoTrabajo.Text = horasTrabajo.Hours.ToString();
                     cbDiaSalida.SelectedValue = cbDiaEntrada.SelectedValue;
                 }
-            }
-            else
-            {
-                mtxtSalida.Text = "00:00";
-                mtxtEntradaTurno.Text = "00:00";
+
             }
 
         }
@@ -526,11 +580,62 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             string s1 = mtxtComidaInicio.Text + "00";
             string s2 = mtxtComidaFin.Text + "00";
+            
+            TimeSpan ts = new TimeSpan();
+            TimeSpan tsComidaInicio =  new TimeSpan();
+            TimeSpan tsComidaFin = new TimeSpan();
+            TimeSpan tsMinutos = new TimeSpan();
+            if (TimeSpan.TryParse(mtxtComidaInicio.Text, out ts) && TimeSpan.TryParse(mtxtComidaFin.Text, out ts))
+            {
+                tsComidaInicio = TimeSpan.Parse(mtxtComidaInicio.Text);
+                tsComidaFin = TimeSpan.Parse(mtxtComidaFin.Text);
 
-            mtxtComidaInicio.Text = s1;
-            mtxtComidaFin.Text = s2;
+               
+            }
+            else
+            {
+                string sComidaInicio = Utilerias.ValidarHoras(s1);
+                string sComidaFin = Utilerias.ValidarHoras(s2);
+
+                mtxtComidaInicio.Text = sComidaInicio;
+                mtxtComidaFin.Text = sComidaFin;
+
+                tsComidaInicio = TimeSpan.Parse(sComidaInicio);
+                tsComidaFin = TimeSpan.Parse(sComidaFin);
+
+            }
+
+          // Utilerias.ControlNotificaciones(panelTagForReg,lbMensajeForReg,2,"La fecha de Comida Inicio no puede ser Mayor a la de Fin");
+
+                string[] horaInicio = mtxtComidaInicio.Text.Split(':');
+                string sHoraInicio;
+                string sDecenas = horaInicio[0].ElementAt(0).ToString();
+                string sUnidad = horaInicio[0].ElementAt(1).ToString();
+
+                if (Int32.Parse(sDecenas) < 2)
+                {
+                    sHoraInicio = sDecenas + (Convert.ToInt32(sUnidad) + 1).ToString();
+                }
+                else {
+
+                    if (Int32.Parse(sUnidad) == 3)
+                    {
+                        sHoraInicio = "00";
+                    }
+                    else {
+                        sHoraInicio = sDecenas + (Convert.ToInt32(sUnidad + 1)).ToString();
+                    }
+                }
+
+                  
+                mtxtComidaFin.Text = sHoraInicio + ":" + horaInicio[1];
+
+            tsComidaFin = TimeSpan.Parse(mtxtComidaFin.Text);
+            //mtxtComidaInicio.Text = tsComidaFin.Hours.ToString() + ":" + (tsComidaFin.Minutes + 60).ToString();
+            tsMinutos = tsComidaFin - tsComidaInicio;
 
 
+            mtxtTiempoComida.Text = (60 * (tsMinutos.Hours)).ToString();
         }
 
         private void tabFormasRegistro_Click(object sender, EventArgs e)
@@ -733,8 +838,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             dgvReloj.ClearSelection();
 
 
-            CheckBox ckbHeader = Utilerias.AgregarCheckboxHeader(dgvReloj, 0);
-            ckbHeader.CheckedChanged += Checkheader_CheckedChanged;
+            //CheckBox ckbHeader = Utilerias.AgregarCheckboxHeader(dgvReloj, 0);
+           // ckbHeader.CheckedChanged += Checkheader_CheckedChanged;
         }
 
         private void Checkheader_CheckedChanged(object sender, EventArgs e)
@@ -761,7 +866,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
                     row.Cells[0].Tag = "uncheck";
                     ltReloj.Clear();
-                    PanelReloj.Enabled = false;
+                    PanelReloj.Enabled = true;
                 }
             }
         }
@@ -854,6 +959,59 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
 
             } 
+        }
+
+       
+
+        private void mtxt(object sender, EventArgs e)
+        {
+            MaskedTextBox textBox = (MaskedTextBox)sender;
+
+            textBox.SelectAll();
+        }
+
+        private void mtxtComidaFin_Leave(object sender, EventArgs e)
+        {
+            string s1 = mtxtComidaInicio.Text + "00";
+            string s2 = mtxtComidaFin.Text + "00";
+
+            TimeSpan ts = new TimeSpan();
+            TimeSpan tsComidaInicio = new TimeSpan();
+            TimeSpan tsComidaFin = new TimeSpan();
+            TimeSpan tsMinutos = new TimeSpan();
+            if (TimeSpan.TryParse(mtxtComidaInicio.Text, out ts) && TimeSpan.TryParse(mtxtComidaFin.Text, out ts))
+            {
+                tsComidaInicio = TimeSpan.Parse(mtxtComidaInicio.Text);
+                tsComidaFin = TimeSpan.Parse(mtxtComidaFin.Text);
+            }
+            else
+            {
+                string sComidaInicio = Utilerias.ValidarHoras(s1);
+                string sComidaFin = Utilerias.ValidarHoras(s2);
+
+                mtxtComidaInicio.Text = sComidaInicio;
+                mtxtComidaFin.Text = sComidaFin;
+
+                tsComidaInicio = TimeSpan.Parse(sComidaInicio);
+                tsComidaFin = TimeSpan.Parse(sComidaFin);
+
+            }
+ 
+            tsMinutos = tsComidaFin - tsComidaInicio;
+
+
+            mtxtTiempoComida.Text = (60 * (tsMinutos.Hours)).ToString();
+        }
+
+        private void cbDiaSalida_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbDiaEntrada.SelectedIndex > cbDiaSalida.SelectedIndex && cbDiaSalida.SelectedIndex > 0) {
+
+                Utilerias.ControlNotificaciones(panelTag,lbMensaje, 2, "El dia de Entrada no puede ser un día Superior al Del Salida");
+                timer1.Start();
+
+                cbDiaSalida.SelectedIndex = cbDiaEntrada.SelectedIndex ;
+            }
         }
     }
 }

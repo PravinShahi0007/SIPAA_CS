@@ -90,7 +90,7 @@ namespace SIPAA_CS.App_Code
    }
 
 
-        public DataTable ObtenerUbicacionPlantel( string PlantaDesc)
+        public DataTable ObtenerUbicacionPlantel(int iOpcion,string PlantaDesc)
         {
             
             SqlCommand cmd = new SqlCommand();
@@ -99,8 +99,10 @@ namespace SIPAA_CS.App_Code
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
             cmd.Parameters.Add("@p_ubicacion", SqlDbType.VarChar).Value = PlantaDesc;
-            
+           
+
             objConexion.asignarConexion(cmd);
 
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
