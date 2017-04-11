@@ -66,7 +66,7 @@ namespace SIPAA_CS.RecursosHumanos
         private void llenarGrid(string Descripcion)
         {
             SonaCompania objCia = new SonaCompania();
-            DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(Descripcion);
+            DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(5,Descripcion);
             dgvUbicacion.DataSource = dtUbicacion;
             dgvUbicacion.Columns[0].Visible = false;
             dgvUbicacion.ClearSelection();

@@ -86,7 +86,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             DataTable dtCia = objCia.obtcomp(5, "");
             LlenarCombos(dtCia,cbCia);
 
-            DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel("%");
+            DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(5,"%");
             LlenarCombos(dtUbicacion,cbUbicacion);
         }
 

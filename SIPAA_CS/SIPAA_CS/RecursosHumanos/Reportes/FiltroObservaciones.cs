@@ -29,7 +29,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             DataTable dtCia = objCia.obtcomp(5, "");
             llenarCombo(cbCia, dtCia, "Descripción");
 
-            DataTable dtUbicaciones = objCia.ObtenerUbicacionPlantel("");
+            DataTable dtUbicaciones = objCia.ObtenerUbicacionPlantel(5,"%");
             llenarCombo(cbUbicacion, dtUbicaciones, "Descripción");
 
             SonaDepartamento objDepto = new SonaDepartamento();
