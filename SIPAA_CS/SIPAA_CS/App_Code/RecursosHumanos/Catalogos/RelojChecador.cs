@@ -133,5 +133,36 @@ namespace SIPAA_CS.App_Code
             return p_respuesta;
         } // public int uditipohr(int p_opcion, int p_cvreloj, string p_descripcion, string p_usuumod, string p_prgumodr)
 
+
+        public List<string> RelojesxTrabajador(string sIdTrab, int iCVReloj, int iOpcion, string sUsuumod, string sPrgmod)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechtrabreloj_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_cvreloj", SqlDbType.Int).Value = iCVReloj;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = sUsuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sPrgmod;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sIdTrab;
+
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtForReg = new DataTable();
+            Adapter.Fill(dtForReg);
+            List<string> ltCVforma = new List<string>();
+            foreach (DataRow row in dtForReg.Rows)
+            {
+                ltCVforma.Add(row["cvreloj"].ToString());
+            }
+
+            return ltCVforma;
+
+        }
     } // class DiasFestivos
 } // namespace SIPAA_CS.Recursos_Humanos.App_Code

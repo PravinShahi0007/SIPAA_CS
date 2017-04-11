@@ -124,8 +124,8 @@ namespace SIPAA_CS.Accesos.Reportes
 
             if (estatus == 2)
             {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
-                timer1.Start();
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
+                //timer1.Start();
 
                 Perfil objPerfil = new Perfil();
                 DataTable dtReporte;

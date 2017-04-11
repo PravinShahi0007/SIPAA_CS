@@ -153,8 +153,10 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void registroGeneradoDetalleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             FiltrosRegistroGeneradoDetalle rpt = new FiltrosRegistroGeneradoDetalle();
             rpt.Show();
+            
         }
 
         private void tsmAsignacionUbicacion_Click(object sender, EventArgs e)

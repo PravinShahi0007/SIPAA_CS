@@ -159,7 +159,7 @@ namespace SIPAA_CS
                         if (u == 1)
                         {
                             //MessageBox.Show("El usuario  esta activo en sipaa");
-                            int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), 0, "", password.Trim(), 0, "", "", 5);
+                            int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), 0, "", password.Trim(), 0, "", "", 10);
                             if (respuesta == 1)
                             {
                                 Dashboard ds = new Dashboard();

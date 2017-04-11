@@ -18,19 +18,18 @@ namespace SIPAA_CS.App_Code
 
         public DataTable ObtenerProceso(int cvproceso, string descripcion, int stproceso, string usuumod, string prgumod, int opcion)
         {
-
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_formproceso_suid";
+            cmd.CommandText = @"usp_acceproceso_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@cvproceso",SqlDbType.Int).Value = cvproceso;
-            cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = descripcion;
-            cmd.Parameters.Add("@stproceso", SqlDbType.Int).Value = stproceso;
-            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = usuumod;
-            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = prgumod;
-            cmd.Parameters.Add("@opcion", SqlDbType.VarChar).Value = opcion;
+            cmd.Parameters.Add("@p_cvproceso",SqlDbType.Int).Value = cvproceso;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
+            cmd.Parameters.Add("@p_stproceso", SqlDbType.Int).Value = stproceso;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.VarChar).Value = opcion;
 
             objConexion.asignarConexion(cmd);
 
@@ -46,15 +45,15 @@ namespace SIPAA_CS.App_Code
         public int AgregarProceso(int cvproceso, string descripcion, int stproceso, string usuumod, string prgumod, int opcion)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_formproceso_suid";
+            cmd.CommandText = "usp_acceproceso_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@cvproceso", SqlDbType.Int).Value = cvproceso;
-            cmd.Parameters.Add("@descripcion", SqlDbType.VarChar).Value = descripcion;
-            cmd.Parameters.Add("@stproceso", SqlDbType.Int).Value = stproceso;
-            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = usuumod;
-            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = prgumod;
-            cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = opcion;
+            cmd.Parameters.Add("@p_cvproceso", SqlDbType.Int).Value = cvproceso;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
+            cmd.Parameters.Add("@p_stproceso", SqlDbType.Int).Value = stproceso;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
             
 
             Conexion objConexion = new Conexion();
@@ -113,6 +112,31 @@ namespace SIPAA_CS.App_Code
             cmd.ExecuteNonQuery();
 
             objConexion.cerrarConexion();
+        }
+
+        public DataTable ReporteProcesos(int cvproceso, string descripcion, int stproceso, string usuumod, string prgumod,int opcion)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_acceproceso_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@p_cvproceso", SqlDbType.Int).Value = cvproceso;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
+            cmd.Parameters.Add("@p_stproceso", SqlDbType.Int).Value = stproceso;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtProcesos = new DataTable();
+            Adapter.Fill(dtProcesos);
+
+            return dtProcesos;
         }
     }
 

@@ -30,7 +30,8 @@ namespace SIPAA_CS.Accesos
         public List<int> ltPerfiles = new List<int>();
         public List<int> ltPerfilesxUsuario = new List<int>();
         public List<string> ltPermisos = new List<string>();
-
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
@@ -57,8 +58,6 @@ namespace SIPAA_CS.Accesos
                 string ValorRow = row.Cells["Nombre"].Value.ToString();
 
                 row.Cells[3].Value = Resources.ic_check_circle_green_400_18dp;
-
-              
                 AsignarPerfiles();
             }
         }
@@ -67,10 +66,10 @@ namespace SIPAA_CS.Accesos
         private void AsignarPerfiles() {
 
             Perfil objPerfil = new Perfil();
-            ltPerfilesxUsuario = objPerfil.ObtenerPerfilesxUsuario(CVUsuario);
+            ltPerfilesxUsuario = objPerfil.ObtenerPerfilesxUsuario(CVUsuario,0,4);
 
-           // Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
-
+            // Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
+           
            
                 for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
             {
@@ -96,23 +95,7 @@ namespace SIPAA_CS.Accesos
 
                 if (dgvPerfiles.SelectedRows.Count != 0)
                 {
-                    panelPermisos.Enabled = true;
-                    DataGridViewRow row = this.dgvPerfiles.SelectedRows[0];
-
-                    int iCVPerfil = Convert.ToInt32(row.Cells[1].Value.ToString());
-
-                    ltPerfiles.Add(iCVPerfil);
-                    if (row.Cells[0].Tag.ToString() == "check") {
-
-                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                        row.Cells[0].Tag = "uncheck";     
-
-                    } else {
-                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                        row.Cells[0].Tag = "check";
-                        
-                    }
-
+                 Utilerias.MultiSeleccionGridView(dgvPerfiles, 1, ltPerfiles, panelPermisos);
                 }
 
             }
@@ -150,20 +133,33 @@ namespace SIPAA_CS.Accesos
             panelPermisos.Enabled = false;
             try
             {
-                string UsuuMod = "vjiturburuv";
+                string UsuuMod = LoginInfo.IdTrab;
                 string PrguMod = this.Name;
-                Usuario objUsuario = new Usuario();
-
-                foreach (int cv in ltPerfiles)
-                {
-                    objUsuario.AsignarPerfilaUsuario(CVUsuario, cv, UsuuMod, PrguMod);
-                }
-
-                ltPerfiles.Clear();
-
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
-                timer1.Start();
+              
+                FormaReg objFr = new FormaReg();
+                LlenarGridPerfil("%", "%", 1);
                 AsignarPerfiles();
+
+                if (Utilerias.SinAsignaciones(dgvPerfiles, 0, 1, ltPerfiles) == true)
+                {
+                    CrearAsignacionesPerfil(UsuuMod, PrguMod);
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("¿Seguro que desea quitar todas las Asignaciones?", "SIPAA", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        CrearAsignacionesPerfil(UsuuMod, PrguMod);
+                    }
+                    else
+                    {
+
+                        AsignarPerfiles();
+                        panelPermisos.Enabled = false;
+                        ltPerfiles.Clear();
+                    }
+                }
 
 
             }
@@ -172,10 +168,26 @@ namespace SIPAA_CS.Accesos
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
                 timer1.Start();
                 AsignarPerfiles();
+                ltPerfiles.Clear();
             }
         }
 
+        private void CrearAsignacionesPerfil(string sUsuuMod, string sPrguMod)
+        {
+            Usuario objUsuario = new Usuario();
 
+            foreach (int cv in ltPerfiles)
+            {
+                objUsuario.AsignarPerfilaUsuario(CVUsuario, cv,1,sUsuuMod, sPrguMod);
+            }
+
+            ltPerfiles.Clear();
+
+            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+            timer1.Start();
+            AsignarPerfiles();
+
+        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
@@ -231,11 +243,14 @@ namespace SIPAA_CS.Accesos
 
             llenarGridUsuarios(strUsuario,IdTrab);
 
-            for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
-            {
-                dgvPerfiles.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            }
+         
+                for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
+                {
+                    dgvPerfiles.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                }
+           
 
+            PermisosPantalla();
             dgvPerfiles.ClearSelection();
             dgvUsuarios.ClearSelection();
 
@@ -264,7 +279,7 @@ namespace SIPAA_CS.Accesos
             {
                 dgvUsuarios.Rows[iContador].Cells[3].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
-
+            PermisosPantalla();
             dgvPerfiles.ClearSelection();
             dgvUsuarios.ClearSelection();
         }
@@ -286,26 +301,26 @@ namespace SIPAA_CS.Accesos
         private void Asignar_Perfil_Load(object sender, EventArgs e)
         {
 
-
-            int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            int sysW = SystemInformation.PrimaryMonitorSize.Width;
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            // Se crea lista de permisos por pantalla
+            LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
+            DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
+            LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            // variables de permisos
+            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
+            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
+            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
+            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
+            //////////////////////////////////////////////////////////////////////////////////////////
 
             llenarGridUsuarios("%", "%");
-            LlenarGridPerfil("%", "%",1);
+            LlenarGridPerfil("%", "%", 1);
 
-
-            Modulo objModulo = new Modulo();
-            string idtrab = LoginInfo.IdTrab;
-            DataTable dtPermisos = objModulo.ObtenerPermisosxUsuario(idtrab);
-            DataRow[] row = dtPermisos.Select("CVModulo = '" + this.Tag + "'");
-            Utilerias.CrearListaPermisoxPantalla(row, ltPermisos);
-          //  Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
-
-
+            PermisosPantalla();
         }
-
-
      
 
         private void timer_Tick(object sender, EventArgs e)
@@ -321,8 +336,7 @@ namespace SIPAA_CS.Accesos
 
         private void llenarGridUsuarios(string Nombre, string IdTrab)
         {
-
-            if (dgvUsuarios.Columns.Count > 1)
+            if (dgvUsuarios.Columns.Count > 0)
             {
                 dgvUsuarios.Columns.RemoveAt(3);
             }
@@ -331,49 +345,58 @@ namespace SIPAA_CS.Accesos
             List<Usuario> ltUsuario = objUsuario.ObtenerUsuariosxBusqueda(Nombre, IdTrab);
             DataTable dtUsuarios = objUsuario.ObtenerDataTableUsuarios(ltUsuario);
             dgvUsuarios.DataSource = dtUsuarios;
-
-            DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
-            imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckUsuarios.Name = "imgUsuarios";
-            dgvUsuarios.Columns.Insert(3, imgCheckUsuarios);
-            dgvUsuarios.Columns[3].HeaderText = "Seleccionar";
+            Utilerias.AgregarCheck(dgvUsuarios, 3);
             dgvUsuarios.Columns[0].Visible = false;
-
-            dgvUsuarios.Columns[1].ReadOnly = true;
-            dgvUsuarios.Columns[2].Width = 250;
-            dgvUsuarios.Columns[3].Width = 50;
-  
+          //  dgvUsuarios.Columns[1].Visible = false;
             dgvUsuarios.ClearSelection();
+
+            
+              
+          
+
 
         }
 
+        private void PermisosPantalla() {
+
+            if (!Permisos.Eliminar && !Permisos.Actualizar && !Permisos.Crear)
+            {
+                panelPermisos.Visible = false;
+            }
+
+            if (!Permisos.Eliminar && !Permisos.Actualizar)
+            {
+
+                dgvUsuarios.ReadOnly = true;
+                dgvPerfiles.ReadOnly = true;
+                label10.Text = "Usuarios Registrados";
+                label12.Text = "Perfiles Registrados";
+
+                dgvPerfiles.Columns[0].Visible = false;
+                dgvUsuarios.Columns[3].Visible = false;
+            }
+
+
+        }
         private void LlenarGridPerfil(string CVPerfil, string Descripcion, int iEstatus)
         {
-            if (dgvPerfiles.Columns.Count > 1) {
+            if (dgvPerfiles.Columns.Count > 0) {
                 dgvPerfiles.Columns.RemoveAt(0);
             }
 
             Perfil objPerfil = new Perfil();
             DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda(CVPerfil, Descripcion, iEstatus.ToString());
             dgvPerfiles.DataSource = dtPerfiles;
-
-            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
-            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckPerfiles.Name = "imgPerfiles";
-            dgvPerfiles.Columns.Insert(0, imgCheckPerfiles);
-            dgvPerfiles.Columns[0].HeaderText = "Seleccionar";
-            ImageList imglt = new ImageList();
-
+            Utilerias.AgregarCheck(dgvPerfiles, 0);
             dgvPerfiles.Columns[1].Visible = false;
             dgvPerfiles.Columns[3].Visible = false;
             dgvPerfiles.Columns[4].Visible = false;
             dgvPerfiles.Columns[5].Visible = false;
             dgvPerfiles.Columns[6].Visible = false;
 
-            dgvPerfiles.Columns[0].Width = 70;
-            
+        
            
-            dgvPerfiles.ClearSelection();
+             dgvPerfiles.ClearSelection();
 
         }
 
