@@ -38,10 +38,8 @@
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label mtxtSalidaTurno;
-            System.Windows.Forms.Label label14;
             System.Windows.Forms.Label label15;
             System.Windows.Forms.Label label16;
-            System.Windows.Forms.Label label17;
             System.Windows.Forms.Label label18;
             System.Windows.Forms.Label label19;
             System.Windows.Forms.Label label21;
@@ -50,14 +48,14 @@
             System.Windows.Forms.Label label25;
             System.Windows.Forms.Label label26;
             System.Windows.Forms.Label label27;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.lblusuario = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -83,12 +81,10 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.cbComidaFin = new System.Windows.Forms.ComboBox();
             this.mtxtComidaFin = new System.Windows.Forms.MaskedTextBox();
             this.mtxtComidaInicio = new System.Windows.Forms.MaskedTextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.cbComidaInicio = new System.Windows.Forms.ComboBox();
             this.mtxtSalida = new System.Windows.Forms.MaskedTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cbDiaSalida = new System.Windows.Forms.ComboBox();
@@ -138,10 +134,8 @@
             label10 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             mtxtSalidaTurno = new System.Windows.Forms.Label();
-            label14 = new System.Windows.Forms.Label();
             label15 = new System.Windows.Forms.Label();
             label16 = new System.Windows.Forms.Label();
-            label17 = new System.Windows.Forms.Label();
             label18 = new System.Windows.Forms.Label();
             label19 = new System.Windows.Forms.Label();
             label21 = new System.Windows.Forms.Label();
@@ -270,25 +264,13 @@
             mtxtSalidaTurno.TabIndex = 67;
             mtxtSalidaTurno.Text = "Hora Salida Turno";
             // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label14.Location = new System.Drawing.Point(15, 159);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(108, 20);
-            label14.TabIndex = 70;
-            label14.Text = "Día Comida Inicio";
-            // 
             // label15
             // 
             label15.AutoSize = true;
             label15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label15.Location = new System.Drawing.Point(19, 218);
+            label15.Location = new System.Drawing.Point(19, 187);
             label15.Name = "label15";
             label15.Size = new System.Drawing.Size(117, 16);
             label15.TabIndex = 72;
@@ -300,23 +282,11 @@
             label16.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label16.Location = new System.Drawing.Point(248, 218);
+            label16.Location = new System.Drawing.Point(247, 187);
             label16.Name = "label16";
             label16.Size = new System.Drawing.Size(117, 16);
             label16.TabIndex = 75;
             label16.Text = "Hora Comida Inicio";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label17.Location = new System.Drawing.Point(226, 159);
-            label17.Name = "label17";
-            label17.Size = new System.Drawing.Size(96, 20);
-            label17.TabIndex = 78;
-            label17.Text = "Día Comida Fin";
             // 
             // label18
             // 
@@ -592,21 +562,21 @@
             this.dgvHorario.AllowUserToAddRows = false;
             this.dgvHorario.AllowUserToDeleteRows = false;
             this.dgvHorario.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvHorario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle89.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvHorario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle89;
             this.dgvHorario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvHorario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvHorario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHorario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvHorario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHorario.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle90.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle90.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle90.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle90.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle90.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle90.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHorario.DefaultCellStyle = dataGridViewCellStyle90;
             this.dgvHorario.Location = new System.Drawing.Point(498, 229);
             this.dgvHorario.Name = "dgvHorario";
             this.dgvHorario.ReadOnly = true;
@@ -679,21 +649,21 @@
             this.dgvPlantilla.AllowUserToAddRows = false;
             this.dgvPlantilla.AllowUserToDeleteRows = false;
             this.dgvPlantilla.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvPlantilla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle91.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvPlantilla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle91;
             this.dgvPlantilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPlantilla.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvPlantilla.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPlantilla.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvPlantilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPlantilla.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle92.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle92.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle92.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle92.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle92.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle92.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPlantilla.DefaultCellStyle = dataGridViewCellStyle92;
             this.dgvPlantilla.Location = new System.Drawing.Point(450, 25);
             this.dgvPlantilla.Name = "dgvPlantilla";
             this.dgvPlantilla.ReadOnly = true;
@@ -718,16 +688,12 @@
             this.panelEditar.Controls.Add(label19);
             this.panelEditar.Controls.Add(this.panel6);
             this.panelEditar.Controls.Add(label18);
-            this.panelEditar.Controls.Add(label17);
-            this.panelEditar.Controls.Add(this.cbComidaFin);
             this.panelEditar.Controls.Add(this.mtxtComidaFin);
             this.panelEditar.Controls.Add(this.mtxtComidaInicio);
             this.panelEditar.Controls.Add(this.panel5);
             this.panelEditar.Controls.Add(label16);
             this.panelEditar.Controls.Add(this.panel4);
             this.panelEditar.Controls.Add(label15);
-            this.panelEditar.Controls.Add(label14);
-            this.panelEditar.Controls.Add(this.cbComidaInicio);
             this.panelEditar.Controls.Add(this.mtxtSalida);
             this.panelEditar.Controls.Add(this.panel3);
             this.panelEditar.Controls.Add(mtxtSalidaTurno);
@@ -769,6 +735,7 @@
             this.mtxtTiempoComida.Size = new System.Drawing.Size(100, 19);
             this.mtxtTiempoComida.TabIndex = 85;
             this.mtxtTiempoComida.ValidatingType = typeof(int);
+            this.mtxtTiempoComida.Click += new System.EventHandler(this.mtxt);
             // 
             // mtxtTiempoTrabajo
             // 
@@ -780,6 +747,7 @@
             this.mtxtTiempoTrabajo.Size = new System.Drawing.Size(100, 19);
             this.mtxtTiempoTrabajo.TabIndex = 84;
             this.mtxtTiempoTrabajo.ValidatingType = typeof(int);
+            this.mtxtTiempoTrabajo.Click += new System.EventHandler(this.mtxt);
             // 
             // btnGuardar
             // 
@@ -811,50 +779,36 @@
             this.panel6.Size = new System.Drawing.Size(124, 2);
             this.panel6.TabIndex = 79;
             // 
-            // cbComidaFin
-            // 
-            this.cbComidaFin.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbComidaFin.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbComidaFin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbComidaFin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbComidaFin.FormattingEnabled = true;
-            this.cbComidaFin.Items.AddRange(new object[] {
-            "Seleccionar",
-            "Activo",
-            "Inactivo"});
-            this.cbComidaFin.Location = new System.Drawing.Point(230, 182);
-            this.cbComidaFin.Name = "cbComidaFin";
-            this.cbComidaFin.Size = new System.Drawing.Size(166, 24);
-            this.cbComidaFin.TabIndex = 77;
-            this.cbComidaFin.Text = "Seleccionar";
-            // 
             // mtxtComidaFin
             // 
             this.mtxtComidaFin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.mtxtComidaFin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mtxtComidaFin.Location = new System.Drawing.Point(257, 235);
+            this.mtxtComidaFin.Location = new System.Drawing.Point(256, 204);
             this.mtxtComidaFin.Mask = "00:00";
             this.mtxtComidaFin.Name = "mtxtComidaFin";
             this.mtxtComidaFin.Size = new System.Drawing.Size(100, 19);
             this.mtxtComidaFin.TabIndex = 76;
             this.mtxtComidaFin.ValidatingType = typeof(System.DateTime);
+            this.mtxtComidaFin.Click += new System.EventHandler(this.mtxt);
+            this.mtxtComidaFin.Leave += new System.EventHandler(this.mtxtComidaFin_Leave);
             // 
             // mtxtComidaInicio
             // 
             this.mtxtComidaInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.mtxtComidaInicio.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mtxtComidaInicio.Location = new System.Drawing.Point(28, 235);
+            this.mtxtComidaInicio.Location = new System.Drawing.Point(28, 204);
             this.mtxtComidaInicio.Mask = "00:00";
             this.mtxtComidaInicio.Name = "mtxtComidaInicio";
             this.mtxtComidaInicio.Size = new System.Drawing.Size(100, 19);
             this.mtxtComidaInicio.TabIndex = 73;
             this.mtxtComidaInicio.ValidatingType = typeof(System.DateTime);
+            this.mtxtComidaInicio.Click += new System.EventHandler(this.mtxt);
             this.mtxtComidaInicio.Leave += new System.EventHandler(this.mtxtComidaInicio_Leave);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel5.Location = new System.Drawing.Point(252, 259);
+            this.panel5.Location = new System.Drawing.Point(251, 228);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(124, 2);
             this.panel5.TabIndex = 74;
@@ -862,27 +816,10 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel4.Location = new System.Drawing.Point(23, 259);
+            this.panel4.Location = new System.Drawing.Point(23, 228);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(124, 2);
             this.panel4.TabIndex = 71;
-            // 
-            // cbComidaInicio
-            // 
-            this.cbComidaInicio.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbComidaInicio.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbComidaInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbComidaInicio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbComidaInicio.FormattingEnabled = true;
-            this.cbComidaInicio.Items.AddRange(new object[] {
-            "Seleccionar",
-            "Activo",
-            "Inactivo"});
-            this.cbComidaInicio.Location = new System.Drawing.Point(19, 182);
-            this.cbComidaInicio.Name = "cbComidaInicio";
-            this.cbComidaInicio.Size = new System.Drawing.Size(166, 24);
-            this.cbComidaInicio.TabIndex = 69;
-            this.cbComidaInicio.Text = "Seleccionar";
             // 
             // mtxtSalida
             // 
@@ -894,6 +831,7 @@
             this.mtxtSalida.Size = new System.Drawing.Size(100, 19);
             this.mtxtSalida.TabIndex = 68;
             this.mtxtSalida.ValidatingType = typeof(System.DateTime);
+            this.mtxtSalida.Click += new System.EventHandler(this.mtxt);
             this.mtxtSalida.Leave += new System.EventHandler(this.mtxtSalida_Leave);
             // 
             // panel3
@@ -920,6 +858,7 @@
             this.cbDiaSalida.Size = new System.Drawing.Size(166, 24);
             this.cbDiaSalida.TabIndex = 64;
             this.cbDiaSalida.Text = "Seleccionar";
+            this.cbDiaSalida.SelectedIndexChanged += new System.EventHandler(this.cbDiaSalida_SelectedIndexChanged);
             // 
             // mtxtEntradaTurno
             // 
@@ -931,6 +870,7 @@
             this.mtxtEntradaTurno.Size = new System.Drawing.Size(100, 19);
             this.mtxtEntradaTurno.TabIndex = 63;
             this.mtxtEntradaTurno.ValidatingType = typeof(System.DateTime);
+            this.mtxtEntradaTurno.Click += new System.EventHandler(this.mtxt);
             this.mtxtEntradaTurno.Leave += new System.EventHandler(this.mtxtSalida_Leave);
             // 
             // cbDiaEntrada
@@ -1101,22 +1041,22 @@
             this.dgvForReg.AllowUserToDeleteRows = false;
             this.dgvForReg.AllowUserToResizeColumns = false;
             this.dgvForReg.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle93.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle93;
             this.dgvForReg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvForReg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvForReg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvForReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvForReg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvForReg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle94.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle94.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle94.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle94.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle94.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle94.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle94;
             this.dgvForReg.Location = new System.Drawing.Point(422, 116);
             this.dgvForReg.Name = "dgvForReg";
             this.dgvForReg.ReadOnly = true;
@@ -1294,8 +1234,8 @@
             this.dgvReloj.AllowUserToDeleteRows = false;
             this.dgvReloj.AllowUserToResizeColumns = false;
             this.dgvReloj.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle95.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle95;
             this.dgvReloj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReloj.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvReloj.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
@@ -1303,14 +1243,14 @@
             this.dgvReloj.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvReloj.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReloj.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle96.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle96.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle96.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle96.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle96.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle96.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle96.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle96;
             this.dgvReloj.Location = new System.Drawing.Point(349, 114);
             this.dgvReloj.Name = "dgvReloj";
             this.dgvReloj.ReadOnly = true;
@@ -1507,12 +1447,10 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ComboBox cbComidaFin;
         private System.Windows.Forms.MaskedTextBox mtxtComidaFin;
         private System.Windows.Forms.MaskedTextBox mtxtComidaInicio;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox cbComidaInicio;
         private System.Windows.Forms.MaskedTextBox mtxtSalida;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cbDiaSalida;

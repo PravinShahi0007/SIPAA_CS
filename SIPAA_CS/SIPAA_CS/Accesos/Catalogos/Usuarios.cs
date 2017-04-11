@@ -66,25 +66,32 @@ namespace SIPAA_CS.Accesos
 
             if (dgvAccesoUsuario.SelectedRows.Count != 0)
             {
-                label13.Text = "      Editar Usuario SIPAA";
-                panel1.Visible = true;
-                ckbElimina.Visible = true;
-                ckbElimina.Checked = false;
-                txtPassword.Enabled = false;
+                
+                
                 Utilerias.AsignarBotonResize(btnSipaa,Utilerias.PantallaSistema(),Botones.Editar);
                 DataGridViewRow row = this.dgvAccesoUsuario.SelectedRows[0];
-
                 cvusuario = row.Cells["cvusuario"].Value.ToString();
                 nombre = row.Cells["nombre"].Value.ToString();
                 stusuario = row.Cells["stusuario"].Value.ToString();
                 idtrab = Convert.ToInt32(row.Cells["idtrab"].Value.ToString());
-
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
+
+                label13.Text = "      Editar Usuario SIPAA";
                 txtCvUsuario1.Text = cvusuario;
                 txtNombreSipaa.Text = nombre;
                 variable = 5;
+                ckbElimina.Visible = true;
+                ckbElimina.Checked = false;
+                panel1.Visible = true;
+                txtPassword.Enabled = false;
 
+                if (Permisos.Eliminar && Permisos.Actualizar)
+                {
+                    MessageBox.Show("trae");
+                }
+
+                //VALIDA SI ES UN USUARIO DE SIPAA
                 if (idtrab != 0)
                 {
                     txtCvUsuario1.Enabled = false;
@@ -96,6 +103,7 @@ namespace SIPAA_CS.Accesos
                     txtNombreSipaa.Enabled = true;
                 }
 
+                //VALIDA PARA CAMBIAR TEXTO DE CHECKBOX
                 if (stusuario == "Inactivo")
                 {
                     ckbElimina.Text = "Alta";
@@ -113,9 +121,22 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
 
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
         }
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
@@ -412,13 +433,11 @@ namespace SIPAA_CS.Accesos
             txtPassword.Enabled = false;
             LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
             //txtBuscarSipaa.Focus();
-            if (Permisos.Crear )
+            bool a = Permisos.Crear ;
+
+            if (!Permisos.Crear)
             {
                 btnAgregar.Visible = false;
-            }
-            else
-            {
-
             }
         }
 
@@ -459,7 +478,7 @@ namespace SIPAA_CS.Accesos
                     string pass = utilerias.cifradoMd5(cvusuario);
                     usumod = "140114";
                     prgmod = this.Name;
-                    response = usuario.AsignarAccesoUsuario(cvusuario.Trim(), 0, nombre.Trim(), pass, 1, usumod, prgmod, 1);
+                    response = usuario.AsignarAccesoUsuario(cvusuario.Trim(), 0, nombre.Trim(), pass.Trim(), 1, usumod.Trim(), prgmod.Trim(), 1);
                     dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
                     LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
 
@@ -653,7 +672,6 @@ namespace SIPAA_CS.Accesos
 
             }
         }
-
         
 
         //-----------------------------------------------------------------------------------------------

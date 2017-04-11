@@ -181,7 +181,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         private void llenarGridUbicaciones(string Descripcion)
         {
             SonaCompania objCia = new SonaCompania();
-            DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(Descripcion);
+            DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(5,Descripcion);
             dgvUbicaciones.DataSource = dtUbicacion;
 
             DataGridViewImageColumn imgCheckProcesos = new DataGridViewImageColumn();

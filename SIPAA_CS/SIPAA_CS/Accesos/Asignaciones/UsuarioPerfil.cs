@@ -340,7 +340,6 @@ namespace SIPAA_CS.Accesos
             {
                 dgvUsuarios.Columns.RemoveAt(3);
             }
-
             Usuario objUsuario = new App_Code.Usuario();
             List<Usuario> ltUsuario = objUsuario.ObtenerUsuariosxBusqueda(Nombre, IdTrab);
             DataTable dtUsuarios = objUsuario.ObtenerDataTableUsuarios(ltUsuario);
@@ -349,12 +348,6 @@ namespace SIPAA_CS.Accesos
             dgvUsuarios.Columns[0].Visible = false;
           //  dgvUsuarios.Columns[1].Visible = false;
             dgvUsuarios.ClearSelection();
-
-            
-              
-          
-
-
         }
 
         private void PermisosPantalla() {
