@@ -23,6 +23,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
         public int p_cvincidencia;
         public string p_descripcion;
         public int p_orden;
+        public int p_stgenera;
+        public int p_strepresenta;
         public int p_stincidencia;
         public string p_usuumod;
         public string p_prgumodr;
@@ -36,6 +38,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             p_cvincidencia = 0;
             p_descripcion = "";
             p_orden = 0;
+            p_stgenera = 0;
+            p_strepresenta = 0;
             p_stincidencia = 0;
             p_usuumod = "";
             p_prgumodr = "";
@@ -43,7 +47,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
         }
 
         //METODO FORMAS DE REGISTRO LLENA GRID
-        public DataTable ConcepInc_S(int p_opcion, int p_cvincidencia, string p_descripcion, int p_orden, int p_stincidencia, string p_usuumod, string p_prgumodr)
+        public DataTable ConcepInc_S(int p_opcion, int p_cvincidencia, string p_descripcion, int p_orden, int p_stgenera, int p_strepresenta, int p_stincidencia, string p_usuumod, string p_prgumodr)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechincidencia_suid";
@@ -55,6 +59,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = p_cvincidencia;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
             cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = p_orden;
+            cmd.Parameters.Add("@p_stgenera", SqlDbType.VarChar).Value = p_stgenera;
+            cmd.Parameters.Add("@p_strepresenta", SqlDbType.VarChar).Value = p_strepresenta;
             cmd.Parameters.Add("@p_stincidencia", SqlDbType.VarChar).Value = p_stincidencia;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
@@ -69,7 +75,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
 
         }
         //metodo actualizar, insertar, eliminar registro MTD
-        public int ConcepInc_UID(int p_opcion, int p_cvincidencia, string p_descripcion, int p_orden, int p_stincidencia, string p_usuumod, string p_prgumodr)
+        public int ConcepInc_UID(int p_opcion, int p_cvincidencia, string p_descripcion, int p_orden, int p_stgenera, int p_strepresenta, int p_stincidencia, string p_usuumod, string p_prgumodr)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechincidencia_suid";
@@ -81,6 +87,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = p_cvincidencia;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
             cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = p_orden;
+            cmd.Parameters.Add("@p_stgenera", SqlDbType.VarChar).Value = p_stgenera;
+            cmd.Parameters.Add("@p_strepresenta", SqlDbType.VarChar).Value = p_strepresenta;
             cmd.Parameters.Add("@p_stincidencia", SqlDbType.VarChar).Value = p_stincidencia;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
@@ -92,7 +100,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             return iResponse;
         }
         //METODO FORMAS DE REGISTRO VALIDA CREA REGISTRO MTD
-        public int ConcepInc_V(int p_opcion, int p_cvincidencia, string p_descripcion, int p_orden, int p_stincidencia, string p_usuumod, string p_prgumodr)
+        public int ConcepInc_V(int p_opcion, int p_cvincidencia, string p_descripcion, int p_orden, int p_stgenera, int p_strepresenta, int p_stincidencia, string p_usuumod, string p_prgumodr)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechincidencia_suid";
@@ -104,6 +112,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = p_cvincidencia;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = p_descripcion;
             cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = p_orden;
+            cmd.Parameters.Add("@p_stgenera", SqlDbType.VarChar).Value = p_stgenera;
+            cmd.Parameters.Add("@p_strepresenta", SqlDbType.VarChar).Value = p_strepresenta;
             cmd.Parameters.Add("@p_stincidencia", SqlDbType.VarChar).Value = p_stincidencia;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;

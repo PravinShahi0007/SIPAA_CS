@@ -78,12 +78,12 @@
             // 
             label1.AutoSize = true;
             label1.Enabled = false;
-            label1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label1.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             label1.Location = new System.Drawing.Point(591, 178);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(51, 15);
+            label1.Size = new System.Drawing.Size(53, 16);
             label1.TabIndex = 117;
             label1.Text = "Perfiles";
             // 
@@ -139,12 +139,12 @@
             // lbMensajeGrid
             // 
             lbMensajeGrid.AutoSize = true;
-            lbMensajeGrid.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lbMensajeGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lbMensajeGrid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lbMensajeGrid.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             lbMensajeGrid.Location = new System.Drawing.Point(587, 547);
             lbMensajeGrid.Name = "lbMensajeGrid";
-            lbMensajeGrid.Size = new System.Drawing.Size(0, 15);
+            lbMensajeGrid.Size = new System.Drawing.Size(0, 16);
             lbMensajeGrid.TabIndex = 146;
             // 
             // btnRegresar
