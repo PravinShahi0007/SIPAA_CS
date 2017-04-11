@@ -52,7 +52,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     ltTnom.Add(row["Tipo_Nomina"].ToString());
 
-                    ltvTnom.Items.Add(Convert.ToString(ltvTnom.Items.Count + 1) +") " +  row["Tipo_Nomina"].ToString());
+                    ltvTnom.Items.Add(row["Tipo_Nomina"].ToString());
                     ltvTnom.View = View.List;
                 }
 
@@ -60,14 +60,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 switch (Convert.ToInt32(row["Checa"].ToString())) {
                         
-                    case 0: PanelJefes.Visible = false; 
+                    case 0: panelAsignacionTrabajador.Visible = false; 
                         lbCheca.Text = "NO";
                         lbCheca.ForeColor = ColorTranslator.FromHtml("#f44336");
                         break;
                     case 1:
                             lbCheca.Text = "SI";
-                           lbCheca.ForeColor = ColorTranslator.FromHtml("#2e7d32");
-                            PanelJefes.Visible = true;
+                            lbCheca.ForeColor = ColorTranslator.FromHtml("#2e7d32");
+                            panelAsignacionTrabajador.Visible = true;
                             lbSupervisor.Text = row["Supervisor"].ToString();
                             lbDirector.Text = row["Director"].ToString();
                         break;

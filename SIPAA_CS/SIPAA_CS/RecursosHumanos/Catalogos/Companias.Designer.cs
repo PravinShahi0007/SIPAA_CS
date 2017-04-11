@@ -36,23 +36,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pnlBusqueda = new System.Windows.Forms.Panel();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.pnlbusqueda = new System.Windows.Forms.Panel();
+            this.btnbuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtComp = new System.Windows.Forms.TextBox();
-            this.dgvComp = new System.Windows.Forms.DataGridView();
+            this.txtcomp = new System.Windows.Forms.TextBox();
+            this.dgvcomp = new System.Windows.Forms.DataGridView();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
-            this.btnRegresar = new System.Windows.Forms.Button();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnregresar = new System.Windows.Forms.Button();
+            this.btnminimizar = new System.Windows.Forms.Button();
+            this.btncerrar = new System.Windows.Forms.Button();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lblusuario = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
-            this.pnlBusqueda.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComp)).BeginInit();
+            this.pnlbusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcomp)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -93,34 +93,33 @@
             label2.TabIndex = 115;
             label2.Text = "Compañias";
             // 
-            // pnlBusqueda
+            // pnlbusqueda
             // 
-            this.pnlBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.pnlBusqueda.Controls.Add(label4);
-            this.pnlBusqueda.Controls.Add(this.btnBuscar);
-            this.pnlBusqueda.Controls.Add(this.panel5);
-            this.pnlBusqueda.Controls.Add(this.txtComp);
-            this.pnlBusqueda.Controls.Add(label1);
-            this.pnlBusqueda.Location = new System.Drawing.Point(47, 150);
-            this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(360, 87);
-            this.pnlBusqueda.TabIndex = 0;
-            this.pnlBusqueda.TabStop = true;
+            this.pnlbusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlbusqueda.Controls.Add(label4);
+            this.pnlbusqueda.Controls.Add(this.btnbuscar);
+            this.pnlbusqueda.Controls.Add(this.panel5);
+            this.pnlbusqueda.Controls.Add(this.txtcomp);
+            this.pnlbusqueda.Controls.Add(label1);
+            this.pnlbusqueda.Location = new System.Drawing.Point(47, 150);
+            this.pnlbusqueda.Name = "pnlbusqueda";
+            this.pnlbusqueda.Size = new System.Drawing.Size(360, 87);
+            this.pnlbusqueda.TabIndex = 0;
+            this.pnlbusqueda.TabStop = true;
             // 
-            // btnBuscar
+            // btnbuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnBuscar.Location = new System.Drawing.Point(296, 14);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(50, 50);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnbuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnbuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
+            this.btnbuscar.Location = new System.Drawing.Point(296, 14);
+            this.btnbuscar.Name = "btnbuscar";
+            this.btnbuscar.Size = new System.Drawing.Size(50, 50);
+            this.btnbuscar.TabIndex = 2;
+            this.btnbuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnbuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // panel5
             // 
@@ -130,36 +129,36 @@
             this.panel5.Size = new System.Drawing.Size(250, 1);
             this.panel5.TabIndex = 43;
             // 
-            // txtComp
+            // txtcomp
             // 
-            this.txtComp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtComp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtComp.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComp.Location = new System.Drawing.Point(30, 46);
-            this.txtComp.Name = "txtComp";
-            this.txtComp.Size = new System.Drawing.Size(250, 15);
-            this.txtComp.TabIndex = 1;
+            this.txtcomp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtcomp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtcomp.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcomp.Location = new System.Drawing.Point(30, 46);
+            this.txtcomp.Name = "txtcomp";
+            this.txtcomp.Size = new System.Drawing.Size(250, 15);
+            this.txtcomp.TabIndex = 1;
             // 
-            // dgvComp
+            // dgvcomp
             // 
-            this.dgvComp.AllowUserToAddRows = false;
-            this.dgvComp.AllowUserToDeleteRows = false;
-            this.dgvComp.AllowUserToResizeRows = false;
+            this.dgvcomp.AllowUserToAddRows = false;
+            this.dgvcomp.AllowUserToDeleteRows = false;
+            this.dgvcomp.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvComp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvComp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvComp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.dgvComp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvComp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgvcomp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvcomp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvcomp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.dgvcomp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvcomp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvComp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvComp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvcomp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvcomp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -167,18 +166,18 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvComp.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvComp.Location = new System.Drawing.Point(460, 151);
-            this.dgvComp.Name = "dgvComp";
-            this.dgvComp.ReadOnly = true;
-            this.dgvComp.RowHeadersVisible = false;
-            this.dgvComp.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvComp.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
-            this.dgvComp.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
-            this.dgvComp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComp.Size = new System.Drawing.Size(512, 547);
-            this.dgvComp.TabIndex = 114;
-            this.dgvComp.TabStop = false;
+            this.dgvcomp.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvcomp.Location = new System.Drawing.Point(460, 151);
+            this.dgvcomp.Name = "dgvcomp";
+            this.dgvcomp.ReadOnly = true;
+            this.dgvcomp.RowHeadersVisible = false;
+            this.dgvcomp.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvcomp.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
+            this.dgvcomp.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
+            this.dgvcomp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvcomp.Size = new System.Drawing.Size(512, 547);
+            this.dgvcomp.TabIndex = 114;
+            this.dgvcomp.TabStop = false;
             // 
             // pnlimgusuario
             // 
@@ -189,48 +188,49 @@
             this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
             this.pnlimgusuario.TabIndex = 113;
             // 
-            // btnRegresar
+            // btnregresar
             // 
-            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(896, 1);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
-            this.btnRegresar.TabIndex = 111;
-            this.btnRegresar.TabStop = false;
-            this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnregresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnregresar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
+            this.btnregresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnregresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnregresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnregresar.Location = new System.Drawing.Point(896, 1);
+            this.btnregresar.Name = "btnregresar";
+            this.btnregresar.Size = new System.Drawing.Size(50, 24);
+            this.btnregresar.TabIndex = 111;
+            this.btnregresar.TabStop = false;
+            this.btnregresar.UseVisualStyleBackColor = false;
             // 
-            // btnMinimizar
+            // btnminimizar
             // 
-            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_remove_white_18dp;
-            this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(973, 1);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
-            this.btnMinimizar.TabIndex = 110;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.UseVisualStyleBackColor = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.btnminimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnminimizar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_remove_white_18dp;
+            this.btnminimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnminimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnminimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnminimizar.Location = new System.Drawing.Point(973, 1);
+            this.btnminimizar.Name = "btnminimizar";
+            this.btnminimizar.Size = new System.Drawing.Size(24, 24);
+            this.btnminimizar.TabIndex = 110;
+            this.btnminimizar.TabStop = false;
+            this.btnminimizar.UseVisualStyleBackColor = false;
+            this.btnminimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
-            // btnCerrar
+            // btncerrar
             // 
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_clear_white_18dp;
-            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(999, 1);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(24, 24);
-            this.btnCerrar.TabIndex = 109;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btncerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btncerrar.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_clear_white_18dp;
+            this.btncerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btncerrar.Location = new System.Drawing.Point(999, 1);
+            this.btncerrar.Name = "btncerrar";
+            this.btncerrar.Size = new System.Drawing.Size(24, 24);
+            this.btncerrar.TabIndex = 109;
+            this.btncerrar.TabStop = false;
+            this.btncerrar.UseVisualStyleBackColor = false;
+            this.btncerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lbltitulo
             // 
@@ -267,22 +267,22 @@
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(label2);
-            this.Controls.Add(this.pnlBusqueda);
-            this.Controls.Add(this.dgvComp);
+            this.Controls.Add(this.pnlbusqueda);
+            this.Controls.Add(this.dgvcomp);
             this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.btnRegresar);
-            this.Controls.Add(this.btnMinimizar);
-            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnregresar);
+            this.Controls.Add(this.btnminimizar);
+            this.Controls.Add(this.btncerrar);
             this.Controls.Add(this.lbltitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Companias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCompanias";
             this.Load += new System.EventHandler(this.frmCompanias_Load);
-            this.pnlBusqueda.ResumeLayout(false);
-            this.pnlBusqueda.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComp)).EndInit();
+            this.pnlbusqueda.ResumeLayout(false);
+            this.pnlbusqueda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcomp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,15 +290,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlBusqueda;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Panel pnlbusqueda;
+        private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtComp;
-        private System.Windows.Forms.DataGridView dgvComp;
+        private System.Windows.Forms.TextBox txtcomp;
+        private System.Windows.Forms.DataGridView dgvcomp;
         private System.Windows.Forms.Panel pnlimgusuario;
-        private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.Button btnMinimizar;
-        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnregresar;
+        private System.Windows.Forms.Button btnminimizar;
+        private System.Windows.Forms.Button btncerrar;
         private System.Windows.Forms.Label lbltitulo;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label lblusuario;
