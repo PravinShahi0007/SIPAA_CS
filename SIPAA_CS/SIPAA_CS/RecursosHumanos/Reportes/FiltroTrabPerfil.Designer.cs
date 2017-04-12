@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FiltroTrabPerfil));
             System.Windows.Forms.Label lblubicacion;
             System.Windows.Forms.Label lblidcia;
             System.Windows.Forms.Label lblidtrab;
             System.Windows.Forms.Label label9;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FiltroTrabPerfil));
             System.Windows.Forms.Label lblimprimir;
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,6 +55,68 @@
             this.pnlBusqueda.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // lblubicacion
+            // 
+            lblubicacion.AutoSize = true;
+            lblubicacion.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblubicacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            lblubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblubicacion.Location = new System.Drawing.Point(41, 192);
+            lblubicacion.Name = "lblubicacion";
+            lblubicacion.Size = new System.Drawing.Size(54, 16);
+            lblubicacion.TabIndex = 60;
+            lblubicacion.Text = "Ubicación";
+            // 
+            // lblidcia
+            // 
+            lblidcia.AutoSize = true;
+            lblidcia.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblidcia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            lblidcia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblidcia.Location = new System.Drawing.Point(41, 117);
+            lblidcia.Name = "lblidcia";
+            lblidcia.Size = new System.Drawing.Size(56, 16);
+            lblidcia.TabIndex = 58;
+            lblidcia.Text = "Compañia";
+            // 
+            // lblidtrab
+            // 
+            lblidtrab.AutoSize = true;
+            lblidtrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblidtrab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            lblidtrab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblidtrab.Location = new System.Drawing.Point(41, 49);
+            lblidtrab.Name = "lblidtrab";
+            lblidtrab.Size = new System.Drawing.Size(106, 16);
+            lblidtrab.TabIndex = 44;
+            lblidtrab.Text = "No de Trabajador";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label9.ForeColor = System.Drawing.Color.Gray;
+            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
+            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label9.Location = new System.Drawing.Point(5, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(152, 17);
+            label9.TabIndex = 41;
+            label9.Text = "       Filtros de Reporte";
+            // 
+            // lblimprimir
+            // 
+            lblimprimir.AutoSize = true;
+            lblimprimir.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblimprimir.ForeColor = System.Drawing.Color.Gray;
+            lblimprimir.Image = ((System.Drawing.Image)(resources.GetObject("lblimprimir.Image")));
+            lblimprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblimprimir.Location = new System.Drawing.Point(60, 48);
+            lblimprimir.Name = "lblimprimir";
+            lblimprimir.Size = new System.Drawing.Size(199, 17);
+            lblimprimir.TabIndex = 66;
+            lblimprimir.Text = "       Imprimir Perfil Trabajador";
             // 
             // panel2
             // 
@@ -154,18 +216,6 @@
             this.pnlBusqueda.TabIndex = 151;
             this.pnlBusqueda.TabStop = true;
             // 
-            // lblubicacion
-            // 
-            lblubicacion.AutoSize = true;
-            lblubicacion.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblubicacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            lblubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblubicacion.Location = new System.Drawing.Point(41, 192);
-            lblubicacion.Name = "lblubicacion";
-            lblubicacion.Size = new System.Drawing.Size(54, 16);
-            lblubicacion.TabIndex = 60;
-            lblubicacion.Text = "Ubicación";
-            // 
             // cboUbicacion
             // 
             this.cboUbicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -179,42 +229,20 @@
             this.cboUbicacion.TabIndex = 3;
             this.cboUbicacion.Text = "Seleccionar ";
             // 
-            // lblidcia
-            // 
-            lblidcia.AutoSize = true;
-            lblidcia.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblidcia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            lblidcia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblidcia.Location = new System.Drawing.Point(41, 117);
-            lblidcia.Name = "lblidcia";
-            lblidcia.Size = new System.Drawing.Size(56, 16);
-            lblidcia.TabIndex = 58;
-            lblidcia.Text = "Compañia";
-            // 
             // cboCia
             // 
             this.cboCia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboCia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboCia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboCia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCia.FormattingEnabled = true;
+            this.cboCia.Items.AddRange(new object[] {
+            "-Seleccionar-"});
             this.cboCia.Location = new System.Drawing.Point(44, 137);
             this.cboCia.Name = "cboCia";
             this.cboCia.Size = new System.Drawing.Size(291, 25);
             this.cboCia.TabIndex = 2;
-            this.cboCia.Text = "Seleccionar ";
-            // 
-            // lblidtrab
-            // 
-            lblidtrab.AutoSize = true;
-            lblidtrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblidtrab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            lblidtrab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblidtrab.Location = new System.Drawing.Point(41, 49);
-            lblidtrab.Name = "lblidtrab";
-            lblidtrab.Size = new System.Drawing.Size(106, 16);
-            lblidtrab.TabIndex = 44;
-            lblidtrab.Text = "No de Trabajador";
             // 
             // panel7
             // 
@@ -234,19 +262,6 @@
             this.txtIdTrab.Size = new System.Drawing.Size(250, 15);
             this.txtIdTrab.TabIndex = 1;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.ForeColor = System.Drawing.Color.Gray;
-            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
-            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(5, 0);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(152, 17);
-            label9.TabIndex = 41;
-            label9.Text = "       Filtros de Reporte";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(lblimprimir);
@@ -255,19 +270,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 114);
             this.panel1.TabIndex = 152;
-            // 
-            // lblimprimir
-            // 
-            lblimprimir.AutoSize = true;
-            lblimprimir.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lblimprimir.ForeColor = System.Drawing.Color.Gray;
-            lblimprimir.Image = ((System.Drawing.Image)(resources.GetObject("lblimprimir.Image")));
-            lblimprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblimprimir.Location = new System.Drawing.Point(60, 48);
-            lblimprimir.Name = "lblimprimir";
-            lblimprimir.Size = new System.Drawing.Size(199, 17);
-            lblimprimir.TabIndex = 66;
-            lblimprimir.Text = "       Imprimir Perfil Trabajador";
             // 
             // btnImprimir
             // 
@@ -281,6 +283,7 @@
             this.btnImprimir.TabIndex = 4;
             this.btnImprimir.Tag = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // FiltroTrabPerfil
             // 

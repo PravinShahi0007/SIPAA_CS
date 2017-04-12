@@ -39,6 +39,15 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (txtIdTrab.Text == "" && cboCia.SelectedIndex == 0 && cboUbicacion.SelectedIndex == 0)
+            {
+                MessageBox.Show("Debe Seleccionar Trabajador, Compañia o Ubicación");
+                txtIdTrab.Focus();
+            }
+        }
+
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -82,8 +91,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             sTooltip();
 
             //LLENA COMBOS
-            Util.cargarcombo(cboCia, CComUbi.obtcomp(5, ""));
-            Util.cargarcombo(cboUbicacion, CComUbi.ObtenerUbicacionPlantel(5,""));
+            DataTable dtCompania = CComUbi.obtcomp(5, "");
+            Utilerias.llenarComboxDataTable(cboCia,dtCompania,"Clave","Descripción");
+
+            DataTable dtUbicacion = CComUbi.ObtenerUbicacionPlantel(5, "");
+            Utilerias.llenarComboxDataTable(cboUbicacion, dtUbicacion, "IdUbicacion", "Descripción");
 
             txtIdTrab.Focus();
 
