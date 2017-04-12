@@ -424,6 +424,7 @@
             this.dgvIncidencia.Size = new System.Drawing.Size(361, 345);
             this.dgvIncidencia.TabIndex = 134;
             this.dgvIncidencia.Tag = "Editar";
+            this.dgvIncidencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIncidencia_CellContentClick_1);
             // 
             // pnlBusqueda
             // 

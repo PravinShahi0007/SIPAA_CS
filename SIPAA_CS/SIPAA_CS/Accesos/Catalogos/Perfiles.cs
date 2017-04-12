@@ -214,9 +214,8 @@ namespace SIPAA_CS.Accesos
         {
             
             // Se crea lista de permisos por pantalla
-            LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
-            DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
-            LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, "companias");
+            Dictionary<string,int> dcPermisos= Utilerias.CrearListaPermisoxPantalla(dtPermisos, LoginInfo.ltPermisosPantalla);
             //////////////////////////////////////////////////////
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());

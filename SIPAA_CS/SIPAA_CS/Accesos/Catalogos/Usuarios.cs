@@ -412,9 +412,9 @@ namespace SIPAA_CS.Accesos
         private void Crear_Acceso_Usuario_Load(object sender, EventArgs e)
         {
             //// Se crea lista de permisos por pantalla
-            LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
-            DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
-            LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            //LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab,this.Tag.ToString());
+            //DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
+            //LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
             ////////////////////////////////////////////////////////
             //// resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());

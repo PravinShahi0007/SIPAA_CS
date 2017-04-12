@@ -227,30 +227,45 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public static List<string>  CrearListaPermisoxPantalla(DataRow[] row, List<string> ltPermisos)
+        public static Dictionary<string,int>  CrearListaPermisoxPantalla(DataTable dtPermisos, List<string> ltPermisos)
         {
-            List<string> listPermisos = new List<string>();
+            Dictionary<string,int> dcPermisos = new Dictionary<string, int>();
 
-            foreach (DataRow rows in row)
+            foreach (DataRow rows in dtPermisos.Rows)
             {
 
                 if (Convert.ToInt32(rows["Crear"]) == 1)
                 {
-                    listPermisos.Add("Crear");
+                    dcPermisos.Add("Crear",1);
+                }else
+                {
+                    dcPermisos.Add("Crear", 0);
                 }
 
                 if (Convert.ToInt32(rows["Eliminar"]) == 1)
                 {
-                    listPermisos.Add("Eliminar");
+                    dcPermisos.Add("Eliminar",1);
+                }
+                else
+                {
+                    dcPermisos.Add("Eliminar", 0);
                 }
 
                 if (Convert.ToInt32(rows["Actualizar"]) == 1)
                 {
-                    listPermisos.Add("Actualizar");
+                    dcPermisos.Add("Actualizar",1);
+                }
+                else
+                {
+                    dcPermisos.Add("Actualizar",0 );
                 }
                 if (Convert.ToInt32(rows["Imprimir"]) == 1)
                 {
-                    listPermisos.Add("Imprimir");
+                    dcPermisos.Add("Imprimir",1);
+                }
+                else
+                {
+                    dcPermisos.Add("Imprimir", 0);
                 }
 
                 //if (Convert.ToInt32(rows["Lectura"]) == 1)
@@ -259,7 +274,7 @@ namespace SIPAA_CS.App_Code
                 //}
             }
 
-            return listPermisos;
+            return dcPermisos;
         }
 
         public void ChangeButton(Button btn, int iClase, Boolean Apagar)
@@ -542,6 +557,46 @@ namespace SIPAA_CS.App_Code
             {  ltCv.Remove(iCv); }
             else
             { ltCv.Add(iCv);}
+
+            if (ltCv.Count == 0)
+            { ctrl.Enabled = false; }
+            else
+            { ctrl.Enabled = true; }
+
+            switch (row.Cells[0].Tag.ToString())
+            {
+                case "check":
+                    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                    row.Cells[0].Tag = "uncheck";
+                    break;
+                case "uncheck":
+                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                    row.Cells[0].Tag = "check";
+                    break;
+            }
+        }
+
+
+        public static void SeleccionGridView(DataGridView dgv, int iPositionClave, List<int> ltCv, Control ctrl)
+        {
+            DataGridViewRow row = dgv.SelectedRows[0];
+            int iCv = Convert.ToInt32(row.Cells[iPositionClave].Value.ToString());
+
+            if (ltCv.Contains(iCv))
+            {
+                ltCv.Clear();
+                ctrl.Enabled = false;
+             
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                row.Cells[0].Tag = "check";
+            }
+            else
+            {
+                ltCv.Clear();
+                ltCv.Add(iCv);
+                row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                row.Cells[0].Tag = "uncheck";
+            }
 
             if (ltCv.Count == 0)
             { ctrl.Enabled = false; }
