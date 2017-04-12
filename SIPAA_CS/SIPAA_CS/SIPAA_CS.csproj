@@ -528,6 +528,12 @@
     <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.Designer.cs">
       <DependentUpon>FiltrosRegistroGeneradoDetalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroTrabPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroTrabPerfil.Designer.cs">
+      <DependentUpon>FiltroTrabPerfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\Observaciones.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -758,6 +764,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.resx">
       <DependentUpon>FiltrosRegistroGeneradoDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroTrabPerfil.resx">
+      <DependentUpon>FiltroTrabPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Observaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
