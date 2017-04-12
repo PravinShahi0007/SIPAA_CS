@@ -466,7 +466,7 @@
             // 
             this.ckbElimina.AutoSize = true;
             this.ckbElimina.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ckbElimina.Location = new System.Drawing.Point(302, 82);
+            this.ckbElimina.Location = new System.Drawing.Point(303, 82);
             this.ckbElimina.Name = "ckbElimina";
             this.ckbElimina.Size = new System.Drawing.Size(47, 17);
             this.ckbElimina.TabIndex = 44;
@@ -491,7 +491,7 @@
             this.btnSipaa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSipaa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnSipaa.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnSipaa.Location = new System.Drawing.Point(359, 64);
+            this.btnSipaa.Location = new System.Drawing.Point(360, 64);
             this.btnSipaa.Name = "btnSipaa";
             this.btnSipaa.Size = new System.Drawing.Size(50, 50);
             this.btnSipaa.TabIndex = 38;
@@ -534,6 +534,7 @@
             this.btnMinimizar.TabIndex = 114;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
             // 
@@ -695,6 +696,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Usuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "frmCrear_Usuario";
             this.Text = "Crear_Acceso_Usuario";
             this.Load += new System.EventHandler(this.Crear_Acceso_Usuario_Load);
             this.panel9.ResumeLayout(false);
