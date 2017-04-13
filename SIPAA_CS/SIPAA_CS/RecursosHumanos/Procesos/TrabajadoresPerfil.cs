@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.SonaCompania;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Procesos
 {
@@ -26,8 +27,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             SonaTrabajador objTrab = new SonaTrabajador();
-            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%",6, "%", "%");
-         //   llenarListView(dtTrab, ltvTrabajador);
+            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%",6, "%", "%",0, LoginInfo.IdTrab, this.Name);
+            //   llenarListView(dtTrab, ltvTrabajador);
             llenarGrid(dtTrab, dgvTrab);
         }
 
@@ -150,7 +151,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
 
             SonaTrabajador objTrab = new SonaTrabajador();
-            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(sIdbusqueda, 7, sCheca, sEstatus);
+            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(sIdbusqueda, 6, sCheca, sEstatus, 0,LoginInfo.IdTrab, this.Name);
             llenarGrid(dtTrab, dgvTrab);
         }
 

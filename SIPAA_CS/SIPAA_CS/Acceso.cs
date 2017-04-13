@@ -55,7 +55,6 @@ namespace SIPAA_CS
             {
 
             }
-
         }
 
         private void btnMinimizar_Click_1(object sender, EventArgs e)
