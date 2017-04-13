@@ -241,16 +241,10 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public static DataTable ObtenerPermisosxUsuario(string CVUsuario)
+        public static DataTable ObtenerPermisosxUsuario(string sCVUsuario,string sCvModulo)
         {
 
             DataTable dtPermisos = new DataTable();
-            dtPermisos.Columns.Add("CVModulo");
-            dtPermisos.Columns.Add("Crear");
-            dtPermisos.Columns.Add("Eliminar");
-            dtPermisos.Columns.Add("Actualizar");
-            dtPermisos.Columns.Add("Imprimir");
-            dtPermisos.Columns.Add("Lectura");
 
             dtPermisos.PrimaryKey = new DataColumn[] { dtPermisos.Columns["CVModulo"] };
 
@@ -259,68 +253,14 @@ namespace SIPAA_CS.App_Code
             cmd.CommandText = @"usp_accepermisos_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@p_cv", SqlDbType.VarChar).Value = CVUsuario;
-            cmd.Parameters.Add("@p_cvmodulo", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = sCVUsuario;
+            cmd.Parameters.Add("@p_cvmodulo", SqlDbType.VarChar).Value = sCvModulo;
             cmd.Parameters.Add("@p_Opcion", SqlDbType.VarChar).Value = 4;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            SqlDataReader reader = cmd.ExecuteReader();
-
-
-            while (reader.Read())
-            {
-
-               
-                string cvModulo = reader.GetString(reader.GetOrdinal("cvmodulo"));
-                int stcre = reader.GetInt32(reader.GetOrdinal("stcre"));
-                int stact = reader.GetInt32(reader.GetOrdinal("stact"));
-                int stlec = reader.GetInt32(reader.GetOrdinal("stlec"));
-                int steli = reader.GetInt32(reader.GetOrdinal("steli"));
-                int stimp = reader.GetInt32(reader.GetOrdinal("stimp"));
-             
-
-
-                DataRow row = dtPermisos.NewRow();
-
-                if (dtPermisos.Rows.Contains(cvModulo))
-                {
-
-                    for (int icontador = 0; icontador < dtPermisos.Rows.Count; icontador++) {
-
-                        DataRow rowSelect = dtPermisos.Rows[icontador];
-
-                        if (rowSelect.Field<string>("CVModulo") == cvModulo) {
-
-
-                            CambioEstatusPermiso(rowSelect, stact, "Actualizar");
-                            CambioEstatusPermiso(rowSelect, stcre, "Crear");
-                            CambioEstatusPermiso(rowSelect, stlec, "Lectura");
-                            CambioEstatusPermiso(rowSelect, stimp, "Imprimir");
-                            CambioEstatusPermiso(rowSelect, steli, "Eliminar");
-
-                            break;
-                        }
-                    }
-
-
-                }
-                else
-                {
-
-
-                    row["cvModulo"] = cvModulo;
-                    row["Lectura"] = stlec;
-                    row["Crear"] = stcre;
-                    row["Eliminar"] = steli;
-                    row["Actualizar"] = stact;
-                    row["Imprimir"] = stimp;
-                    dtPermisos.Rows.Add(row);
-
-                }
-               
-            }
-
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            Adapter.Fill(dtPermisos);
             objConexion.cerrarConexion();
 
             return dtPermisos;

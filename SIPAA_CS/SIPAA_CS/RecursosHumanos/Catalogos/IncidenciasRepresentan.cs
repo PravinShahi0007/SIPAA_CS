@@ -323,6 +323,11 @@ namespace SIPAA_CS.RecursosHumanos
           
         }
 
+        private void dgvIncidencia_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
 
 
 

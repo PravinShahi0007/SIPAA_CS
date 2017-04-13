@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.SonaCompania;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Procesos
 {
@@ -34,7 +35,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             string sIdtrab = TrabajadorInfo.IdTrab;
             List<string> ltTnom = new List<string>();
             SonaTrabajador objTrab = new SonaTrabajador();
-            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(sIdtrab, 5, "%", "%");
+            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(sIdtrab, 5, "%", "%", 0,LoginInfo.IdTrab, this.Name);
 
             foreach (DataRow row in dtTrab.Rows) {
 
@@ -106,6 +107,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             AsignacionTrabajadorPerfil form = new AsignacionTrabajadorPerfil();
             form.Show();
+        }
+
+        private void btnTipoHr_Click(object sender, EventArgs e)
+        {
+            AsignacionTipoHorarioTrabajador form = new AsignacionTipoHorarioTrabajador();
+            form.Show();
+            
         }
     }
 }

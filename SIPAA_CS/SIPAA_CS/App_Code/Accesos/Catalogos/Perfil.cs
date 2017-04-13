@@ -264,6 +264,35 @@ namespace SIPAA_CS.App_Code
 
         }
 
+        public DataTable ReportePerfilesModulos(string cvmodulo, int cvperfil, string usuumod, string prgumod, int stact, int steli, int stcre, int stimp, int stlec, int opcion)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_accepermod_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@P_cvmodulo", SqlDbType.VarChar).Value = cvmodulo;
+            cmd.Parameters.Add("@P_cvperfil", SqlDbType.Int).Value = cvperfil;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@P_stact", SqlDbType.Int).Value = stact;
+            cmd.Parameters.Add("@P_steli", SqlDbType.Int).Value = steli;
+            cmd.Parameters.Add("@P_stcre", SqlDbType.Int).Value = stcre;
+            cmd.Parameters.Add("@P_stimp", SqlDbType.Int).Value = stimp;
+            cmd.Parameters.Add("@P_stlec", SqlDbType.Int).Value = stlec;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = opcion;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtPerfilesUsuarios = new DataTable();
+            Adapter.Fill(dtPerfilesUsuarios);
+
+            return dtPerfilesUsuarios;
+        }
+
 
     }
 }

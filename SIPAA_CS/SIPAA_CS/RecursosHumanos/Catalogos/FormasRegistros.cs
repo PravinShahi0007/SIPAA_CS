@@ -198,8 +198,10 @@ namespace SIPAA_CS.RecursosHumanos
 
                 }
         }
-
-
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         //BOTON MINIMIZAR
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
@@ -456,7 +458,9 @@ namespace SIPAA_CS.RecursosHumanos
             vValida = FormasRegistro.FormaReg_V(iOpc, sCve, sDesc, iStT, sUsu, sProg);
             
         }
-        
+
+
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
