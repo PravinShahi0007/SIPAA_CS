@@ -56,6 +56,9 @@
             this.lbFechaIngreso = new System.Windows.Forms.Label();
             this.lbPuesto = new System.Windows.Forms.Label();
             this.lbDepto = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lbCheca = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.lbEstatus = new System.Windows.Forms.Label();
             this.lbArea = new System.Windows.Forms.Label();
             this.lbUbicacion = new System.Windows.Forms.Label();
@@ -77,13 +80,10 @@
             this.lbSupervisor = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnTipoHr = new System.Windows.Forms.Button();
             this.lbHorario = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lbCheca = new System.Windows.Forms.Label();
             this.panelAsignaciones = new System.Windows.Forms.Panel();
             this.btnAsignaciones = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -108,9 +108,9 @@
             label29 = new System.Windows.Forms.Label();
             label30 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.PanelJefes.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panelAsignaciones.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -125,9 +125,9 @@
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label7.Location = new System.Drawing.Point(598, 268);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(177, 18);
+            label7.Size = new System.Drawing.Size(121, 18);
             label7.TabIndex = 176;
-            label7.Text = "      Asignar Tipo Horario";
+            label7.Text = "      Tipo Horario";
             // 
             // label13
             // 
@@ -462,6 +462,36 @@
             this.lbDepto.TabIndex = 17;
             this.lbDepto.Text = "lbDepto";
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.lbCheca);
+            this.panel4.Controls.Add(this.label14);
+            this.panel4.Location = new System.Drawing.Point(14, 421);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(378, 33);
+            this.panel4.TabIndex = 173;
+            // 
+            // lbCheca
+            // 
+            this.lbCheca.AutoSize = true;
+            this.lbCheca.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCheca.Location = new System.Drawing.Point(50, 9);
+            this.lbCheca.Name = "lbCheca";
+            this.lbCheca.Size = new System.Drawing.Size(66, 18);
+            this.lbCheca.TabIndex = 174;
+            this.lbCheca.Text = "lbCheca";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label14.Location = new System.Drawing.Point(3, 10);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Checa:";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
             // lbEstatus
             // 
             this.lbEstatus.AutoSize = true;
@@ -673,20 +703,9 @@
             this.label15.TabIndex = 171;
             this.label15.Text = "Supervisor:";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label14.Location = new System.Drawing.Point(3, 10);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 13);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "Checa:";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
-            // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnBuscar);
+            this.panel3.Controls.Add(this.btnTipoHr);
             this.panel3.Controls.Add(this.lbHorario);
             this.panel3.Controls.Add(this.label19);
             this.panel3.Location = new System.Drawing.Point(601, 288);
@@ -694,18 +713,19 @@
             this.panel3.Size = new System.Drawing.Size(378, 65);
             this.panel3.TabIndex = 173;
             // 
-            // btnBuscar
+            // btnTipoHr
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Editar;
-            this.btnBuscar.Location = new System.Drawing.Point(277, 6);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(50, 50);
-            this.btnBuscar.TabIndex = 177;
-            this.btnBuscar.Tag = "Editar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnTipoHr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnTipoHr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTipoHr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnTipoHr.Image = global::SIPAA_CS.Properties.Resources.Editar;
+            this.btnTipoHr.Location = new System.Drawing.Point(277, 6);
+            this.btnTipoHr.Name = "btnTipoHr";
+            this.btnTipoHr.Size = new System.Drawing.Size(50, 50);
+            this.btnTipoHr.TabIndex = 177;
+            this.btnTipoHr.Tag = "Editar";
+            this.btnTipoHr.UseVisualStyleBackColor = false;
+            this.btnTipoHr.Click += new System.EventHandler(this.btnTipoHr_Click);
             // 
             // lbHorario
             // 
@@ -726,25 +746,6 @@
             this.label19.Size = new System.Drawing.Size(88, 13);
             this.label19.TabIndex = 10;
             this.label19.Text = "Tipos de Horario:";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.lbCheca);
-            this.panel4.Controls.Add(this.label14);
-            this.panel4.Location = new System.Drawing.Point(14, 421);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(378, 33);
-            this.panel4.TabIndex = 173;
-            // 
-            // lbCheca
-            // 
-            this.lbCheca.AutoSize = true;
-            this.lbCheca.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheca.Location = new System.Drawing.Point(50, 9);
-            this.lbCheca.Name = "lbCheca";
-            this.lbCheca.Size = new System.Drawing.Size(66, 18);
-            this.lbCheca.TabIndex = 174;
-            this.lbCheca.Text = "lbCheca";
             // 
             // panelAsignaciones
             // 
@@ -860,12 +861,12 @@
             this.Load += new System.EventHandler(this.DatosTrabajadorPerfil_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.PanelJefes.ResumeLayout(false);
             this.PanelJefes.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panelAsignaciones.ResumeLayout(false);
             this.panelAsignaciones.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -917,7 +918,7 @@
         private System.Windows.Forms.Label lbCheca;
         private System.Windows.Forms.Label lbHorario;
         private System.Windows.Forms.ListView ltvTnom;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnTipoHr;
         private System.Windows.Forms.Panel panelAsignaciones;
         private System.Windows.Forms.Button btnAsignaciones;
         private System.Windows.Forms.Panel panel2;

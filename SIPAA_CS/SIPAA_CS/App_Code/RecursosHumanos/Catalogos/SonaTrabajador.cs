@@ -71,7 +71,7 @@ namespace SIPAA_CS.App_Code
             return (dtEmpleados);
         }
 
-        public DataTable ObtenerPerfilTrabajador(string sIdtrab,int iOpcion,string sCheca,string sEstatus)
+        public DataTable ObtenerPerfilTrabajador(string sIdtrab,int iOpcion,string sCheca,string sEstatus,int iCvtipohr,string sUsuumod,string sPrgumod)
         {
             SqlCommand cmd = new SqlCommand();
             Conexion objConexion = new Conexion();
@@ -84,6 +84,10 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@P_opcion", SqlDbType.VarChar).Value = iOpcion;
             cmd.Parameters.Add("@P_checa", SqlDbType.VarChar).Value = sCheca;
             cmd.Parameters.Add("@P_activo", SqlDbType.VarChar).Value = sEstatus;
+            cmd.Parameters.Add("@P_cvtipohr", SqlDbType.Int).Value = iCvtipohr;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = sUsuumod;
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = sPrgumod;
+            
             objConexion.asignarConexion(cmd);
             
             SqlDataAdapter dadapter = new SqlDataAdapter(cmd);

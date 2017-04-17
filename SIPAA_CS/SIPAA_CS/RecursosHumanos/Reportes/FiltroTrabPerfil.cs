@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.Properties;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
+using SIPAA_CS.RecursosHumanos.DataSets;
 
 //***********************************************************************************************
 //Autor: Marco Dupont
@@ -23,8 +25,19 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 {
     public partial class FiltroTrabPerfil : Form
     {
+        #region
+
+        int iIDT;
+        int iIDC;
+        int IIDU;
+        int IACT;
+
+        #endregion
+
+
         Utilerias Util = new Utilerias();
         SonaCompania CComUbi = new SonaCompania();
+        RepTrabPerfil CTrabPerf = new RepTrabPerfil();
 
         public FiltroTrabPerfil()
         {
@@ -39,6 +52,38 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (txtIdTrab.Text == "" && cboCia.SelectedIndex == 0 && cboUbicacion.SelectedIndex == 0)
+            {
+                MessageBox.Show("Debe Seleccionar Trabajador, Compañia o Ubicación");
+                txtIdTrab.Focus();
+            }
+            else
+            {
+                if (txtIdTrab.Text != "")
+                {
+                    iIDT = Int32.Parse(txtIdTrab.Text);
+                }
+                else
+                {
+                    iIDT = 0;
+                }
+                iIDC = Int32.Parse(cboCia.SelectedValue.ToString());
+                IIDU = Int32.Parse(cboUbicacion.SelectedValue.ToString());
+                IACT = 2;
+                DataTable dtRpt = CTrabPerf.PerfilTrab_S(4,iIDT,iIDC,IIDU,IACT);
+
+                ViewerReporte form = new ViewerReporte();
+                RTrabPerfil dtsRep = new RTrabPerfil();
+                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, "RecursosHumanos", dtsRep.ResourceName);
+
+                form.RptDoc = ReportDoc;
+                form.Show();
+
+            }
+        }
+
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -82,8 +127,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             sTooltip();
 
             //LLENA COMBOS
-            Util.cargarcombo(cboCia, CComUbi.obtcomp(5, ""));
-            Util.cargarcombo(cboUbicacion, CComUbi.ObtenerUbicacionPlantel(5,""));
+            DataTable dtCompania = CComUbi.obtcomp(5, "");
+            Utilerias.llenarComboxDataTable(cboCia,dtCompania,"Clave","Descripción");
+
+            DataTable dtUbicacion = CComUbi.ObtenerUbicacionPlantel(5, "");
+            Utilerias.llenarComboxDataTable(cboUbicacion, dtUbicacion, "IdUbicacion", "Descripción");
 
             txtIdTrab.Focus();
 
