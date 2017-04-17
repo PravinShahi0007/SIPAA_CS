@@ -230,6 +230,7 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Mensaje.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\PlantillaDetalle.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Plantilla.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\RepTrabPerfil.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaCompania2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaFormaPago.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
@@ -474,6 +475,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resumen.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\TrabPerfil.cs">
+      <DependentUpon>TrabPerfil.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\TrabPerfil.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrabPerfil.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -562,6 +571,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resumen.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RTrabPerfil.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RTrabPerfil.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\ViewerReporte.cs">
@@ -792,6 +807,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Resumen.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RTrabPerfil.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RTrabPerfil.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
     </EmbeddedResource>
@@ -931,6 +950,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\Resumen.xss">
       <DependentUpon>Resumen.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\TrabPerfil.xsc">
+      <DependentUpon>TrabPerfil.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\TrabPerfil.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TrabPerfil.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\TrabPerfil.xss">
+      <DependentUpon>TrabPerfil.xsd</DependentUpon>
     </None>
     <None Include="Resources\drawable-xhdpi\ic_insert_chart_white_48dp.png" />
   </ItemGroup>
