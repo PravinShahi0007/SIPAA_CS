@@ -20,7 +20,7 @@ namespace SIPAA_CS.RecursosHumanos
             InitializeComponent();
         }
 
-        MenuPba MenuP = new MenuPba();
+        //MenuPba MenuP = new MenuPba();
         
 
         private void Menu_Load(object sender, EventArgs e)
