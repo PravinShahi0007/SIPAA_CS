@@ -85,7 +85,7 @@ namespace SIPAA_CS.Accesos.Reportes
                             llenaComboModPad();
                             llenaComboModulo();
                             llenaComboAmbiente();
-                            ViewerReporteModulos form = new ViewerReporteModulos();
+                            ViewerReporte form = new ViewerReporte();
                             ReporteModulos dtrpt = new ReporteModulos();
                             ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -128,7 +128,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -164,7 +164,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -200,7 +200,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -236,7 +236,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -272,7 +272,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -308,7 +308,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -344,7 +344,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -386,7 +386,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -422,7 +422,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -458,7 +458,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -494,7 +494,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -530,7 +530,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -566,7 +566,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -602,7 +602,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -644,7 +644,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -680,7 +680,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -716,7 +716,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -752,7 +752,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -788,7 +788,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -824,7 +824,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -860,7 +860,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaComboModPad();
                                         llenaComboModulo();
                                         llenaComboAmbiente();
-                                        ViewerReporteModulos form = new ViewerReporteModulos();
+                                        ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -906,7 +906,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaComboModPad();
                                     llenaComboModulo();
                                     llenaComboAmbiente();
-                                    ViewerReporteModulos form = new ViewerReporteModulos();
+                                    ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -956,7 +956,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaComboModPad();
                                     llenaComboModulo();
                                     llenaComboAmbiente();
-                                    ViewerReporteModulos form = new ViewerReporteModulos();
+                                    ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -993,7 +993,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaComboModPad();
                                     llenaComboModulo();
                                     llenaComboAmbiente();
-                                    ViewerReporteModulos form = new ViewerReporteModulos();
+                                    ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -1026,7 +1026,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     break;
 
                                 default:
-                                    ViewerReporteModulos form = new ViewerReporteModulos();
+                                    ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -1063,7 +1063,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaComboModPad();
                                     llenaComboModulo();
                                     llenaComboAmbiente();
-                                    ViewerReporteModulos form = new ViewerReporteModulos();
+                                    ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -1108,7 +1108,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaComboModPad();
                                     llenaComboModulo();
                                     llenaComboAmbiente();
-                                    ViewerReporteModulos form = new ViewerReporteModulos();
+                                    ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -1145,7 +1145,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaComboModPad();
                                     llenaComboModulo();
                                     llenaComboAmbiente();
-                                    ViewerReporteModulos form = new ViewerReporteModulos();
+                                    ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -1188,7 +1188,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaComboModPad();
                                     llenaComboModulo();
                                     llenaComboAmbiente();
-                                    ViewerReporteModulos form = new ViewerReporteModulos();
+                                    ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 

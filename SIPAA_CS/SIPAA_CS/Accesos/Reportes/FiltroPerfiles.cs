@@ -78,7 +78,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         break;
 
                     default:
-                        ViewerReportePerfiles form = new ViewerReportePerfiles();
+                        ViewerReporte form = new ViewerReporte();
                         ReportePerfiles dtrpt = new ReportePerfiles();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -109,7 +109,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         break;
 
                     default:
-                        ViewerReportePerfiles form = new ViewerReportePerfiles();
+                        ViewerReporte form = new ViewerReporte();
                         ReportePerfiles dtrpt = new ReportePerfiles();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -139,7 +139,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         break;
 
                     default:
-                        ViewerReportePerfiles form = new ViewerReportePerfiles();
+                        ViewerReporte form = new ViewerReporte();
                         ReportePerfiles dtrpt = new ReportePerfiles();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 

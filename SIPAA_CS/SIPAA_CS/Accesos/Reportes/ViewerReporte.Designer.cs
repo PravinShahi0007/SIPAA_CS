@@ -1,6 +1,6 @@
 ﻿namespace SIPAA_CS.Accesos.Reportes
 {
-    partial class ViewerReportePerfilesUsuarios
+    partial class ViewerReporte
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ReporteView = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.ReporteView = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.SuspendLayout();
-            // 
-            // ReporteView
-            // 
-            this.ReporteView.ActiveViewIndex = -1;
-            this.ReporteView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ReporteView.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ReporteView.DisplayBackgroundEdge = false;
-            this.ReporteView.Location = new System.Drawing.Point(-1, 97);
-            this.ReporteView.Name = "ReporteView";
-            this.ReporteView.Size = new System.Drawing.Size(1026, 672);
-            this.ReporteView.TabIndex = 142;
-            this.ReporteView.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // btnRegresar
             // 
@@ -56,7 +44,7 @@
             this.btnRegresar.Location = new System.Drawing.Point(914, 0);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 25);
-            this.btnRegresar.TabIndex = 145;
+            this.btnRegresar.TabIndex = 144;
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
@@ -70,7 +58,7 @@
             this.btnMinimizar.Location = new System.Drawing.Point(973, 0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
-            this.btnMinimizar.TabIndex = 144;
+            this.btnMinimizar.TabIndex = 143;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -85,12 +73,24 @@
             this.btnCerrar.Location = new System.Drawing.Point(997, 0);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
-            this.btnCerrar.TabIndex = 143;
+            this.btnCerrar.TabIndex = 142;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // ViewerReportePerfilesUsuarios
+            // ReporteView
+            // 
+            this.ReporteView.ActiveViewIndex = -1;
+            this.ReporteView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ReporteView.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ReporteView.DisplayBackgroundEdge = false;
+            this.ReporteView.Location = new System.Drawing.Point(0, 97);
+            this.ReporteView.Name = "ReporteView";
+            this.ReporteView.Size = new System.Drawing.Size(1026, 672);
+            this.ReporteView.TabIndex = 145;
+            this.ReporteView.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // ViewerReporteModulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,19 +101,19 @@
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ViewerReportePerfilesUsuarios";
+            this.Name = "ViewerReporteModulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ViewerReportePerfilesUsuarios";
-            this.Load += new System.EventHandler(this.ViewerReportePerfilesUsuarios_Load);
+            this.Text = "ViewerReporteModulos";
+            this.Load += new System.EventHandler(this.ViewerReporteModulos_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer ReporteView;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer ReporteView;
     }
 }
