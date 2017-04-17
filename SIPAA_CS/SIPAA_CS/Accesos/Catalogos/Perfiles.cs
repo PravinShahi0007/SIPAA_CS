@@ -213,20 +213,11 @@ namespace SIPAA_CS.Accesos
         private void Crear_Perfil_Load(object sender, EventArgs e)
         {
             
-            // Se crea lista de permisos por pantalla
-            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, "companias");
-            Dictionary<string,int> dcPermisos= Utilerias.CrearListaPermisoxPantalla(dtPermisos, LoginInfo.ltPermisosPantalla);
-            //////////////////////////////////////////////////////
+         
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
-            // variables de permisos
-            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
-            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
-            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
-            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
-            //////////////////////////////////////////////////////////////////////////////////////////
-
+           
 
             Modulo objModulo = new Modulo();
             

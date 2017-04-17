@@ -300,21 +300,10 @@ namespace SIPAA_CS.Accesos
 
         private void Asignar_Perfil_Load(object sender, EventArgs e)
         {
-
-            //// Se crea lista de permisos por pantalla
-            //LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Tag.ToString());
-            //DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
-            //LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
-            //////////////////////////////////////////////////////
+            
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-            ///////////////////////////////////////////////////////////////////////////////////////////////////
-            // variables de permisos
-            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
-            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
-            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
-            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
-            //////////////////////////////////////////////////////////////////////////////////////////
+           
 
             llenarGridUsuarios("%", "%");
             LlenarGridPerfil("%", "%", 1);

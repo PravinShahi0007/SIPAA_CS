@@ -466,13 +466,7 @@ namespace SIPAA_CS.Accesos
             ////////////////////////////////////////////////////////
             //// resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
-            //// variables de permisos
-            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
-            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
-            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
-            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
-            //////////////////////////////////////////////////////////////////////////////////////////
+          
 
             panel1.Visible = false;
             panel10.Visible = false;

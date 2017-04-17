@@ -85,19 +85,14 @@ namespace SIPAA_CS
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            // Se crea lista de permisos por pantalla
-            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, "companias");
-            Dictionary<string, int> dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos, LoginInfo.ltPermisosPantalla);
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            LoginInfo.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
             //////////////////////////////////////////////////////
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
-            //// variables de permisos
-            //Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
-            //Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
-            //Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
-            //Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
-            ////////////////////////////////////////////////////////////////////////////////////////////
+
 
             Usuario objUsuario = new Usuario();
             string idtrab = LoginInfo.IdTrab;
@@ -129,7 +124,7 @@ namespace SIPAA_CS
 
         private void btnAccesos_Click(object sender, EventArgs e)
         {
-            AccesosDashboard Ads = new AccesosDashboard();
+            AcceDashboard Ads = new AcceDashboard();
             Ads.Show();
             //this.Hide();   
         }

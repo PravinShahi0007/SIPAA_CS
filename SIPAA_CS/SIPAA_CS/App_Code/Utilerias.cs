@@ -140,7 +140,7 @@ namespace SIPAA_CS.App_Code
                     if (iContador < Ultimoboton)
                     {
                         int ibtnContador = iContador + 1;
-                        while (PanelMetro.Controls[ibtnContador].Visible != true && ibtnContador < Ultimoboton)
+                        while (ibtnContador <= Ultimoboton && PanelMetro.Controls[ibtnContador].Visible != true)
                         {
 
                             Point location = PanelMetro.Controls[ibtnContador].Location;
@@ -148,12 +148,13 @@ namespace SIPAA_CS.App_Code
                             btn.Location = location;
 
                             ibtnContador = ibtnContador + 1;
+                           
 
                         }
 
 
 
-                        if (ibtnContador < (Ultimoboton - 1))
+                        if (ibtnContador <= (Ultimoboton - 1))
                         {
 
                             ibtnContador = ibtnContador + 1;
@@ -171,7 +172,8 @@ namespace SIPAA_CS.App_Code
 
                             Ultimoboton = ibtnContador;
                         }
-                        else {
+                        else
+                        {
 
                             Ultimoboton = ibtnContador - 1;
                         }
@@ -227,7 +229,7 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public static Dictionary<string,int>  CrearListaPermisoxPantalla(DataTable dtPermisos, List<string> ltPermisos)
+        public static Dictionary<string,int>  CrearListaPermisoxPantalla(DataTable dtPermisos)
         {
             Dictionary<string,int> dcPermisos = new Dictionary<string, int>();
 

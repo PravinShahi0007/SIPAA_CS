@@ -19,7 +19,7 @@ namespace SIPAA_CS.Accesos
     //Fecha creación:13-03-2017       Última Modificacion: 13-03-2017 
     //Descripción: Pantalla de Inicio de SIPAA
     //***********************************************************************************************
-    public partial class AccesosDashboard : Form
+    public partial class AcceDashboard : Form
     {
 
         //-----------------------------------------------------------------------------------------------
@@ -81,7 +81,7 @@ namespace SIPAA_CS.Accesos
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
 
-        public AccesosDashboard()
+        public AcceDashboard()
         {
             InitializeComponent();
         }
