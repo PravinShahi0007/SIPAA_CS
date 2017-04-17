@@ -73,7 +73,7 @@ namespace SIPAA_CS.Accesos
                 idtrab = Convert.ToInt32(row.Cells["idtrab"].Value.ToString());
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                 
-                if (Permisos.Eliminar && Permisos.Actualizar)
+                if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
                 {
                     Utilerias.AsignarBotonResize(btnSipaa, Utilerias.PantallaSistema(), Botones.Editar);
                     variable = 5;
@@ -108,7 +108,7 @@ namespace SIPAA_CS.Accesos
 
                     }
                 }
-                else if (Permisos.Actualizar)
+                else if (Permisos.dcPermisos["Actualizar"] == 1)
                 {
                     panel1.Visible = true;
                     variable = 5;
@@ -128,7 +128,7 @@ namespace SIPAA_CS.Accesos
                         txtNombreSipaa.Enabled = true;
                     }
                 }
-                else if (Permisos.Eliminar)
+                else if (Permisos.dcPermisos["Eliminar"] == 1)
                 {
                     variable = 6;
                     panel1.Visible = true;
@@ -475,9 +475,9 @@ namespace SIPAA_CS.Accesos
             txtPassword.Enabled = false;
             LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
             //txtBuscarSipaa.Focus();
-            bool a = Permisos.Crear ;
+            
 
-            if (!Permisos.Crear)
+            if (Permisos.dcPermisos["Eliminar"] == 0)
             {
                 btnAgregar.Visible = false;
             }

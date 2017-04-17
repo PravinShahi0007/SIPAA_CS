@@ -113,7 +113,7 @@
             this.msAsignacionPerfil});
             this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(247, 26);
+            this.MenuAccesos.Size = new System.Drawing.Size(339, 26);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
@@ -149,7 +149,7 @@
             this.tsmiPerfiles.Image = ((System.Drawing.Image)(resources.GetObject("tsmiPerfiles.Image")));
             this.tsmiPerfiles.Name = "tsmiPerfiles";
             this.tsmiPerfiles.Size = new System.Drawing.Size(152, 22);
-            this.tsmiPerfiles.Tag = "frmCrear_Perfil";
+            this.tsmiPerfiles.Tag = "Perfiles";
             this.tsmiPerfiles.Text = "Perfiles";
             this.tsmiPerfiles.Click += new System.EventHandler(this.tsmiPerfiles_Click);
             // 
@@ -195,7 +195,7 @@
             this.asignaciónDePerfilToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("asignaciónDePerfilToolStripMenuItem.Image")));
             this.asignaciónDePerfilToolStripMenuItem.Name = "asignaciónDePerfilToolStripMenuItem";
             this.asignaciónDePerfilToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.asignaciónDePerfilToolStripMenuItem.Tag = "frmAsignar_Perfil";
+            this.asignaciónDePerfilToolStripMenuItem.Tag = "UsuarioPerfil";
             this.asignaciónDePerfilToolStripMenuItem.Text = "Asignación de Perfil";
             this.asignaciónDePerfilToolStripMenuItem.Click += new System.EventHandler(this.msAsignacionPerfil_Click);
             // 
@@ -206,7 +206,7 @@
             this.asignaciónDeMódulosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("asignaciónDeMódulosToolStripMenuItem.Image")));
             this.asignaciónDeMódulosToolStripMenuItem.Name = "asignaciónDeMódulosToolStripMenuItem";
             this.asignaciónDeMódulosToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.asignaciónDeMódulosToolStripMenuItem.Tag = "frmAsignar_Modulo";
+            this.asignaciónDeMódulosToolStripMenuItem.Tag = "PerfilModulo";
             this.asignaciónDeMódulosToolStripMenuItem.Text = "Asignación de Módulos";
             this.asignaciónDeMódulosToolStripMenuItem.Click += new System.EventHandler(this.msAsignacionModulo_Click);
             // 
@@ -268,7 +268,7 @@
             this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
             this.pnlimgusuario.TabIndex = 116;
             // 
-            // AccesosDashboard
+            // AcceDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -284,7 +284,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AccesosDashboard";
+            this.Name = "AcceDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AccesosDashboard";
             this.Load += new System.EventHandler(this.AccesosDashboard_Load);
