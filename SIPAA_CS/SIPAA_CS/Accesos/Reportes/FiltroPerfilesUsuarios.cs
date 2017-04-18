@@ -79,8 +79,8 @@ namespace SIPAA_CS.Accesos.Reportes
             // VALIDA SI SELECCIONO OPCION TODOS EN AMBOS
             if (usuario == 0 && perfil == 0)
             {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
-                timer1.Start();
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
+                //timer1.Start();
 
                 Perfil objPerfil = new Perfil();
                 DataTable dtReporte;
@@ -94,7 +94,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         break;
 
                     default:
-                        ViewerReportePerfilesUsuarios form = new ViewerReportePerfilesUsuarios();
+                        ViewerReporte form = new ViewerReporte();
                         ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -124,7 +124,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         break;
 
                     default:
-                        ViewerReportePerfilesUsuarios form = new ViewerReportePerfilesUsuarios();
+                        ViewerReporte form = new ViewerReporte();
                         ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -154,7 +154,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         break;
 
                     default:
-                        ViewerReportePerfilesUsuarios form = new ViewerReportePerfilesUsuarios();
+                        ViewerReporte form = new ViewerReporte();
                         ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
@@ -184,7 +184,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         break;
 
                     default:
-                        ViewerReportePerfilesUsuarios form = new ViewerReportePerfilesUsuarios();
+                        ViewerReporte form = new ViewerReporte();
                         ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 

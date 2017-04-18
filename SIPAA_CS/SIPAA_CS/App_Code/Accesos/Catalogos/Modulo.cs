@@ -55,7 +55,7 @@ namespace SIPAA_CS.App_Code
                 Modulo objModulo = new Modulo();
                 objModulo.CVModulo = reader.GetString(reader.GetOrdinal("CVMODULO"));
                 objModulo.Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION"));
-                objModulo.CVModPadre = reader.GetString(reader.GetOrdinal("CVMODPAD"));
+               // objModulo.CVModPadre = reader.GetString(reader.GetOrdinal("CVMODPAD"));
                 objModulo.Orden = reader.GetInt32(reader.GetOrdinal("ORDEN"));
                 objModulo.Ambiente = reader.GetString(reader.GetOrdinal("AMBIENTE"));
                 objModulo.strModulo = reader.GetString(reader.GetOrdinal("MODULO"));

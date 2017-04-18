@@ -28,16 +28,24 @@ namespace SIPAA_CS.App_Code
 
 
 
-        public List<Usuario> ObtenerUsuariosxBusqueda(string Nombre, string idTrab)
+        public List<Usuario> ObtenerUsuariosxBusqueda(string sNombre, string sIdTrab)
         {
             List<Usuario> ltUsuarios = new List<Usuario>();
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"sp_BuscarUsuario";
+            cmd.CommandText = @"usp_acceusuario_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = Nombre;
-            cmd.Parameters.Add("@IDTRAB", SqlDbType.VarChar).Value = idTrab;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = sNombre;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sIdTrab;
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = 13;
+
+        
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -269,7 +277,7 @@ namespace SIPAA_CS.App_Code
             public static string IdTrab;
             public static string Nombre;
             public static DataTable dtPermisosTrabajador;
-            public static Dictionary<string,int> dcPermisos;
+          
         }
 
 
@@ -417,11 +425,7 @@ namespace SIPAA_CS.App_Code
 
         public static class Permisos
         {
-            public static bool Crear;
-            public static bool Actualizar;
-            public static bool Eliminar;
-            public static bool Imprimir;
-            public static bool Lectura;
+            public static Dictionary<string, int> dcPermisos;
         }
     }
 

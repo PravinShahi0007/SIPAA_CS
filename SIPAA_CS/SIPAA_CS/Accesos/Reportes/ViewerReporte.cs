@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace SIPAA_CS.Accesos.Reportes
 {
-    public partial class ViewerReporteModulos : Form
+    public partial class ViewerReporte : Form
     {
         public ReportDocument RptDoc;
         public int sysH = SystemInformation.PrimaryMonitorSize.Height;
@@ -22,7 +22,7 @@ namespace SIPAA_CS.Accesos.Reportes
         //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
         //Descripción: -------------------------------
         //***********************************************************************************************
-        public ViewerReporteModulos()
+        public ViewerReporte()
         {
             InitializeComponent();
         }

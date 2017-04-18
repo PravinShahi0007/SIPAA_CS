@@ -300,10 +300,16 @@ namespace SIPAA_CS.Accesos
 
         private void Asignar_Perfil_Load(object sender, EventArgs e)
         {
-            
+
+
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-           
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
 
             llenarGridUsuarios("%", "%");
             LlenarGridPerfil("%", "%", 1);
@@ -341,12 +347,12 @@ namespace SIPAA_CS.Accesos
 
         private void PermisosPantalla() {
 
-            if (!Permisos.Eliminar && !Permisos.Actualizar && !Permisos.Crear)
+            if (Permisos.dcPermisos["Eliminar"] == 0 && Permisos.dcPermisos["Actualizar"] == 0 && Permisos.dcPermisos["Crear"] == 0)
             {
                 panelPermisos.Visible = false;
             }
 
-            if (!Permisos.Eliminar && !Permisos.Actualizar)
+            if (Permisos.dcPermisos["Eliminar"] == 0 && Permisos.dcPermisos["Actualizar"] == 0)
             {
 
                 dgvUsuarios.ReadOnly = true;

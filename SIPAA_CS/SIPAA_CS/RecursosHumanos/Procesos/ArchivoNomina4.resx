@@ -117,58 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="MenuAccesos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>132, 17</value>
+  <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label2.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label3.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label4.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label5.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label6.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label7.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label8.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tsmiPerfiles.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHFJREFUSEvt
-        yzEKw1AAw9Dc/9LtIgwGq7/ZCs0bhX09ftvrS8zv43/E/DO2sZqxf6HHasb+hR6rGfsXeqxm7F/osZqx
-        f6HHasb+hR6rGfsXeqxm7F/osZqxf6HHasb+hR6rGfsfsT1ifh//I+aP/3Rdb29QtHauPsGgAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
-  <data name="tsmiModulos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHFJREFUSEvt
-        yzEKw1AAw9Dc/9LtIgwGq7/ZCs0bhX09ftvrS8zv43/E/DO2sZqxf6HHasb+hR6rGfsXeqxm7F/osZqx
-        f6HHasb+hR6rGfsXeqxm7F/osZqxf6HHasb+hR6rGfsfsT1ifh//I+aP/3Rdb29QtHauPsGgAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
-  <data name="tsmiProcesos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHFJREFUSEvt
-        yzEKw1AAw9Dc/9LtIgwGq7/ZCs0bhX09ftvrS8zv43/E/DO2sZqxf6HHasb+hR6rGfsXeqxm7F/osZqx
-        f6HHasb+hR6rGfsXeqxm7F/osZqxf6HHasb+hR6rGfsfsT1ifh//I+aP/3Rdb29QtHauPsGgAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
-  <data name="asignaciónDePerfilToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHJJREFUSEvt
-        0ksKwCAQA1BvXttzF2xGs2lB/JBZFOaBoItJ7CeF0FVKObjVQ/iFdfOoheATy+gLEJpb9hhH1mDOt8Bg
-        Vv+KEJa5rXDWfmS7LnxLdL9py69eJUsYMGOvhMMz9p+ih8FGH25cw41rePi7lB4CGAcIn7s5IQAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
-  <data name="asignaciónDeMódulosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHJJREFUSEvt
-        0ksKwCAQA1BvXttzF2xGs2lB/JBZFOaBoItJ7CeF0FVKObjVQ/iFdfOoheATy+gLEJpb9hhH1mDOt8Bg
-        Vv+KEJa5rXDWfmS7LnxLdL9py69eJUsYMGOvhMMz9p+ih8FGH25cw41rePi7lB4CGAcIn7s5IQAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
-  <data name="asignaciónDeProcesosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHJJREFUSEvt
-        0ksKwCAQA1BvXttzF2xGs2lB/JBZFOaBoItJ7CeF0FVKObjVQ/iFdfOoheATy+gLEJpb9hhH1mDOt8Bg
-        Vv+KEJa5rXDWfmS7LnxLdL9py69eJUsYMGOvhMMz9p+ih8FGH25cw41rePi7lB4CGAcIn7s5IQAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
   <data name="pnlimgusuario.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsN
