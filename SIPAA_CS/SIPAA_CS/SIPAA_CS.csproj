@@ -238,6 +238,8 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaCompania2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaFormaPago.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaUbicacion.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\ArchNomina4.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\PeriodoProcesoIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\ReasignaSupyDirector.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorHorario.cs" />
@@ -517,6 +519,12 @@
     <Compile Include="RecursosHumanos\Procesos\TrabajadoresPerfil.Designer.cs">
       <DependentUpon>TrabajadoresPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ArchivoNomina4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ArchivoNomina4.Designer.cs">
+      <DependentUpon>ArchivoNomina4.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -773,6 +781,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\TrabajadoresPerfil.resx">
       <DependentUpon>TrabajadoresPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\ArchivoNomina4.resx">
+      <DependentUpon>ArchivoNomina4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.resx">
       <DependentUpon>PeriodosProcesoIncidencia.cs</DependentUpon>

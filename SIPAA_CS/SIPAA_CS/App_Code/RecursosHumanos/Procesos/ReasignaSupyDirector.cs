@@ -20,10 +20,16 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
     {
         //variables
         public int iOpcion;
+        public string sUsuumod;
+        public string sPrgumodr;
+
 
         public ReasignaSupyDirector()
         {
             iOpcion = 0;
+            sUsuumod = "";
+            sPrgumodr = "";
+
         } // RasignaSupyDirector()
 
         // JAV public DataTable obtPeriodosProcesoIncidencia(int iOpcion, int iIdFormaPago, string sFechaInicioReg, string sFechaFinReg, string sDescripcion, int iStPeriodoProceso, string sUsuumod, string sPrgumodr)
@@ -51,6 +57,128 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             return dtFechaIniFinPeriodo;
 
         }
+
+        //metodo data table para llenar el grid/combo de busqueda
+        public DataTable obtPeriodosProcesoIncidencia(int iOpcion, int iIdFormaPago, string sFechaInicioReg, string sFechaFinReg, string sDescripcion, int iStPeriodoProceso, string sUsuumod, string sPrgumodr)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechtperiodopro_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_idformapago", SqlDbType.Int).Value = iIdFormaPago;
+            cmd.Parameters.Add("@p_fhinireg", SqlDbType.VarChar).Value = sFechaInicioReg;
+            cmd.Parameters.Add("@p_fhfinreg", SqlDbType.VarChar).Value = sFechaFinReg;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = sDescripcion;
+            cmd.Parameters.Add("@p_stperiodopro", SqlDbType.Int).Value = iStPeriodoProceso;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = sUsuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sPrgumodr;
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtPeriodosProcesoIncidencia = new DataTable();
+            Adapter.Fill(dtPeriodosProcesoIncidencia);
+            return dtPeriodosProcesoIncidencia;
+        }
+
+        public DataTable obtNombreEmpleado(string idTrab, int iOpcion /*, int sStatus, int iEnc, string sNombre*/)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_acceusuario_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+            iOpcion = 14;
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.Int).Value = idTrab; //No se ocupa
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_nombre", SqlDbType.Int).Value = idTrab; //No se ocupa
+            cmd.Parameters.Add("@p_passw", SqlDbType.Int).Value = idTrab; //No se ocupa
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.Int).Value = idTrab; //No se ocupa
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.Int).Value = idTrab; //No se ocupa
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.Int).Value = idTrab; //No se ocupa
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtNombreEmpleado = new DataTable();
+            Adapter.Fill(dtNombreEmpleado);
+            return dtNombreEmpleado;
+        }
+
+        public DataTable obtObtieneSupyDir(int iOpcion, int idTrab, string dFini, string dFfin/*, int idTrabSup, int idTrabDir, int idTrabSupn, int idTrabDirn*/)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechtinccalif_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+            iOpcion = 4;
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_fini", SqlDbType.NChar).Value = dFini;
+            cmd.Parameters.Add("@p_ffin", SqlDbType.NChar).Value = dFfin;
+            cmd.Parameters.Add("@p_idtrabsup", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_idtrabdir", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_idtrabsupn", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_idtrabdirn", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.NChar).Value = "JAV";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.NChar).Value = "SQL";
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtNombreEmpleado = new DataTable();
+            Adapter.Fill(dtNombreEmpleado);
+            return dtNombreEmpleado;
+        }
+
+        public DataTable obtActualizaSudyDir(int iOpcion, int idTrab, string dFini, string dFfin, int idTrabSupn, int idTrabDirn/*, int idTrabSupn, int idTrabDirn*/)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechtinccalif_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+            iOpcion = 2;
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_fini", SqlDbType.NChar).Value = dFini;
+            cmd.Parameters.Add("@p_ffin", SqlDbType.NChar).Value = dFfin;
+            cmd.Parameters.Add("@p_idtrabsup", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_idtrabdir", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_idtrabsupn", SqlDbType.Int).Value = idTrabSupn;
+            cmd.Parameters.Add("@p_idtrabdirn", SqlDbType.Int).Value = idTrabDirn;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.NChar).Value = "JAV";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.NChar).Value = "SQL";
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtNombreEmpleado = new DataTable();
+            Adapter.Fill(dtNombreEmpleado);
+            return dtNombreEmpleado;
+        }
+
+
 
     }
 }
