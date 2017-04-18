@@ -41,6 +41,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         ReasignaSupyDirector oPeriodoProcesoIncidencia = new ReasignaSupyDirector();
         ReasignaSupyDirector oNombreEmpleado = new ReasignaSupyDirector();
         ReasignaSupyDirector oObtieneSupyDir = new ReasignaSupyDirector();
+        ReasignaSupyDirector oActualizaSudyDir = new ReasignaSupyDirector();
         Utilerias Util = new Utilerias();
                 
         public ReasignaSupyDirectores()
@@ -188,6 +189,24 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
         }
 
+        private void ActualizaSudyDir(object sender, EventArgs e)
+        {
+            // Obtiene Nombre del Empleado
+
+            DataTable dtActualizaSudyDir = oActualizaSudyDir.obtActualizaSudyDir(2, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text)/*, Convert.ToInt16(TxtIdSupFin.Text), Convert.ToInt16(TxtIdDirFin.Text)*/);
+
+            //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
+            if (dtActualizaSudyDir.Rows.Count > 0)
+            {
+                TxtIdSupOri.Text = TxtIdSupFin.Text;
+                TxtIdDirOri.Text = TxtIdDirFin.Text;
+            }
+            else
+            {
+                TxtIdSupFin.Text = "";
+                TxtIdDirFin.Text = "";
+            }
+        }
 
 
     }

@@ -376,6 +376,7 @@
             this.btnInsertar.Size = new System.Drawing.Size(50, 50);
             this.btnInsertar.TabIndex = 171;
             this.btnInsertar.UseVisualStyleBackColor = false;
+            this.btnInsertar.Click += new System.EventHandler(this.ActualizaSudyDir);
             // 
             // ReasignaSupyDirectores
             // 
