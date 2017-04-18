@@ -489,12 +489,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TrabPerfil.xsd</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RecursosHumanos\Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
-    </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -767,9 +761,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\IncidenciasNominas.resx">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.resx">
       <DependentUpon>AsignacionTipoHorarioTrabajador.cs</DependentUpon>
