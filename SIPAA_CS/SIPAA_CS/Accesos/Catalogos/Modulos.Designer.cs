@@ -72,6 +72,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -94,7 +95,7 @@
             label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(35, 307);
+            label5.Location = new System.Drawing.Point(35, 313);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(63, 16);
             label5.TabIndex = 58;
@@ -106,7 +107,7 @@
             label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(35, 382);
+            label4.Location = new System.Drawing.Point(35, 388);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(50, 16);
             label4.TabIndex = 57;
@@ -118,7 +119,7 @@
             label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(35, 154);
+            label3.Location = new System.Drawing.Point(33, 160);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(70, 16);
             label3.TabIndex = 56;
@@ -130,7 +131,7 @@
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(36, 81);
+            label7.Location = new System.Drawing.Point(34, 95);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(76, 16);
             label7.TabIndex = 44;
@@ -148,7 +149,7 @@
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(56, 15);
             label2.TabIndex = 133;
-            label2.Text = "Mòdulos";
+            label2.Text = "Módulos";
             // 
             // label8
             // 
@@ -181,7 +182,7 @@
             label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(41, 228);
+            label6.Location = new System.Drawing.Point(37, 234);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(43, 16);
             label6.TabIndex = 61;
@@ -206,7 +207,7 @@
             label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label10.Location = new System.Drawing.Point(38, 25);
+            label10.Location = new System.Drawing.Point(36, 33);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(64, 16);
             label10.TabIndex = 66;
@@ -217,11 +218,12 @@
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
+            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
             this.btnAgregar.Location = new System.Drawing.Point(900, 178);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
             this.btnAgregar.TabIndex = 135;
+            this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -257,7 +259,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel3.Location = new System.Drawing.Point(34, 68);
+            this.panel3.Location = new System.Drawing.Point(34, 74);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(250, 2);
             this.panel3.TabIndex = 65;
@@ -267,7 +269,7 @@
             this.txtCvModulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtCvModulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCvModulo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCvModulo.Location = new System.Drawing.Point(35, 46);
+            this.txtCvModulo.Location = new System.Drawing.Point(35, 52);
             this.txtCvModulo.Name = "txtCvModulo";
             this.txtCvModulo.Size = new System.Drawing.Size(250, 15);
             this.txtCvModulo.TabIndex = 64;
@@ -275,7 +277,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(30, 274);
+            this.panel2.Location = new System.Drawing.Point(30, 280);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 2);
             this.panel2.TabIndex = 63;
@@ -285,7 +287,7 @@
             this.txtOrden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtOrden.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOrden.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOrden.Location = new System.Drawing.Point(31, 252);
+            this.txtOrden.Location = new System.Drawing.Point(31, 258);
             this.txtOrden.Name = "txtOrden";
             this.txtOrden.Size = new System.Drawing.Size(250, 15);
             this.txtOrden.TabIndex = 62;
@@ -293,7 +295,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(31, 201);
+            this.panel1.Location = new System.Drawing.Point(31, 207);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 2);
             this.panel1.TabIndex = 60;
@@ -303,7 +305,7 @@
             this.txtModPad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtModPad.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtModPad.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModPad.Location = new System.Drawing.Point(32, 179);
+            this.txtModPad.Location = new System.Drawing.Point(32, 185);
             this.txtModPad.Name = "txtModPad";
             this.txtModPad.Size = new System.Drawing.Size(250, 15);
             this.txtModPad.TabIndex = 59;
@@ -318,7 +320,7 @@
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 52;
-            this.btnGuardar.Tag = "Crear";
+            this.btnGuardar.Tag = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -339,7 +341,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel6.Location = new System.Drawing.Point(32, 124);
+            this.panel6.Location = new System.Drawing.Point(32, 138);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(250, 2);
             this.panel6.TabIndex = 43;
@@ -349,7 +351,7 @@
             this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescripcion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(33, 102);
+            this.txtDescripcion.Location = new System.Drawing.Point(33, 116);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(250, 15);
             this.txtDescripcion.TabIndex = 4;
@@ -376,7 +378,7 @@
             this.cbAmbiente.Items.AddRange(new object[] {
             "WEB",
             "CS"});
-            this.cbAmbiente.Location = new System.Drawing.Point(31, 326);
+            this.cbAmbiente.Location = new System.Drawing.Point(31, 332);
             this.cbAmbiente.Name = "cbAmbiente";
             this.cbAmbiente.Size = new System.Drawing.Size(250, 25);
             this.cbAmbiente.TabIndex = 33;
@@ -391,7 +393,7 @@
             this.cbModulo.Items.AddRange(new object[] {
             "ACCESOS",
             "RECURSOS HUMANOS"});
-            this.cbModulo.Location = new System.Drawing.Point(31, 401);
+            this.cbModulo.Location = new System.Drawing.Point(31, 407);
             this.cbModulo.Name = "cbModulo";
             this.cbModulo.Size = new System.Drawing.Size(250, 25);
             this.cbModulo.TabIndex = 34;
@@ -463,6 +465,7 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
             this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -501,12 +504,13 @@
             // btnRegresa
             // 
             this.btnRegresa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnRegresa.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
+            this.btnRegresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresa.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresa.Location = new System.Drawing.Point(920, 1);
+            this.btnRegresa.Location = new System.Drawing.Point(915, 1);
             this.btnRegresa.Name = "btnRegresa";
-            this.btnRegresa.Size = new System.Drawing.Size(50, 24);
+            this.btnRegresa.Size = new System.Drawing.Size(30, 24);
             this.btnRegresa.TabIndex = 128;
             this.btnRegresa.UseVisualStyleBackColor = false;
             this.btnRegresa.Click += new System.EventHandler(this.btnRegresa_Click);
@@ -590,6 +594,21 @@
             this.lbMensaje.Text = "       Administración de Mòdulos   ";
             this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
+            this.label12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label12.Location = new System.Drawing.Point(445, 2);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(118, 23);
+            this.label12.TabIndex = 148;
+            this.label12.Text = "       Módulos     ";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Modulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -597,6 +616,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.label12);
             this.Controls.Add(label11);
             this.Controls.Add(this.panelTag);
             this.Controls.Add(this.btnAgregar);
@@ -658,5 +678,6 @@
         private System.Windows.Forms.Label lbMensaje;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtCvModulo;
+        private System.Windows.Forms.Label label12;
     }
 }

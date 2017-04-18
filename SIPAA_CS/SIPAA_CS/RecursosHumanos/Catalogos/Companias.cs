@@ -49,10 +49,10 @@ namespace SIPAA_CS.RecursosHumanos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             //llena grid
-            fgcomp(1,txtComp.Text.Trim());
+            fgcomp(6,txtcomp.Text.Trim());
 
-            txtComp.Text = "";
-            txtComp.Focus();
+            txtcomp.Text = "";
+            txtcomp.Focus();
         }
 
         //boton minimizar
@@ -83,14 +83,13 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void frmCompanias_Load(object sender, EventArgs e)
         {
-            
             //inicializa tool tip
             ftooltip();
 
-            txtComp.Focus();
+            txtcomp.Focus();
 
             //llena grid
-            fgcomp(1,"");
+            fgcomp(6,"");
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -107,22 +106,21 @@ namespace SIPAA_CS.RecursosHumanos
             toolTip1.ShowAlways = true;
 
             //configura texto del objeto
-            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
-            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
-            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
-            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btncerrar, "Cerrar Sistema");
+            toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnregresar, "Regresar");
+            toolTip1.SetToolTip(this.btnbuscar, "Busca Registro");
         }
         //llena grid compañias
-        private void fgcomp(int popc, string pbusq)
+        private void fgcomp(int iopc, string sbusq)
         {
+            DataTable dtcompania = companias.obtcomp(iopc, sbusq);
+            dgvcomp.DataSource = dtcompania;
 
-            DataTable dtcompania = companias.obtcomp(popc, pbusq);
-            dgvComp.DataSource = dtcompania;
-
-            dgvComp.Columns[0].Visible = false;
-            dgvComp.Columns[1].Width = 355;
-            dgvComp.Columns[2].Width = 125;
-            dgvComp.ClearSelection();
+            dgvcomp.Columns[0].Visible = false;//clave
+            dgvcomp.Columns[1].Width = 355;//descripción
+            dgvcomp.Columns[2].Width = 125;//rfc
+            dgvcomp.ClearSelection();
         }
 
         //-----------------------------------------------------------------------------------------------

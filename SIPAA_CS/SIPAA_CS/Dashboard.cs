@@ -6,6 +6,7 @@ using SIPAA_CS.RecursosHumanos;
 using SIPAA_CS.App_Code;
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.Accesos;
+using System.Data;
 
 namespace SIPAA_CS
 {
@@ -14,6 +15,7 @@ namespace SIPAA_CS
         public Point formPosition;
         public Boolean mouseAction;
         public List<string> ltModulosxUsuario = new List<string>();
+       
         public Dashboard()
         {
             InitializeComponent();
@@ -83,14 +85,20 @@ namespace SIPAA_CS
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            int sysW = SystemInformation.PrimaryMonitorSize.Width;
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
 
             Usuario objUsuario = new Usuario();
             string idtrab = LoginInfo.IdTrab;
             ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab);
             Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
+
         }
 
         private void PanelMetro_Paint(object sender, PaintEventArgs e)
@@ -116,7 +124,7 @@ namespace SIPAA_CS
 
         private void btnAccesos_Click(object sender, EventArgs e)
         {
-            AccesosDashboard Ads = new AccesosDashboard();
+            AcceDashboard Ads = new AcceDashboard();
             Ads.Show();
             //this.Hide();   
         }

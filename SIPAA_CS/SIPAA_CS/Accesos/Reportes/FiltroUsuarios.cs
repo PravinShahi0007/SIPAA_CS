@@ -37,22 +37,39 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        private void btnImprimirResumen_Click(object sender, EventArgs e)
+        {
+            Utilerias.AsignarBotonResize(btnImprimirResumen, new Size(sysW, sysH), "Imprimir");
+
+        }
         private void btnImprimirDetalle_Click(object sender, EventArgs e)
         {
             Utilerias.AsignarBotonResize(btnImprimirDetalle,new Size(sysW,sysH),"Imprimir");
             estatus = cbEstatus.SelectedIndex;
-
-            if (estatus <= 0)
+            
+            if (estatus < 0)
             {
 
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Selecciona un Status");
                 timer1.Start();
             }
-            if (estatus == 1)
+            if (estatus == 0)
             {
 
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
-                timer1.Start();
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
+                //timer1.Start();
 
                 Usuario objUsuario = new Usuario();
                 DataTable dtReporte;
@@ -66,37 +83,82 @@ namespace SIPAA_CS.Accesos.Reportes
                         break;
 
                     default:
-                        ViewerReporteUsuarios form = new ViewerReporteUsuarios();
+                        ViewerReporte form = new ViewerReporte();
                         ReporteUsuarios dtrpt = new ReporteUsuarios();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        //ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
-                        //ReportDoc.SetParameterValue("FechaTermino", dpFechaFin.Value);
+                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
 
                 }
             }
+
+            if (estatus == 1)
+            {
+
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
+                //timer1.Start();
+
+                Usuario objUsuario = new Usuario();
+                DataTable dtReporte;
+                dtReporte = objUsuario.ReporteUsuarios("", 0, "", "", 0, "", "", 6);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteUsuarios dtrpt = new ReporteUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
+
             if (estatus == 2)
             {
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
+                //timer1.Start();
 
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
-                timer1.Start();
-            }
-            if (estatus == 3)
-            {
+                Usuario objUsuario = new Usuario();
+                DataTable dtReporte;
+                dtReporte = objUsuario.ReporteUsuarios("", 0, "", "", 0, "", "", 7);
 
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
-                timer1.Start();
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteUsuarios dtrpt = new ReporteUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
             }
         }
 
-        private void btnImprimirResumen_Click(object sender, EventArgs e)
-        {
-            Utilerias.AsignarBotonResize(btnImprimirResumen, new Size(sysW, sysH), "Imprimir");
-        }
+        
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -115,8 +177,6 @@ namespace SIPAA_CS.Accesos.Reportes
         {
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
         }
-
-        
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------

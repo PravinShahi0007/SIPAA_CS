@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportesModulosPerfiles" targetNamespace="http://tempuri.org/ReportesModulosPerfiles.xsd" xmlns:mstns="http://tempuri.org/ReportesModulosPerfiles.xsd" xmlns="http://tempuri.org/ReportesModulosPerfiles.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportesModulosPerfiles" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReportesModulosPerfiles" msprop:Generator_UserDSName="ReportesModulosPerfiles">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ReportesModulosPerfiles" msprop:Generator_TableClassName="ReportesModulosPerfilesDataTable" msprop:Generator_TableVarName="tableReportesModulosPerfiles" msprop:Generator_TablePropName="_ReportesModulosPerfiles" msprop:Generator_RowDeletingName="ReportesModulosPerfilesRowDeleting" msprop:Generator_RowChangingName="ReportesModulosPerfilesRowChanging" msprop:Generator_RowEvHandlerName="ReportesModulosPerfilesRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportesModulosPerfilesRowDeleted" msprop:Generator_UserTableName="ReportesModulosPerfiles" msprop:Generator_RowChangedName="ReportesModulosPerfilesRowChanged" msprop:Generator_RowEvArgName="ReportesModulosPerfilesRowChangeEvent" msprop:Generator_RowClassName="ReportesModulosPerfilesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="descripcionperfil" msprop:Generator_ColumnVarNameInTable="columndescripcionperfil" msprop:Generator_ColumnPropNameInRow="descripcionperfil" msprop:Generator_ColumnPropNameInTable="descripcionperfilColumn" msprop:Generator_UserColumnName="descripcionperfil" type="xs:string" minOccurs="0" />
+              <xs:element name="cvmodulo" msprop:Generator_ColumnVarNameInTable="columncvmodulo" msprop:Generator_ColumnPropNameInRow="cvmodulo" msprop:Generator_ColumnPropNameInTable="cvmoduloColumn" msprop:Generator_UserColumnName="cvmodulo" type="xs:string" minOccurs="0" />
+              <xs:element name="descripcionmodulo" msprop:Generator_ColumnVarNameInTable="columndescripcionmodulo" msprop:Generator_ColumnPropNameInRow="descripcionmodulo" msprop:Generator_ColumnPropNameInTable="descripcionmoduloColumn" msprop:Generator_UserColumnName="descripcionmodulo" type="xs:string" minOccurs="0" />
+              <xs:element name="stlec" msprop:Generator_ColumnVarNameInTable="columnstlec" msprop:Generator_ColumnPropNameInRow="stlec" msprop:Generator_ColumnPropNameInTable="stlecColumn" msprop:Generator_UserColumnName="stlec" type="xs:string" minOccurs="0" />
+              <xs:element name="stcre" msprop:Generator_ColumnVarNameInTable="columnstcre" msprop:Generator_ColumnPropNameInRow="stcre" msprop:Generator_ColumnPropNameInTable="stcreColumn" msprop:Generator_UserColumnName="stcre" type="xs:string" minOccurs="0" />
+              <xs:element name="stact" msprop:Generator_ColumnVarNameInTable="columnstact" msprop:Generator_ColumnPropNameInRow="stact" msprop:Generator_ColumnPropNameInTable="stactColumn" msprop:Generator_UserColumnName="stact" type="xs:string" minOccurs="0" />
+              <xs:element name="steli" msprop:Generator_ColumnVarNameInTable="columnsteli" msprop:Generator_ColumnPropNameInRow="steli" msprop:Generator_ColumnPropNameInTable="steliColumn" msprop:Generator_UserColumnName="steli" type="xs:string" minOccurs="0" />
+              <xs:element name="stimp" msprop:Generator_ColumnVarNameInTable="columnstimp" msprop:Generator_ColumnPropNameInRow="stimp" msprop:Generator_ColumnPropNameInTable="stimpColumn" msprop:Generator_UserColumnName="stimp" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -17,6 +17,8 @@ namespace SIPAA_CS.RecursosHumanos
             InitializeComponent();
         }
 
+        Usuario usuario = new Usuario();
+
         private void RechDashboard_Load(object sender, EventArgs e)
         {
 
@@ -26,6 +28,8 @@ namespace SIPAA_CS.RecursosHumanos
 
             Dashboard form = new Dashboard();
             form.Enabled = false;
+
+            lblusuario.Text = LoginInfo.IdTrab;
 
             Usuario objUsuario = new Usuario();
             string IdTrab = LoginInfo.IdTrab;
@@ -153,8 +157,10 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void registroGeneradoDetalleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             FiltrosRegistroGeneradoDetalle rpt = new FiltrosRegistroGeneradoDetalle();
             rpt.Show();
+            
         }
 
         private void tsmAsignacionUbicacion_Click(object sender, EventArgs e)

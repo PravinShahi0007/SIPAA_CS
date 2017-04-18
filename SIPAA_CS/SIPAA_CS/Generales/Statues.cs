@@ -32,6 +32,7 @@ namespace SIPAA_CS.Generales
 
         int iVld_c;
         string sCv_c;
+        string sDescAnt;
         int ivst_c;
         int iSt_c;
         
@@ -61,7 +62,7 @@ namespace SIPAA_CS.Generales
             pnlAct.Visible = false;
             SLlenaGrid(4, "", 0, "", 0, "", "");
             //txtBusca.Text = "";
-            cbobusq.Focus();
+            dgvConsulta.Focus();
             pnlAct.Visible = false;
 
         }
@@ -93,7 +94,7 @@ namespace SIPAA_CS.Generales
             txtCapSt.ReadOnly = false;
             txtCapDes.Text = "";
             iSt_c = 1;
-            txtCapcv.Focus();
+            cboCrea.Focus();
         }
         //BOTON BAJA
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -153,19 +154,45 @@ namespace SIPAA_CS.Generales
             }
             else
             {
-                if (ckbEliminar.Checked == true)
+                if (sDescAnt != txtCapDes.Text)
                 {
+                    sValIns(6, txtCapcv.Text, 0, txtCapDes.Text, 0, "", "");
+
+                    if (iVld_c <= 0)
+                    {
+                        sGuardaMod(2, txtCapcv.Text, ivst_c, txtCapDes.Text, iSt_c, "150076", "Statues");
+                        SLlenaGrid(4, txtCapcv.Text, 0, "", 0, "", "");
+                        txtCapcv.Text = "";
+                        txtCapSt.Text = "";
+                        txtCapDes.Text = "";
+                        panelTag.Visible = true;
+                        timer1.Start();
+                        sCv_c = "";
+                        ivst_c = 0;
+                        pnlAct.Visible = false;
+                        cbobusq.Focus();
+                    }
+                    else
+                    {
+                        SLlenaGrid(4, txtCapcv.Text, 0, "", 0, "", "");
+                        txtCapcv.Text = "";
+                        txtCapSt.Text = "";
+                        txtCapDes.Text = "";
+                        pnlAct.Visible = false;
+                        DialogResult result = MessageBox.Show("La Descripción ya existente", "SIPAA", MessageBoxButtons.OK);
+                        cbobusq.Focus();
+                    }
 
                 }
                 else
                 {
                     sGuardaMod(2, txtCapcv.Text, ivst_c, txtCapDes.Text, iSt_c, "150076", "Statues");
+                    SLlenaGrid(4, txtCapcv.Text, 0, "", 0, "", "");
                     txtCapcv.Text = "";
                     txtCapSt.Text = "";
                     txtCapDes.Text = "";
                     panelTag.Visible = true;
                     timer1.Start();
-                    SLlenaGrid(4, "", 0, "", 0, "", "");
                     sCv_c = "";
                     ivst_c = 0;
                     pnlAct.Visible = false;
@@ -278,9 +305,10 @@ namespace SIPAA_CS.Generales
 
             Util.cargarcombo(cbobusq, Cstatus.cboTab(9));
             Util.cargarcombo(cboCrea, Cstatus.cboTab(9));
-
+            
             //LLAMA METODO LLENAR GRID
             SLlenaGrid(4, "", 0, "", 0, "", "");
+            cbobusq.Focus();
 
             //HABILITA BOTON AGREGAR
             if (iAgr == 1)
@@ -346,8 +374,9 @@ namespace SIPAA_CS.Generales
             dgvConsulta.Columns[0].Width = 55;
             dgvConsulta.Columns[1].Width = 90;
             dgvConsulta.Columns[2].Width = 35;
-            dgvConsulta.Columns[3].Width = 135;
-            dgvConsulta.Columns[4].Width = 35;
+            dgvConsulta.Columns[3].Width = 130;
+            dgvConsulta.Columns[4].Width = 45;
+            dgvConsulta.Columns[5].Visible = false;
 
             dgvConsulta.ClearSelection();
             sHabilitaPermisos();
@@ -444,7 +473,7 @@ namespace SIPAA_CS.Generales
                 txtCapcv.Text = row.Cells["Clave"].Value.ToString();
                 txtCapSt.Text = row.Cells["Val Status"].Value.ToString();
                 txtCapDes.Text = row.Cells["Descripción"].Value.ToString();
-                iSt_c = Convert.ToInt32(row.Cells["Status"].Value.ToString());
+                iSt_c = Convert.ToInt32(row.Cells["ST"].Value.ToString());
 
                 sCv_c = txtCapcv.Text;
                 ivst_c = int.Parse(txtCapSt.Text);
@@ -453,6 +482,7 @@ namespace SIPAA_CS.Generales
                 txtCapcv.Visible = true;
                 panel3.Visible = true;
                 cboCrea.Visible = false;
+                sDescAnt = txtCapDes.Text;
 
                 txtCapDes.Focus();
 

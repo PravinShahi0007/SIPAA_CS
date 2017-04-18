@@ -64,8 +64,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panelTag = new System.Windows.Forms.Panel();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.dtpfechainicial = new System.Windows.Forms.DateTimePicker();
-            this.dtpfechafin = new System.Windows.Forms.DateTimePicker();
+//            this.dtpfechainicial = new System.Windows.Forms.DateTimePicker();
+//            this.dtpfechafin = new System.Windows.Forms.DateTimePicker();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -356,7 +356,7 @@
             // 
             this.pnldatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.pnldatos.Controls.Add(this.dtpfechafin);
-            this.pnldatos.Controls.Add(this.cbTrabajador);
+//            this.pnldatos.Controls.Add(this.cbTrabajador);
             this.pnldatos.Controls.Add(this.dtpfechainicial);
             this.pnldatos.Controls.Add(this.panel4);
             this.pnldatos.Controls.Add(lblff);

@@ -285,10 +285,7 @@ namespace SIPAA_CS.Accesos
             this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

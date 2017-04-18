@@ -137,5 +137,31 @@ namespace SIPAA_CS.App_Code.Generales
             Adapter.Fill(dtstatues);
             return dtstatues;
         }
+        public DataTable cbo(int p_opcion, string p_tabla)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_genestatus_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = p_opcion;
+            cmd.Parameters.Add("@p_cvtabla", SqlDbType.VarChar).Value = p_tabla;
+            cmd.Parameters.Add("@p_stvalor", SqlDbType.VarChar).Value = 0;
+            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_ststatus", SqlDbType.VarChar).Value = 0;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtstatues = new DataTable();
+            Adapter.Fill(dtstatues);
+            return dtstatues;
+        }
     }
 }

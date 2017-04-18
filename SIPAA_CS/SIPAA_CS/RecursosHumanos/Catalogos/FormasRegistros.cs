@@ -28,6 +28,7 @@ namespace SIPAA_CS.RecursosHumanos
         int iEli;
         int iCvFR;
         int iSt;
+        string sDescAnt;
 
         #endregion
 
@@ -103,6 +104,7 @@ namespace SIPAA_CS.RecursosHumanos
                         txtCapFR.Focus();
                         pnlAct.Visible = false;
                         DialogResult result = MessageBox.Show("Registro existente", "SIPAA", MessageBoxButtons.OK);
+                        txtFormReg.Focus();
                     }
                 }
            }
@@ -114,13 +116,34 @@ namespace SIPAA_CS.RecursosHumanos
             //VALIDA ESCRITURA DE ALGUN TEXTO
             if (txtCapFR.Text.Trim() == "")
             {
-                DialogResult result = MessageBox.Show("Seleccione un dato en el grid a modificar", "SIPAA", MessageBoxButtons.OK);
+                DialogResult result = MessageBox.Show("La Descripcion no puede estar en blanco", "SIPAA", MessageBoxButtons.OK);
+                txtCapFR.Focus();
             }
             else
             {
-                if (ckbEliminar.Checked == true)
+                if (sDescAnt != txtCapFR.Text.Trim())
                 {
+                    sValIns(5, 0, txtCapFR.Text.Trim(), 0, "", "");
 
+                    if (vValida <= 0)
+                    {
+                        sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), 0, "150076", "frmFormReg");
+                        txtCapFR.Text = "";
+                        panelTag.Visible = true;
+                        timer1.Start();
+                        SLlenaGrid(4, 0, txtFormReg.Text.Trim(), 0, "", "");
+                        iCvFR = 0;
+                        pnlAct.Visible = false;
+                    }
+                    else
+                    {
+                        SLlenaGrid(4, 0, txtCapFR.Text.Trim(), 0, "", "");
+                        txtCapFR.Text = "";
+                        txtCapFR.Focus();
+                        pnlAct.Visible = false;
+                        DialogResult result = MessageBox.Show("Registro existente", "SIPAA", MessageBoxButtons.OK);
+                        txtFormReg.Focus();
+                    }
                 }
                 else
                 {
@@ -138,7 +161,7 @@ namespace SIPAA_CS.RecursosHumanos
         //BOTON ELIMINAR
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Esta acción elimina el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Esta acción de de baja el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 iSt = 0;
@@ -175,8 +198,10 @@ namespace SIPAA_CS.RecursosHumanos
 
                 }
         }
-
-
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         //BOTON MINIMIZAR
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
@@ -285,7 +310,8 @@ namespace SIPAA_CS.RecursosHumanos
             dgvForReg.Columns[0].Width = 55;
             dgvForReg.Columns[1].Visible = false;
             dgvForReg.Columns[2].Width = 155;
-            dgvForReg.Columns[3].Width = 35;
+            dgvForReg.Columns[3].Width = 45;
+            dgvForReg.Columns[4].Visible = false;
 
             dgvForReg.ClearSelection();
             sHabilitaPermisos();
@@ -383,9 +409,10 @@ namespace SIPAA_CS.RecursosHumanos
 
                 iCvFR = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
                 string ValorRow = row.Cells["Descripción"].Value.ToString();
-                iSt = Convert.ToInt32(row.Cells["Status"].Value.ToString());
-
+                iSt = Convert.ToInt32(row.Cells["ST"].Value.ToString());
+                
                 txtCapFR.Text = ValorRow;
+                sDescAnt = txtCapFR.Text;
                 txtCapFR.Focus();
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
@@ -431,7 +458,9 @@ namespace SIPAA_CS.RecursosHumanos
             vValida = FormasRegistro.FormaReg_V(iOpc, sCve, sDesc, iStT, sUsu, sProg);
             
         }
-        
+
+
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

@@ -87,6 +87,48 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
 
+        //botòn guardar
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            if (iactbtn == 1)
+            {
+                PlantDet.rechcplantilla_d_suid(1, icvplantilla, icvdia, mtbhrinijor.Text.Trim(), Int32.Parse(cbdiasalida.SelectedValue.ToString()),
+                                              mtbhterminojornada.Text.Trim(), Int32.Parse(mtbmincomida.Text.Trim()), icvdia, mtbhrsalcomerd.Text.Trim(),
+                                              icvdia, mtbhrsalcomerh.Text.Trim(), Int32.Parse(mtbhrjornada.Text.Trim()), "nam", "PlantillasDEtalles");
+            }
+            else if (iactbtn == 2)
+            {
+                PlantDet.rechcplantilla_d_suid(2, icvplantilla, icvdia, mtbhrinijor.Text.Trim(), Int32.Parse(cbdiasalida.SelectedValue.ToString()),
+                                              mtbhterminojornada.Text.Trim(), Int32.Parse(mtbmincomida.Text.Trim()), icvdia, mtbhrsalcomerd.Text.Trim(),
+                                              icvdia, mtbhrsalcomerh.Text.Trim(), Int32.Parse(mtbhrjornada.Text.Trim()), "nam", "PlantillasDEtalles");
+            }
+            else if (iactbtn == 3)
+            {
+                PlantDet.rechcplantilla_d_suid(3, icvplantilla, icvdia, mtbhrinijor.Text.Trim(), Int32.Parse(cbdiasalida.SelectedValue.ToString()),
+                                              mtbhterminojornada.Text.Trim(), Int32.Parse(mtbmincomida.Text.Trim()), icvdia, mtbhrsalcomerd.Text.Trim(),
+                                              icvdia, mtbhrsalcomerh.Text.Trim(), Int32.Parse(mtbhrjornada.Text.Trim()), "nam", "PlantillasDEtalles");
+            }
+            else
+            {
+            }
+
+
+            dgvrechcplantilla_d.DataSource = null;
+
+            inumcolumngrid = dgvrechcplantilla_d.ColumnCount;
+
+            if (inumcolumngrid == 1)
+            {
+                dgvrechcplantilla_d.Columns.RemoveAt(0);
+                fformatgriduid(4, Int32.Parse(cbplantilla.SelectedValue.ToString()));
+            }
+            else
+            {
+                fformatgriduid(4, Int32.Parse(cbplantilla.SelectedValue.ToString()));
+            }
+
+        }
+
         //boton buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -145,15 +187,32 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             //llena combo plantilla
             Util.cargarcombo(cbplantilla,PlantDet.cbplantilla(5));
+            //cbplantilla.Text = "";
 
             //prueba llenado de grid
             fdleccllenadogrid();
 
         }
+        //checkbox limpiar registro
+        private void cbxlimpiarreg_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxlimpiarreg.Checked == true)
+            {
+                btnguardar.Image = Resources.Baja;
+                lbluid.Text = "     Elimina Incidencia de Nomina";
+                iactbtn = 3;
+            }
+            else
+            {
+                btnguardar.Image = Resources.Editar;
+                lbluid.Text = "     Modifica Incidencia de Nomina";
+                iactbtn = 2;
+            }
+        }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
-       
+
         //funcion para tool tip
         private void ftooltip()
         {
@@ -170,7 +229,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btncerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnregresar, "Regresar");
-            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btnbuscar, "Busca Registro");
         }
         private void fllenacbplantilla()
         {
@@ -293,69 +352,363 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             icvplantilla = Convert.ToInt32(row.Cells["cvplantilla"].Value.ToString());
             icvdia = Convert.ToInt32(row.Cells["cvdia"].Value.ToString());
 
-            if (iins == 1 && iact == 1 && ielim == 1 && iexistereg == 1)
+            if (iins == 1 && iact == 1 && ielim == 1 && iexistereg == 1)//insertar-actualizar-eliminar EXISTE registro
             {
                 pnlpland.Visible = true;
+
+                cbdia.Enabled = false;
                 Util.cargarcombo(cbdia, PlantDet.cbdias(6));
                 cbdia.Text = "";
 
+                cbdiasalida.Enabled = true;
                 Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
                 cbdiasalida.Text = "";
 
                 cbdia.Text = row.Cells["Día"].Value.ToString();
+                mtbhrinijor.Enabled = true;
                 mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
                 cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+                mtbhterminojornada.Enabled = true;
                 mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+                mtbmincomida.Enabled = true;
                 mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+                mtbhrjornada.Enabled = true;
                 mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+                mtbhrsalcomerd.Enabled = true;
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+                mtbhrsalcomerh.Enabled = true;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+ 
                 cbxlimpiarreg.Visible = true;
-                //Util.(btnguardar,3,true);
+                cbxlimpiarreg.Checked = false;
+                btnguardar.Image = Resources.Editar;
+                mtbhrinijor.Focus();
+                iactbtn = 2;
+   
+            }
+            else if(iins == 1 && iact == 1 && ielim == 1 && iexistereg == 0)//insertar-actualizar-eliminar NO EXISTE registro
+            {
+                pnlpland.Visible = true;
 
-                
+                cbdia.Enabled = false;
+                Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+                cbdia.Text = "";
+
+                cbdiasalida.Enabled = true;
+                Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+                cbdiasalida.Text = "";
+
+                cbdia.Text = row.Cells["Día"].Value.ToString();
+                mtbhrinijor.Enabled = true;
+                mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+                cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+                mtbhterminojornada.Enabled = true;
+                mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+                mtbmincomida.Enabled = true;
+                mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+                mtbhrjornada.Enabled = true;
+                mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+                mtbhrsalcomerd.Enabled = true;
+                mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+                mtbhrsalcomerh.Enabled = true;
+                mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+                cbxlimpiarreg.Visible = false;
+                btnguardar.Image = Resources.Guardar;
+                mtbhrinijor.Focus();
+                iactbtn = 1;
             }
-            else if(iins == 1 && iact == 1 && ielim == 1 && iexistereg == 0)
+            else if (iins == 1 && iact == 1 && iexistereg == 1)//insertar-actualizar EXISTE registro
+            {
+                pnlpland.Visible = true;
+
+                cbdia.Enabled = false;
+                Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+                cbdia.Text = "";
+
+                cbdiasalida.Enabled = true;
+                Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+                cbdiasalida.Text = "";
+
+                cbdia.Text = row.Cells["Día"].Value.ToString();
+                mtbhrinijor.Enabled = true;
+                mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+                cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+                mtbhterminojornada.Enabled = true;
+                mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+                mtbmincomida.Enabled = true;
+                mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+                mtbhrjornada.Enabled = true;
+                mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+                mtbhrsalcomerd.Enabled = true;
+                mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+                mtbhrsalcomerh.Enabled = true;
+                mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+                cbxlimpiarreg.Visible = false;
+                btnguardar.Image = Resources.Editar;
+                mtbhrinijor.Focus();
+                iactbtn = 2;
+            }
+            else if (iins == 1 && iact == 1 && iexistereg == 0)//insertar-actualizar NO EXISTE registro
+            {
+                pnlpland.Visible = true;
+
+                cbdia.Enabled = false;
+                Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+                cbdia.Text = "";
+
+                cbdiasalida.Enabled = true;
+                Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+                cbdiasalida.Text = "";
+
+                cbdia.Text = row.Cells["Día"].Value.ToString();
+                mtbhrinijor.Enabled = true;
+                mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+                cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+                mtbhterminojornada.Enabled = true;
+                mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+                mtbmincomida.Enabled = true;
+                mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+                mtbhrjornada.Enabled = true;
+                mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+                mtbhrsalcomerd.Enabled = true;
+                mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+                mtbhrsalcomerh.Enabled = true;
+                mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+                cbxlimpiarreg.Visible = false;
+                btnguardar.Image = Resources.Guardar;
+                mtbhrinijor.Focus();
+                iactbtn = 1;
+            }
+            else if (iins == 1 && ielim == 1 && iexistereg == 1)//insertar-eliminar EXISTE registro
             {
 
+                pnlpland.Visible = true;
+
+                cbdia.Enabled = false;
+                Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+                cbdia.Text = "";
+
+                cbdiasalida.Enabled = false;
+                Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+                cbdiasalida.Text = "";
+
+                cbdia.Text = row.Cells["Día"].Value.ToString();
+                mtbhrinijor.Enabled = false;
+                mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+                cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+                mtbhterminojornada.Enabled = false;
+                mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+                mtbmincomida.Enabled = false;
+                mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+                mtbhrjornada.Enabled = false;
+                mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+                mtbhrsalcomerd.Enabled = false;
+                mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+                mtbhrsalcomerh.Enabled = false;
+                mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+                cbxlimpiarreg.Visible = true;
+                cbxlimpiarreg.Checked = true;
+                cbxlimpiarreg.Enabled = false;
+                btnguardar.Image = Resources.Baja;
+                btnguardar.Focus();
+                iactbtn = 3;
             }
-            else if (iins == 1 && iact == 1)
+            else if (iins == 1 && ielim == 1 && iexistereg == 0)//insertar-eliminar NO EXISTE registro
             {
-                
+                pnlpland.Visible = true;
+
+                cbdia.Enabled = false;
+                Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+                cbdia.Text = "";
+
+                cbdiasalida.Enabled = true;
+                Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+                cbdiasalida.Text = "";
+
+                cbdia.Text = row.Cells["Día"].Value.ToString();
+                mtbhrinijor.Enabled = true;
+                mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+                cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+                mtbhterminojornada.Enabled = true;
+                mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+                mtbmincomida.Enabled = true;
+                mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+                mtbhrjornada.Enabled = true;
+                mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+                mtbhrsalcomerd.Enabled = true;
+                mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+                mtbhrsalcomerh.Enabled = true;
+                mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+                cbxlimpiarreg.Visible = false;
+                btnguardar.Image = Resources.Baja;
+                mtbhrinijor.Focus();
+                iactbtn = 1;
             }
-            else if (iins == 1 && ielim == 1)
+            else if (iact == 1 && ielim == 1 && iexistereg == 1)//actualizar-eliminar EXISTE registro
             {
-                
+                pnlpland.Visible = true;
+
+                cbdia.Enabled = false;
+                Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+                cbdia.Text = "";
+
+                cbdiasalida.Enabled = true;
+                Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+                cbdiasalida.Text = "";
+
+                cbdia.Text = row.Cells["Día"].Value.ToString();
+                mtbhrinijor.Enabled = true;
+                mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+                cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+                mtbhterminojornada.Enabled = true;
+                mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+                mtbmincomida.Enabled = true;
+                mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+                mtbhrjornada.Enabled = true;
+                mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+                mtbhrsalcomerd.Enabled = true;
+                mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+                mtbhrsalcomerh.Enabled = true;
+                mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+                cbxlimpiarreg.Visible = true;
+                cbxlimpiarreg.Checked = false;
+                btnguardar.Image = Resources.Baja;
+                btnguardar.Focus();
+                iactbtn = 3;
             }
-            else if (iact == 1 && ielim == 1)
+            else if (iact == 1 && ielim == 1 && iexistereg == 0)//actualizar-eliminar NO EXISTE registro
             {
-               
+                pnlmenssuid.Visible = false;
+                DialogResult result = MessageBox.Show("No tienes permisos para agregar datos al registro", "SIPAA", MessageBoxButtons.OK);
             }
-            else if (iins == 1)
+            else if (iins == 1 && iexistereg == 1)//inserta EXISTE registro
             {
-                
+                pnlpland.Visible = false;
+                DialogResult result = MessageBox.Show("No tienes permisos para agregar datos al registro", "SIPAA", MessageBoxButtons.OK);
             }
-            else if (iact == 1)
+            else if (iins == 1 && iexistereg == 0)//inserta EXISTE registro
             {
-                
+                pnlpland.Visible = true;
+
+                cbdia.Enabled = false;
+                Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+                cbdia.Text = "";
+
+                cbdiasalida.Enabled = true;
+                Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+                cbdiasalida.Text = "";
+
+                cbdia.Text = row.Cells["Día"].Value.ToString();
+                mtbhrinijor.Enabled = true;
+                mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+                cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+                mtbhterminojornada.Enabled = true;
+                mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+                mtbmincomida.Enabled = true;
+                mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+                mtbhrjornada.Enabled = true;
+                mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+                mtbhrsalcomerd.Enabled = true;
+                mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+                mtbhrsalcomerh.Enabled = true;
+                mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+                cbxlimpiarreg.Visible = false;
+                btnguardar.Image = Resources.Guardar;
+                mtbhrinijor.Focus();
+                iactbtn = 1;
             }
-            else if (ielim == 1)
+            else if (iact == 1 && iexistereg == 1)//inserta EXISTE registro
             {
-                
+                pnlpland.Visible = true;
+
+                cbdia.Enabled = false;
+                Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+                cbdia.Text = "";
+
+                cbdiasalida.Enabled = true;
+                Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+                cbdiasalida.Text = "";
+
+                cbdia.Text = row.Cells["Día"].Value.ToString();
+                mtbhrinijor.Enabled = true;
+                mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+                cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+                mtbhterminojornada.Enabled = true;
+                mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+                mtbmincomida.Enabled = true;
+                mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+                mtbhrjornada.Enabled = true;
+                mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+                mtbhrsalcomerd.Enabled = true;
+                mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+                mtbhrsalcomerh.Enabled = true;
+                mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+                cbxlimpiarreg.Visible = false;
+                btnguardar.Image = Resources.Guardar;
+                mtbhrinijor.Focus();
+                iactbtn = 2;
+            }
+            else if (iact == 1 && iexistereg == 0)//inserta NO EXISTE registro
+            {
+                pnlpland.Visible = false;
+                DialogResult result = MessageBox.Show("No tienes permisos para agregar datos al registro", "SIPAA", MessageBoxButtons.OK);
+            }
+            else if (ielim == 1 && iexistereg == 1)//inserta EXISTE registro
+            {
+                pnlpland.Visible = true;
+
+                cbdia.Enabled = false;
+                Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+                cbdia.Text = "";
+
+                cbdiasalida.Enabled = false;
+                Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+                cbdiasalida.Text = "";
+
+                cbdia.Text = row.Cells["Día"].Value.ToString();
+                mtbhrinijor.Enabled = false;
+                mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+                cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+                mtbhterminojornada.Enabled = false;
+                mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+                mtbmincomida.Enabled = false;
+                mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+                mtbhrjornada.Enabled = false;
+                mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+                mtbhrsalcomerd.Enabled = false;
+                mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+                mtbhrsalcomerh.Enabled = false;
+                mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+                cbxlimpiarreg.Visible = true;
+                cbxlimpiarreg.Checked = true;
+                cbxlimpiarreg.Enabled = false;
+                btnguardar.Image = Resources.Baja;
+                btnguardar.Focus();
+                iactbtn = 3;
+            }
+            else if (ielim == 1 && iexistereg == 0)//inserta EXISTE registro
+            {
+                pnlpland.Visible = false;
+                DialogResult result = MessageBox.Show("No tienes permisos para limpiar el registro", "SIPAA", MessageBoxButtons.OK);
             }
             else
             {
-                
+                pnlmenssuid.Visible = false;
+                DialogResult result = MessageBox.Show("Revise sus permisos con el administrador del sistema", "SIPAA", MessageBoxButtons.OK);
             }
 
         }
 
         private void pnlpland_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnguardar_Click(object sender, EventArgs e)
         {
 
         }

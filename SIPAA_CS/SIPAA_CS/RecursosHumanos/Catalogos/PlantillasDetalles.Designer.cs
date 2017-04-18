@@ -48,7 +48,7 @@
             this.btncerrar = new System.Windows.Forms.Button();
             this.pnlbusqueda = new System.Windows.Forms.Panel();
             this.cbplantilla = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnbuscar = new System.Windows.Forms.Button();
             this.lblnotifmodif = new System.Windows.Forms.Label();
             this.dgvrechcplantilla_d = new System.Windows.Forms.DataGridView();
             this.pnlmenssuid = new System.Windows.Forms.Panel();
@@ -270,12 +270,12 @@
             this.pnlbusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.pnlbusqueda.Controls.Add(label13);
             this.pnlbusqueda.Controls.Add(this.cbplantilla);
-            this.pnlbusqueda.Controls.Add(this.btnBuscar);
+            this.pnlbusqueda.Controls.Add(this.btnbuscar);
             this.pnlbusqueda.Controls.Add(label1);
             this.pnlbusqueda.Location = new System.Drawing.Point(5, 158);
             this.pnlbusqueda.Name = "pnlbusqueda";
             this.pnlbusqueda.Size = new System.Drawing.Size(367, 110);
-            this.pnlbusqueda.TabIndex = 143;
+            this.pnlbusqueda.TabIndex = 0;
             this.pnlbusqueda.TabStop = true;
             // 
             // cbplantilla
@@ -293,19 +293,19 @@
             this.cbplantilla.TabIndex = 1;
             this.cbplantilla.SelectedIndexChanged += new System.EventHandler(this.cbplantilla_SelectedIndexChanged);
             // 
-            // btnBuscar
+            // btnbuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(311, 55);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(50, 50);
-            this.btnBuscar.TabIndex = 3;
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnbuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnbuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
+            this.btnbuscar.Location = new System.Drawing.Point(311, 55);
+            this.btnbuscar.Name = "btnbuscar";
+            this.btnbuscar.Size = new System.Drawing.Size(50, 50);
+            this.btnbuscar.TabIndex = 2;
+            this.btnbuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnbuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblnotifmodif
             // 
@@ -417,7 +417,7 @@
             this.pnlpland.Location = new System.Drawing.Point(5, 297);
             this.pnlpland.Name = "pnlpland";
             this.pnlpland.Size = new System.Drawing.Size(367, 373);
-            this.pnlpland.TabIndex = 151;
+            this.pnlpland.TabIndex = 3;
             this.pnlpland.TabStop = true;
             this.pnlpland.Visible = false;
             this.pnlpland.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlpland_Paint);
@@ -431,7 +431,7 @@
             this.mtbhrjornada.Mask = "99";
             this.mtbhrjornada.Name = "mtbhrjornada";
             this.mtbhrjornada.Size = new System.Drawing.Size(74, 15);
-            this.mtbhrjornada.TabIndex = 158;
+            this.mtbhrjornada.TabIndex = 6;
             // 
             // panel6
             // 
@@ -450,7 +450,7 @@
             this.mtbhrsalcomerh.Mask = "00:00:00";
             this.mtbhrsalcomerh.Name = "mtbhrsalcomerh";
             this.mtbhrsalcomerh.Size = new System.Drawing.Size(74, 15);
-            this.mtbhrsalcomerh.TabIndex = 155;
+            this.mtbhrsalcomerh.TabIndex = 11;
             // 
             // panel5
             // 
@@ -469,7 +469,7 @@
             this.mtbhrsalcomerd.Mask = "00:00:00";
             this.mtbhrsalcomerd.Name = "mtbhrsalcomerd";
             this.mtbhrsalcomerd.Size = new System.Drawing.Size(74, 15);
-            this.mtbhrsalcomerd.TabIndex = 152;
+            this.mtbhrsalcomerd.TabIndex = 10;
             // 
             // panel4
             // 
@@ -488,7 +488,7 @@
             this.mtbmincomida.Mask = "99";
             this.mtbmincomida.Name = "mtbmincomida";
             this.mtbmincomida.Size = new System.Drawing.Size(74, 15);
-            this.mtbmincomida.TabIndex = 149;
+            this.mtbmincomida.TabIndex = 9;
             // 
             // panel3
             // 
@@ -507,7 +507,7 @@
             this.mtbhterminojornada.Mask = "00:00:00";
             this.mtbhterminojornada.Name = "mtbhterminojornada";
             this.mtbhterminojornada.Size = new System.Drawing.Size(74, 15);
-            this.mtbhterminojornada.TabIndex = 146;
+            this.mtbhterminojornada.TabIndex = 8;
             // 
             // panel1
             // 
@@ -528,7 +528,7 @@
             this.cbdiasalida.Margin = new System.Windows.Forms.Padding(2);
             this.cbdiasalida.Name = "cbdiasalida";
             this.cbdiasalida.Size = new System.Drawing.Size(224, 24);
-            this.cbdiasalida.TabIndex = 142;
+            this.cbdiasalida.TabIndex = 7;
             // 
             // mtbhrinijor
             // 
@@ -539,7 +539,7 @@
             this.mtbhrinijor.Mask = "00:00:00";
             this.mtbhrinijor.Name = "mtbhrinijor";
             this.mtbhrinijor.Size = new System.Drawing.Size(74, 15);
-            this.mtbhrinijor.TabIndex = 140;
+            this.mtbhrinijor.TabIndex = 5;
             // 
             // cbdia
             // 
@@ -553,7 +553,7 @@
             this.cbdia.Margin = new System.Windows.Forms.Padding(2);
             this.cbdia.Name = "cbdia";
             this.cbdia.Size = new System.Drawing.Size(224, 24);
-            this.cbdia.TabIndex = 5;
+            this.cbdia.TabIndex = 4;
             // 
             // cbxlimpiarreg
             // 
@@ -566,6 +566,7 @@
             this.cbxlimpiarreg.Text = "Limpiar Registro";
             this.cbxlimpiarreg.UseVisualStyleBackColor = true;
             this.cbxlimpiarreg.Visible = false;
+            this.cbxlimpiarreg.CheckedChanged += new System.EventHandler(this.cbxlimpiarreg_CheckedChanged);
             // 
             // btnguardar
             // 
@@ -605,6 +606,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.pnlpland);
             this.Controls.Add(this.lblnotifmodif);
@@ -639,7 +641,7 @@
         private System.Windows.Forms.Button btncerrar;
         private System.Windows.Forms.Panel pnlbusqueda;
         private System.Windows.Forms.ComboBox cbplantilla;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Label lblnotifmodif;
         private System.Windows.Forms.DataGridView dgvrechcplantilla_d;
         private System.Windows.Forms.Panel pnlmenssuid;

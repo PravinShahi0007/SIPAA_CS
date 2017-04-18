@@ -22,6 +22,8 @@ namespace SIPAA_CS.RecursosHumanos
         public int cvRepresenta;
         public int iOpcionAdmin;
         public string strIncidencia;
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
 
         //***********************************************************************************************
         //Autor: Victor Jesús Iturburu Vergara
@@ -255,9 +257,7 @@ namespace SIPAA_CS.RecursosHumanos
         private void Incapacidad_Representa_Load(object sender, EventArgs e)
         {
 
-
-            int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            int sysW = SystemInformation.PrimaryMonitorSize.Width;
+          
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
             Incidencia objIncidencia = new Incidencia();
@@ -321,6 +321,11 @@ namespace SIPAA_CS.RecursosHumanos
         {
            
           
+        }
+
+        private void dgvIncidencia_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
 

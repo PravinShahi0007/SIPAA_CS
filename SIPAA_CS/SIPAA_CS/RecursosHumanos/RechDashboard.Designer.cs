@@ -44,9 +44,9 @@
             this.areasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidenciasNominaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diasFestivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mensajesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoHorarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoIncidenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plantillasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAsignacionCompania = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAsignacionArea = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +58,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.plantillasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblusuario = new System.Windows.Forms.Label();
+            this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.MenuAccesos.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +95,7 @@
             this.reportesToolStripMenuItem});
             this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(439, 26);
+            this.MenuAccesos.Size = new System.Drawing.Size(347, 26);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
@@ -112,12 +113,11 @@
             this.areasToolStripMenuItem,
             this.incidenciasNominaToolStripMenuItem,
             this.diasFestivoToolStripMenuItem,
-            this.mensajesToolStripMenuItem1,
             this.tipoHorarioToolStripMenuItem,
             this.tipoIncidenciaToolStripMenuItem,
             this.plantillasToolStripMenuItem});
             this.msCatalogo.ForeColor = System.Drawing.Color.White;
-            this.msCatalogo.Image = global::SIPAA_CS.Properties.Resources.ic_view_list_white_18dp;
+            this.msCatalogo.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.msCatalogo.Name = "msCatalogo";
             this.msCatalogo.Size = new System.Drawing.Size(108, 22);
             this.msCatalogo.Tag = "frmCatalogos";
@@ -205,6 +205,7 @@
             this.mensajesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("mensajesToolStripMenuItem.Image")));
             this.mensajesToolStripMenuItem.Name = "mensajesToolStripMenuItem";
             this.mensajesToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.mensajesToolStripMenuItem.Tag = "frmMensajes";
             this.mensajesToolStripMenuItem.Text = "Mensajes";
             this.mensajesToolStripMenuItem.Click += new System.EventHandler(this.mensajesToolStripMenuItem_Click);
             // 
@@ -240,16 +241,6 @@
             this.diasFestivoToolStripMenuItem.Text = "Días Festivos";
             this.diasFestivoToolStripMenuItem.Click += new System.EventHandler(this.diasFestivoToolStripMenuItem_Click);
             // 
-            // mensajesToolStripMenuItem1
-            // 
-            this.mensajesToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.mensajesToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.mensajesToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("mensajesToolStripMenuItem1.Image")));
-            this.mensajesToolStripMenuItem1.Name = "mensajesToolStripMenuItem1";
-            this.mensajesToolStripMenuItem1.Size = new System.Drawing.Size(246, 22);
-            this.mensajesToolStripMenuItem1.Tag = "frmMensajes";
-            this.mensajesToolStripMenuItem1.Text = "Mensajes";
-            // 
             // tipoHorarioToolStripMenuItem
             // 
             this.tipoHorarioToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
@@ -270,6 +261,17 @@
             this.tipoIncidenciaToolStripMenuItem.Tag = "frmIncidenciasTipos";
             this.tipoIncidenciaToolStripMenuItem.Text = "Tipos de Incidencia";
             this.tipoIncidenciaToolStripMenuItem.Click += new System.EventHandler(this.tipoIncidenciaToolStripMenuItem_Click);
+            // 
+            // plantillasToolStripMenuItem
+            // 
+            this.plantillasToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.plantillasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.plantillasToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
+            this.plantillasToolStripMenuItem.Name = "plantillasToolStripMenuItem";
+            this.plantillasToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
+            this.plantillasToolStripMenuItem.Tag = "frmPlantillas";
+            this.plantillasToolStripMenuItem.Text = "Plantillas";
+            this.plantillasToolStripMenuItem.Click += new System.EventHandler(this.plantillasToolStripMenuItem_Click);
             // 
             // asignacionesToolStripMenuItem
             // 
@@ -410,16 +412,28 @@
             this.label3.Text = "       Recursos Humanos                  ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // plantillasToolStripMenuItem
+            // lblusuario
             // 
-            this.plantillasToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.plantillasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.plantillasToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
-            this.plantillasToolStripMenuItem.Name = "plantillasToolStripMenuItem";
-            this.plantillasToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.plantillasToolStripMenuItem.Tag = "frmPlantillas";
-            this.plantillasToolStripMenuItem.Text = "Plantillas";
-            this.plantillasToolStripMenuItem.Click += new System.EventHandler(this.plantillasToolStripMenuItem_Click);
+            this.lblusuario.AutoSize = true;
+            this.lblusuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.ForeColor = System.Drawing.Color.White;
+            this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblusuario.Location = new System.Drawing.Point(3, 72);
+            this.lblusuario.Name = "lblusuario";
+            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.TabIndex = 147;
+            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlimgusuario
+            // 
+            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
+            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlimgusuario.Location = new System.Drawing.Point(7, 28);
+            this.pnlimgusuario.Name = "pnlimgusuario";
+            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
+            this.pnlimgusuario.TabIndex = 146;
             // 
             // RechDashboard
             // 
@@ -427,6 +441,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.lblusuario);
+            this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
@@ -467,7 +483,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ToolStripMenuItem incidenciasNominaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem diasFestivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mensajesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tipoHorarioToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem tipoIncidenciaToolStripMenuItem;
@@ -479,5 +494,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmAsignacionUbicacion;
         private System.Windows.Forms.ToolStripMenuItem tsmAsignacionDepartamento;
         private System.Windows.Forms.ToolStripMenuItem plantillasToolStripMenuItem;
+        private System.Windows.Forms.Label lblusuario;
+        private System.Windows.Forms.Panel pnlimgusuario;
     }
 }

@@ -139,8 +139,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             txtmensajeiu.Text = "";
             dtpfechainicial.Text = "";
             dtpfechafin.Text = "";
-            cbTrabajador.Text = "Seleccionar Empleado...";
-            cbTrabajador.Focus();
+            //cbTrabajador.Text = "Seleccionar Empleado...";
+            //cbTrabajador.Focus();
         }
 
         //boton
@@ -252,10 +252,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //genero el listado
             DataTable dtempleados = oTrabajador.obtenerempleados(7, "");
             //lo vacio en el combo
-            cbTrabajador.DataSource = dtempleados;
-            cbTrabajador.DisplayMember = "Nombre";
-            cbTrabajador.ValueMember = "Clave";
-            cbTrabajador.Text = "Seleccionar Empleado...";
+            //cbTrabajador.DataSource = dtempleados;
+            //cbTrabajador.DisplayMember = "Nombre";
+            //cbTrabajador.ValueMember = "Clave";
+            //cbTrabajador.Text = "Seleccionar Empleado...";
         }
 
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)

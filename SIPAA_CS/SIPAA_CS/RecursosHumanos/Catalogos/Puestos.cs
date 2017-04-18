@@ -12,8 +12,8 @@ using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
 
 //***********************************************************************************************
-//Autor: Noe Alvarez Marquina
-//Fecha creación:13-Mar-2017       Última Modificacion: dd-mm-aaaa
+//Autor: noe alvarez marquina
+//Fecha creación: 13-mar-2017       Última Modificacion: dd-mm-aaaa
 //Descripción: Muestra y busca puestos sonarh
 //***********************************************************************************************
 
@@ -40,11 +40,11 @@ namespace SIPAA_CS.RecursosHumanos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             //llena grid
-            fgptos(1, txtPuestos.Text.Trim());
+            fgptos(4, txtpuestos.Text.Trim());
 
 
-            txtPuestos.Text = "";
-            txtPuestos.Focus();
+            txtpuestos.Text = "";
+            txtpuestos.Focus();
         }
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
@@ -71,15 +71,13 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void Puestos_Load(object sender, EventArgs e)
         {
-            
             //inicializa tool tip
             ftooltip();
 
-            txtPuestos.Focus();
+            txtpuestos.Focus();
 
             //llena grid
-            fgptos(1, "");
-
+            fgptos(4, "");
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -96,21 +94,20 @@ namespace SIPAA_CS.RecursosHumanos
             toolTip1.ShowAlways = true;
 
             //configura texto del objeto
-            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
-            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
-            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
-            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btncerrar, "Cerrar Sistema");
+            toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnregresar, "Regresar");
+            toolTip1.SetToolTip(this.btnbuscar, "Busca Registro");
         }
         private void fgptos(int popc, string pbusq)
         {
-
             DataTable dtpuestos = puestos.obtptos(popc, pbusq);
-            dgvPuestos.DataSource = dtpuestos;
+            dgvpuestos.DataSource = dtpuestos;
 
-            dgvPuestos.Columns[0].Visible = false;
-            dgvPuestos.Columns[1].Width = 475;
+            dgvpuestos.Columns[0].Visible = false;
+            dgvpuestos.Columns[1].Width = 475;
 
-            dgvPuestos.ClearSelection();
+            dgvpuestos.ClearSelection();
         }
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
