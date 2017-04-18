@@ -121,6 +121,8 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaCompania2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaFormaPago.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaUbicacion.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\ArchNomina4.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\PeriodoProcesoIncidencia.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
     <Compile Include="Accesos\AccesosDashboard.cs">
@@ -344,6 +346,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ArchivoNomina4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ArchivoNomina4.Designer.cs">
+      <DependentUpon>ArchivoNomina4.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -512,6 +520,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\IncidenciasNominas.resx">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\ArchivoNomina4.resx">
+      <DependentUpon>ArchivoNomina4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.resx">
       <DependentUpon>PeriodosProcesoIncidencia.cs</DependentUpon>
