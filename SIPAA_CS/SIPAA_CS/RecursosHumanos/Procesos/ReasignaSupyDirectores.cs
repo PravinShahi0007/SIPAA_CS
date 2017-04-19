@@ -235,21 +235,30 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void ActualizaSudyDir(object sender, EventArgs e)
         {
-            // Obtiene Nombre del Empleado
+            // Actualiza datos de supervisor y director
 
-            DataTable dtActualizaSudyDir = oActualizaSudyDir.obtActualizaSudyDir(2, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text)/*, Convert.ToInt16(TxtIdSupFin.Text), Convert.ToInt16(TxtIdDirFin.Text)*/);
+            if (TxtIdEmp.Text != "" && TxtFeIni.Text != "" && TxtFeFin.Text != "")
+            {
+                if (TxtIdSupFin.Text == "") TxtIdSupFin.Text = "0";
+                if (TxtIdDirFin.Text == "") TxtIdDirFin.Text = "0";
 
-            //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
-            if (dtActualizaSudyDir.Rows.Count > 0)
-            {
-                TxtIdSupOri.Text = TxtIdSupFin.Text;
-                TxtIdDirOri.Text = TxtIdDirFin.Text;
+                DataTable dtActualizaSudyDir = oActualizaSudyDir.obtActualizaSudyDir(2, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text));
+
+                //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
+                if (dtActualizaSudyDir.Rows.Count > 0)
+                {
+                    if (TxtIdSupFin.Text == "0") TxtIdSupFin.Text = "";
+                    if (TxtIdDirFin.Text == "0") TxtIdDirFin.Text = "";
+                    TxtIdSupOri.Text = TxtIdSupFin.Text;
+                    TxtIdDirOri.Text = TxtIdDirFin.Text;
+                }
+                else
+                {
+                    TxtIdSupFin.Text = "";
+                    TxtIdDirFin.Text = "";
+                }
             }
-            else
-            {
-                TxtIdSupFin.Text = "";
-                TxtIdDirFin.Text = "";
-            }
+
         }
 
         private void TxtIdEmp_KeyPress(object sender, KeyPressEventArgs e)
