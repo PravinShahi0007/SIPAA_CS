@@ -1,6 +1,6 @@
 ﻿namespace SIPAA_CS.Accesos.Reportes
 {
-    partial class FiltroAreasUsuarios
+    partial class FiltroUbicacionesUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -30,21 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label7;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FiltroAreasUsuarios));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FiltroUbicacionesUsuarios));
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label9;
-            System.Windows.Forms.Label label2;
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnImprimirResumen = new System.Windows.Forms.Button();
             this.btnImprimirDetalle = new System.Windows.Forms.Button();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
-            this.cbPlantel = new System.Windows.Forms.ComboBox();
             this.cbUsuario = new System.Windows.Forms.ComboBox();
-            this.cbCompania = new System.Windows.Forms.ComboBox();
+            this.cbUbicacion = new System.Windows.Forms.ComboBox();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -55,86 +53,10 @@
             label1 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
             this.panelTag.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.ForeColor = System.Drawing.Color.Gray;
-            label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
-            label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(70, 171);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(157, 17);
-            label7.TabIndex = 66;
-            label7.Text = "       Imprimir Resumen";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.ForeColor = System.Drawing.Color.Gray;
-            label4.Image = ((System.Drawing.Image)(resources.GetObject("label4.Image")));
-            label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(70, 49);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(138, 17);
-            label4.TabIndex = 65;
-            label4.Text = "       Imprimir Detalle";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(39, 45);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(50, 16);
-            label1.TabIndex = 60;
-            label1.Text = "Usuarios";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(39, 126);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(61, 16);
-            label6.TabIndex = 58;
-            label6.Text = "Compañias";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.ForeColor = System.Drawing.Color.Gray;
-            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
-            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(5, 0);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(187, 17);
-            label9.TabIndex = 41;
-            label9.Text = "       Buscar Áreas Usuarios";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(39, 207);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(50, 16);
-            label2.TabIndex = 62;
-            label2.Text = "Planteles";
             // 
             // panelTag
             // 
@@ -144,7 +66,7 @@
             this.panelTag.Location = new System.Drawing.Point(574, 467);
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(399, 30);
-            this.panelTag.TabIndex = 174;
+            this.panelTag.TabIndex = 181;
             this.panelTag.Visible = false;
             // 
             // lbMensaje
@@ -171,7 +93,33 @@
             this.panel1.Location = new System.Drawing.Point(574, 177);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 252);
-            this.panel1.TabIndex = 173;
+            this.panel1.TabIndex = 180;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.ForeColor = System.Drawing.Color.Gray;
+            label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
+            label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label7.Location = new System.Drawing.Point(70, 171);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(157, 17);
+            label7.TabIndex = 66;
+            label7.Text = "       Imprimir Resumen";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.ForeColor = System.Drawing.Color.Gray;
+            label4.Image = ((System.Drawing.Image)(resources.GetObject("label4.Image")));
+            label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label4.Location = new System.Drawing.Point(70, 49);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(138, 17);
+            label4.TabIndex = 65;
+            label4.Text = "       Imprimir Detalle";
             // 
             // btnImprimirResumen
             // 
@@ -203,31 +151,28 @@
             // pnlBusqueda
             // 
             this.pnlBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.pnlBusqueda.Controls.Add(label2);
-            this.pnlBusqueda.Controls.Add(this.cbPlantel);
             this.pnlBusqueda.Controls.Add(label1);
             this.pnlBusqueda.Controls.Add(this.cbUsuario);
             this.pnlBusqueda.Controls.Add(label6);
-            this.pnlBusqueda.Controls.Add(this.cbCompania);
+            this.pnlBusqueda.Controls.Add(this.cbUbicacion);
             this.pnlBusqueda.Controls.Add(label9);
             this.pnlBusqueda.Location = new System.Drawing.Point(18, 177);
             this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(477, 296);
-            this.pnlBusqueda.TabIndex = 172;
+            this.pnlBusqueda.Size = new System.Drawing.Size(477, 216);
+            this.pnlBusqueda.TabIndex = 179;
             this.pnlBusqueda.TabStop = true;
             // 
-            // cbPlantel
+            // label1
             // 
-            this.cbPlantel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbPlantel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbPlantel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbPlantel.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPlantel.FormattingEnabled = true;
-            this.cbPlantel.Location = new System.Drawing.Point(42, 227);
-            this.cbPlantel.Name = "cbPlantel";
-            this.cbPlantel.Size = new System.Drawing.Size(291, 25);
-            this.cbPlantel.TabIndex = 61;
-            this.cbPlantel.Text = "Seleccionar una Planta";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.Location = new System.Drawing.Point(39, 45);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(50, 16);
+            label1.TabIndex = 60;
+            label1.Text = "Usuarios";
             // 
             // cbUsuario
             // 
@@ -242,18 +187,43 @@
             this.cbUsuario.TabIndex = 59;
             this.cbUsuario.Text = "Seleccionar un Usuario";
             // 
-            // cbCompania
+            // label6
             // 
-            this.cbCompania.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbCompania.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbCompania.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbCompania.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCompania.FormattingEnabled = true;
-            this.cbCompania.Location = new System.Drawing.Point(42, 146);
-            this.cbCompania.Name = "cbCompania";
-            this.cbCompania.Size = new System.Drawing.Size(291, 25);
-            this.cbCompania.TabIndex = 57;
-            this.cbCompania.Text = "Seleccionar una Compañia";
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label6.Location = new System.Drawing.Point(39, 126);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(65, 16);
+            label6.TabIndex = 58;
+            label6.Text = "Ubicaciones";
+            // 
+            // cbUbicacion
+            // 
+            this.cbUbicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbUbicacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbUbicacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbUbicacion.FormattingEnabled = true;
+            this.cbUbicacion.Location = new System.Drawing.Point(42, 146);
+            this.cbUbicacion.Name = "cbUbicacion";
+            this.cbUbicacion.Size = new System.Drawing.Size(291, 25);
+            this.cbUbicacion.TabIndex = 57;
+            this.cbUbicacion.Text = "Seleccionar una Ubicación";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label9.ForeColor = System.Drawing.Color.Gray;
+            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
+            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label9.Location = new System.Drawing.Point(5, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(229, 17);
+            label9.TabIndex = 41;
+            label9.Text = "       Buscar Ubicaciones Usuarios";
             // 
             // btnRegresar
             // 
@@ -265,7 +235,7 @@
             this.btnRegresar.Location = new System.Drawing.Point(900, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 25);
-            this.btnRegresar.TabIndex = 171;
+            this.btnRegresar.TabIndex = 178;
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
@@ -279,7 +249,7 @@
             this.btnMinimizar.Location = new System.Drawing.Point(958, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
-            this.btnMinimizar.TabIndex = 170;
+            this.btnMinimizar.TabIndex = 177;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -294,7 +264,7 @@
             this.btnCerrar.Location = new System.Drawing.Point(983, 2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
-            this.btnCerrar.TabIndex = 169;
+            this.btnCerrar.TabIndex = 176;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -309,16 +279,16 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(440, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(204, 23);
-            this.label3.TabIndex = 168;
-            this.label3.Text = "       Reporte Áreas Usuarios";
+            this.label3.Size = new System.Drawing.Size(249, 23);
+            this.label3.TabIndex = 175;
+            this.label3.Text = "       Reporte Ubicaciones Usuarios";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // FiltroAreasUsuarios
+            // FiltroUbicacionesUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -332,10 +302,10 @@
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FiltroAreasUsuarios";
+            this.Name = "FiltroUbicacionesUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FiltroAreasUsuarios";
-            this.Load += new System.EventHandler(this.FiltroAreasUsuarios_Load);
+            this.Text = "FiltroUbicacionesUsuarios";
+            this.Load += new System.EventHandler(this.FiltroUbicacionesUsuarios_Load);
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -356,12 +326,11 @@
         private System.Windows.Forms.Button btnImprimirDetalle;
         private System.Windows.Forms.Panel pnlBusqueda;
         private System.Windows.Forms.ComboBox cbUsuario;
-        private System.Windows.Forms.ComboBox cbCompania;
+        private System.Windows.Forms.ComboBox cbUbicacion;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbPlantel;
         private System.Windows.Forms.Timer timer1;
     }
 }

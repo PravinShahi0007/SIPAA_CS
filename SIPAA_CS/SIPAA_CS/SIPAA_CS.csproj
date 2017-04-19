@@ -120,6 +120,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteProcesosUsuarios.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\DataSets\ReporteUbicacionesUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteUbicacionesUsuarios.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\DataSets\ReporteUsuarios.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -173,6 +178,12 @@
     <Compile Include="Accesos\Reportes\FiltroProcesosUsuarios.Designer.cs">
       <DependentUpon>FiltroProcesosUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\Reportes\FiltroUbicacionesUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroUbicacionesUsuarios.Designer.cs">
+      <DependentUpon>FiltroUbicacionesUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\Reportes\FiltroUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +236,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteProcesosUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ReporteUbicacionesUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteUbicacionesUsuarios.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Accesos\Reportes\ReporteUsuarios.cs">
@@ -665,6 +682,9 @@
     <EmbeddedResource Include="Accesos\Reportes\FiltroProcesosUsuarios.resx">
       <DependentUpon>FiltroProcesosUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroUbicacionesUsuarios.resx">
+      <DependentUpon>FiltroUbicacionesUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\FiltroUsuarios.resx">
       <DependentUpon>FiltroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -699,6 +719,10 @@
     <EmbeddedResource Include="Accesos\Reportes\ReporteProcesosUsuarios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteProcesosUsuarios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteUbicacionesUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteUbicacionesUsuarios.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ReporteUsuarios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -942,6 +966,17 @@
     </None>
     <None Include="Accesos\DataSets\ReporteProcesosUsuarios.xss">
       <DependentUpon>ReporteProcesosUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteUbicacionesUsuarios.xsc">
+      <DependentUpon>ReporteUbicacionesUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteUbicacionesUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteUbicacionesUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteUbicacionesUsuarios.xss">
+      <DependentUpon>ReporteUbicacionesUsuarios.xsd</DependentUpon>
     </None>
     <None Include="Accesos\DataSets\ReporteUsuarios.xsc">
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
