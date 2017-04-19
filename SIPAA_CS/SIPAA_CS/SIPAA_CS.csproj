@@ -80,6 +80,11 @@
     <Compile Include="Accesos\Asignaciones\UsuarioProceso.Designer.cs">
       <DependentUpon>UsuarioProceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\DataSets\ReporteAreasUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteAreasUsuarios.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\DataSets\ReporteCompaniasUsuarios.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +124,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroAreasUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroAreasUsuarios.Designer.cs">
+      <DependentUpon>FiltroAreasUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroCompaniasUsuarios.cs">
       <SubType>Form</SubType>
@@ -167,6 +178,12 @@
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroUsuarios.Designer.cs">
       <DependentUpon>FiltroUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ReporteAreasUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteAreasUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Accesos\Reportes\ReporteCompaniasUsuarios.cs">
       <AutoGen>True</AutoGen>
@@ -624,6 +641,9 @@
     <EmbeddedResource Include="Accesos\Catalogos\Perfiles.resx">
       <DependentUpon>Perfiles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroAreasUsuarios.resx">
+      <DependentUpon>FiltroAreasUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\FiltroCompaniasUsuarios.resx">
       <DependentUpon>FiltroCompaniasUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -647,6 +667,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\FiltroUsuarios.resx">
       <DependentUpon>FiltroUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteAreasUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteAreasUsuarios.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ReporteCompaniasUsuarios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -831,6 +855,17 @@
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Accesos\DataSets\ReporteAreasUsuarios.xsc">
+      <DependentUpon>ReporteAreasUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteAreasUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteAreasUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteAreasUsuarios.xss">
+      <DependentUpon>ReporteAreasUsuarios.xsd</DependentUpon>
+    </None>
     <None Include="Accesos\DataSets\ReporteCompaniasUsuarios.xsc">
       <DependentUpon>ReporteCompaniasUsuarios.xsd</DependentUpon>
     </None>
