@@ -198,17 +198,23 @@
             // 
             // TxtFeIni
             // 
+            this.TxtFeIni.Enabled = false;
             this.TxtFeIni.Location = new System.Drawing.Point(254, 154);
             this.TxtFeIni.Name = "TxtFeIni";
-            this.TxtFeIni.Size = new System.Drawing.Size(66, 20);
+            this.TxtFeIni.ReadOnly = true;
+            this.TxtFeIni.Size = new System.Drawing.Size(80, 20);
             this.TxtFeIni.TabIndex = 153;
+            this.TxtFeIni.TabStop = false;
             // 
             // TxtFeFin
             // 
+            this.TxtFeFin.Enabled = false;
             this.TxtFeFin.Location = new System.Drawing.Point(401, 155);
             this.TxtFeFin.Name = "TxtFeFin";
-            this.TxtFeFin.Size = new System.Drawing.Size(64, 20);
+            this.TxtFeFin.ReadOnly = true;
+            this.TxtFeFin.Size = new System.Drawing.Size(75, 20);
             this.TxtFeFin.TabIndex = 154;
+            this.TxtFeFin.TabStop = false;
             // 
             // label1
             // 
@@ -238,8 +244,10 @@
             // 
             this.TxtIdEmp.Location = new System.Drawing.Point(40, 223);
             this.TxtIdEmp.Name = "TxtIdEmp";
-            this.TxtIdEmp.Size = new System.Drawing.Size(61, 20);
+            this.TxtIdEmp.Size = new System.Drawing.Size(84, 20);
             this.TxtIdEmp.TabIndex = 157;
+            this.TxtIdEmp.Enter += new System.EventHandler(this.TxtIdEmp_Enter);
+            this.TxtIdEmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
             this.TxtIdEmp.Leave += new System.EventHandler(this.ObtieneEmpleado);
             // 
             // label4
@@ -256,19 +264,24 @@
             // 
             // TxtIdSupOri
             // 
+            this.TxtIdSupOri.Enabled = false;
             this.TxtIdSupOri.Location = new System.Drawing.Point(548, 226);
             this.TxtIdSupOri.Name = "TxtIdSupOri";
             this.TxtIdSupOri.ReadOnly = true;
             this.TxtIdSupOri.Size = new System.Drawing.Size(113, 20);
             this.TxtIdSupOri.TabIndex = 160;
+            this.TxtIdSupOri.TabStop = false;
             this.TxtIdSupOri.Leave += new System.EventHandler(this.ObtieneSupyDir);
             // 
             // TxtIdDirOri
             // 
+            this.TxtIdDirOri.Enabled = false;
             this.TxtIdDirOri.Location = new System.Drawing.Point(695, 223);
             this.TxtIdDirOri.Name = "TxtIdDirOri";
+            this.TxtIdDirOri.ReadOnly = true;
             this.TxtIdDirOri.Size = new System.Drawing.Size(109, 20);
             this.TxtIdDirOri.TabIndex = 161;
+            this.TxtIdDirOri.TabStop = false;
             // 
             // TxtIdSupFin
             // 
@@ -276,6 +289,7 @@
             this.TxtIdSupFin.Name = "TxtIdSupFin";
             this.TxtIdSupFin.Size = new System.Drawing.Size(106, 20);
             this.TxtIdSupFin.TabIndex = 162;
+            this.TxtIdSupFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
             // 
             // TxtIdDirFin
             // 
@@ -283,6 +297,7 @@
             this.TxtIdDirFin.Name = "TxtIdDirFin";
             this.TxtIdDirFin.Size = new System.Drawing.Size(113, 20);
             this.TxtIdDirFin.TabIndex = 163;
+            this.TxtIdDirFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
             // 
             // label3
             // 
@@ -336,10 +351,13 @@
             // 
             // TxtNombreEmpleado
             // 
+            this.TxtNombreEmpleado.Enabled = false;
             this.TxtNombreEmpleado.Location = new System.Drawing.Point(172, 225);
             this.TxtNombreEmpleado.Name = "TxtNombreEmpleado";
+            this.TxtNombreEmpleado.ReadOnly = true;
             this.TxtNombreEmpleado.Size = new System.Drawing.Size(343, 20);
             this.TxtNombreEmpleado.TabIndex = 168;
+            this.TxtNombreEmpleado.TabStop = false;
             // 
             // label8
             // 
