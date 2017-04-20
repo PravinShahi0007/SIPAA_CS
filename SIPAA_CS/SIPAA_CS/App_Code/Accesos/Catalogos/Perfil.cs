@@ -186,7 +186,7 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public DataTable ReportePerfiles(int cvperfil, string descripcion, string usuarioumod, string programaumod, int opcion)
+        public DataTable ReportePerfiles(int cvperfil, string descripcion, string estatus,string usuarioumod, string programaumod, int opcion)
         {
 
             Conexion objConexion = new Conexion();
@@ -196,6 +196,7 @@ namespace SIPAA_CS.App_Code
 
             cmd.Parameters.Add("@p_cvperfil", SqlDbType.Int).Value = cvperfil;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
+            cmd.Parameters.Add("@p_estatus", SqlDbType.VarChar).Value = estatus;
             cmd.Parameters.Add("@p_usuarioumod", SqlDbType.VarChar).Value = usuarioumod;
             cmd.Parameters.Add("@p_programaumod", SqlDbType.VarChar).Value = programaumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
