@@ -65,6 +65,8 @@ namespace SIPAA_CS.Accesos.Reportes
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Selecciona un Status");
                 timer1.Start();
             }
+
+            //Filtra activo
             if (estatus == 0)
             {
 
@@ -73,7 +75,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Usuario objUsuario = new Usuario();
                 DataTable dtReporte;
-                dtReporte = objUsuario.ReporteUsuarios("", 0, "", "", 0, "", "", 5);
+                dtReporte = objUsuario.ReporteUsuarios("", 0, "", "","1", "", "", 5);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -95,7 +97,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 }
             }
-
+            //FILTRA INACTIVO
             if (estatus == 1)
             {
 
@@ -104,7 +106,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Usuario objUsuario = new Usuario();
                 DataTable dtReporte;
-                dtReporte = objUsuario.ReporteUsuarios("", 0, "", "", 0, "", "", 6);
+                dtReporte = objUsuario.ReporteUsuarios("", 0, "", "", "0", "", "", 5);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -126,7 +128,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 }
             }
-
+            // FILTRA TODOS
             if (estatus == 2)
             {
                 //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "" + estatus);
@@ -134,7 +136,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Usuario objUsuario = new Usuario();
                 DataTable dtReporte;
-                dtReporte = objUsuario.ReporteUsuarios("", 0, "", "", 0, "", "", 7);
+                dtReporte = objUsuario.ReporteUsuarios("", 0, "", "", "%", "", "", 5);
 
                 switch (dtReporte.Rows.Count)
                 {
