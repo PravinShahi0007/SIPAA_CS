@@ -90,7 +90,6 @@ namespace SIPAA_CS.Accesos.Reportes
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
@@ -121,7 +120,6 @@ namespace SIPAA_CS.Accesos.Reportes
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
@@ -151,7 +149,6 @@ namespace SIPAA_CS.Accesos.Reportes
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
@@ -177,7 +174,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
         private void FiltroUsuarios_Load(object sender, EventArgs e)
         {
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
