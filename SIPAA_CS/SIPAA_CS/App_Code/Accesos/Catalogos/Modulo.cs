@@ -155,7 +155,7 @@ namespace SIPAA_CS.App_Code
 
       
 
-        public List<string> obtenerModulosxPerfil(int iCVPerfil)
+        public List<string> obtenerModulosxPerfil(int iCVPerfil,int iOpcion)
         {
 
             List<string> ltModulosxPerfil = new List<string>();
@@ -173,7 +173,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@P_stcre", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_stlec", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_stimp", SqlDbType.Int).Value = 0;
-            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = 6;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = iOpcion;
 
         
 

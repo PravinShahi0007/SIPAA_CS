@@ -90,14 +90,16 @@ namespace SIPAA_CS.Accesos
         }
         private void dgvPerfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (CVUsuario != null)
+
+            if (Permisos.dcPermisos["Actualizar"] == 1)
             {
-
-                if (dgvPerfiles.SelectedRows.Count != 0)
+                if (CVUsuario != null)
                 {
-                 Utilerias.MultiSeleccionGridView(dgvPerfiles, 1, ltPerfiles, panelPermisos);
-                }
-
+                    if (dgvPerfiles.SelectedRows.Count != 0)
+                    {
+                        Utilerias.MultiSeleccionGridView(dgvPerfiles, 1, ltPerfiles, panelPermisos);
+                    }
+                
             }
             else
             {
@@ -105,6 +107,7 @@ namespace SIPAA_CS.Accesos
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Usuario");
                 timer1.Start();
             }
+        }
         }
 
 
@@ -341,28 +344,30 @@ namespace SIPAA_CS.Accesos
             dgvUsuarios.DataSource = dtUsuarios;
             Utilerias.AgregarCheck(dgvUsuarios, 3);
             dgvUsuarios.Columns[0].Visible = false;
-          //  dgvUsuarios.Columns[1].Visible = false;
+            //  dgvUsuarios.Columns[1].Visible = false;
+            dgvUsuarios.Columns[1].Width = 50;
+            dgvUsuarios.Columns[2].Width = 178;
             dgvUsuarios.ClearSelection();
         }
 
         private void PermisosPantalla() {
 
-            if (Permisos.dcPermisos["Eliminar"] == 0 && Permisos.dcPermisos["Actualizar"] == 0 && Permisos.dcPermisos["Crear"] == 0)
+            if (Permisos.dcPermisos["Actualizar"] == 0)
             {
                 panelPermisos.Visible = false;
             }
 
-            if (Permisos.dcPermisos["Eliminar"] == 0 && Permisos.dcPermisos["Actualizar"] == 0)
-            {
+            //if (Permisos.dcPermisos["Eliminar"] == 0 && Permisos.dcPermisos["Actualizar"] == 0)
+            //{
 
-                dgvUsuarios.ReadOnly = true;
-                dgvPerfiles.ReadOnly = true;
-                label10.Text = "Usuarios Registrados";
-                label12.Text = "Perfiles Registrados";
+            //    dgvUsuarios.ReadOnly = true;
+            //    dgvPerfiles.ReadOnly = true;
+            //    label10.Text = "Usuarios Registrados";
+            //    label12.Text = "Perfiles Registrados";
 
-                dgvPerfiles.Columns[0].Visible = false;
-                dgvUsuarios.Columns[3].Visible = false;
-            }
+            //    dgvPerfiles.Columns[0].Visible = false;
+            //    dgvUsuarios.Columns[3].Visible = false;
+            //}
 
 
         }
@@ -382,9 +387,9 @@ namespace SIPAA_CS.Accesos
             dgvPerfiles.Columns[5].Visible = false;
             dgvPerfiles.Columns[6].Visible = false;
 
-        
-           
-             dgvPerfiles.ClearSelection();
+            dgvPerfiles.Columns[2].Width = 172;
+
+            dgvPerfiles.ClearSelection();
 
         }
 

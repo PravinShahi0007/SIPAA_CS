@@ -72,7 +72,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 iIDC = Int32.Parse(cboCia.SelectedValue.ToString());
                 IIDU = Int32.Parse(cboUbicacion.SelectedValue.ToString());
                 IACT = 2;
-                DataTable dtRpt = CTrabPerf.PerfilTrab_S(4,iIDT,iIDC,IIDU,IACT);
+                DataTable dtRpt = CTrabPerf.PerfilTrab_S(4, iIDT, iIDC, IIDU, IACT);
 
                 ViewerReporte form = new ViewerReporte();
                 RTrabPerfil dtsRep = new RTrabPerfil();
@@ -82,6 +82,18 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 form.Show();
 
             }
+
+            //Prueba Reporte Incidencias pasadas a Nomina
+            //Incidencia objIncidencia = new Incidencia();
+            //DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina("%", DateTime.Parse("2017-02-05"), DateTime.Parse("2017-04-01"), "%", "%", "%");
+
+            //ViewerReporte form = new ViewerReporte();
+            //IncidenciasPasadasNomina rptIncidencia = new IncidenciasPasadasNomina();
+            //ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", rptIncidencia.ResourceName);
+
+            //ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
+            //form.RptDoc = ReportDoc;
+            //form.Show();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)

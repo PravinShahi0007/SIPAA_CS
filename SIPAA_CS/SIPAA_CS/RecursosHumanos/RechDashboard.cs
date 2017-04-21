@@ -33,7 +33,7 @@ namespace SIPAA_CS.RecursosHumanos
 
             Usuario objUsuario = new Usuario();
             string IdTrab = LoginInfo.IdTrab;
-            List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab);
+            List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab,5);
 
             Utilerias.MenuDinamico(MenuAccesos, ltModulosxUsuario);
         }

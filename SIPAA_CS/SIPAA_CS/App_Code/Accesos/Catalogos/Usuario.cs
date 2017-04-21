@@ -130,7 +130,7 @@ namespace SIPAA_CS.App_Code
 
 
 
-        public List<string> ObtenerListaModulosxUsuario(string CVUsuario)
+        public List<string> ObtenerListaModulosxUsuario(string CVUsuario,int iOpcion)
         {
 
             Perfil objPerfil = new Perfil();
@@ -144,7 +144,7 @@ namespace SIPAA_CS.App_Code
 
                 Modulo objModulo = new Modulo();
                 // int iCVPerfil = ltPerfiles.ElementAt(iCV);
-                List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCV);
+                List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCV,iOpcion);
 
                 foreach (string obj in ltModulos)
                 {

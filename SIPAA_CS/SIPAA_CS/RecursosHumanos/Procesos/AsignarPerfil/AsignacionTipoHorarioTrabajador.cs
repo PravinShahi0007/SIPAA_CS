@@ -25,45 +25,22 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             InitializeComponent();
         }
 
-        private void txtBuscarForReg_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void AsignacionTipoHorarioTrabajador_Load(object sender, EventArgs e)
-        {
 
-            lbNombre.Text = TrabajadorInfo.Nombre;
-            lbIdTrab.Text = TrabajadorInfo.IdTrab;
+        //***********************************************************************************************
+        //Autor: Victor Jesús Iturburu Vergara
+        //Fecha creación:7-04-2017     Última Modificacion: 17-04-2017
+        //Descripción: -------------------------------
+        //***********************************************************************************************
 
-            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-            TipoHr objTiposHr = new TipoHr();
-            DataTable dttipohr = objTiposHr.obttipohr(4, 0, "", "", "");
-            llenarGrid(dttipohr);
-            AsignarTipoHr();
-        }
 
-        private void llenarGrid(DataTable dt){
-
-            if (dgvTipoHr.Columns.Count > 1) {
-                dgvTipoHr.Columns.RemoveAt(0);  }
-            
-            dgvTipoHr.DataSource = dt;
-            Utilerias.AgregarCheck(dgvTipoHr,0);
-
-            dgvTipoHr.Columns[1].Visible = false;
-            dgvTipoHr.Columns[3].Visible = false;
-        }
-
-        private void AsignarTipoHr()
-        {
-            SonaTrabajador objTrab = new SonaTrabajador();
-            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(TrabajadorInfo.IdTrab, 7, "", "", 0,LoginInfo.IdTrab, this.Name);
-            foreach (DataRow row in dtTrab.Rows) {
-                ltTipoHr.Add(row[0].ToString());
-            }
-            Utilerias.ImprimirAsignacionesGrid(dgvTipoHr, 0, 1, ltTipoHr);
-        }
+        //-----------------------------------------------------------------------------------------------
+        //                                      C O M B O S
+        //-----------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------
+        //                                      G R I D // S
+        //-----------------------------------------------------------------------------------------------
 
         private void dgvTipoHr_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -75,7 +52,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             if (dgvTipoHr.SelectedRows.Count != 0)
             {
-                
+
                 DataGridViewRow row = this.dgvTipoHr.SelectedRows[0];
 
                 sCVTipohr = row.Cells["clave"].Value.ToString();
@@ -84,12 +61,19 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 //AsignarTipoHr();
                 Utilerias.SeleccionGridView(dgvTipoHr, 1, ltcvTipoHorario, panelPermisos);
 
-                if (ltTipoHr.Count > 0) {
+                if (ltTipoHr.Count > 0)
+                {
                     panelPermisos.Enabled = true;
                 }
 
             }
         }
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                     B O T O N E S
+        //-----------------------------------------------------------------------------------------------
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -100,7 +84,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             {
                 try
                 {
-                    DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(TrabajadorInfo.IdTrab, 8, "", "", Convert.ToInt32(sCVTipohr),LoginInfo.IdTrab,this.Name);
+                    DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(TrabajadorInfo.IdTrab, 8, "", "", Convert.ToInt32(sCVTipohr), LoginInfo.IdTrab, this.Name);
 
                     if (dtTrab.Columns.Contains("Actualizar"))
                     {
@@ -121,7 +105,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     panelPermisos.Enabled = false;
                     timer1.Start();
                 }
-            }else
+            }
+            else
             {
 
                 DialogResult result = MessageBox.Show("¿Seguro que desea quitar Todas las Asignaciones?", "SIPAA", MessageBoxButtons.YesNo);
@@ -152,9 +137,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         timer1.Start();
                     }
                 }
-                else {
+                else
+                {
                     ltTipoHr.Clear();
-                    AsignarTipoHr();       
+                    AsignarTipoHr();
                     panelPermisos.Enabled = false;
                 }
 
@@ -162,25 +148,100 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string sDesc = "";
+            if (txtBuscar.Text != String.Empty)
+            {
+                sDesc = txtBuscar.Text;
+            }
+            else
+            {
+                sDesc = "%";
+            }
+
+            TipoHr objTiposHr = new TipoHr();
+            DataTable dttipohr = objTiposHr.obttipohr(4, 0, sDesc, "", "");
+            llenarGrid(dttipohr);
+            AsignarTipoHr();
+        }
+
+        //-----------------------------------------------------------------------------------------------
+        //                           C A J A S      D E      T E X T O   
+        //-----------------------------------------------------------------------------------------------
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                     E V E N T O S
+        //-----------------------------------------------------------------------------------------------
+
+
+        private void AsignacionTipoHorarioTrabajador_Load(object sender, EventArgs e)
+        {
+
+            lbNombre.Text = TrabajadorInfo.Nombre;
+            lbIdTrab.Text = TrabajadorInfo.IdTrab;
+
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            TipoHr objTiposHr = new TipoHr();
+            DataTable dttipohr = objTiposHr.obttipohr(4, 0, "", "", "");
+            llenarGrid(dttipohr);
+            AsignarTipoHr();
+        }
+
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             panelTag.Visible = false;
             timer1.Stop();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+
+        private void llenarGrid(DataTable dt)
         {
-            string sDesc= "";
-            if (txtBuscar.Text != String.Empty) {
-                sDesc = txtBuscar.Text;
-                    } else {
-                sDesc = "%";
+
+            if (dgvTipoHr.Columns.Count > 1)
+            {
+                dgvTipoHr.Columns.RemoveAt(0);
             }
 
-            TipoHr objTiposHr = new TipoHr();
-            DataTable dttipohr = objTiposHr.obttipohr(4, 0, sDesc, "","");
-            llenarGrid(dttipohr);
-            AsignarTipoHr();
+            dgvTipoHr.DataSource = dt;
+            Utilerias.AgregarCheck(dgvTipoHr, 0);
+
+            dgvTipoHr.Columns[1].Visible = false;
+            dgvTipoHr.Columns[3].Visible = false;
         }
+
+        private void AsignarTipoHr()
+        {
+            SonaTrabajador objTrab = new SonaTrabajador();
+            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(TrabajadorInfo.IdTrab, 7, "", "", 0, LoginInfo.IdTrab, this.Name);
+            foreach (DataRow row in dtTrab.Rows)
+            {
+                ltTipoHr.Add(row[0].ToString());
+            }
+            Utilerias.ImprimirAsignacionesGrid(dgvTipoHr, 0, 1, ltTipoHr);
+        }
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      R E P O R T E
+        //-----------------------------------------------------------------------------------------------
+        private void txtBuscarForReg_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+     
+
+       
+     
+      
+
+       
     }
 }
