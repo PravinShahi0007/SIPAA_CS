@@ -63,7 +63,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
 
             string usu = cbUsuario.SelectedValue.ToString();
-            int pro = Convert.ToInt32(cbProcesos.SelectedValue.ToString());
+            string pro = cbProcesos.SelectedValue.ToString();
             
             // FILTRADO POR TODOS
             if (usuario == 0 & proceso == 0)
@@ -73,7 +73,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Proceso objProceso = new Proceso();
                 DataTable dtReporte;
-                dtReporte = objProceso.ReporteProcesosUsuarios("", 0, "", "", "", 6);
+                dtReporte = objProceso.ReporteProcesosUsuarios("%", "%", "", "", "", 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -103,7 +103,7 @@ namespace SIPAA_CS.Accesos.Reportes
                 
                 Proceso objProceso = new Proceso();
                 DataTable dtReporte;
-                dtReporte = objProceso.ReporteProcesosUsuarios(usu, pro, "", "", "", 7);
+                dtReporte = objProceso.ReporteProcesosUsuarios(usu, pro, "", "", "", 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -134,7 +134,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Proceso objProceso = new Proceso();
                 DataTable dtReporte;
-                dtReporte = objProceso.ReporteProcesosUsuarios(usu, 0, "", "", "", 8);
+                dtReporte = objProceso.ReporteProcesosUsuarios(usu, "%", "", "", "", 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -166,7 +166,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Proceso objProceso = new Proceso();
                 DataTable dtReporte;
-                dtReporte = objProceso.ReporteProcesosUsuarios("", pro, "", "", "", 9);
+                dtReporte = objProceso.ReporteProcesosUsuarios("%", pro, "", "", "", 6);
 
                 switch (dtReporte.Rows.Count)
                 {

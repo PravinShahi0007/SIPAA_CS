@@ -139,7 +139,7 @@ namespace SIPAA_CS.App_Code
             return dtProcesos;
         }
 
-        public DataTable ReporteProcesosUsuarios(string cvusuario, int cvproceso, string passw, string usuumod, string prgumod, int opcion)
+        public DataTable ReporteProcesosUsuarios(string cvusuario, string cvproceso, string passw, string usuumod, string prgumod, int opcion)
         {
 
             Conexion objConexion = new Conexion();
@@ -148,7 +148,7 @@ namespace SIPAA_CS.App_Code
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@p_cvproceso", SqlDbType.Int).Value = cvproceso;
+            cmd.Parameters.Add("@p_cvproceso", SqlDbType.VarChar).Value = cvproceso;
             cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = passw;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
