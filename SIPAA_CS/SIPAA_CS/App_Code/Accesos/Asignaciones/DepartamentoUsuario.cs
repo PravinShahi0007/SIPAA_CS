@@ -52,5 +52,28 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
             return ltDepartamentosxUsuario;
 
         }
+        public DataTable ReporteDepartamentosUsuarios(string cvusuario, string iddepartmento, string usuumod, string prgumod, int opcion)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_accetusudep_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_iddepartamento", SqlDbType.VarChar).Value = iddepartmento;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtCompanias = new DataTable();
+            Adapter.Fill(dtCompanias);
+
+            return dtCompanias;
+        }
     }
 }

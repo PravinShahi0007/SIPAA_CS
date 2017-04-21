@@ -68,7 +68,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Perfil objPerfil = new Perfil();
                 DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfiles(0, "", "", "", 5);
+                dtReporte = objPerfil.ReportePerfiles(0, "","1", "", "", 5);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -83,7 +83,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
@@ -99,7 +99,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Perfil objPerfil = new Perfil();
                 DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfiles(0, "", "", "", 6);
+                dtReporte = objPerfil.ReportePerfiles(0, "", "0", "", "", 5);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -114,7 +114,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
@@ -129,7 +129,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Perfil objPerfil = new Perfil();
                 DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfiles(0, "", "", "", 7);
+                dtReporte = objPerfil.ReportePerfiles(0, "", "%", "", "", 5);
 
                 switch (dtReporte.Rows.Count)
                 {

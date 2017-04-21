@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReporteUbicacionesUsuarios" targetNamespace="http://tempuri.org/ReporteUbicacionesUsuarios.xsd" xmlns:mstns="http://tempuri.org/ReporteUbicacionesUsuarios.xsd" xmlns="http://tempuri.org/ReporteUbicacionesUsuarios.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReporteUbicacionesUsuarios" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReporteUbicacionesUsuarios" msprop:Generator_UserDSName="ReporteUbicacionesUsuarios">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ReporteUbicacionesUsuarios" msprop:Generator_TableClassName="ReporteUbicacionesUsuariosDataTable" msprop:Generator_TableVarName="tableReporteUbicacionesUsuarios" msprop:Generator_TablePropName="_ReporteUbicacionesUsuarios" msprop:Generator_RowDeletingName="ReporteUbicacionesUsuariosRowDeleting" msprop:Generator_RowChangingName="ReporteUbicacionesUsuariosRowChanging" msprop:Generator_RowEvHandlerName="ReporteUbicacionesUsuariosRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteUbicacionesUsuariosRowDeleted" msprop:Generator_UserTableName="ReporteUbicacionesUsuarios" msprop:Generator_RowChangedName="ReporteUbicacionesUsuariosRowChanged" msprop:Generator_RowEvArgName="ReporteUbicacionesUsuariosRowChangeEvent" msprop:Generator_RowClassName="ReporteUbicacionesUsuariosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="descripcionubicacion" msprop:Generator_ColumnVarNameInTable="columndescripcionubicacion" msprop:Generator_ColumnPropNameInRow="descripcionubicacion" msprop:Generator_ColumnPropNameInTable="descripcionubicacionColumn" msprop:Generator_UserColumnName="descripcionubicacion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

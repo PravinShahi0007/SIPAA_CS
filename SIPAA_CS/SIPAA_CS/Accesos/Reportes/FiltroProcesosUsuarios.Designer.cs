@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label7;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FiltroProcesosUsuarios));
             System.Windows.Forms.Label label4;
@@ -41,11 +42,12 @@
             this.btnImprimirDetalle = new System.Windows.Forms.Button();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.cbUsuario = new System.Windows.Forms.ComboBox();
-            this.cbPerfil = new System.Windows.Forms.ComboBox();
+            this.cbProcesos = new System.Windows.Forms.ComboBox();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             label7 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -55,6 +57,69 @@
             this.panel1.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.ForeColor = System.Drawing.Color.Gray;
+            label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
+            label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label7.Location = new System.Drawing.Point(70, 171);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(157, 17);
+            label7.TabIndex = 66;
+            label7.Text = "       Imprimir Resumen";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.ForeColor = System.Drawing.Color.Gray;
+            label4.Image = ((System.Drawing.Image)(resources.GetObject("label4.Image")));
+            label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label4.Location = new System.Drawing.Point(70, 49);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(138, 17);
+            label4.TabIndex = 65;
+            label4.Text = "       Imprimir Detalle";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.Location = new System.Drawing.Point(39, 45);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(50, 16);
+            label1.TabIndex = 60;
+            label1.Text = "Usuarios";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label6.Location = new System.Drawing.Point(39, 126);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(52, 16);
+            label6.TabIndex = 58;
+            label6.Text = "Procesos";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label9.ForeColor = System.Drawing.Color.Gray;
+            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
+            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label9.Location = new System.Drawing.Point(5, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(212, 17);
+            label9.TabIndex = 41;
+            label9.Text = "       Buscar Procesos Usuarios";
             // 
             // panelTag
             // 
@@ -93,32 +158,6 @@
             this.panel1.Size = new System.Drawing.Size(399, 252);
             this.panel1.TabIndex = 159;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.ForeColor = System.Drawing.Color.Gray;
-            label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
-            label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(70, 171);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(157, 17);
-            label7.TabIndex = 66;
-            label7.Text = "       Imprimir Resumen";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.ForeColor = System.Drawing.Color.Gray;
-            label4.Image = ((System.Drawing.Image)(resources.GetObject("label4.Image")));
-            label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(70, 49);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(138, 17);
-            label4.TabIndex = 65;
-            label4.Text = "       Imprimir Detalle";
-            // 
             // btnImprimirResumen
             // 
             this.btnImprimirResumen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -144,6 +183,7 @@
             this.btnImprimirDetalle.TabIndex = 2;
             this.btnImprimirDetalle.Tag = "Buscar";
             this.btnImprimirDetalle.UseVisualStyleBackColor = false;
+            this.btnImprimirDetalle.Click += new System.EventHandler(this.btnImprimirDetalle_Click);
             // 
             // pnlBusqueda
             // 
@@ -151,25 +191,13 @@
             this.pnlBusqueda.Controls.Add(label1);
             this.pnlBusqueda.Controls.Add(this.cbUsuario);
             this.pnlBusqueda.Controls.Add(label6);
-            this.pnlBusqueda.Controls.Add(this.cbPerfil);
+            this.pnlBusqueda.Controls.Add(this.cbProcesos);
             this.pnlBusqueda.Controls.Add(label9);
             this.pnlBusqueda.Location = new System.Drawing.Point(18, 175);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(477, 252);
             this.pnlBusqueda.TabIndex = 158;
             this.pnlBusqueda.TabStop = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(39, 45);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(50, 16);
-            label1.TabIndex = 60;
-            label1.Text = "Usuarios";
             // 
             // cbUsuario
             // 
@@ -178,51 +206,24 @@
             this.cbUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbUsuario.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUsuario.FormattingEnabled = true;
-            this.cbUsuario.Items.AddRange(new object[] {
-            "Todos"});
             this.cbUsuario.Location = new System.Drawing.Point(42, 65);
             this.cbUsuario.Name = "cbUsuario";
             this.cbUsuario.Size = new System.Drawing.Size(291, 25);
             this.cbUsuario.TabIndex = 59;
             this.cbUsuario.Text = "Seleccionar un Usuario";
             // 
-            // label6
+            // cbProcesos
             // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(39, 126);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(52, 16);
-            label6.TabIndex = 58;
-            label6.Text = "Procesos";
-            // 
-            // cbPerfil
-            // 
-            this.cbPerfil.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbPerfil.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbPerfil.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPerfil.FormattingEnabled = true;
-            this.cbPerfil.Location = new System.Drawing.Point(42, 146);
-            this.cbPerfil.Name = "cbPerfil";
-            this.cbPerfil.Size = new System.Drawing.Size(291, 25);
-            this.cbPerfil.TabIndex = 57;
-            this.cbPerfil.Text = "Seleccionar un Proceso";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.ForeColor = System.Drawing.Color.Gray;
-            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
-            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(5, 0);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(212, 17);
-            label9.TabIndex = 41;
-            label9.Text = "       Buscar Procesos Usuarios";
+            this.cbProcesos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbProcesos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbProcesos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbProcesos.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProcesos.FormattingEnabled = true;
+            this.cbProcesos.Location = new System.Drawing.Point(42, 146);
+            this.cbProcesos.Name = "cbProcesos";
+            this.cbProcesos.Size = new System.Drawing.Size(291, 25);
+            this.cbProcesos.TabIndex = 57;
+            this.cbProcesos.Text = "Seleccionar un Proceso";
             // 
             // btnRegresar
             // 
@@ -283,6 +284,10 @@
             this.label3.Text = "       Reporte Procesos Usuarios";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FiltroProcesosUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,10 +326,11 @@
         private System.Windows.Forms.Button btnImprimirDetalle;
         private System.Windows.Forms.Panel pnlBusqueda;
         private System.Windows.Forms.ComboBox cbUsuario;
-        private System.Windows.Forms.ComboBox cbPerfil;
+        private System.Windows.Forms.ComboBox cbProcesos;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer1;
     }
 }
