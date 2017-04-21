@@ -42,6 +42,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         ReasignaSupyDirector oNombreEmpleado = new ReasignaSupyDirector();
         ReasignaSupyDirector oObtieneSupyDir = new ReasignaSupyDirector();
         ReasignaSupyDirector oActualizaSudyDir = new ReasignaSupyDirector();
+        ReasignaSupyDirector oIncidencias = new ReasignaSupyDirector();
         Utilerias Util = new Utilerias();
                 
         public ReasignaSupyDirectores()
@@ -113,6 +114,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     TxtIdDirFin.Text = "";
                     TxtIdSupFin.Text = "";
                     TxtIdSupOri.Text = "";
+                    dgvIncidencias.DataSource = null;
                 }
                 else
                 {
@@ -124,6 +126,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     TxtIdDirFin.Text = "";
                     TxtIdSupFin.Text = "";
                     TxtIdSupOri.Text = "";
+                    dgvIncidencias.DataSource = null;
                 }
 
 
@@ -181,6 +184,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     // ******   Obtiene datos de Supervisor y Director  >>>>>>>
                     DataTable dtObtieneSupyDir = oObtieneSupyDir.obtObtieneSupyDir(4, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10)/*, Convert.ToInt16(TxtIdSupOri.Text), Convert.ToInt16(TxtIdDirOri.Text), Convert.ToInt16(TxtIdSupFin.Text), Convert.ToInt16(TxtIdDirFin.Text)*/);
+                    DataTable dtIncidencias = oIncidencias.obtIncidencias(10, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10));
+                    dgvIncidencias.DataSource = dtIncidencias;
+                    dgvIncidencias.ClearSelection();
+
 
                     //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
                     if (dtObtieneSupyDir.Rows.Count > 0)
@@ -192,6 +199,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     {
                         TxtIdSupOri.Text = "";
                         TxtIdDirOri.Text = "";
+                        dgvIncidencias.DataSource = null;
+                        TxtIdEmp.Focus();
                     }
 
                     // ******   Obtiene datos de Supervisor y Director  <<<<<<<<<<
@@ -203,6 +212,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     TxtIdDirOri.Text = "";
                     TxtIdSupFin.Text = "";
                     TxtIdDirFin.Text = "";
+                    TxtIdEmp.Focus();
+                    dgvIncidencias.DataSource = null;
                 }
             }
             else
@@ -225,11 +236,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 TxtIdDirOri.Text = dtObtieneSupyDir.Rows[0][1].ToString();
                 TxtIdDirFin.Text = "";
                 TxtIdSupFin.Text = "";
+                dgvIncidencias.DataSource = null;
             }
             else
             {
                     TxtIdSupOri.Text = "";
                     TxtIdDirOri.Text = "";
+                    dgvIncidencias.DataSource = null;
             }
         }
 
