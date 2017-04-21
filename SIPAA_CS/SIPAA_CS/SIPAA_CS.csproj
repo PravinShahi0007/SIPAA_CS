@@ -223,6 +223,7 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaUbicacion.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\ArchNomina4.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueoIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\PeriodoProcesoIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\ReasignaSupyDirector.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorHorario.cs" />
@@ -490,6 +491,12 @@
     <Compile Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.Designer.cs">
       <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.Designer.cs">
+      <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -751,6 +758,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.resx">
       <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.resx">
+      <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.resx">
       <DependentUpon>ReasignaSupyDirectores.cs</DependentUpon>
