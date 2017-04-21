@@ -64,7 +64,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Proceso objProceso = new Proceso();
                 DataTable dtReporte;
-                dtReporte = objProceso.ReporteProcesos(0,"",0,"","",7);
+                dtReporte = objProceso.ReporteProcesos(0,"","1","","",7);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -79,7 +79,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
@@ -96,7 +96,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Proceso objProceso = new Proceso();
                 DataTable dtReporte;
-                dtReporte = objProceso.ReporteProcesos(0, "", 0, "", "", 8);
+                dtReporte = objProceso.ReporteProcesos(0, "", "0", "", "", 7);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -111,7 +111,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
@@ -128,7 +128,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Proceso objProceso = new Proceso();
                 DataTable dtReporte;
-                dtReporte = objProceso.ReporteProcesos(0, "", 0, "", "", 9);
+                dtReporte = objProceso.ReporteProcesos(0, "", "%", "", "", 7);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -143,7 +143,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
