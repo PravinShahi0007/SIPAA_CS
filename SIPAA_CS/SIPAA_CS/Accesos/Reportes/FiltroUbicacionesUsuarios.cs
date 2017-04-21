@@ -1,5 +1,7 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.App_Code;
+using SIPAA_CS.App_Code.Accesos.Asignaciones;
+using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,18 +14,16 @@ using System.Windows.Forms;
 
 namespace SIPAA_CS.Accesos.Reportes
 {
-    public partial class FiltroPerfilesUsuarios : Form
+    public partial class FiltroUbicacionesUsuarios : Form
     {
-        public int perfil;
         public int usuario;
-        int sysH = SystemInformation.PrimaryMonitorSize.Height;
-        int sysW = SystemInformation.PrimaryMonitorSize.Width;
+        public int ubicacion;
         //***********************************************************************************************
         //Autor: Gamaliel Lobato Solis
         //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
         //Descripción: -------------------------------
         //***********************************************************************************************
-        public FiltroPerfilesUsuarios()
+        public FiltroUbicacionesUsuarios()
         {
             InitializeComponent();
         }
@@ -36,11 +36,15 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Seguro que deseas salir?", "SIPAA", MessageBoxButtons.YesNo);
@@ -54,30 +58,23 @@ namespace SIPAA_CS.Accesos.Reportes
 
             }
         }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnImprimirDetalle_Click(object sender, EventArgs e)
         {
-            perfil = cbPerfil.SelectedIndex;
             usuario = cbUsuario.SelectedIndex;
+            ubicacion = cbUbicacion.SelectedIndex;
 
-            string cvusuario = cbUsuario.SelectedValue.ToString();
-            string cvperfil = cbPerfil.SelectedValue.ToString();
+            string usu = cbUsuario.SelectedValue.ToString();
+            string ubi = cbUbicacion.SelectedValue.ToString();
 
-           
-            // VALIDA SI SELECCIONO OPCION TODOS EN AMBOS
-            if (usuario == 0 && perfil == 0)
+            //FILTRA TODOS
+            if (usuario == 0 & ubicacion == 0)
             {
-                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "modulo perfil");
                 //timer1.Start();
-
-                Perfil objPerfil = new Perfil();
+                
+                UbicacionUsuario objUbicacionUsuario = new UbicacionUsuario();
                 DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfilesUsuarios("%","%","","", 5);
+                dtReporte = objUbicacionUsuario.ReporteUbicacionUsuarios("%","%","","", 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -88,7 +85,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
+                        ReporteUbicacionesUsuarios dtrpt = new ReporteUbicacionesUsuarios();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
@@ -99,15 +96,15 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 }
             }
-            // VALIDA SELECCION DE USUARIO x Y PERFIL x
-            else if (!(usuario == 0) && !(perfil == 0 ))
+            //FILTRA CVUSUARIO,IDUBICACION
+            else if (usuario > 0 & ubicacion > 0)
             {
-                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado perfil y usuario");
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "modulo perfil");
                 //timer1.Start();
 
-                Perfil objPerfil = new Perfil();
+                UbicacionUsuario objUbicacionUsuario = new UbicacionUsuario();
                 DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfilesUsuarios(cvusuario, cvperfil,"","", 5);
+                dtReporte = objUbicacionUsuario.ReporteUbicacionUsuarios(usu, ubi, "", "", 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -118,67 +115,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
-
-                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
-                        form.RptDoc = ReportDoc;
-                        form.Show();
-                        break;
-
-                }
-            }
-            // VALIDA SELECCION DE USUARIO x Y PERFIL TODOS
-            else if (usuario > 0 && perfil == 0)
-            {
-                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado usuario");
-                //timer1.Start();
-
-                Perfil objPerfil = new Perfil();
-                DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfilesUsuarios(cvusuario, "%", "", "", 5);
-
-                switch (dtReporte.Rows.Count)
-                {
-
-                    case 0:
-                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
-                        break;
-
-                    default:
-                        ViewerReporte form = new ViewerReporte();
-                        ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
-
-                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
-                        form.RptDoc = ReportDoc;
-                        form.Show();
-                        break;
-
-                }
-            }
-            // VALIDA SELECCION DE USUARIO TODOS Y PERFIL x
-            else if (usuario == 0 && perfil > 0)
-            {
-                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado usuario");
-                //timer1.Start();
-
-                Perfil objPerfil = new Perfil();
-                DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfilesUsuarios("%", cvperfil, "", "", 5);
-
-                switch (dtReporte.Rows.Count)
-                {
-
-                    case 0:
-                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
-                        break;
-
-                    default:
-                        ViewerReporte form = new ViewerReporte();
-                        ReportePerfilesUsuarios dtrpt = new ReportePerfilesUsuarios();
+                        ReporteUbicacionesUsuarios dtrpt = new ReporteUbicacionesUsuarios();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
@@ -190,6 +127,67 @@ namespace SIPAA_CS.Accesos.Reportes
                 }
             }
 
+            //FILTRA CVUSUARIO
+            else if (usuario > 0 & ubicacion == 0)
+            {
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "modulo perfil");
+                //timer1.Start();
+
+                UbicacionUsuario objUbicacionUsuario = new UbicacionUsuario();
+                DataTable dtReporte;
+                dtReporte = objUbicacionUsuario.ReporteUbicacionUsuarios(usu, "%", "", "", 6);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteUbicacionesUsuarios dtrpt = new ReporteUbicacionesUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
+
+            //FILTRA IDUBICACION
+            else if (usuario == 0 & ubicacion > 0)
+            {
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "modulo perfil");
+                //timer1.Start();
+
+                UbicacionUsuario objUbicacionUsuario = new UbicacionUsuario();
+                DataTable dtReporte;
+                dtReporte = objUbicacionUsuario.ReporteUbicacionUsuarios("%", ubi, "", "", 6);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteUbicacionesUsuarios dtrpt = new ReporteUbicacionesUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
         }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -199,30 +197,22 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void FiltroPerfilesUsuarios_Load(object sender, EventArgs e)
+        private void FiltroUbicacionesUsuarios_Load(object sender, EventArgs e)
         {
-            Perfil objPerfil = new Perfil();
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             Usuario objUsuario = new Usuario();
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            SonaUbicacion objSonaUbicacion = new SonaUbicacion();
 
-            DataTable dtPerfil = objPerfil.ObtenerPerfiles("", "", "", 10);
-            DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("",0,"","",0,"","",11);
-
-            llenaCombo(cbPerfil,dtPerfil,"cvperfil","Descripcion");
+            DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("", 0, "", "", 0, "", "", 11);
+            DataTable dtUbicacion = objSonaUbicacion.obtenerSonaUbicacion("",6);
+           
             llenaCombo(cbUsuario, dtUsuario, "cvusuario", "nombre");
+            llenaCombo(cbUbicacion, dtUbicacion, "IdUbicacion", "Descripción");
+            
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            panelTag.Visible = false;
-            timer1.Stop();
-        }
-
-
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
-
         public static void llenaCombo(ComboBox cb, DataTable dt, string sClave, string sDescripcion)
         {
             DataRow row = dt.NewRow();
@@ -232,6 +222,12 @@ namespace SIPAA_CS.Accesos.Reportes
             cb.DataSource = dt;
             cb.DisplayMember = sDescripcion;
             cb.ValueMember = sClave;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+            timer1.Stop();
         }
 
         //-----------------------------------------------------------------------------------------------
