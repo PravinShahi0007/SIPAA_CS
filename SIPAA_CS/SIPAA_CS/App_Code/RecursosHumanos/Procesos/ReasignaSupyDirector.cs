@@ -178,7 +178,36 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             return dtNombreEmpleado;
         }
 
+        //metodo data table para llenar grid de busqueda
+        public DataTable obtIncidencias(int iOpcion, int idTrab, string dFini, string dFfin)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechtinccalif_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
 
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_fini", SqlDbType.NChar).Value = dFini;
+            cmd.Parameters.Add("@p_ffin", SqlDbType.NChar).Value = dFfin;
+            cmd.Parameters.Add("@p_idtrabsup", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_idtrabdir", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_idtrabsupn", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_idtrabdirn", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.NChar).Value = "JAV";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.NChar).Value = "SQL";
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtIncidencias = new DataTable();
+            Adapter.Fill(dtIncidencias);
+            return dtIncidencias;
+        } // public DataTable obtrelojeschecadores(int p_opcion, int p_cvreloj, string p_descripcion, string p_usuumod, string p_prgumodr)
 
     }
 }
