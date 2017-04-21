@@ -114,7 +114,7 @@ namespace SIPAA_CS.App_Code
             objConexion.cerrarConexion();
         }
 
-        public DataTable ReporteProcesos(int cvproceso, string descripcion, int stproceso, string usuumod, string prgumod, int opcion)
+        public DataTable ReporteProcesos(int cvproceso, string descripcion, string stproceso, string usuumod, string prgumod, int opcion)
         {
 
             Conexion objConexion = new Conexion();
@@ -124,7 +124,7 @@ namespace SIPAA_CS.App_Code
 
             cmd.Parameters.Add("@p_cvproceso", SqlDbType.Int).Value = cvproceso;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
-            cmd.Parameters.Add("@p_stproceso", SqlDbType.Int).Value = stproceso;
+            cmd.Parameters.Add("@p_stproceso", SqlDbType.VarChar).Value = stproceso;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;

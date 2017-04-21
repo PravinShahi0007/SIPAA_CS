@@ -59,8 +59,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnInsertar = new System.Windows.Forms.Button();
+            this.dgvIncidencias = new System.Windows.Forms.DataGridView();
             lblFormaPago = new System.Windows.Forms.Label();
             this.panelTag.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncidencias)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFormaPago
@@ -198,17 +200,23 @@
             // 
             // TxtFeIni
             // 
+            this.TxtFeIni.Enabled = false;
             this.TxtFeIni.Location = new System.Drawing.Point(254, 154);
             this.TxtFeIni.Name = "TxtFeIni";
-            this.TxtFeIni.Size = new System.Drawing.Size(66, 20);
+            this.TxtFeIni.ReadOnly = true;
+            this.TxtFeIni.Size = new System.Drawing.Size(80, 20);
             this.TxtFeIni.TabIndex = 153;
+            this.TxtFeIni.TabStop = false;
             // 
             // TxtFeFin
             // 
+            this.TxtFeFin.Enabled = false;
             this.TxtFeFin.Location = new System.Drawing.Point(401, 155);
             this.TxtFeFin.Name = "TxtFeFin";
-            this.TxtFeFin.Size = new System.Drawing.Size(64, 20);
+            this.TxtFeFin.ReadOnly = true;
+            this.TxtFeFin.Size = new System.Drawing.Size(75, 20);
             this.TxtFeFin.TabIndex = 154;
+            this.TxtFeFin.TabStop = false;
             // 
             // label1
             // 
@@ -238,8 +246,10 @@
             // 
             this.TxtIdEmp.Location = new System.Drawing.Point(40, 223);
             this.TxtIdEmp.Name = "TxtIdEmp";
-            this.TxtIdEmp.Size = new System.Drawing.Size(61, 20);
+            this.TxtIdEmp.Size = new System.Drawing.Size(84, 20);
             this.TxtIdEmp.TabIndex = 157;
+            this.TxtIdEmp.Enter += new System.EventHandler(this.TxtIdEmp_Enter);
+            this.TxtIdEmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
             this.TxtIdEmp.Leave += new System.EventHandler(this.ObtieneEmpleado);
             // 
             // label4
@@ -256,33 +266,40 @@
             // 
             // TxtIdSupOri
             // 
+            this.TxtIdSupOri.Enabled = false;
             this.TxtIdSupOri.Location = new System.Drawing.Point(548, 226);
             this.TxtIdSupOri.Name = "TxtIdSupOri";
             this.TxtIdSupOri.ReadOnly = true;
             this.TxtIdSupOri.Size = new System.Drawing.Size(113, 20);
             this.TxtIdSupOri.TabIndex = 160;
+            this.TxtIdSupOri.TabStop = false;
             this.TxtIdSupOri.Leave += new System.EventHandler(this.ObtieneSupyDir);
             // 
             // TxtIdDirOri
             // 
+            this.TxtIdDirOri.Enabled = false;
             this.TxtIdDirOri.Location = new System.Drawing.Point(695, 223);
             this.TxtIdDirOri.Name = "TxtIdDirOri";
+            this.TxtIdDirOri.ReadOnly = true;
             this.TxtIdDirOri.Size = new System.Drawing.Size(109, 20);
             this.TxtIdDirOri.TabIndex = 161;
+            this.TxtIdDirOri.TabStop = false;
             // 
             // TxtIdSupFin
             // 
-            this.TxtIdSupFin.Location = new System.Drawing.Point(548, 325);
+            this.TxtIdSupFin.Location = new System.Drawing.Point(543, 551);
             this.TxtIdSupFin.Name = "TxtIdSupFin";
             this.TxtIdSupFin.Size = new System.Drawing.Size(106, 20);
             this.TxtIdSupFin.TabIndex = 162;
+            this.TxtIdSupFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
             // 
             // TxtIdDirFin
             // 
-            this.TxtIdDirFin.Location = new System.Drawing.Point(695, 325);
+            this.TxtIdDirFin.Location = new System.Drawing.Point(690, 551);
             this.TxtIdDirFin.Name = "TxtIdDirFin";
             this.TxtIdDirFin.Size = new System.Drawing.Size(113, 20);
             this.TxtIdDirFin.TabIndex = 163;
+            this.TxtIdDirFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
             // 
             // label3
             // 
@@ -290,7 +307,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label3.Location = new System.Drawing.Point(545, 306);
+            this.label3.Location = new System.Drawing.Point(540, 532);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 16);
             this.label3.TabIndex = 164;
@@ -302,7 +319,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label5.Location = new System.Drawing.Point(694, 306);
+            this.label5.Location = new System.Drawing.Point(689, 532);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 16);
             this.label5.TabIndex = 165;
@@ -336,10 +353,13 @@
             // 
             // TxtNombreEmpleado
             // 
+            this.TxtNombreEmpleado.Enabled = false;
             this.TxtNombreEmpleado.Location = new System.Drawing.Point(172, 225);
             this.TxtNombreEmpleado.Name = "TxtNombreEmpleado";
+            this.TxtNombreEmpleado.ReadOnly = true;
             this.TxtNombreEmpleado.Size = new System.Drawing.Size(343, 20);
             this.TxtNombreEmpleado.TabIndex = 168;
+            this.TxtNombreEmpleado.TabStop = false;
             // 
             // label8
             // 
@@ -359,7 +379,7 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label9.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label9.Location = new System.Drawing.Point(375, 329);
+            this.label9.Location = new System.Drawing.Point(370, 555);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(167, 16);
             this.label9.TabIndex = 170;
@@ -370,12 +390,27 @@
             this.btnInsertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
-            this.btnInsertar.Location = new System.Drawing.Point(647, 406);
+            this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.btnInsertar.Location = new System.Drawing.Point(642, 632);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(50, 50);
             this.btnInsertar.TabIndex = 171;
             this.btnInsertar.UseVisualStyleBackColor = false;
+            this.btnInsertar.Click += new System.EventHandler(this.ActualizaSudyDir);
+            // 
+            // dgvIncidencias
+            // 
+            this.dgvIncidencias.AllowUserToAddRows = false;
+            this.dgvIncidencias.AllowUserToDeleteRows = false;
+            this.dgvIncidencias.AllowUserToOrderColumns = true;
+            this.dgvIncidencias.AllowUserToResizeRows = false;
+            this.dgvIncidencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIncidencias.Location = new System.Drawing.Point(252, 273);
+            this.dgvIncidencias.Name = "dgvIncidencias";
+            this.dgvIncidencias.ReadOnly = true;
+            this.dgvIncidencias.RowHeadersVisible = false;
+            this.dgvIncidencias.Size = new System.Drawing.Size(550, 246);
+            this.dgvIncidencias.TabIndex = 172;
             // 
             // ReasignaSupyDirectores
             // 
@@ -383,6 +418,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.JSierra;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.dgvIncidencias);
             this.Controls.Add(this.btnInsertar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -415,6 +451,7 @@
             this.Text = "ReasignaSupyDirectores";
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncidencias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,5 +487,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnInsertar;
+        private System.Windows.Forms.DataGridView dgvIncidencias;
     }
 }

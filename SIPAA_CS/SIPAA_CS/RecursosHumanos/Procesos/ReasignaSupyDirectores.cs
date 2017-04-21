@@ -41,6 +41,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         ReasignaSupyDirector oPeriodoProcesoIncidencia = new ReasignaSupyDirector();
         ReasignaSupyDirector oNombreEmpleado = new ReasignaSupyDirector();
         ReasignaSupyDirector oObtieneSupyDir = new ReasignaSupyDirector();
+        ReasignaSupyDirector oActualizaSudyDir = new ReasignaSupyDirector();
+        ReasignaSupyDirector oIncidencias = new ReasignaSupyDirector();
         Utilerias Util = new Utilerias();
                 
         public ReasignaSupyDirectores()
@@ -104,13 +106,27 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 if (dtPeriodosProcesoIncidencias.Rows.Count > 0)
                 {
-                    TxtFeIni.Text = dtPeriodosProcesoIncidencias.Rows[0][1].ToString();
-                    TxtFeFin.Text = dtPeriodosProcesoIncidencias.Rows[0][2].ToString();
+                    TxtFeIni.Text = dtPeriodosProcesoIncidencias.Rows[0][1].ToString().Substring(0,10);
+                    TxtFeFin.Text = dtPeriodosProcesoIncidencias.Rows[0][2].ToString().Substring(0, 10);
+                    TxtNombreEmpleado.Text = "";
+                    TxtIdEmp.Text = "";
+                    TxtIdDirOri.Text = "";
+                    TxtIdDirFin.Text = "";
+                    TxtIdSupFin.Text = "";
+                    TxtIdSupOri.Text = "";
+                    dgvIncidencias.DataSource = null;
                 }
                 else
                 {
                     TxtFeIni.Text = "";
                     TxtFeFin.Text = "";
+                    TxtNombreEmpleado.Text = "";
+                    TxtIdEmp.Text = "";
+                    TxtIdDirOri.Text = "";
+                    TxtIdDirFin.Text = "";
+                    TxtIdSupFin.Text = "";
+                    TxtIdSupOri.Text = "";
+                    dgvIncidencias.DataSource = null;
                 }
 
 
@@ -155,17 +171,55 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void ObtieneEmpleado(object sender, EventArgs e)
         {
-            // Obtiene Nombre del Empleado
 
-            DataTable dtNombreEmpleado = oNombreEmpleado.obtNombreEmpleado(TxtIdEmp.Text, 14/*, 0, 0, ""*/);
-            //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
-            if (dtNombreEmpleado.Rows.Count > 0)
+            if (TxtFeIni.Text != "" && TxtFeFin.Text != "")
             {
-                TxtNombreEmpleado.Text = dtNombreEmpleado.Rows[0][2].ToString();
+                // Obtiene Nombre del Empleado
+
+                DataTable dtNombreEmpleado = oNombreEmpleado.obtNombreEmpleado(TxtIdEmp.Text, 14/*, 0, 0, ""*/);
+                //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
+                if (dtNombreEmpleado.Rows.Count > 0)
+                {
+                    TxtNombreEmpleado.Text = dtNombreEmpleado.Rows[0][2].ToString();
+
+                    // ******   Obtiene datos de Supervisor y Director  >>>>>>>
+                    DataTable dtObtieneSupyDir = oObtieneSupyDir.obtObtieneSupyDir(4, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10)/*, Convert.ToInt16(TxtIdSupOri.Text), Convert.ToInt16(TxtIdDirOri.Text), Convert.ToInt16(TxtIdSupFin.Text), Convert.ToInt16(TxtIdDirFin.Text)*/);
+                    DataTable dtIncidencias = oIncidencias.obtIncidencias(10, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10));
+                    dgvIncidencias.DataSource = dtIncidencias;
+                    dgvIncidencias.ClearSelection();
+
+
+                    //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
+                    if (dtObtieneSupyDir.Rows.Count > 0)
+                    {
+                        TxtIdSupOri.Text = dtObtieneSupyDir.Rows[0][0].ToString();
+                        TxtIdDirOri.Text = dtObtieneSupyDir.Rows[0][1].ToString();
+                    }
+                    else
+                    {
+                        TxtIdSupOri.Text = "";
+                        TxtIdDirOri.Text = "";
+                        dgvIncidencias.DataSource = null;
+                        TxtIdEmp.Focus();
+                    }
+
+                    // ******   Obtiene datos de Supervisor y Director  <<<<<<<<<<
+                }
+                else
+                {
+                    TxtNombreEmpleado.Text = "Empleado No EXISTE";
+                    TxtIdSupOri.Text = "";
+                    TxtIdDirOri.Text = "";
+                    TxtIdSupFin.Text = "";
+                    TxtIdDirFin.Text = "";
+                    TxtIdEmp.Focus();
+                    dgvIncidencias.DataSource = null;
+                }
             }
             else
             {
-                TxtNombreEmpleado.Text = "Empleado No EXISTE";
+                MessageBox.Show("Debe Seleccionar Forma de pago valido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                cbFormaPago.Focus();
             }
         }
 
@@ -180,15 +234,64 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             {
                 TxtIdSupOri.Text = dtObtieneSupyDir.Rows[0][0].ToString();
                 TxtIdDirOri.Text = dtObtieneSupyDir.Rows[0][1].ToString();
+                TxtIdDirFin.Text = "";
+                TxtIdSupFin.Text = "";
+                dgvIncidencias.DataSource = null;
             }
             else
             {
                     TxtIdSupOri.Text = "";
                     TxtIdDirOri.Text = "";
+                    dgvIncidencias.DataSource = null;
             }
         }
 
+        private void ActualizaSudyDir(object sender, EventArgs e)
+        {
+            // Actualiza datos de supervisor y director
 
+            if (TxtIdEmp.Text != "" && TxtFeIni.Text != "" && TxtFeFin.Text != "")
+            {
+                if (TxtIdSupFin.Text == "") TxtIdSupFin.Text = "0";
+                if (TxtIdDirFin.Text == "") TxtIdDirFin.Text = "0";
 
+                DataTable dtActualizaSudyDir = oActualizaSudyDir.obtActualizaSudyDir(2, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text));
+
+                //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
+                if (dtActualizaSudyDir.Rows.Count > 0)
+                {
+                    if (TxtIdSupFin.Text == "0") TxtIdSupFin.Text = "";
+                    if (TxtIdDirFin.Text == "0") TxtIdDirFin.Text = "";
+                    TxtIdSupOri.Text = TxtIdSupFin.Text;
+                    TxtIdDirOri.Text = TxtIdDirFin.Text;
+                }
+                else
+                {
+                    TxtIdSupFin.Text = "";
+                    TxtIdDirFin.Text = "";
+                }
+            }
+
+        }
+
+        private void TxtIdEmp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void TxtIdEmp_Enter(object sender, EventArgs e)
+        {
+            if (TxtFeIni.Text == "" || TxtFeFin.Text == "")
+            {
+                MessageBox.Show("Debe Seleccionar Forma de pago valido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                TxtIdEmp.Text = "";
+                cbFormaPago.Focus();
+            }
+        }
     }
 }

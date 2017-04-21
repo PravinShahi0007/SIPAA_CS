@@ -80,6 +80,21 @@
     <Compile Include="Accesos\Asignaciones\UsuarioProceso.Designer.cs">
       <DependentUpon>UsuarioProceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\DataSets\ReporteAreasUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteAreasUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\DataSets\ReporteCompaniasUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCompaniasUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\DataSets\ReporteDepartamentosUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteDepartamentosUsuarios.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\DataSets\ReporteModulos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,10 +125,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteProcesosUsuarios.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\DataSets\ReporteUbicacionesUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteUbicacionesUsuarios.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\DataSets\ReporteUsuarios.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroAreasUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroAreasUsuarios.Designer.cs">
+      <DependentUpon>FiltroAreasUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroCompaniasUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroCompaniasUsuarios.Designer.cs">
+      <DependentUpon>FiltroCompaniasUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroDepartamentosUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroDepartamentosUsuarios.Designer.cs">
+      <DependentUpon>FiltroDepartamentosUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroModulos.cs">
       <SubType>Form</SubType>
@@ -151,11 +189,35 @@
     <Compile Include="Accesos\Reportes\FiltroProcesosUsuarios.Designer.cs">
       <DependentUpon>FiltroProcesosUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\Reportes\FiltroUbicacionesUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroUbicacionesUsuarios.Designer.cs">
+      <DependentUpon>FiltroUbicacionesUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\Reportes\FiltroUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroUsuarios.Designer.cs">
       <DependentUpon>FiltroUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ReporteAreasUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteAreasUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ReporteCompaniasUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCompaniasUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ReporteDepartamentosUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteDepartamentosUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Accesos\Reportes\ReporteModulos.cs">
       <AutoGen>True</AutoGen>
@@ -191,6 +253,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteProcesosUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ReporteUbicacionesUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteUbicacionesUsuarios.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Accesos\Reportes\ReporteUsuarios.cs">
@@ -614,6 +682,15 @@
     <EmbeddedResource Include="Accesos\Catalogos\Perfiles.resx">
       <DependentUpon>Perfiles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroAreasUsuarios.resx">
+      <DependentUpon>FiltroAreasUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroCompaniasUsuarios.resx">
+      <DependentUpon>FiltroCompaniasUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroDepartamentosUsuarios.resx">
+      <DependentUpon>FiltroDepartamentosUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\FiltroModulos.resx">
       <DependentUpon>FiltroModulos.cs</DependentUpon>
     </EmbeddedResource>
@@ -632,8 +709,23 @@
     <EmbeddedResource Include="Accesos\Reportes\FiltroProcesosUsuarios.resx">
       <DependentUpon>FiltroProcesosUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroUbicacionesUsuarios.resx">
+      <DependentUpon>FiltroUbicacionesUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\FiltroUsuarios.resx">
       <DependentUpon>FiltroUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteAreasUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteAreasUsuarios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteCompaniasUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCompaniasUsuarios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteDepartamentosUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteDepartamentosUsuarios.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ReporteModulos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -658,6 +750,10 @@
     <EmbeddedResource Include="Accesos\Reportes\ReporteProcesosUsuarios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteProcesosUsuarios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteUbicacionesUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteUbicacionesUsuarios.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ReporteUsuarios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -817,6 +913,39 @@
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Accesos\DataSets\ReporteAreasUsuarios.xsc">
+      <DependentUpon>ReporteAreasUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteAreasUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteAreasUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteAreasUsuarios.xss">
+      <DependentUpon>ReporteAreasUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteCompaniasUsuarios.xsc">
+      <DependentUpon>ReporteCompaniasUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteCompaniasUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteCompaniasUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteCompaniasUsuarios.xss">
+      <DependentUpon>ReporteCompaniasUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteDepartamentosUsuarios.xsc">
+      <DependentUpon>ReporteDepartamentosUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteDepartamentosUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteDepartamentosUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteDepartamentosUsuarios.xss">
+      <DependentUpon>ReporteDepartamentosUsuarios.xsd</DependentUpon>
+    </None>
     <None Include="Accesos\DataSets\ReporteModulos.xsc">
       <DependentUpon>ReporteModulos.xsd</DependentUpon>
     </None>
@@ -882,6 +1011,17 @@
     </None>
     <None Include="Accesos\DataSets\ReporteProcesosUsuarios.xss">
       <DependentUpon>ReporteProcesosUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteUbicacionesUsuarios.xsc">
+      <DependentUpon>ReporteUbicacionesUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteUbicacionesUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteUbicacionesUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteUbicacionesUsuarios.xss">
+      <DependentUpon>ReporteUbicacionesUsuarios.xsd</DependentUpon>
     </None>
     <None Include="Accesos\DataSets\ReporteUsuarios.xsc">
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>

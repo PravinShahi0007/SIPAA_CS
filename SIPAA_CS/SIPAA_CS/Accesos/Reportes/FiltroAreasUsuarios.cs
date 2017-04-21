@@ -1,5 +1,6 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.App_Code;
+using SIPAA_CS.App_Code.Accesos.Asignaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,16 +13,17 @@ using System.Windows.Forms;
 
 namespace SIPAA_CS.Accesos.Reportes
 {
-    public partial class FiltroProcesosUsuarios : Form
+    public partial class FiltroAreasUsuarios : Form
     {
         public int usuario;
-        public int proceso;
+        public int compania;
+        public int planta;
         //***********************************************************************************************
         //Autor: Gamaliel Lobato Solis
         //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
         //Descripción: -------------------------------
         //***********************************************************************************************
-        public FiltroProcesosUsuarios()
+        public FiltroAreasUsuarios()
         {
             InitializeComponent();
         }
@@ -42,6 +44,7 @@ namespace SIPAA_CS.Accesos.Reportes
         {
             WindowState = FormWindowState.Minimized;
         }
+
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Seguro que deseas salir?", "SIPAA", MessageBoxButtons.YesNo);
@@ -55,25 +58,25 @@ namespace SIPAA_CS.Accesos.Reportes
 
             }
         }
-
         private void btnImprimirDetalle_Click(object sender, EventArgs e)
         {
             usuario = cbUsuario.SelectedIndex;
-            proceso = cbProcesos.SelectedIndex;
-
+            compania = cbCompania.SelectedIndex;
+            planta = cbPlantel.SelectedIndex;
 
             string usu = cbUsuario.SelectedValue.ToString();
-            int pro = Convert.ToInt32(cbProcesos.SelectedValue.ToString());
-            
-            // FILTRADO POR TODOS
-            if (usuario == 0 & proceso == 0)
+            string comp = cbCompania.SelectedValue.ToString();
+            string pla = cbPlantel.SelectedValue.ToString();
+
+            //FILTRA POR TODOS
+            if (usuario == 0 && compania == 0 && planta == 0)
             {
                 //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
                 //timer1.Start();
 
-                Proceso objProceso = new Proceso();
+                AreaUsuario objAreaUsuario = new AreaUsuario();
                 DataTable dtReporte;
-                dtReporte = objProceso.ReporteProcesosUsuarios("", 0, "", "", "", 6);
+                dtReporte = objAreaUsuario.ReporteAreaUsuario("%", "%", "%", "", "", 5);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -84,37 +87,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        ReporteProcesosUsuarios dtrpt = new ReporteProcesosUsuarios();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
-
-                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
-                        form.RptDoc = ReportDoc;
-                        form.Show();
-                        break;
-
-                }
-            }
-            // FILTRA POR USUARIO Y PROCESO SELECCIONADO
-            else if (usuario > 0 && proceso > 0)
-            {
-                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
-                //timer1.Start();
-                
-                Proceso objProceso = new Proceso();
-                DataTable dtReporte;
-                dtReporte = objProceso.ReporteProcesosUsuarios(usu, pro, "", "", "", 7);
-
-                switch (dtReporte.Rows.Count)
-                {
-
-                    case 0:
-                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
-                        break;
-
-                    default:
-                        ViewerReporte form = new ViewerReporte();
-                        ReporteProcesosUsuarios dtrpt = new ReporteProcesosUsuarios();
+                        ReporteAreasUsuarios dtrpt = new ReporteAreasUsuarios();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
@@ -126,15 +99,15 @@ namespace SIPAA_CS.Accesos.Reportes
                 }
             }
 
-            //FILTRA POR USUARIO
-            else if (usuario > 0 && proceso == 0)
+            //FILTRA POR CVUSUARIO, IDCOMPANIA, IDPLANTA
+            else if (usuario > 0 && compania > 0 && planta > 0)
             {
                 //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
                 //timer1.Start();
 
-                Proceso objProceso = new Proceso();
+                AreaUsuario objAreaUsuario = new AreaUsuario();
                 DataTable dtReporte;
-                dtReporte = objProceso.ReporteProcesosUsuarios(usu, 0, "", "", "", 8);
+                dtReporte = objAreaUsuario.ReporteAreaUsuario(usu, comp, pla, "", "", 5);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -145,7 +118,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        ReporteProcesosUsuarios dtrpt = new ReporteProcesosUsuarios();
+                        ReporteAreasUsuarios dtrpt = new ReporteAreasUsuarios();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
@@ -157,16 +130,15 @@ namespace SIPAA_CS.Accesos.Reportes
                 }
             }
 
-            //FILTRA POR PROCESO
-
-            else if (usuario ==0 && proceso > 0)
+            //FILTRA POR CVUSUARIO, IDCOMPANIA
+            else if (usuario > 0 && compania > 0 && planta == 0)
             {
                 //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
                 //timer1.Start();
 
-                Proceso objProceso = new Proceso();
+                AreaUsuario objAreaUsuario = new AreaUsuario();
                 DataTable dtReporte;
-                dtReporte = objProceso.ReporteProcesosUsuarios("", pro, "", "", "", 9);
+                dtReporte = objAreaUsuario.ReporteAreaUsuario(usu, comp, "%", "", "", 5);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -177,7 +149,162 @@ namespace SIPAA_CS.Accesos.Reportes
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        ReporteProcesosUsuarios dtrpt = new ReporteProcesosUsuarios();
+                        ReporteAreasUsuarios dtrpt = new ReporteAreasUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
+
+            //FILTRA POR CVUSUARIO, IDPLANTA
+            else if (usuario > 0 && compania == 0 && planta > 0)
+            {
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
+                //timer1.Start();
+
+                AreaUsuario objAreaUsuario = new AreaUsuario();
+                DataTable dtReporte;
+                dtReporte = objAreaUsuario.ReporteAreaUsuario(usu, "%", pla, "", "", 5);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteAreasUsuarios dtrpt = new ReporteAreasUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
+
+            //FILTRA POR IDCOMPANIA, IDPLANTA
+            else if (usuario == 0 && compania > 0 && planta > 0)
+            {
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
+                //timer1.Start();
+
+                AreaUsuario objAreaUsuario = new AreaUsuario();
+                DataTable dtReporte;
+                dtReporte = objAreaUsuario.ReporteAreaUsuario("%", comp, pla, "", "", 5);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteAreasUsuarios dtrpt = new ReporteAreasUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
+
+            //FILTRA POR CVUSUARIO
+            else if (usuario > 0 && compania == 0 && planta == 0)
+            {
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
+                //timer1.Start();
+
+                AreaUsuario objAreaUsuario = new AreaUsuario();
+                DataTable dtReporte;
+                dtReporte = objAreaUsuario.ReporteAreaUsuario(usu, "%", "%", "", "", 5);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteAreasUsuarios dtrpt = new ReporteAreasUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
+
+            //FILTRA POR IDCOMPANIA
+            else if (usuario == 0 && compania > 0 && planta == 0)
+            {
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
+                //timer1.Start();
+
+                AreaUsuario objAreaUsuario = new AreaUsuario();
+                DataTable dtReporte;
+                dtReporte = objAreaUsuario.ReporteAreaUsuario("%", comp, "%", "", "", 5);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteAreasUsuarios dtrpt = new ReporteAreasUsuarios();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
+
+            //FILTRA POR IDPLANTA
+            else if (usuario == 0 && compania == 0 && planta > 0)
+            {
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Has seleccionado todos");
+                //timer1.Start();
+
+                AreaUsuario objAreaUsuario = new AreaUsuario();
+                DataTable dtReporte;
+                dtReporte = objAreaUsuario.ReporteAreaUsuario("%", "%", pla, "", "", 5);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteAreasUsuarios dtrpt = new ReporteAreasUsuarios();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
@@ -197,17 +324,19 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void FiltroProcesosUsuarios_Load(object sender, EventArgs e)
+        private void FiltroAreasUsuarios_Load(object sender, EventArgs e)
         {
-            Usuario objUsuario = new Usuario();
-            Proceso objProceso = new Proceso();
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            Usuario objUsuario = new Usuario();
+            SonaCompania objSonaComp = new SonaCompania();
 
             DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("", 0, "", "", 0, "", "", 11);
-            DataTable dtProceso = objProceso.ObtenerProceso(0,"",0,"","",10);
+            DataTable dtCompania = objSonaComp.obtcomp(7, "");
+            DataTable dtPlantel = objSonaComp.ObtenerPlantel(5, 0,"","");
 
             llenaCombo(cbUsuario, dtUsuario, "cvusuario", "nombre");
-            llenaCombo(cbProcesos, dtProceso, "cvproceso", "descripcion");
+            llenaCombo(cbCompania, dtCompania, "idcompania", "descripcion");
+            llenaCombo(cbPlantel, dtPlantel, "Clave", "Descripción");
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -217,6 +346,7 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
+
         public static void llenaCombo(ComboBox cb, DataTable dt, string sClave, string sDescripcion)
         {
             DataRow row = dt.NewRow();
@@ -227,7 +357,9 @@ namespace SIPAA_CS.Accesos.Reportes
             cb.DisplayMember = sDescripcion;
             cb.ValueMember = sClave;
         }
+
         
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
