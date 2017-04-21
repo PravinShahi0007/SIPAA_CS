@@ -58,10 +58,10 @@ namespace SIPAA_CS.Accesos.Reportes
         private void btnImprimirDetalle_Click(object sender, EventArgs e)
         {
             usuario = cbUsuario.SelectedIndex;
-            compania = cbUsuario.SelectedIndex;
+            compania = cbCompania.SelectedIndex;
 
             string usu = cbUsuario.SelectedValue.ToString();
-            int comp = Convert.ToInt32(cbCompania.SelectedValue.ToString());
+            string comp = cbCompania.SelectedValue.ToString();
 
             //FILTRA POR TODOS
             if (usuario == 0 && compania == 0)
@@ -71,7 +71,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 CompaniaUsuario objCompaniaUsuario = new CompaniaUsuario();
                 DataTable dtReporte;
-                dtReporte = objCompaniaUsuario.ReporteCompaniasUsuarios("", 0, "", "", 6);
+                dtReporte = objCompaniaUsuario.ReporteCompaniasUsuarios("%", "%", "", "", 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -102,7 +102,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 CompaniaUsuario objCompaniaUsuario = new CompaniaUsuario();
                 DataTable dtReporte;
-                dtReporte = objCompaniaUsuario.ReporteCompaniasUsuarios("", 0, "", "", 7);
+                dtReporte = objCompaniaUsuario.ReporteCompaniasUsuarios(usu, comp, "", "", 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -133,7 +133,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 CompaniaUsuario objCompaniaUsuario = new CompaniaUsuario();
                 DataTable dtReporte;
-                dtReporte = objCompaniaUsuario.ReporteCompaniasUsuarios(usu, 0, "", "", 8);
+                dtReporte = objCompaniaUsuario.ReporteCompaniasUsuarios(usu, "%", "", "", 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -164,7 +164,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 CompaniaUsuario objCompaniaUsuario = new CompaniaUsuario();
                 DataTable dtReporte;
-                dtReporte = objCompaniaUsuario.ReporteCompaniasUsuarios("", comp, "", "", 9);
+                dtReporte = objCompaniaUsuario.ReporteCompaniasUsuarios("%", comp, "", "", 6);
 
                 switch (dtReporte.Rows.Count)
                 {
