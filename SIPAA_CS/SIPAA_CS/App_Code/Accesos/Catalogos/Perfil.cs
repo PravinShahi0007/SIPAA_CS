@@ -265,7 +265,7 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public DataTable ReportePerfilesModulos(string cvmodulo, int cvperfil, string usuumod, string prgumod, int stact, int steli, int stcre, int stimp, int stlec, int opcion)
+        public DataTable ReportePerfilesModulos(string cvmodulo, string cvperfil, string usuumod, string prgumod, int stact, int steli, int stcre, int stimp, int stlec, int opcion)
         {
 
             Conexion objConexion = new Conexion();
@@ -274,7 +274,7 @@ namespace SIPAA_CS.App_Code
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@P_cvmodulo", SqlDbType.VarChar).Value = cvmodulo;
-            cmd.Parameters.Add("@P_cvperfil", SqlDbType.Int).Value = cvperfil;
+            cmd.Parameters.Add("@P_cvperfil", SqlDbType.VarChar).Value = cvperfil;
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@P_stact", SqlDbType.Int).Value = stact;
