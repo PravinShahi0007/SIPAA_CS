@@ -21,8 +21,9 @@ namespace SIPAA_CS.Accesos
         public string modulo;
         public string usuumod;
         public string prgmod;
-        public int stmodulo;
+        public string stmodulo;
         public int response;
+        public string ruta;
         int sysH = SystemInformation.PrimaryMonitorSize.Height;
         int sysW = SystemInformation.PrimaryMonitorSize.Width;
         Utilerias utilerias = new Utilerias();
@@ -45,12 +46,12 @@ namespace SIPAA_CS.Accesos
             if (ckbEliminar.Checked == true)
             {
                 variable = 3;
-                if (stmodulo == 0)
+                if (stmodulo == "Inactivo")
                 {
                     lblAccion.Text = "      Alta Módulo";
                     Utilerias.AsignarBotonResize(btnGuardar,Utilerias.PantallaSistema(),Botones.Alta);
                 }
-                else if (stmodulo == 1)
+                else if (stmodulo == "Activo")
                 {
                     lblAccion.Text = "      Baja Módulo";
                     Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(),Botones.Baja);
@@ -75,50 +76,123 @@ namespace SIPAA_CS.Accesos
 
             if (dgvModulos.SelectedRows.Count != 0)
             {
-                variable = 2;
-                lblAccion.Text = "      Editar Módulo";
-                txtCvModulo.Enabled = false;
-                ckbEliminar.Visible = true;
-                PanelEditar.Visible = true;
                 DataGridViewRow row = this.dgvModulos.SelectedRows[0];
-               
-                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-
                 cvmodulo = row.Cells["cvmodulo"].Value.ToString();
-                descripcion = row.Cells["descripcion"].Value.ToString();
+                descripcion = row.Cells["Descripción"].Value.ToString();
                 cvmodpad = row.Cells["cvmodpad"].Value.ToString();
                 orden = Convert.ToInt32(row.Cells["orden"].Value.ToString());
                 ambiente = row.Cells["ambiente"].Value.ToString();
                 modulo = row.Cells["modulo"].Value.ToString();
-                stmodulo = Convert.ToInt32(row.Cells["stmodulo"].Value.ToString());
+                ruta = row.Cells["rutaaaceso"].Value.ToString();
+                stmodulo = row.Cells["Estatus"].Value.ToString();
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
-                txtCvModulo.Text = cvmodulo;
-                txtDescripcion.Text = descripcion;
-                txtModPad.Text = cvmodpad;
-                txtOrden.Text = Convert.ToString(orden);
-                cbAmbiente.SelectedItem = ambiente;
-                cbModulo.SelectedItem = modulo;
-                //AsignarPlantel();
-
-                Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
-
-                ckbEliminar.Checked = false;
-
-                if (stmodulo == 0)
+                if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
                 {
-                    ckbEliminar.Text = "Alta";
+                    variable = 2;
+                    lblAccion.Text = "      Editar Módulo";
+                    PanelEditar.Visible = true;
+                    txtCvModulo.Enabled = false;
+                    ckbEliminar.Visible = true;
 
+
+                    txtCvModulo.Text = cvmodulo;
+                    txtDescripcion.Text = descripcion;
+                    txtModPad.Text = cvmodpad;
+                    txtRuta.Text = ruta;
+                    txtOrden.Text = Convert.ToString(orden);
+                    cbAmbiente.SelectedItem = ambiente;
+                    cbModulo.SelectedItem = modulo;
+                    //AsignarPlantel();
+
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
+
+                    ckbEliminar.Checked = false;
+
+                    if (stmodulo == "Inactivo")
+                    {
+                        ckbEliminar.Text = "Alta";
+
+                    }
+                    else if (stmodulo == "Activo")
+                    {
+                        ckbEliminar.Text = "Baja";
+
+                    }
                 }
-                else if (stmodulo == 1)
+                else if (Permisos.dcPermisos["Actualizar"] == 1)
                 {
-                    ckbEliminar.Text = "Baja";
+                    variable = 2;
+                    PanelEditar.Visible = true;
+                    lblAccion.Text = "      Editar Módulo";
+                    txtCvModulo.Enabled = false;
 
+                    txtCvModulo.Text = cvmodulo;
+                    txtDescripcion.Text = descripcion;
+                    txtModPad.Text = cvmodpad;
+                    txtRuta.Text = ruta;
+                    txtOrden.Text = Convert.ToString(orden);
+                    cbAmbiente.SelectedItem = ambiente;
+                    cbModulo.SelectedItem = modulo;
+
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
                 }
+                else if ( Permisos.dcPermisos["Eliminar"] == 1)
+                {
+                    variable = 3;
+                    PanelEditar.Visible = true;
+
+                    //ckbEliminar.Visible = true;
+
+                    txtCvModulo.Text = cvmodulo;
+                    txtDescripcion.Text = descripcion;
+                    txtModPad.Text = cvmodpad;
+                    txtRuta.Text = ruta;
+                    txtOrden.Text = Convert.ToString(orden);
+                    cbAmbiente.SelectedItem = ambiente;
+                    cbModulo.SelectedItem = modulo;
+
+                    txtCvModulo.Enabled = true;
+
+                    if (stmodulo == "Inactivo")
+                    {
+                        lblAccion.Text = "      Alta Módulo";
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Alta);
+                    }
+                    else if (stmodulo == "Activo")
+                    {
+                        lblAccion.Text = "      Baja Módulo";
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Baja);
+                    }
+                    
+                }
+               
             }
         }
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        private void btnRegresa_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
+        }
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             variable = 1;
@@ -148,7 +222,7 @@ namespace SIPAA_CS.Accesos
             if (variable == 1)
             {
 
-                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" && cbAmbiente.SelectedIndex != -1 && cbModulo.SelectedIndex != -1)
+                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" && cbAmbiente.SelectedIndex != -1 && cbModulo.SelectedIndex != -1 && txtRuta.Text != "")
                 {
                     if (utilerias.IsNumber(txtOrden.Text))
                     {
@@ -156,12 +230,13 @@ namespace SIPAA_CS.Accesos
                         descripcion = txtDescripcion.Text;
                         cvmodpad = txtModPad.Text;
                         orden = Convert.ToInt32(txtOrden.Text);
+                        ruta = txtRuta.Text;
                         ambiente = cbAmbiente.SelectedItem.ToString();
                         modulo = cbModulo.SelectedItem.ToString();
-                        usuumod = "140414";
+                        usuumod = LoginInfo.IdTrab;
                         prgmod = this.Name;
                         
-                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo, "", 1, usuumod, prgmod, 1);
+                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo, ruta.Trim(), 1, usuumod, prgmod, 1);
 
                         txtCvModulo.Text = "";
                         txtDescripcion.Text = "";
@@ -169,7 +244,8 @@ namespace SIPAA_CS.Accesos
                         txtOrden.Text = "";
                         cbAmbiente.Text = "Selecciona un Ambiente";
                         cbModulo.Text = "Selecciona un Módulo";
-                        txtCvModulo.Focus();
+                        //txtCvModulo.Focus();
+                        PanelEditar.Visible = false;
                         Modulos_Load(sender, e);
                         if (response == 1)
                         {
@@ -201,7 +277,7 @@ namespace SIPAA_CS.Accesos
             if (variable == 2)
             {
 
-                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "")
+                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" && txtRuta.Text != "")
                 {
 
                     if (utilerias.IsNumber(txtOrden.Text))
@@ -209,23 +285,26 @@ namespace SIPAA_CS.Accesos
                         cvmodulo = txtCvModulo.Text;
                         descripcion = txtDescripcion.Text;
                         cvmodpad = txtModPad.Text;
+                        ruta = txtRuta.Text;
                         orden = Convert.ToInt32(txtOrden.Text);
                         ambiente = cbAmbiente.SelectedItem.ToString();
-                        modulo = txtModPad.Text;
-                        usuumod = "140414";
+                        modulo = cbModulo.SelectedItem.ToString();
+                        usuumod = LoginInfo.IdTrab;
                         prgmod = this.Name;
 
 
-                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo.Trim(), "", 0, usuumod, prgmod, 2);
+                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo.Trim(), ruta.Trim(), 0, usuumod, prgmod, 2);
                         Modulos_Load(sender, e);
 
                         txtCvModulo.Text = "";
                         txtDescripcion.Text = "";
                         txtModPad.Text = "";
                         txtOrden.Text = "";
+                        txtRuta.Text = "";
                         cbAmbiente.Text = "Selecciona un Ambiente";
                         cbModulo.Text = "Selecciona un Módulo";
-                        usuumod = "140414";
+                        usuumod = LoginInfo.IdTrab;
+                        PanelEditar.Visible = false;
                         prgmod = this.Name;
                         if (response == 1)
                         {
@@ -262,6 +341,7 @@ namespace SIPAA_CS.Accesos
                 {
                     ckbEliminar.Checked = false;
                     response = objModulo.CrearModulo(cvmodulo.Trim(), "", "", 0, "", "", "", 0, "", "", 3);
+                    PanelEditar.Visible = false;
 
                     if (response == 1)
                     {
@@ -284,10 +364,7 @@ namespace SIPAA_CS.Accesos
                 }
             }
         }
-        private void btnRegresa_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -297,26 +374,21 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void Modulos_Load(object sender, EventArgs e)
         {
-
-
-            //// Se crea lista de permisos por pantalla
-            //LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
-            //DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
-            //LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
-            ////////////////////////////////////////////////////////
-            //// resize 
-            //Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
-            //// variables de permisos
-            //Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
-            //Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
-            //Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
-            //Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
-            ////////////////////////////////////////////////////////////////////////////////////////////
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             LlenarGridModulos("", "", "", 0, "", "", "", 0, "", "", 4,dgvModulos);
-           
 
+
+            if (Permisos.dcPermisos["Crear"] == 0)
+            {
+                btnAgregar.Visible = false;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -358,6 +430,10 @@ namespace SIPAA_CS.Accesos
 
             dgvModulo.ClearSelection();
         }
+
+        
+
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

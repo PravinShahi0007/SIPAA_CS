@@ -160,7 +160,7 @@
             this.tsmiModulos.Image = ((System.Drawing.Image)(resources.GetObject("tsmiModulos.Image")));
             this.tsmiModulos.Name = "tsmiModulos";
             this.tsmiModulos.Size = new System.Drawing.Size(152, 22);
-            this.tsmiModulos.Tag = "frmCrear_Modulo";
+            this.tsmiModulos.Tag = "Modulos";
             this.tsmiModulos.Text = "Módulos";
             this.tsmiModulos.Click += new System.EventHandler(this.tsmiModulos_Click);
             // 
