@@ -138,7 +138,7 @@
             this.tsmiUsuarios.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.tsmiUsuarios.Name = "tsmiUsuarios";
             this.tsmiUsuarios.Size = new System.Drawing.Size(152, 22);
-            this.tsmiUsuarios.Tag = "frmCrear_Usuario";
+            this.tsmiUsuarios.Tag = "Usuarios";
             this.tsmiUsuarios.Text = "Usuarios";
             this.tsmiUsuarios.Click += new System.EventHandler(this.tsmiUsuarios_Click);
             // 

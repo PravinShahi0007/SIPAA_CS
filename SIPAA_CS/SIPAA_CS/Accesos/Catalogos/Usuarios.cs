@@ -134,6 +134,11 @@ namespace SIPAA_CS.Accesos
                     panel1.Visible = true;
                     ckbElimina.Visible = false;
                     ckbElimina.Checked = false;
+                    txtCvUsuario1.Text = cvusuario;
+                    txtNombreSipaa.Text = nombre;
+
+                    txtCvUsuario1.Enabled = false;
+                    txtNombreSipaa.Enabled = false;
                     
                     if (stusuario == "Inactivo")
                     {
@@ -197,7 +202,7 @@ namespace SIPAA_CS.Accesos
             cvusuario = txtCvUsuario.Text;
             nombre = txtNombre.Text;
             passw = txtPassword.Text;
-            usumod = "140014";
+            usumod = LoginInfo.IdTrab;
 
 
             if (cvusuario == "ADMIN")
@@ -274,7 +279,7 @@ namespace SIPAA_CS.Accesos
                 if (cvusuario != String.Empty && nombre != String.Empty && passw != String.Empty)
                 {
                     cvusuario = txtCvUsuario.Text;
-                    response = usuario.EliminarAccesoUsuario(cvusuario, 0, "", "", 0, "", "", 3);
+                    response = usuario.EliminarAccesoUsuario(cvusuario, "", "", "", 0, "", "", 3);
 
                     if (response == 1)
                     {
@@ -446,7 +451,7 @@ namespace SIPAA_CS.Accesos
             panel10.Visible = false;
             panel1.Visible = false;
             dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
-            LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "", 12);
+            LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "", 8);
         }
 
         
@@ -477,7 +482,7 @@ namespace SIPAA_CS.Accesos
             //txtBuscarSipaa.Focus();
             
 
-            if (Permisos.dcPermisos["Eliminar"] == 0)
+            if (Permisos.dcPermisos["Crear"] == 0)
             {
                 btnAgregar.Visible = false;
             }
@@ -520,7 +525,7 @@ namespace SIPAA_CS.Accesos
                         cvusuario = txtCvUsuario1.Text;
                         nombre = txtNombreSipaa.Text;
                         string pass = utilerias.cifradoMd5(cvusuario);
-                        usumod = "140114";
+                        usumod = LoginInfo.IdTrab;
                         prgmod = this.Name;
                         response = usuario.AsignarAccesoUsuario(cvusuario.Trim(), 0, nombre.Trim(), pass.Trim(), 1, usumod.Trim(), prgmod.Trim(), 1);
                         dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
@@ -551,13 +556,18 @@ namespace SIPAA_CS.Accesos
 
                         }
                     }
+                    else
+                    {
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ingresa valores");
+                        timer1.Start();
+                    }
                 }
                 //bloquea usuario sipaa
                 else if (variable == 4)
                 {
                     if (cvusuario != String.Empty)
                     {   
-                        response = usuario.EliminarAccesoUsuario(cvusuario, 0, "", "", 0, "", "", 3);
+                        response = usuario.EliminarAccesoUsuario(cvusuario, "", "", "", 0, "", "", 3);
 
                         if (response == 1)
                         {
@@ -593,7 +603,9 @@ namespace SIPAA_CS.Accesos
                         }
 
                         nombre = txtNombreSipaa.Text;
-                        response = usuario.EliminarAccesoUsuario(cvusuario.Trim(), 0, nombre.Trim(), "", 0, "", "", 2);
+                        CVusuario = txtCvUsuario1.Text;
+                        usumod = LoginInfo.IdTrab;
+                        response = usuario.EliminarAccesoUsuario(cvusuario.Trim(), CVusuario.Trim(), nombre.Trim(), "", 0, usumod, "", 2);
 
                         if (response == 1)
                         {
@@ -609,7 +621,7 @@ namespace SIPAA_CS.Accesos
                             LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
 
                         }
-                        else if (response == 0)
+                        else 
                         {
                             txtBuscar.Text = "";
                             txtCvUsuario.Text = "";
@@ -639,7 +651,7 @@ namespace SIPAA_CS.Accesos
                         //MessageBox.Show("chekado ");
                         //if (cvusuario != String.Empty)
                         //{
-                            response = usuario.EliminarAccesoUsuario(cvusuario, 0, "", "", 0, "", "", 3);
+                            response = usuario.EliminarAccesoUsuario(cvusuario, "", "", "", 0, "", "", 3);
 
                             if (response == 1)
                             {
