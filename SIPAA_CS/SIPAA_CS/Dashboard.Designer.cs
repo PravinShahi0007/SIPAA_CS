@@ -158,7 +158,7 @@
             this.btnAccesos.Name = "btnAccesos";
             this.btnAccesos.Size = new System.Drawing.Size(270, 132);
             this.btnAccesos.TabIndex = 47;
-            this.btnAccesos.Tag = "frmAccesos";
+            this.btnAccesos.Tag = "AcceDashboard";
             this.btnAccesos.Text = "Accesos";
             this.btnAccesos.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnAccesos.UseVisualStyleBackColor = false;
@@ -209,7 +209,7 @@
             this.btnRecursosh.Name = "btnRecursosh";
             this.btnRecursosh.Size = new System.Drawing.Size(270, 132);
             this.btnRecursosh.TabIndex = 44;
-            this.btnRecursosh.Tag = "frmRecursosHumanos";
+            this.btnRecursosh.Tag = "RechDashboard";
             this.btnRecursosh.Text = "Recursos Humanos";
             this.btnRecursosh.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnRecursosh.UseVisualStyleBackColor = false;

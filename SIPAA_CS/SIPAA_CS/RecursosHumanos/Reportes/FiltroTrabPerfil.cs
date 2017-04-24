@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.Properties;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
+using SIPAA_CS.RecursosHumanos.DataSets;
 
 //***********************************************************************************************
 //Autor: Marco Dupont
@@ -23,8 +25,19 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 {
     public partial class FiltroTrabPerfil : Form
     {
+        #region
+
+        int iIDT;
+        int iIDC;
+        int IIDU;
+        int IACT;
+
+        #endregion
+
+
         Utilerias Util = new Utilerias();
         SonaCompania CComUbi = new SonaCompania();
+        RepTrabPerfil CTrabPerf = new RepTrabPerfil();
 
         public FiltroTrabPerfil()
         {
@@ -46,6 +59,41 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 MessageBox.Show("Debe Seleccionar Trabajador, Compañia o Ubicación");
                 txtIdTrab.Focus();
             }
+            else
+            {
+                if (txtIdTrab.Text != "")
+                {
+                    iIDT = Int32.Parse(txtIdTrab.Text);
+                }
+                else
+                {
+                    iIDT = 0;
+                }
+                iIDC = Int32.Parse(cboCia.SelectedValue.ToString());
+                IIDU = Int32.Parse(cboUbicacion.SelectedValue.ToString());
+                IACT = 2;
+                DataTable dtRpt = CTrabPerf.PerfilTrab_S(4, iIDT, iIDC, IIDU, IACT);
+
+                ViewerReporte form = new ViewerReporte();
+                RTrabPerfil dtsRep = new RTrabPerfil();
+                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, "RecursosHumanos", dtsRep.ResourceName);
+
+                form.RptDoc = ReportDoc;
+                form.Show();
+
+            }
+
+            //Prueba Reporte Incidencias pasadas a Nomina
+            //Incidencia objIncidencia = new Incidencia();
+            //DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina("%", DateTime.Parse("2017-02-05"), DateTime.Parse("2017-04-01"), "%", "%", "%");
+
+            //ViewerReporte form = new ViewerReporte();
+            //IncidenciasPasadasNomina rptIncidencia = new IncidenciasPasadasNomina();
+            //ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", rptIncidencia.ResourceName);
+
+            //ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
+            //form.RptDoc = ReportDoc;
+            //form.Show();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)

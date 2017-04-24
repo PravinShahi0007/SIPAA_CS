@@ -22,65 +22,17 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             InitializeComponent();
         }
 
-        private void FiltroObservaciones_Load(object sender, EventArgs e)
-        {
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-            SonaCompania objCia = new SonaCompania();
-            DataTable dtCia = objCia.obtcomp(5, "");
-            llenarCombo(cbCia, dtCia, "Descripción");
 
-            DataTable dtUbicaciones = objCia.ObtenerUbicacionPlantel(5,"%");
-            llenarCombo(cbUbicacion, dtUbicaciones, "Descripción");
-
-            SonaDepartamento objDepto = new SonaDepartamento();
-            DataTable dtDepto = objDepto.obtdepto(5, "");
-            llenarCombo(cbDepartamento, dtDepto, "Descripción");
-
-            ConcepInc objInc = new ConcepInc();
-            DataTable dtInc = objInc.ConcepInc_S(4, 0, "", 0, 0, 0, 0, "", "");
-            llenarCombo(cbIncidencia, dtInc, "Descripción");
+        //***********************************************************************************************
+        //Autor: Victor Jesús Iturburu Vergara
+        //Fecha creación:09-04-2017     Última Modificacion: 17-04-2017
+        //Descripción: -------------------------------
+        //***********************************************************************************************
 
 
-            cbTipoNomina.Enabled = false;
-            cbArea.Enabled = false;
-
-        }
-
-        private void ValidarFechaDataPicker(object sender, EventArgs e)
-        {
-            if (dpFechaInicio.Value > dpFechaFin.Value)
-            {
-
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "La fecha de Inicio no puede ser MAYOR a la de Término");
-
-                timer1.Start();
-
-                //  dpFechaFin.Value = dpFechaInicio.Value;
-                btnImprimirObs.Enabled = false;
-
-            }
-            else
-            {
-                btnImprimirObs.Enabled = true;
-
-            }
-
-        }
-
-        public void llenarCombo(ComboBox cb, DataTable dt, string sValor)
-        {
-
-            List<string> ltvalores = new List<string>();
-            foreach (DataRow row in dt.Rows)
-            {
-
-                ltvalores.Add(row[sValor].ToString());
-            }
-
-            ltvalores.Insert(0, "Seleccionar");
-
-            cb.DataSource = ltvalores;
-        }
+        //-----------------------------------------------------------------------------------------------
+        //                                      C O M B O S
+        //-----------------------------------------------------------------------------------------------
 
         private void cbCia_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -112,6 +64,49 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             timer1.Stop();
         }
 
+
+        public void llenarCombo(ComboBox cb, DataTable dt, string sValor)
+        {
+
+            List<string> ltvalores = new List<string>();
+            foreach (DataRow row in dt.Rows)
+            {
+
+                ltvalores.Add(row[sValor].ToString());
+            }
+
+            ltvalores.Insert(0, "Seleccionar");
+
+            cb.DataSource = ltvalores;
+        }
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      G R I D // S
+        //-----------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------
+        //                                     B O T O N E S
+        //-----------------------------------------------------------------------------------------------
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
         private void btnImprimirObs_Click(object sender, EventArgs e)
         {
             DateTime dtFechaInicio = dpFechaInicio.Value.AddDays(-1);
@@ -136,7 +131,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             Incidencia objInc = new Incidencia();
 
-            DataTable dtRpt = objInc.ReporteObservaciones(sIdtrab, dtFechaInicio, dtFechaFin, sDepto, sCia, sTipoNom, sUbicacion, sArea,sIncidencia);
+            DataTable dtRpt = objInc.ReporteObservaciones(sIdtrab, dtFechaInicio, dtFechaFin, sDepto, sCia, sTipoNom, sUbicacion, sArea, sIncidencia);
 
             switch (dtRpt.Rows.Count)
             {
@@ -164,6 +159,64 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             }
         }
 
+
+
+ 
+        //-----------------------------------------------------------------------------------------------
+        //                           C A J A S      D E      T E X T O   
+        //-----------------------------------------------------------------------------------------------
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                     E V E N T O S
+        //-----------------------------------------------------------------------------------------------
+
+        private void FiltroObservaciones_Load(object sender, EventArgs e)
+        {
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            SonaCompania objCia = new SonaCompania();
+            DataTable dtCia = objCia.obtcomp(5, "");
+            llenarCombo(cbCia, dtCia, "Descripción");
+
+            DataTable dtUbicaciones = objCia.ObtenerUbicacionPlantel(5, "%");
+            llenarCombo(cbUbicacion, dtUbicaciones, "Descripción");
+
+            SonaDepartamento objDepto = new SonaDepartamento();
+            DataTable dtDepto = objDepto.obtdepto(5, "");
+            llenarCombo(cbDepartamento, dtDepto, "Descripción");
+
+            ConcepInc objInc = new ConcepInc();
+            DataTable dtInc = objInc.ConcepInc_S(4, 0, "", 0, 0, 0, 0, "", "");
+            llenarCombo(cbIncidencia, dtInc, "Descripción");
+
+
+            cbTipoNomina.Enabled = false;
+            cbArea.Enabled = false;
+
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+            timer1.Stop();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+
         public string AsignarVariableCombo(ComboBox cb)
         {
 
@@ -183,40 +236,32 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         }
 
-        private void btnRegresar_Click(object sender, EventArgs e)
+        private void ValidarFechaDataPicker(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
-
-            if (result == DialogResult.Yes)
+            if (dpFechaInicio.Value > dpFechaFin.Value)
             {
-                Application.Exit();
+
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "La fecha de Inicio no puede ser MAYOR a la de Término");
+
+                timer1.Start();
+
+                //  dpFechaFin.Value = dpFechaInicio.Value;
+                btnImprimirObs.Enabled = false;
+
             }
-        }
+            else
+            {
+                btnImprimirObs.Enabled = true;
 
-        private void timer1_Tick_1(object sender, EventArgs e)
-        {
-            panelTag.Visible = false;
-            timer1.Stop();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
+            }
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
 
-        }
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      R E P O R T E
+        //-----------------------------------------------------------------------------------------------
     }
 }

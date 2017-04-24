@@ -55,7 +55,7 @@ namespace SIPAA_CS.App_Code
                 Modulo objModulo = new Modulo();
                 objModulo.CVModulo = reader.GetString(reader.GetOrdinal("CVMODULO"));
                 objModulo.Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION"));
-                objModulo.CVModPadre = reader.GetString(reader.GetOrdinal("CVMODPAD"));
+               // objModulo.CVModPadre = reader.GetString(reader.GetOrdinal("CVMODPAD"));
                 objModulo.Orden = reader.GetInt32(reader.GetOrdinal("ORDEN"));
                 objModulo.Ambiente = reader.GetString(reader.GetOrdinal("AMBIENTE"));
                 objModulo.strModulo = reader.GetString(reader.GetOrdinal("MODULO"));
@@ -155,7 +155,7 @@ namespace SIPAA_CS.App_Code
 
       
 
-        public List<string> obtenerModulosxPerfil(int iCVPerfil)
+        public List<string> obtenerModulosxPerfil(int iCVPerfil,int iOpcion)
         {
 
             List<string> ltModulosxPerfil = new List<string>();
@@ -173,7 +173,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@P_stcre", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_stlec", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_stimp", SqlDbType.Int).Value = 0;
-            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = 5;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = iOpcion;
 
         
 
@@ -187,11 +187,11 @@ namespace SIPAA_CS.App_Code
             {
                 Modulo objModulo = new Modulo();
                 objModulo.CVModulo = reader.GetString(reader.GetOrdinal("CVMODULO"));
-                objModulo.steli = reader.GetInt32(reader.GetOrdinal("steli"));
-                objModulo.stact = reader.GetInt32(reader.GetOrdinal("stact"));
-                objModulo.stlec = reader.GetInt32(reader.GetOrdinal("stlec"));
-                objModulo.stimp = reader.GetInt32(reader.GetOrdinal("stimp"));
-                objModulo.stcre = reader.GetInt32(reader.GetOrdinal("stcre"));
+                //objModulo.steli = reader.GetInt32(reader.GetOrdinal("steli"));
+                //objModulo.stact = reader.GetInt32(reader.GetOrdinal("stact"));
+                //objModulo.stlec = reader.GetInt32(reader.GetOrdinal("stlec"));
+                //objModulo.stimp = reader.GetInt32(reader.GetOrdinal("stimp"));
+                //objModulo.stcre = reader.GetInt32(reader.GetOrdinal("stcre"));
 
 
                 ltModulosxPerfil.Add(objModulo.CVModulo);

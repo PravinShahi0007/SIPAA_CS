@@ -140,7 +140,7 @@ namespace SIPAA_CS.App_Code
                     if (iContador < Ultimoboton)
                     {
                         int ibtnContador = iContador + 1;
-                        while (PanelMetro.Controls[ibtnContador].Visible != true && ibtnContador < Ultimoboton)
+                        while (ibtnContador <= Ultimoboton && PanelMetro.Controls[ibtnContador].Visible != true)
                         {
 
                             Point location = PanelMetro.Controls[ibtnContador].Location;
@@ -149,11 +149,12 @@ namespace SIPAA_CS.App_Code
 
                             ibtnContador = ibtnContador + 1;
 
+
                         }
 
 
 
-                        if (ibtnContador < (Ultimoboton - 1))
+                        if (ibtnContador <= (Ultimoboton - 1))
                         {
 
                             ibtnContador = ibtnContador + 1;
@@ -171,7 +172,8 @@ namespace SIPAA_CS.App_Code
 
                             Ultimoboton = ibtnContador;
                         }
-                        else {
+                        else
+                        {
 
                             Ultimoboton = ibtnContador - 1;
                         }
@@ -227,24 +229,24 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public static Dictionary<string,int>  CrearListaPermisoxPantalla(DataTable dtPermisos, List<string> ltPermisos)
+        public static Dictionary<string, int> CrearListaPermisoxPantalla(DataTable dtPermisos)
         {
-            Dictionary<string,int> dcPermisos = new Dictionary<string, int>();
+            Dictionary<string, int> dcPermisos = new Dictionary<string, int>();
 
             foreach (DataRow rows in dtPermisos.Rows)
             {
 
                 if (Convert.ToInt32(rows["Crear"]) == 1)
                 {
-                    dcPermisos.Add("Crear",1);
-                }else
+                    dcPermisos.Add("Crear", 1);
+                } else
                 {
                     dcPermisos.Add("Crear", 0);
                 }
 
                 if (Convert.ToInt32(rows["Eliminar"]) == 1)
                 {
-                    dcPermisos.Add("Eliminar",1);
+                    dcPermisos.Add("Eliminar", 1);
                 }
                 else
                 {
@@ -253,15 +255,15 @@ namespace SIPAA_CS.App_Code
 
                 if (Convert.ToInt32(rows["Actualizar"]) == 1)
                 {
-                    dcPermisos.Add("Actualizar",1);
+                    dcPermisos.Add("Actualizar", 1);
                 }
                 else
                 {
-                    dcPermisos.Add("Actualizar",0 );
+                    dcPermisos.Add("Actualizar", 0);
                 }
                 if (Convert.ToInt32(rows["Imprimir"]) == 1)
                 {
-                    dcPermisos.Add("Imprimir",1);
+                    dcPermisos.Add("Imprimir", 1);
                 }
                 else
                 {
@@ -467,16 +469,16 @@ namespace SIPAA_CS.App_Code
                 Button btn = (Button)ctrl;
 
                 if (Per > .25)
-                {strPixeles = "20x20"; }
+                { strPixeles = "20x20"; }
                 else
-                {strPixeles = "30x30"; }
+                { strPixeles = "30x30"; }
 
                 if (btn.Tag != null)
                 {
                     try
-                    { btn.Image = (Image)Resources.ResourceManager.GetObject(btn.Tag.ToString() + strPixeles);}
+                    { btn.Image = (Image)Resources.ResourceManager.GetObject(btn.Tag.ToString() + strPixeles); }
                     catch (Exception ex)
-                    {  btn.Image = btn.Image;}
+                    { btn.Image = btn.Image; }
                 }
                 // ctrl.BackgroundImageLayout = ImageLayout.Center;
                 ctrlH = ctrl.Size.Height;
@@ -489,18 +491,18 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public static void AsignarBotonResize(Button btn, Size size,string Icono)
+        public static void AsignarBotonResize(Button btn, Size size, string Icono)
         {
 
             if (size.Width <= 600 || size.Height <= 600)
-            {  btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "20x20");}
-            else  if (size.Width <= 768 || size.Height <= 768)
+            { btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "20x20"); }
+            else if (size.Width <= 768 || size.Height <= 768)
             {
-                  btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "30x30");
-            }  
+                btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "30x30");
+            }
             else {
                 btn.Image = (Image)Resources.ResourceManager.GetObject(Icono);
-                }
+            }
 
         }
 
@@ -515,20 +517,20 @@ namespace SIPAA_CS.App_Code
             return ReportDoc;
         }
 
-        public static void llenarComboxDataTable(ComboBox cb, DataTable dt,string sClave ,string sDescripcion)
+        public static void llenarComboxDataTable(ComboBox cb, DataTable dt, string sClave, string sDescripcion)
         {
             DataRow row = dt.NewRow();
             row[sClave] = "0";
             row[sDescripcion] = "Seleccionar";
-            dt.Rows.InsertAt(row,0);
+            dt.Rows.InsertAt(row, 0);
             cb.DataSource = dt;
             cb.DisplayMember = sDescripcion;
             cb.ValueMember = sClave;
         }
 
-      public enum DiasSemana { Domingo = 1, Lunes = 2, Martes = 3, Miércoles = 4, Jueves = 5, Viernes = 6, Sábado = 7 };
+        public enum DiasSemana { Domingo = 1, Lunes = 2, Martes = 3, Miércoles = 4, Jueves = 5, Viernes = 6, Sábado = 7 };
 
-      public static class Botones {
+        public static class Botones {
             public static string Guardar = "Guardar";
             public static string Editar = "Editar";
             public static string Borrar = "Borrar";
@@ -554,9 +556,9 @@ namespace SIPAA_CS.App_Code
             int iCv = Convert.ToInt32(row.Cells[iPositionClave].Value.ToString());
 
             if (ltCv.Contains(iCv))
-            {  ltCv.Remove(iCv); }
+            { ltCv.Remove(iCv); }
             else
-            { ltCv.Add(iCv);}
+            { ltCv.Add(iCv); }
 
             if (ltCv.Count == 0)
             { ctrl.Enabled = false; }
@@ -586,7 +588,7 @@ namespace SIPAA_CS.App_Code
             {
                 ltCv.Clear();
                 ctrl.Enabled = false;
-             
+
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                 row.Cells[0].Tag = "check";
             }
@@ -616,7 +618,7 @@ namespace SIPAA_CS.App_Code
             }
         }
 
-        public static void ImprimirAsignacionesGrid(DataGridView dgv,int iPosicionCheck,int iPosicionClave,List<string> ltcv)
+        public static void ImprimirAsignacionesGrid(DataGridView dgv, int iPosicionCheck, int iPosicionClave, List<string> ltcv)
         {
 
             for (int iContador = 0; iContador < dgv.Rows.Count; iContador++)
@@ -670,11 +672,11 @@ namespace SIPAA_CS.App_Code
             return bBandera;
         }
 
-        public static CheckBox AgregarCheckboxHeader(DataGridView dgv,int iPosicionCheck) {
+        public static CheckBox AgregarCheckboxHeader(DataGridView dgv, int iPosicionCheck) {
 
 
             Rectangle rect = dgv.GetCellDisplayRectangle(iPosicionCheck, -1, true);
-            rect.X = rect.Location.X + 8;
+            rect.X = rect.Location.X + 5;
             rect.Y = rect.Location.Y + 5;
             rect.Width = rect.Size.Width;
             rect.Height = rect.Size.Height;
@@ -683,8 +685,9 @@ namespace SIPAA_CS.App_Code
             checkheader.Name = "checkboxHeader";
             checkheader.Size = new Size(15, 15);
             checkheader.Location = rect.Location;
-            dgv.Columns[iPosicionCheck].HeaderText = "      Seleccionar";
-            dgv.Columns[iPosicionCheck].Width = 100;
+            dgv.Columns[iPosicionCheck].Width = 80;
+            dgv.Columns[iPosicionCheck].HeaderText = "        Seleccionar";
+            
             dgv.Controls.Add(checkheader);
 
             return checkheader;
@@ -740,6 +743,8 @@ namespace SIPAA_CS.App_Code
 
             return new Size(sysW, sysH);
         }
+
+      
 
     }
 

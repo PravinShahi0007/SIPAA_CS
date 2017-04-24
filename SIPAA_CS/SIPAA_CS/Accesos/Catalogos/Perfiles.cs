@@ -39,7 +39,7 @@ namespace SIPAA_CS.Accesos
 
         private void LlenarGridPerfiles(DataTable dtPerfiles)
         {
-            if (Permisos.Eliminar || Permisos.Eliminar)
+            if (Permisos.dcPermisos["Eliminar"] == 1 || Permisos.dcPermisos["Actualizar"] == 1)
             {
                 if (dgvPerfiles.Columns.Count == 0)
                 {
@@ -58,7 +58,7 @@ namespace SIPAA_CS.Accesos
             dgvPerfiles.Columns["USUUMOD"].Visible = false;
             dgvPerfiles.Columns["FHUMOD"].Visible = false;
             dgvPerfiles.Columns["PRGUMOD"].Visible = false;
-            dgvPerfiles.Columns["stperfil"].Visible = false;
+           
             dgvPerfiles.Visible = true;
 
              
@@ -212,28 +212,24 @@ namespace SIPAA_CS.Accesos
 
         private void Crear_Perfil_Load(object sender, EventArgs e)
         {
-            
-            // Se crea lista de permisos por pantalla
-            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, "companias");
-            Dictionary<string,int> dcPermisos= Utilerias.CrearListaPermisoxPantalla(dtPermisos, LoginInfo.ltPermisosPantalla);
+
+
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
             //////////////////////////////////////////////////////
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
-            // variables de permisos
-            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
-            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
-            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
-            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
-            //////////////////////////////////////////////////////////////////////////////////////////
+
 
 
             Modulo objModulo = new Modulo();
             
 
-            if (Permisos.Crear) {
+            if (Permisos.dcPermisos["Crear"] == 0 ) {
 
-                btnAgregar.Visible = true;
+                btnAgregar.Visible = false;
             }
 
            
@@ -303,7 +299,7 @@ namespace SIPAA_CS.Accesos
 
 
                 //Permisos
-                if (Permisos.Eliminar && Permisos.Actualizar)
+                if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
                 {
 
                     Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
@@ -324,7 +320,7 @@ namespace SIPAA_CS.Accesos
                     }
 
                 }
-                else if (Permisos.Eliminar)
+                else if (Permisos.dcPermisos["Eliminar"] == 1)
                 {
                   iOpcionAdmin = 3;
                     if (strEstatus == "0")
@@ -335,7 +331,7 @@ namespace SIPAA_CS.Accesos
                         Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Baja");
                     }
                 }
-                else if (Permisos.Actualizar)
+                else if (Permisos.dcPermisos["Actualizar"] == 1)
                 {
                     Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
                     iOpcionAdmin = 2;              

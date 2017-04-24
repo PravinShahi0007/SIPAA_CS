@@ -80,6 +80,21 @@
     <Compile Include="Accesos\Asignaciones\UsuarioProceso.Designer.cs">
       <DependentUpon>UsuarioProceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\DataSets\ReporteAreasUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteAreasUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\DataSets\ReporteCompaniasUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCompaniasUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\DataSets\ReporteDepartamentosUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteDepartamentosUsuarios.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\DataSets\ReporteModulos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -105,10 +120,38 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteModulosPerfiles.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\DataSets\ReporteProcesosUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteProcesosUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\DataSets\ReporteUbicacionesUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteUbicacionesUsuarios.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\DataSets\ReporteUsuarios.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroAreasUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroAreasUsuarios.Designer.cs">
+      <DependentUpon>FiltroAreasUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroCompaniasUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroCompaniasUsuarios.Designer.cs">
+      <DependentUpon>FiltroCompaniasUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroDepartamentosUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroDepartamentosUsuarios.Designer.cs">
+      <DependentUpon>FiltroDepartamentosUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroModulos.cs">
       <SubType>Form</SubType>
@@ -140,11 +183,41 @@
     <Compile Include="Accesos\Reportes\FiltroProcesos.Designer.cs">
       <DependentUpon>FiltroProcesos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\Reportes\FiltroProcesosUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroProcesosUsuarios.Designer.cs">
+      <DependentUpon>FiltroProcesosUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroUbicacionesUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroUbicacionesUsuarios.Designer.cs">
+      <DependentUpon>FiltroUbicacionesUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\Reportes\FiltroUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroUsuarios.Designer.cs">
       <DependentUpon>FiltroUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ReporteAreasUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteAreasUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ReporteCompaniasUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCompaniasUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ReporteDepartamentosUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteDepartamentosUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Accesos\Reportes\ReporteModulos.cs">
       <AutoGen>True</AutoGen>
@@ -176,47 +249,29 @@
       <DependentUpon>ReporteProcesos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Accesos\Reportes\ReporteProcesosUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteProcesosUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ReporteUbicacionesUsuarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteUbicacionesUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Accesos\Reportes\ReporteUsuarios.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteUsuarios.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReporteModulos.cs">
+    <Compile Include="Accesos\Reportes\ViewerReporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReporteModulos.Designer.cs">
-      <DependentUpon>ViewerReporteModulos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReporteModulosPerfiles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReporteModulosPerfiles.Designer.cs">
-      <DependentUpon>ViewerReporteModulosPerfiles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReportePerfiles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReportePerfiles.Designer.cs">
-      <DependentUpon>ViewerReportePerfiles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReportePerfilesUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReportePerfilesUsuarios.Designer.cs">
-      <DependentUpon>ViewerReportePerfilesUsuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReporteProcesos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReporteProcesos.Designer.cs">
-      <DependentUpon>ViewerReporteProcesos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReporteUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accesos\Reportes\ViewerReporteUsuarios.Designer.cs">
-      <DependentUpon>ViewerReporteUsuarios.cs</DependentUpon>
+    <Compile Include="Accesos\Reportes\ViewerReporte.Designer.cs">
+      <DependentUpon>ViewerReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Accesos\Asignaciones\AreaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\CompaniaUsuario.cs" />
@@ -230,18 +285,22 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Mensaje.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\PlantillaDetalle.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\Plantilla.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\RepTrabPerfil.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaCompania2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaFormaPago.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaUbicacion.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\ArchNomina4.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueoIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\PeriodoProcesoIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\ReasignaSupyDirector.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorHorario.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
-    <Compile Include="Accesos\AccesosDashboard.cs">
+    <Compile Include="Accesos\AcceDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Accesos\AccesosDashboard.Designer.cs">
-      <DependentUpon>AccesosDashboard.cs</DependentUpon>
+    <Compile Include="Accesos\AcceDashboard.Designer.cs">
+      <DependentUpon>AcceDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Accesos\Asignaciones\PerfilModulo.cs">
       <SubType>Form</SubType>
@@ -450,6 +509,14 @@
     <Compile Include="RecursosHumanos\Catalogos\IncidenciasNominas.Designer.cs">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\IncidenciasPasadasNomina.rpt.cs">
+      <DependentUpon>IncidenciasPasadasNomina.rpt.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\IncidenciasPasadasNomina.rpt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncidenciasPasadasNomina.rpt.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\Observaciones.cs">
       <DependentUpon>Observaciones.xsd</DependentUpon>
     </Compile>
@@ -474,30 +541,43 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resumen.xsd</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.cs">
+    <Compile Include="RecursosHumanos\DataSets\TrabPerfil.cs">
+      <DependentUpon>TrabPerfil.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\TrabPerfil.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrabPerfil.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionIncidenciasTrabajador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.Designer.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionIncidenciasTrabajador.Designer.cs">
+      <DependentUpon>AsignacionIncidenciasTrabajador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTipoHorarioTrabajador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTipoHorarioTrabajador.Designer.cs">
       <DependentUpon>AsignacionTipoHorarioTrabajador.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Menu.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTrabajadorPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RecursosHumanos\MenuPba.cs" />
-    <Compile Include="RecursosHumanos\Procesos\AsignacionTrabajadorPerfil.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RecursosHumanos\Procesos\AsignacionTrabajadorPerfil.Designer.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTrabajadorPerfil.Designer.cs">
       <DependentUpon>AsignacionTrabajadorPerfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\DatosTrabajadorPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.Designer.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\DatosTrabajadorPerfil.Designer.cs">
       <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.Designer.cs">
+      <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.cs">
       <SubType>Form</SubType>
@@ -505,11 +585,17 @@
     <Compile Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.Designer.cs">
       <DependentUpon>ReasignaSupyDirectores.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\TrabajadoresPerfil.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\TrabajadoresPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\TrabajadoresPerfil.Designer.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\TrabajadoresPerfil.Designer.cs">
       <DependentUpon>TrabajadoresPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ArchivoNomina4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ArchivoNomina4.Designer.cs">
+      <DependentUpon>ArchivoNomina4.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.cs">
       <SubType>Form</SubType>
@@ -547,6 +633,12 @@
     <Compile Include="RecursosHumanos\Reportes\FiltroTrabPerfil.Designer.cs">
       <DependentUpon>FiltroTrabPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncidenciasPasadasNomina.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\Observaciones.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -571,6 +663,12 @@
       <DependentUpon>Resumen.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RTrabPerfil.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RTrabPerfil.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\ViewerReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -589,8 +687,8 @@
     <EmbeddedResource Include="Accesos\Asignaciones\UsuarioProceso.resx">
       <DependentUpon>UsuarioProceso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Accesos\AccesosDashboard.resx">
-      <DependentUpon>AccesosDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Accesos\AcceDashboard.resx">
+      <DependentUpon>AcceDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Asignaciones\PerfilModulo.resx">
       <DependentUpon>PerfilModulo.cs</DependentUpon>
@@ -603,6 +701,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Catalogos\Perfiles.resx">
       <DependentUpon>Perfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroAreasUsuarios.resx">
+      <DependentUpon>FiltroAreasUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroCompaniasUsuarios.resx">
+      <DependentUpon>FiltroCompaniasUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroDepartamentosUsuarios.resx">
+      <DependentUpon>FiltroDepartamentosUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\FiltroModulos.resx">
       <DependentUpon>FiltroModulos.cs</DependentUpon>
@@ -619,8 +726,26 @@
     <EmbeddedResource Include="Accesos\Reportes\FiltroProcesos.resx">
       <DependentUpon>FiltroProcesos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroProcesosUsuarios.resx">
+      <DependentUpon>FiltroProcesosUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroUbicacionesUsuarios.resx">
+      <DependentUpon>FiltroUbicacionesUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\FiltroUsuarios.resx">
       <DependentUpon>FiltroUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteAreasUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteAreasUsuarios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteCompaniasUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCompaniasUsuarios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteDepartamentosUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteDepartamentosUsuarios.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ReporteModulos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -642,27 +767,20 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteProcesos.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteProcesosUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteProcesosUsuarios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteUbicacionesUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteUbicacionesUsuarios.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ReporteUsuarios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteUsuarios.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Accesos\Reportes\ViewerReporteModulos.resx">
-      <DependentUpon>ViewerReporteModulos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accesos\Reportes\ViewerReporteModulosPerfiles.resx">
-      <DependentUpon>ViewerReporteModulosPerfiles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accesos\Reportes\ViewerReportePerfiles.resx">
-      <DependentUpon>ViewerReportePerfiles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accesos\Reportes\ViewerReportePerfilesUsuarios.resx">
-      <DependentUpon>ViewerReportePerfilesUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accesos\Reportes\ViewerReporteProcesos.resx">
-      <DependentUpon>ViewerReporteProcesos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accesos\Reportes\ViewerReporteUsuarios.resx">
-      <DependentUpon>ViewerReporteUsuarios.cs</DependentUpon>
+    <EmbeddedResource Include="Accesos\Reportes\ViewerReporte.resx">
+      <DependentUpon>ViewerReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -748,23 +866,29 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\IncidenciasNominas.resx">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.resx">
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionIncidenciasTrabajador.resx">
+      <DependentUpon>AsignacionIncidenciasTrabajador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTipoHorarioTrabajador.resx">
       <DependentUpon>AsignacionTipoHorarioTrabajador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignacionTrabajadorPerfil.resx">
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTrabajadorPerfil.resx">
       <DependentUpon>AsignacionTrabajadorPerfil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.resx">
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\DatosTrabajadorPerfil.resx">
       <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.resx">
+      <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.resx">
       <DependentUpon>ReasignaSupyDirectores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Procesos\TrabajadoresPerfil.resx">
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\TrabajadoresPerfil.resx">
       <DependentUpon>TrabajadoresPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\ArchivoNomina4.resx">
+      <DependentUpon>ArchivoNomina4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.resx">
       <DependentUpon>PeriodosProcesoIncidencia.cs</DependentUpon>
@@ -787,6 +911,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroTrabPerfil.resx">
       <DependentUpon>FiltroTrabPerfil.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>IncidenciasPasadasNomina.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Observaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Observaciones.cs</LastGenOutput>
@@ -802,12 +930,49 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Resumen.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RTrabPerfil.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RTrabPerfil.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Accesos\DataSets\ReporteAreasUsuarios.xsc">
+      <DependentUpon>ReporteAreasUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteAreasUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteAreasUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteAreasUsuarios.xss">
+      <DependentUpon>ReporteAreasUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteCompaniasUsuarios.xsc">
+      <DependentUpon>ReporteCompaniasUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteCompaniasUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteCompaniasUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteCompaniasUsuarios.xss">
+      <DependentUpon>ReporteCompaniasUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteDepartamentosUsuarios.xsc">
+      <DependentUpon>ReporteDepartamentosUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteDepartamentosUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteDepartamentosUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteDepartamentosUsuarios.xss">
+      <DependentUpon>ReporteDepartamentosUsuarios.xsd</DependentUpon>
+    </None>
     <None Include="Accesos\DataSets\ReporteModulos.xsc">
       <DependentUpon>ReporteModulos.xsd</DependentUpon>
     </None>
@@ -863,6 +1028,28 @@
     <None Include="Accesos\DataSets\ReporteModulosPerfiles.xss">
       <DependentUpon>ReporteModulosPerfiles.xsd</DependentUpon>
     </None>
+    <None Include="Accesos\DataSets\ReporteProcesosUsuarios.xsc">
+      <DependentUpon>ReporteProcesosUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteProcesosUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteProcesosUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteProcesosUsuarios.xss">
+      <DependentUpon>ReporteProcesosUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteUbicacionesUsuarios.xsc">
+      <DependentUpon>ReporteUbicacionesUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteUbicacionesUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteUbicacionesUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteUbicacionesUsuarios.xss">
+      <DependentUpon>ReporteUbicacionesUsuarios.xsd</DependentUpon>
+    </None>
     <None Include="Accesos\DataSets\ReporteUsuarios.xsc">
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
     </None>
@@ -909,6 +1096,17 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RecursosHumanos\DataSets\IncidenciasPasadasNomina.rpt.xsc">
+      <DependentUpon>IncidenciasPasadasNomina.rpt.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\IncidenciasPasadasNomina.rpt.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IncidenciasPasadasNomina.rpt.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\IncidenciasPasadasNomina.rpt.xss">
+      <DependentUpon>IncidenciasPasadasNomina.rpt.xsd</DependentUpon>
+    </None>
     <None Include="RecursosHumanos\DataSets\Observaciones.xsc">
       <DependentUpon>Observaciones.xsd</DependentUpon>
     </None>
@@ -941,6 +1139,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\Resumen.xss">
       <DependentUpon>Resumen.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\TrabPerfil.xsc">
+      <DependentUpon>TrabPerfil.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\TrabPerfil.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TrabPerfil.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\TrabPerfil.xss">
+      <DependentUpon>TrabPerfil.xsd</DependentUpon>
     </None>
     <None Include="Resources\drawable-xhdpi\ic_insert_chart_white_48dp.png" />
   </ItemGroup>

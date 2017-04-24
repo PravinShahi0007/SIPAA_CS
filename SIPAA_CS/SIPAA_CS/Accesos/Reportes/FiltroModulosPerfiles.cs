@@ -63,17 +63,20 @@ namespace SIPAA_CS.Accesos.Reportes
             modulo = cbModulo.SelectedIndex;
             perfil = cbPerfil.SelectedIndex;
 
+            string mod = cbModulo.SelectedValue.ToString();
+            string per = cbPerfil.SelectedValue.ToString();
 
+            
             //VALIDA SELECCION DE TODOS EN AMBOS COMBOS
-            if (modulo == 0 && perfil == 0 )
+            if (modulo == 0 && perfil == 0)
             {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "modulo perfil");
-                timer1.Start();
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "modulo perfil");
+                //timer1.Start();
 
-                
+
                 Perfil objPerfil = new Perfil();
                 DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfilesModulos("",0,"","",0,0,0,0,0,6);
+                dtReporte = objPerfil.ReportePerfilesModulos("%", "%", "", "", 0, 0, 0, 0, 0, 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -83,7 +86,106 @@ namespace SIPAA_CS.Accesos.Reportes
                         break;
 
                     default:
-                        ViewerReporteModulosPerfiles form = new ViewerReporteModulosPerfiles();
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteModulosPerfiles dtrpt = new ReporteModulosPerfiles();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
+            
+            //VALIDA MODULO Y PERFILES
+            else if (modulo > 0 && perfil > 0)
+            {
+                
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "modulo perfil");
+                //timer1.Start();
+
+
+                Perfil objPerfil = new Perfil();
+                DataTable dtReporte;
+                dtReporte = objPerfil.ReportePerfilesModulos(mod, per, "", "", 0, 0, 0, 0, 0, 6);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteModulosPerfiles dtrpt = new ReporteModulosPerfiles();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
+
+            //VALIDA MODULO
+            else if (modulo > 0 && perfil == 0)
+            {
+
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "modulo");
+                //timer1.Start();
+
+
+                Perfil objPerfil = new Perfil();
+                DataTable dtReporte;
+                dtReporte = objPerfil.ReportePerfilesModulos(mod, "%", "", "", 0, 0, 0, 0, 0, 6);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReporteModulosPerfiles dtrpt = new ReporteModulosPerfiles();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+
+                        ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+            }
+
+            //VALIDA PERFIL
+            else if (modulo == 0 && perfil > 0)
+            {
+
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "modulo");
+                //timer1.Start();
+
+
+                Perfil objPerfil = new Perfil();
+                DataTable dtReporte;
+                dtReporte = objPerfil.ReportePerfilesModulos("%", per, "", "", 0, 0, 0, 0, 0, 6);
+
+                switch (dtReporte.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
                         ReporteModulosPerfiles dtrpt = new ReporteModulosPerfiles();
                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 

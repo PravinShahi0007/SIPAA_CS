@@ -55,8 +55,30 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
             return ltUbicacionesxUsuario;
 
         }
-    }
+        public DataTable ReporteUbicacionUsuarios(string cvusuario,string idubicacion, string usuumod, string prgumod, int opcion)
+        {
 
-    
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_accetusuubi_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idubicacion", SqlDbType.VarChar).Value = idubicacion;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtCompanias = new DataTable();
+            Adapter.Fill(dtCompanias);
+
+            return dtCompanias;
+        }
+
+    }
 
 }

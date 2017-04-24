@@ -90,14 +90,16 @@ namespace SIPAA_CS.Accesos
         }
         private void dgvPerfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (CVUsuario != null)
+
+            if (Permisos.dcPermisos["Actualizar"] == 1)
             {
-
-                if (dgvPerfiles.SelectedRows.Count != 0)
+                if (CVUsuario != null)
                 {
-                 Utilerias.MultiSeleccionGridView(dgvPerfiles, 1, ltPerfiles, panelPermisos);
+                    if (dgvPerfiles.SelectedRows.Count != 0)
+                    {
+                        Utilerias.MultiSeleccionGridView(dgvPerfiles, 1, ltPerfiles, panelPermisos);
+                    }
                 }
-
             }
             else
             {
@@ -301,20 +303,15 @@ namespace SIPAA_CS.Accesos
         private void Asignar_Perfil_Load(object sender, EventArgs e)
         {
 
-            //// Se crea lista de permisos por pantalla
-            //LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Tag.ToString());
-            //DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
-            //LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
             //////////////////////////////////////////////////////
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
-            // variables de permisos
-            Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
-            Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
-            Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
-            Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
-            //////////////////////////////////////////////////////////////////////////////////////////
+
 
             llenarGridUsuarios("%", "%");
             LlenarGridPerfil("%", "%", 1);
@@ -346,28 +343,30 @@ namespace SIPAA_CS.Accesos
             dgvUsuarios.DataSource = dtUsuarios;
             Utilerias.AgregarCheck(dgvUsuarios, 3);
             dgvUsuarios.Columns[0].Visible = false;
-          //  dgvUsuarios.Columns[1].Visible = false;
+            //  dgvUsuarios.Columns[1].Visible = false;
+            dgvUsuarios.Columns[1].Width = 50;
+            dgvUsuarios.Columns[2].Width = 178;
             dgvUsuarios.ClearSelection();
         }
 
         private void PermisosPantalla() {
 
-            if (!Permisos.Eliminar && !Permisos.Actualizar && !Permisos.Crear)
+            if (Permisos.dcPermisos["Actualizar"] == 0)
             {
                 panelPermisos.Visible = false;
             }
 
-            if (!Permisos.Eliminar && !Permisos.Actualizar)
-            {
+            //if (Permisos.dcPermisos["Eliminar"] == 0 && Permisos.dcPermisos["Actualizar"] == 0)
+            //{
 
-                dgvUsuarios.ReadOnly = true;
-                dgvPerfiles.ReadOnly = true;
-                label10.Text = "Usuarios Registrados";
-                label12.Text = "Perfiles Registrados";
+            //    dgvUsuarios.ReadOnly = true;
+            //    dgvPerfiles.ReadOnly = true;
+            //    label10.Text = "Usuarios Registrados";
+            //    label12.Text = "Perfiles Registrados";
 
-                dgvPerfiles.Columns[0].Visible = false;
-                dgvUsuarios.Columns[3].Visible = false;
-            }
+            //    dgvPerfiles.Columns[0].Visible = false;
+            //    dgvUsuarios.Columns[3].Visible = false;
+            //}
 
 
         }
@@ -387,9 +386,9 @@ namespace SIPAA_CS.Accesos
             dgvPerfiles.Columns[5].Visible = false;
             dgvPerfiles.Columns[6].Visible = false;
 
-        
-           
-             dgvPerfiles.ClearSelection();
+            dgvPerfiles.Columns[2].Width = 172;
+
+            dgvPerfiles.ClearSelection();
 
         }
 

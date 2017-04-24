@@ -72,6 +72,73 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).BeginInit();
             this.SuspendLayout();
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Enabled = false;
+            label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label5.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            label5.Location = new System.Drawing.Point(11, 18);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(55, 16);
+            label5.TabIndex = 58;
+            label5.Text = "Password";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Enabled = false;
+            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label6.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            label6.Location = new System.Drawing.Point(18, 37);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(105, 16);
+            label6.TabIndex = 53;
+            label6.Text = "Descripcion Proceso";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Enabled = false;
+            label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.ForeColor = System.Drawing.Color.Gray;
+            label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
+            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label2.Location = new System.Drawing.Point(3, 1);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(125, 20);
+            label2.TabIndex = 42;
+            label2.Text = "     Buscar Proceso";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Enabled = false;
+            label4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label4.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            label4.Location = new System.Drawing.Point(25, 40);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(76, 16);
+            label4.TabIndex = 48;
+            label4.Text = "Clave Usuario";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Enabled = false;
+            label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.ForeColor = System.Drawing.Color.Gray;
+            label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
+            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label3.Location = new System.Drawing.Point(2, 3);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(119, 20);
+            label3.TabIndex = 42;
+            label3.Text = "     Buscar Usuario";
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -107,19 +174,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(176, 18);
             this.txtPassword.TabIndex = 60;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Enabled = false;
-            label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label5.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label5.Location = new System.Drawing.Point(11, 18);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(55, 16);
-            label5.TabIndex = 58;
-            label5.Text = "Password";
             // 
             // panel5
             // 
@@ -161,19 +215,6 @@
             this.btnBuscarProceso.Tag = "Buscar";
             this.btnBuscarProceso.UseVisualStyleBackColor = true;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Enabled = false;
-            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label6.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label6.Location = new System.Drawing.Point(18, 37);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(105, 16);
-            label6.TabIndex = 53;
-            label6.Text = "Descripcion Proceso";
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
@@ -181,20 +222,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(176, 2);
             this.panel4.TabIndex = 44;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Enabled = false;
-            label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.ForeColor = System.Drawing.Color.Gray;
-            label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(3, 1);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(125, 20);
-            label2.TabIndex = 42;
-            label2.Text = "     Buscar Proceso";
             // 
             // txtUsuario
             // 
@@ -232,19 +259,6 @@
             this.panel2.Size = new System.Drawing.Size(367, 164);
             this.panel2.TabIndex = 121;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Enabled = false;
-            label4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label4.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label4.Location = new System.Drawing.Point(25, 40);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(76, 16);
-            label4.TabIndex = 48;
-            label4.Text = "Clave Usuario";
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
@@ -252,20 +266,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(176, 2);
             this.panel8.TabIndex = 44;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Enabled = false;
-            label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.ForeColor = System.Drawing.Color.Gray;
-            label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
-            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(2, 3);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(119, 20);
-            label3.TabIndex = 42;
-            label3.Text = "     Buscar Usuario";
             // 
             // lblusuario
             // 
