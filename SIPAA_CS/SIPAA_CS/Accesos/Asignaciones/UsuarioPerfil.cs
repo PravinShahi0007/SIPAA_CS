@@ -99,7 +99,7 @@ namespace SIPAA_CS.Accesos
                     {
                         Utilerias.MultiSeleccionGridView(dgvPerfiles, 1, ltPerfiles, panelPermisos);
                     }
-                
+                }
             }
             else
             {
@@ -107,7 +107,6 @@ namespace SIPAA_CS.Accesos
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Usuario");
                 timer1.Start();
             }
-        }
         }
 
 
