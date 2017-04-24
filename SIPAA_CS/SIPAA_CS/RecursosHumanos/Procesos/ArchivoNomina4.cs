@@ -106,7 +106,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void btngenerararchivo_Click(object sender, EventArgs e)
         {
-            creacsv();
+            if (txtanonom.Text=="" | txtnumnom.Text=="")
+            {
+                MessageBox.Show("Debe proporcionar el Año de Nomina y Número de Nomina", "SIPPA");
+                txtanonom.Focus();
+            }
+            else
+            {
+                //creacsv();
+                creacsvcorto();
+            }            
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -225,56 +234,117 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             Application.Restart();
         }
 
-        //private void creacsv()
-        //{
-        //    saveFileDialogArchivo.Filter = "csv files (*.csv)|*.csv";
+        private void creacsvcorto()
+        {
+            saveFileDialogArchivo.Filter = "csv files (*.csv)|*.csv";
 
-        //    if (saveFileDialogArchivo.ShowDialog() == System.Windows.Forms.DialogResult.OK
-        //        && saveFileDialogArchivo.FileName.Length > 0)
-        //    {
-        //        int creado = 0;
-        //        try
-        //        {
-        //            FileInfo archt = new FileInfo(saveFileDialogArchivo.FileName);
-        //            StreamWriter Texto = archt.CreateText();
-        //            //variable entera que llevara el control del numero de renglones que contiene el DataGridView//
-        //            //Es un ciclo con un numero de iteraciones que variara dependiendo del numero de columnas del Grid
-        //            int n = 0;
-        //            foreach (DataGridViewRow row in dgvArchivoNomina4.Rows)
-        //            {
-        //                int tcol = Convert.ToInt32(row.Cells.Count.ToString());
+            if (saveFileDialogArchivo.ShowDialog() == System.Windows.Forms.DialogResult.OK
+                && saveFileDialogArchivo.FileName.Length > 0)
+            {
+                int creado = 0;
 
-        //                string cadenaReg = dgvArchivoNomina4.Rows[n].Cells[0].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[1].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[2].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[3].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[4].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[5].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[6].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[7].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[8].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[9].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[10].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[11].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[12].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[13].Value.ToString() + "," +
-        //                    dgvArchivoNomina4.Rows[n].Cells[14].Value.ToString();
-        //                Texto.WriteLine(cadenaReg);
-        //                n += 1;
-        //            }
-        //            Texto.Write(Texto.NewLine);
-        //            Texto.Close();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            creado = 1;
-        //        }
-        //        if (creado == 0)
-        //            MessageBox.Show("El Archivo " + saveFileDialogArchivo.FileName + " ha sido creado");
-        //        else
-        //            MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
-        //    }
-        //}
+                try
+                {
+                    FileInfo archt = new FileInfo(saveFileDialogArchivo.FileName);
+                    StreamWriter Texto = archt.CreateText();
+                    //variable entera que llevara el control del numero de renglones que contiene el DataGridView//
+                    //Es un ciclo con un numero de iteraciones que variara dependiendo del numero de columnas del Grid
+                    //Encabezados
+                    string cadenaRegEnc = "AnoNomina,NoNomina,NoEmpleado,ClaveAfecta,Tiempo,FechaReg,Constante,Conteo";
+                    Texto.WriteLine(cadenaRegEnc);
+
+                    int ren = 0;
+                    string anonomina="", fechareg="";
+                    int nonomina=0, noempleado=0, claveafecta=0, duro=0, conteo=1;
+                    double tiempo = 0;
+                    string cadenaReg = "";
+
+                    foreach (DataGridViewRow row in dgvArchivoNomina4.Rows)
+                    {
+                        //string cadenaReg = "";
+                        if (ren==0)
+                        {
+                            anonomina = txtanonom.Text;
+                            nonomina = Convert.ToInt32(txtnumnom.Text);
+                            noempleado = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[0].Value.ToString());
+                            claveafecta = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+                            if (dgvArchivoNomina4.Rows[ren].Cells[9].Value.ToString()=="1") //cvrepresenta es Falta
+                            {
+                                if (dgvArchivoNomina4.Rows[ren].Cells[5].Value.ToString()=="1") //y es turno por dia
+                                {
+                                    tiempo = 1;
+                                }
+                            }
+                            else
+                            {
+                                tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[13].Value.ToString());
+                            }
+                            fechareg = dgvArchivoNomina4.Rows[ren].Cells[7].Value.ToString();
+                            duro = 0;
+                            conteo = 1;
+                        }
+                        else
+                        {
+                            if (noempleado == Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[0].Value.ToString()) & 
+                                claveafecta == Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString()))
+                            {
+                                conteo = conteo + 1;
+                                if (dgvArchivoNomina4.Rows[ren].Cells[9].Value.ToString() == "1") //cvrepresenta es Falta
+                                {
+                                    if (dgvArchivoNomina4.Rows[ren].Cells[5].Value.ToString() == "1") //y es turno por dia
+                                    {
+                                        tiempo = tiempo + 1;
+                                    }
+                                }
+                                else
+                                {
+                                    tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[13].Value.ToString());
+                                }
+                            }
+                            else
+                            {
+                                cadenaReg = anonomina+","+nonomina+","+noempleado+","+claveafecta+","+tiempo+","+fechareg+","+duro+","+conteo;
+                                Texto.WriteLine(cadenaReg);
+                                //ren += 1;
+                                anonomina = txtanonom.Text;
+                                nonomina = Convert.ToInt32(txtnumnom.Text);
+                                noempleado = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[0].Value.ToString());
+                                claveafecta = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+                                if (dgvArchivoNomina4.Rows[ren].Cells[9].Value.ToString() == "1") //cvrepresenta es Falta
+                                {
+                                    if (dgvArchivoNomina4.Rows[ren].Cells[5].Value.ToString() == "1") //y es turno por dia
+                                    {
+                                        tiempo = 1;
+                                    }
+                                }
+                                else
+                                {
+                                    tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[13].Value.ToString());
+                                }
+                                fechareg = dgvArchivoNomina4.Rows[ren].Cells[7].Value.ToString();
+                                duro = 0;
+                                conteo = 1;
+                            }
+                        }
+                        ren += 1;
+                    }
+                    cadenaReg = anonomina + "," + nonomina + "," + noempleado + "," + claveafecta + "," + tiempo + "," + fechareg + "," + duro + "," + conteo;
+                    Texto.WriteLine(cadenaReg);
+                    Texto.Write(Texto.NewLine);
+                    Texto.Close();
+                }
+                catch (Exception ex)
+                {
+                    creado = 1;
+                }
+                if (creado == 0)
+                    MessageBox.Show("El Archivo " + saveFileDialogArchivo.FileName + " ha sido creado");
+                else
+                    MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
+            }
+            Application.Restart();
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------
