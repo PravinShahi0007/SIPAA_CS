@@ -100,6 +100,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteProcesos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\DataSets\ReporteModulosPerfiles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteModulosPerfiles.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\DataSets\ReporteUsuarios.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,6 +115,12 @@
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroModulos.Designer.cs">
       <DependentUpon>FiltroModulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroModulosPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\FiltroModulosPerfiles.Designer.cs">
+      <DependentUpon>FiltroModulosPerfiles.cs</DependentUpon>
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroPerfiles.cs">
       <SubType>Form</SubType>
@@ -141,6 +152,12 @@
       <DependentUpon>ReporteModulos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Accesos\Reportes\ReporteModulosPerfiles.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteModulosPerfiles.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Accesos\Reportes\ReportePerfiles.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -170,6 +187,12 @@
     </Compile>
     <Compile Include="Accesos\Reportes\ViewerReporteModulos.Designer.cs">
       <DependentUpon>ViewerReporteModulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ViewerReporteModulosPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Reportes\ViewerReporteModulosPerfiles.Designer.cs">
+      <DependentUpon>ViewerReporteModulosPerfiles.cs</DependentUpon>
     </Compile>
     <Compile Include="Accesos\Reportes\ViewerReportePerfiles.cs">
       <SubType>Form</SubType>
@@ -451,6 +474,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resumen.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.Designer.cs">
+      <DependentUpon>AsignacionTipoHorarioTrabajador.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -512,6 +541,12 @@
     <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.Designer.cs">
       <DependentUpon>FiltrosRegistroGeneradoDetalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroTrabPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroTrabPerfil.Designer.cs">
+      <DependentUpon>FiltroTrabPerfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\Observaciones.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -572,6 +607,9 @@
     <EmbeddedResource Include="Accesos\Reportes\FiltroModulos.resx">
       <DependentUpon>FiltroModulos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\FiltroModulosPerfiles.resx">
+      <DependentUpon>FiltroModulosPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\FiltroPerfiles.resx">
       <DependentUpon>FiltroPerfiles.cs</DependentUpon>
     </EmbeddedResource>
@@ -587,6 +625,10 @@
     <EmbeddedResource Include="Accesos\Reportes\ReporteModulos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteModulos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ReporteModulosPerfiles.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteModulosPerfiles.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ReportePerfiles.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -606,6 +648,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ViewerReporteModulos.resx">
       <DependentUpon>ViewerReporteModulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Reportes\ViewerReporteModulosPerfiles.resx">
+      <DependentUpon>ViewerReporteModulosPerfiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ViewerReportePerfiles.resx">
       <DependentUpon>ViewerReportePerfiles.cs</DependentUpon>
@@ -703,6 +748,9 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\IncidenciasNominas.resx">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.resx">
+      <DependentUpon>AsignacionTipoHorarioTrabajador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
@@ -735,6 +783,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.resx">
       <DependentUpon>FiltrosRegistroGeneradoDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroTrabPerfil.resx">
+      <DependentUpon>FiltroTrabPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Observaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -800,6 +851,17 @@
     </None>
     <None Include="Accesos\DataSets\ReporteProcesos.xss">
       <DependentUpon>ReporteProcesos.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteModulosPerfiles.xsc">
+      <DependentUpon>ReporteModulosPerfiles.xsd</DependentUpon>
+    </None>
+    <None Include="Accesos\DataSets\ReporteModulosPerfiles.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteModulosPerfiles.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Accesos\DataSets\ReporteModulosPerfiles.xss">
+      <DependentUpon>ReporteModulosPerfiles.xsd</DependentUpon>
     </None>
     <None Include="Accesos\DataSets\ReporteUsuarios.xsc">
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
