@@ -58,13 +58,43 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
         {
             
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusuare_s";
+            cmd.CommandText = "usp_accetusuare_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
             //cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
             cmd.Parameters.Add("@idcompania", SqlDbType.Int).Value = idcompania;
+
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtAreaUsuario = new DataTable();
+            Adapter.Fill(dtAreaUsuario);
+            return dtAreaUsuario;
+
+        }
+
+        //REPORTE
+        public DataTable ReporteAreaUsuario(string cvusuario,string idcompania, string idplanta, string usuumod, string prgumod, int opcion)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_accetusuare_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idcompania", SqlDbType.VarChar).Value = idcompania;
+            cmd.Parameters.Add("@p_idplanta", SqlDbType.VarChar).Value = idplanta;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.VarChar).Value = opcion;
 
 
             objConexion.asignarConexion(cmd);

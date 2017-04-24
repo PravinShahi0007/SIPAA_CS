@@ -156,7 +156,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 cbCompania.Text = "Seleccionar Compañia...";
 
                 //llenado de combo ubicaciones
-                util.cargarcombo(cbUbicacion, oUbicacion.obtenerubicaciones(4, ""));
+                util.cargarcombo(cbUbicacion, oUbicacion.obtenerSonaUbicacion("",4));
                 //DataTable dtUbicacion = oUbicacion.obtenerubicaciones(4, "");
                 //cbUbicacion.DataSource = dtUbicacion;
                 //cbUbicacion.DisplayMember = "Descripción";

@@ -130,7 +130,7 @@ namespace SIPAA_CS.App_Code
 
 
 
-        public List<string> ObtenerListaModulosxUsuario(string CVUsuario)
+        public List<string> ObtenerListaModulosxUsuario(string CVUsuario,int iOpcion)
         {
 
             Perfil objPerfil = new Perfil();
@@ -144,7 +144,7 @@ namespace SIPAA_CS.App_Code
 
                 Modulo objModulo = new Modulo();
                 // int iCVPerfil = ltPerfiles.ElementAt(iCV);
-                List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCV);
+                List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCV,iOpcion);
 
                 foreach (string obj in ltModulos)
                 {
@@ -394,7 +394,7 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public DataTable ReporteUsuarios(string cvusuario, int idtrab, string nombre, string passw, int stusuario, string usuumod, string prgmod, int opcion)
+        public DataTable ReporteUsuarios(string cvusuario, int idtrab, string nombre, string passw, string stusuario, string usuumod, string prgmod, int opcion)
         {
 
             Conexion objConexion = new Conexion();
@@ -406,7 +406,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idtrab;
             cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = nombre;
             cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = passw;
-            cmd.Parameters.Add("@p_stusuario", SqlDbType.Int).Value = stusuario;
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.VarChar).Value = stusuario;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgmod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;

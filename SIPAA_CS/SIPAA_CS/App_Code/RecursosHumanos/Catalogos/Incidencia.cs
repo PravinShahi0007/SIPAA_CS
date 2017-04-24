@@ -174,5 +174,33 @@ namespace SIPAA_CS.App_Code
             return dtIncidencia;
         }
 
+
+        public DataTable ReporteIncidenciasPasadasNomina(string sIdTrab, DateTime dtFechaInicio
+                                                 , DateTime dtFechaFin,string sCompania, string sTNom
+                                                 ,string sUbicacion)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechincidenciaspasadasnomina_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("P_idtrab", SqlDbType.VarChar).Value = sIdTrab;
+            cmd.Parameters.Add("P_fechainicio", SqlDbType.DateTime).Value = dtFechaInicio;
+            cmd.Parameters.Add("P_fechafin", SqlDbType.DateTime).Value = dtFechaFin;
+            cmd.Parameters.Add("P_cia", SqlDbType.VarChar).Value = sCompania;
+            cmd.Parameters.Add("P_tnom", SqlDbType.VarChar).Value = sTNom;
+            cmd.Parameters.Add("P_Ubicacion", SqlDbType.VarChar).Value = sUbicacion;
+
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtIncidencia = new DataTable();
+            Adapter.Fill(dtIncidencia);
+
+            return dtIncidencia;
+        }
     }
 }

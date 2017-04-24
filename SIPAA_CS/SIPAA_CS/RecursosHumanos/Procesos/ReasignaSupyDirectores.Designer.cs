@@ -45,8 +45,24 @@
             this.TxtFeFin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.TxtIdEmp = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TxtIdSupOri = new System.Windows.Forms.TextBox();
+            this.TxtIdDirOri = new System.Windows.Forms.TextBox();
+            this.TxtIdSupFin = new System.Windows.Forms.TextBox();
+            this.TxtIdDirFin = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TxtNombreEmpleado = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnInsertar = new System.Windows.Forms.Button();
+            this.dgvIncidencias = new System.Windows.Forms.DataGridView();
             lblFormaPago = new System.Windows.Forms.Label();
             this.panelTag.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncidencias)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFormaPago
@@ -184,17 +200,23 @@
             // 
             // TxtFeIni
             // 
+            this.TxtFeIni.Enabled = false;
             this.TxtFeIni.Location = new System.Drawing.Point(254, 154);
             this.TxtFeIni.Name = "TxtFeIni";
-            this.TxtFeIni.Size = new System.Drawing.Size(110, 20);
+            this.TxtFeIni.ReadOnly = true;
+            this.TxtFeIni.Size = new System.Drawing.Size(80, 20);
             this.TxtFeIni.TabIndex = 153;
+            this.TxtFeIni.TabStop = false;
             // 
             // TxtFeFin
             // 
+            this.TxtFeFin.Enabled = false;
             this.TxtFeFin.Location = new System.Drawing.Point(401, 155);
             this.TxtFeFin.Name = "TxtFeFin";
-            this.TxtFeFin.Size = new System.Drawing.Size(105, 20);
+            this.TxtFeFin.ReadOnly = true;
+            this.TxtFeFin.Size = new System.Drawing.Size(75, 20);
             this.TxtFeFin.TabIndex = 154;
+            this.TxtFeFin.TabStop = false;
             // 
             // label1
             // 
@@ -202,7 +224,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label1.Location = new System.Drawing.Point(262, 136);
+            this.label1.Location = new System.Drawing.Point(253, 136);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 16);
             this.label1.TabIndex = 155;
@@ -214,11 +236,181 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label2.Location = new System.Drawing.Point(405, 136);
+            this.label2.Location = new System.Drawing.Point(400, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 156;
             this.label2.Text = "Fecha Final";
+            // 
+            // TxtIdEmp
+            // 
+            this.TxtIdEmp.Location = new System.Drawing.Point(40, 223);
+            this.TxtIdEmp.Name = "TxtIdEmp";
+            this.TxtIdEmp.Size = new System.Drawing.Size(84, 20);
+            this.TxtIdEmp.TabIndex = 157;
+            this.TxtIdEmp.Enter += new System.EventHandler(this.TxtIdEmp_Enter);
+            this.TxtIdEmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
+            this.TxtIdEmp.Leave += new System.EventHandler(this.ObtieneEmpleado);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label4.Location = new System.Drawing.Point(44, 204);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 16);
+            this.label4.TabIndex = 159;
+            this.label4.Text = "Id Empleado";
+            // 
+            // TxtIdSupOri
+            // 
+            this.TxtIdSupOri.Enabled = false;
+            this.TxtIdSupOri.Location = new System.Drawing.Point(548, 226);
+            this.TxtIdSupOri.Name = "TxtIdSupOri";
+            this.TxtIdSupOri.ReadOnly = true;
+            this.TxtIdSupOri.Size = new System.Drawing.Size(113, 20);
+            this.TxtIdSupOri.TabIndex = 160;
+            this.TxtIdSupOri.TabStop = false;
+            this.TxtIdSupOri.Leave += new System.EventHandler(this.ObtieneSupyDir);
+            // 
+            // TxtIdDirOri
+            // 
+            this.TxtIdDirOri.Enabled = false;
+            this.TxtIdDirOri.Location = new System.Drawing.Point(695, 223);
+            this.TxtIdDirOri.Name = "TxtIdDirOri";
+            this.TxtIdDirOri.ReadOnly = true;
+            this.TxtIdDirOri.Size = new System.Drawing.Size(109, 20);
+            this.TxtIdDirOri.TabIndex = 161;
+            this.TxtIdDirOri.TabStop = false;
+            // 
+            // TxtIdSupFin
+            // 
+            this.TxtIdSupFin.Location = new System.Drawing.Point(543, 551);
+            this.TxtIdSupFin.Name = "TxtIdSupFin";
+            this.TxtIdSupFin.Size = new System.Drawing.Size(106, 20);
+            this.TxtIdSupFin.TabIndex = 162;
+            this.TxtIdSupFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
+            // 
+            // TxtIdDirFin
+            // 
+            this.TxtIdDirFin.Location = new System.Drawing.Point(690, 551);
+            this.TxtIdDirFin.Name = "TxtIdDirFin";
+            this.TxtIdDirFin.Size = new System.Drawing.Size(113, 20);
+            this.TxtIdDirFin.TabIndex = 163;
+            this.TxtIdDirFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label3.Location = new System.Drawing.Point(540, 532);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 16);
+            this.label3.TabIndex = 164;
+            this.label3.Text = "Id Supervisor";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label5.Location = new System.Drawing.Point(689, 532);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 16);
+            this.label5.TabIndex = 165;
+            this.label5.Text = "Id Director";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label6.Location = new System.Drawing.Point(694, 204);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 16);
+            this.label6.TabIndex = 166;
+            this.label6.Text = "Id Director";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label7.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label7.Location = new System.Drawing.Point(545, 207);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 16);
+            this.label7.TabIndex = 167;
+            this.label7.Text = "Id Supervisor";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // TxtNombreEmpleado
+            // 
+            this.TxtNombreEmpleado.Enabled = false;
+            this.TxtNombreEmpleado.Location = new System.Drawing.Point(172, 225);
+            this.TxtNombreEmpleado.Name = "TxtNombreEmpleado";
+            this.TxtNombreEmpleado.ReadOnly = true;
+            this.TxtNombreEmpleado.Size = new System.Drawing.Size(343, 20);
+            this.TxtNombreEmpleado.TabIndex = 168;
+            this.TxtNombreEmpleado.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label8.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label8.Location = new System.Drawing.Point(179, 204);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 16);
+            this.label8.TabIndex = 169;
+            this.label8.Text = "Empleado";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label9.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label9.Location = new System.Drawing.Point(370, 555);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(167, 16);
+            this.label9.TabIndex = 170;
+            this.label9.Text = "Nuevo Supervisor y Director";
+            // 
+            // btnInsertar
+            // 
+            this.btnInsertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.btnInsertar.Location = new System.Drawing.Point(642, 632);
+            this.btnInsertar.Name = "btnInsertar";
+            this.btnInsertar.Size = new System.Drawing.Size(50, 50);
+            this.btnInsertar.TabIndex = 171;
+            this.btnInsertar.UseVisualStyleBackColor = false;
+            this.btnInsertar.Click += new System.EventHandler(this.ActualizaSudyDir);
+            // 
+            // dgvIncidencias
+            // 
+            this.dgvIncidencias.AllowUserToAddRows = false;
+            this.dgvIncidencias.AllowUserToDeleteRows = false;
+            this.dgvIncidencias.AllowUserToOrderColumns = true;
+            this.dgvIncidencias.AllowUserToResizeRows = false;
+            this.dgvIncidencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIncidencias.Location = new System.Drawing.Point(252, 273);
+            this.dgvIncidencias.Name = "dgvIncidencias";
+            this.dgvIncidencias.ReadOnly = true;
+            this.dgvIncidencias.RowHeadersVisible = false;
+            this.dgvIncidencias.Size = new System.Drawing.Size(550, 246);
+            this.dgvIncidencias.TabIndex = 172;
             // 
             // ReasignaSupyDirectores
             // 
@@ -226,6 +418,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.JSierra;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.dgvIncidencias);
+            this.Controls.Add(this.btnInsertar);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.TxtNombreEmpleado);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TxtIdDirFin);
+            this.Controls.Add(this.TxtIdSupFin);
+            this.Controls.Add(this.TxtIdDirOri);
+            this.Controls.Add(this.TxtIdSupOri);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.TxtIdEmp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtFeFin);
@@ -244,6 +451,7 @@
             this.Text = "ReasignaSupyDirectores";
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIncidencias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +473,20 @@
         private System.Windows.Forms.TextBox TxtFeFin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtIdEmp;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TxtIdSupOri;
+        private System.Windows.Forms.TextBox TxtIdDirOri;
+        private System.Windows.Forms.TextBox TxtIdSupFin;
+        private System.Windows.Forms.TextBox TxtIdDirFin;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox TxtNombreEmpleado;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnInsertar;
+        private System.Windows.Forms.DataGridView dgvIncidencias;
     }
 }

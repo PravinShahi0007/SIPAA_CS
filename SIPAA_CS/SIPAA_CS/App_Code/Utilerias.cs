@@ -676,7 +676,7 @@ namespace SIPAA_CS.App_Code
 
 
             Rectangle rect = dgv.GetCellDisplayRectangle(iPosicionCheck, -1, true);
-            rect.X = rect.Location.X + 8;
+            rect.X = rect.Location.X + 5;
             rect.Y = rect.Location.Y + 5;
             rect.Width = rect.Size.Width;
             rect.Height = rect.Size.Height;
@@ -685,8 +685,9 @@ namespace SIPAA_CS.App_Code
             checkheader.Name = "checkboxHeader";
             checkheader.Size = new Size(15, 15);
             checkheader.Location = rect.Location;
-            dgv.Columns[iPosicionCheck].HeaderText = "      Seleccionar";
-            dgv.Columns[iPosicionCheck].Width = 100;
+            dgv.Columns[iPosicionCheck].Width = 80;
+            dgv.Columns[iPosicionCheck].HeaderText = "        Seleccionar";
+            
             dgv.Controls.Add(checkheader);
 
             return checkheader;

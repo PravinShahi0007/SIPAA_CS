@@ -28,69 +28,19 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             InitializeComponent();
         }
 
-        private void btnImprimirDetalle_Click(object sender, EventArgs e)
+        //***********************************************************************************************
+        //Autor: Victor Jesús Iturburu Vergara
+        //Fecha creación:04-04-2017     Última Modificacion: 17-04-2017
+        //Descripción: -------------------------------
+        //***********************************************************************************************
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      C O M B O S
+        //-----------------------------------------------------------------------------------------------
+
+        private void LlenarCombos(DataTable dt, ComboBox cb)
         {
-
-
-           
-             dtFechaInicio = dpFechaInicio.Value.AddDays(-1);
-             dtFechaFin = dpFechaFin.Value.AddDays(-1);
-
-            if (txtIdTrab.Text == String.Empty)
-            {
-                sIdTrab = "%";
-            }
-            else {
-                sIdTrab = txtIdTrab.Text;
-            }
-
-           
-
-            sCompania = AsignarVariableCombo(cbCia);
-            sUbicacion = AsignarVariableCombo(cbUbicacion);
-
-            Incidencia objIncidencia = new Incidencia();
-            DataTable dtReporte;
-            dtReporte = objIncidencia.ReporteRegistroGeneradoDetalle(sIdTrab,dtFechaInicio,dtFechaFin,sUbicacion,sCompania);
-
-            switch (dtReporte.Rows.Count) {
-
-                case 0: DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
-                    break;
-
-                default:
-                    ViewerReporte form = new ViewerReporte();
-                    RegistroGeneradoDetalle dtrpt = new RegistroGeneradoDetalle();
-                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "RecursosHumanos", dtrpt.ResourceName);
-
-                    ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                    ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
-                    ReportDoc.SetParameterValue("FechaTermino", dpFechaFin.Value);
-                    form.RptDoc = ReportDoc;
-                    form.Show();
-                    break;
-
-            }
-
-           
-
-
-        }
-
-        private void FiltrosRegistroGeneradoDetalle_Load(object sender, EventArgs e)
-        {
-           
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-
-            SonaCompania objCia = new SonaCompania();
-            DataTable dtCia = objCia.obtcomp(5, "");
-            LlenarCombos(dtCia,cbCia);
-
-            DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(5,"%");
-            LlenarCombos(dtUbicacion,cbUbicacion);
-        }
-
-        private void LlenarCombos(DataTable dt,ComboBox cb) {
 
             List<string> lt = new List<string>();
 
@@ -105,26 +55,59 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             cb.DataSource = lt;
 
         }
+        //-----------------------------------------------------------------------------------------------
+        //                                      G R I D // S
+        //-----------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------
+        //                                     B O T O N E S
+        //-----------------------------------------------------------------------------------------------
 
-        private string AsignarVariableCombo(ComboBox cb) {
+        private void btnImprimirDetalle_Click(object sender, EventArgs e)
+        {
 
-            string sAsignacion = "";
 
-            switch (cb.SelectedIndex)
+
+            dtFechaInicio = dpFechaInicio.Value.AddDays(-1);
+            dtFechaFin = dpFechaFin.Value.AddDays(-1);
+
+            if (txtIdTrab.Text == String.Empty)
             {
-                case 0: sAsignacion = "%";
-                    break;
-
-                default: sAsignacion = cb.SelectedItem.ToString();
-                    break;
-
+                sIdTrab = "%";
+            }
+            else
+            {
+                sIdTrab = txtIdTrab.Text;
             }
 
-            return sAsignacion;
 
+
+            sCompania = AsignarVariableCombo(cbCia);
+            sUbicacion = AsignarVariableCombo(cbUbicacion);
+
+            Incidencia objIncidencia = new Incidencia();
+            DataTable dtReporte;
+            dtReporte = objIncidencia.ReporteRegistroGeneradoDetalle(sIdTrab, dtFechaInicio, dtFechaFin, sUbicacion, sCompania);
+
+            switch (dtReporte.Rows.Count)
+            {
+
+                case 0:
+                    DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                    break;
+
+                default:
+                    ViewerReporte form = new ViewerReporte();
+                    RegistroGeneradoDetalle dtrpt = new RegistroGeneradoDetalle();
+                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "RecursosHumanos", dtrpt.ResourceName);
+
+                    ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                    ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
+                    ReportDoc.SetParameterValue("FechaTermino", dpFechaFin.Value);
+                    form.RptDoc = ReportDoc;
+                    form.Show();
+                    break;
+           }
         }
-
-      
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
@@ -146,6 +129,30 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             }
         }
 
+        //-----------------------------------------------------------------------------------------------
+        //                           C A J A S      D E      T E X T O   
+        //-----------------------------------------------------------------------------------------------
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                     E V E N T O S
+        //-----------------------------------------------------------------------------------------------
+
+        private void FiltrosRegistroGeneradoDetalle_Load(object sender, EventArgs e)
+        {
+
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
+            SonaCompania objCia = new SonaCompania();
+            DataTable dtCia = objCia.obtcomp(5, "");
+            LlenarCombos(dtCia, cbCia);
+
+            DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(5, "%");
+            LlenarCombos(dtUbicacion, cbUbicacion);
+        }
+
+
+
         private void dpFechaFin_ValueChanged(object sender, EventArgs e)
         {
             if (dpFechaInicio.Value > dpFechaFin.Value)
@@ -160,14 +167,15 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 //btnImprimirResumen.Enabled = false;
 
             }
-            else {
+            else
+            {
 
                 btnImprimirDetalle.Enabled = true;
                 //btnImprimirResumen.Enabled = true;
 
             }
-           
-          
+
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -175,5 +183,37 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             panelTag.Visible = false;
             timer1.Stop();
         }
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+
+
+        private string AsignarVariableCombo(ComboBox cb)
+        {
+
+            string sAsignacion = "";
+
+            switch (cb.SelectedIndex)
+            {
+                case 0:
+                    sAsignacion = "%";
+                    break;
+
+                default:
+                    sAsignacion = cb.SelectedItem.ToString();
+                    break;
+
+            }
+
+            return sAsignacion;
+
+        }
+
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      R E P O R T E
+        //-----------------------------------------------------------------------------------------------
     }
 }
