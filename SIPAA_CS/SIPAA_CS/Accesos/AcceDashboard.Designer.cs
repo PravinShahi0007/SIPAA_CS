@@ -171,7 +171,7 @@
             this.tsmiProcesos.Image = ((System.Drawing.Image)(resources.GetObject("tsmiProcesos.Image")));
             this.tsmiProcesos.Name = "tsmiProcesos";
             this.tsmiProcesos.Size = new System.Drawing.Size(152, 22);
-            this.tsmiProcesos.Tag = "frmProceso";
+            this.tsmiProcesos.Tag = "Procesos";
             this.tsmiProcesos.Text = "Procesos";
             this.tsmiProcesos.Click += new System.EventHandler(this.tsmiProcesos_Click);
             // 
