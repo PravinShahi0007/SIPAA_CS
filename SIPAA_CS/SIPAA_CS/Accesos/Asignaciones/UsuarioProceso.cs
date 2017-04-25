@@ -193,7 +193,7 @@ namespace SIPAA_CS.Accesos
             descripcion = txtDescripcion.Text;
 
             dgvProceso.Columns.Remove(columnName: "Seleccionar");
-            LlenaGridProcesos(0, descripcion, 0, "", "", 6);
+            LlenaGridProcesos("", descripcion, 0, "", "", 6);
            
         }
 
@@ -209,7 +209,7 @@ namespace SIPAA_CS.Accesos
         {
             LlenaGridUsuarios("", 0, "", "", 0, "", "", 8);
 
-            LlenaGridProcesos(0, "", 0, "0", "", 5);
+            LlenaGridProcesos("", "", 0, "0", "", 5);
 
             cbAsignaPassword.Visible = false;
 
@@ -248,7 +248,7 @@ namespace SIPAA_CS.Accesos
             dgvUsuario.ClearSelection();
         }
 
-        private void LlenaGridProcesos(int cvproceso, string descripcion, int stproceso, string usuumod, string prgumod, int opcion)
+        private void LlenaGridProcesos(string cvproceso, string descripcion, int stproceso, string usuumod, string prgumod, int opcion)
         {
          
 

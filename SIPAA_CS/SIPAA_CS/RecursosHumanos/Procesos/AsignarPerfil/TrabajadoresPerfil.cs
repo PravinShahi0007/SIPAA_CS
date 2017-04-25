@@ -54,6 +54,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                 TrabajadorInfo.IdTrab = row.Cells["idtrab"].Value.ToString();
+               
+
                 DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
                 form.Show();
             }
@@ -143,7 +145,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             SonaTrabajador objTrab = new SonaTrabajador();
-            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%", 6, "%", "%", 0, LoginInfo.IdTrab, this.Name);
+            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%", 6, "%", "%", 0,"", this.Name);
             //   llenarListView(dtTrab, ltvTrabajador);
             llenarGrid(dtTrab, dgvTrab);
         }
@@ -189,12 +191,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
 
             dgv.DataSource = dt;
+            Utilerias.AgregarCheck(dgv, 0);
 
-            DataGridViewImageColumn imgCheckPerfiles = new DataGridViewImageColumn();
-            imgCheckPerfiles.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckPerfiles.Name = "Seleccionar";
-            //imgCheckPerfiles.HeaderText = "";
-            dgv.Columns.Insert(0, imgCheckPerfiles);
+            //dgv.Columns["IdTrabSupervisor"].Visible = false;
+
+
         }
 
 

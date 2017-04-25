@@ -40,11 +40,14 @@
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label10;
+            System.Windows.Forms.Label label13;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.PanelEditar = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtRuta = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtCvModulo = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -83,6 +86,7 @@
             label6 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
             this.PanelEditar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModulos)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
@@ -95,7 +99,7 @@
             label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(35, 313);
+            label5.Location = new System.Drawing.Point(35, 372);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(63, 16);
             label5.TabIndex = 58;
@@ -107,7 +111,7 @@
             label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(35, 388);
+            label4.Location = new System.Drawing.Point(35, 447);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(50, 16);
             label4.TabIndex = 57;
@@ -213,6 +217,18 @@
             label10.TabIndex = 66;
             label10.Text = "CvModulo";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label13.Location = new System.Drawing.Point(37, 302);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(35, 16);
+            label13.TabIndex = 67;
+            label13.Text = "Ruta";
+            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -230,6 +246,9 @@
             // PanelEditar
             // 
             this.PanelEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.PanelEditar.Controls.Add(this.panel4);
+            this.PanelEditar.Controls.Add(this.txtRuta);
+            this.PanelEditar.Controls.Add(label13);
             this.PanelEditar.Controls.Add(label10);
             this.PanelEditar.Controls.Add(this.panel3);
             this.PanelEditar.Controls.Add(this.txtCvModulo);
@@ -249,12 +268,30 @@
             this.PanelEditar.Controls.Add(this.lblAccion);
             this.PanelEditar.Controls.Add(this.cbAmbiente);
             this.PanelEditar.Controls.Add(this.cbModulo);
-            this.PanelEditar.Location = new System.Drawing.Point(52, 298);
+            this.PanelEditar.Location = new System.Drawing.Point(52, 245);
             this.PanelEditar.Name = "PanelEditar";
-            this.PanelEditar.Size = new System.Drawing.Size(434, 449);
+            this.PanelEditar.Size = new System.Drawing.Size(434, 511);
             this.PanelEditar.TabIndex = 134;
             this.PanelEditar.TabStop = true;
             this.PanelEditar.Visible = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel4.Location = new System.Drawing.Point(30, 348);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(250, 2);
+            this.panel4.TabIndex = 69;
+            // 
+            // txtRuta
+            // 
+            this.txtRuta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtRuta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRuta.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRuta.Location = new System.Drawing.Point(31, 326);
+            this.txtRuta.Name = "txtRuta";
+            this.txtRuta.Size = new System.Drawing.Size(250, 15);
+            this.txtRuta.TabIndex = 68;
             // 
             // panel3
             // 
@@ -378,7 +415,7 @@
             this.cbAmbiente.Items.AddRange(new object[] {
             "WEB",
             "CS"});
-            this.cbAmbiente.Location = new System.Drawing.Point(31, 332);
+            this.cbAmbiente.Location = new System.Drawing.Point(31, 391);
             this.cbAmbiente.Name = "cbAmbiente";
             this.cbAmbiente.Size = new System.Drawing.Size(250, 25);
             this.cbAmbiente.TabIndex = 33;
@@ -393,7 +430,7 @@
             this.cbModulo.Items.AddRange(new object[] {
             "ACCESOS",
             "RECURSOS HUMANOS"});
-            this.cbModulo.Location = new System.Drawing.Point(31, 407);
+            this.cbModulo.Location = new System.Drawing.Point(31, 466);
             this.cbModulo.Name = "cbModulo";
             this.cbModulo.Size = new System.Drawing.Size(250, 25);
             this.cbModulo.TabIndex = 34;
@@ -449,7 +486,7 @@
             this.pnlBusqueda.Controls.Add(this.panel7);
             this.pnlBusqueda.Controls.Add(this.txtBuscarModulo);
             this.pnlBusqueda.Controls.Add(label9);
-            this.pnlBusqueda.Location = new System.Drawing.Point(52, 153);
+            this.pnlBusqueda.Location = new System.Drawing.Point(52, 122);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(434, 94);
             this.pnlBusqueda.TabIndex = 131;
@@ -536,6 +573,7 @@
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 125;
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnMinimizar
             // 
@@ -549,6 +587,7 @@
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 126;
             this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // label1
             // 
@@ -679,5 +718,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtCvModulo;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox txtRuta;
     }
 }

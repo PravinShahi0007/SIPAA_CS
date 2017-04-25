@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos
 {
@@ -19,7 +20,7 @@ namespace SIPAA_CS.RecursosHumanos
     //Descripción: Catalogo de Tipos de Incidencia
     //***********************************************************************************************
 
-    public partial class IncidenciasTipo : Form
+    public partial class IncidenciasTipos : Form
     {
         public int cvIncidencia;
         public int cvTipo;
@@ -29,7 +30,7 @@ namespace SIPAA_CS.RecursosHumanos
         public string strEstatus;
         public int sysH;
         public int sysW;
-        public IncidenciasTipo()
+        public IncidenciasTipos()
         {
             InitializeComponent();
         }
@@ -75,10 +76,11 @@ namespace SIPAA_CS.RecursosHumanos
         private void LLenarGridIncapacidad(DataGridView dgvIncidencia, string strIncidencia, string Tipo)
         {
 
-            if (dgvIncidencia.Columns.Count > 1)
-            {
+
+            if (dgvIncidencia.Columns.Count > 1) {
                 dgvIncidencia.Columns.RemoveAt(0);
             }
+
             Incidencia objIncidencia = new Incidencia();
 
             switch (cbEstatus.SelectedIndex)
@@ -95,20 +97,15 @@ namespace SIPAA_CS.RecursosHumanos
             objIncidencia.CVTipo = 0;
             objIncidencia.Descripcion = strIncidencia;
             objIncidencia.TipoIncidencia = Tipo;
-            objIncidencia.UsuuMod = "vjiturburuv";
+            objIncidencia.UsuuMod = LoginInfo.IdTrab;
             objIncidencia.PrguMod = this.Name;
             DataTable dtIncidencia = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, 4);
             dgvIncidencia.DataSource = dtIncidencia;
 
 
 
-            DataGridViewImageColumn imgCheck = new DataGridViewImageColumn();
-            imgCheck.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheck.Name = "Seleccionar";
-            //imgCheckPerfiles.HeaderText = "";
-            dgvIncidencia.Columns.Insert(0, imgCheck);
+            Utilerias.AgregarCheck(dgvIncidencia, 0);
 
-            dgvIncidencia.Columns[0].Width = 40;
             dgvIncidencia.Columns[1].Visible = false;
             dgvIncidencia.Columns[2].Visible = false;
             dgvIncidencia.Columns[3].Width = 200;
@@ -116,6 +113,13 @@ namespace SIPAA_CS.RecursosHumanos
             dgvIncidencia.Columns[5].Width = 20;
 
             dgvIncidencia.ClearSelection();
+
+            if (Permisos.dcPermisos["Eliminar"] == 0 && Permisos.dcPermisos["Actualizar"] == 0) {
+
+                dgvIncidencia.Columns[0].Visible = false;
+                label2.Text = "Incidencias Registradas";
+
+            }
 
         }
         //-----------------------------------------------------------------------------------------------
@@ -130,12 +134,12 @@ namespace SIPAA_CS.RecursosHumanos
                 {
 
                  //   btnGuardar.Image = Resources.Alta;
-                    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Alta");
+                    Utilerias.AsignarBotonResize(btnGuardar,Utilerias.PantallaSistema(), "Alta");
                 }
                 else
                 {
                   //  btnGuardar.Image = Resources.Baja;
-                    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Baja");
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Baja");
                 }
 
 
@@ -146,7 +150,7 @@ namespace SIPAA_CS.RecursosHumanos
             {
                 iOpcionAdmin = 2;
                // btnGuardar.Image = Resources.Editar;
-                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
+                Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
                 //Utilerias.CambioBoton(btnGuardar, btnEliminar, btnGuardar, btnEditar);
 
             }
@@ -168,7 +172,7 @@ namespace SIPAA_CS.RecursosHumanos
             iOpcionAdmin = 1;
     
 
-            Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Guardar");
+            Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Guardar");
            
             txtTipoEditar.Text = String.Empty;
 
@@ -303,63 +307,106 @@ namespace SIPAA_CS.RecursosHumanos
         private void Incapacidad_Tipo_Load(object sender, EventArgs e)
         {
 
-            sysH = SystemInformation.PrimaryMonitorSize.Height;
-             sysW = SystemInformation.PrimaryMonitorSize.Width;
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             LLenarGridIncapacidad(dgvIncidencia, "", "");
             LlenarComboTipoIncidencia(cbTipo, "Tipo", "cvtipo", 5);
+
+            if (Permisos.dcPermisos["Crear"] == 0) {
+
+                btnAgregar.Visible = false;
+
+            }
         }
 
         private void dgvIncidencia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            for (int iContador = 0; iContador < dgvIncidencia.Rows.Count; iContador++)
-            {
-                dgvIncidencia.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            }
 
-
-            if (dgvIncidencia.SelectedRows.Count != 0)
+            if (Permisos.dcPermisos["Actualizar"] != 0 || Permisos.dcPermisos["Eliminar"] != 0)
             {
 
-                cbIncidencia.Visible = true;
-
-                DataGridViewRow row = this.dgvIncidencia.SelectedRows[0];
-                PanelEditar.Visible = true;
-                cvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
-                cvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
-                strIncidencia = row.Cells["Incidencia"].Value.ToString();
-                strTipoIncidencia = row.Cells["Tipo"].Value.ToString();
-                txtTipoEditar.Text = strTipoIncidencia;
-                strEstatus = row.Cells["Estatus"].Value.ToString();
-
-                LlenarComboTipoIncidencia(cbIncidencia, "Incidencia", "cvincidencia", 6);
-
-                if (strEstatus == String.Empty || strEstatus == "0")
+                for (int iContador = 0; iContador < dgvIncidencia.Rows.Count; iContador++)
                 {
-                    ckbEliminar.Text = "Alta";
-                }
-                else
-                {
-                    ckbEliminar.Text = "Baja";
+                    dgvIncidencia.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
                 }
 
-                ckbEliminar.Visible = true;
-                ckbEliminar.Checked = false;
-                txtTipoEditar.Text = strTipoIncidencia;
-                //   LlenarComboRepresenta(cbRepresentaEditar,5);
-                cbIncidencia.SelectedItem = strIncidencia;
-                lblAccion.Text = "      Editar Incidencia";
-                cbIncidencia.Enabled = false;
-                PanelEditar.Visible = true;
-                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                //btnGuardar.Image = Resources.Editar;
-                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
-                //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
 
-                iOpcionAdmin = 2;
+                if (dgvIncidencia.SelectedRows.Count != 0)
+                {
+
+                    cbIncidencia.Visible = true;
+
+                    DataGridViewRow row = this.dgvIncidencia.SelectedRows[0];
+                    PanelEditar.Visible = true;
+                    cvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
+                    cvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
+                    strIncidencia = row.Cells["Incidencia"].Value.ToString();
+                    strTipoIncidencia = row.Cells["Tipo"].Value.ToString();
+                    txtTipoEditar.Text = strTipoIncidencia;
+                    strEstatus = row.Cells["Estatus"].Value.ToString();
+
+                    LlenarComboTipoIncidencia(cbIncidencia, "Incidencia", "cvincidencia", 6);
+                    ckbEliminar.Visible = true;
+                    ckbEliminar.Checked = false;
+
+                    txtTipoEditar.Text = strTipoIncidencia;
+                    cbIncidencia.SelectedItem = strIncidencia;
+                    lblAccion.Text = "      Editar Incidencia";
+                    cbIncidencia.Enabled = false;
+                    PanelEditar.Visible = true;
+                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+
+                    //Permisos
+                    if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
+                    {
+
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
+                        iOpcionAdmin = 2;
 
 
+
+                        if (strEstatus == "0")
+                        {
+                            ckbEliminar.Text = "Alta";
+
+                        }
+                        else if (strEstatus == "1")
+                        {
+                            ckbEliminar.Text = "Baja";
+
+                        }
+
+                    }
+                    else if (Permisos.dcPermisos["Eliminar"] == 1)
+                    {
+                        iOpcionAdmin = 3;
+                        ckbEliminar.Visible = false;
+                        if (strEstatus == "0")
+                        {
+                            Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Alta");
+
+                        }
+                        else if (strEstatus == "1")
+                        {
+                            Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Baja");
+                        }
+                    }
+                    else if (Permisos.dcPermisos["Actualizar"] == 1)
+                    {
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
+                        iOpcionAdmin = 2;
+                    }
+
+
+
+
+                }
             }
         }
 

@@ -74,6 +74,7 @@ namespace SIPAA_CS.Accesos
             {
 
                 dgvModulos.Columns.RemoveAt(0);
+                dgvModulos.Controls.RemoveByKey("checkboxHeader");
             }
             string strEstatus = "%";
             if (objModulo.Estatus != 0) { strEstatus = objModulo.Estatus.ToString(); }
@@ -96,8 +97,8 @@ namespace SIPAA_CS.Accesos
             dgvModulos.Columns["Estatus"].Visible = true;
 
              ckbheader = Utilerias.AgregarCheckboxHeader(dgvModulos, 0);
-
             ckbheader.CheckedChanged += Ckbheader_CheckedChanged;
+
 
 
         }
@@ -166,12 +167,14 @@ namespace SIPAA_CS.Accesos
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Perfil");
                     dgvModulos.ClearSelection();
                     dgvPerfil.ClearSelection();
+                    timer1.Start();
                 }
             }
             else {
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Perfil");
                 dgvModulos.ClearSelection();
                 dgvPerfil.ClearSelection();
+                timer1.Start();
 
             }
         }
@@ -228,6 +231,7 @@ namespace SIPAA_CS.Accesos
 
         private void btnBuscarPerfil_Click(object sender, EventArgs e)
         {
+            ltAsignacionModulos.Clear();
             ckbheader.Checked = false;
             panelPermisos.Enabled = false;
             panelTag.Visible = false;
@@ -266,7 +270,8 @@ namespace SIPAA_CS.Accesos
 
         private void btnBuscarModulo_Click(object sender, EventArgs e)
         {
-            ckbheader.Checked = false;
+            ltAsignacionModulos.Clear();
+            // ckbheader.Checked = false;
             panelPermisos.Enabled = false;
             CVPerfil = 0;
             //dgvModulos.Columns.RemoveAt(0);
@@ -322,7 +327,7 @@ namespace SIPAA_CS.Accesos
             }
 
             dgvModulos.ClearSelection();
-            dgvPerfil.ClearSelection();
+         //   dgvPerfil.ClearSelection();
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -408,7 +413,7 @@ namespace SIPAA_CS.Accesos
 
                             objModulo.CVModulo = sObj;
 
-                            response = objPerfil.AsignarModuloAPerfil(objModulo, CVPerfil, 1);
+                            response = objPerfil.AsignarModuloAPerfil(objModulo, CVPerfil, iOpcionAdmin);
                         }
                         ltAsignacionModulos.Clear();
                         break;
@@ -445,10 +450,10 @@ namespace SIPAA_CS.Accesos
 
                 }
 
-
+                ltAsignacionModulos.Clear();
                 //string idtrab = LoginInfo.IdTrab;
 
-                
+
                 dtPermisos = objModulo.obtenerModulosxCvPerfil(CVPerfil);
                 AsignarPermisos();
                 BotonActual(dtPermisos);
@@ -506,12 +511,13 @@ namespace SIPAA_CS.Accesos
                     stag = "check";
                     ckbLectura.Checked = true;
                     Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Guardar);
-
+                    ckbheader.Checked = true;
                     foreach (DataGridViewRow row in dgvModulos.Rows)
                     {
                         row.Cells[0].Value = btImagen;
                         row.Cells[0].Tag = stag;
-                        ltAsignacionModulos.Add(row.Cells[1].Value.ToString());
+                        if (!ltAsignacionModulos.Contains(row.Cells[1].Value.ToString())) { 
+                            ltAsignacionModulos.Add(row.Cells[1].Value.ToString());}
                     }
                 }
                 else
@@ -521,9 +527,10 @@ namespace SIPAA_CS.Accesos
                         stag = "uncheck";
                     Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Borrar);
                     ckbEliminarAsig.Visible = false;
+                    ckbheader.Checked = false;
 
+                    ltAsignacionModulos.Clear();
 
-                   
                     ckbActualizar.Checked = false;
                     ckbAgregar.Checked = false;
                     ckbEliminar.Checked = false;
@@ -549,6 +556,7 @@ namespace SIPAA_CS.Accesos
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Perfil");
                 dgvModulos.ClearSelection();
                 dgvPerfil.ClearSelection();
+                timer1.Start();
 
             }
         }
@@ -586,6 +594,8 @@ namespace SIPAA_CS.Accesos
             ckbEliminarAsig.Checked = false;
             ckbImprimir.Checked = false;
             ckbLectura.Checked = false;
+
+           
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

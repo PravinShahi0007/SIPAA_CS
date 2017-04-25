@@ -138,7 +138,7 @@
             this.tsmiUsuarios.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.tsmiUsuarios.Name = "tsmiUsuarios";
             this.tsmiUsuarios.Size = new System.Drawing.Size(152, 22);
-            this.tsmiUsuarios.Tag = "frmCrear_Usuario";
+            this.tsmiUsuarios.Tag = "Usuarios";
             this.tsmiUsuarios.Text = "Usuarios";
             this.tsmiUsuarios.Click += new System.EventHandler(this.tsmiUsuarios_Click);
             // 
@@ -160,7 +160,7 @@
             this.tsmiModulos.Image = ((System.Drawing.Image)(resources.GetObject("tsmiModulos.Image")));
             this.tsmiModulos.Name = "tsmiModulos";
             this.tsmiModulos.Size = new System.Drawing.Size(152, 22);
-            this.tsmiModulos.Tag = "frmCrear_Modulo";
+            this.tsmiModulos.Tag = "Modulos";
             this.tsmiModulos.Text = "Módulos";
             this.tsmiModulos.Click += new System.EventHandler(this.tsmiModulos_Click);
             // 
@@ -171,7 +171,7 @@
             this.tsmiProcesos.Image = ((System.Drawing.Image)(resources.GetObject("tsmiProcesos.Image")));
             this.tsmiProcesos.Name = "tsmiProcesos";
             this.tsmiProcesos.Size = new System.Drawing.Size(152, 22);
-            this.tsmiProcesos.Tag = "frmProceso";
+            this.tsmiProcesos.Tag = "Procesos";
             this.tsmiProcesos.Text = "Procesos";
             this.tsmiProcesos.Click += new System.EventHandler(this.tsmiProcesos_Click);
             // 
