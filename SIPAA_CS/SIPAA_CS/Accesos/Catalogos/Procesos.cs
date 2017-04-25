@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 using static SIPAA_CS.App_Code.Utilerias;
 
 namespace SIPAA_CS.Accesos
@@ -18,8 +19,8 @@ namespace SIPAA_CS.Accesos
         Proceso proceso = new Proceso();
         Utilerias utilerias = new Utilerias();
         public int variable = 0;
-        public int cvproceso;
-        public int stproceso;
+        public string cvproceso;
+        public string stproceso;
         public string descripcion;
         public string buscar;
 
@@ -54,35 +55,62 @@ namespace SIPAA_CS.Accesos
 
             if (dgvProceso.SelectedRows.Count != 0)
             {
-                variable = 2;
-                pnlAct.Visible = true;
-                cbEliminar.Checked = false;
+
                 DataGridViewRow row = this.dgvProceso.SelectedRows[0];
-                cvproceso = Convert.ToInt32(row.Cells["cvproceso"].Value.ToString());
-                stproceso = Convert.ToInt32(row.Cells["stproceso"].Value.ToString());
-                string ValorRow = row.Cells["descripcion"].Value.ToString();
-                txtDescripcion.Text = ValorRow;
-                cbEliminar.Visible = true;
+                cvproceso = row.Cells["cvproceso"].Value.ToString();
+                stproceso = row.Cells["Estatus"].Value.ToString();
+                string descricpion = row.Cells["Descripción"].Value.ToString();
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
-                //utilerias.ChangeButton(btnGuardar, 2, false);
-                Utilerias.AsignarBotonResize(btnGuardar,Utilerias.PantallaSistema(),Botones.Editar);
-
-                //txtDescripcion.Focus();
-
-                if (stproceso == 0)
+                if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
                 {
-                    cbEliminar.Text = "Alta";
+                    variable = 2;
+                    lblActividad.Text = "     Editar Proceso";
+                    pnlAct.Visible = true;
+                    cbEliminar.Checked = false;
+                    txtDescripcion.Text = descricpion;
+                    cbEliminar.Visible = true;
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
 
+                    if (stproceso == "Inactivo")
+                    {
+                        cbEliminar.Text = "Alta";
+                    }
+                    else if (stproceso == "Activo")
+                    {
+                        cbEliminar.Text = "Baja";
+                    }
                 }
-                else if (stproceso == 1)
+                else if (Permisos.dcPermisos["Actualizar"] == 1)
                 {
-                    cbEliminar.Text = "Baja";
-
+                    variable = 2;
+                    lblActividad.Text = "     Editar Proceso";
+                    pnlAct.Visible = true;
+                    txtDescripcion.Text = descricpion;
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
                 }
+                else if (Permisos.dcPermisos["Eliminar"] == 1)
+                {
+                    variable = 3;
+                    lblActividad.Text = "     Editar Proceso";
+                    pnlAct.Visible = true;
+                    txtDescripcion.Text = descricpion;
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
 
+                    if (stproceso == "Inactivo")
+                    {
+                       
+                        lblActividad.Text = "      Alta Usuario SIPAA";
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Alta);
+                    }
+                    else if (stproceso == "Activo")
+                    {
+                      
+                        lblActividad.Text = "      Baja Usuario SIPAA";
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Baja);
+                    }
+                }
             }
-        
         }
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
@@ -103,7 +131,7 @@ namespace SIPAA_CS.Accesos
                 if (descripcion.Trim() != String.Empty)
                 {
                     string prgmod = this.Name;
-                    int regreso = proceso.AgregarProceso(0, descripcion.Trim(), 0, "", prgmod, 1);
+                    int regreso = proceso.AgregarProceso("", descripcion.Trim(), 0, "", prgmod, 1);
                     if (regreso == 1)
                     {
                         //MessageBox.Show("Se agrego proceso");
@@ -139,7 +167,7 @@ namespace SIPAA_CS.Accesos
                     if (regreso == 1)
                     {
                         //MessageBox.Show("Sea actualizo proceso");
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Se actualizó Proceso");
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Se actualizó Proceso");
                         timer1.Start();
                         Crear_Procesos_Load(sender, e);
                         txtDescripcion.Text = "";
@@ -188,36 +216,19 @@ namespace SIPAA_CS.Accesos
         }
         private void cbEliminar_CheckedChanged(object sender, EventArgs e)
         {
-            //variable = 3;
-
-            //if (stproceso == 1)
-            //{
-            //    variable = 3;
-            //    //   utilerias.ChangeButton(btnGuardar, 3, false);
-            //    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), Botones.Baja);
-            //}
-            //else if (stproceso == 0)
-            //{
-            //    variable = 2;
-            //    // utilerias.ChangeButton(btnGuardar, 2, false);
-            //    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), Botones.Editar);
-            //}
-
-
             if (cbEliminar.Checked == true)
             {
-
                 
-                if (stproceso == 0)
+                if (stproceso == "Inactivo")
                 {
                     variable = 3;
-                    lblActividad.Text = "      Alta Usuario SIPAA";
+                    lblActividad.Text = "      Alta Proceso";
                     Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Alta);
                 }
-                else if (stproceso== 1)
+                else if (stproceso == "Activo")
                 {
                     variable = 2;
-                    lblActividad.Text = "      Baja Usuario SIPAA";
+                    lblActividad.Text = "      Baja Proceso";
                     Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Baja);
                 }
 
@@ -225,7 +236,7 @@ namespace SIPAA_CS.Accesos
             else
             {
                 
-                lblActividad.Text = "      Editar Usuario SIPAA";
+                lblActividad.Text = "      Editar Proceso";
                 Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Editar);
 
             }
@@ -241,47 +252,15 @@ namespace SIPAA_CS.Accesos
             txtDescripcion.Focus();
             Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Guardar");
         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             buscar = txtBuscar.Text;
-            buscar.Trim();
-
-            if (buscar.Trim() != String.Empty)
-            {
-                LlenaGrid(0, buscar.Trim(), 0, "0", "", 2);
-            }
-            else
-            {
-                MessageBox.Show("Asigna un busqueda");
-                //DataTable dtFormasRegistro = proceso.ObtenerProceso(0, buscar.Trim(), 0, "0", "", 2);
-                //dgvProceso.DataSource = dtFormasRegistro;
-
-
-
-                //DataGridViewImageColumn imgCheckProcesos = new DataGridViewImageColumn();
-                //imgCheckProcesos.Image = Resources.ic_lens_blue_grey_600_18dp;
-                //imgCheckProcesos.Name = "Seleccionar";
-                //dgvProceso.Columns.Insert(0, imgCheckProcesos);
-                //dgvProceso.Columns[0].HeaderText = "";
-
-                //dgvProceso.Columns[1].Visible = false;
-                //dgvProceso.Columns[0].Width = 55;
-                //dgvProceso.Columns[2].Width = 302;
-
-                //dgvProceso.ClearSelection();
-            }
-        }
-        
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            LlenaGrid(buscar, "", 0, "", "", 5);
+            txtBuscar.Text = "";
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
-
             WindowState = FormWindowState.Minimized;
         }
 
@@ -289,6 +268,20 @@ namespace SIPAA_CS.Accesos
         {
             this.Close();
         }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
+        }
+       
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -299,14 +292,32 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void Crear_Procesos_Load(object sender, EventArgs e)
         {
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-            LlenaGrid(0, "", 0, "0", "", 5);
-            txtBuscar.Focus();
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+            
+            LlenaGrid("", "", 0, "", "", 4);
+
+            if (Permisos.dcPermisos["Crear"] == 0)
+            {
+                btnAgregar.Visible = false;
+            }
+
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+            timer1.Stop();
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
-        private void LlenaGrid(int cvproceso,string descripcion,int stproceso,string usuumod,string prgumod, int opcion)
+        private void LlenaGrid(string cvproceso,string descripcion,int stproceso,string usuumod,string prgumod, int opcion)
         {
             DataTable dtFormasRegistro = proceso.ObtenerProceso(cvproceso,descripcion,stproceso,usuumod,prgumod,opcion);
             dgvProceso.DataSource = dtFormasRegistro;
@@ -318,15 +329,6 @@ namespace SIPAA_CS.Accesos
             dgvProceso.Columns[1].Visible = false;
             dgvProceso.ClearSelection();
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            panelTag.Visible = false;
-            timer1.Stop();
-        }
-
-        
-
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

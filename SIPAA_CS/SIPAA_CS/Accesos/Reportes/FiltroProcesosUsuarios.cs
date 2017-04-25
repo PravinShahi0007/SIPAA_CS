@@ -204,7 +204,7 @@ namespace SIPAA_CS.Accesos.Reportes
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("", 0, "", "", 0, "", "", 11);
-            DataTable dtProceso = objProceso.ObtenerProceso(0,"",0,"","",10);
+            DataTable dtProceso = objProceso.ObtenerProceso("","",0,"","",10);
 
             llenaCombo(cbUsuario, dtUsuario, "cvusuario", "nombre");
             llenaCombo(cbProcesos, dtProceso, "cvproceso", "descripcion");
