@@ -17,6 +17,8 @@ namespace SIPAA_CS.App_Code
         {
             public static string IdTrab;
             public static string Nombre;
+            public static string IdTrabSupervisor;
+            public static string NombreSupervisor;
         }
 
 

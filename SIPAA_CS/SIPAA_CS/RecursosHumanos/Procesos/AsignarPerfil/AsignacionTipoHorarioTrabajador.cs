@@ -166,6 +166,28 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             AsignarTipoHr();
         }
 
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -236,12 +258,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         }
 
-     
+        private void button1_Click(object sender, EventArgs e)
+        {
 
-       
-     
-      
+        }
 
-       
+
     }
 }

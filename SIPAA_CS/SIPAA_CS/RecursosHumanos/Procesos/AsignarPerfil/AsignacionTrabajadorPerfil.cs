@@ -230,7 +230,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 objHorario.iCvdiaSalidaTurno = Convert.ToInt32(cbDiaSalida.SelectedValue);
                 objHorario.iCvdiaComidaInicio = Convert.ToInt32(cbDiaEntrada.SelectedValue);
                 objHorario.iCvdiaComidaFin = Convert.ToInt32(cbDiaEntrada.SelectedValue);
-                objHorario.sUsuumod = "vjiturburuv"; //LoginInfo.IdTrab;
+                objHorario.sUsuumod = LoginInfo.IdTrab; //LoginInfo.IdTrab;
                 objHorario.sPrgumod = this.Name;
 
                 TimeSpan tsEntrada = TimeSpan.Parse(objHorario.sHoraEntrada);
@@ -255,7 +255,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El número total de horas no concuerda con la hora de Entrada y Salida.");
                     timer1.Start();
                 }
-                else if (tsComidaInicio < tsEntrada || tsComidaFin > tsEntrada
+                else if (tsComidaInicio < tsEntrada || tsComidaFin < tsEntrada
                    || tsComidaInicio > tsSalida || tsComidaFin > tsSalida)
                 {
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El horario de Comida debe ser entre la hora de Entrada y Salida.");
@@ -549,7 +549,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         int diasdif = (cbDiaEntrada.SelectedIndex + 1) - (cbDiaSalida.SelectedIndex);
                         TimeSpan horasTrabajo = tsEntrada - tsSalida;
                         mtxtTiempoTrabajo.Text = ((12 * diasdif) + horasTrabajo.Hours).ToString();
-                        cbDiaSalida.SelectedValue = Convert.ToInt32(cbDiaEntrada.SelectedValue) + 1;
+                      //  cbDiaSalida.SelectedValue = Convert.ToInt32(cbDiaEntrada.SelectedValue) + 1;
                     }
                     else
                     {
