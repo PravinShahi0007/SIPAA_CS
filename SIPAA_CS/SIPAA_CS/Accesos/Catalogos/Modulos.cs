@@ -340,7 +340,8 @@ namespace SIPAA_CS.Accesos
                 if (dgvModulos.SelectedRows.Count != 0)
                 {
                     ckbEliminar.Checked = false;
-                    response = objModulo.CrearModulo(cvmodulo.Trim(), "", "", 0, "", "", "", 0, "", "", 3);
+                    usuumod = LoginInfo.IdTrab;
+                    response = objModulo.CrearModulo(cvmodulo.Trim(), "", "", 0, "", "", "", 0, usuumod, "", 3);
                     PanelEditar.Visible = false;
 
                     if (response == 1)
