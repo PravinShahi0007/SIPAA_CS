@@ -114,6 +114,7 @@
             this.panelAsignaciones.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panelAsignacionTrabajador.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -123,7 +124,7 @@
             label7.ForeColor = System.Drawing.Color.Gray;
             label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(598, 268);
+            label7.Location = new System.Drawing.Point(-2, 147);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(121, 18);
             label7.TabIndex = 176;
@@ -173,7 +174,7 @@
             label24.ForeColor = System.Drawing.Color.DimGray;
             label24.Image = ((System.Drawing.Image)(resources.GetObject("label24.Image")));
             label24.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label24.Location = new System.Drawing.Point(-13, 0);
+            label24.Location = new System.Drawing.Point(-10, 0);
             label24.Name = "label24";
             label24.Size = new System.Drawing.Size(125, 18);
             label24.TabIndex = 180;
@@ -827,6 +828,7 @@
             // 
             // panelAsignacionTrabajador
             // 
+            this.panelAsignacionTrabajador.Controls.Add(label7);
             this.panelAsignacionTrabajador.Location = new System.Drawing.Point(591, 124);
             this.panelAsignacionTrabajador.Name = "panelAsignacionTrabajador";
             this.panelAsignacionTrabajador.Size = new System.Drawing.Size(403, 578);
@@ -843,7 +845,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelAsignaciones);
             this.Controls.Add(label13);
-            this.Controls.Add(label7);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.PanelJefes);
             this.Controls.Add(this.panel1);
@@ -873,6 +874,8 @@
             this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panelAsignacionTrabajador.ResumeLayout(false);
+            this.panelAsignacionTrabajador.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

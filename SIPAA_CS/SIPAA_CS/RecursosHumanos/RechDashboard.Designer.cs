@@ -60,6 +60,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
+            this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignaciónDePerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.MenuAccesos.SuspendLayout();
             this.SuspendLayout();
@@ -92,10 +94,11 @@
             this.MenuAccesos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.msCatalogo,
             this.asignacionesToolStripMenuItem,
-            this.reportesToolStripMenuItem});
+            this.reportesToolStripMenuItem,
+            this.procesosToolStripMenuItem});
             this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(347, 26);
+            this.MenuAccesos.Size = new System.Drawing.Size(542, 26);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
@@ -258,7 +261,7 @@
             this.tipoIncidenciaToolStripMenuItem.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.tipoIncidenciaToolStripMenuItem.Name = "tipoIncidenciaToolStripMenuItem";
             this.tipoIncidenciaToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
-            this.tipoIncidenciaToolStripMenuItem.Tag = "frmIncidenciasTipos";
+            this.tipoIncidenciaToolStripMenuItem.Tag = "IncidenciasTipos";
             this.tipoIncidenciaToolStripMenuItem.Text = "Tipos de Incidencia";
             this.tipoIncidenciaToolStripMenuItem.Click += new System.EventHandler(this.tipoIncidenciaToolStripMenuItem_Click);
             // 
@@ -435,6 +438,27 @@
             this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
             this.pnlimgusuario.TabIndex = 146;
             // 
+            // procesosToolStripMenuItem
+            // 
+            this.procesosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.asignaciónDePerfilToolStripMenuItem});
+            this.procesosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.procesosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("procesosToolStripMenuItem.Image")));
+            this.procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
+            this.procesosToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.procesosToolStripMenuItem.Text = "Procesos";
+            // 
+            // asignaciónDePerfilToolStripMenuItem
+            // 
+            this.asignaciónDePerfilToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.asignaciónDePerfilToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.asignaciónDePerfilToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("asignaciónDePerfilToolStripMenuItem.Image")));
+            this.asignaciónDePerfilToolStripMenuItem.Name = "asignaciónDePerfilToolStripMenuItem";
+            this.asignaciónDePerfilToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.asignaciónDePerfilToolStripMenuItem.Tag = "TrabajadoresPerfil";
+            this.asignaciónDePerfilToolStripMenuItem.Text = "Asignación de Perfil";
+            this.asignaciónDePerfilToolStripMenuItem.Click += new System.EventHandler(this.asignaciónDePerfilToolStripMenuItem_Click);
+            // 
             // RechDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -496,5 +520,7 @@
         private System.Windows.Forms.ToolStripMenuItem plantillasToolStripMenuItem;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Panel pnlimgusuario;
+        private System.Windows.Forms.ToolStripMenuItem procesosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asignaciónDePerfilToolStripMenuItem;
     }
 }
