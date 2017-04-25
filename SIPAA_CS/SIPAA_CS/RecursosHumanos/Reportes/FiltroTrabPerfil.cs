@@ -54,46 +54,46 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            //if (txtIdTrab.Text == "" && cboCia.SelectedIndex == 0 && cboUbicacion.SelectedIndex == 0)
-            //{
-            //    MessageBox.Show("Debe Seleccionar Trabajador, Compañia o Ubicación");
-            //    txtIdTrab.Focus();
-            //}
-            //else
-            //{
-            //    if (txtIdTrab.Text != "")
-            //    {
-            //        iIDT = Int32.Parse(txtIdTrab.Text);
-            //    }
-            //    else
-            //    {
-            //        iIDT = 0;
-            //    }
-            //    iIDC = Int32.Parse(cboCia.SelectedValue.ToString());
-            //    IIDU = Int32.Parse(cboUbicacion.SelectedValue.ToString());
-            //    IACT = 2;
-            //    DataTable dtRpt = CTrabPerf.PerfilTrab_S(4, iIDT, iIDC, IIDU, IACT);
+            if (txtIdTrab.Text == "" && cboCia.SelectedIndex == 0 && cboUbicacion.SelectedIndex == 0)
+            {
+                MessageBox.Show("Debe Seleccionar Trabajador, Compañia o Ubicación");
+                txtIdTrab.Focus();
+            }
+            else
+            {
+                if (txtIdTrab.Text != "")
+                {
+                    iIDT = Int32.Parse(txtIdTrab.Text);
+                }
+                else
+                {
+                    iIDT = 0;
+                }
+                iIDC = Int32.Parse(cboCia.SelectedValue.ToString());
+                IIDU = Int32.Parse(cboUbicacion.SelectedValue.ToString());
+                IACT = 2;
+                DataTable dtRpt = CTrabPerf.PerfilTrab_S(4, iIDT, iIDC, IIDU, IACT);
 
-            //    ViewerReporte form = new ViewerReporte();
-            //    RTrabPerfil dtsRep = new RTrabPerfil();
-            //    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, "RecursosHumanos", dtsRep.ResourceName);
+                ViewerReporte form = new ViewerReporte();
+                RTrabPerfil dtsRep = new RTrabPerfil();
+                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, "RecursosHumanos", dtsRep.ResourceName);
 
-            //    form.RptDoc = ReportDoc;
-            //    form.Show();
+                form.RptDoc = ReportDoc;
+                form.Show();
 
-            //}
+            }
 
-            //Prueba Reporte Incidencias pasadas a Nomina
-            Incidencia objIncidencia = new Incidencia();
-            DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina("%", DateTime.Parse("2017-02-05"), DateTime.Parse("2017-04-01"), "%", "%", "%");
+            ////Prueba Reporte Incidencias pasadas a Nomina
+            //Incidencia objIncidencia = new Incidencia();
+            //DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina("%", DateTime.Parse("2017-02-05"), DateTime.Parse("2017-04-01"), "%", "%", "%");
 
-            ViewerReporte form = new ViewerReporte();
-            IncidenciasPasadasNomina rptIncidencia = new IncidenciasPasadasNomina();
-            ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", rptIncidencia.ResourceName);
+            //ViewerReporte form = new ViewerReporte();
+            //IncidenciasPasadasNomina rptIncidencia = new IncidenciasPasadasNomina();
+            //ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", rptIncidencia.ResourceName);
 
-            ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
-            form.RptDoc = ReportDoc;
-            form.Show();
+            //ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
+            //form.RptDoc = ReportDoc;
+            //form.Show();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
