@@ -27,10 +27,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
     {
         #region
 
-        int iIDT;
-        int iIDC;
-        int IIDU;
-        int IACT;
+        int iIDT; //Id del Trabajdor
+        int iIDC; //Id de la Compañia
+        int IIDU; //Id de la Ubicación
+        int IACT; //Status del Trabajador
+        int ISTC; //Checa (si/no)
 
         #endregion
 
@@ -73,8 +74,10 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 }
                 iIDC = Int32.Parse(cboCia.SelectedValue.ToString());
                 IIDU = Int32.Parse(cboUbicacion.SelectedValue.ToString());
-                IACT = 2;
-                DataTable dtRpt = CTrabPerf.PerfilTrab_S(4, iIDT, iIDC, IIDU, IACT);
+                IACT = Int32.Parse(cboStatus.SelectedIndex.ToString());
+                ISTC = Int32.Parse(CbCheca.SelectedIndex.ToString());
+
+                DataTable dtRpt = CTrabPerf.PerfilTrab_S(4, iIDT, iIDC, IIDU, IACT, ISTC);
 
                 ViewerReporte form = new ViewerReporte();
                 RTrabPerfil dtsRep = new RTrabPerfil();
@@ -151,6 +154,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "Clave", "Descripción");
 
             cboStatus.SelectedIndex = 2;
+            CbCheca.SelectedIndex = 2;
             cboStatus.Focus();
 
         }
