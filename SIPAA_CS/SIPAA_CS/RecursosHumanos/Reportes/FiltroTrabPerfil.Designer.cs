@@ -34,6 +34,7 @@
             System.Windows.Forms.Label label9;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FiltroTrabPerfil));
             System.Windows.Forms.Label lblimprimir;
+            System.Windows.Forms.Label label1;
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,13 +48,18 @@
             this.txtIdTrab = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnimpdethr = new System.Windows.Forms.Button();
+            this.cbempleados = new System.Windows.Forms.ComboBox();
             lblubicacion = new System.Windows.Forms.Label();
             lblidcia = new System.Windows.Forms.Label();
             lblidtrab = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             lblimprimir = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             this.pnlBusqueda.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblubicacion
@@ -62,7 +68,7 @@
             lblubicacion.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblubicacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblubicacion.Location = new System.Drawing.Point(41, 192);
+            lblubicacion.Location = new System.Drawing.Point(41, 146);
             lblubicacion.Name = "lblubicacion";
             lblubicacion.Size = new System.Drawing.Size(54, 16);
             lblubicacion.TabIndex = 60;
@@ -74,7 +80,7 @@
             lblidcia.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblidcia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblidcia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblidcia.Location = new System.Drawing.Point(41, 117);
+            lblidcia.Location = new System.Drawing.Point(41, 86);
             lblidcia.Name = "lblidcia";
             lblidcia.Size = new System.Drawing.Size(56, 16);
             lblidcia.TabIndex = 58;
@@ -86,7 +92,7 @@
             lblidtrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblidtrab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblidtrab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblidtrab.Location = new System.Drawing.Point(41, 49);
+            lblidtrab.Location = new System.Drawing.Point(41, 35);
             lblidtrab.Name = "lblidtrab";
             lblidtrab.Size = new System.Drawing.Size(106, 16);
             lblidtrab.TabIndex = 44;
@@ -112,7 +118,7 @@
             lblimprimir.ForeColor = System.Drawing.Color.Gray;
             lblimprimir.Image = ((System.Drawing.Image)(resources.GetObject("lblimprimir.Image")));
             lblimprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblimprimir.Location = new System.Drawing.Point(60, 48);
+            lblimprimir.Location = new System.Drawing.Point(23, 48);
             lblimprimir.Name = "lblimprimir";
             lblimprimir.Size = new System.Drawing.Size(199, 17);
             lblimprimir.TabIndex = 66;
@@ -202,6 +208,8 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlBusqueda.Controls.Add(this.cbempleados);
             this.pnlBusqueda.Controls.Add(lblubicacion);
             this.pnlBusqueda.Controls.Add(this.cboUbicacion);
             this.pnlBusqueda.Controls.Add(lblidcia);
@@ -213,7 +221,7 @@
             this.pnlBusqueda.Location = new System.Drawing.Point(38, 138);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(477, 279);
-            this.pnlBusqueda.TabIndex = 151;
+            this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
             // 
             // cboUbicacion
@@ -223,7 +231,7 @@
             this.cboUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cboUbicacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboUbicacion.FormattingEnabled = true;
-            this.cboUbicacion.Location = new System.Drawing.Point(44, 213);
+            this.cboUbicacion.Location = new System.Drawing.Point(44, 166);
             this.cboUbicacion.Name = "cboUbicacion";
             this.cboUbicacion.Size = new System.Drawing.Size(291, 25);
             this.cboUbicacion.TabIndex = 3;
@@ -234,12 +242,11 @@
             this.cboCia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboCia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboCia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cboCia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCia.FormattingEnabled = true;
             this.cboCia.Items.AddRange(new object[] {
             "-Seleccionar-"});
-            this.cboCia.Location = new System.Drawing.Point(44, 137);
+            this.cboCia.Location = new System.Drawing.Point(44, 105);
             this.cboCia.Name = "cboCia";
             this.cboCia.Size = new System.Drawing.Size(291, 25);
             this.cboCia.TabIndex = 2;
@@ -247,9 +254,9 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel7.Location = new System.Drawing.Point(44, 87);
+            this.panel7.Location = new System.Drawing.Point(44, 73);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 2);
+            this.panel7.Size = new System.Drawing.Size(250, 1);
             this.panel7.TabIndex = 43;
             // 
             // txtIdTrab
@@ -257,13 +264,15 @@
             this.txtIdTrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtIdTrab.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtIdTrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdTrab.Location = new System.Drawing.Point(44, 67);
+            this.txtIdTrab.Location = new System.Drawing.Point(44, 55);
+            this.txtIdTrab.MaxLength = 8;
             this.txtIdTrab.Name = "txtIdTrab";
             this.txtIdTrab.Size = new System.Drawing.Size(250, 15);
             this.txtIdTrab.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.panel1.Controls.Add(lblimprimir);
             this.panel1.Controls.Add(this.btnImprimir);
             this.panel1.Location = new System.Drawing.Point(597, 138);
@@ -285,12 +294,63 @@
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel3.Controls.Add(label1);
+            this.panel3.Controls.Add(this.btnimpdethr);
+            this.panel3.Location = new System.Drawing.Point(597, 303);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(399, 114);
+            this.panel3.TabIndex = 153;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.ForeColor = System.Drawing.Color.Gray;
+            label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.Location = new System.Drawing.Point(20, 48);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(189, 17);
+            label1.TabIndex = 66;
+            label1.Text = "       Imprimir Detalle Horario";
+            // 
+            // btnimpdethr
+            // 
+            this.btnimpdethr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnimpdethr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnimpdethr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnimpdethr.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
+            this.btnimpdethr.Location = new System.Drawing.Point(282, 32);
+            this.btnimpdethr.Name = "btnimpdethr";
+            this.btnimpdethr.Size = new System.Drawing.Size(50, 50);
+            this.btnimpdethr.TabIndex = 4;
+            this.btnimpdethr.Tag = "Imprimir";
+            this.btnimpdethr.UseVisualStyleBackColor = false;
+            // 
+            // cbempleados
+            // 
+            this.cbempleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbempleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbempleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbempleados.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbempleados.FormattingEnabled = true;
+            this.cbempleados.Items.AddRange(new object[] {
+            "-Seleccionar-"});
+            this.cbempleados.Location = new System.Drawing.Point(117, 222);
+            this.cbempleados.Name = "cbempleados";
+            this.cbempleados.Size = new System.Drawing.Size(291, 25);
+            this.cbempleados.TabIndex = 61;
+            // 
             // FiltroTrabPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.panel2);
@@ -308,6 +368,8 @@
             this.pnlBusqueda.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +390,8 @@
         private System.Windows.Forms.TextBox txtIdTrab;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnimpdethr;
+        private System.Windows.Forms.ComboBox cbempleados;
     }
 }
