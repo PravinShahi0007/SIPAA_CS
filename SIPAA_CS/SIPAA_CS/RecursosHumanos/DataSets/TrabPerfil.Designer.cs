@@ -562,7 +562,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public TrabPerfilRow AddTrabPerfilRow(
                         string Compañia, 
                         string Ubicación, 
-                        string idtrab, 
+                        short idtrab, 
                         string Paterno, 
                         string Materno, 
                         string Nombre, 
@@ -573,11 +573,11 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         string Forma_Registro, 
                         string Reloj, 
                         string Huella, 
-                        string Supervisor, 
+                        short Supervisor, 
                         string SPaterno, 
                         string SMaterno, 
                         string SNombre, 
-                        string Director, 
+                        short Director, 
                         string DPaterno, 
                         string DMaterno, 
                         string DNombre) {
@@ -656,7 +656,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnCompañia);
                 this.columnUbicación = new global::System.Data.DataColumn("Ubicación", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUbicación);
-                this.columnidtrab = new global::System.Data.DataColumn("idtrab", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnidtrab = new global::System.Data.DataColumn("idtrab", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidtrab);
                 this.columnPaterno = new global::System.Data.DataColumn("Paterno", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaterno);
@@ -678,7 +678,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnReloj);
                 this.columnHuella = new global::System.Data.DataColumn("Huella", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHuella);
-                this.columnSupervisor = new global::System.Data.DataColumn("Supervisor", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnSupervisor = new global::System.Data.DataColumn("Supervisor", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSupervisor);
                 this.columnSPaterno = new global::System.Data.DataColumn("SPaterno", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSPaterno);
@@ -686,7 +686,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnSMaterno);
                 this.columnSNombre = new global::System.Data.DataColumn("SNombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSNombre);
-                this.columnDirector = new global::System.Data.DataColumn("Director", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDirector = new global::System.Data.DataColumn("Director", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDirector);
                 this.columnDPaterno = new global::System.Data.DataColumn("DPaterno", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDPaterno);
@@ -870,10 +870,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string idtrab {
+            public short idtrab {
                 get {
                     try {
-                        return ((string)(this[this.tableTrabPerfil.idtrabColumn]));
+                        return ((short)(this[this.tableTrabPerfil.idtrabColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'idtrab\' de la tabla \'TrabPerfil\' es DBNull.", e);
@@ -1046,10 +1046,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Supervisor {
+            public short Supervisor {
                 get {
                     try {
-                        return ((string)(this[this.tableTrabPerfil.SupervisorColumn]));
+                        return ((short)(this[this.tableTrabPerfil.SupervisorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'Supervisor\' de la tabla \'TrabPerfil\' es DBNull.", e);
@@ -1110,10 +1110,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Director {
+            public short Director {
                 get {
                     try {
-                        return ((string)(this[this.tableTrabPerfil.DirectorColumn]));
+                        return ((short)(this[this.tableTrabPerfil.DirectorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'Director\' de la tabla \'TrabPerfil\' es DBNull.", e);
