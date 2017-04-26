@@ -64,7 +64,7 @@ namespace SIPAA_CS.Accesos.Reportes
             perfil = cbPerfil.SelectedIndex;
 
             string mod = cbModulo.SelectedValue.ToString();
-            int per = Convert.ToInt32(cbPerfil.SelectedValue.ToString());
+            string per = cbPerfil.SelectedValue.ToString();
 
             
             //VALIDA SELECCION DE TODOS EN AMBOS COMBOS
@@ -76,7 +76,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Perfil objPerfil = new Perfil();
                 DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfilesModulos("", 0, "", "", 0, 0, 0, 0, 0, 6);
+                dtReporte = objPerfil.ReportePerfilesModulos("%", "%", "", "", 0, 0, 0, 0, 0, 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -109,7 +109,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Perfil objPerfil = new Perfil();
                 DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfilesModulos(mod, per, "", "", 0, 0, 0, 0, 0, 7);
+                dtReporte = objPerfil.ReportePerfilesModulos(mod, per, "", "", 0, 0, 0, 0, 0, 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -142,7 +142,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Perfil objPerfil = new Perfil();
                 DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfilesModulos(mod, 0, "", "", 0, 0, 0, 0, 0, 8);
+                dtReporte = objPerfil.ReportePerfilesModulos(mod, "%", "", "", 0, 0, 0, 0, 0, 6);
 
                 switch (dtReporte.Rows.Count)
                 {
@@ -175,7 +175,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                 Perfil objPerfil = new Perfil();
                 DataTable dtReporte;
-                dtReporte = objPerfil.ReportePerfilesModulos("", per, "", "", 0, 0, 0, 0, 0, 9);
+                dtReporte = objPerfil.ReportePerfilesModulos("%", per, "", "", 0, 0, 0, 0, 0, 6);
 
                 switch (dtReporte.Rows.Count)
                 {

@@ -130,7 +130,7 @@ namespace SIPAA_CS.App_Code
 
 
 
-        public List<string> ObtenerListaModulosxUsuario(string CVUsuario)
+        public List<string> ObtenerListaModulosxUsuario(string CVUsuario,int iOpcion)
         {
 
             Perfil objPerfil = new Perfil();
@@ -144,7 +144,7 @@ namespace SIPAA_CS.App_Code
 
                 Modulo objModulo = new Modulo();
                 // int iCVPerfil = ltPerfiles.ElementAt(iCV);
-                List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCV);
+                List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCV,iOpcion);
 
                 foreach (string obj in ltModulos)
                 {
@@ -246,30 +246,39 @@ namespace SIPAA_CS.App_Code
             return dgvAccesoUsu;
         }
 
-        public int EliminarAccesoUsuario(string cvusuario, int idtrab, string nombre, string passw, int stusuario, string usuumod, string prgmod, int opcion)
+        public int EliminarAccesoUsuario(string cvusuario, string idtrab, string nombre, string passw, int stusuario, string usuumod, string prgmod, int opcion)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_acceusuario_suid";
-            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "usp_acceusuario_suid";
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@p_IdTrab", SqlDbType.Int).Value = idtrab;
-            cmd.Parameters.Add("@p_Nombre", SqlDbType.VarChar).Value = nombre;
-            cmd.Parameters.Add("@p_Passw", SqlDbType.VarChar).Value = passw;
-            cmd.Parameters.Add("@p_StUsuario", SqlDbType.Int).Value = stusuario;
-            cmd.Parameters.Add("@p_UsuUmod", SqlDbType.VarChar).Value = usuumod;
-            cmd.Parameters.Add("@p_PrguMod", SqlDbType.VarChar).Value = prgmod;
-            cmd.Parameters.Add("@p_Opcion", SqlDbType.Int).Value = opcion;
+                cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+                cmd.Parameters.Add("@p_IdTrab", SqlDbType.VarChar).Value = idtrab;
+                cmd.Parameters.Add("@p_Nombre", SqlDbType.VarChar).Value = nombre;
+                cmd.Parameters.Add("@p_Passw", SqlDbType.VarChar).Value = passw;
+                cmd.Parameters.Add("@p_StUsuario", SqlDbType.Int).Value = stusuario;
+                cmd.Parameters.Add("@p_UsuUmod", SqlDbType.VarChar).Value = usuumod;
+                cmd.Parameters.Add("@p_PrguMod", SqlDbType.VarChar).Value = prgmod;
+                cmd.Parameters.Add("@p_Opcion", SqlDbType.Int).Value = opcion;
 
-            Conexion objConexion = new Conexion();
-            objConexion.asignarConexion(cmd);
+                Conexion objConexion = new Conexion();
+                objConexion.asignarConexion(cmd);
 
-            //cmd.ExecuteNonQuery();
-            int regreso = Convert.ToInt32(cmd.ExecuteScalar());
+                //cmd.ExecuteNonQuery();
+                int regreso = Convert.ToInt32(cmd.ExecuteScalar());
 
-            objConexion.cerrarConexion();
+                objConexion.cerrarConexion();
 
-            return regreso;
+                return regreso;
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+            
         }
 
         public static class LoginInfo

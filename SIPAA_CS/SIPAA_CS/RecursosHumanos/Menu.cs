@@ -78,7 +78,7 @@ namespace SIPAA_CS.RecursosHumanos
             if (NombreFormulario != "0")
             {
 
-                Frm = (Form)Activator.CreateInstance(null, "SIPAA_CS.RecursosHumanos.PlantillasDetalles").Unwrap();
+                Frm = (Form)Activator.CreateInstance(null, "SIPAA_CS.RecursosHumanos.Catalogos.PlantillasDetalles").Unwrap();
 
                 Frm.Show();
             }

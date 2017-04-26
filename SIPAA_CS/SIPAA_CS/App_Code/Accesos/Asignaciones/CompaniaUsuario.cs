@@ -49,7 +49,7 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public DataTable ReporteCompaniasUsuarios(string cvusuario, int idcompania,  string usuumod, string prgumod, int opcion)
+        public DataTable ReporteCompaniasUsuarios(string cvusuario, string idcompania,  string usuumod, string prgumod, int opcion)
         {
 
             Conexion objConexion = new Conexion();
@@ -58,7 +58,7 @@ namespace SIPAA_CS.App_Code
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@p_idcompania", SqlDbType.Int).Value = idcompania;
+            cmd.Parameters.Add("@p_idcompania", SqlDbType.VarChar).Value = idcompania;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;

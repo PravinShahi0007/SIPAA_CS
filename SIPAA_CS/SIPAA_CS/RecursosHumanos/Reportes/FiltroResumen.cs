@@ -22,53 +22,24 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             InitializeComponent();
         }
 
-        private void FiltroResumen_Load(object sender, EventArgs e)
+        //***********************************************************************************************
+        //Autor: Victor Jesús Iturburu Vergara
+        //Fecha creación:04-04-2017     Última Modificacion: 17-04-2017
+        //Descripción: -------------------------------
+        //***********************************************************************************************
+
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      C O M B O S
+        //-----------------------------------------------------------------------------------------------
+
+        public void llenarCombo(ComboBox cb, DataTable dt, string sValor)
         {
-           
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-            SonaCompania objCia = new SonaCompania();
-            DataTable dtCia = objCia.obtcomp(5, "");
-            llenarCombo(cbCia, dtCia, "Descripción");
-
-            DataTable dtUbicaciones = objCia.ObtenerUbicacionPlantel(5,"%");
-            llenarCombo(cbUbicacion, dtUbicaciones, "Descripción");
-
-            SonaDepartamento objDepto = new SonaDepartamento();
-            DataTable dtDepto = objDepto.obtdepto(5, "");
-            llenarCombo(cbDepartamento, dtDepto, "Descripción");
-
-            cbTipoNomina.Enabled = false;
-            cbArea.Enabled = false;
-           
-        }
-
-
-        private void ValidarFechaDataPicker(object sender, EventArgs e)
-        {
-            if (dpFechaInicio.Value > dpFechaFin.Value)
-            {
-
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "La fecha de Inicio no puede ser MAYOR a la de Término");
-
-                timer1.Start();
-
-              //  dpFechaFin.Value = dpFechaInicio.Value;
-                btnImprimirResumen.Enabled = false;
-     
-            }
-            else
-            {
-                btnImprimirResumen.Enabled = true;
-              
-            }
-
-
-        }
-
-        public void llenarCombo(ComboBox cb, DataTable dt, string sValor) {
 
             List<string> ltvalores = new List<string>();
-            foreach (DataRow row in dt.Rows) {
+            foreach (DataRow row in dt.Rows)
+            {
 
                 ltvalores.Add(row[sValor].ToString());
             }
@@ -90,22 +61,26 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
                 cbArea.Enabled = true;
                 SonaCompania objCia = new SonaCompania();
-                DataTable dtPlanta = objCia.ObtenerPlantel(4, 0,cbCia.SelectedItem.ToString(), "");
+                DataTable dtPlanta = objCia.ObtenerPlantel(4, 0, cbCia.SelectedItem.ToString(), "");
                 llenarCombo(cbArea, dtPlanta, "Descripción");
             }
-            else {
+            else
+            {
                 cbTipoNomina.Enabled = false;
                 cbArea.Enabled = false;
             }
-           
+
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            panelTag.Visible = false;
-            timer1.Stop();
-        }
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      G R I D // S
+        //-----------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------
+        //                                     B O T O N E S
+        //-----------------------------------------------------------------------------------------------
+
 
         private void btnImprimirResumen_Click(object sender, EventArgs e)
         {
@@ -122,14 +97,15 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             {
                 sIdtrab = "%";
             }
-            else {
+            else
+            {
                 sIdtrab = txtIdTrab.Text;
             }
 
 
             Incidencia objInc = new Incidencia();
 
-            DataTable dtRpt = objInc.ReporteResumen(sIdtrab, dtFechaInicio,dtFechaFin,sDepto,sCia, sTipoNom,sUbicacion,sArea);
+            DataTable dtRpt = objInc.ReporteResumen(sIdtrab, dtFechaInicio, dtFechaFin, sDepto, sCia, sTipoNom, sUbicacion, sArea);
 
             switch (dtRpt.Rows.Count)
             {
@@ -148,7 +124,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     ReportDoc.SetParameterValue("FechaTermino", dpFechaFin.Value);
                     ReportDoc.SetParameterValue("Comp", sCia);
                     ReportDoc.SetParameterValue("Ubicacion", sUbicacion);
-                    ReportDoc.SetParameterValue("Area",sArea);
+                    ReportDoc.SetParameterValue("Area", sArea);
                     ReportDoc.SetParameterValue("TipoNomina", sTipoNom);
                     form.RptDoc = ReportDoc;
                     form.Show();
@@ -158,21 +134,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         }
 
-        public string AsignarVariableCombo(ComboBox cb) {
 
-            string sAsignacion;
-
-            if (cb.SelectedIndex == 0) {
-                sAsignacion = "%";
-            }else
-            {
-                sAsignacion = cb.SelectedItem.ToString();
-
-            }
-
-            return sAsignacion;
-
-        }
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
@@ -193,5 +155,101 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 Application.Exit();
             }
         }
+
+        //-----------------------------------------------------------------------------------------------
+        //                           C A J A S      D E      T E X T O   
+        //-----------------------------------------------------------------------------------------------
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                     E V E N T O S
+        //-----------------------------------------------------------------------------------------------
+
+
+        private void FiltroResumen_Load(object sender, EventArgs e)
+        {
+
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            SonaCompania objCia = new SonaCompania();
+            DataTable dtCia = objCia.obtcomp(5, "");
+            llenarCombo(cbCia, dtCia, "Descripción");
+
+            DataTable dtUbicaciones = objCia.ObtenerUbicacionPlantel(5, "%");
+            llenarCombo(cbUbicacion, dtUbicaciones, "Descripción");
+
+            SonaDepartamento objDepto = new SonaDepartamento();
+            DataTable dtDepto = objDepto.obtdepto(5, "");
+            llenarCombo(cbDepartamento, dtDepto, "Descripción");
+
+            cbTipoNomina.Enabled = false;
+            cbArea.Enabled = false;
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+            timer1.Stop();
+        }
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+
+        private void ValidarFechaDataPicker(object sender, EventArgs e)
+        {
+            if (dpFechaInicio.Value > dpFechaFin.Value)
+            {
+
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "La fecha de Inicio no puede ser MAYOR a la de Término");
+
+                timer1.Start();
+
+                //  dpFechaFin.Value = dpFechaInicio.Value;
+                btnImprimirResumen.Enabled = false;
+
+            }
+            else
+            {
+                btnImprimirResumen.Enabled = true;
+
+            }
+
+
+        }
+
+
+        public string AsignarVariableCombo(ComboBox cb)
+        {
+
+            string sAsignacion;
+
+            if (cb.SelectedIndex == 0)
+            {
+                sAsignacion = "%";
+            }
+            else
+            {
+                sAsignacion = cb.SelectedItem.ToString();
+
+            }
+
+            return sAsignacion;
+
+        }
+
+
+
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      R E P O R T E
+        //-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
     }
 }

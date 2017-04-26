@@ -1,6 +1,7 @@
 ﻿using SIPAA_CS.App_Code;
 using SIPAA_CS.RecursosHumanos.Asignaciones;
 using SIPAA_CS.RecursosHumanos.Catalogos;
+using SIPAA_CS.RecursosHumanos.Procesos;
 using SIPAA_CS.RecursosHumanos.Reportes;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace SIPAA_CS.RecursosHumanos
 
             Usuario objUsuario = new Usuario();
             string IdTrab = LoginInfo.IdTrab;
-            List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab);
+            List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab,5);
 
             Utilerias.MenuDinamico(MenuAccesos, ltModulosxUsuario);
         }
@@ -123,7 +124,7 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void tipoIncidenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IncidenciasTipo form = new IncidenciasTipo();
+            IncidenciasTipos form = new IncidenciasTipos();
             form.Show();
         }
 
@@ -179,6 +180,12 @@ namespace SIPAA_CS.RecursosHumanos
         {
             Plantillas oPlantillas = new Plantillas();
             oPlantillas.Show();
+        }
+
+        private void asignaciónDePerfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TrabajadoresPerfil from = new TrabajadoresPerfil();
+            from.Show();
         }
     }
 }

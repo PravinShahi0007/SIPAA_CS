@@ -291,8 +291,8 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaTipoNomina.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaUbicacion.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\ArchNomina4.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueoIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\PeriodoProcesoIncidencia.cs" />
-    <Compile Include="App_Code\RecursosHumanos\Procesos\ReasignaSupyDirector2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\ReasignaSupyDirector.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorHorario.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
@@ -509,6 +509,19 @@
     <Compile Include="RecursosHumanos\Catalogos\IncidenciasNominas.Designer.cs">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\DetalleHorario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DetalleHorario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\IncidenciasPasadasNomina.rpt.cs">
+      <DependentUpon>IncidenciasPasadasNomina.rpt.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\IncidenciasPasadasNomina.rpt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncidenciasPasadasNomina.rpt.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\Observaciones.cs">
       <DependentUpon>Observaciones.xsd</DependentUpon>
     </Compile>
@@ -516,6 +529,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Observaciones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RegistroDetalle.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistroDetalle.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.cs">
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
@@ -541,29 +559,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TrabPerfil.xsd</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionIncidenciasTrabajador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.Designer.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionIncidenciasTrabajador.Designer.cs">
+      <DependentUpon>AsignacionIncidenciasTrabajador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTipoHorarioTrabajador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTipoHorarioTrabajador.Designer.cs">
       <DependentUpon>AsignacionTipoHorarioTrabajador.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\AsignacionTrabajadorPerfil.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTrabajadorPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\AsignacionTrabajadorPerfil.Designer.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTrabajadorPerfil.Designer.cs">
       <DependentUpon>AsignacionTrabajadorPerfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\DatosTrabajadorPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.Designer.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\DatosTrabajadorPerfil.Designer.cs">
       <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\ReasignaSupyDirectores2.cs">
+    <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\ReasignaSupyDirectores2.Designer.cs">
-      <DependentUpon>ReasignaSupyDirectores2.cs</DependentUpon>
+    <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.Designer.cs">
+      <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.cs">
       <SubType>Form</SubType>
@@ -571,10 +595,10 @@
     <Compile Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.Designer.cs">
       <DependentUpon>ReasignaSupyDirectores.cs</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\TrabajadoresPerfil.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\TrabajadoresPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\TrabajadoresPerfil.Designer.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\TrabajadoresPerfil.Designer.cs">
       <DependentUpon>TrabajadoresPerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\ArchivoNomina4.cs">
@@ -601,11 +625,23 @@
     <Compile Include="RecursosHumanos\Catalogos\Ubicaciones.Designer.cs">
       <DependentUpon>Ubicaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\DetalleHr.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DetalleHr.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\FiltroObservaciones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\FiltroObservaciones.Designer.cs">
       <DependentUpon>FiltroObservaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroDetalle.Designer.cs">
+      <DependentUpon>FiltrosRegistroDetalle.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.cs">
       <SubType>Form</SubType>
@@ -619,10 +655,22 @@
     <Compile Include="RecursosHumanos\Reportes\FiltroTrabPerfil.Designer.cs">
       <DependentUpon>FiltroTrabPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncidenciasPasadasNomina.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\Observaciones.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Observaciones.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RegistroDetalle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistroDetalle.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\RegistroGeneradoDetalle.cs">
@@ -846,22 +894,25 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\IncidenciasNominas.resx">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignacionTipoHorarioTrabajador.resx">
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionIncidenciasTrabajador.resx">
+      <DependentUpon>AsignacionIncidenciasTrabajador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTipoHorarioTrabajador.resx">
       <DependentUpon>AsignacionTipoHorarioTrabajador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignacionTrabajadorPerfil.resx">
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTrabajadorPerfil.resx">
       <DependentUpon>AsignacionTrabajadorPerfil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Procesos\DatosTrabajadorPerfil.resx">
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\DatosTrabajadorPerfil.resx">
       <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Procesos\ReasignaSupyDirectores2.resx">
-      <DependentUpon>ReasignaSupyDirectores2.cs</DependentUpon>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.resx">
+      <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.resx">
       <DependentUpon>ReasignaSupyDirectores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Procesos\TrabajadoresPerfil.resx">
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\TrabajadoresPerfil.resx">
       <DependentUpon>TrabajadoresPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\ArchivoNomina4.resx">
@@ -879,8 +930,15 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\TiposHorarios.resx">
       <DependentUpon>TiposHorarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\DetalleHr.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DetalleHr.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroObservaciones.resx">
       <DependentUpon>FiltroObservaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltrosRegistroDetalle.resx">
+      <DependentUpon>FiltrosRegistroDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.resx">
       <DependentUpon>FiltrosRegistroGeneradoDetalle.cs</DependentUpon>
@@ -888,9 +946,17 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroTrabPerfil.resx">
       <DependentUpon>FiltroTrabPerfil.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>IncidenciasPasadasNomina.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Observaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Observaciones.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RegistroDetalle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RegistroDetalle.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\RegistroGeneradoDetalle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1069,6 +1135,28 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RecursosHumanos\DataSets\DetalleHorario.xsc">
+      <DependentUpon>DetalleHorario.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\DetalleHorario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DetalleHorario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\DetalleHorario.xss">
+      <DependentUpon>DetalleHorario.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\IncidenciasPasadasNomina.rpt.xsc">
+      <DependentUpon>IncidenciasPasadasNomina.rpt.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\IncidenciasPasadasNomina.rpt.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IncidenciasPasadasNomina.rpt.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\IncidenciasPasadasNomina.rpt.xss">
+      <DependentUpon>IncidenciasPasadasNomina.rpt.xsd</DependentUpon>
+    </None>
     <None Include="RecursosHumanos\DataSets\Observaciones.xsc">
       <DependentUpon>Observaciones.xsd</DependentUpon>
     </None>
@@ -1079,6 +1167,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\Observaciones.xss">
       <DependentUpon>Observaciones.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RegistroDetalle.xsc">
+      <DependentUpon>RegistroDetalle.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RegistroDetalle.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RegistroDetalle.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RegistroDetalle.xss">
+      <DependentUpon>RegistroDetalle.xsd</DependentUpon>
     </None>
     <None Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.xsc">
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
@@ -1411,10 +1510,10 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_group_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_assignment_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_group_white_24dp.png" />
-    <Content Include="Resources\pass24x24.png" />
-    <None Include="Resources\user24x241.png" />
-    <None Include="Resources\pass24x241.png" />
-    <Content Include="Resources\user24x24.png" />
+    <None Include="Resources\AcceDashboard20x20.png" />
+    <None Include="Resources\AcceDashboard30x30.png" />
+    <None Include="Resources\RechDashboard20x20.png" />
+    <None Include="Resources\RechDashboard30x30.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\RecursosHumanos\Asistencias\" />
