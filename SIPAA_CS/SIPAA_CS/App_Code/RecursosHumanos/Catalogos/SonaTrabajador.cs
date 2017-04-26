@@ -98,6 +98,34 @@ namespace SIPAA_CS.App_Code
             dadapter.Fill(dtTrabajador);
             return (dtTrabajador);
         }
+        //Fecha de Modificación: 26-Abr-2017
+        //Autor: Marco Dupont
+        //Descripción: Lista de Trabajadores por Esttus
+        public DataTable ObtenerListaTrabajador(int iOpcion, int iSt)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_sonatrabajador_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@Nom", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@Sta", SqlDbType.Int).Value = iSt;
+            cmd.Parameters.Add("@Enc", SqlDbType.Int).Value = 0;
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtLisTrab = new DataTable();
+            Adapter.Fill(dtLisTrab);
+            return (dtLisTrab);
+        }
+
 
     }
 }
