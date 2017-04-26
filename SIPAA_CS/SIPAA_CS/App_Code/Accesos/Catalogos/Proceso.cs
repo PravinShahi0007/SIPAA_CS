@@ -66,15 +66,21 @@ namespace SIPAA_CS.App_Code
             return regreso;
         }
 
-        public List<string> obtenerUsuariosxProceso(string cvusuario)
+        public List<string> obtenerUsuariosxProceso(string cvusuario, string cvproceso, string passw, string usuumod, string prgumod, int opcion)
         {
 
             List<string> ltUsuariosxProceso = new List<string>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_formasignarproceso";
+            cmd.CommandText = @"usp_acceusupro_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_cvproceso", SqlDbType.VarChar).Value = cvproceso;
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = passw;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -94,17 +100,18 @@ namespace SIPAA_CS.App_Code
             return ltUsuariosxProceso;
         }
 
-        public void AsignarUsuarioProceso(string cvusuario, int cvproceso,string passw, string usuumod, string prgumod)
+        public void AsignarUsuarioProceso(string cvusuario, string cvproceso,string passw, string usuumod, string prgumod, int opcion)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_asignarproceso";
+            cmd.CommandText = "usp_acceusupro_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@cvproceso", SqlDbType.Int).Value = cvproceso;
-            cmd.Parameters.Add("@passw", SqlDbType.VarChar).Value = passw;
-            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = usuumod;
-            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_cvproceso", SqlDbType.VarChar).Value = cvproceso;
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = passw;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.VarChar).Value = opcion;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
