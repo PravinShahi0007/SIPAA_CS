@@ -24,7 +24,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UsuarioProceso());
+            Application.Run(new DesbloqueoIncidencias());
         }
     }
 }
