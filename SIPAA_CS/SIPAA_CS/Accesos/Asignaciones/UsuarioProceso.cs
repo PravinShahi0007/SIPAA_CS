@@ -178,24 +178,46 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
+        }
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
             buscar = txtUsuario.Text;
-            buscar.Trim();
-            
-           dgvUsuario.Columns.Remove(columnName: "Seleccionar");
-           LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "", 7);
-            
+            //buscar.Trim();
+
+            dgvUsuario.Columns.Remove(columnName: "Seleccionar");
+
+            LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "", 8);
         }
-        
+
         private void btnBuscarProceso_Click(object sender, EventArgs e)
         {
             descripcion = txtDescripcion.Text;
 
             dgvProceso.Columns.Remove(columnName: "Seleccionar");
-            LlenaGridProcesos(0, descripcion, 0, "", "", 6);
-           
+
+            LlenaGridProcesos("", descripcion.Trim(), 0, "", "", 8);
         }
+        
 
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -207,9 +229,9 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void Asignar_Proceso_Load(object sender, EventArgs e)
         {
-            LlenaGridUsuarios("", 0, "", "", 0, "", "", 8);
+            LlenaGridUsuarios("", 0, "", "", 0, "", "",11);
 
-            LlenaGridProcesos(0, "", 0, "0", "", 5);
+            LlenaGridProcesos("", "", 0, "0", "", 8);
 
             cbAsignaPassword.Visible = false;
 
@@ -242,13 +264,17 @@ namespace SIPAA_CS.Accesos
             imgCheckProcesos.Name = "Seleccionar";
             dgvUsuario.Columns.Insert(0, imgCheckProcesos);
             dgvUsuario.Columns[0].HeaderText = "Seleccionar";
+            dgvUsuario.Columns[1].HeaderText = "Clave Usuario";
+            dgvUsuario.Columns[3].HeaderText = "Nombre";
+            //dgvUsuario.Columns[4].HeaderText = "Estatus";
 
             //dgvUsuario.Columns[1].Visible = true;
-            dgvUsuario.Columns[3].Visible = false;
+            dgvUsuario.Columns[2].Visible = false;
+            dgvUsuario.Columns[4].Visible = false;
             dgvUsuario.ClearSelection();
         }
 
-        private void LlenaGridProcesos(int cvproceso, string descripcion, int stproceso, string usuumod, string prgumod, int opcion)
+        private void LlenaGridProcesos(string cvproceso, string descripcion, int stproceso, string usuumod, string prgumod, int opcion)
         {
          
 
@@ -260,33 +286,17 @@ namespace SIPAA_CS.Accesos
             imgCheckProcesos.Name = "Seleccionar";
             dgvProceso.Columns.Insert(0, imgCheckProcesos);
             dgvProceso.Columns[0].HeaderText = "Seleccionar";
+            dgvProceso.Columns[1].HeaderText = "Clave Proceso";
             dgvProceso.Columns[3].Visible = false;
             dgvProceso.ClearSelection();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
+            panelTag.Visible = false;
+            timer1.Stop();
         }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            
-            this.Close();
-        }
-
-       
-
+        
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

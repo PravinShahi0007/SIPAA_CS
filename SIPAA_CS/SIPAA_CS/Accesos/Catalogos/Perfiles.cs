@@ -290,13 +290,11 @@ namespace SIPAA_CS.Accesos
 
                 IdPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
                 string ValorRow = row.Cells["DESCRIPCION"].Value.ToString();
-                strEstatus = row.Cells["stPerfil"].Value.ToString();
+                strEstatus = row.Cells["Estatus"].Value.ToString();
                 txtPerfil.Text = ValorRow;
                 PanelEditar.Visible = true;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                btnGuardar.Image = Resources.Editar;
-                //Utilerias.CambioBoton(btnGuardar, btnEliminar,btnGuardar, btnEditar);
-
+              
 
                 //Permisos
                 if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
@@ -308,12 +306,12 @@ namespace SIPAA_CS.Accesos
                     ckbEliminar.Visible = true;
                     ckbEliminar.Checked = false;
 
-                    if (strEstatus == "0")
+                    if (strEstatus == "Inactivo")
                     {
                         ckbEliminar.Text = "Alta";
 
                     }
-                    else if (strEstatus == "1")
+                    else if (strEstatus == "Activo")
                     {
                         ckbEliminar.Text = "Baja";
 
@@ -360,12 +358,12 @@ namespace SIPAA_CS.Accesos
             if (ckbEliminar.Checked == true)
             {
 
-                if (strEstatus == "0")
+                if (strEstatus == "Inactivo")
                 {
 
                     Utilerias.AsignarBotonResize(btnGuardar, PantallaSistema(), Botones.Alta);
                 }
-                else if (strEstatus == "1")
+                else if (strEstatus == "Activo")
                 {
 
                     Utilerias.AsignarBotonResize(btnGuardar, PantallaSistema(), Botones.Baja);

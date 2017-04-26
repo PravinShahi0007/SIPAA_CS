@@ -33,9 +33,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsignacionTipoHorarioTrabajador));
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label21;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.lblusuario = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -106,6 +106,19 @@
             label23.TabIndex = 41;
             label23.Text = "      Buscar Forma de Registro";
             // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label21.ForeColor = System.Drawing.Color.Gray;
+            label21.Image = ((System.Drawing.Image)(resources.GetObject("label21.Image")));
+            label21.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label21.Location = new System.Drawing.Point(18, 31);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(159, 17);
+            label21.TabIndex = 194;
+            label21.Text = "      Guardar Asignación";
+            // 
             // pnlimgusuario
             // 
             this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
@@ -142,6 +155,7 @@
             this.button3.TabIndex = 180;
             this.button3.TabStop = false;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // label3
             // 
@@ -153,9 +167,9 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(377, -1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(301, 23);
+            this.label3.Size = new System.Drawing.Size(305, 23);
             this.label3.TabIndex = 179;
-            this.label3.Text = "       Asignaciones Tipo Horario Trabajador";
+            this.label3.Text = "        Asignaciones Tipo Horario Trabajador";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button1
@@ -171,6 +185,7 @@
             this.button1.TabIndex = 178;
             this.button1.TabStop = false;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // button2
             // 
@@ -185,6 +200,7 @@
             this.button2.TabIndex = 177;
             this.button2.TabStop = false;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // lbNombre
             // 
@@ -279,22 +295,22 @@
             this.dgvTipoHr.AllowUserToDeleteRows = false;
             this.dgvTipoHr.AllowUserToResizeColumns = false;
             this.dgvTipoHr.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvTipoHr.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvTipoHr.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTipoHr.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTipoHr.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTipoHr.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvTipoHr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTipoHr.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvTipoHr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTipoHr.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTipoHr.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTipoHr.Location = new System.Drawing.Point(540, 223);
             this.dgvTipoHr.Name = "dgvTipoHr";
             this.dgvTipoHr.ReadOnly = true;
@@ -354,19 +370,6 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label21.ForeColor = System.Drawing.Color.Gray;
-            label21.Image = ((System.Drawing.Image)(resources.GetObject("label21.Image")));
-            label21.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label21.Location = new System.Drawing.Point(18, 31);
-            label21.Name = "label21";
-            label21.Size = new System.Drawing.Size(159, 17);
-            label21.TabIndex = 194;
-            label21.Text = "      Guardar Asignación";
-            // 
             // panelTag
             // 
             this.panelTag.Controls.Add(this.lbMensaje);
@@ -423,6 +426,7 @@
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AsignacionTipoHorarioTrabajador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "frmAsignacionTipoHorarioTrabajador";
             this.Text = "AsignacionTipoHorarioTrabajador";
             this.Load += new System.EventHandler(this.AsignacionTipoHorarioTrabajador_Load);

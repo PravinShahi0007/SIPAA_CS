@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsignacionIncidenciasTrabajador));
             System.Windows.Forms.Label label23;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsignacionIncidenciasTrabajador));
             System.Windows.Forms.Label label13;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label4;
@@ -42,13 +42,13 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.dpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.lbNombre = new System.Windows.Forms.Label();
             this.lbIdTrab = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dpFechaFin = new System.Windows.Forms.DateTimePicker();
-            this.dpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvTipoHr = new System.Windows.Forms.DataGridView();
             label23 = new System.Windows.Forms.Label();
@@ -58,6 +58,56 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipoHr)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label23.ForeColor = System.Drawing.Color.Gray;
+            label23.Image = ((System.Drawing.Image)(resources.GetObject("label23.Image")));
+            label23.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label23.Location = new System.Drawing.Point(5, 0);
+            label23.Name = "label23";
+            label23.Size = new System.Drawing.Size(216, 17);
+            label23.TabIndex = 41;
+            label23.Text = "      Buscar por Rango de Fecha";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label13.ForeColor = System.Drawing.Color.Gray;
+            label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
+            label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label13.Location = new System.Drawing.Point(-9, 110);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(144, 17);
+            label13.TabIndex = 202;
+            label13.Text = "      Datos Trabajador";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label3.Location = new System.Drawing.Point(16, 106);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(66, 16);
+            label3.TabIndex = 207;
+            label3.Text = "Fecha Fin";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label4.Location = new System.Drawing.Point(16, 34);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(96, 16);
+            label4.TabIndex = 206;
+            label4.Text = "Fecha de Inicio";
             // 
             // lblusuario
             // 
@@ -146,11 +196,19 @@
             this.panel2.Controls.Add(label4);
             this.panel2.Controls.Add(this.dpFechaInicio);
             this.panel2.Controls.Add(label23);
-            this.panel2.Location = new System.Drawing.Point(15, 178);
+            this.panel2.Location = new System.Drawing.Point(15, 207);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(377, 172);
             this.panel2.TabIndex = 203;
             this.panel2.TabStop = true;
+            // 
+            // dpFechaFin
+            // 
+            this.dpFechaFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpFechaFin.Location = new System.Drawing.Point(19, 125);
+            this.dpFechaFin.Name = "dpFechaFin";
+            this.dpFechaFin.Size = new System.Drawing.Size(285, 25);
+            this.dpFechaFin.TabIndex = 205;
             // 
             // btnBuscar
             // 
@@ -165,37 +223,19 @@
             this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             // 
-            // label23
+            // dpFechaInicio
             // 
-            label23.AutoSize = true;
-            label23.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label23.ForeColor = System.Drawing.Color.Gray;
-            label23.Image = ((System.Drawing.Image)(resources.GetObject("label23.Image")));
-            label23.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label23.Location = new System.Drawing.Point(5, 0);
-            label23.Name = "label23";
-            label23.Size = new System.Drawing.Size(216, 17);
-            label23.TabIndex = 41;
-            label23.Text = "      Buscar por Rango de Fecha";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label13.ForeColor = System.Drawing.Color.Gray;
-            label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
-            label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label13.Location = new System.Drawing.Point(39, 109);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(144, 17);
-            label13.TabIndex = 202;
-            label13.Text = "      Datos Trabajador";
+            this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpFechaInicio.Location = new System.Drawing.Point(19, 53);
+            this.dpFechaInicio.Name = "dpFechaInicio";
+            this.dpFechaInicio.Size = new System.Drawing.Size(285, 25);
+            this.dpFechaInicio.TabIndex = 204;
             // 
             // lbNombre
             // 
             this.lbNombre.AutoSize = true;
             this.lbNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNombre.Location = new System.Drawing.Point(299, 136);
+            this.lbNombre.Location = new System.Drawing.Point(72, 163);
             this.lbNombre.Name = "lbNombre";
             this.lbNombre.Size = new System.Drawing.Size(63, 16);
             this.lbNombre.TabIndex = 201;
@@ -205,7 +245,7 @@
             // 
             this.lbIdTrab.AutoSize = true;
             this.lbIdTrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIdTrab.Location = new System.Drawing.Point(146, 135);
+            this.lbIdTrab.Location = new System.Drawing.Point(64, 135);
             this.lbIdTrab.Name = "lbIdTrab";
             this.lbIdTrab.Size = new System.Drawing.Size(43, 16);
             this.lbIdTrab.TabIndex = 200;
@@ -215,7 +255,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label5.Location = new System.Drawing.Point(99, 137);
+            this.label5.Location = new System.Drawing.Point(17, 137);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 199;
@@ -225,51 +265,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label2.Location = new System.Drawing.Point(246, 138);
+            this.label2.Location = new System.Drawing.Point(19, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 198;
             this.label2.Text = "Nombre:";
-            // 
-            // dpFechaFin
-            // 
-            this.dpFechaFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dpFechaFin.Location = new System.Drawing.Point(19, 125);
-            this.dpFechaFin.Name = "dpFechaFin";
-            this.dpFechaFin.Size = new System.Drawing.Size(285, 25);
-            this.dpFechaFin.TabIndex = 205;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(16, 106);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(66, 16);
-            label3.TabIndex = 207;
-            label3.Text = "Fecha Fin";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(16, 34);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(96, 16);
-            label4.TabIndex = 206;
-            label4.Text = "Fecha de Inicio";
-            // 
-            // dpFechaInicio
-            // 
-            this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dpFechaInicio.Location = new System.Drawing.Point(19, 53);
-            this.dpFechaInicio.Name = "dpFechaInicio";
-            this.dpFechaInicio.Size = new System.Drawing.Size(285, 25);
-            this.dpFechaInicio.TabIndex = 204;
             // 
             // label12
             // 

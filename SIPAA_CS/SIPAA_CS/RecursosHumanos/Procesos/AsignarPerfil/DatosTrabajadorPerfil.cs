@@ -104,6 +104,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 if (row["Estatus"].ToString() == "1") { lbEstatus.Text = "Activo"; } else { lbEstatus.Text = "Inactivo"; }
                 lbArea.Text = row["Área"].ToString();
                 lbPuesto.Text = row["Puesto"].ToString();
+                TrabajadorInfo.IdTrabSupervisor = row["IdTrabSupervisor"].ToString();
+                TrabajadorInfo.NombreSupervisor = row["Supervisor"].ToString();
                 lbFechaIngreso.Text = row["Fecha_Ingreso"].ToString();
 
                 if (!ltTnom.Contains(row["Tipo_Nomina"].ToString()))

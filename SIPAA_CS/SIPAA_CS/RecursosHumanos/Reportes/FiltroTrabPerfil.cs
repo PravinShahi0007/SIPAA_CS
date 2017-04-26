@@ -83,7 +83,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             }
 
-            //Prueba Reporte Incidencias pasadas a Nomina
+            ////Prueba Reporte Incidencias pasadas a Nomina
             //Incidencia objIncidencia = new Incidencia();
             //DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina("%", DateTime.Parse("2017-02-05"), DateTime.Parse("2017-04-01"), "%", "%", "%");
 

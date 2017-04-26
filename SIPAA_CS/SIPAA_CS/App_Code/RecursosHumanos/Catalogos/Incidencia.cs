@@ -54,7 +54,7 @@ namespace SIPAA_CS.App_Code
 
             Conexion objConexion = new Conexion();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechtipoincidencia_suid";
+            cmd.CommandText = @"usp_rechinctipo_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("P_cvincidencia", SqlDbType.Int).Value = objIncidencia.CVIncidencia;

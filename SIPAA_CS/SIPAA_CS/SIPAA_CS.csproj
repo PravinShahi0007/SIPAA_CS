@@ -525,6 +525,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Observaciones.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RegistroDetalle.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistroDetalle.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.cs">
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
     </Compile>
@@ -621,6 +626,12 @@
     <Compile Include="RecursosHumanos\Reportes\FiltroObservaciones.Designer.cs">
       <DependentUpon>FiltroObservaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroDetalle.Designer.cs">
+      <DependentUpon>FiltrosRegistroDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -643,6 +654,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Observaciones.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RegistroDetalle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistroDetalle.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\RegistroGeneradoDetalle.cs">
@@ -905,6 +922,9 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroObservaciones.resx">
       <DependentUpon>FiltroObservaciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltrosRegistroDetalle.resx">
+      <DependentUpon>FiltrosRegistroDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltrosRegistroGeneradoDetalle.resx">
       <DependentUpon>FiltrosRegistroGeneradoDetalle.cs</DependentUpon>
     </EmbeddedResource>
@@ -918,6 +938,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\Observaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Observaciones.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RegistroDetalle.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RegistroDetalle.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\RegistroGeneradoDetalle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1117,6 +1141,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\Observaciones.xss">
       <DependentUpon>Observaciones.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RegistroDetalle.xsc">
+      <DependentUpon>RegistroDetalle.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RegistroDetalle.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RegistroDetalle.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RegistroDetalle.xss">
+      <DependentUpon>RegistroDetalle.xsd</DependentUpon>
     </None>
     <None Include="RecursosHumanos\DataSets\RegistroGeneradoDetalle.xsc">
       <DependentUpon>RegistroGeneradoDetalle.xsd</DependentUpon>
@@ -1449,10 +1484,10 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_group_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_assignment_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_group_white_24dp.png" />
-    <Content Include="Resources\pass24x24.png" />
-    <None Include="Resources\user24x241.png" />
-    <None Include="Resources\pass24x241.png" />
-    <Content Include="Resources\user24x24.png" />
+    <None Include="Resources\AcceDashboard20x20.png" />
+    <None Include="Resources\AcceDashboard30x30.png" />
+    <None Include="Resources\RechDashboard20x20.png" />
+    <None Include="Resources\RechDashboard30x30.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\RecursosHumanos\Asistencias\" />
