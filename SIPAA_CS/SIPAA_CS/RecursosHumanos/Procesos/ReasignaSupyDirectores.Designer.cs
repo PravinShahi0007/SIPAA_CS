@@ -74,9 +74,9 @@
             lblFormaPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lblFormaPago.Location = new System.Drawing.Point(33, 134);
             lblFormaPago.Name = "lblFormaPago";
-            lblFormaPago.Size = new System.Drawing.Size(97, 16);
+            lblFormaPago.Size = new System.Drawing.Size(52, 16);
             lblFormaPago.TabIndex = 152;
-            lblFormaPago.Text = "Forma de Pago";
+            lblFormaPago.Text = "Periodo";
             // 
             // cbFormaPago
             // 
