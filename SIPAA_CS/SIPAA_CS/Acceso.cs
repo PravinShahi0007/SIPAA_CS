@@ -100,9 +100,14 @@ namespace SIPAA_CS
                                     int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), us, "", password.Trim(), 0, "", "", 10);
                                     if (respuesta == 1)
                                     {
-                                        Dashboard ds = new Dashboard();
+                                       
+                                        string NomUsu = usuario.Nombre;
+                                        LoginInfo.Nombre = NomUsu;
                                         LoginInfo.IdTrab = txtUsuario.Text;
-                                        //ds.RecibirIdTrab(txtUsuario.Text);
+                                        usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
+
+
+                                        Dashboard ds = new Dashboard();
                                         ds.Show();
                                         this.Close();
                                     }
@@ -163,6 +168,11 @@ namespace SIPAA_CS
                             {
                                 Dashboard ds = new Dashboard();
                                 LoginInfo.IdTrab = txtUsuario.Text;
+
+                                usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0,"","","","","",7);
+
+                                string NomUsu = usuario.Nombre;
+                                LoginInfo.Nombre = NomUsu;
                                 //ds.RecibirIdTrab(txtUsuario.Text);
                                 ds.Show();
                                 this.Close();
