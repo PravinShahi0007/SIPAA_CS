@@ -82,7 +82,7 @@ namespace SIPAA_CS
                     try
                     {
                         //obtiene la lista 
-                        usuario = usuario.ObtenerListaTrabajadorUsuario(us);
+                        usuario = usuario.ObtenerListaTrabajadorUsuario(5,us);
 
                         //valida si lo encontro
                         if (usuario.enc == 1)
@@ -91,13 +91,13 @@ namespace SIPAA_CS
                             if (usuario.st == 1)
                             {
                                 //MessageBox.Show("El usuario " + usuario.Nombre + " esta activo en sonarh");
-                                int u = usuario.AsignarAccesoUsuario("", us, "", "", 0, "", "", 4);
+                                int u = usuario.AsignarAccesoUsuario("", us, "", "", 0, "", "", 6);
 
                                 //valida si esta activo en sipaa
                                 if (u == 1)
                                 {
                                     //MessageBox.Show("El usuario  esta activo en sipaa");
-                                    int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), us, "", password.Trim(), 0, "", "", 5);
+                                    int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), us, "", password.Trim(), 0, "", "", 10);
                                     if (respuesta == 1)
                                     {
                                         Dashboard ds = new Dashboard();
@@ -137,7 +137,7 @@ namespace SIPAA_CS
                 }
 
 
-                //valida si es textto
+                //valida si es texto
                 if (!utilerias.IsNumber(txtUsuario.Text))
                 {
                     user = txtUsuario.Text;
@@ -169,12 +169,12 @@ namespace SIPAA_CS
                             }
                             else
                             {
-                                MessageBox.Show("Usuario y contraseña no coincide");
+                                MessageBox.Show("Usuario y Contraseña no coincide");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("El usuario  esta inaactivo en sipaa");
+                            MessageBox.Show("El usuario esta Inaactivo en SIPAA");
                         }
                         
                     }
@@ -187,7 +187,7 @@ namespace SIPAA_CS
             }
             else
             {
-                MessageBox.Show("Asigna Usuario y  Contraseña");
+                MessageBox.Show("Asigna Usuario y Contraseña");
             }
             
         }
@@ -201,7 +201,6 @@ namespace SIPAA_CS
         //-----------------------------------------------------------------------------------------------
         private void Acceso_Load(object sender, EventArgs e)
         {
-          
             txtUsuario.Focus();
         }
         private void panel1_MouseUp(object sender, MouseEventArgs e)
@@ -225,8 +224,6 @@ namespace SIPAA_CS
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
-
-
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
