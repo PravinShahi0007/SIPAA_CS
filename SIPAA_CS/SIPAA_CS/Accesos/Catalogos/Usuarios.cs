@@ -341,7 +341,7 @@ namespace SIPAA_CS.Accesos
                     try
                     {
                         //obtiene la lista 
-                        usuario = usuario.ObtenerListaTrabajadorUsuario(idtrab);
+                        usuario = usuario.ObtenerListaTrabajadorUsuario(5,idtrab);
 
                         //valida si lo encontro
                         if (usuario.enc == 1)
@@ -380,7 +380,7 @@ namespace SIPAA_CS.Accesos
                     catch (Exception ex)
                     {
 
-                        //MessageBox.Show("No se encontró usuario en SONARH"+ ex);
+                        MessageBox.Show("No se encontró usuario en SONARH"+ ex);
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se encontró usuario en SONARH");
                         timer1.Start();
                     }

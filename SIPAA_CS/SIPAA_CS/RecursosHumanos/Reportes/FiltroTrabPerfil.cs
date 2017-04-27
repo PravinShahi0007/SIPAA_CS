@@ -27,10 +27,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
     {
         #region
 
-        int iIDT;
-        int iIDC;
-        int IIDU;
-        int IACT;
+        int iIDT; //Id del Trabajdor
+        int iIDC; //Id de la Compañia
+        int IIDU; //Id de la Ubicación
+        int IACT; //Status del Trabajador
+        int ISTC; //Checa (si/no)
 
         #endregion
 
@@ -38,6 +39,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         Utilerias Util = new Utilerias();
         SonaCompania CComUbi = new SonaCompania();
         RepTrabPerfil CTrabPerf = new RepTrabPerfil();
+        SonaTrabajador CSonaTrab = new SonaTrabajador();
 
         public FiltroTrabPerfil()
         {
@@ -54,25 +56,28 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            if (txtIdTrab.Text == "" && cboCia.SelectedIndex == 0 && cboUbicacion.SelectedIndex == 0)
+            if (cboEmpleados.SelectedIndex == 0 && cboCia.SelectedIndex == 0 && cboUbicacion.SelectedIndex == 0)
             {
                 MessageBox.Show("Debe Seleccionar Trabajador, Compañia o Ubicación");
-                txtIdTrab.Focus();
+                cboEmpleados.Focus();
             }
             else
             {
-                if (txtIdTrab.Text != "")
+                if (cboEmpleados.SelectedIndex == 0)
                 {
-                    iIDT = Int32.Parse(txtIdTrab.Text);
+                    iIDT = 0;
+                    
                 }
                 else
                 {
-                    iIDT = 0;
+                    iIDT = Int32.Parse(cboEmpleados.SelectedValue.ToString());
                 }
                 iIDC = Int32.Parse(cboCia.SelectedValue.ToString());
                 IIDU = Int32.Parse(cboUbicacion.SelectedValue.ToString());
-                IACT = 2;
-                DataTable dtRpt = CTrabPerf.PerfilTrab_S(4, iIDT, iIDC, IIDU, IACT);
+                IACT = Int32.Parse(cboStatus.SelectedIndex.ToString());
+                ISTC = Int32.Parse(CbCheca.SelectedIndex.ToString());
+
+                DataTable dtRpt = CTrabPerf.PerfilTrab_S(4, iIDT, iIDC, IIDU, IACT, ISTC);
 
                 ViewerReporte form = new ViewerReporte();
                 RTrabPerfil dtsRep = new RTrabPerfil();
@@ -94,6 +99,44 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             //ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
             //form.RptDoc = ReportDoc;
             //form.Show();
+        }
+
+        //imprime reporte de "detalle de horario"
+        private void btnimpdethr_Click(object sender, EventArgs e)
+        {
+            if (cboEmpleados.SelectedIndex == 0 && cboCia.SelectedIndex == 0 && cboUbicacion.SelectedIndex == 0)
+            {
+
+                DialogResult result = MessageBox.Show("Selecciona Trabajador, Compañia o Ubicación", "SIPAA", MessageBoxButtons.OK);
+                cboEmpleados.Focus();
+            }
+            else
+            {
+                if (cboEmpleados.SelectedIndex == 0)
+                {
+                    iIDT = 0;
+
+                }
+                else
+                {
+                    iIDT = Int32.Parse(cboEmpleados.SelectedValue.ToString());
+                }
+                iIDC = Int32.Parse(cboCia.SelectedValue.ToString());
+                IIDU = Int32.Parse(cboUbicacion.SelectedValue.ToString());
+                IACT = Int32.Parse(cboStatus.SelectedIndex.ToString());
+                ISTC = Int32.Parse(CbCheca.SelectedIndex.ToString());
+
+                DataTable dtrepdethr = CTrabPerf.DetHorario(5, iIDT, iIDC, IIDU, IACT, ISTC);
+
+                ViewerReporte form = new ViewerReporte();
+                DetalleHr RepDetHr = new DetalleHr();
+                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtrepdethr, "RecursosHumanos", RepDetHr.ResourceName);
+
+                form.RptDoc = ReportDoc;
+                form.Show();
+            }
+
+
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -145,7 +188,12 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             DataTable dtUbicacion = CComUbi.ObtenerUbicacionPlantel(5, "");
             Utilerias.llenarComboxDataTable(cboUbicacion, dtUbicacion, "IdUbicacion", "Descripción");
 
-            txtIdTrab.Focus();
+            DataTable dtEmpleado = CSonaTrab.ObtenerListaTrabajador(6, 2);
+            Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "Clave", "Descripción");
+
+            cboStatus.SelectedIndex = 2;
+            CbCheca.SelectedIndex = 2;
+            cboStatus.Focus();
 
         }
 
@@ -183,6 +231,17 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             //toolTip1.SetToolTip(this.btnEliminar, "Elimina Registro");
             //toolTip1.SetToolTip(this.btnActiva, "Activa Registro");
         }
+
+        private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IACT = Int32.Parse(cboStatus.SelectedIndex.ToString());
+            DataTable dtEmpleado = CSonaTrab.ObtenerListaTrabajador(6, IACT);
+            Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "Clave", "Descripción");
+
+        }
+
+
+
 
         //-----------------------------------------------------------------------------------------------
         //                                  S U B R U T I N A S

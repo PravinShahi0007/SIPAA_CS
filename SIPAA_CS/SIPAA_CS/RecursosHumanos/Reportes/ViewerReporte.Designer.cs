@@ -42,6 +42,11 @@
             this.ReporteView.DisplayBackgroundEdge = false;
             this.ReporteView.Location = new System.Drawing.Point(0, 97);
             this.ReporteView.Name = "ReporteView";
+            this.ReporteView.ShowCloseButton = false;
+            this.ReporteView.ShowCopyButton = false;
+            this.ReporteView.ShowGroupTreeButton = false;
+            this.ReporteView.ShowLogo = false;
+            this.ReporteView.ShowParameterPanelButton = false;
             this.ReporteView.Size = new System.Drawing.Size(1024, 672);
             this.ReporteView.TabIndex = 0;
             this.ReporteView.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;

@@ -24,6 +24,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
         public int p_idcompania;
         public int p_idubicacion;
         public int p_Activo;
+        public int p_stcheca;
 
         //CONTRUCTOR
         public RepTrabPerfil()
@@ -33,9 +34,10 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             p_idcompania = 0;
             p_idubicacion = 0;
             p_Activo = 0;
+            p_stcheca = 0;
         }
         //METODO REPORTE PERFIL TRABAJADOR
-        public DataTable PerfilTrab_S(int p_opcion, int p_idtrab, int p_idcompania, int p_idubicacion, int p_Activo)
+        public DataTable PerfilTrab_S(int p_opcion, int p_idtrab, int p_idcompania, int p_idubicacion, int p_Activo, int p_stcheca)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechrtrabperfil_S";
@@ -48,6 +50,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             cmd.Parameters.Add("@p_idcompania", SqlDbType.Int).Value = p_idcompania;
             cmd.Parameters.Add("@p_idubicacion", SqlDbType.Int).Value = p_idubicacion;
             cmd.Parameters.Add("@p_Activo", SqlDbType.Int).Value = p_Activo;
+            cmd.Parameters.Add("@p_stcheca", SqlDbType.Int).Value = p_stcheca;
 
             objConexion.asignarConexion(cmd);
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
@@ -56,6 +59,31 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             DataTable PerfilTrab_S = new DataTable();
             Adapter.Fill(PerfilTrab_S);
             return PerfilTrab_S;
+        }
+
+        //metodo reporte detalle de horario
+        public DataTable DetHorario(int iopcion, int iidtrab, int iidcompania, int iidubicacion, int iactivo, int istcheca)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechrtrabperfil_S";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = iidtrab;
+            cmd.Parameters.Add("@p_idcompania", SqlDbType.Int).Value = iidcompania;
+            cmd.Parameters.Add("@p_idubicacion", SqlDbType.Int).Value = iidubicacion;
+            cmd.Parameters.Add("@p_Activo", SqlDbType.Int).Value = iactivo;
+            cmd.Parameters.Add("@p_stcheca", SqlDbType.Int).Value = istcheca;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable DetHorario = new DataTable();
+            Adapter.Fill(DetHorario);
+            return DetHorario;
         }
 
     }

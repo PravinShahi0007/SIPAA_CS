@@ -566,17 +566,25 @@ namespace SIPAA_CS.App_Code
             else
             { ctrl.Enabled = true; }
 
-            switch (row.Cells[0].Tag.ToString())
+            try
             {
-                case "check":
-                    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                    row.Cells[0].Tag = "uncheck";
-                    break;
-                case "uncheck":
-                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    row.Cells[0].Tag = "check";
-                    break;
+                switch (row.Cells[0].Tag.ToString())
+                {
+                    case "check":
+                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                        row.Cells[0].Tag = "uncheck";
+                        break;
+                    case "uncheck":
+                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                        row.Cells[0].Tag = "check";
+                        break;
+                }
             }
+            catch (Exception)
+            {
+                
+            }
+            
         }
 
 
@@ -647,6 +655,77 @@ namespace SIPAA_CS.App_Code
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 int iCV = Convert.ToInt32(row.Cells[iPosicionClave].Value.ToString());
+
+                if (ltFormas.Contains(iCV))
+                {
+
+                    switch (row.Cells[0].Tag.ToString())
+                    {
+                        case "check":
+                            row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                            row.Cells[0].Tag = "uncheck";
+                            break;
+
+                        case "uncheck":
+                            row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                            row.Cells[0].Tag = "check";
+                            break;
+                    }
+                }
+
+                if (row.Cells[iPosicionCheck].Tag.ToString() != "uncheck")
+                {
+                    bBandera = true;
+                }
+            }
+            return bBandera;
+        }
+
+        //multiselect con lista de strings
+        public static void MultiSeleccionGridViewString(DataGridView dgv, int iPositionClave, List<string> ltCv, Control ctrl)
+        {
+            DataGridViewRow row = dgv.SelectedRows[0];
+            string iCv = row.Cells[iPositionClave].Value.ToString();
+
+            if (ltCv.Contains(iCv))
+            { ltCv.Remove(iCv); }
+            else
+            { ltCv.Add(iCv); }
+
+            if (ltCv.Count == 0)
+            { ctrl.Enabled = false; }
+            else
+            { ctrl.Enabled = true; }
+
+            try
+            {
+                switch (row.Cells[0].Tag.ToString())
+                {
+                    case "check":
+                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                        row.Cells[0].Tag = "uncheck";
+                        break;
+                    case "uncheck":
+                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                        row.Cells[0].Tag = "check";
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        //validacion con lista de strings
+        public static bool SinAsignacionesString(DataGridView dgv, int iPosicionCheck, int iPosicionClave, List<string> ltFormas)
+        {
+            bool bBandera = false;
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                string iCV = row.Cells[iPosicionClave].Value.ToString();
 
                 if (ltFormas.Contains(iCV))
                 {

@@ -23,6 +23,8 @@ namespace SIPAA_CS.Accesos
         public string stproceso;
         public string descripcion;
         public string buscar;
+        public string usuumod = LoginInfo.IdTrab;
+        
 
         int sysH = SystemInformation.PrimaryMonitorSize.Height;
         int sysW = SystemInformation.PrimaryMonitorSize.Width;
@@ -84,6 +86,7 @@ namespace SIPAA_CS.Accesos
                 else if (Permisos.dcPermisos["Actualizar"] == 1)
                 {
                     variable = 2;
+                    cbEliminar.Visible = false;
                     lblActividad.Text = "     Editar Proceso";
                     pnlAct.Visible = true;
                     txtDescripcion.Text = descricpion;
@@ -92,22 +95,23 @@ namespace SIPAA_CS.Accesos
                 else if (Permisos.dcPermisos["Eliminar"] == 1)
                 {
                     variable = 3;
-                    lblActividad.Text = "     Editar Proceso";
+                    cbEliminar.Visible = false;
+                    //lblActividad.Text = "     Editar Proceso";
                     pnlAct.Visible = true;
                     txtDescripcion.Text = descricpion;
-                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
+                    //Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
 
                     if (stproceso == "Inactivo")
                     {
                        
                         lblActividad.Text = "      Alta Usuario SIPAA";
-                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Alta);
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Alta");
                     }
                     else if (stproceso == "Activo")
                     {
                       
                         lblActividad.Text = "      Baja Usuario SIPAA";
-                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Baja);
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Baja");
                     }
                 }
             }
@@ -131,7 +135,8 @@ namespace SIPAA_CS.Accesos
                 if (descripcion.Trim() != String.Empty)
                 {
                     string prgmod = this.Name;
-                    int regreso = proceso.AgregarProceso("", descripcion.Trim(), 0, "", prgmod, 1);
+                    int regreso = proceso.AgregarProceso("", descripcion.Trim(), 0, usuumod, prgmod, 1);
+                    pnlAct.Visible = false;
                     if (regreso == 1)
                     {
                         //MessageBox.Show("Se agrego proceso");
@@ -163,7 +168,9 @@ namespace SIPAA_CS.Accesos
                 //MessageBox.Show("Ingresa una 2");
                 if (descripcion.Trim() != String.Empty)
                 {
-                    int regreso = proceso.AgregarProceso(cvproceso, descripcion.Trim(), 0, "", "", 2);
+                    string prgmod = this.Name;
+                    int regreso = proceso.AgregarProceso(cvproceso, descripcion.Trim(), 0, usuumod, prgmod, 2);
+                    pnlAct.Visible = false;
                     if (regreso == 1)
                     {
                         //MessageBox.Show("Sea actualizo proceso");
@@ -193,10 +200,14 @@ namespace SIPAA_CS.Accesos
             if (variable == 3)
             {
                 //MessageBox.Show("Ingresa una 3");
-                int regreso = proceso.AgregarProceso(cvproceso, "", 0, "", "", 3);
+                string prgmod = this.Name;
+                int regreso = proceso.AgregarProceso(cvproceso, "", 0, usuumod, prgmod, 3);
+                pnlAct.Visible = false;
                 if (regreso == 1)
                 {
-                    MessageBox.Show("Sea activo proceso");
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Proceso Activo");
+                    timer1.Start();
+                    //MessageBox.Show("Sea activo proceso");
                     Crear_Procesos_Load(sender, e);
                     txtDescripcion.Text = "";
                     txtDescripcion.Focus();
@@ -205,7 +216,9 @@ namespace SIPAA_CS.Accesos
                 }
                 else if (regreso == 0)
                 {
-                    MessageBox.Show("Sea desactivo proceso");
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Proceso Inactivo");
+                    timer1.Start();
+                    //MessageBox.Show("Sea desactivo proceso");
                     Crear_Procesos_Load(sender, e);
                     txtDescripcion.Text = "";
                     txtDescripcion.Focus();
@@ -299,7 +312,6 @@ namespace SIPAA_CS.Accesos
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
-
             
             LlenaGrid("", "", 0, "", "", 4);
 
@@ -307,7 +319,6 @@ namespace SIPAA_CS.Accesos
             {
                 btnAgregar.Visible = false;
             }
-
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
