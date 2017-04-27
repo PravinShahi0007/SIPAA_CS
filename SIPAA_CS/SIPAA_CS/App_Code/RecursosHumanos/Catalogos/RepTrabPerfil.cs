@@ -61,5 +61,30 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             return PerfilTrab_S;
         }
 
+        //metodo reporte detalle de horario
+        public DataTable DetHorario(int iopcion, int iidtrab, int iidcompania, int iidubicacion, int iactivo, int istcheca)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechrtrabperfil_S";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = iidtrab;
+            cmd.Parameters.Add("@p_idcompania", SqlDbType.Int).Value = iidcompania;
+            cmd.Parameters.Add("@p_idubicacion", SqlDbType.Int).Value = iidubicacion;
+            cmd.Parameters.Add("@p_Activo", SqlDbType.Int).Value = iactivo;
+            cmd.Parameters.Add("@p_stcheca", SqlDbType.Int).Value = istcheca;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable DetHorario = new DataTable();
+            Adapter.Fill(DetHorario);
+            return DetHorario;
+        }
+
     }
 }

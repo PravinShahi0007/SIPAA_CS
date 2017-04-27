@@ -101,6 +101,44 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             //form.Show();
         }
 
+        //imprime reporte de "detalle de horario"
+        private void btnimpdethr_Click(object sender, EventArgs e)
+        {
+            if (cboEmpleados.SelectedIndex == 0 && cboCia.SelectedIndex == 0 && cboUbicacion.SelectedIndex == 0)
+            {
+
+                DialogResult result = MessageBox.Show("Selecciona Trabajador, Compañia o Ubicación", "SIPAA", MessageBoxButtons.OK);
+                cboEmpleados.Focus();
+            }
+            else
+            {
+                if (cboEmpleados.SelectedIndex == 0)
+                {
+                    iIDT = 0;
+
+                }
+                else
+                {
+                    iIDT = Int32.Parse(cboEmpleados.SelectedValue.ToString());
+                }
+                iIDC = Int32.Parse(cboCia.SelectedValue.ToString());
+                IIDU = Int32.Parse(cboUbicacion.SelectedValue.ToString());
+                IACT = Int32.Parse(cboStatus.SelectedIndex.ToString());
+                ISTC = Int32.Parse(CbCheca.SelectedIndex.ToString());
+
+                DataTable dtrepdethr = CTrabPerf.DetHorario(5, iIDT, iIDC, IIDU, IACT, ISTC);
+
+                ViewerReporte form = new ViewerReporte();
+                DetalleHr RepDetHr = new DetalleHr();
+                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtrepdethr, "RecursosHumanos", RepDetHr.ResourceName);
+
+                form.RptDoc = ReportDoc;
+                form.Show();
+            }
+
+
+        }
+
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -201,6 +239,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "Clave", "Descripción");
 
         }
+
 
 
 

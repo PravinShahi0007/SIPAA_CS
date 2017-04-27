@@ -44,6 +44,7 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.CbCheca = new System.Windows.Forms.ComboBox();
             this.cboStatus = new System.Windows.Forms.ComboBox();
             this.cboEmpleados = new System.Windows.Forms.ComboBox();
             this.cboUbicacion = new System.Windows.Forms.ComboBox();
@@ -52,7 +53,6 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnimpdethr = new System.Windows.Forms.Button();
-            this.CbCheca = new System.Windows.Forms.ComboBox();
             lblubicacion = new System.Windows.Forms.Label();
             lblidcia = new System.Windows.Forms.Label();
             lblidtrab = new System.Windows.Forms.Label();
@@ -152,6 +152,18 @@
             lblStatus.Size = new System.Drawing.Size(53, 16);
             lblStatus.TabIndex = 62;
             lblStatus.Text = "Estatus";
+            // 
+            // lblCheca
+            // 
+            lblCheca.AutoSize = true;
+            lblCheca.Font = new System.Drawing.Font("Arial", 9.75F);
+            lblCheca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            lblCheca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lblCheca.Location = new System.Drawing.Point(41, 261);
+            lblCheca.Name = "lblCheca";
+            lblCheca.Size = new System.Drawing.Size(45, 16);
+            lblCheca.TabIndex = 64;
+            lblCheca.Text = "Checa";
             // 
             // panel2
             // 
@@ -255,13 +267,30 @@
             this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
             // 
+            // CbCheca
+            // 
+            this.CbCheca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbCheca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CbCheca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.CbCheca.DisplayMember = "2";
+            this.CbCheca.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbCheca.FormattingEnabled = true;
+            this.CbCheca.Items.AddRange(new object[] {
+            "No",
+            "Si",
+            "Todos"});
+            this.CbCheca.Location = new System.Drawing.Point(44, 281);
+            this.CbCheca.Name = "CbCheca";
+            this.CbCheca.Size = new System.Drawing.Size(291, 25);
+            this.CbCheca.TabIndex = 63;
+            this.CbCheca.ValueMember = "1";
+            // 
             // cboStatus
             // 
             this.cboStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cboStatus.DisplayMember = "2";
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStatus.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Items.AddRange(new object[] {
@@ -362,37 +391,7 @@
             this.btnimpdethr.TabIndex = 7;
             this.btnimpdethr.Tag = "Imprimir";
             this.btnimpdethr.UseVisualStyleBackColor = false;
-            // 
-            // CbCheca
-            // 
-            this.CbCheca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CbCheca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CbCheca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.CbCheca.DisplayMember = "2";
-            this.CbCheca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbCheca.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbCheca.FormattingEnabled = true;
-            this.CbCheca.Items.AddRange(new object[] {
-            "No",
-            "Si",
-            "Todos"});
-            this.CbCheca.Location = new System.Drawing.Point(44, 281);
-            this.CbCheca.Name = "CbCheca";
-            this.CbCheca.Size = new System.Drawing.Size(291, 25);
-            this.CbCheca.TabIndex = 63;
-            this.CbCheca.ValueMember = "1";
-            // 
-            // lblCheca
-            // 
-            lblCheca.AutoSize = true;
-            lblCheca.Font = new System.Drawing.Font("Arial", 9.75F);
-            lblCheca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            lblCheca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblCheca.Location = new System.Drawing.Point(41, 261);
-            lblCheca.Name = "lblCheca";
-            lblCheca.Size = new System.Drawing.Size(45, 16);
-            lblCheca.TabIndex = 64;
-            lblCheca.Text = "Checa";
+            this.btnimpdethr.Click += new System.EventHandler(this.btnimpdethr_Click);
             // 
             // FiltroTrabPerfil
             // 

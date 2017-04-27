@@ -315,6 +315,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnnohoras;
             
+            private global::System.Data.DataColumn columncvtipohr;
+            
+            private global::System.Data.DataColumn columnhorario;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public dethorarioDataTable() {
@@ -494,6 +498,22 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cvtipohrColumn {
+                get {
+                    return this.columncvtipohr;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn horarioColumn {
+                get {
+                    return this.columnhorario;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -547,7 +567,9 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         string hret, 
                         string hrst, 
                         string tiempocomida, 
-                        string nohoras) {
+                        string nohoras, 
+                        string cvtipohr, 
+                        string horario) {
                 dethorarioRow rowdethorarioRow = ((dethorarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IdTrab,
@@ -567,7 +589,9 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         hret,
                         hrst,
                         tiempocomida,
-                        nohoras};
+                        nohoras,
+                        cvtipohr,
+                        horario};
                 rowdethorarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdethorarioRow);
                 return rowdethorarioRow;
@@ -608,6 +632,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.columnhrst = base.Columns["hrst"];
                 this.columntiempocomida = base.Columns["tiempocomida"];
                 this.columnnohoras = base.Columns["nohoras"];
+                this.columncvtipohr = base.Columns["cvtipohr"];
+                this.columnhorario = base.Columns["horario"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -649,6 +675,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columntiempocomida);
                 this.columnnohoras = new global::System.Data.DataColumn("nohoras", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnohoras);
+                this.columncvtipohr = new global::System.Data.DataColumn("cvtipohr", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncvtipohr);
+                this.columnhorario = new global::System.Data.DataColumn("horario", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhorario);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1079,6 +1109,38 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string cvtipohr {
+                get {
+                    try {
+                        return ((string)(this[this.tabledethorario.cvtipohrColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cvtipohr\' de la tabla \'dethorario\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledethorario.cvtipohrColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string horario {
+                get {
+                    try {
+                        return ((string)(this[this.tabledethorario.horarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'horario\' de la tabla \'dethorario\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledethorario.horarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIdTrabNull() {
                 return this.IsNull(this.tabledethorario.IdTrabColumn);
             }
@@ -1291,6 +1353,30 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetnohorasNull() {
                 this[this.tabledethorario.nohorasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscvtipohrNull() {
+                return this.IsNull(this.tabledethorario.cvtipohrColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcvtipohrNull() {
+                this[this.tabledethorario.cvtipohrColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IshorarioNull() {
+                return this.IsNull(this.tabledethorario.horarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SethorarioNull() {
+                this[this.tabledethorario.horarioColumn] = global::System.Convert.DBNull;
             }
         }
         

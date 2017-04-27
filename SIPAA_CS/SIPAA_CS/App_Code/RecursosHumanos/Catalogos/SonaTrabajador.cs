@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using SIPAA_CS.Conexiones;
 using System.Data;
 using System.Data.SqlClient;
+using Neurotec.Biometrics;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace SIPAA_CS.App_Code
 {
@@ -126,6 +129,38 @@ namespace SIPAA_CS.App_Code
             return (dtLisTrab);
         }
 
+
+
+        public DataTable GestionHuella(byte[] arrImagen, string sIdtrab,string sUsuumod,string sPrgmod,int iOpcion)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            Conexion objConexion = new Conexion();
+            Usuario objusuario = new Usuario();
+
+            
+
+            cmd.CommandText = "usp_rechhuella_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = sIdtrab;
+            cmd.Parameters.Add("@P_template",SqlDbType.Image).Value = arrImagen;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = sUsuumod;
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = sPrgmod;
+            cmd.Parameters.Add("@P_opcion", SqlDbType.Int).Value = iOpcion;
+
+ 
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtTrabajador = new DataTable();
+            dadapter.Fill(dtTrabajador);
+            return (dtTrabajador);
+
+
+        }
 
     }
 }
