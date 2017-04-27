@@ -12,7 +12,7 @@
   <xs:element name="DetalleHorario" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DetalleHorario" msprop:Generator_UserDSName="DetalleHorario">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="dethorario" msprop:Generator_TableClassName="dethorarioDataTable" msprop:Generator_TableVarName="tabledethorario" msprop:Generator_RowChangedName="dethorarioRowChanged" msprop:Generator_TablePropName="dethorario" msprop:Generator_RowDeletingName="dethorarioRowDeleting" msprop:Generator_RowChangingName="dethorarioRowChanging" msprop:Generator_RowEvHandlerName="dethorarioRowChangeEventHandler" msprop:Generator_RowDeletedName="dethorarioRowDeleted" msprop:Generator_RowClassName="dethorarioRow" msprop:Generator_UserTableName="dethorario" msprop:Generator_RowEvArgName="dethorarioRowChangeEvent">
+        <xs:element name="dethorario" msprop:Generator_TableClassName="dethorarioDataTable" msprop:Generator_TableVarName="tabledethorario" msprop:Generator_TablePropName="dethorario" msprop:Generator_RowDeletingName="dethorarioRowDeleting" msprop:Generator_RowChangingName="dethorarioRowChanging" msprop:Generator_RowEvHandlerName="dethorarioRowChangeEventHandler" msprop:Generator_RowDeletedName="dethorarioRowDeleted" msprop:Generator_UserTableName="dethorario" msprop:Generator_RowChangedName="dethorarioRowChanged" msprop:Generator_RowEvArgName="dethorarioRowChangeEvent" msprop:Generator_RowClassName="dethorarioRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdTrab" msprop:Generator_ColumnVarNameInTable="columnIdTrab" msprop:Generator_ColumnPropNameInRow="IdTrab" msprop:Generator_ColumnPropNameInTable="IdTrabColumn" msprop:Generator_UserColumnName="IdTrab" type="xs:short" minOccurs="0" />
@@ -33,6 +33,8 @@
               <xs:element name="hrst" msprop:Generator_ColumnVarNameInTable="columnhrst" msprop:Generator_ColumnPropNameInRow="hrst" msprop:Generator_ColumnPropNameInTable="hrstColumn" msprop:Generator_UserColumnName="hrst" type="xs:string" minOccurs="0" />
               <xs:element name="tiempocomida" msprop:Generator_ColumnVarNameInTable="columntiempocomida" msprop:Generator_ColumnPropNameInRow="tiempocomida" msprop:Generator_ColumnPropNameInTable="tiempocomidaColumn" msprop:Generator_UserColumnName="tiempocomida" type="xs:string" minOccurs="0" />
               <xs:element name="nohoras" msprop:Generator_ColumnVarNameInTable="columnnohoras" msprop:Generator_ColumnPropNameInRow="nohoras" msprop:Generator_ColumnPropNameInTable="nohorasColumn" msprop:Generator_UserColumnName="nohoras" type="xs:string" minOccurs="0" />
+              <xs:element name="cvtipohr" msprop:Generator_ColumnVarNameInTable="columncvtipohr" msprop:Generator_ColumnPropNameInRow="cvtipohr" msprop:Generator_ColumnPropNameInTable="cvtipohrColumn" msprop:Generator_UserColumnName="cvtipohr" type="xs:string" minOccurs="0" />
+              <xs:element name="horario" msprop:Generator_ColumnVarNameInTable="columnhorario" msprop:Generator_ColumnPropNameInRow="horario" msprop:Generator_ColumnPropNameInTable="horarioColumn" msprop:Generator_UserColumnName="horario" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
