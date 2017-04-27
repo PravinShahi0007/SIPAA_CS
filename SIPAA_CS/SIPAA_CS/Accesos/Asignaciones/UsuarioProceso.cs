@@ -45,6 +45,9 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void dgvUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            cbAsignaPassword.Checked = false;
+            txtPassword.Text = "";
+            pnlPassword.Visible = false;
             for (int iContador = 0; iContador < dgvUsuario.Rows.Count; iContador++)
             {
                 dgvUsuario.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
