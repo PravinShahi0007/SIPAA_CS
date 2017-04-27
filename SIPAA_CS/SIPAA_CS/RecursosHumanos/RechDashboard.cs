@@ -30,7 +30,7 @@ namespace SIPAA_CS.RecursosHumanos
             Dashboard form = new Dashboard();
             form.Enabled = false;
 
-            lblusuario.Text = LoginInfo.IdTrab;
+            lblusuario.Text = LoginInfo.Nombre;
 
             Usuario objUsuario = new Usuario();
             string IdTrab = LoginInfo.IdTrab;

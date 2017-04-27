@@ -48,14 +48,14 @@
             System.Windows.Forms.Label label25;
             System.Windows.Forms.Label label26;
             System.Windows.Forms.Label label27;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.lblusuario = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -120,12 +120,25 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
             this.tabHuella = new System.Windows.Forms.TabPage();
+            this.prgbar = new System.Windows.Forms.ProgressBar();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnAgregarHuella = new System.Windows.Forms.Button();
+            this.PanelGuardar = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.lblAccion = new System.Windows.Forms.Label();
+            this.btnGuardarHuella = new System.Windows.Forms.Button();
+            this.panelTagHuella = new System.Windows.Forms.Panel();
+            this.lbMensajeHuella = new System.Windows.Forms.Label();
+            this.pbVerHuella = new System.Windows.Forms.PictureBox();
+            this.pbHuella = new System.Windows.Forms.PictureBox();
             this.lbNombre = new System.Windows.Forms.Label();
             this.lbIdTrab = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label14 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -163,6 +176,12 @@
             this.PanelReloj.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReloj)).BeginInit();
             this.panel14.SuspendLayout();
+            this.tabHuella.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.PanelGuardar.SuspendLayout();
+            this.panelTagHuella.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVerHuella)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHuella)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
@@ -480,9 +499,11 @@
             this.tabAsignacion.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabAsignacion.Location = new System.Drawing.Point(-2, 177);
             this.tabAsignacion.Name = "tabAsignacion";
+            this.tabAsignacion.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabAsignacion.SelectedIndex = 0;
             this.tabAsignacion.ShowToolTips = true;
             this.tabAsignacion.Size = new System.Drawing.Size(1030, 598);
+            this.tabAsignacion.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabAsignacion.TabIndex = 177;
             this.tabAsignacion.SelectedIndexChanged += new System.EventHandler(this.tabAsignacion_SelectedIndexChanged);
             // 
@@ -562,21 +583,21 @@
             this.dgvHorario.AllowUserToAddRows = false;
             this.dgvHorario.AllowUserToDeleteRows = false;
             this.dgvHorario.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvHorario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvHorario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvHorario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvHorario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvHorario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHorario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvHorario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHorario.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHorario.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvHorario.Location = new System.Drawing.Point(498, 229);
             this.dgvHorario.Name = "dgvHorario";
             this.dgvHorario.ReadOnly = true;
@@ -649,21 +670,21 @@
             this.dgvPlantilla.AllowUserToAddRows = false;
             this.dgvPlantilla.AllowUserToDeleteRows = false;
             this.dgvPlantilla.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvPlantilla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvPlantilla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvPlantilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPlantilla.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvPlantilla.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPlantilla.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvPlantilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPlantilla.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPlantilla.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvPlantilla.Location = new System.Drawing.Point(450, 25);
             this.dgvPlantilla.Name = "dgvPlantilla";
             this.dgvPlantilla.ReadOnly = true;
@@ -1041,22 +1062,22 @@
             this.dgvForReg.AllowUserToDeleteRows = false;
             this.dgvForReg.AllowUserToResizeColumns = false;
             this.dgvForReg.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvForReg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvForReg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvForReg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvForReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvForReg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvForReg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvForReg.Location = new System.Drawing.Point(422, 116);
             this.dgvForReg.Name = "dgvForReg";
             this.dgvForReg.ReadOnly = true;
@@ -1235,8 +1256,8 @@
             this.dgvReloj.AllowUserToDeleteRows = false;
             this.dgvReloj.AllowUserToResizeColumns = false;
             this.dgvReloj.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvReloj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReloj.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvReloj.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
@@ -1244,14 +1265,14 @@
             this.dgvReloj.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvReloj.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReloj.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvReloj.Location = new System.Drawing.Point(349, 114);
             this.dgvReloj.Name = "dgvReloj";
             this.dgvReloj.ReadOnly = true;
@@ -1264,13 +1285,12 @@
             this.dgvReloj.TabIndex = 198;
             this.dgvReloj.Tag = "Editar";
             this.dgvReloj.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReloj_CellContentClick);
-            //this.dgvReloj.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvReloj_ColumnHeaderMouseClick);
             // 
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel14.Controls.Add(this.label28);
-            this.panel14.Location = new System.Drawing.Point(1, 30);
+            this.panel14.Location = new System.Drawing.Point(0, 30);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(353, 25);
             this.panel14.TabIndex = 197;
@@ -1293,12 +1313,166 @@
             // tabHuella
             // 
             this.tabHuella.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.tabHuella.Controls.Add(this.label14);
+            this.tabHuella.Controls.Add(this.prgbar);
+            this.tabHuella.Controls.Add(this.panel16);
+            this.tabHuella.Controls.Add(this.btnAgregarHuella);
+            this.tabHuella.Controls.Add(this.PanelGuardar);
+            this.tabHuella.Controls.Add(this.panelTagHuella);
+            this.tabHuella.Controls.Add(this.pbVerHuella);
+            this.tabHuella.Controls.Add(this.pbHuella);
             this.tabHuella.Location = new System.Drawing.Point(4, 29);
             this.tabHuella.Name = "tabHuella";
             this.tabHuella.Padding = new System.Windows.Forms.Padding(3);
             this.tabHuella.Size = new System.Drawing.Size(1022, 565);
             this.tabHuella.TabIndex = 3;
             this.tabHuella.Text = "Huella Digital";
+            // 
+            // prgbar
+            // 
+            this.prgbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.prgbar.Location = new System.Drawing.Point(430, 442);
+            this.prgbar.Name = "prgbar";
+            this.prgbar.Size = new System.Drawing.Size(504, 10);
+            this.prgbar.TabIndex = 199;
+            this.prgbar.Visible = false;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel16.Controls.Add(this.label17);
+            this.panel16.Location = new System.Drawing.Point(0, 30);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(353, 25);
+            this.panel16.TabIndex = 198;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.label17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label17.Location = new System.Drawing.Point(19, 3);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(167, 20);
+            this.label17.TabIndex = 183;
+            this.label17.Text = "        Asignar Huella Digital";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnAgregarHuella
+            // 
+            this.btnAgregarHuella.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnAgregarHuella.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarHuella.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnAgregarHuella.Image = global::SIPAA_CS.Properties.Resources.Agregar;
+            this.btnAgregarHuella.Location = new System.Drawing.Point(884, 13);
+            this.btnAgregarHuella.Name = "btnAgregarHuella";
+            this.btnAgregarHuella.Size = new System.Drawing.Size(50, 50);
+            this.btnAgregarHuella.TabIndex = 57;
+            this.btnAgregarHuella.Tag = "Agregar";
+            this.btnAgregarHuella.UseVisualStyleBackColor = false;
+            this.btnAgregarHuella.Click += new System.EventHandler(this.btnAgregarHuella_Click);
+            // 
+            // PanelGuardar
+            // 
+            this.PanelGuardar.BackColor = System.Drawing.Color.Transparent;
+            this.PanelGuardar.Controls.Add(this.checkBox1);
+            this.PanelGuardar.Controls.Add(this.lblAccion);
+            this.PanelGuardar.Controls.Add(this.btnGuardarHuella);
+            this.PanelGuardar.ForeColor = System.Drawing.SystemColors.Control;
+            this.PanelGuardar.Location = new System.Drawing.Point(83, 141);
+            this.PanelGuardar.Name = "PanelGuardar";
+            this.PanelGuardar.Size = new System.Drawing.Size(304, 118);
+            this.PanelGuardar.TabIndex = 115;
+            this.PanelGuardar.TabStop = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.checkBox1.Location = new System.Drawing.Point(226, 75);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(75, 24);
+            this.checkBox1.TabIndex = 56;
+            this.checkBox1.Tag = "Eliminar";
+            this.checkBox1.Text = "Eliminar";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
+            // 
+            // lblAccion
+            // 
+            this.lblAccion.AutoSize = true;
+            this.lblAccion.BackColor = System.Drawing.Color.Transparent;
+            this.lblAccion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccion.ForeColor = System.Drawing.Color.Gray;
+            this.lblAccion.Image = ((System.Drawing.Image)(resources.GetObject("lblAccion.Image")));
+            this.lblAccion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAccion.Location = new System.Drawing.Point(35, 23);
+            this.lblAccion.Name = "lblAccion";
+            this.lblAccion.Size = new System.Drawing.Size(174, 18);
+            this.lblAccion.TabIndex = 41;
+            this.lblAccion.Text = "       Guardar Asignación";
+            // 
+            // btnGuardarHuella
+            // 
+            this.btnGuardarHuella.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnGuardarHuella.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarHuella.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnGuardarHuella.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.btnGuardarHuella.Location = new System.Drawing.Point(233, 6);
+            this.btnGuardarHuella.Name = "btnGuardarHuella";
+            this.btnGuardarHuella.Size = new System.Drawing.Size(50, 50);
+            this.btnGuardarHuella.TabIndex = 52;
+            this.btnGuardarHuella.Tag = "Guardar";
+            this.btnGuardarHuella.UseVisualStyleBackColor = false;
+            this.btnGuardarHuella.Click += new System.EventHandler(this.btnGuardarHuella_Click);
+            // 
+            // panelTagHuella
+            // 
+            this.panelTagHuella.BackColor = System.Drawing.Color.Transparent;
+            this.panelTagHuella.Controls.Add(this.lbMensajeHuella);
+            this.panelTagHuella.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTagHuella.Location = new System.Drawing.Point(430, 384);
+            this.panelTagHuella.Name = "panelTagHuella";
+            this.panelTagHuella.Size = new System.Drawing.Size(504, 58);
+            this.panelTagHuella.TabIndex = 114;
+            this.panelTagHuella.Visible = false;
+            // 
+            // lbMensajeHuella
+            // 
+            this.lbMensajeHuella.AutoSize = true;
+            this.lbMensajeHuella.BackColor = System.Drawing.Color.Transparent;
+            this.lbMensajeHuella.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMensajeHuella.ForeColor = System.Drawing.Color.White;
+            this.lbMensajeHuella.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbMensajeHuella.Location = new System.Drawing.Point(14, 10);
+            this.lbMensajeHuella.Name = "lbMensajeHuella";
+            this.lbMensajeHuella.Size = new System.Drawing.Size(118, 37);
+            this.lbMensajeHuella.TabIndex = 26;
+            this.lbMensajeHuella.Text = "Mensaje";
+            this.lbMensajeHuella.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbVerHuella
+            // 
+            this.pbVerHuella.BackColor = System.Drawing.Color.White;
+            this.pbVerHuella.Location = new System.Drawing.Point(708, 69);
+            this.pbVerHuella.Name = "pbVerHuella";
+            this.pbVerHuella.Size = new System.Drawing.Size(226, 282);
+            this.pbVerHuella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbVerHuella.TabIndex = 2;
+            this.pbVerHuella.TabStop = false;
+            // 
+            // pbHuella
+            // 
+            this.pbHuella.BackColor = System.Drawing.Color.White;
+            this.pbHuella.Location = new System.Drawing.Point(430, 69);
+            this.pbHuella.Name = "pbHuella";
+            this.pbHuella.Size = new System.Drawing.Size(226, 282);
+            this.pbHuella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbHuella.TabIndex = 1;
+            this.pbHuella.TabStop = false;
             // 
             // lbNombre
             // 
@@ -1343,15 +1517,29 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.panel1.Location = new System.Drawing.Point(432, 201);
+            this.panel1.Location = new System.Drawing.Point(-11, 207);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(592, 5);
+            this.panel1.Size = new System.Drawing.Size(1077, 2);
             this.panel1.TabIndex = 0;
             // 
             // timer1
             // 
             this.timer1.Interval = 4000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Gray;
+            this.label14.Image = ((System.Drawing.Image)(resources.GetObject("label14.Image")));
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label14.Location = new System.Drawing.Point(673, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(205, 18);
+            this.label14.TabIndex = 57;
+            this.label14.Text = "        Registrar Nueva Huella";
             // 
             // AsignacionTrabajadorPerfil
             // 
@@ -1411,6 +1599,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReloj)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            this.tabHuella.ResumeLayout(false);
+            this.tabHuella.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.PanelGuardar.ResumeLayout(false);
+            this.PanelGuardar.PerformLayout();
+            this.panelTagHuella.ResumeLayout(false);
+            this.panelTagHuella.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVerHuella)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHuella)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1488,5 +1686,18 @@
         private System.Windows.Forms.DataGridView dgvReloj;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.PictureBox pbVerHuella;
+        private System.Windows.Forms.Panel panelTagHuella;
+        private System.Windows.Forms.Label lbMensajeHuella;
+        private System.Windows.Forms.Panel PanelGuardar;
+        private System.Windows.Forms.Label lblAccion;
+        private System.Windows.Forms.Button btnGuardarHuella;
+        private System.Windows.Forms.Button btnAgregarHuella;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.PictureBox pbHuella;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ProgressBar prgbar;
+        private System.Windows.Forms.Label label14;
     }
 }

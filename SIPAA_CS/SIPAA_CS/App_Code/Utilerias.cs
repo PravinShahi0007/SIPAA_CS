@@ -1,4 +1,5 @@
 using CrystalDecisions.CrystalReports.Engine;
+using Neurotec.Biometrics;
 using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
@@ -744,11 +745,40 @@ namespace SIPAA_CS.App_Code
             return new Size(sysW, sysH);
         }
 
-      
+
+        public static string  ObtenerNombreDiaSemana(string sDia) {
+            
+            switch (sDia) {
+
+                case "Monday": sDia =  "Lunes"; break;
+                case "Thursday": sDia = "Martes"; break;
+                case "Wednesday": sDia = "Miércoles"; break;
+                case "Tuesday": sDia = "Jueves"; break;
+                case "Friday": sDia = "Viernes"; break;
+                case "Saturday": sDia = "Sábado"; break;
+                case "Sunday": sDia = "Domingo"; break;
+
+           }
+
+            return sDia;
+        }
+
+       
 
     }
 
+    public class ResultadoHuella
+    {
+        public NffvStatus engineStatus;
+        public NffvUser engineUser;
+    }
 
 
- 
+    public class VerificarHuella
+    {
+        public NffvStatus engineStatus;
+        public int score;
+    }
+
+
 }

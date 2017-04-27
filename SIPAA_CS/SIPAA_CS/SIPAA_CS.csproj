@@ -53,6 +53,9 @@
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Neurotec.Biometrics.Nffv">
+      <HintPath>..\..\..\..\..\..\Desktop\ProyectoHuellaDigital_ - copia - copia\ProyectoHuellaDigital_\bin\Debug\Neurotec.Biometrics.Nffv.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -279,6 +282,7 @@
     <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\IncCalificacion.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\RelojChecador.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\DiaSemana.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\IncNomina.cs" />
@@ -549,11 +553,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TrabPerfil.xsd</DependentUpon>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionIncidenciasTrabajador.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionIncidenciasTrabajador.Designer.cs">
-      <DependentUpon>AsignacionIncidenciasTrabajador.cs</DependentUpon>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetro.Designer.cs">
+      <DependentUpon>IncidenciasExtSuspRetro.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTipoHorarioTrabajador.cs">
       <SubType>Form</SubType>
@@ -674,6 +678,18 @@
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\ViewerReporte.Designer.cs">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\RegistrarHuella.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\RegistrarHuella.Designer.cs">
+      <DependentUpon>RegistrarHuella.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\SplashHuella.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\SplashHuella.Designer.cs">
+      <DependentUpon>SplashHuella.cs</DependentUpon>
     </Compile>
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
@@ -866,8 +882,8 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\IncidenciasNominas.resx">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionIncidenciasTrabajador.resx">
-      <DependentUpon>AsignacionIncidenciasTrabajador.cs</DependentUpon>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetro.resx">
+      <DependentUpon>IncidenciasExtSuspRetro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\AsignacionTipoHorarioTrabajador.resx">
       <DependentUpon>AsignacionTipoHorarioTrabajador.cs</DependentUpon>
@@ -936,6 +952,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelojChecadorTrabajador\RegistrarHuella.resx">
+      <DependentUpon>RegistrarHuella.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelojChecadorTrabajador\SplashHuella.resx">
+      <DependentUpon>SplashHuella.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
