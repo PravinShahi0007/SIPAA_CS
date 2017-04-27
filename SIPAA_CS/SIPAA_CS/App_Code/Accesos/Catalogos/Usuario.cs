@@ -161,7 +161,7 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public Usuario ObtenerListaTrabajadorUsuario(int Idtrab)
+        public Usuario ObtenerListaTrabajadorUsuario(int opcion, int Idtrab)
         {
             SqlCommand cmd = new SqlCommand();
             Conexion objConexion = new Conexion();
@@ -170,6 +170,7 @@ namespace SIPAA_CS.App_Code
 
             cmd.CommandText = "usp_sonatrabajador_s";
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.VarChar).Value = opcion;
             cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Idtrab;
             cmd.Parameters.Add("@Nom", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
             cmd.Parameters.Add("@Sta", SqlDbType.Int, 50).Direction = ParameterDirection.Output;
