@@ -11,6 +11,7 @@ using SIPAA_CS.RecursosHumanos.Catalogos;
 using SIPAA_CS.RecursosHumanos.Reportes;
 using SIPAA_CS.RecursosHumanos.Procesos;
 using SIPAA_CS.Accesos.Reportes;
+using SIPAA_CS.RelojChecadorTrabajador;
 
 namespace SIPAA_CS
 {
@@ -24,7 +25,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ArchivoNomina4());
+            Application.Run(new Splash());
         }
     }
 }

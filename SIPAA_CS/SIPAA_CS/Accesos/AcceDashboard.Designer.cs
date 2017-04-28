@@ -137,7 +137,7 @@
             this.tsmiUsuarios.ForeColor = System.Drawing.Color.White;
             this.tsmiUsuarios.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.tsmiUsuarios.Name = "tsmiUsuarios";
-            this.tsmiUsuarios.Size = new System.Drawing.Size(152, 22);
+            this.tsmiUsuarios.Size = new System.Drawing.Size(143, 22);
             this.tsmiUsuarios.Tag = "Usuarios";
             this.tsmiUsuarios.Text = "Usuarios";
             this.tsmiUsuarios.Click += new System.EventHandler(this.tsmiUsuarios_Click);
@@ -148,7 +148,7 @@
             this.tsmiPerfiles.ForeColor = System.Drawing.Color.White;
             this.tsmiPerfiles.Image = ((System.Drawing.Image)(resources.GetObject("tsmiPerfiles.Image")));
             this.tsmiPerfiles.Name = "tsmiPerfiles";
-            this.tsmiPerfiles.Size = new System.Drawing.Size(152, 22);
+            this.tsmiPerfiles.Size = new System.Drawing.Size(143, 22);
             this.tsmiPerfiles.Tag = "Perfiles";
             this.tsmiPerfiles.Text = "Perfiles";
             this.tsmiPerfiles.Click += new System.EventHandler(this.tsmiPerfiles_Click);
@@ -159,7 +159,7 @@
             this.tsmiModulos.ForeColor = System.Drawing.Color.White;
             this.tsmiModulos.Image = ((System.Drawing.Image)(resources.GetObject("tsmiModulos.Image")));
             this.tsmiModulos.Name = "tsmiModulos";
-            this.tsmiModulos.Size = new System.Drawing.Size(152, 22);
+            this.tsmiModulos.Size = new System.Drawing.Size(143, 22);
             this.tsmiModulos.Tag = "Modulos";
             this.tsmiModulos.Text = "Módulos";
             this.tsmiModulos.Click += new System.EventHandler(this.tsmiModulos_Click);
@@ -170,7 +170,7 @@
             this.tsmiProcesos.ForeColor = System.Drawing.Color.White;
             this.tsmiProcesos.Image = ((System.Drawing.Image)(resources.GetObject("tsmiProcesos.Image")));
             this.tsmiProcesos.Name = "tsmiProcesos";
-            this.tsmiProcesos.Size = new System.Drawing.Size(152, 22);
+            this.tsmiProcesos.Size = new System.Drawing.Size(143, 22);
             this.tsmiProcesos.Tag = "Procesos";
             this.tsmiProcesos.Text = "Procesos";
             this.tsmiProcesos.Click += new System.EventHandler(this.tsmiProcesos_Click);
@@ -217,7 +217,7 @@
             this.asignaciónDeProcesosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("asignaciónDeProcesosToolStripMenuItem.Image")));
             this.asignaciónDeProcesosToolStripMenuItem.Name = "asignaciónDeProcesosToolStripMenuItem";
             this.asignaciónDeProcesosToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.asignaciónDeProcesosToolStripMenuItem.Tag = "frmAsignar_Proceso";
+            this.asignaciónDeProcesosToolStripMenuItem.Tag = "UsuarioProceso";
             this.asignaciónDeProcesosToolStripMenuItem.Text = "Asignación de Procesos";
             this.asignaciónDeProcesosToolStripMenuItem.Click += new System.EventHandler(this.msAsignacionProceso_Click);
             // 

@@ -97,6 +97,8 @@ namespace SIPAA_CS.Accesos
             string IdTrab = LoginInfo.IdTrab;
             List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab,5);
 
+            LoginInfo.Nombre = lblusuario.Text;
+
             Utilerias.MenuDinamico(MenuAccesos, ltModulosxUsuario);
         }
         //-----------------------------------------------------------------------------------------------

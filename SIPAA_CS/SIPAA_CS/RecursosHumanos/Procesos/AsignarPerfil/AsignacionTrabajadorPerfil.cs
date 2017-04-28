@@ -1,4 +1,5 @@
-﻿using SIPAA_CS.App_Code;
+﻿using Neurotec.Biometrics;
+using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
 using SIPAA_CS.Properties;
@@ -7,12 +8,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.SonaCompania;
 using static SIPAA_CS.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Utilerias;
 
 namespace SIPAA_CS.RecursosHumanos.Procesos
 {
@@ -25,6 +30,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         public List<string> ltFormasxUsuario = new List<string>();
         public List<int> ltReloj = new List<int>();
         public List<string> ltRelojxUsuario = new List<string>();
+        public string sUsuuMod = LoginInfo.IdTrab;
+        
+
+        //Huella Digital
+        public Nffv engine;
+        public ResultadoHuella objScanner = new ResultadoHuella();
+        BackgroundWorker task = new BackgroundWorker();
+
+        //Verificar Huella
+        public VerificarHuella objVerificar = new VerificarHuella();
+        public DoWorkEventArgs Args;
+        NffvUser engineUser;
 
         public AsignacionTrabajadorPerfil()
         {
@@ -320,6 +337,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         }
 
 
+
+
+
         private bool CamposVacios(Panel pnl)
         {
             bool bBandera = false;
@@ -475,152 +495,241 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         }
 
 
+        private void btnAgregarHuella_Click(object sender, EventArgs e)
+        {
+            PanelGuardar.Visible = false;
+            prgbar.Visible = true;
+            prgbar.Style = ProgressBarStyle.Marquee;
+            string dbName = "FingerprintsDatabase.dat";
+            string password = "";
+            string scanners = "UareU";
+            //string UserDatabase = "Datos.xml";
+
+         
+
+            Utilerias.AsignarBotonResize(btnGuardarHuella, PantallaSistema(), "Guardar");
+
+            switch (iOpcionAdmin)
+            {
+
+                case 2:
+                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 2, "Confirme la Huella en el Lector ");
+                    break;
+
+                default:
+                    if (engine != null)
+                    {
+                        engine.Dispose();
+                    }
+                    
+                    pbHuella.Image = null;
+                    pbVerHuella.Image = null;
+                    engine = new Nffv(dbName, password, scanners);
+                    engine.Users.Clear();
+                    task = new BackgroundWorker();
+                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 2, "Ingrese Huella en el Lector ");
+                    iOpcionAdmin = 1;
+                    break;
+
+            }
+
+
+
+            try
+            {
+
+                task.DoWork += Task_DoWork;
+                task.RunWorkerCompleted += Task_RunWorkerCompleted;
+                task.RunWorkerAsync();
+
+            }
+            catch (Exception ex)
+            {
+                //RegistrarHuella_Load(sender, e);
+            }
+
+
+        }
+
+        private void btnGuardarHuella_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+
+                Image img  = engine.Users[0].GetBitmap();
+
+            
+
+                ImageConverter converter = new ImageConverter();
+                byte[] arrImagen = (byte[])converter.ConvertTo(img, typeof(byte[]));
+
+
+                SonaTrabajador objTrab = new SonaTrabajador();
+                DataTable dtTrab = objTrab.GestionHuella(arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 3);
+                dtTrab = objTrab.GestionHuella(arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 1);
+
+                if (dtTrab.Columns.Contains("INSERT"))
+                {
+                    Utilerias.ControlNotificaciones(panelTagHuella,lbMensajeHuella,1,"Huella Asignada Correctamente");
+                    engine.Dispose();
+                }
+
+            }
+            catch(Exception EX) {
+
+                Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "Error de Comunicación con el Servidor. Favor de Intentarlo más tarde.");
+            }
+
+        }
+
+
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
 
         private void mtxtComidaFin_Leave(object sender, EventArgs e)
+        {
+            string s1 = mtxtComidaInicio.Text + "00";
+            string s2 = mtxtComidaFin.Text + "00";
+
+            TimeSpan ts = new TimeSpan();
+            TimeSpan tsComidaInicio = new TimeSpan();
+            TimeSpan tsComidaFin = new TimeSpan();
+            TimeSpan tsMinutos = new TimeSpan();
+            if (TimeSpan.TryParse(mtxtComidaInicio.Text, out ts) && TimeSpan.TryParse(mtxtComidaFin.Text, out ts))
             {
-                string s1 = mtxtComidaInicio.Text + "00";
-                string s2 = mtxtComidaFin.Text + "00";
-
-                TimeSpan ts = new TimeSpan();
-                TimeSpan tsComidaInicio = new TimeSpan();
-                TimeSpan tsComidaFin = new TimeSpan();
-                TimeSpan tsMinutos = new TimeSpan();
-                if (TimeSpan.TryParse(mtxtComidaInicio.Text, out ts) && TimeSpan.TryParse(mtxtComidaFin.Text, out ts))
-                {
-                    tsComidaInicio = TimeSpan.Parse(mtxtComidaInicio.Text);
-                    tsComidaFin = TimeSpan.Parse(mtxtComidaFin.Text);
-                }
-                else
-                {
-                    string sComidaInicio = Utilerias.ValidarHoras(s1);
-                    string sComidaFin = Utilerias.ValidarHoras(s2);
-
-                    mtxtComidaInicio.Text = sComidaInicio;
-                    mtxtComidaFin.Text = sComidaFin;
-
-                    tsComidaInicio = TimeSpan.Parse(sComidaInicio);
-                    tsComidaFin = TimeSpan.Parse(sComidaFin);
-
-                }
-
-                tsMinutos = tsComidaFin - tsComidaInicio;
-
-
-                mtxtTiempoComida.Text = (60 * (tsMinutos.Hours)).ToString();
-            }
-
-            private void mtxtSalida_Leave(object sender, EventArgs e)
-            {
-
-                string s1 = mtxtSalida.Text + "00";
-                string s2 = mtxtEntradaTurno.Text + "00";
-
-
-                TimeSpan ts = new TimeSpan();
-                TimeSpan tsEntrada = new TimeSpan();
-                TimeSpan tsSalida = new TimeSpan();
-                if (TimeSpan.TryParse(mtxtSalida.Text, out ts) && TimeSpan.TryParse(mtxtEntradaTurno.Text, out ts))
-                {
-                    tsEntrada = TimeSpan.Parse(mtxtEntradaTurno.Text);
-                    tsSalida = TimeSpan.Parse(mtxtSalida.Text);
-
-                }
-                else
-                {
-                    string sEntrada = Utilerias.ValidarHoras(mtxtEntradaTurno.Text);
-                    string sSalida = Utilerias.ValidarHoras(mtxtSalida.Text);
-
-                    mtxtEntradaTurno.Text = sEntrada;
-                    mtxtSalida.Text = sSalida;
-
-                    tsEntrada = TimeSpan.Parse(sEntrada);
-                    tsSalida = TimeSpan.Parse(sSalida);
-
-                }
-
-                if (tsEntrada.ToString() != "00:00" && tsSalida.ToString() != "00:00")
-                {
-
-                    if (tsEntrada > tsSalida)
-                    {
-                        int diasdif = (cbDiaEntrada.SelectedIndex + 1) - (cbDiaSalida.SelectedIndex);
-                        TimeSpan horasTrabajo = tsEntrada - tsSalida;
-                        mtxtTiempoTrabajo.Text = ((12 * diasdif) + horasTrabajo.Hours).ToString();
-                      //  cbDiaSalida.SelectedValue = Convert.ToInt32(cbDiaEntrada.SelectedValue) + 1;
-                    }
-                    else
-                    {
-                        TimeSpan horasTrabajo = tsSalida - tsEntrada;
-                        mtxtTiempoTrabajo.Text = horasTrabajo.Hours.ToString();
-                        cbDiaSalida.SelectedValue = cbDiaEntrada.SelectedValue;
-                    }
-
-                }
-
-            }
-
-            private void mtxtComidaInicio_Leave(object sender, EventArgs e)
-            {
-                string s1 = mtxtComidaInicio.Text + "00";
-                string s2 = mtxtComidaFin.Text + "00";
-
-                TimeSpan ts = new TimeSpan();
-                TimeSpan tsComidaInicio = new TimeSpan();
-                TimeSpan tsComidaFin = new TimeSpan();
-                TimeSpan tsMinutos = new TimeSpan();
-                if (TimeSpan.TryParse(mtxtComidaInicio.Text, out ts) && TimeSpan.TryParse(mtxtComidaFin.Text, out ts))
-                {
-                    tsComidaInicio = TimeSpan.Parse(mtxtComidaInicio.Text);
-                    tsComidaFin = TimeSpan.Parse(mtxtComidaFin.Text);
-
-
-                }
-                else
-                {
-                    string sComidaInicio = Utilerias.ValidarHoras(s1);
-                    string sComidaFin = Utilerias.ValidarHoras(s2);
-
-                    mtxtComidaInicio.Text = sComidaInicio;
-                    mtxtComidaFin.Text = sComidaFin;
-
-                    tsComidaInicio = TimeSpan.Parse(sComidaInicio);
-                    tsComidaFin = TimeSpan.Parse(sComidaFin);
-
-                }
-
-                // Utilerias.ControlNotificaciones(panelTagForReg,lbMensajeForReg,2,"La fecha de Comida Inicio no puede ser Mayor a la de Fin");
-
-                string[] horaInicio = mtxtComidaInicio.Text.Split(':');
-                string sHoraInicio;
-                string sDecenas = horaInicio[0].ElementAt(0).ToString();
-                string sUnidad = horaInicio[0].ElementAt(1).ToString();
-
-                if (Int32.Parse(sDecenas) < 2)
-                {
-                    sHoraInicio = sDecenas + (Convert.ToInt32(sUnidad) + 1).ToString();
-                }
-                else
-                {
-                    if (Int32.Parse(sUnidad) == 3)
-                    {
-                        sHoraInicio = "00";
-                    }
-                    else
-                    {
-                        sHoraInicio = sDecenas + (Convert.ToInt32(sUnidad + 1)).ToString();
-                    }
-                }
-
-
-                mtxtComidaFin.Text = sHoraInicio + ":" + horaInicio[1];
+                tsComidaInicio = TimeSpan.Parse(mtxtComidaInicio.Text);
                 tsComidaFin = TimeSpan.Parse(mtxtComidaFin.Text);
-                //mtxtComidaInicio.Text = tsComidaFin.Hours.ToString() + ":" + (tsComidaFin.Minutes + 60).ToString();
-                tsMinutos = tsComidaFin - tsComidaInicio;
-                mtxtTiempoComida.Text = (60 * (tsMinutos.Hours)).ToString();
             }
+            else
+            {
+                string sComidaInicio = Utilerias.ValidarHoras(s1);
+                string sComidaFin = Utilerias.ValidarHoras(s2);
+
+                mtxtComidaInicio.Text = sComidaInicio;
+                mtxtComidaFin.Text = sComidaFin;
+
+                tsComidaInicio = TimeSpan.Parse(sComidaInicio);
+                tsComidaFin = TimeSpan.Parse(sComidaFin);
+
+            }
+
+            tsMinutos = tsComidaFin - tsComidaInicio;
+
+
+            mtxtTiempoComida.Text = (60 * (tsMinutos.Hours)).ToString();
+        }
+
+        private void mtxtSalida_Leave(object sender, EventArgs e)
+        {
+
+            string s1 = mtxtSalida.Text + "00";
+            string s2 = mtxtEntradaTurno.Text + "00";
+
+
+            TimeSpan ts = new TimeSpan();
+            TimeSpan tsEntrada = new TimeSpan();
+            TimeSpan tsSalida = new TimeSpan();
+            if (TimeSpan.TryParse(mtxtSalida.Text, out ts) && TimeSpan.TryParse(mtxtEntradaTurno.Text, out ts))
+            {
+                tsEntrada = TimeSpan.Parse(mtxtEntradaTurno.Text);
+                tsSalida = TimeSpan.Parse(mtxtSalida.Text);
+
+            }
+            else
+            {
+                string sEntrada = Utilerias.ValidarHoras(mtxtEntradaTurno.Text);
+                string sSalida = Utilerias.ValidarHoras(mtxtSalida.Text);
+
+                mtxtEntradaTurno.Text = sEntrada;
+                mtxtSalida.Text = sSalida;
+
+                tsEntrada = TimeSpan.Parse(sEntrada);
+                tsSalida = TimeSpan.Parse(sSalida);
+
+            }
+
+            if (tsEntrada.ToString() != "00:00" && tsSalida.ToString() != "00:00")
+            {
+
+                if (tsEntrada > tsSalida)
+                {
+                    int diasdif = (cbDiaEntrada.SelectedIndex + 1) - (cbDiaSalida.SelectedIndex);
+                    TimeSpan horasTrabajo = tsEntrada - tsSalida;
+                    mtxtTiempoTrabajo.Text = ((12 * diasdif) + horasTrabajo.Hours).ToString();
+                    //  cbDiaSalida.SelectedValue = Convert.ToInt32(cbDiaEntrada.SelectedValue) + 1;
+                }
+                else
+                {
+                    TimeSpan horasTrabajo = tsSalida - tsEntrada;
+                    mtxtTiempoTrabajo.Text = horasTrabajo.Hours.ToString();
+                    cbDiaSalida.SelectedValue = cbDiaEntrada.SelectedValue;
+                }
+
+            }
+
+        }
+
+        private void mtxtComidaInicio_Leave(object sender, EventArgs e)
+        {
+            string s1 = mtxtComidaInicio.Text + "00";
+            string s2 = mtxtComidaFin.Text + "00";
+
+            TimeSpan ts = new TimeSpan();
+            TimeSpan tsComidaInicio = new TimeSpan();
+            TimeSpan tsComidaFin = new TimeSpan();
+            TimeSpan tsMinutos = new TimeSpan();
+            if (TimeSpan.TryParse(mtxtComidaInicio.Text, out ts) && TimeSpan.TryParse(mtxtComidaFin.Text, out ts))
+            {
+                tsComidaInicio = TimeSpan.Parse(mtxtComidaInicio.Text);
+                tsComidaFin = TimeSpan.Parse(mtxtComidaFin.Text);
+
+
+            }
+            else
+            {
+                string sComidaInicio = Utilerias.ValidarHoras(s1);
+                string sComidaFin = Utilerias.ValidarHoras(s2);
+
+                mtxtComidaInicio.Text = sComidaInicio;
+                mtxtComidaFin.Text = sComidaFin;
+
+                tsComidaInicio = TimeSpan.Parse(sComidaInicio);
+                tsComidaFin = TimeSpan.Parse(sComidaFin);
+
+            }
+
+            // Utilerias.ControlNotificaciones(panelTagForReg,lbMensajeForReg,2,"La fecha de Comida Inicio no puede ser Mayor a la de Fin");
+
+            string[] horaInicio = mtxtComidaInicio.Text.Split(':');
+            string sHoraInicio;
+            string sDecenas = horaInicio[0].ElementAt(0).ToString();
+            string sUnidad = horaInicio[0].ElementAt(1).ToString();
+
+            if (Int32.Parse(sDecenas) < 2)
+            {
+                sHoraInicio = sDecenas + (Convert.ToInt32(sUnidad) + 1).ToString();
+            }
+            else
+            {
+                if (Int32.Parse(sUnidad) == 3)
+                {
+                    sHoraInicio = "00";
+                }
+                else
+                {
+                    sHoraInicio = sDecenas + (Convert.ToInt32(sUnidad + 1)).ToString();
+                }
+            }
+
+
+            mtxtComidaFin.Text = sHoraInicio + ":" + horaInicio[1];
+            tsComidaFin = TimeSpan.Parse(mtxtComidaFin.Text);
+            //mtxtComidaInicio.Text = tsComidaFin.Hours.ToString() + ":" + (tsComidaFin.Minutes + 60).ToString();
+            tsMinutos = tsComidaFin - tsComidaInicio;
+            mtxtTiempoComida.Text = (60 * (tsMinutos.Hours)).ToString();
+        }
 
 
 
@@ -635,75 +744,212 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //-----------------------------------------------------------------------------------------------
 
         private void AsignacionTrabajadorPerfil_Load(object sender, EventArgs e)
-                {
-                    Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-                    lbIdTrab.Text = TrabajadorInfo.IdTrab;
-                    lbNombre.Text = TrabajadorInfo.Nombre;
-                    PlantillaDetalle objPlantilla = new PlantillaDetalle();
-                    Utilerias.llenarComboxDataTable(cbPlantilla, objPlantilla.cbplantilla(5), "Clave", "Descripción");
-                    Utilerias.llenarComboxDataTable(cbDiaEntrada, objPlantilla.cbdias(6), "Clave", "Descripción");
-                    Utilerias.llenarComboxDataTable(cbDiaSalida, objPlantilla.cbdias(6), "Clave", "Descripción");
+        {
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            lbIdTrab.Text = TrabajadorInfo.IdTrab;
+            lbNombre.Text = TrabajadorInfo.Nombre;
+            PlantillaDetalle objPlantilla = new PlantillaDetalle();
+            Utilerias.llenarComboxDataTable(cbPlantilla, objPlantilla.cbplantilla(5), "Clave", "Descripción");
+            Utilerias.llenarComboxDataTable(cbDiaEntrada, objPlantilla.cbdias(6), "Clave", "Descripción");
+            Utilerias.llenarComboxDataTable(cbDiaSalida, objPlantilla.cbdias(6), "Clave", "Descripción");
+            TrabajadorHorario objHorario = AsignarObjeto();
+            llenarGridHorario(objHorario);
+            LimpiarFormulario();
+        }
+
+        private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbEliminar.Checked == true)
+            {
+
+                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Borrar");
+                iOpcionAdmin = 3;
+            }
+            else
+            {
+
+                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
+                iOpcionAdmin = 2;
+            }
+        }
+
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+            panelTagForReg.Visible = false;
+            panelTagRelojCheck.Visible = false;
+            timer1.Stop();
+        }
+
+
+        private void tabAsignacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            switch (tabAsignacion.SelectedIndex)
+            {
+
+                case 0:
                     TrabajadorHorario objHorario = AsignarObjeto();
                     llenarGridHorario(objHorario);
-                    LimpiarFormulario();
-                }
+                    break;
 
-                private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
-                {
-                    if (ckbEliminar.Checked == true)
+                case 1:
+                    LlenarGridFormasRegistro("%");
+                    AsignarFormas(TrabajadorInfo.IdTrab);
+                    panelPermisos.Enabled = false;
+                    ltFormasReg.Clear();
+                    break;
+
+                case 2:
+                    llenarGridReloj("%");
+                    AsignarReloj(TrabajadorInfo.IdTrab);
+                    PanelReloj.Enabled = false;
+                    ltReloj.Clear();
+                    break;
+
+
+                case 3:
+                    engine = null;
+                    pbHuella.Image = null;
+                    pbVerHuella.Image = null;
+                    PanelGuardar.Visible = false;
+                    panelTagHuella.Visible = false;
+                    SonaTrabajador objTrab = new SonaTrabajador();
+                    byte[] byteArray = new byte[] { };
+                    DataTable dtTrab = objTrab.GestionHuella(byteArray, TrabajadorInfo.IdTrab, "", "", 5);
+                    try
+                    {
+                        foreach (DataRow row in dtTrab.Rows)
+                        {
+                            byteArray = (byte[])row["template"];
+                        }
+                        Image imgHuella = null;
+
+
+
+                        MemoryStream ms = new MemoryStream(byteArray);
+                        imgHuella = Image.FromStream(ms);
+                        ms.Close();
+
+                        pbHuella.Image = imgHuella;
+                        pbVerHuella.Image = imgHuella;
+                    }
+                    catch {
+
+                        pbHuella.Image = null;
+                        pbVerHuella.Image = null;
+
+                    }
+                    break;
+
+                        }
+
+
+        }
+
+
+        //Eventos Huella Digital 
+
+        private void Task_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+             engineUser = objScanner.engineUser;
+            switch (iOpcionAdmin)
+            {
+
+                case 1:
+                    if (objScanner.engineStatus == NffvStatus.TemplateCreated)
                     {
 
-                        Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Borrar");
+                        pbHuella.Image = engineUser.GetBitmap();
+                        Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 2, "Favor de Confirma la huella Nuevamente.");
+                        iOpcionAdmin = 2;
+                        prgbar.Visible = true;
+                        PanelGuardar.Visible = false;
+                        prgbar.Style = ProgressBarStyle.Marquee;
+                        btnAgregarHuella_Click(sender, e);
+
+
+                    }
+                    break;
+
+                case 0:
+
+                    if (objVerificar.score > 0)
+                    {
+
+                        pbVerHuella.Image = engineUser.GetBitmap();
+                        //engine.Dispose();
+                        Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Confirmada.");
+                        PanelGuardar.Visible = true;
+                        prgbar.Visible = false;
                         iOpcionAdmin = 3;
                     }
                     else
                     {
-
-                        Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
-                        iOpcionAdmin = 2;
-                    }
-                }
-
-
-
-                private void timer1_Tick(object sender, EventArgs e)
-                {
-                    panelTag.Visible = false;
-                    panelTagForReg.Visible = false;
-                    panelTagRelojCheck.Visible = false;
-                    timer1.Stop();
-                }
-
-
-                private void tabAsignacion_SelectedIndexChanged(object sender, EventArgs e)
-                {
-
-                    switch (tabAsignacion.SelectedIndex)
-                    {
-
-                        case 0:
-                            TrabajadorHorario objHorario = AsignarObjeto();
-                            llenarGridHorario(objHorario);
-                            break;
-
-                        case 1:
-                            LlenarGridFormasRegistro("%");
-                            AsignarFormas(TrabajadorInfo.IdTrab);
-                            panelPermisos.Enabled = false;
-                            ltFormasReg.Clear();
-                            break;
-
-                        case 2:
-                            llenarGridReloj("%");
-                            AsignarReloj(TrabajadorInfo.IdTrab);
-                            PanelReloj.Enabled = false;
-                            ltReloj.Clear();
-                            break;
+                        pbVerHuella.Image = engineUser.GetBitmap();
+                        Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "Las Huellas nos han Correspondido.");
+                        PanelGuardar.Visible = false;
+                       // engine.Dispose();
+                        prgbar.Visible = false;
+                        pbVerHuella.Image = null;
+                        pbHuella.Image = null;
+                        iOpcionAdmin = 3;
 
                     }
+                    break;
+
+            }
+
+
+
 
 
         }
+
+        private void Task_DoWork(object sender, DoWorkEventArgs e)
+        {
+            switch (iOpcionAdmin)
+            {
+
+                case 1:
+                    doEnroll(sender, e);
+                    CancelScanningHandler(sender, e);
+                    break;
+
+
+                case 2:
+                    doVerify(sender, e);
+                    CancelScanningHandler(sender, e);
+                    iOpcionAdmin = 0;
+                    break;
+
+            }
+
+
+        }
+
+        private void doEnroll(object sender, DoWorkEventArgs args)
+        {
+
+            objScanner.engineUser = engine.Enroll(20000, out objScanner.engineStatus);
+            //args.Result = objScanner;
+
+        }
+
+        private void doVerify(object sender, DoWorkEventArgs args)
+        {
+            objVerificar.score = engine.Verify(engine.Users[0], 20000, out objVerificar.engineStatus);
+            // args.Result = objVerificar;
+        }
+        private void CancelScanningHandler(object sender, EventArgs e)
+        {
+            engine.Cancel();
+        }
+
+
 
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -711,153 +957,153 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
 
         private void LlenarGridPlantilla(int iopcion, int icvplantilla)
+        {
+
+            if (dgvPlantilla.Columns.Count > 1)
             {
 
-                if (dgvPlantilla.Columns.Count > 1)
-                {
-
-                    dgvPlantilla.Columns.RemoveAt(0);
-                }
-
-                dgvPlantilla.DataSource = null;
-                PlantillaDetalle objPlantilla = new PlantillaDetalle();
-                DataTable dtiplandet = objPlantilla.dgvplantillaDet(iopcion, icvplantilla);
-                dgvPlantilla.DataSource = dtiplandet;
-
-                dgvPlantilla.Columns["cvplantilla"].Visible = false;
-                dgvPlantilla.Columns["descplantilla"].Visible = false;
-                dgvPlantilla.Columns["cvdia"].Visible = false;
-                dgvPlantilla.Columns["cvddiasaltur"].Visible = false;
-                dgvPlantilla.Columns["cvdiasalcom"].Visible = false;
-                dgvPlantilla.Columns["cvdiaregcom"].Visible = false;
-                dgvPlantilla.Columns["stexiste"].Visible = false;
-
-                dgvPlantilla.Columns["Día"].HeaderText = "Día Entrada";
-                dgvPlantilla.Columns["HrEntTurno"].HeaderText = "Hora Entrada";
-                dgvPlantilla.Columns["DíaSalTurno"].HeaderText = "Día Salida";
-                dgvPlantilla.Columns["HrSalTurno"].HeaderText = "Hora Salida";
-                dgvPlantilla.Columns["DíaSalComer"].HeaderText = "Comida Inicio";
-                dgvPlantilla.Columns["HrSalComer"].HeaderText = "Hora Inicio";
-                dgvPlantilla.Columns["DíaRegComida"].HeaderText = "Comida Fin";
-                dgvPlantilla.Columns["HrRegComida"].HeaderText = "Hora Fin";
-                dgvPlantilla.Columns["TotJornada"].HeaderText = "Horas Trabajo";
-                dgvPlantilla.ClearSelection();
-
+                dgvPlantilla.Columns.RemoveAt(0);
             }
 
-            private void llenarGridHorario(TrabajadorHorario objHorario)
-            {
-                ckbEliminar.Visible = false;
-                if (dgvHorario.Columns.Count > 1)
-                {
+            dgvPlantilla.DataSource = null;
+            PlantillaDetalle objPlantilla = new PlantillaDetalle();
+            DataTable dtiplandet = objPlantilla.dgvplantillaDet(iopcion, icvplantilla);
+            dgvPlantilla.DataSource = dtiplandet;
 
-                    dgvHorario.Columns.RemoveAt(0);
-                }
+            dgvPlantilla.Columns["cvplantilla"].Visible = false;
+            dgvPlantilla.Columns["descplantilla"].Visible = false;
+            dgvPlantilla.Columns["cvdia"].Visible = false;
+            dgvPlantilla.Columns["cvddiasaltur"].Visible = false;
+            dgvPlantilla.Columns["cvdiasalcom"].Visible = false;
+            dgvPlantilla.Columns["cvdiaregcom"].Visible = false;
+            dgvPlantilla.Columns["stexiste"].Visible = false;
 
-                iOpcionAdmin = 4;
-                DataTable dtHorario = objHorario.GestionHorario(iOpcionAdmin, objHorario);
-                dgvHorario.DataSource = dtHorario;
+            dgvPlantilla.Columns["Día"].HeaderText = "Día Entrada";
+            dgvPlantilla.Columns["HrEntTurno"].HeaderText = "Hora Entrada";
+            dgvPlantilla.Columns["DíaSalTurno"].HeaderText = "Día Salida";
+            dgvPlantilla.Columns["HrSalTurno"].HeaderText = "Hora Salida";
+            dgvPlantilla.Columns["DíaSalComer"].HeaderText = "Comida Inicio";
+            dgvPlantilla.Columns["HrSalComer"].HeaderText = "Hora Inicio";
+            dgvPlantilla.Columns["DíaRegComida"].HeaderText = "Comida Fin";
+            dgvPlantilla.Columns["HrRegComida"].HeaderText = "Hora Fin";
+            dgvPlantilla.Columns["TotJornada"].HeaderText = "Horas Trabajo";
+            dgvPlantilla.ClearSelection();
 
+        }
 
-                Utilerias.AgregarCheck(dgvHorario, 0);
-                dgvHorario.Columns[1].Visible = false;
-
-            }
-
-
-            private TrabajadorHorario AsignarObjeto()
+        private void llenarGridHorario(TrabajadorHorario objHorario)
+        {
+            ckbEliminar.Visible = false;
+            if (dgvHorario.Columns.Count > 1)
             {
 
-                TrabajadorHorario objHorario = new TrabajadorHorario();
-                objHorario.sIdTrab = TrabajadorInfo.IdTrab;
-                objHorario.iCvPlantilla = 0;
-                objHorario.iCvDia = 0;
-                objHorario.sHoraEntrada = "00:00";
-                objHorario.iCvdiaSalidaTurno = 0;
-                objHorario.sHoraSalidaTurno = "00:00";
-                objHorario.iTiempoComida = 0;
-                objHorario.iCvdiaComidaInicio = 0;
-                objHorario.sHoraComidaInicio = "00:00";
-                objHorario.iCvdiaComidaFin = 0;
-                objHorario.sHoraComidaFin = "00:00";
-                objHorario.iHorasTotalTrabajo = 0;
-                objHorario.sUsuumod = "vjiturburuv";
-                objHorario.sPrgumod = this.Name;
-
-                return objHorario;
+                dgvHorario.Columns.RemoveAt(0);
             }
 
+            iOpcionAdmin = 4;
+            DataTable dtHorario = objHorario.GestionHorario(iOpcionAdmin, objHorario);
+            dgvHorario.DataSource = dtHorario;
 
-            private TrabajadorHorario RecuperarGrid(DataGridViewRow row)
+
+            Utilerias.AgregarCheck(dgvHorario, 0);
+            dgvHorario.Columns[1].Visible = false;
+
+        }
+
+
+        private TrabajadorHorario AsignarObjeto()
+        {
+
+            TrabajadorHorario objHorario = new TrabajadorHorario();
+            objHorario.sIdTrab = TrabajadorInfo.IdTrab;
+            objHorario.iCvPlantilla = 0;
+            objHorario.iCvDia = 0;
+            objHorario.sHoraEntrada = "00:00";
+            objHorario.iCvdiaSalidaTurno = 0;
+            objHorario.sHoraSalidaTurno = "00:00";
+            objHorario.iTiempoComida = 0;
+            objHorario.iCvdiaComidaInicio = 0;
+            objHorario.sHoraComidaInicio = "00:00";
+            objHorario.iCvdiaComidaFin = 0;
+            objHorario.sHoraComidaFin = "00:00";
+            objHorario.iHorasTotalTrabajo = 0;
+            objHorario.sUsuumod = "vjiturburuv";
+            objHorario.sPrgumod = this.Name;
+
+            return objHorario;
+        }
+
+
+        private TrabajadorHorario RecuperarGrid(DataGridViewRow row)
+        {
+
+            TrabajadorHorario objHorario = new TrabajadorHorario();
+
+            objHorario.sHoraEntrada = row.Cells[3].Value.ToString();
+            objHorario.sHoraSalidaTurno = row.Cells[5].Value.ToString();
+            objHorario.sHoraComidaInicio = row.Cells[8].Value.ToString();
+            objHorario.sHoraComidaFin = row.Cells[10].Value.ToString();
+            objHorario.iHorasTotalTrabajo = Convert.ToInt32(row.Cells[11].Value.ToString());
+            objHorario.iTiempoComida = Convert.ToInt32(row.Cells[6].Value.ToString());
+
+            objHorario.iCvDia = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[2].Value.ToString()));
+            objHorario.iCvdiaSalidaTurno = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[4].Value.ToString()));
+            objHorario.iCvdiaComidaInicio = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[7].Value.ToString()));
+            objHorario.iCvdiaComidaFin = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[9].Value.ToString()));
+
+            return objHorario;
+        }
+
+        public void LimpiarFormulario()
+        {
+
+            cbDiaEntrada.SelectedIndex = 0;
+            cbDiaSalida.SelectedIndex = 0;
+
+            mtxtEntradaTurno.Text = "00:00";
+            //  mtxtEntradaTurno.SelectionLength = 5;
+            mtxtSalida.Text = "00:00";
+            //   mtxtSalida.SelectionLength = 5;
+            mtxtComidaInicio.Text = "00:00";
+            //    mtxtComidaInicio.SelectionLength = 5;
+            mtxtComidaFin.Text = "00:00";
+            //   mtxtComidaFin.SelectionLength = 5;
+            mtxtTiempoComida.Text = "00:00";
+            //    mtxtTiempoComida.SelectionLength = 3;
+            mtxtTiempoTrabajo.Text = "00:00";
+            //    mtxtTiempoTrabajo.SelectionLength = 3;
+
+
+        }
+
+
+        private void AsignarReloj(string sIdtrab)
+        {
+            RelojChecador objReloj = new RelojChecador();
+            ltRelojxUsuario = objReloj.RelojesxTrabajador(sIdtrab, 0, 4, "", "");
+            Utilerias.ImprimirAsignacionesGrid(dgvReloj, 0, 1, ltRelojxUsuario);
+        }
+
+
+        private void LlenarGridFormasRegistro(string sBusqueda)
+        {
+
+            if (dgvForReg.Columns.Count > 1)
             {
-
-                TrabajadorHorario objHorario = new TrabajadorHorario();
-
-                objHorario.sHoraEntrada = row.Cells[3].Value.ToString();
-                objHorario.sHoraSalidaTurno = row.Cells[5].Value.ToString();
-                objHorario.sHoraComidaInicio = row.Cells[8].Value.ToString();
-                objHorario.sHoraComidaFin = row.Cells[10].Value.ToString();
-                objHorario.iHorasTotalTrabajo = Convert.ToInt32(row.Cells[11].Value.ToString());
-                objHorario.iTiempoComida = Convert.ToInt32(row.Cells[6].Value.ToString());
-
-                objHorario.iCvDia = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[2].Value.ToString()));
-                objHorario.iCvdiaSalidaTurno = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[4].Value.ToString()));
-                objHorario.iCvdiaComidaInicio = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[7].Value.ToString()));
-                objHorario.iCvdiaComidaFin = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[9].Value.ToString()));
-
-                return objHorario;
+                dgvForReg.Columns.RemoveAt(0);
             }
 
-            public void LimpiarFormulario()
-            {
+            FormaReg objFr = new FormaReg();
+            DataTable dtFormasRegistro = objFr.FormaReg_S(4, 0, sBusqueda, 0, "", "");
+            dgvForReg.DataSource = dtFormasRegistro;
+            Utilerias.AgregarCheck(dgvForReg, 0);
+            dgvForReg.Columns[1].Visible = false;
+            dgvForReg.Columns[4].Visible = false;
+            dgvForReg.Columns[3].Visible = false;
+            dgvForReg.Columns[0].Width = 65;
 
-                cbDiaEntrada.SelectedIndex = 0;
-                cbDiaSalida.SelectedIndex = 0;
-
-                mtxtEntradaTurno.Text = "00:00";
-                //  mtxtEntradaTurno.SelectionLength = 5;
-                mtxtSalida.Text = "00:00";
-                //   mtxtSalida.SelectionLength = 5;
-                mtxtComidaInicio.Text = "00:00";
-                //    mtxtComidaInicio.SelectionLength = 5;
-                mtxtComidaFin.Text = "00:00";
-                //   mtxtComidaFin.SelectionLength = 5;
-                mtxtTiempoComida.Text = "00:00";
-                //    mtxtTiempoComida.SelectionLength = 3;
-                mtxtTiempoTrabajo.Text = "00:00";
-                //    mtxtTiempoTrabajo.SelectionLength = 3;
-
-
-            }
-
-
-            private void AsignarReloj(string sIdtrab)
-            {
-                RelojChecador objReloj = new RelojChecador();
-                ltRelojxUsuario = objReloj.RelojesxTrabajador(sIdtrab, 0, 4, "", "");
-                Utilerias.ImprimirAsignacionesGrid(dgvReloj, 0, 1, ltRelojxUsuario);
-            }
-
-
-            private void LlenarGridFormasRegistro(string sBusqueda)
-            {
-
-                if (dgvForReg.Columns.Count > 1)
-                {
-                    dgvForReg.Columns.RemoveAt(0);
-                }
-
-                FormaReg objFr = new FormaReg();
-                DataTable dtFormasRegistro = objFr.FormaReg_S(4, 0, sBusqueda, 0, "", "");
-                dgvForReg.DataSource = dtFormasRegistro;
-                Utilerias.AgregarCheck(dgvForReg, 0);
-                dgvForReg.Columns[1].Visible = false;
-                dgvForReg.Columns[4].Visible = false;
-                dgvForReg.Columns[3].Visible = false;
-                dgvForReg.Columns[0].Width = 65;
-
-                dgvForReg.ClearSelection();
-            }
+            dgvForReg.ClearSelection();
+        }
 
 
         private void llenarGridReloj(string sDescripcion)
@@ -889,13 +1135,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         }
 
         private void AsignarFormas(string sIdtrab)
-            {
+        {
 
-                FormaReg objfr = new FormaReg();
-                ltFormasxUsuario = objfr.FormasxUsuario(sIdtrab, 0, 4, "", "");
-                Utilerias.ImprimirAsignacionesGrid(dgvForReg, 0, 1, ltFormasxUsuario);
+            FormaReg objfr = new FormaReg();
+            ltFormasxUsuario = objfr.FormasxUsuario(sIdtrab, 0, 4, "", "");
+            Utilerias.ImprimirAsignacionesGrid(dgvForReg, 0, 1, ltFormasxUsuario);
 
-            }
+        }
 
         private void CrearAsignaciones_Reloj(string sUsuuMod, string sPrguMod, int iOpcion)
         {
@@ -940,7 +1186,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         }
 
-     
+
 
 
         //-----------------------------------------------------------------------------------------------
@@ -970,5 +1216,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            PanelGuardar.Visible = true;
+            iOpcionAdmin = 1;
+
+        }
+
+
     }
 }
