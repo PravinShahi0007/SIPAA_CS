@@ -256,8 +256,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 if (TxtIdSupFin.Text == "") TxtIdSupFin.Text = "0";
                 if (TxtIdDirFin.Text == "") TxtIdDirFin.Text = "0";
 
-                DataTable dtActualizaSudyDir = oActualizaSudyDir.obtActualizaSudyDir(2, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text));
-                DataTable dtActualizaSudyDir2 = oActualizaSudyDir2.obtActualizaSudyDir2(2, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text));
+                DataTable dtActualizaSudyDir = oActualizaSudyDir.obtActualizaSudyDir(2, Convert.ToInt32(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text));
+                DataTable dtActualizaSudyDir2 = oActualizaSudyDir2.obtActualizaSudyDir2(2, Convert.ToInt32(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text));
 
                 //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
                 if (dtActualizaSudyDir.Rows.Count > 0)

@@ -156,6 +156,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             objConexion.asignarConexion(cmd);
             iOpcion = 2;
 
+
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
             cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idTrab;
             cmd.Parameters.Add("@p_fini", SqlDbType.NChar).Value = dFini;
