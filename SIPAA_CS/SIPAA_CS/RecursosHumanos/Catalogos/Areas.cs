@@ -94,12 +94,12 @@ namespace SIPAA_CS.RecursosHumanos
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
 
-        public void LlenarGridPlanteles(string idCia, string busqueda, DataGridView dgvPlantel)
+        public void LlenarGridPlanteles(string idcompania, string busqueda, DataGridView dgvPlantel)
         {
 
 
             SonaCompania objCia = new SonaCompania();
-            DataTable dtPlantel = objCia.ObtenerPlantelxCompania(idCia, busqueda);
+            DataTable dtPlantel = objCia.ObtenerPlantelxCompania(6, idcompania, busqueda, "");
 
             dgvPlantel.DataSource = dtPlantel;
 

@@ -341,18 +341,19 @@ namespace SIPAA_CS.App_Code
             
         }
 
-        public void AsignarAreaUsuario(string cvusuario, int idcompania, int idplanta, string usuumod,string prgumod)
+        public void AsignarAreaUsuario(string cvusuario, string idcompania, string idplanta, string usuumod,string prgumod, int opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusuare_ui";
+            cmd.CommandText = "usp_accetusuare_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@idcompania", SqlDbType.Int).Value = idcompania;
-            cmd.Parameters.Add("@idplanta", SqlDbType.Int).Value = idplanta;
-            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = usuumod;
-            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idcompania", SqlDbType.VarChar).Value = idcompania;
+            cmd.Parameters.Add("@p_idplanta", SqlDbType.VarChar).Value = idplanta;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.VarChar).Value = opcion;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);

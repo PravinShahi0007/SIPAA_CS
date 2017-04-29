@@ -17,16 +17,19 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
         }
 
         //VALIDACION PERMISO AREA (CENTRO DE COSTO)
-        public List<int> ObtenerAreaxUsuario(int idcompania, int opcion)
+        public List<string> ObtenerAreaxUsuario(string cvusuario, string idcompania, string idplanta,string usuumod, string prgumod, int opcion)
         {
 
-            List<int> ltAreasxUsuario = new List<int>();
+            List<string> ltAreasxUsuario = new List<string>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusuare_s";
+            cmd.CommandText = "usp_accetusuare_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            //cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@p_idcompania", SqlDbType.Int).Value = idcompania;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idcompania", SqlDbType.VarChar).Value = idcompania;
+            cmd.Parameters.Add("@p_idplanta",SqlDbType.VarChar).Value = idplanta;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
 
             Conexion objConexion = new Conexion();
@@ -40,8 +43,8 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
 
                 int idarea = reader.GetInt32(reader.GetOrdinal("idplanta"));
                 //int idcomp = reader.GetInt32(reader.GetOrdinal("idcompania"));
-
-                ltAreasxUsuario.Add(idarea);
+                string ida = Convert.ToString(idarea);
+                ltAreasxUsuario.Add(ida);
                 //MUESTRA LAS AREAS ASIGNADAS A UN USUARIO
                 Console.WriteLine(idarea);
                 //Console.WriteLine(idcomp);
