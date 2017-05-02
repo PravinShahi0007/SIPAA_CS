@@ -188,14 +188,25 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             objConexion.asignarConexion(cmd);
             iOpcion = 2;
 
-            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
             cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idTrab;
-            cmd.Parameters.Add("@p_fini", SqlDbType.NChar).Value = dFini;
-            cmd.Parameters.Add("@p_ffin", SqlDbType.NChar).Value = dFfin;
-            cmd.Parameters.Add("@p_idtrabsup", SqlDbType.Int).Value = idTrab;
-            cmd.Parameters.Add("@p_idtrabdir", SqlDbType.Int).Value = idTrab;
-            cmd.Parameters.Add("@p_idtrabsupn", SqlDbType.Int).Value = idTrabSupn;
-            cmd.Parameters.Add("@p_idtrabdirn", SqlDbType.Int).Value = idTrabDirn;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_FechaInicio", SqlDbType.NChar).Value = dFini;
+            cmd.Parameters.Add("@p_FechaFin", SqlDbType.NChar).Value = dFfin;
+            cmd.Parameters.Add("@p_idtrabsup", SqlDbType.Int).Value = idTrabSupn;
+            cmd.Parameters.Add("@p_idtrabdir", SqlDbType.Int).Value = idTrabDirn;
+            //cmd.Parameters.Add("@p_idtrabsupn", SqlDbType.Int).Value = idTrabSupn;
+            //cmd.Parameters.Add("@p_idtrabdirn", SqlDbType.Int).Value = idTrabDirn;
+            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_tiempoemp", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_tiempoprof", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stsup", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_fhautsup", SqlDbType.NChar).Value = dFfin;
+            cmd.Parameters.Add("@p_stdir", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_premiopunt", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_premioasis", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stinc", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_archivo", SqlDbType.NChar).Value = dFfin;
+            cmd.Parameters.Add("@p_fhautdir", SqlDbType.NChar).Value = dFfin;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.NChar).Value = "JAV";
             cmd.Parameters.Add("@p_prgumod", SqlDbType.NChar).Value = "SQL";
 
