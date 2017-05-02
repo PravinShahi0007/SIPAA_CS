@@ -12,16 +12,16 @@ namespace SIPAA_CS.App_Code
     class Incidencia
     {
         //SE DECLARAN VARIABLES
-        public int CVIncidencia;
-        public string Descripcion;
-        public int CVRepresenta;
-        public string Representa;
-        public string UsuuMod;
-        public string Estatus;
-        public DateTime FhuMod;
-        public string PrguMod;
-        public int CVTipo;
-        public string TipoIncidencia;
+        public int CVIncidencia = 0;
+        public string Descripcion = "";
+        public int CVRepresenta = 0;
+        public string Representa = "";
+        public string UsuuMod = "";
+        public string Estatus = "";
+        public DateTime FhuMod  = DateTime.Today;
+        public string PrguMod = "";
+        public int CVTipo =0;
+        public string TipoIncidencia = "";
 
 
         public DataTable ObtenerRepresentaxIncidencia(Incidencia objIncidencia,int Opcion) {
@@ -179,7 +179,6 @@ namespace SIPAA_CS.App_Code
                                                  , DateTime dtFechaFin,string sCompania, string sTNom
                                                  ,string sUbicacion)
         {
-
             Conexion objConexion = new Conexion();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechincidenciaspasadasnomina_s";

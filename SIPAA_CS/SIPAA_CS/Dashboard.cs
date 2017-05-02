@@ -92,13 +92,15 @@ namespace SIPAA_CS
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
-
+            
 
             Usuario objUsuario = new Usuario();
             string idtrab = LoginInfo.IdTrab;
             ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab,4);
             Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
-
+            //LoginInfo.Nombre = lblusuario.Text;
+            string NomUsu = LoginInfo.Nombre;
+            lblusuario.Text = NomUsu;
         }
 
         private void PanelMetro_Paint(object sender, PaintEventArgs e)
