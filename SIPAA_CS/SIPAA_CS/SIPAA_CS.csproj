@@ -534,6 +534,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Observaciones.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RegistroDetalle.cs">
+      <DependentUpon>RegistroDetalle.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\RegistroDetalle.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

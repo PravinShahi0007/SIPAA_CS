@@ -22,6 +22,7 @@ namespace SIPAA_CS
 
         public string user;
         public string pwd;
+        public List<string> ltModulosxUsuario = new List<string>();
         public Acceso()
         {
             InitializeComponent();
@@ -100,11 +101,28 @@ namespace SIPAA_CS
                                     int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), us, "", password.Trim(), 0, "", "", 10);
                                     if (respuesta == 1)
                                     {
-                                        Dashboard ds = new Dashboard();
-                                        LoginInfo.IdTrab = txtUsuario.Text;
-                                        //ds.RecibirIdTrab(txtUsuario.Text);
-                                        ds.Show();
-                                        this.Close();
+                                        ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 4);
+
+                                        ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 4);
+
+                                        if (ltModulosxUsuario.Count != 0)
+                                        {
+                                            //MessageBox.Show("si tienes padres");
+                                            Dashboard ds = new Dashboard();
+                                            LoginInfo.IdTrab = txtUsuario.Text;
+
+                                            usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
+
+                                            string NomUsu = usuario.Nombre;
+                                            LoginInfo.Nombre = NomUsu;
+                                            //ds.RecibirIdTrab(txtUsuario.Text);
+                                            ds.Show();
+                                            this.Close();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("No tienes Módulos Asignados");
+                                        }
                                     }
                                     else
                                     {
@@ -161,11 +179,28 @@ namespace SIPAA_CS
                             int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), 0, "", password.Trim(), 0, "", "", 10);
                             if (respuesta == 1)
                             {
-                                Dashboard ds = new Dashboard();
-                                LoginInfo.IdTrab = txtUsuario.Text;
-                                //ds.RecibirIdTrab(txtUsuario.Text);
-                                ds.Show();
-                                this.Close();
+
+                                ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 4);
+
+                                if (ltModulosxUsuario.Count != 0)
+                                {
+                                    //MessageBox.Show("si tienes padres");
+                                    Dashboard ds = new Dashboard();
+                                    LoginInfo.IdTrab = txtUsuario.Text;
+
+                                    usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
+
+                                    string NomUsu = usuario.Nombre;
+                                    LoginInfo.Nombre = NomUsu;
+                                    //ds.RecibirIdTrab(txtUsuario.Text);
+                                    ds.Show();
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No tienes Módulos Asignados");
+                                }
+                               
                             }
                             else
                             {

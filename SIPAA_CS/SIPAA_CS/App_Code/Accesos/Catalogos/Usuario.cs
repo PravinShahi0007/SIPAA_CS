@@ -341,18 +341,19 @@ namespace SIPAA_CS.App_Code
             
         }
 
-        public void AsignarAreaUsuario(string cvusuario, int idcompania, int idplanta, string usuumod,string prgumod)
+        public void AsignarAreaUsuario(string cvusuario, string idcompania, string idplanta, string usuumod,string prgumod, int opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusuare_ui";
+            cmd.CommandText = "usp_accetusuare_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@idcompania", SqlDbType.Int).Value = idcompania;
-            cmd.Parameters.Add("@idplanta", SqlDbType.Int).Value = idplanta;
-            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = usuumod;
-            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idcompania", SqlDbType.VarChar).Value = idcompania;
+            cmd.Parameters.Add("@p_idplanta", SqlDbType.VarChar).Value = idplanta;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.VarChar).Value = opcion;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -431,6 +432,40 @@ namespace SIPAA_CS.App_Code
             Adapter.Fill(dtIncidencia);
 
             return dtIncidencia;
+        }
+
+        public Usuario ObtenerDatosUsuario(string cvusuario, int idtrab, string nombre, string passw, string stusuario, string usuumod, string prgmod, int opcion)
+        {
+            SqlCommand cmd = new SqlCommand();
+            Conexion objConexion = new Conexion();
+            Usuario objusuario = new Usuario();
+
+
+            cmd.CommandText = "usp_acceusuario_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idtrab;
+            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = nombre;
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = passw;
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.VarChar).Value = stusuario;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgmod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+            objConexion.asignarConexion(cmd);
+            cmd.ExecuteNonQuery();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+
+                // Usuario objUsuario = new Usuario();
+
+                objusuario.Nombre = reader.GetString(reader.GetOrdinal("NOMBRE"));
+            }
+
+            objConexion.cerrarConexion();
+            return objusuario;
         }
 
         public static class Permisos
