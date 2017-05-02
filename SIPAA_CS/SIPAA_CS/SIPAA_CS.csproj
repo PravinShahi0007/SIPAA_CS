@@ -282,7 +282,7 @@
     <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
-    <Compile Include="App_Code\RecursosHumanos\Catalogos\IncCalificacion.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\IncCalificacion.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\RelojChecador.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\DiaSemana.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\IncNomina.cs" />

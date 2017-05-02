@@ -143,7 +143,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void TrabajadoresPerfil_Load(object sender, EventArgs e)
         {
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            //////////////////////////////////////////////////////////////////////////////////
             SonaTrabajador objTrab = new SonaTrabajador();
             DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%", 6, "%", "%", 0,"", this.Name);
             //   llenarListView(dtTrab, ltvTrabajador);

@@ -160,6 +160,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AsignacionIncidenciasTrabajador form = new AsignacionIncidenciasTrabajador();
+            form.Show();
+        }
     }
 }
