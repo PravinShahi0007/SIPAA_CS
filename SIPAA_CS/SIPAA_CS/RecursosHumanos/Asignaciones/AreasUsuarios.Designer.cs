@@ -291,9 +291,9 @@
             this.panelTag.BackColor = System.Drawing.Color.Transparent;
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(2, 309);
+            this.panelTag.Location = new System.Drawing.Point(519, 722);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(455, 48);
+            this.panelTag.Size = new System.Drawing.Size(437, 25);
             this.panelTag.TabIndex = 125;
             this.panelTag.Visible = false;
             // 
@@ -304,7 +304,7 @@
             this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMensaje.ForeColor = System.Drawing.Color.White;
             this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbMensaje.Location = new System.Drawing.Point(45, 13);
+            this.lbMensaje.Location = new System.Drawing.Point(7, 5);
             this.lbMensaje.Name = "lbMensaje";
             this.lbMensaje.Size = new System.Drawing.Size(209, 20);
             this.lbMensaje.TabIndex = 26;
