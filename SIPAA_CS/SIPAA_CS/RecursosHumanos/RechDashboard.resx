@@ -121,6 +121,18 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="procesosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAXNJREFUSEvl
+        1E8rRFEYx/HxZ+fPVpJXIcqrkBILInkHFtSUjZSEhVKyUGLBK2BBigUba8lKEnkFyJ/r+5vm3J577jO3
+        mNn51adpzjznnHufO/eU/keSJCkjzhz0WyF30HGIOPvwajPcQcc14lzBq82IB5pxiROMoBe60i/E+cQu
+        ejCKU1ygCemadnGZgc139bMocc0k0jXt4p14Qb15QjtyG6ygKDdYxRpuNVCQJeQ2mMAbvGxAzyfUtmAT
+        Xl4xhkptmBD04wE2unK7eKBN4ju5Rx/SOjshWICN2uLVyTps5pGpyXypijdQz706+fUGg3iEjdqgdsS1
+        rbiDjdo7gLTOTpjCO7zogdpNtPgWvOiPMo5KbZggyyiK7kQtkfjK4ywit0EHnlFv1OI25DaQadj85ajQ
+        +5SuaRcXHVTnOMIQurEDHWxxPrCNLgzjGGcoPOxqadhxXcsB4uzBq81wBx16gdSmQO2ZhVeb4Q42kjvY
+        OEnpB+gP7Km4fsSUAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="tsmiCompanias.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHFJREFUSEvt
@@ -218,18 +230,6 @@
 </value>
   </data>
   <data name="asignaciónDePerfilToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAXNJREFUSEvl
-        1E8rRFEYx/HxZ+fPVpJXIcqrkBILInkHFtSUjZSEhVKyUGLBK2BBigUba8lKEnkFyJ/r+5vm3J577jO3
-        mNn51adpzjznnHufO/eU/keSJCkjzhz0WyF30HGIOPvwajPcQcc14lzBq82IB5pxiROMoBe60i/E+cQu
-        ejCKU1ygCemadnGZgc139bMocc0k0jXt4p14Qb15QjtyG6ygKDdYxRpuNVCQJeQ2mMAbvGxAzyfUtmAT
-        Xl4xhkptmBD04wE2unK7eKBN4ju5Rx/SOjshWICN2uLVyTps5pGpyXypijdQz706+fUGg3iEjdqgdsS1
-        rbiDjdo7gLTOTpjCO7zogdpNtPgWvOiPMo5KbZggyyiK7kQtkfjK4ywit0EHnlFv1OI25DaQadj85ajQ
-        +5SuaRcXHVTnOMIQurEDHWxxPrCNLgzjGGcoPOxqadhxXcsB4uzBq81wBx16gdSmQO2ZhVeb4Q42kjvY
-        OEnpB+gP7Km4fsSUAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="procesosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAXNJREFUSEvl
         1E8rRFEYx/HxZ+fPVpJXIcqrkBILInkHFtSUjZSEhVKyUGLBK2BBigUba8lKEnkFyJ/r+5vm3J577jO3

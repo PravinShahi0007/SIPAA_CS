@@ -79,27 +79,7 @@ namespace SIPAA_CS.RecursosHumanos
                 {
                     Utilerias.MultiSeleccionGridViewString(dgvCompanias, 1, ltCompanias, panelPermisos);
 
-                    //DataGridViewRow row = this.dgvCompanias.SelectedRows[0];
-                    //row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    //idcompania = row.Cells[1].Value.ToString();
-
-                    //panelPermisos.Enabled = true;
-
-                    //ltCompanias.Add(idcompania);
-
-                    //if (row.Cells[0].Tag.ToString() == "check")
-                    //{
-
-                    //    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                    //    row.Cells[0].Tag = "uncheck";
-
-                    //}
-                    //else
-                    //{
-                    //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    //    row.Cells[0].Tag = "check";
-
-                    //}
+                   
                 }
 
             }

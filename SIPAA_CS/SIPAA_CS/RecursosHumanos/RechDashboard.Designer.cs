@@ -297,7 +297,7 @@
             this.tsmAsignacionCompania.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.tsmAsignacionCompania.Name = "tsmAsignacionCompania";
             this.tsmAsignacionCompania.Size = new System.Drawing.Size(258, 22);
-            this.tsmAsignacionCompania.Tag = "frmCompaniasUsuario";
+            this.tsmAsignacionCompania.Tag = "CompaniasUsuario";
             this.tsmAsignacionCompania.Text = "Asignacion Compañia";
             this.tsmAsignacionCompania.Click += new System.EventHandler(this.tsmAsignacionCompania_Click);
             // 
