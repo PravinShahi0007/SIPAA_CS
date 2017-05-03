@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Asignaciones
 {
@@ -207,7 +208,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
                     //panelPermisos.Enabled = false;
                     try
                     {
-                        string usuumod = "vjiturburuv";
+                        string usuumod = LoginInfo.IdTrab;
                         string prgmod = this.Name;
                         Usuario objUsuario = new Usuario();
 
@@ -252,7 +253,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
                         //panelPermisos.Enabled = false;
                         try
                         {
-                            string usuumod = "vjiturburuv";
+                            string usuumod = LoginInfo.IdTrab;
                             string prgmod = this.Name;
                             Usuario objUsuario = new Usuario();
 
@@ -333,6 +334,13 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         private void Asignacion_Area_Usuario_Load(object sender, EventArgs e)
         {
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             cbCompania.Enabled = false;
             LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
