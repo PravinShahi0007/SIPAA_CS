@@ -94,7 +94,7 @@ namespace SIPAA_CS.App_Code
    }
 
 
-        public DataTable ObtenerUbicacionPlantel(int iOpcion,string PlantaDesc)
+        public DataTable ObtenerUbicacionPlantel(int iOpcion, string PlantaDesc)
         {
             
             SqlCommand cmd = new SqlCommand();
