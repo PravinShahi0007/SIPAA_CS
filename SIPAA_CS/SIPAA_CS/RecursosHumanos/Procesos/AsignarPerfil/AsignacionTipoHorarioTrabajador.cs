@@ -201,10 +201,19 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         private void AsignacionTipoHorarioTrabajador_Load(object sender, EventArgs e)
         {
 
+            lblusuario.Text = LoginInfo.Nombre;
+            lblusuario.Text = LoginInfo.Nombre;
             lbNombre.Text = TrabajadorInfo.Nombre;
             lbIdTrab.Text = TrabajadorInfo.IdTrab;
 
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
             TipoHr objTiposHr = new TipoHr();
             DataTable dttipohr = objTiposHr.obttipohr(4, 0, "", "", "");
             llenarGrid(dttipohr);
