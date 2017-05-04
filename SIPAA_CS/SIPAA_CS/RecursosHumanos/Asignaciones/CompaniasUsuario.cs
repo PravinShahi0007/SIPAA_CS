@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos
 {
@@ -24,10 +25,10 @@ namespace SIPAA_CS.RecursosHumanos
         public int response;
         public string buscar;
         public string stusuario;
-        public int idcompania;
+        public string idcompania;
 
-        public List<int> ltCompanias = new List<int>();
-        public List<int> ltCompaniasxUsuario = new List<int>();
+        public List<string> ltCompanias = new List<string>();
+        public List<string> ltCompaniasxUsuario = new List<string>();
         Usuario usuario = new Usuario();
         SonaCompania companias = new SonaCompania();
         public CompaniasUsuario()
@@ -76,28 +77,9 @@ namespace SIPAA_CS.RecursosHumanos
 
                 if (dgvCompanias.SelectedRows.Count != 0)
                 {
+                    Utilerias.MultiSeleccionGridViewString(dgvCompanias, 1, ltCompanias, panelPermisos);
 
-                    DataGridViewRow row = this.dgvCompanias.SelectedRows[0];
-                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    idcompania = Convert.ToInt32(row.Cells[1].Value.ToString());
-
-                    panelPermisos.Enabled = true;
-
-                    ltCompanias.Add(idcompania);
-
-                    if (row.Cells[0].Tag.ToString() == "check")
-                    {
-
-                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                        row.Cells[0].Tag = "uncheck";
-
-                    }
-                    else
-                    {
-                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                        row.Cells[0].Tag = "check";
-
-                    }
+                   
                 }
 
             }
@@ -136,53 +118,119 @@ namespace SIPAA_CS.RecursosHumanos
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
             cvusuario = null;
-            string IdTrab = txtIdTrab.Text;
-            string nombre = txtUsuario.Text;
-            dgvUsuarios.Columns.Remove(columnName: "Seleccionar");
+            string cvUsuario = txtCvUsuario.Text;
+            //dgvUsuarios.Columns.Remove(columnName: "Seleccionar");
 
-            llenarGridUsuarios(IdTrab.Trim(), 0, nombre.Trim(), "", 0, "", "", 7);
+            if (cvUsuario != "")
+            {
+                LlenaGridUsuarios(cvUsuario.Trim(), 0, "", "", 0, "", "", 8);
+                llenarGridCompanias(9, "%");
+            }
+            else
+            {
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+                llenarGridCompanias(9, "%");
+            }
 
-            txtUsuario.Text = "";
-            txtIdTrab.Text = "";
+            txtCvUsuario.Text = "";
 
         }
         private void btnBuscarCompanias_Click(object sender, EventArgs e)
         {
             string companias = txtCompanias.Text;
             dgvCompanias.Columns.Remove(columnName: "Seleccionar");
-            llenarGridCompanias(1, companias.Trim());
+            //llenarGridCompanias(1, companias.Trim());
             txtCompanias.Text = "";
+
+            if (companias != "")
+            {
+                llenarGridCompanias(9, companias);
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+            }
+            else
+            {
+                llenarGridCompanias(9, "%");
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             panelPermisos.Enabled = false;
-            try
+            AsignarCompanias();
+            if (Utilerias.SinAsignacionesString(dgvCompanias, 0, 1, ltCompanias) == true)
             {
-                string usuumod = "vjiturburuv";
-                string prgmod = this.Name;
-                Usuario objUsuario = new Usuario();
-
-                foreach (int id in ltCompanias)
+                try
                 {
-                    objUsuario.AsignarCompaniaUsuario(cvusuario, id, usuumod, prgmod);
+                    string usuumod = "vjiturburuv";
+                    string prgmod = this.Name;
+                    Usuario objUsuario = new Usuario();
+
+                    foreach (string id in ltCompanias)
+                    {
+                        objUsuario.AsignarCompaniaUsuario(cvusuario, id, usuumod, prgmod, 1);
+                    }
+
+                    ltCompanias.Clear();
+                   
+                   
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                    timer1.Start();
+                    //AsignarCompanias();
+                    LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+                    llenarGridCompanias(9, "%");
+
+
                 }
-
-                ltCompanias.Clear();
-
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
-                timer1.Start();
-                AsignarCompanias();
-
-
+                catch (Exception ex)
+                {
+                    //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
+                    timer1.Start();
+                    MessageBox.Show("" + ex);
+                    AsignarCompanias();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
-                timer1.Start();
-                MessageBox.Show("" + ex);
-                AsignarCompanias();
+                DialogResult result = MessageBox.Show("¿Seguro que desea quitar todas las Asignaciones?", "SIPAA", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        string usuumod = "vjiturburuv";
+                        string prgmod = this.Name;
+                        Usuario objUsuario = new Usuario();
+
+                        foreach (string id in ltCompanias)
+                        {
+                            objUsuario.AsignarCompaniaUsuario(cvusuario, id, usuumod, prgmod, 1);
+                        }
+
+                        ltCompanias.Clear();
+                        llenarGridCompanias(9, "%");
+                        LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                        timer1.Start();
+                        AsignarCompanias();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
+                        timer1.Start();
+                        MessageBox.Show("" + ex);
+                        AsignarCompanias();
+                    }
+                }
+                else
+                {
+                    AsignarCompanias();
+                    ltCompanias.Clear();
+                }
             }
+            
         }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -194,15 +242,26 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void Asignacion_Companias_Usuario_Load(object sender, EventArgs e)
         {
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-            llenarGridUsuarios("", 0, "", "", 0, "", "", 7);
-            llenarGridCompanias(5,"");
+            LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+            llenarGridCompanias(8,"");
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
-        private void llenarGridUsuarios(string cvusuario, int idtrab, string nombre, string pass, int stusuario, string usuumod, string prgmod, int opcion)
+        private void LlenaGridUsuarios(string cvusuario, int idtrab, string nombre, string pass, int stusuario, string usuumod, string prgmod, int opcion)
         {
+            if (dgvUsuarios.Columns.Count > 1)
+            {
+                dgvUsuarios.Columns.RemoveAt(0);
+            }
 
             DataTable dtFormasRegistro = usuario.ObtenerListaUsuarios(cvusuario, idtrab, nombre, pass, stusuario, usuumod, prgmod, opcion);
             dgvUsuarios.DataSource = dtFormasRegistro;
@@ -212,13 +271,20 @@ namespace SIPAA_CS.RecursosHumanos
             imgCheckProcesos.Name = "Seleccionar";
             dgvUsuarios.Columns.Insert(0, imgCheckProcesos);
             dgvUsuarios.Columns[0].HeaderText = "Seleccionar";
-            dgvUsuarios.Columns[3].Visible = false;
+            dgvUsuarios.Columns[1].HeaderText = "Clave Usuario";
+            dgvUsuarios.Columns[3].HeaderText = "Nombre";
+            dgvUsuarios.Columns[2].Visible = false;
+            dgvUsuarios.Columns[4].Visible = false;
             dgvUsuarios.ClearSelection();
         }
 
         private void llenarGridCompanias(int popc, string pbusq)
         {
-           
+            if (dgvCompanias.Columns.Count > 1)
+            {
+                dgvCompanias.Columns.RemoveAt(0);
+            }
+
             DataTable dtcompanias = companias.obtcomp(popc, pbusq);
             dgvCompanias.DataSource = dtcompanias;
             
@@ -228,24 +294,21 @@ namespace SIPAA_CS.RecursosHumanos
             dgvCompanias.Columns.Insert(0, imgCheckProcesos);
 
             dgvCompanias.Columns[1].Visible = false;
-            //dgvCompanias.Columns[3].Visible = false;
             dgvCompanias.Columns[0].HeaderText = "Seleccionar";
-            dgvCompanias.Columns[0].Width = 100;
+            dgvCompanias.Columns[2].HeaderText = "Descripción";
             dgvCompanias.ClearSelection();
        
         }
         private void AsignarCompanias()
         {
-
             CompaniaUsuario objCompanias = new CompaniaUsuario();
-            ltCompaniasxUsuario = objCompanias.ObtenerCompaniasxUsuario(cvusuario);
+            ltCompaniasxUsuario = objCompanias.ObtenerCompaniasxUsuario(cvusuario,"","","",5);
 
             //Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
-
-
+            
             for (int iContador = 0; iContador < dgvCompanias.Rows.Count; iContador++)
             {
-                int idcompanias = Convert.ToInt32(dgvCompanias.Rows[iContador].Cells[1].Value.ToString());
+                string idcompanias = dgvCompanias.Rows[iContador].Cells[1].Value.ToString();
 
                 if (ltCompaniasxUsuario.Contains(idcompanias))
                 {

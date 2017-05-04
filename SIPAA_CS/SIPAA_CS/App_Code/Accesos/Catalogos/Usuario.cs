@@ -321,17 +321,18 @@ namespace SIPAA_CS.App_Code
             return dtUsuario;
         }
 
-        public void AsignarCompaniaUsuario(string cvusuario, int idcompania, string usuumod, string prgumod)
+        public void AsignarCompaniaUsuario(string cvusuario, string idcompania, string usuumod, string prgumod, int opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusucom_ui";
+            cmd.CommandText = "usp_accetusucom_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@idcompania", SqlDbType.Int).Value = idcompania;
-            cmd.Parameters.Add("@usuumod", SqlDbType.VarChar).Value = usuumod;
-            cmd.Parameters.Add("@prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idcompania", SqlDbType.VarChar).Value = idcompania;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);

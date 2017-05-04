@@ -17,15 +17,20 @@ namespace SIPAA_CS.App_Code
 
         }
         //VALIDACION PERMISO COMPAÑIA
-        public List<int> ObtenerCompaniasxUsuario(string cvusuario)
+        public List<string> ObtenerCompaniasxUsuario(string cvusuario, string idcompania, string usuumod, string prgumod, int opcion)
         {
 
-            List<int> ltCompaniasxUsuario = new List<int>();
+            List<string> ltCompaniasxUsuario = new List<string>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusucom_s";
+            cmd.CommandText = "usp_accetusucom_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
+            cmd.Parameters.Add("@p_idcompania", SqlDbType.VarChar).Value = idcompania;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -36,9 +41,9 @@ namespace SIPAA_CS.App_Code
             while (reader.Read())
             {
 
-                int idcompania = reader.GetInt32(reader.GetOrdinal("idcompania"));
-
-                ltCompaniasxUsuario.Add(idcompania);
+                int idcomp = reader.GetInt32(reader.GetOrdinal("idcompania"));
+                string idc = Convert.ToString(idcomp);
+                ltCompaniasxUsuario.Add(idc);
                 //MUESTRA LAS COMPAÑIAS ASIGNADAS A UN USUARIO
                 Console.WriteLine(idcompania);
             }

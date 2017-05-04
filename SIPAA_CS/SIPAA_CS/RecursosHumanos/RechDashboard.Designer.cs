@@ -54,14 +54,14 @@
             this.tsmAsignacionDepartamento = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroGeneradoDetalleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignaciónDePerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
-            this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asignaciónDePerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMenu.SuspendLayout();
             this.MenuAccesos.SuspendLayout();
             this.SuspendLayout();
@@ -297,7 +297,7 @@
             this.tsmAsignacionCompania.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.tsmAsignacionCompania.Name = "tsmAsignacionCompania";
             this.tsmAsignacionCompania.Size = new System.Drawing.Size(258, 22);
-            this.tsmAsignacionCompania.Tag = "frmCompaniasUsuario";
+            this.tsmAsignacionCompania.Tag = "CompaniasUsuario";
             this.tsmAsignacionCompania.Text = "Asignacion Compañia";
             this.tsmAsignacionCompania.Click += new System.EventHandler(this.tsmAsignacionCompania_Click);
             // 
@@ -308,7 +308,7 @@
             this.tsmAsignacionArea.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.tsmAsignacionArea.Name = "tsmAsignacionArea";
             this.tsmAsignacionArea.Size = new System.Drawing.Size(258, 22);
-            this.tsmAsignacionArea.Tag = "frmAreasUsuario";
+            this.tsmAsignacionArea.Tag = "AreasUsuarios";
             this.tsmAsignacionArea.Text = "Asignacion Área";
             this.tsmAsignacionArea.Click += new System.EventHandler(this.tsmAsignacionArea_Click);
             // 
@@ -354,6 +354,27 @@
             this.registroGeneradoDetalleToolStripMenuItem.Tag = "frmRptRegGenDetalle";
             this.registroGeneradoDetalleToolStripMenuItem.Text = "Registro Generado Detalle";
             this.registroGeneradoDetalleToolStripMenuItem.Click += new System.EventHandler(this.registroGeneradoDetalleToolStripMenuItem_Click);
+            // 
+            // procesosToolStripMenuItem
+            // 
+            this.procesosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.asignaciónDePerfilToolStripMenuItem});
+            this.procesosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.procesosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("procesosToolStripMenuItem.Image")));
+            this.procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
+            this.procesosToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.procesosToolStripMenuItem.Text = "Procesos";
+            // 
+            // asignaciónDePerfilToolStripMenuItem
+            // 
+            this.asignaciónDePerfilToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.asignaciónDePerfilToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.asignaciónDePerfilToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("asignaciónDePerfilToolStripMenuItem.Image")));
+            this.asignaciónDePerfilToolStripMenuItem.Name = "asignaciónDePerfilToolStripMenuItem";
+            this.asignaciónDePerfilToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.asignaciónDePerfilToolStripMenuItem.Tag = "TrabajadoresPerfil";
+            this.asignaciónDePerfilToolStripMenuItem.Text = "Asignación de Perfil";
+            this.asignaciónDePerfilToolStripMenuItem.Click += new System.EventHandler(this.asignaciónDePerfilToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -437,27 +458,6 @@
             this.pnlimgusuario.Name = "pnlimgusuario";
             this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
             this.pnlimgusuario.TabIndex = 146;
-            // 
-            // procesosToolStripMenuItem
-            // 
-            this.procesosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.asignaciónDePerfilToolStripMenuItem});
-            this.procesosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.procesosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("procesosToolStripMenuItem.Image")));
-            this.procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
-            this.procesosToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.procesosToolStripMenuItem.Text = "Procesos";
-            // 
-            // asignaciónDePerfilToolStripMenuItem
-            // 
-            this.asignaciónDePerfilToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.asignaciónDePerfilToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.asignaciónDePerfilToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("asignaciónDePerfilToolStripMenuItem.Image")));
-            this.asignaciónDePerfilToolStripMenuItem.Name = "asignaciónDePerfilToolStripMenuItem";
-            this.asignaciónDePerfilToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.asignaciónDePerfilToolStripMenuItem.Tag = "TrabajadoresPerfil";
-            this.asignaciónDePerfilToolStripMenuItem.Text = "Asignación de Perfil";
-            this.asignaciónDePerfilToolStripMenuItem.Click += new System.EventHandler(this.asignaciónDePerfilToolStripMenuItem_Click);
             // 
             // RechDashboard
             // 
