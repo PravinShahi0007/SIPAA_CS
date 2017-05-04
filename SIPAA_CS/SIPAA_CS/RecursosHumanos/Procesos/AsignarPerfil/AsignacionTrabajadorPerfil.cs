@@ -745,6 +745,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void AsignacionTrabajadorPerfil_Load(object sender, EventArgs e)
         {
+            lblusuario.Text = LoginInfo.Nombre;
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             lbIdTrab.Text = TrabajadorInfo.IdTrab;
             lbNombre.Text = TrabajadorInfo.Nombre;

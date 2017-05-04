@@ -282,6 +282,7 @@
     <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\DiasEspeciales.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCalificacion.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\RelojChecador.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\DiaSemana.cs" />
@@ -589,6 +590,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\DatosTrabajadorPerfil.Designer.cs">
       <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp.Designer.cs">
+      <DependentUpon>VacIncPermHrEsp.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.cs">
       <SubType>Form</SubType>
@@ -924,6 +931,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\DatosTrabajadorPerfil.resx">
       <DependentUpon>DatosTrabajadorPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp.resx">
+      <DependentUpon>VacIncPermHrEsp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.resx">
       <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>

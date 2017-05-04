@@ -154,6 +154,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%", 6, "%", "%", 0,"", this.Name);
             //   llenarListView(dtTrab, ltvTrabajador);
             llenarGrid(dtTrab, dgvTrab);
+            lblusuario.Text = LoginInfo.Nombre;
         }
 
         //-----------------------------------------------------------------------------------------------
