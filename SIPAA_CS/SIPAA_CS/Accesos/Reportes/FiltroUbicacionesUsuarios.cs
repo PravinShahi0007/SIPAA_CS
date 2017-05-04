@@ -199,15 +199,22 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void FiltroUbicacionesUsuarios_Load(object sender, EventArgs e)
         {
+            //// Diccionario Permisos x Pantalla
+            //DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            //Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            ////////////////////////////////////////////////////////
+            // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
             Usuario objUsuario = new Usuario();
             SonaUbicacion objSonaUbicacion = new SonaUbicacion();
 
-            DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("", 0, "", "", 0, "", "", 11);
-            DataTable dtUbicacion = objSonaUbicacion.obtenerSonaUbicacion("",6);
+            DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("%", 0, "", "", 0, "", "", 11);
+            DataTable dtUbicacion = objSonaUbicacion.obtenerSonaUbicacion("%",6);
            
             llenaCombo(cbUsuario, dtUsuario, "cvusuario", "nombre");
-            llenaCombo(cbUbicacion, dtUbicacion, "IdUbicacion", "Descripción");
+            llenaCombo(cbUbicacion, dtUbicacion, "Clave", "Descripción");
             
         }
         //-----------------------------------------------------------------------------------------------

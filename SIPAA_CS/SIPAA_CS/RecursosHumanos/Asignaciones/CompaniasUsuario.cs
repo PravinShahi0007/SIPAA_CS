@@ -250,13 +250,13 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void Asignacion_Companias_Usuario_Load(object sender, EventArgs e)
         {
-            //// Diccionario Permisos x Pantalla
-            //DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
-            //Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
-            ////////////////////////////////////////////////////////
-            //// resize 
-            //Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
             llenarGridCompanias(8,"");

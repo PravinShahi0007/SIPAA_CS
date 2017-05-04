@@ -210,26 +210,19 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void FiltroModulosPerfiles_Load(object sender, EventArgs e)
         {
-            //// Se crea lista de permisos por pantalla
-            //LoginInfo.dtPermisosTrabajador = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab);
-            //DataRow[] row = LoginInfo.dtPermisosTrabajador.Select("CVModulo = '" + this.Tag + "'");
-            //LoginInfo.ltPermisosPantalla = Utilerias.CrearListaPermisoxPantalla(row, LoginInfo.ltPermisosPantalla);
+            //// Diccionario Permisos x Pantalla
+            //DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            //Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
             ////////////////////////////////////////////////////////
-            //// resize 
+            // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-            /////////////////////////////////////////////////////////////////////////////////////////////////////
-            //// variables de permisos
-            //Permisos.Crear = Utilerias.ControlPermiso("Crear", LoginInfo.ltPermisosPantalla);
-            //Permisos.Actualizar = Utilerias.ControlPermiso("Actualizar", LoginInfo.ltPermisosPantalla);
-            //Permisos.Eliminar = Utilerias.ControlPermiso("Eliminar", LoginInfo.ltPermisosPantalla);
-            //Permisos.Imprimir = Utilerias.ControlPermiso("Imprimir", LoginInfo.ltPermisosPantalla);
-            //////////////////////////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             Perfil objPerfil = new Perfil();
             Modulo objModulo = new Modulo();
 
             DataTable dtPerfil = objPerfil.ObtenerPerfiles("", "", "", 10);
-            DataTable dtModulo = objModulo.ReporteModulos("","","",0,"","","",0,"","",29);
+            DataTable dtModulo = objModulo.ReporteModulos("","","",0,"","","","%","","",29);
 
             llenaCombo(cbPerfil, dtPerfil, "cvperfil", "Descripcion");
             llenaCombo(cbModulo, dtModulo, "cvmodulo", "descripcion");
