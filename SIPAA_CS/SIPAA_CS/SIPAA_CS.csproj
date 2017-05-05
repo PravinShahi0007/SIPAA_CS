@@ -293,6 +293,7 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\ArchNomina4.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueoIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\PeriodoProcesoIncidencia.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\ProcesaIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\ReasignaSupyDirector.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorHorario.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
@@ -338,6 +339,7 @@
     <Compile Include="Generales\Statues.Designer.cs">
       <DependentUpon>Statues.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuPba.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Accesos\Catalogos\Modulos.cs">
@@ -588,6 +590,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.Designer.cs">
       <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ProcesaIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ProcesaIncidencias.Designer.cs">
+      <DependentUpon>ProcesaIncidencias.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.cs">
       <SubType>Form</SubType>
@@ -908,6 +916,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.resx">
       <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\ProcesaIncidencias.resx">
+      <DependentUpon>ProcesaIncidencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.resx">
       <DependentUpon>ReasignaSupyDirectores.cs</DependentUpon>
