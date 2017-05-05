@@ -99,9 +99,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
             else
             {
-
+                fgridarchivonomina4(7, Convert.ToInt32(txtidtrab.Text.Trim()), Convert.ToInt32(cbCompania.SelectedValue.ToString()),
+                Convert.ToInt32(cbTiponomina.SelectedValue.ToString()), 0,
+                dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), "JLA", "ProcArchNom");
             }
-            //txtcolumnas.Text = dgvArchivoNomina4.ColumnCount.ToString();
         }
 
         private void btngenerararchivo_Click(object sender, EventArgs e)
@@ -156,12 +157,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 cbCompania.Text = "Seleccionar Compañia...";
 
                 //llenado de combo ubicaciones
-                util.cargarcombo(cbUbicacion, oUbicacion.obtenerSonaUbicacion("",4));
-                //DataTable dtUbicacion = oUbicacion.obtenerubicaciones(4, "");
-                //cbUbicacion.DataSource = dtUbicacion;
-                //cbUbicacion.DisplayMember = "Descripción";
-                //cbUbicacion.ValueMember = "Clave";
-                cbUbicacion.Text = "Seleccionar Ubicación...";
+                //util.cargarcombo(cbUbicacion, oUbicacion.obtenerSonaUbicacion("",6));
+                Utilerias.llenarComboxDataTable(cbUbicacion, oUbicacion.obtenerSonaUbicacion("", 6), "Clave", "Descripción");
                 bprimeravez = false;
             }
         }

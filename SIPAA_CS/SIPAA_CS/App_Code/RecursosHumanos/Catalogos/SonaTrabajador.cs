@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using SIPAA_CS.Conexiones;
 using System.Data;
 using System.Data.SqlClient;
+using Neurotec.Biometrics;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace SIPAA_CS.App_Code
 {
@@ -37,7 +40,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value=ptextoabuscar;
 
-            objConexion.asignarConexions(cmd);
+            objConexion.asignarConexion(cmd);
 
             SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
 
@@ -60,7 +63,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = ptextoabuscar;
 
-            objConexion.asignarConexions(cmd);
+            objConexion.asignarConexion(cmd);
 
             SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
 
@@ -76,8 +79,7 @@ namespace SIPAA_CS.App_Code
             SqlCommand cmd = new SqlCommand();
             Conexion objConexion = new Conexion();
             Usuario objusuario = new Usuario();
-
-
+            
             cmd.CommandText = "usp_rechtrabperfil_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = sIdtrab;
@@ -127,5 +129,59 @@ namespace SIPAA_CS.App_Code
         }
 
 
+
+        public DataTable GestionHuella(byte[] arrImagen, string sIdtrab,string sUsuumod,string sPrgmod,int iOpcion)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            Conexion objConexion = new Conexion();
+            Usuario objusuario = new Usuario();
+
+            
+
+            cmd.CommandText = "usp_rechhuella_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = sIdtrab;
+            cmd.Parameters.Add("@P_template",SqlDbType.Image).Value = arrImagen;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = sUsuumod;
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = sPrgmod;
+            cmd.Parameters.Add("@P_opcion", SqlDbType.Int).Value = iOpcion;
+
+ 
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtTrabajador = new DataTable();
+            dadapter.Fill(dtTrabajador);
+            return (dtTrabajador);
+
+
+        }
+
+        public DataTable ObtenerRegistroDetalle(string sidtrab, DateTime dtfechainicio, DateTime dtfechafin, string scompania, string subicacion)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechregistrodetalle_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sidtrab;
+            cmd.Parameters.Add("@P_fechainicio", SqlDbType.DateTime).Value = dtfechainicio;
+            cmd.Parameters.Add("@P_fechafin", SqlDbType.DateTime).Value = dtfechafin;
+            cmd.Parameters.Add("@P_Compania", SqlDbType.VarChar).Value = scompania;
+            cmd.Parameters.Add("@P_Ubicacion", SqlDbType.VarChar).Value = subicacion;
+
+            objConexion.asignarConexion(cmd);
+
+
+            SqlDataAdapter daRegistroDetalle = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+            DataTable dtRegistroDetalle = new DataTable();
+            daRegistroDetalle.Fill(dtRegistroDetalle);
+            return (dtRegistroDetalle);
+        }
     }
 }

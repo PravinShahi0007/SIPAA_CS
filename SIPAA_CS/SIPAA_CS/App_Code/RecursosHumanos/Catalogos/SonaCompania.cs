@@ -69,16 +69,18 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public DataTable ObtenerPlantelxCompania(string CompaniaDesc, string PlantaDesc)
+        public DataTable ObtenerPlantelxCompania(int opcion, string idcompania, string descripcion, string planta)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechPlantaxCompania_S";
+            cmd.CommandText = @"usp_sonaplanta_s";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@Compania", SqlDbType.VarChar).Value = CompaniaDesc;
-            cmd.Parameters.Add("@Planta", SqlDbType.VarChar).Value = PlantaDesc;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+            cmd.Parameters.Add("@P_idcompania", SqlDbType.VarChar).Value = idcompania;
+            cmd.Parameters.Add("@p_DescripcionCia", SqlDbType.VarChar).Value = descripcion;
+            cmd.Parameters.Add("@P_Planta", SqlDbType.VarChar).Value = planta;
 
             objConexion.asignarConexion(cmd);
 
@@ -92,7 +94,7 @@ namespace SIPAA_CS.App_Code
    }
 
 
-        public DataTable ObtenerUbicacionPlantel(int iOpcion,string PlantaDesc)
+        public DataTable ObtenerUbicacionPlantel(int iOpcion, string PlantaDesc)
         {
             
             SqlCommand cmd = new SqlCommand();

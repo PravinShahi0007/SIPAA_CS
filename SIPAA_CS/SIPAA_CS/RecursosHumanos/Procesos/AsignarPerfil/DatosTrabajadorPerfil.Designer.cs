@@ -437,7 +437,7 @@
             // 
             this.lbFechaIngreso.AutoSize = true;
             this.lbFechaIngreso.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFechaIngreso.Location = new System.Drawing.Point(92, 385);
+            this.lbFechaIngreso.Location = new System.Drawing.Point(94, 387);
             this.lbFechaIngreso.Name = "lbFechaIngreso";
             this.lbFechaIngreso.Size = new System.Drawing.Size(96, 16);
             this.lbFechaIngreso.TabIndex = 19;
@@ -447,7 +447,7 @@
             // 
             this.lbPuesto.AutoSize = true;
             this.lbPuesto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPuesto.Location = new System.Drawing.Point(55, 279);
+            this.lbPuesto.Location = new System.Drawing.Point(59, 280);
             this.lbPuesto.Name = "lbPuesto";
             this.lbPuesto.Size = new System.Drawing.Size(59, 16);
             this.lbPuesto.TabIndex = 18;
@@ -457,7 +457,7 @@
             // 
             this.lbDepto.AutoSize = true;
             this.lbDepto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDepto.Location = new System.Drawing.Point(91, 233);
+            this.lbDepto.Location = new System.Drawing.Point(93, 234);
             this.lbDepto.Name = "lbDepto";
             this.lbDepto.Size = new System.Drawing.Size(52, 16);
             this.lbDepto.TabIndex = 17;
@@ -475,10 +475,10 @@
             // lbCheca
             // 
             this.lbCheca.AutoSize = true;
-            this.lbCheca.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCheca.Font = new System.Drawing.Font("Arial Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCheca.Location = new System.Drawing.Point(50, 9);
             this.lbCheca.Name = "lbCheca";
-            this.lbCheca.Size = new System.Drawing.Size(66, 18);
+            this.lbCheca.Size = new System.Drawing.Size(77, 22);
             this.lbCheca.TabIndex = 174;
             this.lbCheca.Text = "lbCheca";
             // 
@@ -497,7 +497,7 @@
             // 
             this.lbEstatus.AutoSize = true;
             this.lbEstatus.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEstatus.Location = new System.Drawing.Point(59, 185);
+            this.lbEstatus.Location = new System.Drawing.Point(61, 186);
             this.lbEstatus.Name = "lbEstatus";
             this.lbEstatus.Size = new System.Drawing.Size(63, 16);
             this.lbEstatus.TabIndex = 16;
@@ -507,7 +507,7 @@
             // 
             this.lbArea.AutoSize = true;
             this.lbArea.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbArea.Location = new System.Drawing.Point(46, 140);
+            this.lbArea.Location = new System.Drawing.Point(48, 142);
             this.lbArea.Name = "lbArea";
             this.lbArea.Size = new System.Drawing.Size(45, 16);
             this.lbArea.TabIndex = 15;
@@ -517,7 +517,7 @@
             // 
             this.lbUbicacion.AutoSize = true;
             this.lbUbicacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUbicacion.Location = new System.Drawing.Point(66, 104);
+            this.lbUbicacion.Location = new System.Drawing.Point(76, 107);
             this.lbUbicacion.Name = "lbUbicacion";
             this.lbUbicacion.Size = new System.Drawing.Size(75, 16);
             this.lbUbicacion.TabIndex = 14;
@@ -527,7 +527,7 @@
             // 
             this.lbCia.AutoSize = true;
             this.lbCia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCia.Location = new System.Drawing.Point(65, 64);
+            this.lbCia.Location = new System.Drawing.Point(74, 67);
             this.lbCia.Name = "lbCia";
             this.lbCia.Size = new System.Drawing.Size(27, 16);
             this.lbCia.TabIndex = 13;
@@ -537,7 +537,7 @@
             // 
             this.lbNombre.AutoSize = true;
             this.lbNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNombre.Location = new System.Drawing.Point(55, 35);
+            this.lbNombre.Location = new System.Drawing.Point(68, 35);
             this.lbNombre.Name = "lbNombre";
             this.lbNombre.Size = new System.Drawing.Size(53, 16);
             this.lbNombre.TabIndex = 12;
@@ -547,7 +547,7 @@
             // 
             this.lbIdTrab.AutoSize = true;
             this.lbIdTrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIdTrab.Location = new System.Drawing.Point(55, 4);
+            this.lbIdTrab.Location = new System.Drawing.Point(63, 4);
             this.lbIdTrab.Name = "lbIdTrab";
             this.lbIdTrab.Size = new System.Drawing.Size(43, 16);
             this.lbIdTrab.TabIndex = 11;
@@ -659,7 +659,7 @@
             this.PanelJefes.Controls.Add(this.lbSupervisor);
             this.PanelJefes.Controls.Add(this.label16);
             this.PanelJefes.Controls.Add(this.label15);
-            this.PanelJefes.Location = new System.Drawing.Point(601, 146);
+            this.PanelJefes.Location = new System.Drawing.Point(12, 22);
             this.PanelJefes.Name = "PanelJefes";
             this.PanelJefes.Size = new System.Drawing.Size(378, 119);
             this.PanelJefes.TabIndex = 169;
@@ -709,7 +709,7 @@
             this.panel3.Controls.Add(this.btnTipoHr);
             this.panel3.Controls.Add(this.lbHorario);
             this.panel3.Controls.Add(this.label19);
-            this.panel3.Location = new System.Drawing.Point(601, 288);
+            this.panel3.Location = new System.Drawing.Point(12, 164);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(378, 65);
             this.panel3.TabIndex = 173;
@@ -756,7 +756,7 @@
             this.panelAsignaciones.Controls.Add(label24);
             this.panelAsignaciones.Controls.Add(label25);
             this.panelAsignaciones.Controls.Add(label26);
-            this.panelAsignaciones.Location = new System.Drawing.Point(601, 365);
+            this.panelAsignaciones.Location = new System.Drawing.Point(12, 241);
             this.panelAsignaciones.Name = "panelAsignaciones";
             this.panelAsignaciones.Size = new System.Drawing.Size(378, 105);
             this.panelAsignaciones.TabIndex = 183;
@@ -782,7 +782,7 @@
             this.panel2.Controls.Add(label18);
             this.panel2.Controls.Add(label20);
             this.panel2.Controls.Add(label21);
-            this.panel2.Location = new System.Drawing.Point(601, 479);
+            this.panel2.Location = new System.Drawing.Point(12, 355);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(378, 87);
             this.panel2.TabIndex = 184;
@@ -799,6 +799,7 @@
             this.button1.TabIndex = 178;
             this.button1.Tag = "Editar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel5
             // 
@@ -808,7 +809,7 @@
             this.panel5.Controls.Add(label27);
             this.panel5.Controls.Add(label28);
             this.panel5.Controls.Add(label29);
-            this.panel5.Location = new System.Drawing.Point(601, 574);
+            this.panel5.Location = new System.Drawing.Point(12, 450);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(378, 105);
             this.panel5.TabIndex = 185;
@@ -825,10 +826,16 @@
             this.button2.TabIndex = 178;
             this.button2.Tag = "Editar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panelAsignacionTrabajador
             // 
+            this.panelAsignacionTrabajador.Controls.Add(this.panel5);
             this.panelAsignacionTrabajador.Controls.Add(label7);
+            this.panelAsignacionTrabajador.Controls.Add(this.panel2);
+            this.panelAsignacionTrabajador.Controls.Add(this.panel3);
+            this.panelAsignacionTrabajador.Controls.Add(this.panelAsignaciones);
+            this.panelAsignacionTrabajador.Controls.Add(this.PanelJefes);
             this.panelAsignacionTrabajador.Location = new System.Drawing.Point(591, 124);
             this.panelAsignacionTrabajador.Name = "panelAsignacionTrabajador";
             this.panelAsignacionTrabajador.Size = new System.Drawing.Size(403, 578);
@@ -841,12 +848,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panelAsignaciones);
             this.Controls.Add(label13);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.PanelJefes);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.pnlimgusuario);

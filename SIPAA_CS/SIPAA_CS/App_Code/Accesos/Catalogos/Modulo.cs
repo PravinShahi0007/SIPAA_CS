@@ -338,7 +338,7 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public DataTable ReporteModulos(string cvmodulo, string descripcion, string cvmodpad, int orden, string ambiente, string modulo, string rutaaaceso, int stmodulo, string usumod, string prgumod, int opcion)
+        public DataTable ReporteModulos(string cvmodulo, string descripcion, string cvmodpad, int orden, string ambiente, string modulo, string rutaaaceso, string stmodulo, string usumod, string prgumod, int opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
@@ -354,7 +354,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_ambiente", SqlDbType.VarChar).Value = ambiente;
             cmd.Parameters.Add("@p_modulo", SqlDbType.VarChar).Value = modulo;
             cmd.Parameters.Add("@p_rutaaaceso", SqlDbType.VarChar).Value = rutaaaceso;
-            cmd.Parameters.Add("@p_stmodulo", SqlDbType.Int).Value = stmodulo;
+            cmd.Parameters.Add("@p_stmodulo", SqlDbType.VarChar).Value = stmodulo;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;

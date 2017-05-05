@@ -201,12 +201,17 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void FiltroPerfilesUsuarios_Load(object sender, EventArgs e)
         {
+            //// Diccionario Permisos x Pantalla
+            //DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            //Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            ////////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
             Perfil objPerfil = new Perfil();
             Usuario objUsuario = new Usuario();
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-
             DataTable dtPerfil = objPerfil.ObtenerPerfiles("", "", "", 10);
-            DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("",0,"","",0,"","",11);
+            DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("%",0,"","",0,"","",11);
 
             llenaCombo(cbPerfil,dtPerfil,"cvperfil","Descripcion");
             llenaCombo(cbUsuario, dtUsuario, "cvusuario", "nombre");

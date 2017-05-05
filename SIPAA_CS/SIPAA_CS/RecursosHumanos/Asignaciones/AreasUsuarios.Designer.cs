@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label5;
-            System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label3;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AreasUsuarios));
             System.Windows.Forms.Label label8;
@@ -53,8 +52,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtIdTrab = new System.Windows.Forms.TextBox();
             this.btnBuscarUsuario = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -68,7 +65,6 @@
             this.panelPermisos = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
             label5 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -90,23 +86,11 @@
             label5.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label5.Location = new System.Drawing.Point(56, 84);
+            label5.Location = new System.Drawing.Point(44, 41);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(89, 15);
+            label5.Size = new System.Drawing.Size(87, 15);
             label5.TabIndex = 48;
-            label5.Text = "No Trabajador";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label4.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label4.Location = new System.Drawing.Point(56, 36);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(53, 15);
-            label4.TabIndex = 47;
-            label4.Text = "Nombre";
+            label5.Text = "Clave Usuario";
             // 
             // label3
             // 
@@ -179,7 +163,7 @@
             label7.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label7.Location = new System.Drawing.Point(554, 395);
+            label7.Location = new System.Drawing.Point(523, 395);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(41, 15);
             label7.TabIndex = 131;
@@ -263,10 +247,7 @@
             this.PanelBuscar.Controls.Add(this.panel7);
             this.PanelBuscar.Controls.Add(label5);
             this.PanelBuscar.Controls.Add(this.txtIdTrab);
-            this.PanelBuscar.Controls.Add(label4);
             this.PanelBuscar.Controls.Add(this.btnBuscarUsuario);
-            this.PanelBuscar.Controls.Add(this.panel8);
-            this.PanelBuscar.Controls.Add(this.txtUsuario);
             this.PanelBuscar.Controls.Add(label3);
             this.PanelBuscar.Location = new System.Drawing.Point(115, 128);
             this.PanelBuscar.Name = "PanelBuscar";
@@ -276,9 +257,9 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel7.Location = new System.Drawing.Point(59, 126);
+            this.panel7.Location = new System.Drawing.Point(47, 83);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(109, 2);
+            this.panel7.Size = new System.Drawing.Size(197, 2);
             this.panel7.TabIndex = 48;
             // 
             // txtIdTrab
@@ -286,9 +267,9 @@
             this.txtIdTrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtIdTrab.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtIdTrab.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdTrab.Location = new System.Drawing.Point(59, 102);
+            this.txtIdTrab.Location = new System.Drawing.Point(47, 59);
             this.txtIdTrab.Name = "txtIdTrab";
-            this.txtIdTrab.Size = new System.Drawing.Size(109, 19);
+            this.txtIdTrab.Size = new System.Drawing.Size(197, 19);
             this.txtIdTrab.TabIndex = 47;
             // 
             // btnBuscarUsuario
@@ -305,32 +286,14 @@
             this.btnBuscarUsuario.UseVisualStyleBackColor = false;
             this.btnBuscarUsuario.Click += new System.EventHandler(this.btnBuscarUsuario_Click);
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel8.Location = new System.Drawing.Point(59, 78);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(176, 2);
-            this.panel8.TabIndex = 43;
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsuario.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(59, 54);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(176, 19);
-            this.txtUsuario.TabIndex = 42;
-            // 
             // panelTag
             // 
             this.panelTag.BackColor = System.Drawing.Color.Transparent;
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(2, 309);
+            this.panelTag.Location = new System.Drawing.Point(519, 722);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(455, 48);
+            this.panelTag.Size = new System.Drawing.Size(437, 25);
             this.panelTag.TabIndex = 125;
             this.panelTag.Visible = false;
             // 
@@ -341,7 +304,7 @@
             this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMensaje.ForeColor = System.Drawing.Color.White;
             this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbMensaje.Location = new System.Drawing.Point(45, 13);
+            this.lbMensaje.Location = new System.Drawing.Point(7, 5);
             this.lbMensaje.Name = "lbMensaje";
             this.lbMensaje.Size = new System.Drawing.Size(209, 20);
             this.lbMensaje.TabIndex = 26;
@@ -426,7 +389,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPlantel.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvPlantel.Location = new System.Drawing.Point(551, 413);
+            this.dgvPlantel.Location = new System.Drawing.Point(519, 413);
             this.dgvPlantel.Name = "dgvPlantel";
             this.dgvPlantel.ReadOnly = true;
             this.dgvPlantel.RowHeadersVisible = false;
@@ -434,7 +397,7 @@
             this.dgvPlantel.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvPlantel.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvPlantel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlantel.Size = new System.Drawing.Size(394, 303);
+            this.dgvPlantel.Size = new System.Drawing.Size(437, 303);
             this.dgvPlantel.TabIndex = 130;
             this.dgvPlantel.Tag = "Editar";
             this.dgvPlantel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlantel_CellContentClick);
@@ -574,8 +537,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txtIdTrab;
         private System.Windows.Forms.Button btnBuscarUsuario;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Panel panelTag;
         private System.Windows.Forms.Label lbMensaje;
         private System.Windows.Forms.Timer timer1;

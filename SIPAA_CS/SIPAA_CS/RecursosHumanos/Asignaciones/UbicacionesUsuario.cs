@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Asignaciones
 {
@@ -23,11 +24,11 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         public string cvusuario;
         public string nombre;
         public string ubicacion;
-        public int idubicacion;
+        public string idubicacion;
         
 
-        public List<int> ltUbicaciones = new List<int>();
-        public List<int> ltUbicacionesxUsuario = new List<int>();
+        public List<string> ltUbicaciones = new List<string>();
+        public List<string> ltUbicacionesxUsuario = new List<string>();
         Usuario usuario = new Usuario();
         public UbicacionesUsuario()
         {
@@ -48,53 +49,23 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
 
             if (dgvUsuarios.SelectedRows.Count != 0)
             {
-
+                
                 DataGridViewRow row = this.dgvUsuarios.SelectedRows[0];
                 cvusuario = row.Cells["cvusuario"].Value.ToString();
                 nombre = row.Cells["NOMBRE"].Value.ToString();
-
-
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-
                 AsignarUbicaciones();
-
             }
         }
 
         private void dgvUbicaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //for (int iContador = 0; iContador < dgvUbicaciones.Rows.Count; iContador++)
-            //{
-            //    dgvUbicaciones.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            //}
-
+           
             if (cvusuario != null)
             {   
                 if (dgvUbicaciones.SelectedRows.Count != 0)
                 {
-                    
-                    DataGridViewRow row = this.dgvUbicaciones.SelectedRows[0];
-                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    idubicacion = Convert.ToInt32(row.Cells["idubicacion"].Value.ToString());
-
-                    panelPermisos.Enabled = true;
-
-                    ltUbicaciones.Add(idubicacion);
-
-
-                    if (row.Cells[0].Tag.ToString() == "check")
-                    {
-
-                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                        row.Cells[0].Tag = "uncheck";
-
-                    }
-                    else
-                    {
-                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                        row.Cells[0].Tag = "check";
-
-                    }
+                    Utilerias.MultiSeleccionGridViewString(dgvUbicaciones, 1, ltUbicaciones, panelPermisos);
                 }
             }
             else
@@ -108,29 +79,52 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
-        {
-            cvusuario = null;
-            string IdTrab = txtIdTrab.Text;
-            string nombre = txtUsuario.Text;
-            dgvUsuarios.Columns.Remove(columnName: "Seleccionar");
+        {   
+            string cvUsuario = txtCvUsuario.Text;
+            if (cvUsuario != "")
+            {
+                LlenaGridUsuarios(cvUsuario.Trim(), 0, "", "", 0, "", "", 8);
+                llenarGridUbicaciones(6, "");
+            }
+            else
+            {
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+                llenarGridUbicaciones(6, "");
+            }
 
-            llenarGridUsuarios(IdTrab.Trim(), 0, nombre.Trim(), "", 0, "", "", 7);
-
-            txtUsuario.Text = "";
-            txtIdTrab.Text = "";
+            txtCvUsuario.Text = "";
         }
 
         private void btnBuscarUbicaciones_Click(object sender, EventArgs e)
         {   
             string ubi = txtUbicacion.Text;
             panelPermisos.Enabled = false;
-            dgvUbicaciones.Columns.Remove(columnName: "Seleccionar");
-            llenarGridUbicaciones(ubi.Trim());
+            //dgvUbicaciones.Columns.Remove(columnName: "Seleccionar");
+           
+            if (ubi.Trim() != "")
+            {
+                llenarGridUbicaciones(6, ubi.Trim());
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+            }
+            else
+            {
+                llenarGridUbicaciones(6, ubi.Trim());
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+            }
             txtUbicacion.Text = "";
         }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -142,6 +136,79 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         {
             this.Close();
         }
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            panelPermisos.Enabled = false;
+            AsignarUbicaciones();
+
+            if (Utilerias.SinAsignacionesString(dgvUbicaciones, 0, 1, ltUbicaciones) == true)
+            {
+                try
+                {
+                    string usuumod = "vjiturburuv";
+                    string prgmod = this.Name;
+                    Usuario objUsuario = new Usuario();
+
+                    foreach (string id in ltUbicaciones)
+                    {
+                        objUsuario.AsignarUbicacionUsuario(cvusuario, id, usuumod, prgmod, 1);
+                    }
+
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                    timer1.Start();
+                    ltUbicaciones.Clear();
+                    AsignarUbicaciones();
+
+
+                }
+                catch (Exception ex)
+                {
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
+                    timer1.Start();
+                    MessageBox.Show("" + ex);
+                    AsignarUbicaciones();
+                }
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("¿Seguro que desea quitar todas las Asignaciones?", "SIPAA", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        string usuumod = "vjiturburuv";
+                        string prgmod = this.Name;
+                        Usuario objUsuario = new Usuario();
+
+                        foreach (string id in ltUbicaciones)
+                        {
+                            objUsuario.AsignarUbicacionUsuario(cvusuario, id, usuumod, prgmod, 1);
+                        }
+
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                        timer1.Start();
+                        ltUbicaciones.Clear();
+                        AsignarUbicaciones();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
+                        timer1.Start();
+                        MessageBox.Show("" + ex);
+                        AsignarUbicaciones();
+                    }
+                }
+                else
+                {
+                    AsignarUbicaciones();
+                    ltUbicaciones.Clear();
+                }
+            }
+           
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -152,9 +219,16 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         private void UbicacionesUsuario_Load(object sender, EventArgs e)
         {
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-            llenarGridUsuarios("", 0, "", "", 0, "", "", 7);
-            llenarGridUbicaciones("");
+            LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+            llenarGridUbicaciones(6,"");
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -164,8 +238,12 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
-        private void llenarGridUsuarios(string cvusuario, int idtrab, string nombre, string pass, int stusuario, string usuumod, string prgmod, int opcion)
+        private void LlenaGridUsuarios(string cvusuario, int idtrab, string nombre, string pass, int stusuario, string usuumod, string prgmod, int opcion)
         {
+            if (dgvUsuarios.Columns.Count > 1)
+            {
+                dgvUsuarios.Columns.RemoveAt(0);
+            }
 
             DataTable dtFormasRegistro = usuario.ObtenerListaUsuarios(cvusuario, idtrab, nombre, pass, stusuario, usuumod, prgmod, opcion);
             dgvUsuarios.DataSource = dtFormasRegistro;
@@ -175,13 +253,21 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             imgCheckProcesos.Name = "Seleccionar";
             dgvUsuarios.Columns.Insert(0, imgCheckProcesos);
             dgvUsuarios.Columns[0].HeaderText = "Seleccionar";
-            dgvUsuarios.Columns[3].Visible = false;
+            dgvUsuarios.Columns[1].HeaderText = "Clave Usuario";
+            dgvUsuarios.Columns[3].HeaderText = "Nombre";
+            dgvUsuarios.Columns[2].Visible = false;
+            dgvUsuarios.Columns[4].Visible = false;
             dgvUsuarios.ClearSelection();
         }
-        private void llenarGridUbicaciones(string Descripcion)
+        private void llenarGridUbicaciones(int opcion,string Descripcion)
         {
+            if (dgvUbicaciones.Columns.Count > 1)
+            {
+                dgvUbicaciones.Columns.RemoveAt(0);
+            }
+
             SonaCompania objCia = new SonaCompania();
-            DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(5,Descripcion);
+            DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(6,Descripcion);
             dgvUbicaciones.DataSource = dtUbicacion;
 
             DataGridViewImageColumn imgCheckProcesos = new DataGridViewImageColumn();
@@ -191,52 +277,22 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             dgvUbicaciones.Columns[0].HeaderText = "Seleccionar";
             dgvUbicaciones.Columns[1].Visible = false;
             dgvUbicaciones.ClearSelection();
-
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            panelPermisos.Enabled = false;
-            try
-            {
-                string usuumod = "vjiturburuv";
-                string prgmod = this.Name;
-                Usuario objUsuario = new Usuario();
-
-                foreach (int id in ltUbicaciones)
-                {
-                    objUsuario.AsignarUbicacionUsuario(cvusuario, id, usuumod, prgmod, 1);
-                }
-
-                ltUbicaciones.Clear();
-
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
-                timer1.Start();
-                AsignarUbicaciones();
-
-
-            }
-            catch (Exception ex)
-            {
-                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
-                timer1.Start();
-                MessageBox.Show("" + ex);
-                AsignarUbicaciones();
-            }
-        }
+        
 
         private void AsignarUbicaciones()
         {
 
             UbicacionUsuario objUbicacionesUsuarios = new UbicacionUsuario();
-            ltUbicacionesxUsuario = objUbicacionesUsuarios.ObtenerUbicacionesxUsuario(cvusuario,0,"","",4);
+            ltUbicacionesxUsuario = objUbicacionesUsuarios.ObtenerUbicacionesxUsuario(cvusuario,"","","",5);
 
             //Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
 
 
             for (int iContador = 0; iContador < dgvUbicaciones.Rows.Count; iContador++)
             {
-                int idubicacion = Convert.ToInt32(dgvUbicaciones.Rows[iContador].Cells[1].Value.ToString());
+                string idubicacion = dgvUbicaciones.Rows[iContador].Cells[1].Value.ToString();
 
                 if (ltUbicacionesxUsuario.Contains(idubicacion))
                 {
@@ -254,8 +310,6 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
-
-
-
+        
     }
 }
