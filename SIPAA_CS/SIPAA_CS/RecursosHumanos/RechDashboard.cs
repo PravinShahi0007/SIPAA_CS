@@ -9,6 +9,13 @@ using System.Drawing;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
+
+
+
+using System.Data;
+using SIPAA_CS.Properties;
+using SIPAA_CS.RecursosHumanos.Catalogos;
+
 namespace SIPAA_CS.RecursosHumanos
 {
     public partial class RechDashboard : Form
@@ -19,10 +26,11 @@ namespace SIPAA_CS.RecursosHumanos
         }
 
         Usuario usuario = new Usuario();
+        Utilerias Util = new Utilerias();
+        MenuPba MenuP = new MenuPba();
 
         private void RechDashboard_Load(object sender, EventArgs e)
         {
-
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
@@ -34,9 +42,16 @@ namespace SIPAA_CS.RecursosHumanos
 
             Usuario objUsuario = new Usuario();
             string IdTrab = LoginInfo.IdTrab;
-            List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab,5);
+            List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab, 5);
 
             Utilerias.MenuDinamico(MenuAccesos, ltModulosxUsuario);
+
+            //carga imagen
+            //Util.cargaimagen(pictureBox1);
+
+            cargaMenu(1, null, mstrechum);
+
+
         }
 
 
@@ -64,8 +79,8 @@ namespace SIPAA_CS.RecursosHumanos
         {
             Companias form = new Companias();
             form.Show();
-           
-            
+
+
         }
 
         private void diasFestivoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -145,7 +160,7 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void tsmAsignacionCompania_Click(object sender, EventArgs e)
         {
-            
+
             CompaniasUsuario cu = new CompaniasUsuario();
             cu.Show();
         }
@@ -158,10 +173,10 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void registroGeneradoDetalleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             FiltrosRegistroGeneradoDetalle rpt = new FiltrosRegistroGeneradoDetalle();
             rpt.Show();
-            
+
         }
 
         private void tsmAsignacionUbicacion_Click(object sender, EventArgs e)
@@ -186,6 +201,81 @@ namespace SIPAA_CS.RecursosHumanos
         {
             TrabajadoresPerfil from = new TrabajadoresPerfil();
             from.Show();
+        }
+
+        //menu strip dinamico
+        private void cargaMenu(Int32 IdMaster, ToolStripMenuItem MenuPadre, MenuStrip Menu)
+        {
+            DataTable Datos = new DataTable();
+            Datos = MenuP.dtinf(1);
+
+            DataView DatosHijos = new DataView(Datos);
+
+            DatosHijos.RowFilter = Datos.Columns["cvindmodulo"].ColumnName + "=" + IdMaster;
+
+            foreach (DataRowView fila in DatosHijos)
+            {
+                ToolStripMenuItem MenuHijo = new ToolStripMenuItem();
+                MenuHijo.Text = fila["descripcion"].ToString();
+                MenuHijo.Name = fila["rutaaaceso"].ToString();
+                MenuHijo.BackColor = Color.FromArgb(10, 62, 120);
+                MenuHijo.ForeColor = Color.White;
+                MenuHijo.Font = new Font("Arial", 12);
+
+                if ((MenuHijo.Text = fila["descripcion"].ToString()) == "Catalogos")
+                {
+                    MenuHijo.Image = Resources.ic_view_carousel_white_24dp;
+                }
+                else if ((MenuHijo.Text = fila["descripcion"].ToString()) == "Asignaciones")
+                {
+                    MenuHijo.Image = Resources.ic_compare_arrows_white_24dp;
+                }
+                else if ((MenuHijo.Text = fila["descripcion"].ToString()) == "Reportes")
+                {
+                    MenuHijo.Image = Resources.ic_assignment_white_24dp;
+                }
+                else if ((MenuHijo.Text = fila["descripcion"].ToString()) == "Procesos")
+                {
+                    MenuHijo.Image = Resources.ic_view_carousel_white_24dp;
+                }
+                else
+                {
+                    MenuHijo.Image = Resources.ic_view_carousel_white_24dp;
+                }
+
+                
+                
+                MenuHijo.Font = new Font(MenuHijo.Font, FontStyle.Regular);
+
+                MenuHijo.Click += new EventHandler(Event);
+
+                if (MenuPadre == null)
+                {
+                    Menu.Items.Add(MenuHijo);
+                }
+                else
+                {
+                    MenuPadre.DropDownItems.Add(MenuHijo);
+                }
+
+                cargaMenu(int.Parse(fila["idmodulo"].ToString()), MenuHijo, Menu);
+            }
+        }
+
+        private void Event(object sender, EventArgs e)
+        {
+            ToolStripMenuItem ItemClick = (ToolStripMenuItem)sender;
+            tu(ItemClick.Name);
+        }
+
+        private void tu(string NombreFormulario)
+        {
+            Form Frm;
+            if (NombreFormulario != "0")
+            {
+                //Frm = (Form)Activator.CreateInstance(null, "SIPAA_CS.RecursosHumanos.Catalogos.PlantillasDetalles").Unwrap();
+                //Frm.Show();
+            }
         }
     }
 }

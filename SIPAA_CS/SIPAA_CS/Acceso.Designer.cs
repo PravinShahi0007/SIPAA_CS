@@ -92,7 +92,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(524, 228);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(250, 18);
-            this.txtUsuario.TabIndex = 20;
+            this.txtUsuario.TabIndex = 0;
             // 
             // txtPwd
             // 
@@ -103,7 +103,7 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(250, 18);
-            this.txtPwd.TabIndex = 21;
+            this.txtPwd.TabIndex = 1;
             // 
             // button4
             // 
@@ -115,6 +115,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(210, 50);
             this.button4.TabIndex = 23;
+            this.button4.TabStop = false;
             this.button4.UseVisualStyleBackColor = false;
             // 
             // btnIngresar
@@ -126,7 +127,7 @@
             this.btnIngresar.Location = new System.Drawing.Point(553, 365);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(210, 50);
-            this.btnIngresar.TabIndex = 22;
+            this.btnIngresar.TabIndex = 2;
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
@@ -152,6 +153,7 @@
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(15, 15);
             this.btnMinimizar.TabIndex = 26;
+            this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click_1);
             // 
@@ -166,6 +168,7 @@
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(15, 15);
             this.btnCerrar.TabIndex = 25;
+            this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
             // 
@@ -199,6 +202,7 @@
             // 
             // Acceso
             // 
+            this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));

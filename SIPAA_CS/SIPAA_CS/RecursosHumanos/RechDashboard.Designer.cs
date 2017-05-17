@@ -61,9 +61,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.mstrechum = new System.Windows.Forms.MenuStrip();
             this.panelMenu.SuspendLayout();
             this.MenuAccesos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -98,7 +102,7 @@
             this.procesosToolStripMenuItem});
             this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(542, 26);
+            this.MenuAccesos.Size = new System.Drawing.Size(450, 26);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
@@ -440,24 +444,45 @@
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblusuario.Location = new System.Drawing.Point(3, 72);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.Size = new System.Drawing.Size(58, 20);
             this.lblusuario.TabIndex = 147;
-            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.Text = "Usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlimgusuario
+            // pictureBox1
             // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(7, 28);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 146;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(10, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 41);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 148;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.mstrechum);
+            this.panel1.Location = new System.Drawing.Point(0, 137);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1024, 28);
+            this.panel1.TabIndex = 149;
+            // 
+            // mstrechum
+            // 
+            this.mstrechum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.mstrechum.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mstrechum.Location = new System.Drawing.Point(0, 0);
+            this.mstrechum.Name = "mstrechum";
+            this.mstrechum.Size = new System.Drawing.Size(1024, 24);
+            this.mstrechum.TabIndex = 2;
+            this.mstrechum.Text = "menuStrip1";
             // 
             // RechDashboard
             // 
@@ -465,8 +490,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
@@ -482,6 +508,9 @@
             this.panelMenu.PerformLayout();
             this.MenuAccesos.ResumeLayout(false);
             this.MenuAccesos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,8 +548,10 @@
         private System.Windows.Forms.ToolStripMenuItem tsmAsignacionDepartamento;
         private System.Windows.Forms.ToolStripMenuItem plantillasToolStripMenuItem;
         private System.Windows.Forms.Label lblusuario;
-        private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.ToolStripMenuItem procesosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignaciónDePerfilToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.MenuStrip mstrechum;
     }
 }

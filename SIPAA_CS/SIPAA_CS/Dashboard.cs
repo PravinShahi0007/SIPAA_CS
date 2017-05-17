@@ -44,7 +44,7 @@ namespace SIPAA_CS
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
+            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "SIPAA", MessageBoxButtons.YesNoCancel);
 
             if (result == DialogResult.Yes)
             {
