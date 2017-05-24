@@ -68,7 +68,6 @@
             this.txtBuscarModulo = new System.Windows.Forms.TextBox();
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnRegresa = new System.Windows.Forms.Button();
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -76,6 +75,7 @@
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             label5 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -91,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvModulos)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
             this.panelTag.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -528,10 +529,10 @@
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblusuario.Location = new System.Drawing.Point(11, 73);
+            this.lblusuario.Location = new System.Drawing.Point(10, 75);
             this.lblusuario.Name = "lblusuario";
             this.lblusuario.Size = new System.Drawing.Size(172, 23);
             this.lblusuario.TabIndex = 130;
@@ -551,15 +552,6 @@
             this.btnRegresa.TabIndex = 128;
             this.btnRegresa.UseVisualStyleBackColor = false;
             this.btnRegresa.Click += new System.EventHandler(this.btnRegresa_Click);
-            // 
-            // pnlimgusuario
-            // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(15, 29);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 129;
             // 
             // btnCerrar
             // 
@@ -612,7 +604,7 @@
             // 
             this.panelTag.BackColor = System.Drawing.Color.Transparent;
             this.panelTag.Controls.Add(this.lbMensaje);
-            this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTag.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTag.Location = new System.Drawing.Point(541, 662);
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(409, 29);
@@ -648,6 +640,14 @@
             this.label12.Text = "       Módulos     ";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(10, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 41);
+            this.pictureBox1.TabIndex = 149;
+            this.pictureBox1.TabStop = false;
+            // 
             // Modulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -655,6 +655,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(label11);
             this.Controls.Add(this.panelTag);
@@ -665,7 +666,6 @@
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.btnRegresa);
-            this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.label1);
@@ -681,6 +681,7 @@
             this.pnlBusqueda.PerformLayout();
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -706,7 +707,6 @@
         private System.Windows.Forms.TextBox txtBuscarModulo;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Button btnRegresa;
-        private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Label label1;
@@ -720,5 +720,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtRuta;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
