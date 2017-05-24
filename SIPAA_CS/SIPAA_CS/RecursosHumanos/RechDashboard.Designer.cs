@@ -473,6 +473,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1024, 28);
             this.panel1.TabIndex = 149;
+            this.panel1.Visible = false;
             // 
             // mstrechum
             // 
