@@ -14,7 +14,6 @@ using static SIPAA_CS.App_Code.Usuario;
 
 using System.Data;
 using SIPAA_CS.Properties;
-using SIPAA_CS.RecursosHumanos.Catalogos;
 
 namespace SIPAA_CS.RecursosHumanos
 {
@@ -28,7 +27,6 @@ namespace SIPAA_CS.RecursosHumanos
         Perfil Perf = new Perfil();
         Usuario usuario = new Usuario();
         Utilerias Util = new Utilerias();
-        MenuPba MenuP = new MenuPba();
 
         private void RechDashboard_Load(object sender, EventArgs e)
         {
