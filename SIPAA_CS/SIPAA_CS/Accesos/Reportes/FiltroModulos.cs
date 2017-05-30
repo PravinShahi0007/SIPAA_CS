@@ -1251,52 +1251,52 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         public void llenaComboModPad()
         {
-            Modulo objModulo = new Modulo();
-            DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 9);
+            //Modulo objModulo = new Modulo();
+            //DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 9);
 
 
-            List<string> ltModulo = new List<string>();
+            //List<string> ltModulo = new List<string>();
 
-            ltModulo.Insert(0, "Selecciona un CvModPad");
-            foreach (DataRow row in dtModulo.Rows)
-            {
-                ltModulo.Add(row["cvmodpad"].ToString());
-            }
+            //ltModulo.Insert(0, "Selecciona un CvModPad");
+            //foreach (DataRow row in dtModulo.Rows)
+            //{
+            //    ltModulo.Add(row["cvmodpad"].ToString());
+            //}
 
-            cbModPad.DataSource = ltModulo;
+            //cbModPad.DataSource = ltModulo;
         }
         public void llenaComboModulo()
         {
-            Modulo objModulo = new Modulo();
-            DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 10);
+            //Modulo objModulo = new Modulo();
+            //DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 10);
 
 
-            List<string> ltModulo = new List<string>();
+            //List<string> ltModulo = new List<string>();
 
-            ltModulo.Insert(0, "Selecciona una Módulo");
-            foreach (DataRow row in dtModulo.Rows)
-            {
-                ltModulo.Add(row["modulo"].ToString());
-            }
+            //ltModulo.Insert(0, "Selecciona una Módulo");
+            //foreach (DataRow row in dtModulo.Rows)
+            //{
+            //    ltModulo.Add(row["modulo"].ToString());
+            //}
 
-            cbModulo.DataSource = ltModulo;
+            //cbModulo.DataSource = ltModulo;
         }
 
         public void llenaComboAmbiente()
         {
-            Modulo objModulo = new Modulo();
-            DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 11);
+            //Modulo objModulo = new Modulo();
+            //DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 11);
 
 
-            List<string> ltModulo = new List<string>();
+            //List<string> ltModulo = new List<string>();
 
-            ltModulo.Insert(0, "Selecciona una Ambiente");
-            foreach (DataRow row in dtModulo.Rows)
-            {
-                ltModulo.Add(row["ambiente"].ToString());
-            }
+            //ltModulo.Insert(0, "Selecciona una Ambiente");
+            //foreach (DataRow row in dtModulo.Rows)
+            //{
+            //    ltModulo.Add(row["ambiente"].ToString());
+            //}
 
-            cbAmbiente.DataSource = ltModulo;
+            //cbAmbiente.DataSource = ltModulo;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

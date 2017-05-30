@@ -13,7 +13,10 @@ namespace SIPAA_CS.Accesos
     public partial class Modulos : Form
     {
         public int variable;
+        public int idmodulo;
+        public int cvindmodulo;
         public string cvmodulo;
+        public int cvtipomodulo;
         public string descripcion;
         public string cvmodpad;
         public int orden;
@@ -219,151 +222,151 @@ namespace SIPAA_CS.Accesos
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             //agregar
-            if (variable == 1)
-            {
+            //if (variable == 1)
+            //{
 
-                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" && cbAmbiente.SelectedIndex != -1 && cbModulo.SelectedIndex != -1 && txtRuta.Text != "")
-                {
-                    if (utilerias.IsNumber(txtOrden.Text))
-                    {
-                        cvmodulo = txtCvModulo.Text;
-                        descripcion = txtDescripcion.Text;
-                        cvmodpad = txtModPad.Text;
-                        orden = Convert.ToInt32(txtOrden.Text);
-                        ruta = txtRuta.Text;
-                        ambiente = cbAmbiente.SelectedItem.ToString();
-                        modulo = cbModulo.SelectedItem.ToString();
-                        usuumod = LoginInfo.IdTrab;
-                        prgmod = this.Name;
+            //    if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" && cbAmbiente.SelectedIndex != -1 && cbModulo.SelectedIndex != -1 && txtRuta.Text != "")
+            //    {
+            //        if (utilerias.IsNumber(txtOrden.Text))
+            //        {
+            //            cvmodulo = txtCvModulo.Text;
+            //            descripcion = txtDescripcion.Text;
+            //            cvmodpad = txtModPad.Text;
+            //            orden = Convert.ToInt32(txtOrden.Text);
+            //            ruta = txtRuta.Text;
+            //            ambiente = cbAmbiente.SelectedItem.ToString();
+            //            modulo = cbModulo.SelectedItem.ToString();
+            //            usuumod = LoginInfo.IdTrab;
+            //            prgmod = this.Name;
                         
-                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo, ruta.Trim(), 1, usuumod, prgmod, 1);
+            //            response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo, ruta.Trim(), 1, usuumod, prgmod, 1);
 
-                        txtCvModulo.Text = "";
-                        txtDescripcion.Text = "";
-                        txtModPad.Text = "";
-                        txtOrden.Text = "";
-                        cbAmbiente.Text = "Selecciona un Ambiente";
-                        cbModulo.Text = "Selecciona un Módulo";
-                        //txtCvModulo.Focus();
-                        PanelEditar.Visible = false;
-                        Modulos_Load(sender, e);
-                        if (response == 1)
-                        {
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Se creo correctamente");
-                            timer1.Start();
-                        }
-                        if(response == 0)
-                        {
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El registro ya existe");
-                            timer1.Start();
-                        }
-                    }
-                    else
-                    {
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El campo Orden debe ser un número");
-                        timer1.Start();
-                        txtOrden.Focus();
-                    }
+            //            txtCvModulo.Text = "";
+            //            txtDescripcion.Text = "";
+            //            txtModPad.Text = "";
+            //            txtOrden.Text = "";
+            //            cbAmbiente.Text = "Selecciona un Ambiente";
+            //            cbModulo.Text = "Selecciona un Módulo";
+            //            //txtCvModulo.Focus();
+            //            PanelEditar.Visible = false;
+            //            Modulos_Load(sender, e);
+            //            if (response == 1)
+            //            {
+            //                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Se creo correctamente");
+            //                timer1.Start();
+            //            }
+            //            if(response == 0)
+            //            {
+            //                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El registro ya existe");
+            //                timer1.Start();
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El campo Orden debe ser un número");
+            //            timer1.Start();
+            //            txtOrden.Focus();
+            //        }
 
-                }
-                else
-                {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ingresa valores");
-                    timer1.Start();
-                    txtCvModulo.Focus();
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ingresa valores");
+            //        timer1.Start();
+            //        txtCvModulo.Focus();
+            //    }
+            //}
             //update
-            if (variable == 2)
-            {
+            //if (variable == 2)
+            //{
 
-                if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" && txtRuta.Text != "")
-                {
+            //    if (txtCvModulo.Text != "" && txtDescripcion.Text != "" && txtModPad.Text != "" && txtOrden.Text != "" && txtRuta.Text != "")
+            //    {
 
-                    if (utilerias.IsNumber(txtOrden.Text))
-                    {
-                        cvmodulo = txtCvModulo.Text;
-                        descripcion = txtDescripcion.Text;
-                        cvmodpad = txtModPad.Text;
-                        ruta = txtRuta.Text;
-                        orden = Convert.ToInt32(txtOrden.Text);
-                        ambiente = cbAmbiente.SelectedItem.ToString();
-                        modulo = cbModulo.SelectedItem.ToString();
-                        usuumod = LoginInfo.IdTrab;
-                        prgmod = this.Name;
+            //        if (utilerias.IsNumber(txtOrden.Text))
+            //        {
+            //            cvmodulo = txtCvModulo.Text;
+            //            descripcion = txtDescripcion.Text;
+            //            cvmodpad = txtModPad.Text;
+            //            ruta = txtRuta.Text;
+            //            orden = Convert.ToInt32(txtOrden.Text);
+            //            ambiente = cbAmbiente.SelectedItem.ToString();
+            //            modulo = cbModulo.SelectedItem.ToString();
+            //            usuumod = LoginInfo.IdTrab;
+            //            prgmod = this.Name;
 
 
-                        response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo.Trim(), ruta.Trim(), 0, usuumod, prgmod, 2);
-                        Modulos_Load(sender, e);
+            //            response = objModulo.CrearModulo(cvmodulo.Trim(), descripcion.Trim(), cvmodpad.Trim(), orden, ambiente, modulo.Trim(), ruta.Trim(), 0, usuumod, prgmod, 2);
+            //            Modulos_Load(sender, e);
 
-                        txtCvModulo.Text = "";
-                        txtDescripcion.Text = "";
-                        txtModPad.Text = "";
-                        txtOrden.Text = "";
-                        txtRuta.Text = "";
-                        cbAmbiente.Text = "Selecciona un Ambiente";
-                        cbModulo.Text = "Selecciona un Módulo";
-                        usuumod = LoginInfo.IdTrab;
-                        PanelEditar.Visible = false;
-                        prgmod = this.Name;
-                        if (response == 1)
-                        {
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Se actualizo correctamente");
-                            timer1.Start();
-                        }
-                        else
-                        {
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Intentalo mas tarde");
-                            timer1.Start();
-                        }
-                    }
-                    else
-                    {
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El campo orden debe ser un número");
-                        timer1.Start();
-                        txtOrden.Focus();
-                    }
+            //            txtCvModulo.Text = "";
+            //            txtDescripcion.Text = "";
+            //            txtModPad.Text = "";
+            //            txtOrden.Text = "";
+            //            txtRuta.Text = "";
+            //            cbAmbiente.Text = "Selecciona un Ambiente";
+            //            cbModulo.Text = "Selecciona un Módulo";
+            //            usuumod = LoginInfo.IdTrab;
+            //            PanelEditar.Visible = false;
+            //            prgmod = this.Name;
+            //            if (response == 1)
+            //            {
+            //                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Se actualizo correctamente");
+            //                timer1.Start();
+            //            }
+            //            else
+            //            {
+            //                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Intentalo mas tarde");
+            //                timer1.Start();
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El campo orden debe ser un número");
+            //            timer1.Start();
+            //            txtOrden.Focus();
+            //        }
 
-                }
-                else
-                {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ingresa valores");
-                    timer1.Start();
-                    txtDescripcion.Focus();
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ingresa valores");
+            //        timer1.Start();
+            //        txtDescripcion.Focus();
+            //    }
+            //}
 
             //cambio de status
-            if (variable == 3)
-            {
+            //if (variable == 3)
+            //{
 
-                if (dgvModulos.SelectedRows.Count != 0)
-                {
-                    ckbEliminar.Checked = false;
-                    usuumod = LoginInfo.IdTrab;
-                    response = objModulo.CrearModulo(cvmodulo.Trim(), "", "", 0, "", "", "", 0, usuumod, "", 3);
-                    PanelEditar.Visible = false;
+            //    if (dgvModulos.SelectedRows.Count != 0)
+            //    {
+            //        ckbEliminar.Checked = false;
+            //        usuumod = LoginInfo.IdTrab;
+            //        response = objModulo.CrearModulo(cvmodulo.Trim(), "", "", 0, "", "", "", 0, usuumod, "", 3);
+            //        PanelEditar.Visible = false;
 
-                    if (response == 1)
-                    {
-                        Modulos_Load(sender, e);
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El Módulo esta Activado");
-                        timer1.Start();
-                    }
-                    else if (response == 0)
-                    {
-                        Modulos_Load(sender, e);
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El Módulo esta Inactivo");
-                        timer1.Start();
-                    }
+            //        if (response == 1)
+            //        {
+            //            Modulos_Load(sender, e);
+            //            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El Módulo esta Activado");
+            //            timer1.Start();
+            //        }
+            //        else if (response == 0)
+            //        {
+            //            Modulos_Load(sender, e);
+            //            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El Módulo esta Inactivo");
+            //            timer1.Start();
+            //        }
                     
-                }
-                else
-                {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Selecciona un modulo");
-                    timer1.Start();
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Selecciona un modulo");
+            //        timer1.Start();
+            //    }
+            //}
         }
         
         //-----------------------------------------------------------------------------------------------
@@ -376,8 +379,8 @@ namespace SIPAA_CS.Accesos
         private void Modulos_Load(object sender, EventArgs e)
         {
             // Diccionario Permisos x Pantalla
-            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
-            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            //Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
             //////////////////////////////////////////////////////
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
@@ -386,10 +389,10 @@ namespace SIPAA_CS.Accesos
             LlenarGridModulos("", "", "", 0, "", "", "", 0, "", "", 4,dgvModulos);
 
 
-            if (Permisos.dcPermisos["Crear"] == 0)
-            {
-                btnAgregar.Visible = false;
-            }
+            //if (Permisos.dcPermisos["Crear"] == 0)
+            //{
+            //    btnAgregar.Visible = false;
+            //}
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -409,7 +412,7 @@ namespace SIPAA_CS.Accesos
                 dgvModulo.Columns.RemoveAt(0);
             }
             Modulo objModulo = new Modulo();
-            DataTable dtModulo = objModulo.ObtenerModulo(cvmodulo, descripcion, cvmodpad, orden, ambiente, modulo, rutaaaceso, stmodulo, usumod, prgumod, opcion);
+            DataTable dtModulo = objModulo.ObtenerModulo(idmodulo,cvindmodulo, cvmodulo,descripcion, orden, ambiente, cvtipomodulo, rutaaaceso, stmodulo, usumod, prgumod, opcion);
 
             dgvModulo.DataSource = dtModulo;
 
@@ -427,13 +430,25 @@ namespace SIPAA_CS.Accesos
             dgvModulos.Columns[7].Visible = false;
             //dgvModulos.Columns[8].Visible = false;
             dgvModulos.Columns[9].Visible = false;
-            dgvModulos.Columns[10].Visible = false;
+            //dgvModulos.Columns[10].Visible = false;
 
             dgvModulo.ClearSelection();
         }
 
-        
 
+        //Modulo objModulo = new Modulo();
+        //DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 9);
+
+
+        //List<string> ltModulo = new List<string>();
+
+        //ltModulo.Insert(0, "Selecciona un CvModPad");
+        //foreach (DataRow row in dtModulo.Rows)
+        //{
+        //    ltModulo.Add(row["cvmodpad"].ToString());
+        //}
+
+        //cbModPad.DataSource = ltModulo;
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
