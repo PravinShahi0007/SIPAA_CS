@@ -197,7 +197,7 @@
             this.btnregresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.btnregresar.Location = new System.Drawing.Point(896, 1);
             this.btnregresar.Name = "btnregresar";
-            this.btnregresar.Size = new System.Drawing.Size(50, 24);
+            this.btnregresar.Size = new System.Drawing.Size(30, 24);
             this.btnregresar.TabIndex = 111;
             this.btnregresar.TabStop = false;
             this.btnregresar.UseVisualStyleBackColor = false;
@@ -238,12 +238,13 @@
             this.lbltitulo.BackColor = System.Drawing.Color.Transparent;
             this.lbltitulo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
+            this.lbltitulo.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbltitulo.Location = new System.Drawing.Point(429, 2);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(190, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(214, 23);
             this.lbltitulo.TabIndex = 108;
-            this.lbltitulo.Text = "Catalogo de Compañias   ";
+            this.lbltitulo.Text = "      Catalogo de Compañias   ";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblusuario

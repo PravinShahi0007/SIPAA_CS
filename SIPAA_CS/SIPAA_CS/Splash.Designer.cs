@@ -85,11 +85,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label1.Location = new System.Drawing.Point(161, 122);
+            this.label1.Location = new System.Drawing.Point(174, 122);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 27);
+            this.label1.Size = new System.Drawing.Size(119, 24);
             this.label1.TabIndex = 20;
             this.label1.Text = "Cargando...";
             // 
@@ -98,26 +98,27 @@
             this.lbCarga.AutoSize = true;
             this.lbCarga.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lbCarga.Location = new System.Drawing.Point(398, 168);
+            this.lbCarga.Location = new System.Drawing.Point(415, 168);
             this.lbCarga.Name = "lbCarga";
             this.lbCarga.Size = new System.Drawing.Size(49, 16);
             this.lbCarga.TabIndex = 17;
             this.lbCarga.Text = "lbCarga";
+            this.lbCarga.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // PanelCarga
             // 
             this.PanelCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.PanelCarga.Location = new System.Drawing.Point(29, 161);
+            this.PanelCarga.Location = new System.Drawing.Point(41, 161);
             this.PanelCarga.Name = "PanelCarga";
-            this.PanelCarga.Size = new System.Drawing.Size(20, 4);
+            this.PanelCarga.Size = new System.Drawing.Size(20, 2);
             this.PanelCarga.TabIndex = 19;
             // 
             // PanelBarra
             // 
             this.PanelBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.PanelBarra.Location = new System.Drawing.Point(29, 155);
+            this.PanelBarra.Location = new System.Drawing.Point(41, 155);
             this.PanelBarra.Name = "PanelBarra";
-            this.PanelBarra.Size = new System.Drawing.Size(400, 10);
+            this.PanelBarra.Size = new System.Drawing.Size(400, 8);
             this.PanelBarra.TabIndex = 18;
             // 
             // timer1

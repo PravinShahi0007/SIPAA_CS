@@ -86,12 +86,12 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             label5.Location = new System.Drawing.Point(44, 41);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(87, 15);
+            label5.Size = new System.Drawing.Size(93, 16);
             label5.TabIndex = 48;
             label5.Text = "Clave Usuario";
             // 
@@ -113,12 +113,12 @@
             // 
             label8.AutoSize = true;
             label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label8.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             label8.Location = new System.Drawing.Point(35, 395);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(59, 15);
+            label8.Size = new System.Drawing.Size(62, 16);
             label8.TabIndex = 127;
             label8.Text = "Usuarios";
             // 
@@ -163,12 +163,12 @@
             // 
             label7.AutoSize = true;
             label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label7.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             label7.Location = new System.Drawing.Point(523, 395);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(41, 15);
+            label7.Size = new System.Drawing.Size(44, 16);
             label7.TabIndex = 131;
             label7.Text = "Áreas";
             // 
@@ -236,7 +236,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_18dp;
+            this.label1.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(332, 2);
             this.label1.Name = "label1";
@@ -269,17 +269,17 @@
             // 
             this.txtIdTrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtIdTrab.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIdTrab.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdTrab.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdTrab.Location = new System.Drawing.Point(47, 59);
             this.txtIdTrab.Name = "txtIdTrab";
-            this.txtIdTrab.Size = new System.Drawing.Size(197, 19);
+            this.txtIdTrab.Size = new System.Drawing.Size(197, 17);
             this.txtIdTrab.TabIndex = 47;
             // 
             // btnBuscarUsuario
             // 
             this.btnBuscarUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarUsuario.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUsuario.Image")));
             this.btnBuscarUsuario.Location = new System.Drawing.Point(272, 52);

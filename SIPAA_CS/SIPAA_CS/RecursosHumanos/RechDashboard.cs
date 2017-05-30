@@ -14,7 +14,6 @@ using static SIPAA_CS.App_Code.Usuario;
 
 using System.Data;
 using SIPAA_CS.Properties;
-using SIPAA_CS.RecursosHumanos.Catalogos;
 
 namespace SIPAA_CS.RecursosHumanos
 {
@@ -25,9 +24,9 @@ namespace SIPAA_CS.RecursosHumanos
             InitializeComponent();
         }
 
+        Perfil Perf = new Perfil();
         Usuario usuario = new Usuario();
         Utilerias Util = new Utilerias();
-        MenuPba MenuP = new MenuPba();
 
         private void RechDashboard_Load(object sender, EventArgs e)
         {
@@ -41,15 +40,15 @@ namespace SIPAA_CS.RecursosHumanos
             lblusuario.Text = LoginInfo.Nombre;
 
             Usuario objUsuario = new Usuario();
-            string IdTrab = LoginInfo.IdTrab;
-            List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab, 5);
+            //string IdTrab = LoginInfo.IdTrab;
+            //List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab, 5);
 
-            Utilerias.MenuDinamico(MenuAccesos, ltModulosxUsuario);
+            //Utilerias.MenuDinamico(MenuAccesos, ltModulosxUsuario);
 
             //carga imagen
             //Util.cargaimagen(pictureBox1);
 
-            cargaMenu(1, null, mstrechum);
+            cargaMenu(0, null, mstrechum);
 
 
         }
@@ -75,143 +74,15 @@ namespace SIPAA_CS.RecursosHumanos
             this.Close();
         }
 
-        private void tsmiCompanias_Click(object sender, EventArgs e)
-        {
-            Companias form = new Companias();
-            form.Show();
-
-
-        }
-
-        private void diasFestivoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DiasFestivos form = new DiasFestivos();
-            form.Show();
-        }
-
-        private void tsmiDepartamentos_Click(object sender, EventArgs e)
-        {
-            Departamentos form = new Departamentos();
-            form.Show();
-        }
-
-        private void tsmiUbicacion_Click(object sender, EventArgs e)
-        {
-            Ubicaciones form = new Ubicaciones();
-            form.Show();
-        }
-
-        private void tsmiPuestos_Click(object sender, EventArgs e)
-        {
-            Puestos form = new Puestos();
-            form.Show();
-        }
-
-        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Trabajadores form = new Trabajadores();
-            form.Show();
-        }
-
-        private void formasDeRegistroToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormasRegistros form = new FormasRegistros();
-            form.Show();
-        }
-
-        private void incapacidadRepresentaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            IncidenciasRepresentan form = new IncidenciasRepresentan();
-            form.Show();
-        }
-
-        private void mensajesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Mensajes form = new Mensajes();
-            form.Show();
-        }
-
-        private void areasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Areas form = new Areas();
-            form.Show();
-        }
-
-        private void tipoIncidenciaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            IncidenciasTipos form = new IncidenciasTipos();
-            form.Show();
-        }
-
-        private void msAsignacionPerfil_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void msAsignacionModulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void msAsignacionProceso_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsmAsignacionCompania_Click(object sender, EventArgs e)
-        {
-
-            CompaniasUsuario cu = new CompaniasUsuario();
-            cu.Show();
-        }
-
-        private void tsmAsignacionArea_Click(object sender, EventArgs e)
-        {
-            AreasUsuarios au = new AreasUsuarios();
-            au.Show();
-        }
-
-        private void registroGeneradoDetalleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            FiltrosRegistroGeneradoDetalle rpt = new FiltrosRegistroGeneradoDetalle();
-            rpt.Show();
-
-        }
-
-        private void tsmAsignacionUbicacion_Click(object sender, EventArgs e)
-        {
-            UbicacionesUsuario uu = new UbicacionesUsuario();
-            uu.Show();
-        }
-
-        private void tsmAsignacionDepartamento_Click(object sender, EventArgs e)
-        {
-            DepartamentosUsuario du = new DepartamentosUsuario();
-            du.Show();
-        }
-
-        private void plantillasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Plantillas oPlantillas = new Plantillas();
-            oPlantillas.Show();
-        }
-
-        private void asignaciónDePerfilToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TrabajadoresPerfil from = new TrabajadoresPerfil();
-            from.Show();
-        }
-
         //menu strip dinamico
         private void cargaMenu(Int32 IdMaster, ToolStripMenuItem MenuPadre, MenuStrip Menu)
         {
-            DataTable Datos = new DataTable();
-            Datos = MenuP.dtinf(1);
 
-            DataView DatosHijos = new DataView(Datos);
+            DataTable menudin = new DataTable();
+            menudin = Perf.dtmenudinamicocs(6,"ADMIN","RECH");
+            DataView DatosHijos = new DataView(menudin);
 
-            DatosHijos.RowFilter = Datos.Columns["cvindmodulo"].ColumnName + "=" + IdMaster;
+            DatosHijos.RowFilter = menudin.Columns["cvindmodulo"].ColumnName + "=" + IdMaster;
 
             foreach (DataRowView fila in DatosHijos)
             {
@@ -221,7 +92,9 @@ namespace SIPAA_CS.RecursosHumanos
                 MenuHijo.BackColor = Color.FromArgb(10, 62, 120);
                 MenuHijo.ForeColor = Color.White;
                 MenuHijo.Font = new Font("Arial", 12);
+                MenuHijo.Image = Resources.ic_view_carousel_white_24dp;
 
+                //modifica iconos
                 if ((MenuHijo.Text = fila["descripcion"].ToString()) == "Catalogos")
                 {
                     MenuHijo.Image = Resources.ic_view_carousel_white_24dp;
@@ -236,15 +109,14 @@ namespace SIPAA_CS.RecursosHumanos
                 }
                 else if ((MenuHijo.Text = fila["descripcion"].ToString()) == "Procesos")
                 {
-                    MenuHijo.Image = Resources.ic_view_carousel_white_24dp;
+                    MenuHijo.Image = Resources.ic_assignment_white_24dp;
                 }
                 else
                 {
                     MenuHijo.Image = Resources.ic_view_carousel_white_24dp;
                 }
 
-                
-                
+
                 MenuHijo.Font = new Font(MenuHijo.Font, FontStyle.Regular);
 
                 MenuHijo.Click += new EventHandler(Event);
@@ -265,16 +137,19 @@ namespace SIPAA_CS.RecursosHumanos
         private void Event(object sender, EventArgs e)
         {
             ToolStripMenuItem ItemClick = (ToolStripMenuItem)sender;
-            tu(ItemClick.Name);
+            eclicck(ItemClick.Name);
         }
 
-        private void tu(string NombreFormulario)
+        private void eclicck(string NombreFormulario)
         {
             Form Frm;
-            if (NombreFormulario != "0")
+            if (NombreFormulario != "")
             {
                 //Frm = (Form)Activator.CreateInstance(null, "SIPAA_CS.RecursosHumanos.Catalogos.PlantillasDetalles").Unwrap();
                 //Frm.Show();
+
+                Frm = (Form)Activator.CreateInstance(null, NombreFormulario).Unwrap();
+                Frm.Show();
             }
         }
     }
