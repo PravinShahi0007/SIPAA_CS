@@ -101,11 +101,11 @@ namespace SIPAA_CS.Accesos
 
                     txtCvModulo.Text = cvmodulo;
                     txtDescripcion.Text = descripcion;
-                    txtModPad.Text = cvmodpad;
+                    //txtModPad.Text = cvmodpad;
                     txtRuta.Text = ruta;
                     txtOrden.Text = Convert.ToString(orden);
                     cbAmbiente.SelectedItem = ambiente;
-                    cbModulo.SelectedItem = modulo;
+                    //cbModulo.SelectedItem = modulo;
                     //AsignarPlantel();
 
                     Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
@@ -132,11 +132,11 @@ namespace SIPAA_CS.Accesos
 
                     txtCvModulo.Text = cvmodulo;
                     txtDescripcion.Text = descripcion;
-                    txtModPad.Text = cvmodpad;
+                    //txtModPad.Text = cvmodpad;
                     txtRuta.Text = ruta;
                     txtOrden.Text = Convert.ToString(orden);
                     cbAmbiente.SelectedItem = ambiente;
-                    cbModulo.SelectedItem = modulo;
+                    //cbModulo.SelectedItem = modulo;
 
                     Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
                 }
@@ -149,11 +149,11 @@ namespace SIPAA_CS.Accesos
 
                     txtCvModulo.Text = cvmodulo;
                     txtDescripcion.Text = descripcion;
-                    txtModPad.Text = cvmodpad;
+                    //txtModPad.Text = cvmodpad;
                     txtRuta.Text = ruta;
                     txtOrden.Text = Convert.ToString(orden);
                     cbAmbiente.SelectedItem = ambiente;
-                    cbModulo.SelectedItem = modulo;
+                    //cbModulo.SelectedItem = modulo;
 
                     txtCvModulo.Enabled = true;
 
@@ -203,9 +203,9 @@ namespace SIPAA_CS.Accesos
             txtCvModulo.Enabled = true;
             txtCvModulo.Text = "";
             txtDescripcion.Text = "";
-            txtModPad.Text = "";
+            //txtModPad.Text = "";
             txtOrden.Text = "";
-            cbModulo.Text = "Selecciona un Módulo";
+            //cbModulo.Text = "Selecciona un Módulo";
             cbAmbiente.Text = "Selecciona un Ambiente";
             PanelEditar.Visible = true;
             ckbEliminar.Visible = false;
