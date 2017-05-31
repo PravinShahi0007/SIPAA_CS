@@ -18,7 +18,7 @@ using SIPAA_CS.App_Code;
 //Descripción: Tipos de Horario
 //***********************************************************************************************
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
 
     public partial class TiposHorario : Form

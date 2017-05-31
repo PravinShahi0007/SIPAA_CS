@@ -19,7 +19,7 @@ using SIPAA_CS.RecursosHumanos.Asignaciones;
 //Descripción: administra incidencias de nomina
 //***********************************************************************************************
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
     public partial class IncidenciasNomimas : Form
     {

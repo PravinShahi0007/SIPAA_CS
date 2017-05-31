@@ -18,7 +18,7 @@ using SIPAA_CS.Properties;
 //Descripción: Días Festivos
 //***********************************************************************************************
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
     public partial class DiasSemana : Form
     {
