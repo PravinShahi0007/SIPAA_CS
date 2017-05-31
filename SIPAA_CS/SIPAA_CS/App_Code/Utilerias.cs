@@ -1,5 +1,4 @@
 using CrystalDecisions.CrystalReports.Engine;
-using Neurotec.Biometrics;
 using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
@@ -76,6 +75,8 @@ namespace SIPAA_CS.App_Code
 
         public static void ControlNotificaciones(Panel panelTag, Label lbMensaje, int iClase, string strMensaje)
         {
+            //panelTag.Dispose();
+            panelTag.Visible = false;
             switch (iClase)
             {
 
@@ -133,7 +134,7 @@ namespace SIPAA_CS.App_Code
                 Button btn = (Button)PanelMetro.Controls[iContador];
                 string str = Convert.ToString(btn.Tag);
 
-                if (!ltPermisos.Contains(str))
+                if (!ltPermisos.Contains(str.Trim()))
                 {
                     btn.Visible = false;
                 }
@@ -566,7 +567,7 @@ namespace SIPAA_CS.App_Code
             imgCheckUsuarios.Tag = "checkGrid";
             dgv.Columns.Insert(iPosicion, imgCheckUsuarios);
             dgv.Columns[iPosicion].HeaderText = "Seleccionar";
-            dgv.Columns[iPosicion].Width = 65;
+            dgv.Columns[iPosicion].Width = 100;
         }
 
         public static void MultiSeleccionGridView(DataGridView dgv, int iPositionClave, List<int> ltCv, Control ctrl)
@@ -783,8 +784,8 @@ namespace SIPAA_CS.App_Code
             checkheader.Name = "checkboxHeader";
             checkheader.Size = new Size(15, 15);
             checkheader.Location = rect.Location;
-            dgv.Columns[iPosicionCheck].Width = 80;
-            dgv.Columns[iPosicionCheck].HeaderText = "        Seleccionar";
+            dgv.Columns[iPosicionCheck].Width = 120;
+            dgv.Columns[iPosicionCheck].HeaderText = "    Seleccionar";
             
             dgv.Controls.Add(checkheader);
 
@@ -860,22 +861,63 @@ namespace SIPAA_CS.App_Code
             return sDia;
         }
 
-       
+        public static bool CompararBytes(byte[] firstHash, byte[] secondHash)
+        {
+            int _minHashLength = firstHash.Length <= secondHash.Length ? firstHash.Length : secondHash.Length;
+            var xor = firstHash.Length ^ secondHash.Length;
+            for (int i = 0; i < _minHashLength; i++)
+                xor |= firstHash[i] ^ secondHash[i];
+            return 0 == xor;
+
+        }
+
+
+        public static bool CompararMapaBits(Bitmap bmp1, Bitmap bmp2)
+        {
+            bool equals = true;
+            bool flag = true; 
+
+            if (bmp1.Size == bmp2.Size)
+            {
+                for (int x = 0; x < bmp1.Width; ++x)
+                {
+                    for (int y = 0; y < bmp1.Height; ++y)
+                    {
+                        if (bmp1.GetPixel(x, y) != bmp2.GetPixel(x, y))
+                        {
+                            equals = false;
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if (!flag)
+                    {
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                equals = false;
+            }
+            return equals;
+        }
+
 
     }
 
-    public class ResultadoHuella
-    {
-        public NffvStatus engineStatus;
-        public NffvUser engineUser;
-    }
+    //public class ResultadoHuella
+    //{
+    //    public NffvStatus engineStatus;
+    //    public NffvUser engineUser;
+    //}
 
 
-    public class VerificarHuella
-    {
-        public NffvStatus engineStatus;
-        public int score;
-    }
+    //public class VerificarHuella
+    //{
+    //    public NffvStatus engineStatus;
+    //    public int score;
+    //}
 
 
 }

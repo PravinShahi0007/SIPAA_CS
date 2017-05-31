@@ -1,4 +1,4 @@
-﻿namespace SIPAA_CS.Accesos
+﻿namespace SIPAA_CS.Accesos.Catalogos
 {
     partial class Usuarios
     {
@@ -197,7 +197,7 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel7.Location = new System.Drawing.Point(37, 176);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 2);
+            this.panel7.Size = new System.Drawing.Size(250, 1);
             this.panel7.TabIndex = 35;
             // 
             // panel8
@@ -205,7 +205,7 @@
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel8.Location = new System.Drawing.Point(35, 124);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(250, 2);
+            this.panel8.Size = new System.Drawing.Size(250, 1);
             this.panel8.TabIndex = 24;
             // 
             // txtNombre
@@ -263,7 +263,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel4.Location = new System.Drawing.Point(22, 84);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 2);
+            this.panel4.Size = new System.Drawing.Size(250, 1);
             this.panel4.TabIndex = 23;
             // 
             // txtBuscar
@@ -341,7 +341,7 @@
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel11.Location = new System.Drawing.Point(37, 66);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(250, 2);
+            this.panel11.Size = new System.Drawing.Size(250, 1);
             this.panel11.TabIndex = 46;
             // 
             // txtCvUsuario
@@ -396,7 +396,7 @@
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel13.Location = new System.Drawing.Point(22, 84);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(250, 2);
+            this.panel13.Size = new System.Drawing.Size(250, 1);
             this.panel13.TabIndex = 23;
             // 
             // btnBuscarSipaa
@@ -446,7 +446,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel2.Location = new System.Drawing.Point(28, 75);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 2);
+            this.panel2.Size = new System.Drawing.Size(250, 1);
             this.panel2.TabIndex = 123;
             // 
             // label13
@@ -504,7 +504,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel3.Location = new System.Drawing.Point(28, 135);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 2);
+            this.panel3.Size = new System.Drawing.Size(250, 1);
             this.panel3.TabIndex = 24;
             // 
             // btnRegresar
@@ -655,9 +655,9 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
-            this.btnAgregar.Location = new System.Drawing.Point(932, 236);
+            this.btnAgregar.Location = new System.Drawing.Point(932, 246);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(50, 91);
+            this.btnAgregar.Size = new System.Drawing.Size(50, 60);
             this.btnAgregar.TabIndex = 121;
             this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;

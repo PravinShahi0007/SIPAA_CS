@@ -101,10 +101,8 @@ namespace SIPAA_CS
                                     int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), us, "", password.Trim(), 0, "", "", 10);
                                     if (respuesta == 1)
                                     {
-                                        ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 4);
-
-                                        ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 4);
-
+                                        ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 6);
+                                        
                                         if (ltModulosxUsuario.Count != 0)
                                         {
                                             //MessageBox.Show("si tienes padres");
@@ -185,7 +183,7 @@ namespace SIPAA_CS
                             if (respuesta == 1)
                             {
 
-                                ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 4);
+                                ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 6);
 
                                 if (ltModulosxUsuario.Count != 0)
                                 {
@@ -220,7 +218,7 @@ namespace SIPAA_CS
                         }
                         
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
 
                         MessageBox.Show("No se encontró usuario en SONARH");

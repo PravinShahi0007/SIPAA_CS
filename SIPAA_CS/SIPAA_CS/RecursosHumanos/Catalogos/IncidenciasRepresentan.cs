@@ -14,7 +14,7 @@ using SIPAA_CS.App_Code.RecursosHumanos;
 using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.RecursosHumanos.Reportes;
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
     public partial class IncidenciasRepresentan : Form
     {

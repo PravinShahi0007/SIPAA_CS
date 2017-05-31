@@ -1,5 +1,6 @@
 ﻿using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
+using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
 using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,14 @@ using System.Windows.Forms;
 using static SIPAA_CS.App_Code.SonaCompania;
 using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.RecursosHumanos.Procesos
+namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
     public partial class AsignacionIncidenciasTrabajador : Form
     {
 
          List<DateTime> ltFechasRegistro = new List<DateTime>();
         List<int> ltCvIncidencia = new List<int>();
+        List<int> ltcvTipo = new List<int>();
 
         public int iOpcionAdmin;
 
@@ -112,7 +114,26 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             if (ltCvIncidencia.Count != 0)
             {
 
+                if (cbIncidencia.SelectedValue.ToString() != "20") {
 
+                    IncCaptura objinc = new IncCaptura();
+
+                    
+
+                    for (int iCont = 0;iCont < ltCvIncidencia.Count();iCont++)
+                    {
+
+
+                        
+
+                    }
+                   
+
+                    //objinc.ExtrañamientoRetroactivo();
+                    
+
+
+                }
 
             }
             else
@@ -143,12 +164,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             if (dgvInc.SelectedRows.Count != 0)
             {
-                lbAsignacion.Text = "     Asignar Extrañamiento o Retroactivo";
+                lbAsignacion.Text = "       Asignar Extrañamiento o Retroactivo";
                 DataGridViewRow row = this.dgvInc.SelectedRows[0];
 
                 //CVPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
                 int icvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
+                int icvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
                 DateTime fFechaReg = DateTime.Parse(row.Cells["Fecha Registro"].Value.ToString());
+
 
                 Asignacion objAsig = new Asignacion();
                 objAsig.iCvincidencia = icvIncidencia;
@@ -158,6 +181,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 {
                     ltFechasRegistro.Add(fFechaReg);
                     ltCvIncidencia.Add(icvIncidencia);
+                    ltcvTipo.Add(icvTipo);
                     row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                     row.Cells[0].Tag = "check";
                 }
@@ -166,6 +190,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     ltFechasRegistro.Remove(fFechaReg);
                     ltCvIncidencia.Remove(icvIncidencia);
+                    ltcvTipo.Remove(icvTipo);
                     row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
                     row.Cells[0].Tag = "uncheck";
                 }
@@ -176,7 +201,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
 
                 //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                cbIncidencia.Enabled = true;
+                //cbIncidencia.Enabled = true;
 
                 //  DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
                 // form.Show();
@@ -208,8 +233,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             // IncCalificacion objInc = new IncCalificacion();
             //  LlenarGrid(objInc);
 
-            cbIncidencia.SelectedValue = 20;
-            cbIncidencia.Enabled = false;
+           
             llenarComboTipo(20);
             ltCvIncidencia.Clear();
             ltFechasRegistro.Clear();
@@ -236,11 +260,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             DataTable dtIncidencia = objIncidencia.ConcepInc_S(6, 0, "", 0, 0, 0, 0, "", "");
             if (ltCvIncidencia.Count != 0)
             {
-
                 dtIncidencia.Rows.RemoveAt(1);
+                Utilerias.llenarComboxDataTable(cbIncidencia, dtIncidencia, "cvincidencia", "Descripcion");
+                cbIncidencia.Enabled = true;
+            }
+            else {
+                Utilerias.llenarComboxDataTable(cbIncidencia, dtIncidencia, "cvincidencia", "Descripcion");
+                cbIncidencia.SelectedValue = 20;
+                cbIncidencia.Enabled = false;
             }
 
-            Utilerias.llenarComboxDataTable(cbIncidencia, dtIncidencia, "cvincidencia", "Descripcion");
+           
 
         }
 
@@ -262,10 +292,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             dgvInc.DataSource = dtInc;
 
             Utilerias.AgregarCheck(dgvInc, 0);
-            Utilerias.AgregarCheckboxHeader(dgvInc, 0);
+           // Utilerias.AgregarCheckboxHeader(dgvInc, 0);
 
             dgvInc.Columns[1].Visible = false;
             dgvInc.Columns["cvincidencia"].Visible = false;
+            dgvInc.Columns["cvtipo"].Visible = false;
             dgvInc.Columns["Tiempo Prof"].Width = 40;
             dgvInc.Columns["Tiempo Emp"].Width = 40;
         }

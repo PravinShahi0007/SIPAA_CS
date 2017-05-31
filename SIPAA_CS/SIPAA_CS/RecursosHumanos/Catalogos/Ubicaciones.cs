@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
 
     //***********************************************************************************************

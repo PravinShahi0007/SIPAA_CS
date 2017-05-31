@@ -21,7 +21,11 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         public TimeSpan tpHoraentrada = DateTime.Now.TimeOfDay;
         public TimeSpan tpHoraSalida = DateTime.Now.TimeOfDay;
         public string sReferencia = String.Empty;
+        public int iOrden = 1;
         public int iSubsidio = 0;
+        public int iIdCompania = 0;
+        public int iIPlanta = 0;
+        public int iIdtrabrys = 0;
         public string sUsuumod = String.Empty;
         public string sPrgumod = String.Empty;
 
@@ -44,7 +48,11 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@P_HoraEntrada", SqlDbType.Time).Value = objDias.tpHoraentrada;
             cmd.Parameters.Add("@P_HoraSalida", SqlDbType.Time).Value = objDias.tpHoraSalida;
             cmd.Parameters.Add("@P_Referencia", SqlDbType.VarChar).Value = objDias.sReferencia;
+            cmd.Parameters.Add("@P_Orden", SqlDbType.Int).Value = objDias.iOrden;
             cmd.Parameters.Add("@P_Subsidio", SqlDbType.Int).Value = objDias.iSubsidio;
+            cmd.Parameters.Add("@P_idtrabrys", SqlDbType.Int).Value = objDias.iIdtrabrys;
+            cmd.Parameters.Add("@P_IdCompania", SqlDbType.Int).Value = objDias.iIdCompania;
+            cmd.Parameters.Add("@P_IdPlanta", SqlDbType.Int).Value = objDias.iIPlanta;
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = objDias.sUsuumod;
             cmd.Parameters.Add("@P_prgumon", SqlDbType.VarChar).Value = objDias.sPrgumod;
 

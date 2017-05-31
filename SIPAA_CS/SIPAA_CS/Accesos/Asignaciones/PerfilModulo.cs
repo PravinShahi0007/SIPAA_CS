@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 using static SIPAA_CS.App_Code.Utilerias;
 
-namespace SIPAA_CS.Accesos
+namespace SIPAA_CS.Accesos.Asignaciones
 {
 
 
@@ -145,7 +145,6 @@ namespace SIPAA_CS.Accesos
             {
 
                 dgvModulos.Rows[ultimaseleccion].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-
                 dgvPerfil_CellContentClick(sender, e);
 
 
