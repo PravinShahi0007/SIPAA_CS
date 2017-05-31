@@ -12,19 +12,23 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publicar\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <TargetCulture>es-MX</TargetCulture>
+    <ProductName>SIPAA</ProductName>
+    <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
+    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -48,16 +52,26 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <PlatformTarget>x86</PlatformTarget>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <PlatformTarget>x86</PlatformTarget>
-    <OutputPath>bin\x86\Release\</OutputPath>
+  <PropertyGroup>
+    <ApplicationIcon>LogoIcono32x32.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>SIPAA_CS.Program</StartupObject>
+    <ManifestCertificateThumbprint>EFBD3F6C90DA9C10DC417E61A476E98C77277B7A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SIPAA_CS_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -85,8 +99,8 @@
       <HintPath>..\..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\DPFPVerNET\1.6.1.0__4de0a9c4dcc83984\DPFPVerNET.dll</HintPath>
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
-    <Reference Include="Interop.zkemkeeper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\Desktop\Interop.zkemkeeper.dll</HintPath>
+    <Reference Include="Neurotec.Biometrics.Nffv">
+      <HintPath>..\..\..\..\..\..\Desktop\ProyectoHuellaDigital_ - copia - copia\ProyectoHuellaDigital_\bin\Debug\Neurotec.Biometrics.Nffv.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -337,6 +351,7 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\ArchNomina4.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueoIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\PeriodoProcesoIncidencia.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\ProcesaIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\ReasignaSupyDirector.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorHorario.cs" />
     <Compile Include="Conexiones\Conexion.cs" />
@@ -641,6 +656,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.Designer.cs">
       <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ProcesaIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ProcesaIncidencias.Designer.cs">
+      <DependentUpon>ProcesaIncidencias.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.cs">
       <SubType>Form</SubType>
@@ -980,6 +1001,9 @@
     <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.resx">
       <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\ProcesaIncidencias.resx">
+      <DependentUpon>ProcesaIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\ReasignaSupyDirectores.resx">
       <DependentUpon>ReasignaSupyDirectores.cs</DependentUpon>
     </EmbeddedResource>
@@ -1177,6 +1201,7 @@
     <None Include="Accesos\DataSets\ReporteUsuarios.xss">
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
     </None>
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1186,6 +1211,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SIPAA_CS_ClaveTemporal.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

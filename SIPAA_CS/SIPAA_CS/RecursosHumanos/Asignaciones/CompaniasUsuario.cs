@@ -78,8 +78,7 @@ namespace SIPAA_CS.RecursosHumanos
                 if (dgvCompanias.SelectedRows.Count != 0)
                 {
                     Utilerias.MultiSeleccionGridViewString(dgvCompanias, 1, ltCompanias, panelPermisos);
-
-                   
+                    
                 }
 
             }
@@ -96,7 +95,16 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)

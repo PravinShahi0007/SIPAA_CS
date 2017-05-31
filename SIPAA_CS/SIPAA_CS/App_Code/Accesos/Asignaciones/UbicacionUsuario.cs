@@ -17,16 +17,16 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
 
         }
         //VALIDA PERMISO HUBICACION DE UN USUARIO
-        public List<int> ObtenerUbicacionesxUsuario(string cvusuario, int ubicacion, string usuumod, string prgumod, int opcion)
+        public List<string> ObtenerUbicacionesxUsuario(string cvusuario, string ubicacion, string usuumod, string prgumod, int opcion)
         {
 
-            List<int> ltUbicacionesxUsuario = new List<int>();
+            List<string> ltUbicacionesxUsuario = new List<string>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusuubi_sui";
+            cmd.CommandText = "usp_accetusuubi_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@p_idubicacion", SqlDbType.Int).Value = ubicacion;
+            cmd.Parameters.Add("@p_idubicacion", SqlDbType.VarChar).Value = ubicacion;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
@@ -41,8 +41,8 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
             {
 
                 int idubicacion = reader.GetInt32(reader.GetOrdinal("idubicacion"));
-
-                ltUbicacionesxUsuario.Add(idubicacion);
+                string idu = Convert.ToString(idubicacion);
+                ltUbicacionesxUsuario.Add(idu);
 
                 //MUESTRA LAS UBICACIONES ASIGNADAS A UN USUARIO
                 Console.WriteLine(idubicacion);

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 using static SIPAA_CS.App_Code.Utilerias;
 
-namespace SIPAA_CS.Accesos
+namespace SIPAA_CS.Accesos.Catalogos
 {
     public partial class Procesos : Form
     {

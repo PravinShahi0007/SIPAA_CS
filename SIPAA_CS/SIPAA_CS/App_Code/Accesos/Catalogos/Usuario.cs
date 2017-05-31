@@ -365,15 +365,15 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public void AsignarUbicacionUsuario(string cvusuario, int idubicacion, string usuumod, string prgumod, int opcion)
+        public void AsignarUbicacionUsuario(string cvusuario, string idubicacion, string usuumod, string prgumod, int opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusuubi_sui";
+            cmd.CommandText = "usp_accetusuubi_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;
-            cmd.Parameters.Add("@p_idubicacion", SqlDbType.Int).Value = idubicacion;
+            cmd.Parameters.Add("@p_idubicacion", SqlDbType.VarChar).Value = idubicacion;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
@@ -390,7 +390,7 @@ namespace SIPAA_CS.App_Code
         {
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusudep_sui";
+            cmd.CommandText = "usp_accetusudep_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;

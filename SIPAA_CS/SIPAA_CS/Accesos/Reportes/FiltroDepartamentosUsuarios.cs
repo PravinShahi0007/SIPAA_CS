@@ -203,11 +203,18 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void FiltroDepartamentosUsuarios_Load(object sender, EventArgs e)
         {
+            //// Diccionario Permisos x Pantalla
+            //DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            //Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            ////////////////////////////////////////////////////////
+            // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
             Usuario objUsuario = new Usuario();
             SonaDepartamento objSonaDep = new SonaDepartamento();
 
-            DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("", 0, "", "", 0, "", "", 11);
+            DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("%", 0, "", "", 0, "", "", 11);
             DataTable dtDepartamento = objSonaDep.obtdepto(6,"");
 
             llenaCombo(cbUsuario, dtUsuario, "cvusuario", "nombre");

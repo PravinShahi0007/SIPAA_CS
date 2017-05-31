@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.App_Code
 {
@@ -342,6 +343,23 @@ namespace SIPAA_CS.App_Code
             nombre.ValueMember = "Clave";
             p_inicbo = 1;
             //nombre.Text = "";
+        }
+
+        //carga imagen
+        public void cargaimagen(PictureBox pbusuario)
+        {
+            try
+            {
+                string PBA = LoginInfo.IdTrab;
+
+                pbusuario.Image = Image.FromFile(@"\\192.168.30.238\Sistemasjs\Noe Alvarez\" + LoginInfo.IdTrab + ".jpg", true);
+                pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch (Exception)
+            {
+                pbusuario.Image = Image.FromFile(@"\\192.168.30.238\Sistemasjs\Noe Alvarez\USER1.jpg", true);
+                pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
         }
 
         public static void ResizeForm(Form frm, Size dsize)

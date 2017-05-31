@@ -125,17 +125,20 @@ namespace SIPAA_CS
                                     else
                                     {
                                         MessageBox.Show("Usuario y contraseña no coincide");
+                                        txtUsuario.Focus();
                                     }
                                 }
                                 else
                                 {
                                     MessageBox.Show("El usuario  esta inaactivo en sipaa");
+                                    txtUsuario.Focus();
                                 }
 
                             }
                             else
                             {
                                 MessageBox.Show("El usuario " + usuario.Nombre + " esta inactivo");
+                                txtUsuario.Focus();
                                 //utilerias.DisableBotones(btnGuardar, 1, true);
                             }
 
@@ -143,12 +146,14 @@ namespace SIPAA_CS
                         else
                         {
                             MessageBox.Show("No se encontró usuario en SONARH");
+                            txtUsuario.Focus();
                         }
                     }
                     catch (Exception)
                     {
 
                         MessageBox.Show("No se encontró usuario en SONARH");
+                        txtUsuario.Focus();
                     }
                 }
 
@@ -203,11 +208,13 @@ namespace SIPAA_CS
                             else
                             {
                                 MessageBox.Show("Usuario y Contraseña no coincide");
+                                txtUsuario.Focus();
                             }
                         }
                         else
                         {
                             MessageBox.Show("El usuario esta Inaactivo en SIPAA");
+                            txtUsuario.Focus();
                         }
                         
                     }
@@ -215,12 +222,14 @@ namespace SIPAA_CS
                     {
 
                         MessageBox.Show("No se encontró usuario en SONARH");
+                        txtUsuario.Focus();
                     }
                 }
             }
             else
             {
                 MessageBox.Show("Asigna Usuario y Contraseña");
+                txtUsuario.Focus();
             }
             
         }

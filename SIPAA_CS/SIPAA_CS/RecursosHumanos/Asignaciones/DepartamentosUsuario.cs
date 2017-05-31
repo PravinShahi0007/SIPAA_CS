@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Asignaciones
 {
@@ -48,109 +49,152 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
 
             if (dgvUsuarios.SelectedRows.Count != 0)
             {
-
                 DataGridViewRow row = this.dgvUsuarios.SelectedRows[0];
                 cvusuario = row.Cells["cvusuario"].Value.ToString();
-                //nombre = row.Cells["nombre"].Value.ToString();
-
-
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-
                 AsignarDepartamentos();
-
             }
         }
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
+        }
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
-            cvusuario = null;
-            string IdTrab = txtIdTrab.Text;
-            string nombre = txtUsuario.Text;
-            dgvUsuarios.Columns.Remove(columnName: "Seleccionar");
+            //cvusuario = null;
+            string cvusuario = txtCvUsuario.Text;
+            //dgvUsuarios.Columns.Remove(columnName: "Seleccionar");
+            
+            if (cvusuario != "")
+            {
+                LlenaGridUsuarios(cvusuario.Trim(), 0, "", "", 0, "", "", 8);
+                llenarGridDepartamentos(4, "");
+            }
+            else
+            {
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+                llenarGridDepartamentos(4, "");
+            }
 
-            llenarGridUsuarios(IdTrab.Trim(), 0, nombre.Trim(), "", 0, "", "", 7);
-
-            txtUsuario.Text = "";
-            txtIdTrab.Text = "";
+            txtCvUsuario.Text = "";
         }
 
         private void btnBuscarDepartamentos_Click(object sender, EventArgs e)
         {
             string depto = txtDepartamento.Text;
-            panelPermisos.Enabled = false;
-            panelTag.Enabled = true;
-            dgvDepartamentos.Columns.Remove(columnName: "Seleccionar");
-            llenarGridDepartamentos(5, depto.Trim());
+            //panelPermisos.Enabled = false;
+            //panelTag.Enabled = true;
+            //dgvDepartamentos.Columns.Remove(columnName: "Seleccionar");
+            
+            if (depto != "")
+            {
+                llenarGridDepartamentos(5, depto.Trim());
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+            }
+            else
+            {
+                llenarGridDepartamentos(5, "");
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+            }
             txtDepartamento.Text = "";
             
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             panelPermisos.Enabled = false;
-            try
-            {
-                string usuumod = "vjiturburuv";
-                string prgmod = this.Name;
-                Usuario objUsuario = new Usuario();
+            AsignarDepartamentos();
 
-                foreach (string id in ltDepartamentos)
+            if (Utilerias.SinAsignacionesString(dgvDepartamentos, 0, 1, ltDepartamentos) == true)
+            {
+                try
                 {
-                    objUsuario.AsignarDepartamentosUsuario(cvusuario, id, usuumod, prgmod, 1);
+                    string usuumod = "vjiturburuv";
+                    string prgmod = this.Name;
+                    Usuario objUsuario = new Usuario();
+
+                    foreach (string id in ltDepartamentos)
+                    {
+                        objUsuario.AsignarDepartamentosUsuario(cvusuario, id, usuumod, prgmod, 1);
+                    }
+
+                    ltDepartamentos.Clear();
+
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                    timer1.Start();
+                    AsignarDepartamentos();
                 }
-
-                ltDepartamentos.Clear();
-
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
-                timer1.Start();
-                AsignarDepartamentos();
-
-
+                catch (Exception ex)
+                {
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
+                    timer1.Start();
+                    MessageBox.Show("" + ex);
+                    AsignarDepartamentos();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
-                timer1.Start();
-                MessageBox.Show("" + ex);
-                AsignarDepartamentos();
+                DialogResult result = MessageBox.Show("¿Seguro que desea quitar todas las Asignaciones?", "SIPAA", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        string usuumod = "vjiturburuv";
+                        string prgmod = this.Name;
+                        Usuario objUsuario = new Usuario();
+
+                        foreach (string id in ltDepartamentos)
+                        {
+                            objUsuario.AsignarDepartamentosUsuario(cvusuario, id, usuumod, prgmod, 1);
+                        }
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                        timer1.Start();
+                        ltDepartamentos.Clear();
+                        AsignarDepartamentos();
+                    }
+                    catch (Exception ex)
+                    {
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
+                        timer1.Start();
+                        MessageBox.Show("" + ex);
+                        AsignarDepartamentos();
+                    }
+                }
+                else
+                {
+                    AsignarDepartamentos();
+                    ltDepartamentos.Clear();
+                }
             }
+            
         }
         private void dgvDepartamentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //for (int iContador = 0; iContador < dgvDepartamentos.Rows.Count; iContador++)
-            //{
-            //    dgvDepartamentos.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            //}
-
             if (cvusuario != null)
             {
                 if (dgvDepartamentos.SelectedRows.Count != 0)
                 {
-
-                    DataGridViewRow row = this.dgvDepartamentos.SelectedRows[0];
-                    iddepto = row.Cells["Clave"].Value.ToString();
-                    panelPermisos.Enabled = true;
-                    ltDepartamentos.Add(iddepto);
-
-
-                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-
-                    //AsignarUbicaciones();
-
-                    if (row.Cells[0].Tag.ToString() == "check")
-                    {
-
-                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                        row.Cells[0].Tag = "uncheck";
-
-                    }
-                    else
-                    {
-                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                        row.Cells[0].Tag = "check";
-
-                    }
+                    Utilerias.MultiSeleccionGridViewString(dgvDepartamentos, 1, ltDepartamentos, panelPermisos);
                 }
             }
             else
@@ -169,8 +213,15 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         private void DepartamentosUsuario_Load(object sender, EventArgs e)
         {
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-            llenarGridUsuarios("", 0, "", "", 0, "", "", 7);
+            LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
             llenarGridDepartamentos(4, "");
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -181,8 +232,12 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
-        private void llenarGridUsuarios(string cvusuario, int idtrab, string nombre, string pass, int stusuario, string usuumod, string prgmod, int opcion)
+        private void LlenaGridUsuarios(string cvusuario, int idtrab, string nombre, string pass, int stusuario, string usuumod, string prgmod, int opcion)
         {
+            if (dgvUsuarios.Columns.Count > 1)
+            {
+                dgvUsuarios.Columns.RemoveAt(0);
+            }
 
             DataTable dtFormasRegistro = usuario.ObtenerListaUsuarios(cvusuario, idtrab, nombre, pass, stusuario, usuumod, prgmod, opcion);
             dgvUsuarios.DataSource = dtFormasRegistro;
@@ -192,12 +247,18 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             imgCheckProcesos.Name = "Seleccionar";
             dgvUsuarios.Columns.Insert(0, imgCheckProcesos);
             dgvUsuarios.Columns[0].HeaderText = "Seleccionar";
-            dgvUsuarios.Columns[3].Visible = false;
+            dgvUsuarios.Columns[1].HeaderText = "Clave Usuario";
+            dgvUsuarios.Columns[3].HeaderText = "Nombre";
+            dgvUsuarios.Columns[2].Visible = false;
+            dgvUsuarios.Columns[4].Visible = false;
             dgvUsuarios.ClearSelection();
         }
-        
         private void llenarGridDepartamentos(int popc, string pbusq)
         {
+            if (dgvDepartamentos.Columns.Count > 1)
+            {
+                dgvDepartamentos.Columns.RemoveAt(0);
+            }
 
             DataTable dtdepartamentos = departamento.obtdepto(popc, pbusq);
             dgvDepartamentos.DataSource = dtdepartamentos;
@@ -207,14 +268,13 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             imgCheckProcesos.Name = "Seleccionar";
             dgvDepartamentos.Columns.Insert(0, imgCheckProcesos);
             dgvDepartamentos.Columns[0].HeaderText = "Seleccionar";
-            //dgvDepartamentos.Columns[1].Visible = false;
+            dgvDepartamentos.Columns[1].Visible = false;
             dgvDepartamentos.ClearSelection();
         }
         private void AsignarDepartamentos()
         {
-
             DepartamentoUsuario objDepartamentosUsuarios = new DepartamentoUsuario();
-            ltDepartamentosxUsuario = objDepartamentosUsuarios.ObtenerDepartamentosxUsuario(cvusuario,"","","",4);
+            ltDepartamentosxUsuario = objDepartamentosUsuarios.ObtenerDepartamentosxUsuario(cvusuario,"","","",5);
 
             //Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
 
@@ -236,12 +296,11 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             }
 
         }
+
         
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
-
-
 
     }
 }

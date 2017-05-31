@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.Accesos.Reportes
 {
@@ -60,14 +61,14 @@ namespace SIPAA_CS.Accesos.Reportes
                     Modulo objModulo = new Modulo();
                     DataTable dtReporte;
                     if (estatus == 1)
-                    {  
-                        dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", 1, "", "", 15);
+                    {
+                        dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "1", "", "", 15);
                     }
                     else if (estatus == 2)
                     {
-                        dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", 0, "", "", 15);
+                        dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "0", "", "", 15);
                     }
-                    dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", 0, "", "", 28);
+                        dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", "%", "", "%", "", "", 15);
 
                     switch (dtReporte.Rows.Count)
                     {
@@ -110,7 +111,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, "", "", "", 0, "", "", 6);
+                                dtReporte = objModulo.ReporteModulos("", "", "", 0, "", "", "", "%", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -146,7 +147,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", "", "", 1, "", "", 16);
+                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", "%", "", "1", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -182,7 +183,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, cbAmbiente.SelectedItem.ToString(), "", "", 1, "", "", 17);
+                                dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), "%", "", "1", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -218,7 +219,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, "", cbModulo.SelectedItem.ToString(), "", 1, "", "", 18);
+                                dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", cbModulo.SelectedItem.ToString(), "", "1", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -254,7 +255,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "", "", 1, "", "", 19);
+                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "%", "", "1", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -290,7 +291,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", cbModulo.SelectedItem.ToString(), "", 1, "", "", 20);
+                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", cbModulo.SelectedItem.ToString(), "", "1", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -326,7 +327,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", 1, "", "", 21);
+                                dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "1", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -368,7 +369,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, "", "", "", 0, "", "", 7);
+                                dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", "%", "", "0", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -404,7 +405,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", "", "", 0, "", "", 16);
+                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", "%", "", "0", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -440,7 +441,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, cbAmbiente.SelectedItem.ToString(), "", "", 0, "", "", 17);
+                                dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), "%", "", "0", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -476,7 +477,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, "", cbModulo.SelectedItem.ToString(), "", 0, "", "", 18);
+                                dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", cbModulo.SelectedItem.ToString(), "", "0", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -512,7 +513,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "", "", 0, "", "", 19);
+                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "%", "", "0", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -548,7 +549,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", cbModulo.SelectedItem.ToString(), "", 0, "", "", 20);
+                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", cbModulo.SelectedItem.ToString(), "", "0", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -584,7 +585,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", 0, "", "", 21);
+                                dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "0", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -626,7 +627,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, "", "", "", 0, "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "%", "%", 0, "%", "%", "%", "%", "%", "%", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -662,7 +663,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", "", "", 0, "", "", 22);
+                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", "%", "", "%", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -698,7 +699,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, cbAmbiente.SelectedItem.ToString(), "", "", 0, "", "", 23);
+                                dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "",15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -734,7 +735,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, "", cbModulo.SelectedItem.ToString(), "", 0, "", "", 24);
+                                dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -770,7 +771,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "", "", 0, "", "", 25);
+                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -806,7 +807,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", cbModulo.SelectedItem.ToString(), "", 2, "", "", 26);
+                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -842,7 +843,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
-                                dtReporte = objModulo.ReporteModulos("", "", "", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", 1, "", "", 27);
+                                dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
 
                                 switch (dtReporte.Rows.Count)
                                 {
@@ -888,7 +889,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         {
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
-                            dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", "", "", 0, "", "", 22);
+                            dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", "%", "", "%", "", "", 15);
 
                             switch (dtReporte.Rows.Count)
                             {
@@ -921,61 +922,61 @@ namespace SIPAA_CS.Accesos.Reportes
                         }
 
                         //FILTRO CVMODPAD,ESTATUS
-                        if (estatus > 0 && ambiente <= 0 && modulo <= 0)
-                        {
-                            Modulo objModulo = new Modulo();
-                            DataTable dtReporte;
-                            if (estatus == 1)
-                            {
+                        //if (estatus > 0 && ambiente <= 0 && modulo <= 0)
+                        //{
+                        //    Modulo objModulo = new Modulo();
+                        //    DataTable dtReporte;
+                        //    if (estatus == 1)
+                        //    {
                                 
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", "", "", 1, "", "", 16);
-                            }
-                            else if (estatus == 2)
-                            {
-                                st = 0;
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", "", "", 0, "", "", 16);
-                            }
-                            else
-                            {
-                                dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", "", "", 0, "", "", 22);
-                            }
+                        //        dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", "", "", "1", "", "", 16);
+                        //    }
+                        //    else if (estatus == 2)
+                        //    {
+                        //        st = 0;
+                        //        dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", "", "", "0", "", "", 16);
+                        //    }
+                        //    else
+                        //    {
+                        //        dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", "", "", "0", "", "", 22);
+                        //    }
 
-                            switch (dtReporte.Rows.Count)
-                            {
+                        //    switch (dtReporte.Rows.Count)
+                        //    {
 
-                                case 0:
-                                    cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
-                                    DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
-                                    break;
+                        //        case 0:
+                        //            cbEstatus.Text = "Seleccionar un Estatus";
+                        //            llenaComboModPad();
+                        //            llenaComboModulo();
+                        //            llenaComboAmbiente();
+                        //            DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        //            break;
 
-                                default:
-                                    cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
-                                    ViewerReporte form = new ViewerReporte();
-                                    ReporteModulos dtrpt = new ReporteModulos();
-                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                        //        default:
+                        //            cbEstatus.Text = "Seleccionar un Estatus";
+                        //            llenaComboModPad();
+                        //            llenaComboModulo();
+                        //            llenaComboAmbiente();
+                        //            ViewerReporte form = new ViewerReporte();
+                        //            ReporteModulos dtrpt = new ReporteModulos();
+                        //            ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
 
-                                    ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
-                                    //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
-                                    form.RptDoc = ReportDoc;
-                                    form.Show();
-                                    break;
+                        //            ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
+                        //            //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
+                        //            form.RptDoc = ReportDoc;
+                        //            form.Show();
+                        //            break;
 
-                            }
+                        //    }
 
-                        }
+                        //}
 
                         //FILTRO CVMODPAD,AMBIENTE
                         if (estatus <= 0 && ambiente > 0 && modulo <= 0)
                         {
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
-                            dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "", "", 0, "", "", 25);
+                            dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "", 15);
 
                             switch (dtReporte.Rows.Count)
                             {
@@ -1012,7 +1013,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         {
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
-                            dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "", cbModulo.SelectedItem.ToString(), "", 2, "", "", 26);
+                            dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
 
                             switch (dtReporte.Rows.Count)
                             {
@@ -1045,7 +1046,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         {
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
-                            dtReporte = objModulo.ReporteModulos("", "", "", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", 1, "", "", 27);
+                            dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
 
                             switch (dtReporte.Rows.Count)
                             {
@@ -1090,7 +1091,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         {
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
-                            dtReporte = objModulo.ReporteModulos("", "", "", 0, cbAmbiente.SelectedItem.ToString(), "", "", 0, "", "", 23);
+                            dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "", 15);
 
                             switch (dtReporte.Rows.Count)
                             {
@@ -1127,7 +1128,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         {
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
-                            dtReporte = objModulo.ReporteModulos("", "", "", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", 1, "", "", 27);
+                            dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
 
                             switch (dtReporte.Rows.Count)
                             {
@@ -1170,7 +1171,7 @@ namespace SIPAA_CS.Accesos.Reportes
                         {
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
-                            dtReporte = objModulo.ReporteModulos("", "", "", 0, "", cbModulo.SelectedItem.ToString(), "", 0, "", "", 24);
+                            dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
 
                             switch (dtReporte.Rows.Count)
                             {
@@ -1223,8 +1224,14 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void FiltroModulos_Load(object sender, EventArgs e)
         {
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-            //utilerias.cargarcombo(cbModPad,);
+            //// Diccionario Permisos x Pantalla
+            //DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            //Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            ////////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
             llenaComboModPad();
             llenaComboModulo();
             llenaComboAmbiente();
@@ -1244,57 +1251,66 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         public void llenaComboModPad()
         {
-            Modulo objModulo = new Modulo();
-            DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 9);
+            //Modulo objModulo = new Modulo();
+            //DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 9);
 
 
-            List<string> ltModulo = new List<string>();
+            //List<string> ltModulo = new List<string>();
 
-            ltModulo.Insert(0, "Selecciona un CvModPad");
-            foreach (DataRow row in dtModulo.Rows)
-            {
-                ltModulo.Add(row["cvmodpad"].ToString());
-            }
+            //ltModulo.Insert(0, "Selecciona un CvModPad");
+            //foreach (DataRow row in dtModulo.Rows)
+            //{
+            //    ltModulo.Add(row["cvmodpad"].ToString());
+            //}
 
-            cbModPad.DataSource = ltModulo;
+            //cbModPad.DataSource = ltModulo;
         }
         public void llenaComboModulo()
         {
-            Modulo objModulo = new Modulo();
-            DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 10);
+            //Modulo objModulo = new Modulo();
+            //DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 10);
 
 
-            List<string> ltModulo = new List<string>();
+            //List<string> ltModulo = new List<string>();
 
-            ltModulo.Insert(0, "Selecciona una Módulo");
-            foreach (DataRow row in dtModulo.Rows)
-            {
-                ltModulo.Add(row["modulo"].ToString());
-            }
+            //ltModulo.Insert(0, "Selecciona una Módulo");
+            //foreach (DataRow row in dtModulo.Rows)
+            //{
+            //    ltModulo.Add(row["modulo"].ToString());
+            //}
 
-            cbModulo.DataSource = ltModulo;
+            //cbModulo.DataSource = ltModulo;
         }
 
         public void llenaComboAmbiente()
         {
-            Modulo objModulo = new Modulo();
-            DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 11);
+            //Modulo objModulo = new Modulo();
+            //DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 11);
 
 
-            List<string> ltModulo = new List<string>();
+            //List<string> ltModulo = new List<string>();
 
-            ltModulo.Insert(0, "Selecciona una Ambiente");
-            foreach (DataRow row in dtModulo.Rows)
-            {
-                ltModulo.Add(row["ambiente"].ToString());
-            }
+            //ltModulo.Insert(0, "Selecciona una Ambiente");
+            //foreach (DataRow row in dtModulo.Rows)
+            //{
+            //    ltModulo.Add(row["ambiente"].ToString());
+            //}
 
-            cbAmbiente.DataSource = ltModulo;
+            //cbAmbiente.DataSource = ltModulo;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)

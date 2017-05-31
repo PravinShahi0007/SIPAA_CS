@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Acceso));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -71,17 +72,17 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel4.Location = new System.Drawing.Point(524, 249);
+            this.panel4.Location = new System.Drawing.Point(524, 248);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 2);
+            this.panel4.Size = new System.Drawing.Size(250, 1);
             this.panel4.TabIndex = 18;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel3.Location = new System.Drawing.Point(522, 339);
+            this.panel3.Location = new System.Drawing.Point(522, 338);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 2);
+            this.panel3.Size = new System.Drawing.Size(250, 1);
             this.panel3.TabIndex = 19;
             // 
             // txtUsuario
@@ -92,7 +93,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(524, 228);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(250, 18);
-            this.txtUsuario.TabIndex = 20;
+            this.txtUsuario.TabIndex = 0;
             // 
             // txtPwd
             // 
@@ -103,7 +104,7 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(250, 18);
-            this.txtPwd.TabIndex = 21;
+            this.txtPwd.TabIndex = 1;
             // 
             // button4
             // 
@@ -115,6 +116,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(210, 50);
             this.button4.TabIndex = 23;
+            this.button4.TabStop = false;
             this.button4.UseVisualStyleBackColor = false;
             // 
             // btnIngresar
@@ -126,7 +128,7 @@
             this.btnIngresar.Location = new System.Drawing.Point(553, 365);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(210, 50);
-            this.btnIngresar.TabIndex = 22;
+            this.btnIngresar.TabIndex = 2;
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
@@ -152,6 +154,7 @@
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(15, 15);
             this.btnMinimizar.TabIndex = 26;
+            this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click_1);
             // 
@@ -166,6 +169,7 @@
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(15, 15);
             this.btnCerrar.TabIndex = 25;
+            this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
             // 
@@ -199,6 +203,7 @@
             // 
             // Acceso
             // 
+            this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -219,6 +224,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Acceso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acceso";
