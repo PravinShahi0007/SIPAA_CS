@@ -107,8 +107,8 @@ namespace SIPAA_CS.Accesos.Catalogos
                 stmodulo = row.Cells["Estatus"].Value.ToString();
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
-                //if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
-                //{
+                if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
+                {
                     variable = 2;
                     lblAccion.Text = "      Editar Módulo";
                     PanelEditar.Visible = true;
@@ -117,7 +117,6 @@ namespace SIPAA_CS.Accesos.Catalogos
 
                     txtCvModulo.Text = cvmodulo;
                     txtDescripcion.Text = descripcion;
-                    //txtModPad.Text = cvmodpad;
                     txtRuta.Text = ruta;
                     txtOrden.Text = Convert.ToString(orden);
                     cbPadre.Text= cvtipomodulo;
@@ -139,54 +138,49 @@ namespace SIPAA_CS.Accesos.Catalogos
                         ckbEliminar.Text = "Baja";
 
                     }
-                //}
-                //else if (Permisos.dcPermisos["Actualizar"] == 1)
-                //{
-                //    variable = 2;
-                //    PanelEditar.Visible = true;
-                //    lblAccion.Text = "      Editar Módulo";
-                //    txtCvModulo.Enabled = false;
+                }
+                else if (Permisos.dcPermisos["Actualizar"] == 1)
+                {
+                    variable = 2;
+                    PanelEditar.Visible = true;
+                    lblAccion.Text = "      Editar Módulo";
+                    txtCvModulo.Enabled = false;
 
-                //    txtCvModulo.Text = cvmodulo;
-                //    txtDescripcion.Text = descripcion;
-                //    //txtModPad.Text = cvmodpad;
-                //    txtRuta.Text = ruta;
-                //    txtOrden.Text = Convert.ToString(orden);
-                //    cbAmbiente.SelectedItem = ambiente;
-                //    //cbModulo.SelectedItem = modulo;
+                    txtCvModulo.Text = cvmodulo;
+                    txtDescripcion.Text = descripcion;
+                    //txtModPad.Text = cvmodpad;
+                    txtRuta.Text = ruta;
+                    txtOrden.Text = Convert.ToString(orden);
+                    cbAmbiente.SelectedItem = ambiente;
+                    //cbModulo.SelectedItem = modulo;
 
-                //    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
-                //}
-                //else if ( Permisos.dcPermisos["Eliminar"] == 1)
-                //{
-                //    variable = 3;
-                //    PanelEditar.Visible = true;
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
+                }
+                else if (Permisos.dcPermisos["Eliminar"] == 1)
+                {
+                    variable = 3;
+                    PanelEditar.Visible = true;
+                    txtCvModulo.Text = cvmodulo;
+                    txtDescripcion.Text = descripcion;
+                    txtRuta.Text = ruta;
+                    txtOrden.Text = Convert.ToString(orden);
+                    cbAmbiente.SelectedItem = ambiente;
 
-                //    //ckbEliminar.Visible = true;
+                    txtCvModulo.Enabled = true;
 
-                //    txtCvModulo.Text = cvmodulo;
-                //    txtDescripcion.Text = descripcion;
-                //    //txtModPad.Text = cvmodpad;
-                //    txtRuta.Text = ruta;
-                //    txtOrden.Text = Convert.ToString(orden);
-                //    cbAmbiente.SelectedItem = ambiente;
-                //    //cbModulo.SelectedItem = modulo;
+                    if (stmodulo == "Inactivo")
+                    {
+                        lblAccion.Text = "      Alta Módulo";
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Alta);
+                    }
+                    else if (stmodulo == "Activo")
+                    {
+                        lblAccion.Text = "      Baja Módulo";
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Baja);
+                    }
 
-                //    txtCvModulo.Enabled = true;
+                }
 
-                //    if (stmodulo == "Inactivo")
-                //    {
-                //        lblAccion.Text = "      Alta Módulo";
-                //        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Alta);
-                //    }
-                //    else if (stmodulo == "Activo")
-                //    {
-                //        lblAccion.Text = "      Baja Módulo";
-                //        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Baja);
-                //    }
-                    
-                //}
-               
             }
         }
         //-----------------------------------------------------------------------------------------------

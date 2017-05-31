@@ -1,4 +1,4 @@
-﻿namespace SIPAA_CS.RecursosHumanos
+﻿namespace SIPAA_CS.RecursosHumanos.Asignaciones
 {
     partial class CompaniasUsuario
     {

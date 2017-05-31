@@ -40,8 +40,8 @@ namespace SIPAA_CS.Accesos
 
         private void tsmiPerfiles_Click(object sender, EventArgs e)
         {
-            Perfiles cp = new Perfiles();
-            cp.Show();
+            //Perfiles cp = new Perfiles();
+            //cp.Show();
         }
 
         private void tsmiModulos_Click(object sender, EventArgs e)
@@ -58,20 +58,20 @@ namespace SIPAA_CS.Accesos
 
         private void msAsignacionPerfil_Click(object sender, EventArgs e)
         {
-            UsuarioPerfil ap = new UsuarioPerfil();
-            ap.Show();
+            //UsuarioPerfil ap = new UsuarioPerfil();
+            //ap.Show();
         }
 
         private void msAsignacionModulo_Click(object sender, EventArgs e)
         {
-            PerfilModulo am = new PerfilModulo();
-            am.Show();
+            //PerfilModulo am = new PerfilModulo();
+            //am.Show();
         }
 
         private void msAsignacionProceso_Click(object sender, EventArgs e)
         {
-            UsuarioProceso aproc = new UsuarioProceso();
-            aproc.Show();
+            //UsuarioProceso aproc = new UsuarioProceso();
+            //aproc.Show();
         }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   

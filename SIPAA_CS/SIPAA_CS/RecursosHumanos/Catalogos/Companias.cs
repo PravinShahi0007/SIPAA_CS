@@ -17,7 +17,7 @@ using SIPAA_CS.App_Code;
 //Descripción: Lee la tabla de compañias de SONARH
 //***********************************************************************************************
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
 
     #region variables

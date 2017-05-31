@@ -1,4 +1,4 @@
-﻿namespace SIPAA_CS.Accesos
+﻿namespace SIPAA_CS.Accesos.Asignaciones
 {
     partial class UsuarioPerfil
     {
