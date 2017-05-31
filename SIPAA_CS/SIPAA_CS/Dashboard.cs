@@ -86,7 +86,7 @@ namespace SIPAA_CS
         private void Dashboard_Load(object sender, EventArgs e)
         {
             // Diccionario Permisos x Pantalla
-            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, "RECH");
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
             //////////////////////////////////////////////////////
             // resize 
@@ -96,7 +96,7 @@ namespace SIPAA_CS
 
             Usuario objUsuario = new Usuario();
             string idtrab = LoginInfo.IdTrab;
-            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab,4);
+            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab,6);
             Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
             //LoginInfo.Nombre = lblusuario.Text;
             string NomUsu = LoginInfo.Nombre;

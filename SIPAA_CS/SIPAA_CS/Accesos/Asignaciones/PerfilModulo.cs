@@ -145,7 +145,6 @@ namespace SIPAA_CS.Accesos
             {
 
                 dgvModulos.Rows[ultimaseleccion].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-
                 dgvPerfil_CellContentClick(sender, e);
 
 

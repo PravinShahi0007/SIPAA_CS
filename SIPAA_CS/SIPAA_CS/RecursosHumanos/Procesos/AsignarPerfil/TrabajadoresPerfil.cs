@@ -143,6 +143,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void TrabajadoresPerfil_Load(object sender, EventArgs e)
         {
+            LoginInfo.IdTrab = "ADMIN";
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);

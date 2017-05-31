@@ -120,17 +120,20 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
             this.tabHuella = new System.Windows.Forms.TabPage();
+            this.txtEstatus = new System.Windows.Forms.TextBox();
+            this.lbHuella = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.prgbar = new System.Windows.Forms.ProgressBar();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.btnAgregarHuella = new System.Windows.Forms.Button();
-            this.PanelGuardar = new System.Windows.Forms.Panel();
+            this.PanelGuardarHuella = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.lblAccion = new System.Windows.Forms.Label();
             this.btnGuardarHuella = new System.Windows.Forms.Button();
             this.panelTagHuella = new System.Windows.Forms.Panel();
             this.lbMensajeHuella = new System.Windows.Forms.Label();
-            this.pbVerHuella = new System.Windows.Forms.PictureBox();
             this.pbHuella = new System.Windows.Forms.PictureBox();
             this.lbNombre = new System.Windows.Forms.Label();
             this.lbIdTrab = new System.Windows.Forms.Label();
@@ -138,7 +141,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label14 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -178,9 +180,8 @@
             this.panel14.SuspendLayout();
             this.tabHuella.SuspendLayout();
             this.panel16.SuspendLayout();
-            this.PanelGuardar.SuspendLayout();
+            this.PanelGuardarHuella.SuspendLayout();
             this.panelTagHuella.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbVerHuella)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuella)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1313,13 +1314,15 @@
             // tabHuella
             // 
             this.tabHuella.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.tabHuella.Controls.Add(this.txtEstatus);
+            this.tabHuella.Controls.Add(this.lbHuella);
+            this.tabHuella.Controls.Add(this.label30);
             this.tabHuella.Controls.Add(this.label14);
             this.tabHuella.Controls.Add(this.prgbar);
             this.tabHuella.Controls.Add(this.panel16);
             this.tabHuella.Controls.Add(this.btnAgregarHuella);
-            this.tabHuella.Controls.Add(this.PanelGuardar);
+            this.tabHuella.Controls.Add(this.PanelGuardarHuella);
             this.tabHuella.Controls.Add(this.panelTagHuella);
-            this.tabHuella.Controls.Add(this.pbVerHuella);
             this.tabHuella.Controls.Add(this.pbHuella);
             this.tabHuella.Location = new System.Drawing.Point(4, 29);
             this.tabHuella.Name = "tabHuella";
@@ -1328,12 +1331,62 @@
             this.tabHuella.TabIndex = 3;
             this.tabHuella.Text = "Huella Digital";
             // 
+            // txtEstatus
+            // 
+            this.txtEstatus.Location = new System.Drawing.Point(614, 117);
+            this.txtEstatus.Multiline = true;
+            this.txtEstatus.Name = "txtEstatus";
+            this.txtEstatus.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtEstatus.Size = new System.Drawing.Size(388, 252);
+            this.txtEstatus.TabIndex = 202;
+            // 
+            // lbHuella
+            // 
+            this.lbHuella.AutoSize = true;
+            this.lbHuella.BackColor = System.Drawing.Color.Transparent;
+            this.lbHuella.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHuella.ForeColor = System.Drawing.Color.Gray;
+            this.lbHuella.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbHuella.Location = new System.Drawing.Point(362, 466);
+            this.lbHuella.Name = "lbHuella";
+            this.lbHuella.Size = new System.Drawing.Size(123, 18);
+            this.lbHuella.TabIndex = 201;
+            this.lbHuella.Text = "Ingreso Huella 0";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.BackColor = System.Drawing.Color.Transparent;
+            this.label30.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.Gray;
+            this.label30.Image = ((System.Drawing.Image)(resources.GetObject("label30.Image")));
+            this.label30.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label30.Location = new System.Drawing.Point(611, 87);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(138, 18);
+            this.label30.TabIndex = 57;
+            this.label30.Text = "       Estatus Huella";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Gray;
+            this.label14.Image = ((System.Drawing.Image)(resources.GetObject("label14.Image")));
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label14.Location = new System.Drawing.Point(673, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(205, 18);
+            this.label14.TabIndex = 57;
+            this.label14.Text = "        Registrar Nueva Huella";
+            // 
             // prgbar
             // 
             this.prgbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.prgbar.Location = new System.Drawing.Point(430, 442);
+            this.prgbar.Location = new System.Drawing.Point(361, 442);
             this.prgbar.Name = "prgbar";
-            this.prgbar.Size = new System.Drawing.Size(504, 10);
+            this.prgbar.Size = new System.Drawing.Size(640, 10);
             this.prgbar.TabIndex = 199;
             this.prgbar.Visible = false;
             // 
@@ -1375,18 +1428,18 @@
             this.btnAgregarHuella.UseVisualStyleBackColor = false;
             this.btnAgregarHuella.Click += new System.EventHandler(this.btnAgregarHuella_Click);
             // 
-            // PanelGuardar
+            // PanelGuardarHuella
             // 
-            this.PanelGuardar.BackColor = System.Drawing.Color.Transparent;
-            this.PanelGuardar.Controls.Add(this.checkBox1);
-            this.PanelGuardar.Controls.Add(this.lblAccion);
-            this.PanelGuardar.Controls.Add(this.btnGuardarHuella);
-            this.PanelGuardar.ForeColor = System.Drawing.SystemColors.Control;
-            this.PanelGuardar.Location = new System.Drawing.Point(83, 141);
-            this.PanelGuardar.Name = "PanelGuardar";
-            this.PanelGuardar.Size = new System.Drawing.Size(304, 118);
-            this.PanelGuardar.TabIndex = 115;
-            this.PanelGuardar.TabStop = true;
+            this.PanelGuardarHuella.BackColor = System.Drawing.Color.Transparent;
+            this.PanelGuardarHuella.Controls.Add(this.checkBox1);
+            this.PanelGuardarHuella.Controls.Add(this.lblAccion);
+            this.PanelGuardarHuella.Controls.Add(this.btnGuardarHuella);
+            this.PanelGuardarHuella.ForeColor = System.Drawing.SystemColors.Control;
+            this.PanelGuardarHuella.Location = new System.Drawing.Point(23, 87);
+            this.PanelGuardarHuella.Name = "PanelGuardarHuella";
+            this.PanelGuardarHuella.Size = new System.Drawing.Size(304, 118);
+            this.PanelGuardarHuella.TabIndex = 115;
+            this.PanelGuardarHuella.TabStop = true;
             // 
             // checkBox1
             // 
@@ -1434,9 +1487,9 @@
             this.panelTagHuella.BackColor = System.Drawing.Color.Transparent;
             this.panelTagHuella.Controls.Add(this.lbMensajeHuella);
             this.panelTagHuella.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTagHuella.Location = new System.Drawing.Point(430, 384);
+            this.panelTagHuella.Location = new System.Drawing.Point(365, 384);
             this.panelTagHuella.Name = "panelTagHuella";
-            this.panelTagHuella.Size = new System.Drawing.Size(504, 58);
+            this.panelTagHuella.Size = new System.Drawing.Size(637, 58);
             this.panelTagHuella.TabIndex = 114;
             this.panelTagHuella.Visible = false;
             // 
@@ -1444,30 +1497,20 @@
             // 
             this.lbMensajeHuella.AutoSize = true;
             this.lbMensajeHuella.BackColor = System.Drawing.Color.Transparent;
-            this.lbMensajeHuella.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMensajeHuella.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMensajeHuella.ForeColor = System.Drawing.Color.White;
             this.lbMensajeHuella.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbMensajeHuella.Location = new System.Drawing.Point(14, 10);
+            this.lbMensajeHuella.Location = new System.Drawing.Point(3, 15);
             this.lbMensajeHuella.Name = "lbMensajeHuella";
-            this.lbMensajeHuella.Size = new System.Drawing.Size(118, 37);
+            this.lbMensajeHuella.Size = new System.Drawing.Size(88, 29);
             this.lbMensajeHuella.TabIndex = 26;
             this.lbMensajeHuella.Text = "Mensaje";
             this.lbMensajeHuella.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pbVerHuella
-            // 
-            this.pbVerHuella.BackColor = System.Drawing.Color.White;
-            this.pbVerHuella.Location = new System.Drawing.Point(708, 69);
-            this.pbVerHuella.Name = "pbVerHuella";
-            this.pbVerHuella.Size = new System.Drawing.Size(226, 282);
-            this.pbVerHuella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbVerHuella.TabIndex = 2;
-            this.pbVerHuella.TabStop = false;
-            // 
             // pbHuella
             // 
             this.pbHuella.BackColor = System.Drawing.Color.White;
-            this.pbHuella.Location = new System.Drawing.Point(430, 69);
+            this.pbHuella.Location = new System.Drawing.Point(365, 87);
             this.pbHuella.Name = "pbHuella";
             this.pbHuella.Size = new System.Drawing.Size(226, 282);
             this.pbHuella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1526,20 +1569,6 @@
             // 
             this.timer1.Interval = 4000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Gray;
-            this.label14.Image = ((System.Drawing.Image)(resources.GetObject("label14.Image")));
-            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label14.Location = new System.Drawing.Point(673, 30);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(205, 18);
-            this.label14.TabIndex = 57;
-            this.label14.Text = "        Registrar Nueva Huella";
             // 
             // AsignacionTrabajadorPerfil
             // 
@@ -1603,11 +1632,10 @@
             this.tabHuella.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
-            this.PanelGuardar.ResumeLayout(false);
-            this.PanelGuardar.PerformLayout();
+            this.PanelGuardarHuella.ResumeLayout(false);
+            this.PanelGuardarHuella.PerformLayout();
             this.panelTagHuella.ResumeLayout(false);
             this.panelTagHuella.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbVerHuella)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuella)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1686,10 +1714,9 @@
         private System.Windows.Forms.DataGridView dgvReloj;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.PictureBox pbVerHuella;
         private System.Windows.Forms.Panel panelTagHuella;
         private System.Windows.Forms.Label lbMensajeHuella;
-        private System.Windows.Forms.Panel PanelGuardar;
+        private System.Windows.Forms.Panel PanelGuardarHuella;
         private System.Windows.Forms.Label lblAccion;
         private System.Windows.Forms.Button btnGuardarHuella;
         private System.Windows.Forms.Button btnAgregarHuella;
@@ -1699,5 +1726,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ProgressBar prgbar;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbHuella;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txtEstatus;
     }
 }

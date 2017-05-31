@@ -133,32 +133,33 @@ namespace SIPAA_CS.App_Code
         public List<string> ObtenerListaModulosxUsuario(string CVUsuario,int iOpcion)
         {
 
-            Perfil objPerfil = new Perfil();
-            List<int> ltPerfiles = objPerfil.ObtenerPerfilesxUsuario(CVUsuario,0,4);
-
             List<string> ltModulosxUsuario = new List<string>();
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_accepermisos_s";
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.Add("@P_cvusuario", SqlDbType.VarChar).Value = CVUsuario;
+            cmd.Parameters.Add("@P_cvmodulo", SqlDbType.VarChar).Value = "CS";
+            cmd.Parameters.Add("@P_opcion", SqlDbType.Int).Value = iOpcion;
+           
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
 
-            foreach (int iCV in ltPerfiles)
+            DataTable dt = new DataTable();
+            Adapter.Fill(dt);
+
+            foreach (DataRow row in dt.Rows)
             {
-
-                Modulo objModulo = new Modulo();
-                // int iCVPerfil = ltPerfiles.ElementAt(iCV);
-                List<string> ltModulos = objModulo.obtenerModulosxPerfil(iCV,iOpcion);
-
-                foreach (string obj in ltModulos)
-                {
-                    if (!ltModulosxUsuario.Contains(obj))
+                string str = row[0].ToString();
+                if (!ltModulosxUsuario.Contains(str))
                     {
-                        ltModulosxUsuario.Add(obj);
-                    }
-                }
-
+                        ltModulosxUsuario.Add(str.Trim());
+                    }             
             }
             return ltModulosxUsuario;
-
-           
-
+            
         }
 
         public Usuario ObtenerListaTrabajadorUsuario(int opcion, int Idtrab)

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using SIPAA_CS.Conexiones;
 using System.Data;
 using System.Data.SqlClient;
-using Neurotec.Biometrics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -130,7 +129,7 @@ namespace SIPAA_CS.App_Code
 
 
 
-        public DataTable GestionHuella(byte[] arrImagen, string sIdtrab,string sUsuumod,string sPrgmod,int iOpcion)
+        public DataTable GestionHuella(byte[] arrTemplate,byte[] arrImagen, string sIdtrab,string sUsuumod,string sPrgmod,int iOpcion)
         {
 
             SqlCommand cmd = new SqlCommand();
@@ -142,7 +141,8 @@ namespace SIPAA_CS.App_Code
             cmd.CommandText = "usp_rechhuella_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = sIdtrab;
-            cmd.Parameters.Add("@P_template",SqlDbType.Image).Value = arrImagen;
+            cmd.Parameters.Add("@P_template", SqlDbType.Image).Value = arrTemplate;
+            cmd.Parameters.Add("@P_imgtemplate",SqlDbType.Image).Value = arrImagen;
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = sUsuumod;
             cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = sPrgmod;
             cmd.Parameters.Add("@P_opcion", SqlDbType.Int).Value = iOpcion;
@@ -183,5 +183,33 @@ namespace SIPAA_CS.App_Code
             daRegistroDetalle.Fill(dtRegistroDetalle);
             return (dtRegistroDetalle);
         }
+
+
+        public DataTable Relojchecador(string sidtrab,int iOpcion,DateTime dtFechaRegistro, TimeSpan tpHoraRegistro,int iCvReloj
+                                       ,int iTraspaso, string sUsumod,string sPrgmod)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechtregistro_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sidtrab;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@P_feregistro", SqlDbType.DateTime).Value = dtFechaRegistro;
+            cmd.Parameters.Add("@P_horaregistro", SqlDbType.Time).Value = tpHoraRegistro;
+            cmd.Parameters.Add("@P_cvreloj", SqlDbType.Int).Value = iCvReloj;
+            cmd.Parameters.Add("@P_traspaso", SqlDbType.Int).Value = iTraspaso;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = sUsumod;
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = sPrgmod;
+
+            objConexion.asignarConexion(cmd);
+     
+            SqlDataAdapter daRegistroDetalle = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+            DataTable dt = new DataTable();
+            daRegistroDetalle.Fill(dt);
+            return (dt);
+        }
+
     }
 }

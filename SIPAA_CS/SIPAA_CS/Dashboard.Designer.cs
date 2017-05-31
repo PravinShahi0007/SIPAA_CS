@@ -78,7 +78,7 @@
             this.btnCompras.Name = "btnCompras";
             this.btnCompras.Size = new System.Drawing.Size(270, 132);
             this.btnCompras.TabIndex = 52;
-            this.btnCompras.Tag = "frmCompras";
+            this.btnCompras.Tag = "COMPR";
             this.btnCompras.Text = "Compras";
             this.btnCompras.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnCompras.UseVisualStyleBackColor = false;
@@ -94,7 +94,7 @@
             this.btnSistemas.Name = "btnSistemas";
             this.btnSistemas.Size = new System.Drawing.Size(270, 132);
             this.btnSistemas.TabIndex = 51;
-            this.btnSistemas.Tag = "frmSistemas";
+            this.btnSistemas.Tag = "SIST";
             this.btnSistemas.Text = "Sistemas";
             this.btnSistemas.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnSistemas.UseVisualStyleBackColor = false;
@@ -110,7 +110,7 @@
             this.btnEscolar.Name = "btnEscolar";
             this.btnEscolar.Size = new System.Drawing.Size(270, 132);
             this.btnEscolar.TabIndex = 50;
-            this.btnEscolar.Tag = "frmControlEscolar";
+            this.btnEscolar.Tag = "CTRESC";
             this.btnEscolar.Text = "Control Escolar";
             this.btnEscolar.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnEscolar.UseVisualStyleBackColor = false;
@@ -126,7 +126,7 @@
             this.btnDeportivo.Name = "btnDeportivo";
             this.btnDeportivo.Size = new System.Drawing.Size(270, 132);
             this.btnDeportivo.TabIndex = 49;
-            this.btnDeportivo.Tag = "frmDeportivo";
+            this.btnDeportivo.Tag = "DEPOR";
             this.btnDeportivo.Text = "Deportivo";
             this.btnDeportivo.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnDeportivo.UseVisualStyleBackColor = false;
@@ -142,7 +142,7 @@
             this.btnContabilidad.Name = "btnContabilidad";
             this.btnContabilidad.Size = new System.Drawing.Size(270, 132);
             this.btnContabilidad.TabIndex = 48;
-            this.btnContabilidad.Tag = "frmContabilidad";
+            this.btnContabilidad.Tag = "CONTA";
             this.btnContabilidad.Text = "Contabilidad";
             this.btnContabilidad.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnContabilidad.UseVisualStyleBackColor = false;
@@ -158,7 +158,7 @@
             this.btnAccesos.Name = "btnAccesos";
             this.btnAccesos.Size = new System.Drawing.Size(270, 132);
             this.btnAccesos.TabIndex = 47;
-            this.btnAccesos.Tag = "AcceDashboard";
+            this.btnAccesos.Tag = "ACCE";
             this.btnAccesos.Text = "Accesos";
             this.btnAccesos.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnAccesos.UseVisualStyleBackColor = false;
@@ -175,7 +175,7 @@
             this.btnIngresos.Name = "btnIngresos";
             this.btnIngresos.Size = new System.Drawing.Size(270, 132);
             this.btnIngresos.TabIndex = 46;
-            this.btnIngresos.Tag = "frmIngresos";
+            this.btnIngresos.Tag = "INGR";
             this.btnIngresos.Text = "Ingresos";
             this.btnIngresos.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnIngresos.UseVisualStyleBackColor = false;
@@ -191,7 +191,7 @@
             this.btnAlmacen.Name = "btnAlmacen";
             this.btnAlmacen.Size = new System.Drawing.Size(270, 132);
             this.btnAlmacen.TabIndex = 45;
-            this.btnAlmacen.Tag = "frmAlmacen";
+            this.btnAlmacen.Tag = "ALMC";
             this.btnAlmacen.Text = "Almacén";
             this.btnAlmacen.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnAlmacen.UseVisualStyleBackColor = false;
@@ -209,7 +209,7 @@
             this.btnRecursosh.Name = "btnRecursosh";
             this.btnRecursosh.Size = new System.Drawing.Size(270, 132);
             this.btnRecursosh.TabIndex = 44;
-            this.btnRecursosh.Tag = "RechDashboard";
+            this.btnRecursosh.Tag = "RECH";
             this.btnRecursosh.Text = "Recursos Humanos";
             this.btnRecursosh.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnRecursosh.UseVisualStyleBackColor = false;
