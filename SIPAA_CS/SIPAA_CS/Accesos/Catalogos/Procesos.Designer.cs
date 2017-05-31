@@ -1,4 +1,4 @@
-﻿namespace SIPAA_CS.Accesos
+﻿namespace SIPAA_CS.Accesos.Catalogos
 {
     partial class Procesos
     {

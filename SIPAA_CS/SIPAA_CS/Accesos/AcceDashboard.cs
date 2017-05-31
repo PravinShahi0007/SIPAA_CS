@@ -1,4 +1,5 @@
 ﻿using SIPAA_CS.Accesos;
+using SIPAA_CS.Accesos.Catalogos;
 using SIPAA_CS.App_Code;
 using System;
 using System.Collections.Generic;
