@@ -256,6 +256,10 @@
             this.cbAmbiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbAmbiente.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAmbiente.FormattingEnabled = true;
+            this.cbAmbiente.Items.AddRange(new object[] {
+            "Selecciona un Ambiente",
+            "CS",
+            "WEB"});
             this.cbAmbiente.Location = new System.Drawing.Point(42, 198);
             this.cbAmbiente.Name = "cbAmbiente";
             this.cbAmbiente.Size = new System.Drawing.Size(291, 25);

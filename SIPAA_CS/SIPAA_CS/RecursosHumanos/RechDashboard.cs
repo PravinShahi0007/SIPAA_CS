@@ -40,16 +40,8 @@ namespace SIPAA_CS.RecursosHumanos
             lblusuario.Text = LoginInfo.Nombre;
 
             Usuario objUsuario = new Usuario();
-            //string IdTrab = LoginInfo.IdTrab;
-            //List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab, 5);
-
-            //Utilerias.MenuDinamico(MenuAccesos, ltModulosxUsuario);
-
-            //carga imagen
-            //Util.cargaimagen(pictureBox1);
 
             cargaMenu(0, null, mstrechum);
-
 
         }
 
@@ -81,7 +73,7 @@ namespace SIPAA_CS.RecursosHumanos
             DataTable menudin = new DataTable();
             menudin = Perf.dtmenudinamicocs(6,LoginInfo.IdTrab,"RECH");
             DataView DatosHijos = new DataView(menudin);
-
+            
             DatosHijos.RowFilter = menudin.Columns["cvindmodulo"].ColumnName + "=" + IdMaster;
 
             foreach (DataRowView fila in DatosHijos)
@@ -136,21 +128,21 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void Event(object sender, EventArgs e)
         {
+            
             ToolStripMenuItem ItemClick = (ToolStripMenuItem)sender;
             eclicck(ItemClick.Name);
         }
 
-        private void eclicck(string NombreFormulario)
+        private void eclicck(string nombreformulario)
         {
-            Form Frm;
-            if (NombreFormulario != "")
+            Form formulario;
+            if (nombreformulario != "")
             {
-                //Frm = (Form)Activator.CreateInstance(null, "SIPAA_CS.RecursosHumanos.Catalogos.PlantillasDetalles").Unwrap();
-                //Frm.Show();
-
-                Frm = (Form)Activator.CreateInstance(null, NombreFormulario).Unwrap();
-                Frm.Show();
+                formulario = (Form)Activator.CreateInstance(null, nombreformulario).Unwrap();
+                formulario.Show();
+                //this.Close();
             }
         }
+
     }
 }
