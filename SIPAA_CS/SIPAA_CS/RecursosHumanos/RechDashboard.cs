@@ -79,7 +79,7 @@ namespace SIPAA_CS.RecursosHumanos
         {
 
             DataTable menudin = new DataTable();
-            menudin = Perf.dtmenudinamicocs(6,"ADMIN","RECH");
+            menudin = Perf.dtmenudinamicocs(6,LoginInfo.IdTrab,"RECH");
             DataView DatosHijos = new DataView(menudin);
 
             DatosHijos.RowFilter = menudin.Columns["cvindmodulo"].ColumnName + "=" + IdMaster;

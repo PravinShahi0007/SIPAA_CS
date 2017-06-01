@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label23;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsignacionIncidenciasTrabajador));
             System.Windows.Forms.Label label13;
@@ -67,6 +68,10 @@
             this.lbAsignacion = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panelTrab = new System.Windows.Forms.Panel();
+            this.panelTag = new System.Windows.Forms.Panel();
+            this.lbMensaje = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label7 = new System.Windows.Forms.Label();
             label23 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -79,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvInc)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
             this.panelTrab.SuspendLayout();
+            this.panelTag.SuspendLayout();
             this.SuspendLayout();
             // 
             // label23
@@ -310,20 +316,20 @@
             // lbNombre
             // 
             this.lbNombre.AutoSize = true;
-            this.lbNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNombre.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNombre.Location = new System.Drawing.Point(67, 63);
             this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(63, 16);
+            this.lbNombre.Size = new System.Drawing.Size(59, 16);
             this.lbNombre.TabIndex = 201;
             this.lbNombre.Text = "lbNombre";
             // 
             // lbIdTrab
             // 
             this.lbIdTrab.AutoSize = true;
-            this.lbIdTrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIdTrab.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIdTrab.Location = new System.Drawing.Point(59, 35);
             this.lbIdTrab.Name = "lbIdTrab";
-            this.lbIdTrab.Size = new System.Drawing.Size(43, 16);
+            this.lbIdTrab.Size = new System.Drawing.Size(42, 16);
             this.lbIdTrab.TabIndex = 200;
             this.lbIdTrab.Text = "IdTrab";
             // 
@@ -366,6 +372,7 @@
             this.dgvInc.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.dgvInc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvInc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvInc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvInc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvInc.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -394,6 +401,7 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.label7);
             this.pnlBusqueda.Controls.Add(this.dtimeFechaFinAsig);
             this.pnlBusqueda.Controls.Add(label10);
             this.pnlBusqueda.Controls.Add(label11);
@@ -529,7 +537,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label14.Location = new System.Drawing.Point(17, 511);
+            this.label14.Location = new System.Drawing.Point(17, 523);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(373, 16);
             this.label14.TabIndex = 207;
@@ -542,10 +550,53 @@
             this.panelTrab.Controls.Add(this.label5);
             this.panelTrab.Controls.Add(this.lbIdTrab);
             this.panelTrab.Controls.Add(this.lbNombre);
-            this.panelTrab.Location = new System.Drawing.Point(8, 100);
+            this.panelTrab.Location = new System.Drawing.Point(8, 115);
             this.panelTrab.Name = "panelTrab";
             this.panelTrab.Size = new System.Drawing.Size(311, 100);
             this.panelTrab.TabIndex = 208;
+            // 
+            // panelTag
+            // 
+            this.panelTag.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.panelTag.Controls.Add(this.lbMensaje);
+            this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTag.Location = new System.Drawing.Point(404, 518);
+            this.panelTag.Name = "panelTag";
+            this.panelTag.Size = new System.Drawing.Size(616, 27);
+            this.panelTag.TabIndex = 212;
+            this.panelTag.Visible = false;
+            // 
+            // lbMensaje
+            // 
+            this.lbMensaje.AutoSize = true;
+            this.lbMensaje.BackColor = System.Drawing.Color.Transparent;
+            this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMensaje.ForeColor = System.Drawing.Color.White;
+            this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbMensaje.Location = new System.Drawing.Point(4, 3);
+            this.lbMensaje.Name = "lbMensaje";
+            this.lbMensaje.Size = new System.Drawing.Size(60, 20);
+            this.lbMensaje.TabIndex = 26;
+            this.lbMensaje.Tag = "frmAsignar_Perfil";
+            this.lbMensaje.Text = "Mensaje";
+            this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Gray;
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.Location = new System.Drawing.Point(802, 105);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 20);
+            this.label7.TabIndex = 212;
+            this.label7.Text = "Guardar";
             // 
             // AsignacionIncidenciasTrabajador
             // 
@@ -554,6 +605,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.panelTag);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.label12);
@@ -579,6 +631,8 @@
             this.pnlBusqueda.PerformLayout();
             this.panelTrab.ResumeLayout(false);
             this.panelTrab.PerformLayout();
+            this.panelTag.ResumeLayout(false);
+            this.panelTag.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -614,5 +668,9 @@
         private System.Windows.Forms.DateTimePicker dtimeFechaInicioAsig;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panelTrab;
+        private System.Windows.Forms.Panel panelTag;
+        private System.Windows.Forms.Label lbMensaje;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label7;
     }
 }

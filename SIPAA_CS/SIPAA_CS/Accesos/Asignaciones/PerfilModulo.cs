@@ -40,64 +40,78 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
         private void llenarGridPerfiles(Perfil objPerfil) {
 
-
-            if (dgvPerfil.Columns.Count > 0) {
-
-                dgvPerfil.Columns.RemoveAt(2);
+         
+            if (dgvPerfil.Columns.Count == 0)
+            {
+                Utilerias.AgregarCheck(dgvPerfil, 0);
+                
             }
+
             string cvPerfil = "%";
             string strEstatus = "%";
             if (objPerfil.CVPerfil != 0) { cvPerfil = objPerfil.CVPerfil.ToString(); }
             if (objPerfil.Estatus != 0) { strEstatus = objPerfil.Estatus.ToString(); }
 
-            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda(cvPerfil , objPerfil.Descripcion, strEstatus);
+            DataTable dtPerfiles = objPerfil.ObtenerPerfilesxBusqueda(cvPerfil, objPerfil.Descripcion, strEstatus);
             dgvPerfil.DataSource = dtPerfiles;
-            Utilerias.AgregarCheck(dgvPerfil, 2);
+
+   
+       
+       
+           
             dgvPerfil.Columns[1].Width = 160;
-            dgvPerfil.Columns[3].Visible = false;
-            dgvPerfil.Columns[4].Visible = false;
-            dgvPerfil.Columns[5].Visible = false;
-            dgvPerfil.Columns[6].Visible = false;
+            dgvPerfil.Columns["usuumod"].Visible = false;
+            dgvPerfil.Columns["fhumod"].Visible = false;
+            dgvPerfil.Columns["prgumod"].Visible = false;
+            dgvPerfil.Columns["Estatus"].Visible = false;
             dgvPerfil.ClearSelection();
 
 
             
         }
 
-      
+
 
         private void llenarGridModulos(Modulo objModulo) {
 
 
-
-            if (dgvModulos.Columns.Count > 0)
+            if (dgvModulos.Columns.Count == 0)
             {
+                Utilerias.AgregarCheck(dgvModulos, 0);
+                ckbheader = Utilerias.AgregarCheckboxHeader(dgvModulos, 0);
+                ckbheader.CheckedChanged += Ckbheader_CheckedChanged;
 
-                dgvModulos.Columns.RemoveAt(0);
-                dgvModulos.Controls.RemoveByKey("checkboxHeader");
             }
+          
+            
+
+
             string strEstatus = "%";
             if (objModulo.Estatus != 0) { strEstatus = objModulo.Estatus.ToString(); }
-           
-            List<Modulo> ltModulo = objModulo.ObtenerListModulos(objModulo.CVModulo, objModulo.Descripcion
+
+
+
+            DataTable dtModulo = objModulo.ObtenerListModulos(objModulo.CVModulo, objModulo.Descripcion
                                                                 , objModulo.Ambiente
                                                                 , objModulo.strModulo
                                                                 , strEstatus);
-
-            DataTable dtModulo = objModulo.ObtenerDataTableModulo(ltModulo);
             dgvModulos.DataSource = dtModulo;
 
-            Utilerias.AgregarCheck(dgvModulos, 0);
+            
+
+         
 
             dgvModulos.ClearSelection();
             dgvPerfil.Columns["CVPERFIL"].Visible = false;
+            dgvModulos.Columns["IdModulo"].Visible = false;
             dgvModulos.Columns["Orden"].Visible = false;
-            dgvModulos.Columns["Ambiente"].Visible = false;
-            dgvModulos.Columns["Descripción"].Visible = false;
+            //dgvModulos.Columns["Ambiente"].Visible = false;
+            dgvModulos.Columns["cvmodulo"].Visible = false;
+            dgvModulos.Columns["cvindmodulo"].Visible = false;
+            dgvModulos.Columns["rutaacceso"].Visible = false;
             dgvModulos.Columns["Estatus"].Visible = true;
 
-             ckbheader = Utilerias.AgregarCheckboxHeader(dgvModulos, 0);
-            ckbheader.CheckedChanged += Ckbheader_CheckedChanged;
+          
 
 
 
@@ -140,26 +154,36 @@ namespace SIPAA_CS.Accesos.Asignaciones
      
         private void dgvModulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            ckbheader.Checked = false;
-            if (CVPerfil != 0)
+            if (dgvModulos.Enabled != false)
             {
-
-                dgvModulos.Rows[ultimaseleccion].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                dgvPerfil_CellContentClick(sender, e);
-
-
-                if (dgvModulos.SelectedRows.Count != 0)
+                ckbheader.Checked = false;
+                if (CVPerfil != 0)
                 {
-                    Modulo objModulo = new Modulo();
-                    dtPermisos = objModulo.obtenerModulosxCvPerfil(CVPerfil);
 
-                    DataGridViewRow row = this.dgvModulos.SelectedRows[0];
-                    ultimaseleccion = row.Index;
-                    CVModulo = row.Cells[1].Value.ToString();
+                    dgvModulos.Rows[ultimaseleccion].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                    dgvPerfil_CellContentClick(sender, e);
 
-                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    BotonActual(dtPermisos);
 
+                    if (dgvModulos.SelectedRows.Count != 0)
+                    {
+                        Modulo objModulo = new Modulo();
+                        dtPermisos = objModulo.obtenerModulosxCvPerfil(CVPerfil);
+
+                        DataGridViewRow row = this.dgvModulos.SelectedRows[0];
+                        ultimaseleccion = row.Index;
+                        CVModulo = row.Cells[1].Value.ToString();
+
+                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                        BotonActual(dtPermisos);
+
+                    }
+                    else
+                    {
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Perfil");
+                        dgvModulos.ClearSelection();
+                        dgvPerfil.ClearSelection();
+                        timer1.Start();
+                    }
                 }
                 else
                 {
@@ -167,14 +191,8 @@ namespace SIPAA_CS.Accesos.Asignaciones
                     dgvModulos.ClearSelection();
                     dgvPerfil.ClearSelection();
                     timer1.Start();
-                }
-            }
-            else {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Perfil");
-                dgvModulos.ClearSelection();
-                dgvPerfil.ClearSelection();
-                timer1.Start();
 
+                }
             }
         }
 
@@ -182,46 +200,54 @@ namespace SIPAA_CS.Accesos.Asignaciones
         private void BotonActual(DataTable dtPermisos) {
        
             panelPermisos.Enabled = true;
-            DataRow[] rows = dtPermisos.Select("CVMODULO = '" + CVModulo + "'");
-            iOpcionAdmin = 1;
+            DataRow[] rows = dtPermisos.Select("IdModulo = '" + CVModulo + "'");
+            
 
             if (rows.Count() == 0)
             {
-               
-                AsignarBotonResize(btnGuardar, PantallaSistema(), Botones.Guardar);
-                ckbEliminarAsig.Visible = false;
 
+                if (Permisos.dcPermisos["Crear"] == 1)
+                {
+                    ckbEliminarAsig.Visible = false;
 
-                // panelPermisos.Enabled = false;
-                ckbActualizar.Checked = false;
-                ckbAgregar.Checked = false;
-                ckbEliminar.Checked = false;
-                ckbEliminarAsig.Checked = false;
-                ckbImprimir.Checked = false;
-                ckbLectura.Checked = true;
-                AsignarBotonResize(btnGuardar, PantallaSistema(), Botones.Guardar);
+                    iOpcionAdmin = 1;
+                    // panelPermisos.Enabled = false;
+                    ckbActualizar.Checked = false;
+                    ckbAgregar.Checked = false;
+                    ckbEliminar.Checked = false;
+                    ckbEliminarAsig.Checked = false;
+                    ckbImprimir.Checked = false;
+                    ckbLectura.Checked = true;
 
+                    panelPermisos.Visible = true;
+                    AsignarBotonResize(btnGuardar, PantallaSistema(), Botones.Guardar);
+
+                }
             }
             else
             {
-                /* 0 CVModulo
-                 * 1 CREAR 
-                 * 2 ELIMINAR 
-                 * 3 ACTUALIZAR 
-                 * 4IMPRIMIR 
-                 * 5 LECTURA
-            * */
-                iOpcionAdmin = 1;
-                Utilerias.AsignarBotonResize(btnGuardar,Utilerias.PantallaSistema(), Botones.Editar);
-                //btnGuardar.Image = Resources.Editar;
-                ckbEliminarAsig.Visible = true;
-                ckbEliminarAsig.Checked = false;
-                if (rows[0].ItemArray[2].ToString() == "1") { ckbLectura.Checked = true; } else { ckbLectura.Checked = false; }
-                if (rows[0].ItemArray[3].ToString() == "1") { ckbActualizar.Checked = true; } else { ckbActualizar.Checked = false; }
-                if (rows[0].ItemArray[4].ToString() == "1") { ckbEliminar.Checked = true; } else { ckbEliminar.Checked = false; }
-                if (rows[0].ItemArray[5].ToString() == "1") { ckbImprimir.Checked = true; } else { ckbImprimir.Checked = false; }
-                if (rows[0].ItemArray[6].ToString() == "1") { ckbAgregar.Checked = true; } else { ckbAgregar.Checked = false; }
+
+                if (Permisos.dcPermisos["Actualizar"] == 1 && Permisos.dcPermisos["Eliminar"] == 1)
+                {
+                    iOpcionAdmin = 1;
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Editar);
+                    //btnGuardar.Image = Resources.Editar;
+                    ckbEliminarAsig.Visible = true;
+                    ckbEliminarAsig.Checked = false;
+                    if (rows[0].ItemArray[3].ToString() == "1") { ckbLectura.Checked = true; } else { ckbLectura.Checked = false; }
+                    if (rows[0].ItemArray[4].ToString() == "1") { ckbActualizar.Checked = true; } else { ckbActualizar.Checked = false; }
+                    if (rows[0].ItemArray[5].ToString() == "1") { ckbEliminar.Checked = true; } else { ckbEliminar.Checked = false; }
+                    if (rows[0].ItemArray[6].ToString() == "1") { ckbImprimir.Checked = true; } else { ckbImprimir.Checked = false; }
+                    if (rows[0].ItemArray[7].ToString() == "1") { ckbAgregar.Checked = true; } else { ckbAgregar.Checked = false; }
+                }
+                else {
+                    iOpcionAdmin = 3;
+
+                    btnGuardar.Visible = true;
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Borrar);
+                }
             }
+            
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -292,14 +318,14 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
 
 
-            if (txtModulo.Text != String.Empty)
-            {
-                strModulo = txtModulo.Text;
-            }
-            else
-            {
-                strModulo = "%";
-            }
+            //if (txtModulo.Text != String.Empty)
+            //{
+            //    strModulo = txtModulo.Text;
+            //}
+            //else
+            //{
+            //    strModulo = "%";
+            //}
             if (cbAmbiente.SelectedIndex > 0)
             {
                 strAmbiente = cbAmbiente.SelectedItem.ToString();
@@ -568,8 +594,15 @@ namespace SIPAA_CS.Accesos.Asignaciones
         private void Asignar_Modulo_Load(object sender, EventArgs e)
         {
             string idtrab = LoginInfo.IdTrab;
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-            
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            lblusuario.Text = LoginInfo.Nombre;
+
             Perfil objPerfil = new Perfil();
             objPerfil.CVPerfil = 0;
             objPerfil.Descripcion = "%";
@@ -594,7 +627,15 @@ namespace SIPAA_CS.Accesos.Asignaciones
             ckbImprimir.Checked = false;
             ckbLectura.Checked = false;
 
-           
+
+
+            if (Permisos.dcPermisos["Crear"] != 1 && Permisos.dcPermisos["Eliminar"] != 1 && Permisos.dcPermisos["Actualizar"] != 1)
+            {
+                panelPermisos.Visible = false;
+                dgvModulos.Enabled = false;
+            }
+            
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -630,7 +671,7 @@ namespace SIPAA_CS.Accesos.Asignaciones
             for (int iContador = 0; iContador < dgvModulos.Rows.Count; iContador++)
             {
                 string cvModulo = dgvModulos.Rows[iContador].Cells[1].Value.ToString();
-                DataRow[] rows = dtPermisos.Select("CVMODULO = '" + cvModulo + "'");
+                DataRow[] rows = dtPermisos.Select("IdModulo = '" + cvModulo + "'");
                 if (rows.Count() != 0)
                 {
                     dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_check_circle_blue_grey_600_18dp;

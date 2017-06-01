@@ -34,16 +34,16 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             Conexion objConexion = new Conexion();
 
             cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = objIncidencia.iIdtrab;
-            cmd.Parameters.Add("@P_Opcion", SqlDbType.DateTime).Value = iOpcion;
-            cmd.Parameters.Add("@P_FechaRegistro", SqlDbType.Int).Value = fFecharegistro;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@P_FechaRegistro", SqlDbType.DateTime).Value = fFecharegistro;
             cmd.Parameters.Add("@P_cvincidencia", SqlDbType.Int).Value = iCvIncidencia;
             cmd.Parameters.Add("@P_cvtipo", SqlDbType.Int).Value = objIncidencia.iCvTipo;
             cmd.Parameters.Add("@P_cvincidencia2", SqlDbType.Int).Value = objIncidencia.iCvIncidencia2;
-            cmd.Parameters.Add("@P_cvtipo2", SqlDbType.VarChar).Value = objIncidencia.iCvTipo2;
-            cmd.Parameters.Add("@P_FechaInicio", SqlDbType.Int).Value = objIncidencia.fFechaInicio;
+            cmd.Parameters.Add("@P_cvtipo2", SqlDbType.Int).Value = objIncidencia.iCvTipo2;
+            cmd.Parameters.Add("@P_FechaInicio", SqlDbType.DateTime).Value = objIncidencia.fFechaInicio;
             cmd.Parameters.Add("@P_FechaFin", SqlDbType.DateTime).Value = objIncidencia.fFechaFin;
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = objIncidencia.sUsuumod;
-            cmd.Parameters.Add("@P_prgumod", SqlDbType.Int).Value = objIncidencia.sPrgumod;
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = objIncidencia.sPrgumod;
             
             objConexion.asignarConexion(cmd);
 
