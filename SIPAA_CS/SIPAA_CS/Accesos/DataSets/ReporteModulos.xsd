@@ -12,7 +12,7 @@
   <xs:element name="ReporteModulos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReporteModulos" msprop:Generator_UserDSName="ReporteModulos">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ReporteModulos" msprop:Generator_TableClassName="ReporteModulosDataTable" msprop:Generator_TableVarName="tableReporteModulos" msprop:Generator_RowChangedName="ReporteModulosRowChanged" msprop:Generator_TablePropName="_ReporteModulos" msprop:Generator_RowDeletingName="ReporteModulosRowDeleting" msprop:Generator_RowChangingName="ReporteModulosRowChanging" msprop:Generator_RowEvHandlerName="ReporteModulosRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteModulosRowDeleted" msprop:Generator_RowClassName="ReporteModulosRow" msprop:Generator_UserTableName="ReporteModulos" msprop:Generator_RowEvArgName="ReporteModulosRowChangeEvent">
+        <xs:element name="ReporteModulos" msprop:Generator_TableClassName="ReporteModulosDataTable" msprop:Generator_TableVarName="tableReporteModulos" msprop:Generator_TablePropName="_ReporteModulos" msprop:Generator_RowDeletingName="ReporteModulosRowDeleting" msprop:Generator_RowChangingName="ReporteModulosRowChanging" msprop:Generator_RowEvHandlerName="ReporteModulosRowChangeEventHandler" msprop:Generator_RowDeletedName="ReporteModulosRowDeleted" msprop:Generator_UserTableName="ReporteModulos" msprop:Generator_RowChangedName="ReporteModulosRowChanged" msprop:Generator_RowEvArgName="ReporteModulosRowChangeEvent" msprop:Generator_RowClassName="ReporteModulosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idmodulo" msprop:Generator_ColumnVarNameInTable="columnidmodulo" msprop:Generator_ColumnPropNameInRow="idmodulo" msprop:Generator_ColumnPropNameInTable="idmoduloColumn" msprop:Generator_UserColumnName="idmodulo" type="xs:string" minOccurs="0" />
@@ -22,6 +22,7 @@
               <xs:element name="cvindmodulo" msprop:Generator_ColumnVarNameInTable="columncvindmodulo" msprop:Generator_ColumnPropNameInRow="cvindmodulo" msprop:Generator_ColumnPropNameInTable="cvindmoduloColumn" msprop:Generator_UserColumnName="cvindmodulo" type="xs:string" minOccurs="0" />
               <xs:element name="rutaaceso" msprop:Generator_ColumnVarNameInTable="columnrutaaceso" msprop:Generator_ColumnPropNameInRow="rutaaceso" msprop:Generator_ColumnPropNameInTable="rutaacesoColumn" msprop:Generator_UserColumnName="rutaaceso" type="xs:string" minOccurs="0" />
               <xs:element name="Estatus" msprop:Generator_ColumnVarNameInTable="columnEstatus" msprop:Generator_ColumnPropNameInRow="Estatus" msprop:Generator_ColumnPropNameInTable="EstatusColumn" msprop:Generator_UserColumnName="Estatus" type="xs:string" minOccurs="0" />
+              <xs:element name="cvtipomodulo1" msprop:Generator_ColumnVarNameInTable="columncvtipomodulo1" msprop:Generator_ColumnPropNameInRow="cvtipomodulo1" msprop:Generator_ColumnPropNameInTable="cvtipomodulo1Column" msprop:Generator_UserColumnName="cvtipomodulo1" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

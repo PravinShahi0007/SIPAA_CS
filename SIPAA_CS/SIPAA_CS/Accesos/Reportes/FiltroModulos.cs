@@ -25,7 +25,7 @@ namespace SIPAA_CS.Accesos.Reportes
         int sysH = SystemInformation.PrimaryMonitorSize.Height;
         int sysW = SystemInformation.PrimaryMonitorSize.Width;
         Utilerias utilerias = new Utilerias();
-        
+
         //***********************************************************************************************
         //Autor: Gamaliel Lobato Solis
         //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
@@ -69,15 +69,15 @@ namespace SIPAA_CS.Accesos.Reportes
                     if (estatus == 1)
                     {
                         //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "1", "", "", 15);
-                        dtReporte = objModulo.ReporteModulos(valcvmodpad, "", cbModulo.SelectedItem.ToString(), "", "", cbAmbiente.SelectedItem.ToString(), "", "", "1", "", "", 8);
+                        dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", cbAmbiente.SelectedItem.ToString(), valmodulo, "", "1", "", "", 8);
                     }
                     else if (estatus == 2)
                     {
                         //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "0", "", "", 15);
-                        dtReporte = objModulo.ReporteModulos(valcvmodpad, "", cbModulo.SelectedItem.ToString(), "", "", cbAmbiente.SelectedItem.ToString(), "", "","0", "", "", 8);
+                        dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", cbAmbiente.SelectedItem.ToString(), valmodulo, "","0", "", "", 8);
                     }
                         //dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", "%", "", "%", "", "", 15);
-                        dtReporte = objModulo.ReporteModulos("%", "", "%", "", "", "%", "", "", "%", "", "", 8);
+                        dtReporte = objModulo.ReporteModulos("%", "", "", "", "", "%", "%", "", "%", "", "", 8);
 
                     switch (dtReporte.Rows.Count)
                     {
@@ -85,16 +85,22 @@ namespace SIPAA_CS.Accesos.Reportes
                         case 0:
                             DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                             cbEstatus.Text = "Seleccionar un Estatus";
-                            llenaComboModPad();
-                            llenaComboModulo();
-                            llenaComboAmbiente();
+                            cbAmbiente.Text = "Seleccionar un Ambiente";
+                            DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                            llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                            DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                            llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                             break;
 
                         default:
                             cbEstatus.Text = "Seleccionar un Estatus";
-                            llenaComboModPad();
-                            llenaComboModulo();
-                            llenaComboAmbiente();
+                            cbAmbiente.Text = "Seleccionar un Ambiente";
+                            DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                            llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                            DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                            llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                             ViewerReporte form = new ViewerReporte();
                             ReporteModulos dtrpt = new ReporteModulos();
                             ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -121,24 +127,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", "", 0, "", "", "", "%", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos("%", "", "%", "", "", "%", "", "", "1", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "", "", "", "%", "%", "", "1", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -158,24 +170,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", "%", "", "1", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos("%", "", "%", "", "", "%", "", "", "1", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", "%", "%", "", "1", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -195,24 +213,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), "%", "", "1", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos("%", "", "%", "", "", cbAmbiente.SelectedItem.ToString(), "", "", "1", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "", "", "", cbAmbiente.SelectedItem.ToString(), "%", "", "1", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -232,24 +256,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", cbModulo.SelectedItem.ToString(), "", "1", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos("%", "", cbModulo.SelectedItem.ToString(), "", "", "%", "", "", "1", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "%", "", "", "%", valmodulo, "", "1", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -269,24 +299,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "%", "", "1", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", cbAmbiente.SelectedItem.ToString(), "", "", "1", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", cbAmbiente.SelectedItem.ToString(), "%", "", "1", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -306,24 +342,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", cbModulo.SelectedItem.ToString(), "", "1", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", cbModulo.SelectedItem.ToString(), "", "", "%", "", "", "1", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", "%", valmodulo, "", "1", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -343,24 +385,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "1", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", cbModulo.SelectedItem.ToString(), "", "", "%", "", "", "1", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "", "", "", cbAmbiente.SelectedItem.ToString(), valmodulo, "", "1", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -386,24 +434,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", "%", "", "0", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos("%", "", "%", "", "", "%", "", "", "0", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "", "", "", "%", "%", "", "0", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -423,24 +477,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", "%", "", "0", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", "%", "", "", "0", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", "%", "%", "", "0", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -460,24 +520,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), "%", "", "0", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", "%", "", "", "0", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "", "", "", cbAmbiente.SelectedItem.ToString(), "%", "", "0", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -497,24 +563,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", cbModulo.SelectedItem.ToString(), "", "0", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos("%", "", cbModulo.SelectedItem.ToString(), "", "", "%", "", "", "0", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "%", "", "", "%", valmodulo, "", "0", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -534,24 +606,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "%", "", "0", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", cbAmbiente.SelectedItem.ToString(), "", "", "0", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", cbAmbiente.SelectedItem.ToString(), "%", "", "0", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -571,24 +649,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", cbModulo.SelectedItem.ToString(), "", "0", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", cbAmbiente.SelectedItem.ToString(), "", "", "0", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", "%", valmodulo, "", "0", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -608,24 +692,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "0", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", cbAmbiente.SelectedItem.ToString(), "", "", "0", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "", "", "", cbAmbiente.SelectedItem.ToString(), valmodulo, "", "0", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -651,24 +741,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("%", "%", "%", 0, "%", "%", "%", "%", "%", "%", 15);
-                                dtReporte = objModulo.ReporteModulos("%", "", "%", "", "", "%", "", "", "%", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "", "", "", "%", "%", "", "%", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -688,24 +784,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", "%", "", "%", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", "%", "", "", "%", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", "%", "%", "", "%", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -725,24 +827,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "",15);
-                                dtReporte = objModulo.ReporteModulos("%", "", "%", "", "", cbAmbiente.SelectedItem.ToString(), "", "", "%", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "", "", "", cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -762,24 +870,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos("%", "", cbModulo.SelectedItem.ToString(), "", "", "%", "", "", "%", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "%", "", "", "%", valmodulo, "", "%", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -799,24 +913,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", cbAmbiente.SelectedItem.ToString(), "", "", "%", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -836,24 +956,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", cbModulo.SelectedItem.ToString(), "", "", "%", "", "", "%", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", "%", valmodulo, "", "%", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -873,24 +999,30 @@ namespace SIPAA_CS.Accesos.Reportes
                                 Modulo objModulo = new Modulo();
                                 DataTable dtReporte;
                                 //dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
-                                dtReporte = objModulo.ReporteModulos(valcvmodpad, "", cbModulo.SelectedItem.ToString(), "", "", "%", "", "", "%", "", "", 8);
+                                dtReporte = objModulo.ReporteModulos("%", "", "", "", "", cbAmbiente.SelectedItem.ToString(), valmodulo, "", "%", "", "", 8);
 
                                 switch (dtReporte.Rows.Count)
                                 {
 
                                     case 0:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                         DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                         break;
 
                                     default:
                                         cbEstatus.Text = "Seleccionar un Estatus";
-                                        llenaComboModPad();
-                                        llenaComboModulo();
-                                        llenaComboAmbiente();
+                                        cbAmbiente.Text = "Seleccionar un Ambiente";
+                                        DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                        llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                        DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                        llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
                                         ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -920,24 +1052,30 @@ namespace SIPAA_CS.Accesos.Reportes
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
                             //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", "%", "", "%", "", "", 15);
-                            dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", "%", "", "", "%", "", "", 8);
+                            dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", "%", "%", "", "%", "", "", 8);
 
                             switch (dtReporte.Rows.Count)
                             {
 
                                 case 0:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                     DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                     break;
 
                                 default:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -1008,24 +1146,30 @@ namespace SIPAA_CS.Accesos.Reportes
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
                             //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "", 15);
-                            dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "%", "", "", cbAmbiente.SelectedItem.ToString(), "", "", "%", "", "", 8);
+                            dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "", 8);
 
                             switch (dtReporte.Rows.Count)
                             {
 
                                 case 0:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                     DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                     break;
 
                                 default:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -1046,16 +1190,19 @@ namespace SIPAA_CS.Accesos.Reportes
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
                             //dtReporte = objModulo.ReporteModulos("", "", cbModPad.SelectedItem.ToString(), 0, "%", cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
-                            dtReporte = objModulo.ReporteModulos(valcvmodpad, "", cbModulo.SelectedItem.ToString(), "", "", "%", "", "", "%", "", "", 8);
+                            dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", "%", valmodulo, "", "%", "", "", 8);
 
                             switch (dtReporte.Rows.Count)
                             {
 
                                 case 0:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                     DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                     break;
 
@@ -1080,24 +1227,30 @@ namespace SIPAA_CS.Accesos.Reportes
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
                             //dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
-                            dtReporte = objModulo.ReporteModulos(valcvmodpad, "", cbModulo.SelectedItem.ToString(), "", "", "%", "", "", "%", "", "", 8);
+                            dtReporte = objModulo.ReporteModulos(valcvmodpad, "", "", "", "", cbAmbiente.SelectedItem.ToString(), valmodulo, "", "%", "", "", 8);
 
                             switch (dtReporte.Rows.Count)
                             {
 
                                 case 0:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                     DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                     break;
 
                                 default:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -1126,24 +1279,30 @@ namespace SIPAA_CS.Accesos.Reportes
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
                             //dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "", 15);
-                            dtReporte = objModulo.ReporteModulos("%", "", "%", "", "", cbAmbiente.SelectedItem.ToString(), "", "", "%", "", "", 8);
+                            dtReporte = objModulo.ReporteModulos("%", "", "", "", "", cbAmbiente.SelectedItem.ToString(), "%", "", "%", "", "", 8);
 
                             switch (dtReporte.Rows.Count)
                             {
 
                                 case 0:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                     DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                     break;
 
                                 default:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -1164,24 +1323,30 @@ namespace SIPAA_CS.Accesos.Reportes
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
                             //dtReporte = objModulo.ReporteModulos("", "", "%", 0, cbAmbiente.SelectedItem.ToString(), cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
-                            dtReporte = objModulo.ReporteModulos("%", "", cbModulo.SelectedItem.ToString(), "", "", cbAmbiente.SelectedItem.ToString(), "", "", "%", "", "", 8);
+                            dtReporte = objModulo.ReporteModulos("%", "", "", "", "", cbAmbiente.SelectedItem.ToString(), valmodulo, "", "%", "", "", 8);
 
                             switch (dtReporte.Rows.Count)
                             {
 
                                 case 0:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                     DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                     break;
 
                                 default:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -1208,24 +1373,30 @@ namespace SIPAA_CS.Accesos.Reportes
                             Modulo objModulo = new Modulo();
                             DataTable dtReporte;
                             //dtReporte = objModulo.ReporteModulos("", "", "%", 0, "%", cbModulo.SelectedItem.ToString(), "", "%", "", "", 15);
-                            dtReporte = objModulo.ReporteModulos("%", "", cbModulo.SelectedItem.ToString(), "", "", "%", "", "", "%", "", "", 8);
+                            dtReporte = objModulo.ReporteModulos("%", "", "", "", "", "%", valmodulo, "", "%", "", "", 8);
 
                             switch (dtReporte.Rows.Count)
                             {
 
                                 case 0:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModulo, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1, "cvtipomodulo", "descripcion");
                                     DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
                                     break;
 
                                 default:
                                     cbEstatus.Text = "Seleccionar un Estatus";
-                                    llenaComboModPad();
-                                    llenaComboModulo();
-                                    llenaComboAmbiente();
+                                    cbAmbiente.Text = "Seleccionar un Ambiente";
+                                    DataTable dtModuloa = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+                                    llenaCombo(cbModPad, dtModuloa, "idmodulo", "descripcion");
+
+                                    DataTable dtModulo1a = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+                                    llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
                                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
@@ -1305,56 +1476,6 @@ namespace SIPAA_CS.Accesos.Reportes
             cb.DataSource = dt;
             cb.DisplayMember = sDescripcion;
             cb.ValueMember = sClave;
-        }
-
-        public void llenaComboModPad()
-        {
-            //Modulo objModulo = new Modulo();
-            //DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 9);
-
-
-            //List<string> ltModulo = new List<string>();
-
-            //ltModulo.Insert(0, "Selecciona un CvModPad");
-            //foreach (DataRow row in dtModulo.Rows)
-            //{
-            //    ltModulo.Add(row["cvmodpad"].ToString());
-            //}
-
-            //cbModPad.DataSource = ltModulo;
-        }
-        public void llenaComboModulo()
-        {
-            //Modulo objModulo = new Modulo();
-            //DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 10);
-
-
-            //List<string> ltModulo = new List<string>();
-
-            //ltModulo.Insert(0, "Selecciona una Módulo");
-            //foreach (DataRow row in dtModulo.Rows)
-            //{
-            //    ltModulo.Add(row["modulo"].ToString());
-            //}
-
-            //cbModulo.DataSource = ltModulo;
-        }
-
-        public void llenaComboAmbiente()
-        {
-            //Modulo objModulo = new Modulo();
-            //DataTable dtModulo = objModulo.ObtenerModulo("", "", "", 0, "", "", "", 0, "", "", 11);
-
-
-            //List<string> ltModulo = new List<string>();
-
-            //ltModulo.Insert(0, "Selecciona una Ambiente");
-            //foreach (DataRow row in dtModulo.Rows)
-            //{
-            //    ltModulo.Add(row["ambiente"].ToString());
-            //}
-
-            //cbAmbiente.DataSource = ltModulo;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

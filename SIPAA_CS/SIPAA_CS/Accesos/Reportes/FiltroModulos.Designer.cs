@@ -257,6 +257,7 @@
             this.cbAmbiente.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAmbiente.FormattingEnabled = true;
             this.cbAmbiente.Items.AddRange(new object[] {
+            "Selecciona un Ambiente",
             "CS",
             "WEB"});
             this.cbAmbiente.Location = new System.Drawing.Point(42, 198);
