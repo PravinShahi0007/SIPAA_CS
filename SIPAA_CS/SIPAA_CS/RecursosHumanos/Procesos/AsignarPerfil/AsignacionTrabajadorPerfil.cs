@@ -105,7 +105,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 panelEditar.Visible = true;
                 ckbEliminar.Visible = true;
                 ckbEliminar.Checked = false;
-                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
+
+                if (Permisos.dcPermisos["Actualizar"] == 1) {
+                    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
+                    btnGuardar.Visible = true;
+                    iOpcionAdmin = 2;
+                }
+                else{
+                    btnGuardar.Visible = false;
+                }
+
+              
                 DataGridViewRow row = this.dgvHorario.SelectedRows[0];
 
                 string sDiaEntrada = row.Cells[2].Value.ToString();
@@ -126,27 +136,36 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                 // TrabajadorInfo.IdTrab = row.Cells["idtrab"].Value.ToString();
-                iOpcionAdmin = 2;
+               
             }
         }
 
 
         private void dgvForReg_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvForReg.SelectedRows.Count != 0)
+            if (Permisos.dcPermisos["Crear"] != 0 && Permisos.dcPermisos["Actualizar"] != 0)
             {
-                Utilerias.MultiSeleccionGridView(dgvForReg, 1, ltFormasReg, panelPermisos);
+
+                if (dgvForReg.SelectedRows.Count != 0)
+                {
+                    Utilerias.MultiSeleccionGridView(dgvForReg, 1, ltFormasReg, panelPermisos);
+
+
+
+                }
             }
         }
 
 
         private void dgvReloj_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (dgvReloj.SelectedRows.Count != 0)
+            if (Permisos.dcPermisos["Crear"] != 0 && Permisos.dcPermisos["Actualizar"] != 0)
             {
-                iOpcionAdmin = 1;
-                Utilerias.MultiSeleccionGridView(dgvReloj, 1, ltReloj, PanelReloj);
+                if (dgvReloj.SelectedRows.Count != 0)
+                {
+                    iOpcionAdmin = 1;
+                    Utilerias.MultiSeleccionGridView(dgvReloj, 1, ltReloj, PanelReloj);
+                }
             }
         }
 
@@ -514,20 +533,38 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             try
             {
 
-                Image img = bitmap;
-                ImageConverter converter = new ImageConverter();
-                byte[] arrImagen = (byte[])converter.ConvertTo(img, typeof(byte[]));
+                switch (iOpcionAdmin) {
 
+                    case 1:
+                        Image img = bitmap;
+                        ImageConverter converter = new ImageConverter();
+                        byte[] arrImagen = (byte[])converter.ConvertTo(img, typeof(byte[]));
 
-                SonaTrabajador objTrab = new SonaTrabajador();
-                DataTable dtTrab = objTrab.GestionHuella(Enroller.Template.Bytes,arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 3);
-                dtTrab = objTrab.GestionHuella(Enroller.Template.Bytes,arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 1);
+                        SonaTrabajador objTrab = new SonaTrabajador();
+                        DataTable dtTrab = objTrab.GestionHuella(Enroller.Template.Bytes, arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 3);
+                        dtTrab = objTrab.GestionHuella(Enroller.Template.Bytes, arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 1);
 
-                if (dtTrab.Columns.Contains("INSERT"))
-                {
-                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Asignada Correctamente");
-                    Enroller.Clear();
+                        if (dtTrab.Columns.Contains("INSERT"))
+                        {
+                            Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Asignada Correctamente");
+                            Enroller.Clear();
+                        }
+
+                        break;
+
+                    case 3:
+                        SonaTrabajador obj = new SonaTrabajador();
+                        dtTrab = obj.GestionHuella(Enroller.Template.Bytes, new byte[] { }, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 3);
+                        if (dtTrab != null)
+                        {
+                            Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Eliminada Correctamente");
+                            Enroller.Clear();
+                        }
+                        break;
+
                 }
+
+              
 
             }
             catch (Exception EX) {
@@ -699,8 +736,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void AsignacionTrabajadorPerfil_Load(object sender, EventArgs e)
         {
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            //////////////////////////////////////////////////////////////////////////////////
             lblusuario.Text = LoginInfo.Nombre;
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
+
             lbIdTrab.Text = TrabajadorInfo.IdTrab;
             lbNombre.Text = TrabajadorInfo.Nombre;
             PlantillaDetalle objPlantilla = new PlantillaDetalle();
@@ -710,6 +755,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             TrabajadorHorario objHorario = AsignarObjeto();
             llenarGridHorario(objHorario);
             LimpiarFormulario();
+
+            if (Permisos.dcPermisos["Crear"] != 1)
+            {
+
+                btnGuardarPlantilla.Visible = false;
+                btnGuardar.Visible = false;
+                btnAgregar.Visible = false;
+                ckbEliminar.Visible = false;
+            }
+          
+
         }
 
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
@@ -757,6 +813,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     AsignarFormas(TrabajadorInfo.IdTrab);
                     panelPermisos.Enabled = false;
                     ltFormasReg.Clear();
+                    if(Permisos.dcPermisos["Crear"] == 0) { panelPermisos.Visible = false; label24.Text = "Formas de Registro Asignadas Actualmente"; }
                     break;
 
                 case 2:
@@ -764,6 +821,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     AsignarReloj(TrabajadorInfo.IdTrab);
                     PanelReloj.Enabled = false;
                     ltReloj.Clear();
+                    if (Permisos.dcPermisos["Crear"] == 0) { PanelReloj.Visible = false; label24.Text = "Relojes Asignados Actualmente"; }
                     break;
 
 
@@ -792,6 +850,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     }
                     break;
                         }
+                    if(Permisos.dcPermisos["Crear"] != 1) { panelHuella.Visible = false; lbHuella.Visible = false; }
+                    if (Permisos.dcPermisos["Eliminar"] != 1) { checkBox1.Visible = false; }
         }
 
 
@@ -971,35 +1031,40 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void LlenarGridPlantilla(int iopcion, int icvplantilla)
         {
 
-            if (dgvPlantilla.Columns.Count > 1)
+            if (c.Columns.Count > 1)
             {
 
-                dgvPlantilla.Columns.RemoveAt(0);
+                c.Columns.RemoveAt(0);
             }
 
-            dgvPlantilla.DataSource = null;
+            c.DataSource = null;
             PlantillaDetalle objPlantilla = new PlantillaDetalle();
             DataTable dtiplandet = objPlantilla.dgvplantillaDet(iopcion, icvplantilla);
-            dgvPlantilla.DataSource = dtiplandet;
+            c.DataSource = dtiplandet;
 
-            dgvPlantilla.Columns["cvplantilla"].Visible = false;
-            dgvPlantilla.Columns["descplantilla"].Visible = false;
-            dgvPlantilla.Columns["cvdia"].Visible = false;
-            dgvPlantilla.Columns["cvddiasaltur"].Visible = false;
-            dgvPlantilla.Columns["cvdiasalcom"].Visible = false;
-            dgvPlantilla.Columns["cvdiaregcom"].Visible = false;
-            dgvPlantilla.Columns["stexiste"].Visible = false;
+            c.Columns["cvplantilla"].Visible = false;
+            c.Columns["descplantilla"].Visible = false;
+            c.Columns["cvdia"].Visible = false;
+            c.Columns["cvddiasaltur"].Visible = false;
+            c.Columns["cvdiasalcom"].Visible = false;
+            c.Columns["cvdiaregcom"].Visible = false;
+            c.Columns["stexiste"].Visible = false;
 
-            dgvPlantilla.Columns["Día"].HeaderText = "Día Entrada";
-            dgvPlantilla.Columns["HrEntTurno"].HeaderText = "Hora Entrada";
-            dgvPlantilla.Columns["DíaSalTurno"].HeaderText = "Día Salida";
-            dgvPlantilla.Columns["HrSalTurno"].HeaderText = "Hora Salida";
-            dgvPlantilla.Columns["DíaSalComer"].HeaderText = "Comida Inicio";
-            dgvPlantilla.Columns["HrSalComer"].HeaderText = "Hora Inicio";
-            dgvPlantilla.Columns["DíaRegComida"].HeaderText = "Comida Fin";
-            dgvPlantilla.Columns["HrRegComida"].HeaderText = "Hora Fin";
-            dgvPlantilla.Columns["TotJornada"].HeaderText = "Horas Trabajo";
-            dgvPlantilla.ClearSelection();
+            c.Columns["Día"].HeaderText = "Día Entrada";
+            c.Columns["HrEntTurno"].HeaderText = "Hora Entrada";
+            c.Columns["DíaSalTurno"].HeaderText = "Día Salida";
+            c.Columns["HrSalTurno"].HeaderText = "Hora Salida";
+            c.Columns["DíaSalComer"].HeaderText = "Comida Inicio";
+            c.Columns["HrSalComer"].HeaderText = "Hora Inicio";
+            c.Columns["DíaRegComida"].HeaderText = "Comida Fin";
+            c.Columns["HrRegComida"].HeaderText = "Hora Fin";
+            c.Columns["TotJornada"].HeaderText = "Horas Trabajo";
+            c.ClearSelection();
+
+            if (Permisos.dcPermisos["Crear"] != 1) {
+
+                c.Columns.RemoveAt(0);
+            }
 
         }
 
@@ -1229,7 +1294,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         }
 
-    
-
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            PanelGuardarHuella.Visible = true;
+            Utilerias.AsignarBotonResize(btnGuardarHuella,Utilerias.PantallaSistema(),"Borrar");
+            iOpcionAdmin = 3;
+        }
     }
 }

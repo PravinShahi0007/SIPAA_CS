@@ -38,8 +38,8 @@
             System.Windows.Forms.Label label9;
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label11;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblusuario = new System.Windows.Forms.Label();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -56,7 +56,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvInc = new System.Windows.Forms.DataGridView();
-            this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.pnlAsig = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.dtimeFechaFinAsig = new System.Windows.Forms.DateTimePicker();
             this.dtimeFechaInicioAsig = new System.Windows.Forms.DateTimePicker();
             this.cbTipo = new System.Windows.Forms.ComboBox();
@@ -66,12 +67,11 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtReferencia = new System.Windows.Forms.TextBox();
             this.lbAsignacion = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.labelGrid = new System.Windows.Forms.Label();
             this.panelTrab = new System.Windows.Forms.Panel();
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label7 = new System.Windows.Forms.Label();
             label23 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -82,7 +82,7 @@
             label11 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInc)).BeginInit();
-            this.pnlBusqueda.SuspendLayout();
+            this.pnlAsig.SuspendLayout();
             this.panelTrab.SuspendLayout();
             this.panelTag.SuspendLayout();
             this.SuspendLayout();
@@ -370,22 +370,22 @@
             this.dgvInc.AllowUserToDeleteRows = false;
             this.dgvInc.AllowUserToResizeColumns = false;
             this.dgvInc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvInc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvInc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvInc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvInc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvInc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvInc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvInc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInc.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInc.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvInc.Location = new System.Drawing.Point(4, 233);
             this.dgvInc.Name = "dgvInc";
             this.dgvInc.ReadOnly = true;
@@ -399,28 +399,40 @@
             this.dgvInc.Tag = "Editar";
             this.dgvInc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipoHr_CellContentClick);
             // 
-            // pnlBusqueda
+            // pnlAsig
             // 
-            this.pnlBusqueda.Controls.Add(this.label7);
-            this.pnlBusqueda.Controls.Add(this.dtimeFechaFinAsig);
-            this.pnlBusqueda.Controls.Add(label10);
-            this.pnlBusqueda.Controls.Add(label11);
-            this.pnlBusqueda.Controls.Add(this.dtimeFechaInicioAsig);
-            this.pnlBusqueda.Controls.Add(label9);
-            this.pnlBusqueda.Controls.Add(this.cbTipo);
-            this.pnlBusqueda.Controls.Add(label8);
-            this.pnlBusqueda.Controls.Add(this.cbIncidencia);
-            this.pnlBusqueda.Controls.Add(this.label6);
-            this.pnlBusqueda.Controls.Add(this.btnGuardar);
-            this.pnlBusqueda.Controls.Add(this.panel5);
-            this.pnlBusqueda.Controls.Add(this.txtReferencia);
-            this.pnlBusqueda.Controls.Add(this.lbAsignacion);
-            this.pnlBusqueda.Location = new System.Drawing.Point(20, 558);
-            this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(976, 146);
-            this.pnlBusqueda.TabIndex = 206;
-            this.pnlBusqueda.TabStop = true;
-            this.pnlBusqueda.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBusqueda_Paint);
+            this.pnlAsig.Controls.Add(this.label7);
+            this.pnlAsig.Controls.Add(this.dtimeFechaFinAsig);
+            this.pnlAsig.Controls.Add(label10);
+            this.pnlAsig.Controls.Add(label11);
+            this.pnlAsig.Controls.Add(this.dtimeFechaInicioAsig);
+            this.pnlAsig.Controls.Add(label9);
+            this.pnlAsig.Controls.Add(this.cbTipo);
+            this.pnlAsig.Controls.Add(label8);
+            this.pnlAsig.Controls.Add(this.cbIncidencia);
+            this.pnlAsig.Controls.Add(this.label6);
+            this.pnlAsig.Controls.Add(this.btnGuardar);
+            this.pnlAsig.Controls.Add(this.panel5);
+            this.pnlAsig.Controls.Add(this.txtReferencia);
+            this.pnlAsig.Controls.Add(this.lbAsignacion);
+            this.pnlAsig.Location = new System.Drawing.Point(20, 558);
+            this.pnlAsig.Name = "pnlAsig";
+            this.pnlAsig.Size = new System.Drawing.Size(976, 146);
+            this.pnlAsig.TabIndex = 206;
+            this.pnlAsig.TabStop = true;
+            this.pnlAsig.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBusqueda_Paint);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Gray;
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.Location = new System.Drawing.Point(802, 105);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 20);
+            this.label7.TabIndex = 212;
+            this.label7.Text = "Guardar";
             // 
             // dtimeFechaFinAsig
             // 
@@ -532,16 +544,16 @@
             this.lbAsignacion.TabIndex = 41;
             this.lbAsignacion.Text = "       Asignar Suspensión ";
             // 
-            // label14
+            // labelGrid
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label14.Location = new System.Drawing.Point(17, 523);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(373, 16);
-            this.label14.TabIndex = 207;
-            this.label14.Text = "Seleccione un Registro del Grid para Asignar un Extrañamiento o Retroactivo.";
+            this.labelGrid.AutoSize = true;
+            this.labelGrid.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGrid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.labelGrid.Location = new System.Drawing.Point(17, 523);
+            this.labelGrid.Name = "labelGrid";
+            this.labelGrid.Size = new System.Drawing.Size(373, 16);
+            this.labelGrid.TabIndex = 207;
+            this.labelGrid.Text = "Seleccione un Registro del Grid para Asignar un Extrañamiento o Retroactivo.";
             // 
             // panelTrab
             // 
@@ -586,18 +598,6 @@
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label7.Location = new System.Drawing.Point(802, 105);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 20);
-            this.label7.TabIndex = 212;
-            this.label7.Text = "Guardar";
-            // 
             // AsignacionIncidenciasTrabajador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -606,8 +606,8 @@
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.panelTag);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.pnlBusqueda);
+            this.Controls.Add(this.labelGrid);
+            this.Controls.Add(this.pnlAsig);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dgvInc);
             this.Controls.Add(this.panel2);
@@ -627,8 +627,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInc)).EndInit();
-            this.pnlBusqueda.ResumeLayout(false);
-            this.pnlBusqueda.PerformLayout();
+            this.pnlAsig.ResumeLayout(false);
+            this.pnlAsig.PerformLayout();
             this.panelTrab.ResumeLayout(false);
             this.panelTrab.PerformLayout();
             this.panelTag.ResumeLayout(false);
@@ -656,7 +656,7 @@
         private System.Windows.Forms.DateTimePicker dpFechaInicio;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dgvInc;
-        private System.Windows.Forms.Panel pnlBusqueda;
+        private System.Windows.Forms.Panel pnlAsig;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Panel panel5;
@@ -666,7 +666,7 @@
         private System.Windows.Forms.ComboBox cbIncidencia;
         private System.Windows.Forms.DateTimePicker dtimeFechaFinAsig;
         private System.Windows.Forms.DateTimePicker dtimeFechaInicioAsig;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labelGrid;
         private System.Windows.Forms.Panel panelTrab;
         private System.Windows.Forms.Panel panelTag;
         private System.Windows.Forms.Label lbMensaje;

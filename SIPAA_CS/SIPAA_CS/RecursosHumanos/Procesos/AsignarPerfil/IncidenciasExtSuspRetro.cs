@@ -274,54 +274,64 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //    dgvInc.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             //}
 
-
-            if (dgvInc.SelectedRows.Count != 0)
+            if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
             {
-                lbAsignacion.Text = "       Asignar Extrañamiento o Retroactivo";
-                DataGridViewRow row = this.dgvInc.SelectedRows[0];
-
-                //CVPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
-                int icvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
-                int icvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
-                DateTime fFechaReg = DateTime.Parse(row.Cells["Fecha Registro"].Value.ToString());
-
-
-                Captura objAsig = new Captura();
-                objAsig.cvincidencia = icvIncidencia;
-                objAsig.cvtipo = icvTipo;
-                objAsig.FechaReg = fFechaReg;
-
-                ValidarExistencia(ltTrab, objAsig);
-
-                if (row.Cells[0].Tag.ToString() == "check")
+                if (dgvInc.SelectedRows.Count != 0)
                 {
+                    lbAsignacion.Text = "       Asignar Extrañamiento o Retroactivo";
+                    DataGridViewRow row = this.dgvInc.SelectedRows[0];
 
-                    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                    row.Cells[0].Tag = "uncheck";
+                    //CVPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
+                    int icvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
+                    int icvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
+                    DateTime fFechaReg = DateTime.Parse(row.Cells["Fecha Registro"].Value.ToString());
+
+
+                    Captura objAsig = new Captura();
+                    objAsig.cvincidencia = icvIncidencia;
+                    objAsig.cvtipo = icvTipo;
+                    objAsig.FechaReg = fFechaReg;
+
+                    ValidarExistencia(ltTrab, objAsig);
+
+                    if (row.Cells[0].Tag.ToString() == "check")
+                    {
+
+                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                        row.Cells[0].Tag = "uncheck";
+                    }
+                    else
+                    {
+                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                        row.Cells[0].Tag = "check";
+                    }
+
+
+
+                    llenarComboIncidencia();
+                    if (ltTrab.Count() == 0)
+                    {
+                        if (Permisos.dcPermisos["Crear"] == 1)
+                        {
+
+                            cbIncidencia.SelectedValue = 20;
+                            cbIncidencia.Enabled = false;
+                            lbAsignacion.Text = "       Asignar Suspensión";
+
+                        }
+                        else
+                        {
+
+                            pnlAsig.Visible = false;
+
+                        }
+                    }
+                    //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                    //cbIncidencia.Enabled = true;
+
+                    //  DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
+                    // form.Show();
                 }
-                else
-                {
-                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    row.Cells[0].Tag = "check";
-                }
-
-             
-
-                llenarComboIncidencia();
-
-
-                if (ltTrab.Count() == 0)
-                {                    
-                        cbIncidencia.SelectedValue = 20;
-                        cbIncidencia.Enabled = false;
-                        lbAsignacion.Text = "       Asignar Suspensión";    
-                }
-
-                //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                //cbIncidencia.Enabled = true;
-
-                //  DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
-                // form.Show();
             }
          
         }
@@ -349,6 +359,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             llenarComboTipo(20);
             ltCvIncidencia.Clear();
             ltFechasRegistro.Clear();
+
+
+            if (Permisos.dcPermisos["Crear"] != 1) {
+
+                labelGrid.Text = "Incidencias Registradas";
+                pnlAsig.Visible = false;
+
+            }
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -482,6 +500,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
                 row.Cells[0].Tag = "uncheck";
             }
+
+
+            if (Permisos.dcPermisos["Crear"] != 1 && Permisos.dcPermisos["Actualizar"] != 1) {
+                dgvInc.Columns.RemoveAt(0);
+            }
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)

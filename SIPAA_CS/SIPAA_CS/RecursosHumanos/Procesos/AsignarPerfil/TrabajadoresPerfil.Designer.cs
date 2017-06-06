@@ -104,9 +104,9 @@
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label1.Location = new System.Drawing.Point(35, 145);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(38, 16);
+            label1.Size = new System.Drawing.Size(39, 16);
             label1.TabIndex = 60;
-            label1.Text = "Check";
+            label1.Text = "Checa";
             // 
             // label2
             // 
