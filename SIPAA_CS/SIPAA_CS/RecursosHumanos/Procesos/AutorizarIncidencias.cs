@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.SonaCompania;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Procesos
 {
@@ -32,6 +33,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void AutorizarIncidencias_Load(object sender, EventArgs e)
         {
+
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            //////////////////////////////////////////////////////////////////////////////////
+            lblusuario.Text = LoginInfo.Nombre;
+
             lbFechaI.Text = String.Empty;
             lbFechaT.Text = String.Empty;
             PeriodoProcesoIncidencia objInc = new PeriodoProcesoIncidencia();
@@ -46,6 +56,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 cbTipoNomina.Items.Insert(0, "Sin Periodos Abiertos");
                 cbTipoNomina.Enabled = false;
             }
+
+            if (Permisos.dcPermisos["Crear"] != 1 && Permisos.dcPermisos["Actualizar"] != 1) { label2.Text = "";  }
         }
 
         private void cbTipoNomina_SelectedIndexChanged(object sender, EventArgs e)
@@ -142,6 +154,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             foreach (DataGridViewRow row in dgvInc.Rows) {
                 row.Cells[0].Tag = "uncheck";
             }
+
+            if (Permisos.dcPermisos["Crear"] != 1 && Permisos.dcPermisos["Actualizar"] != 1) { dgvInc.Columns.RemoveAt(0); }
 
         }
 
@@ -242,49 +256,53 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void dgvInc_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          
-
-            if (dgvInc.SelectedRows.Count != 0)
+            if (Permisos.dcPermisos["Crear"] != 0 && Permisos.dcPermisos["Actualizar"] != 0)
             {
 
-                DataGridViewRow row = this.dgvInc.SelectedRows[0];
-
-                iIdTrab = Convert.ToInt32(row.Cells["IdTrab"].Value.ToString());
-                iStdir = Convert.ToInt32(row.Cells["stdir"].Value.ToString());
-                fFechareg = DateTime.Parse(row.Cells["Fecha Registro"].Value.ToString());
-                iCvincidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
-
-                Trab_Fecha objTrab = new Trab_Fecha();
-                objTrab.IdTrab = iIdTrab.ToString();
-                objTrab.fFechaRegistro = fFechareg;
-                objTrab.cvincidencia = iCvincidencia;
-
-                ValidarExistencia(dgvInc,ltUsuario, objTrab);
-
-
-                if (row.Cells[0].Tag.ToString() == "check")
+                if (dgvInc.SelectedRows.Count != 0)
                 {
-                    
-                    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                    row.Cells[0].Tag = "uncheck";
-                }
-                else
-                {
-                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    row.Cells[0].Tag = "check";
-                }
 
-                if (ltUsuario.Count() != 0)
-                {
-                    pnlAsig.Visible = true;
-                }
-                else {
+                    DataGridViewRow row = this.dgvInc.SelectedRows[0];
 
-                    pnlAsig.Visible = false;
-                }
+                    iIdTrab = Convert.ToInt32(row.Cells["IdTrab"].Value.ToString());
+                    iStdir = Convert.ToInt32(row.Cells["stdir"].Value.ToString());
+                    fFechareg = DateTime.Parse(row.Cells["Fecha Registro"].Value.ToString());
+                    iCvincidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
 
-                
-               
+                    Trab_Fecha objTrab = new Trab_Fecha();
+                    objTrab.IdTrab = iIdTrab.ToString();
+                    objTrab.fFechaRegistro = fFechareg;
+                    objTrab.cvincidencia = iCvincidencia;
+
+                    ValidarExistencia(dgvInc, ltUsuario, objTrab);
+
+
+                    if (row.Cells[0].Tag.ToString() == "check")
+                    {
+
+                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                        row.Cells[0].Tag = "uncheck";
+                    }
+                    else
+                    {
+                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                        row.Cells[0].Tag = "check";
+                    }
+
+                    if (ltUsuario.Count() != 0)
+                    {
+                        pnlAsig.Visible = true;
+                    }
+                    else
+                    {
+
+                        pnlAsig.Visible = false;
+                    }
+
+
+
+
+                }
 
             }
 

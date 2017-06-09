@@ -44,28 +44,31 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void dgvTipoHr_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            for (int iContador = 0; iContador < dgvTipoHr.Rows.Count; iContador++)
+            if (Permisos.dcPermisos["Actualizar"] != 0 && Permisos.dcPermisos["Eliminar"] != 0)
             {
-                dgvTipoHr.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            }
-
-
-            if (dgvTipoHr.SelectedRows.Count != 0)
-            {
-
-                DataGridViewRow row = this.dgvTipoHr.SelectedRows[0];
-
-                sCVTipohr = row.Cells["clave"].Value.ToString();
-
-                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                //AsignarTipoHr();
-                Utilerias.SeleccionGridView(dgvTipoHr, 1, ltcvTipoHorario, panelPermisos);
-
-                if (ltTipoHr.Count > 0)
+                for (int iContador = 0; iContador < dgvTipoHr.Rows.Count; iContador++)
                 {
-                    panelPermisos.Enabled = true;
+                    dgvTipoHr.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
                 }
 
+
+                if (dgvTipoHr.SelectedRows.Count != 0)
+                {
+
+                    DataGridViewRow row = this.dgvTipoHr.SelectedRows[0];
+
+                    sCVTipohr = row.Cells["clave"].Value.ToString();
+
+                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                    //AsignarTipoHr();
+                    Utilerias.SeleccionGridView(dgvTipoHr, 1, ltcvTipoHorario, panelPermisos);
+
+                    if (ltTipoHr.Count > 0)
+                    {
+                        panelPermisos.Enabled = true;
+                    }
+
+                }
             }
         }
 
@@ -202,7 +205,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
 
             lblusuario.Text = LoginInfo.Nombre;
-            lblusuario.Text = LoginInfo.Nombre;
+         
             lbNombre.Text = TrabajadorInfo.Nombre;
             lbIdTrab.Text = TrabajadorInfo.IdTrab;
 
@@ -218,6 +221,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             DataTable dttipohr = objTiposHr.obttipohr(4, 0, "", "", "");
             llenarGrid(dttipohr);
             AsignarTipoHr();
+
+
+            if (Permisos.dcPermisos["Actualizar"] != 1 && Permisos.dcPermisos["Eliminar"] != 1) {
+
+                panelPermisos.Visible = false;
+
+            }
+
         }
 
 
@@ -245,6 +256,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             dgvTipoHr.Columns[1].Visible = false;
             dgvTipoHr.Columns[3].Visible = false;
+
+
+            if (Permisos.dcPermisos["Actualizar"] != 1 && Permisos.dcPermisos["Eliminar"] != 1)
+            {
+                dgvTipoHr.Columns.RemoveAt(0);
+            }
         }
 
         private void AsignarTipoHr()

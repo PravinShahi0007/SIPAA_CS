@@ -308,7 +308,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         private void timeReload_Tick(object sender, EventArgs e)
         {
-            Capturer.Dispose();
+            //Capturer.StopCapture();
             Capturer.StopCapture();
             pbHuella.Image = null;
             panelTag.Visible = false;

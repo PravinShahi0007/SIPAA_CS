@@ -100,12 +100,13 @@ namespace SIPAA_CS.Accesos.Asignaciones
                         Utilerias.MultiSeleccionGridView(dgvPerfiles, 1, ltPerfiles, panelPermisos);
                     }
                 }
-            }
-            else
-            {
 
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Usuario");
-                timer1.Start();
+                else
+                {
+
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Usuario");
+                    timer1.Start();
+                }
             }
         }
 
@@ -390,7 +391,13 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
             dgvPerfiles.ClearSelection();
 
-        }
+
+            if (Permisos.dcPermisos["Actualizar"] == 0)
+            {
+                dgvPerfiles.Columns[0].HeaderText = "Asignado";
+            }
+
+            }
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

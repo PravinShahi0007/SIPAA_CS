@@ -28,7 +28,7 @@ namespace SIPAA_CS.App_Code
 
             Conexion objConexion = new Conexion();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechincapacidadrepresenta_SUID";
+            cmd.CommandText = @"usp_rechincrep_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("P_incidencia", SqlDbType.VarChar).Value = objIncidencia.Descripcion;

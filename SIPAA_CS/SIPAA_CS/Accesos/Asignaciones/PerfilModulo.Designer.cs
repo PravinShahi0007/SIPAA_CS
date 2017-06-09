@@ -49,8 +49,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbAmbiente = new System.Windows.Forms.ComboBox();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.txtModulo = new System.Windows.Forms.TextBox();
             this.btnBuscarModulo = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -78,6 +76,7 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lblusuario = new System.Windows.Forms.Label();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
+            this.cbTipoModulo = new System.Windows.Forms.ComboBox();
             label6 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
@@ -106,9 +105,9 @@
             label6.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             label6.Location = new System.Drawing.Point(57, 27);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(74, 16);
+            label6.Size = new System.Drawing.Size(63, 16);
             label6.TabIndex = 49;
-            label6.Text = "Clave Módulo";
+            label6.Text = "Descripción";
             // 
             // label4
             // 
@@ -145,9 +144,9 @@
             label8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             label8.Location = new System.Drawing.Point(299, 27);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(43, 16);
+            label8.Size = new System.Drawing.Size(67, 16);
             label8.TabIndex = 52;
-            label8.Text = "Módulo";
+            label8.Text = "Tipo Módulo";
             // 
             // label2
             // 
@@ -244,10 +243,9 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel4.Controls.Add(this.cbTipoModulo);
             this.panel4.Controls.Add(this.cbAmbiente);
             this.panel4.Controls.Add(label8);
-            this.panel4.Controls.Add(this.panel11);
-            this.panel4.Controls.Add(this.txtModulo);
             this.panel4.Controls.Add(this.btnBuscarModulo);
             this.panel4.Controls.Add(label5);
             this.panel4.Controls.Add(this.panel7);
@@ -278,24 +276,6 @@
             this.cbAmbiente.TabIndex = 56;
             this.cbAmbiente.Text = "Seleccionar Ambiente";
             // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel11.Location = new System.Drawing.Point(302, 66);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(176, 2);
-            this.panel11.TabIndex = 51;
-            // 
-            // txtModulo
-            // 
-            this.txtModulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtModulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtModulo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModulo.Location = new System.Drawing.Point(301, 48);
-            this.txtModulo.Name = "txtModulo";
-            this.txtModulo.Size = new System.Drawing.Size(176, 18);
-            this.txtModulo.TabIndex = 50;
-            // 
             // btnBuscarModulo
             // 
             this.btnBuscarModulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -324,7 +304,7 @@
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel6.Location = new System.Drawing.Point(60, 66);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(176, 2);
+            this.panel6.Size = new System.Drawing.Size(176, 1);
             this.panel6.TabIndex = 43;
             // 
             // txtNombreModulo
@@ -370,7 +350,7 @@
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel8.Location = new System.Drawing.Point(47, 68);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(176, 2);
+            this.panel8.Size = new System.Drawing.Size(176, 1);
             this.panel8.TabIndex = 43;
             // 
             // txtPerfil
@@ -378,7 +358,7 @@
             this.txtPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtPerfil.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPerfil.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPerfil.Location = new System.Drawing.Point(47, 50);
+            this.txtPerfil.Location = new System.Drawing.Point(47, 48);
             this.txtPerfil.Name = "txtPerfil";
             this.txtPerfil.Size = new System.Drawing.Size(176, 18);
             this.txtPerfil.TabIndex = 42;
@@ -674,6 +654,23 @@
             this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
             this.pnlimgusuario.TabIndex = 118;
             // 
+            // cbTipoModulo
+            // 
+            this.cbTipoModulo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTipoModulo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTipoModulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbTipoModulo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipoModulo.FormattingEnabled = true;
+            this.cbTipoModulo.Items.AddRange(new object[] {
+            "Seleccionar Ambiente",
+            "Web",
+            "CS"});
+            this.cbTipoModulo.Location = new System.Drawing.Point(284, 46);
+            this.cbTipoModulo.Name = "cbTipoModulo";
+            this.cbTipoModulo.Size = new System.Drawing.Size(177, 24);
+            this.cbTipoModulo.TabIndex = 57;
+            this.cbTipoModulo.Text = "Seleccionar Tipo";
+            // 
             // PerfilModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -726,8 +723,6 @@
         private System.Windows.Forms.TextBox txtPerfil;
         private System.Windows.Forms.DataGridView dgvModulos;
         private System.Windows.Forms.ComboBox cbAmbiente;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.TextBox txtModulo;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panelPermisos;
         private System.Windows.Forms.CheckBox ckbAgregar;
@@ -747,5 +742,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Panel pnlimgusuario;
+        private System.Windows.Forms.ComboBox cbTipoModulo;
     }
 }

@@ -13,6 +13,7 @@ using SIPAA_CS.App_Code.RecursosHumanos;
 
 using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.RecursosHumanos.Reportes;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
@@ -50,7 +51,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     objIncidencia.UsuuMod = "";
                     objIncidencia.FhuMod = DateTime.Now;
                     objIncidencia.PrguMod = "";
-                    int iOpcion = 1;
+                    int iOpcion = 4;
 
                     DataTable dtIncidencia = objIncidencia.ObtenerRepresentaxIncidencia(objIncidencia, iOpcion);
                     dgvIncidencia.DataSource = dtIncidencia;
@@ -257,8 +258,15 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void Incapacidad_Representa_Load(object sender, EventArgs e)
         {
 
-          
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+
+            lblusuario.Text = LoginInfo.Nombre;
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             Incidencia objIncidencia = new Incidencia();
             objIncidencia.Descripcion = "%";
@@ -266,6 +274,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             LLenarGrid(1, objIncidencia);
             txtBuscarIncidencia.Focus();
             //LlenarComboRepresenta(cbRepresenta,5);
+
+
+            if (Permisos.dcPermisos["Crear"] != 1) {
+
+                btnAgregar.Visible = false;
+            }
         }
 
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)

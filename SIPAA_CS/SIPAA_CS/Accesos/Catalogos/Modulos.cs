@@ -431,8 +431,8 @@ namespace SIPAA_CS.Accesos.Catalogos
         private void Modulos_Load(object sender, EventArgs e)
         {
             // Diccionario Permisos x Pantalla
-            //DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
-            //Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
             //////////////////////////////////////////////////////
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
@@ -447,10 +447,10 @@ namespace SIPAA_CS.Accesos.Catalogos
             DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
             llenaCombo(cbTipoModulo, dtModulo1, "cvtipomodulo", "descripcion");
 
-            //if (Permisos.dcPermisos["Crear"] == 0)
-            //{
-            //    btnAgregar.Visible = false;
-            //}
+            if (Permisos.dcPermisos["Crear"] == 0)
+            {
+                btnAgregar.Visible = false;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
