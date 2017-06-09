@@ -234,6 +234,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Mensajes_Load(object sender, EventArgs e)
         {
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             ftooltip();
             pnldatos.Visible = false;

@@ -148,6 +148,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             if (bprimeravez == true)
             {
+                Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
                 //llenado de combo compañias
                 util.cargarcombo(cbCompania, oCompañia.obtCompania2(5, ""));
                 //DataTable dtCompañia = oCompañia.obtCompania2(5, "");

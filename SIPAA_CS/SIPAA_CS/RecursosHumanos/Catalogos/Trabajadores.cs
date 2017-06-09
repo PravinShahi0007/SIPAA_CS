@@ -26,6 +26,7 @@ namespace SIPAA_CS.RecursosHumanos
             InitializeComponent();
         }
         SonaTrabajador contenedorempleados = new SonaTrabajador();
+        Utilerias util = new Utilerias();
 
         //boton buscar empleados
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -112,7 +113,8 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void Empleados_Load(object sender, EventArgs e)
         {
-            
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //llama el tooltip
             ftooltip();
 

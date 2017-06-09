@@ -54,7 +54,7 @@
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Neurotec.Biometrics.Nffv">
-      <HintPath>..\..\..\..\..\..\Desktop\ProyectoHuellaDigital_ - copia - copia\ProyectoHuellaDigital_\bin\Debug\Neurotec.Biometrics.Nffv.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Neurotec.Biometrics.Nffv.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

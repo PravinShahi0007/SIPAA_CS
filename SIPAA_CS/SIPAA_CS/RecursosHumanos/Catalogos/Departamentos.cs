@@ -21,6 +21,9 @@ namespace SIPAA_CS.RecursosHumanos
 
     public partial class Departamentos : Form
     {
+        //public int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        //public int sysW = SystemInformation.PrimaryMonitorSize.Width;
+        Utilerias util = new Utilerias();
         public Departamentos()
         {
             InitializeComponent();
@@ -84,13 +87,14 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void Departamentos_Load(object sender, EventArgs e)
         {
-
+            //Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             //DataTable listadeptos = departamentos.obtdepto(1, "%");
             //dgvComp.DataSource = listadeptos;
             //txtComp.Text = "";
             //txtComp.Focus();
-                        
+
             //inicializa tool tip
             ftooltip();
 
