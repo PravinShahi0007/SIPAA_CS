@@ -111,20 +111,24 @@ namespace SIPAA_CS.RecursosHumanos
         {
             dgvDiasFestivos.DataSource = null;
             //llena grid con datos existente
+//            if (dgvDiasFestivos.Columns.Count > 3)
+//            {
+                dgvDiasFestivos.Columns.RemoveAt(0);
+//            }
             fgDiasFestivos(4, "0", txtBuscarDF.Text.Trim(), "bhb", "DiasFestivos");
             txtDescripcionDF.Text = "";
             txtDescripcionDF.Focus();
-            if(dgvDiasFestivos.Columns.Count>3)
+/*            if(dgvDiasFestivos.Columns.Count>3)
             {
                 dgvDiasFestivos.Columns.RemoveAt(0);
-            }
+            }*/
         }
         //boton agregar
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             ckbEliminar.Visible = false;
             pnlActDiasFestivos.Visible = true;
-            lblActDiasFestivos.Text = "     Agregar Tipo de Horario";
+            lblActDiasFestivos.Text = "     Agregar Día Festivo";
             Util.ChangeButton(btnAgregar, 1, false);
             pactbtn = 1;
             dtpFechaDiaFestivo.Text = "";
@@ -226,9 +230,11 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void frmDiasFestivos_Load(object sender, EventArgs e)
+        private void DiasFestivos_Load(object sender, EventArgs e)
         {
-            
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //LLAMA TOOL TIP
             fTooltip();
 
@@ -376,7 +382,6 @@ namespace SIPAA_CS.RecursosHumanos
                 dgvDiasFestivos.Columns[0].Visible = false;
                 dgvDiasFestivos.Columns[1].Width = 90;
                 dgvDiasFestivos.Columns[2].Width = 300;
-
                 dgvDiasFestivos.ClearSelection();
             }
             else if (pact == 1)
@@ -491,11 +496,6 @@ namespace SIPAA_CS.RecursosHumanos
                 txtDescripcionDF.Text = ValorRow;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
-        }
-
-        private void pnlBusqueda_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         //-----------------------------------------------------------------------------------------------

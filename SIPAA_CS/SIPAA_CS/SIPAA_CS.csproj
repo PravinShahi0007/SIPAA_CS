@@ -54,7 +54,7 @@
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Neurotec.Biometrics.Nffv">
-      <HintPath>..\..\..\..\..\..\Desktop\ProyectoHuellaDigital_ - copia - copia\ProyectoHuellaDigital_\bin\Debug\Neurotec.Biometrics.Nffv.dll</HintPath>
+      <HintPath>\\192.168.30.238\Sistemasjs\Desarrollo\SDK FreeFingerPrint (RelojChecador)\FreeFingerprintVerificationSDK\bin\Win32_x86\Neurotec.Biometrics.Nffv.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -282,6 +282,7 @@
     <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaConcAfec.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\DiasEspeciales.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCalificacion.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\RelojChecador.cs" />
@@ -516,6 +517,11 @@
     <Compile Include="RecursosHumanos\Catalogos\IncidenciasNominas.Designer.cs">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\ConceptosNomina.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConceptosNomina.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\DetalleHorario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -647,11 +653,29 @@
     <Compile Include="RecursosHumanos\Catalogos\Ubicaciones.Designer.cs">
       <DependentUpon>Ubicaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\ConceptosNomina.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConceptosNomina.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\DetalleHr.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DetalleHr.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroConceptosNomina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroConceptosNomina.Designer.cs">
+      <DependentUpon>FiltroConceptosNomina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroMasDe3Faltas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroMasDe3Faltas.Designer.cs">
+      <DependentUpon>FiltroMasDe3Faltas.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\FiltroObservaciones.cs">
       <SubType>Form</SubType>
@@ -970,9 +994,19 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\TiposHorarios.resx">
       <DependentUpon>TiposHorarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\ConceptosNomina.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConceptosNomina.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\DetalleHr.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DetalleHr.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroConceptosNomina.resx">
+      <DependentUpon>FiltroConceptosNomina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroMasDe3Faltas.resx">
+      <DependentUpon>FiltroMasDe3Faltas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroObservaciones.resx">
       <DependentUpon>FiltroObservaciones.cs</DependentUpon>
@@ -1181,6 +1215,17 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RecursosHumanos\DataSets\ConceptosNomina.xsc">
+      <DependentUpon>ConceptosNomina.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\ConceptosNomina.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ConceptosNomina.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\ConceptosNomina.xss">
+      <DependentUpon>ConceptosNomina.xsd</DependentUpon>
+    </None>
     <None Include="RecursosHumanos\DataSets\DetalleHorario.xsc">
       <DependentUpon>DetalleHorario.xsd</DependentUpon>
     </None>
@@ -1579,6 +1624,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ic_assignment_white_24dp.png" />
+    <Content Include="Resources\ic_group_white_24dp.png" />
+    <Content Include="Resources\LogoIcono32x32.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
