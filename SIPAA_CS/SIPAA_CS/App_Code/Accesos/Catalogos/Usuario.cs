@@ -152,7 +152,7 @@ namespace SIPAA_CS.App_Code
 
             foreach (DataRow row in dt.Rows)
             {
-                string str = row[0].ToString();
+                string str = row[1].ToString();
                 if (!ltModulosxUsuario.Contains(str))
                     {
                         ltModulosxUsuario.Add(str.Trim());

@@ -112,12 +112,13 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.button4.Image = global::SIPAA_CS.Properties.Resources.btnpass;
-            this.button4.Location = new System.Drawing.Point(553, 421);
+            this.button4.Location = new System.Drawing.Point(545, 420);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(210, 50);
             this.button4.TabIndex = 23;
             this.button4.TabStop = false;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Visible = false;
             // 
             // btnIngresar
             // 
@@ -125,7 +126,7 @@
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnIngresar.Image = global::SIPAA_CS.Properties.Resources.btningresar3;
-            this.btnIngresar.Location = new System.Drawing.Point(553, 365);
+            this.btnIngresar.Location = new System.Drawing.Point(545, 364);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(210, 50);
             this.btnIngresar.TabIndex = 2;

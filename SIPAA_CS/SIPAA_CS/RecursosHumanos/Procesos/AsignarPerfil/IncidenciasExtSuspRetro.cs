@@ -22,6 +22,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
          List<DateTime> ltFechasRegistro = new List<DateTime>();
         List<int> ltCvIncidencia = new List<int>();
         List<int> ltcvTipo = new List<int>();
+        Captura objCap = new Captura();
+        List<Captura> ltTrab = new List<Captura>();
 
         public int iOpcionAdmin;
 
@@ -101,49 +103,160 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
 
 
-        internal class Asignacion
-        {
-
-            public DateTime fFechaReg;
-            public int iCvincidencia;
-
-        }
-
+      
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (ltCvIncidencia.Count != 0)
-            {
+           
 
-                if (cbIncidencia.SelectedValue.ToString() != "20") {
+                switch (ValidarFecha(DateTime.Parse(dtimeFechaInicioAsig.Text), DateTime.Parse(dtimeFechaFinAsig.Text))){
 
-                    IncCaptura objinc = new IncCaptura();
 
-                    
+                    case 0:
 
-                    for (int iCont = 0;iCont < ltCvIncidencia.Count();iCont++)
+                    if (cbIncidencia.SelectedValue.ToString() != "20")
+                    {
+                        if (ltTrab.Count != 0)
+                        {
+                            IncCaptura objinc = new IncCaptura();
+
+                            bool bBandera = false;
+                            bool bExists = false;
+                            for (int iCont = 0; iCont < ltTrab.Count(); iCont++)
+                            {
+
+
+                                Captura obj = ltTrab.ElementAt(iCont);
+
+                                int idTrabActual = Convert.ToInt32(TrabajadorInfo.IdTrab);
+                                int cvincidenciaActual = obj.cvincidencia;
+                                int cvtipoActual = obj.cvtipo;
+
+                                objinc.fFecharegistro = obj.FechaReg;
+                                objinc.iIdtrab = idTrabActual;
+                                objinc.iCvIncidencia = cvincidenciaActual;
+                                objinc.iCvTipo = cvtipoActual;
+                                objinc.iCvIncidencia2 = Convert.ToInt32(cbIncidencia.SelectedValue.ToString());
+                                objinc.iCvTipo2 = Convert.ToInt32(cbTipo.SelectedValue.ToString());
+
+                                objinc.fFechaFin = DateTime.Parse(dtimeFechaFinAsig.Text);
+                                objinc.fFechaInicio = DateTime.Parse(dtimeFechaInicioAsig.Text);
+                                objinc.sUsuumod = LoginInfo.IdTrab;
+                                objinc.sPrgumod = this.Name;
+
+                                DataTable dt = objinc.ExtrañamientoRetroactivo(objinc, 1);
+
+                                if (dt.Columns.Contains("INSERT")|| dt.Columns.Contains("EXISTS"))
+                                {
+                                    bBandera = true;
+                                    IncCalificacion objInc = new IncCalificacion();
+                                    objInc.fFechaInicio = dpFechaInicio.Value;
+                                    objInc.fFechaTermino = dpFechaFin.Value;
+
+                                    LlenarGrid(objInc);
+                                }
+                                
+                            }
+
+                            ltCvIncidencia.Clear();
+                            ltcvTipo.Clear();
+                            ltFechasRegistro.Clear();
+                            ltTrab.Clear();
+
+                           if (bBandera == true)
+                            {
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                                txtReferencia.Text = String.Empty;
+                                cbTipo.SelectedIndex = 0;
+                                dtimeFechaInicioAsig.Value = DateTime.Now;
+                                dtimeFechaFinAsig.Value = DateTime.Now;
+                                cbTipo.SelectedIndex = 0;
+                                cbTipo.Enabled = false;
+                                cbIncidencia.SelectedIndex = 0;
+                                timer1.Start();
+
+                            }
+                            else
+                            {
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Una o más asignaciones no se lograron guardar.");
+                                timer1.Start();
+                            }
+
+
+                        }
+                    }
+                    else
                     {
 
+                        DiasEspeciales objDias = new DiasEspeciales();
 
-                        
+                        objDias.sIdTrab = TrabajadorInfo.IdTrab;
+                        objDias.iCvIncidencia = Convert.ToInt32(cbIncidencia.SelectedValue.ToString());
+                        objDias.iCvTipo = Convert.ToInt32(cbTipo.SelectedValue.ToString());
+                        objDias.fFechaInicio = DateTime.Parse(dtimeFechaInicioAsig.Text);
+                        objDias.fFechaFin = DateTime.Parse(dtimeFechaFinAsig.Text);
+                        objDias.sReferencia = txtReferencia.Text;
+                        objDias.iOrden = 6;
+                        objDias.sUsuumod = LoginInfo.IdTrab;
+                        objDias.sPrgumod = this.Name;
+                        DataTable dt = objDias.ObtenerDiasEspecialesxTrabajador(objDias, 1);
+
+                        if (dt.Columns.Contains("INSERT"))
+                        {
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Suspensión Guardada Correctamente");
+                            txtReferencia.Text = String.Empty;
+                            cbTipo.SelectedIndex = 0;
+                            dtimeFechaInicioAsig.Value = DateTime.Now;
+                            dtimeFechaFinAsig.Value = DateTime.Now;
+                            cbTipo.SelectedIndex = 0;
+                            cbTipo.Enabled = false;
+                            cbIncidencia.SelectedIndex = 0;
+                            timer1.Start();
+                        }
+                        else if (dt.Columns.Contains("EXISTS"))
+                        {
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Este Tipo de Suspensión ya fue Asignado a este trabajador en esa fecha");
+                            
+                            timer1.Start();
+                        }
+                        else
+                        {
+
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación. Favor de Repetir el proceso");
+                            timer1.Start();
+                        }
 
                     }
-                   
-
-                    //objinc.ExtrañamientoRetroactivo();
                     
+                        break;
+
+
+                    case 1:
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "La Fecha de Inicio no puede ser Superior a la de Término");
+                    timer1.Start();
+                    break;
 
 
                 }
 
-            }
-            else
-            {
 
+            
 
-
-            }
         }
 
+        public int ValidarFecha(DateTime fFechaInicio, DateTime fFechaTermino) {
+
+            int iResponse = 0;
+
+            if (fFechaInicio > fFechaTermino)
+            {
+
+                iResponse = 1;
+
+            }
+            return iResponse;
+
+
+        }
 
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -161,57 +274,66 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //    dgvInc.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             //}
 
-
-            if (dgvInc.SelectedRows.Count != 0)
+            if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
             {
-                lbAsignacion.Text = "       Asignar Extrañamiento o Retroactivo";
-                DataGridViewRow row = this.dgvInc.SelectedRows[0];
-
-                //CVPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
-                int icvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
-                int icvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
-                DateTime fFechaReg = DateTime.Parse(row.Cells["Fecha Registro"].Value.ToString());
-
-
-                Asignacion objAsig = new Asignacion();
-                objAsig.iCvincidencia = icvIncidencia;
-                objAsig.fFechaReg = fFechaReg;
-
-                if (!ltFechasRegistro.Contains(fFechaReg) && !ltCvIncidencia.Contains(icvIncidencia))
+                if (dgvInc.SelectedRows.Count != 0)
                 {
-                    ltFechasRegistro.Add(fFechaReg);
-                    ltCvIncidencia.Add(icvIncidencia);
-                    ltcvTipo.Add(icvTipo);
-                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                    row.Cells[0].Tag = "check";
+                    lbAsignacion.Text = "       Asignar Extrañamiento o Retroactivo";
+                    DataGridViewRow row = this.dgvInc.SelectedRows[0];
+
+                    //CVPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
+                    int icvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
+                    int icvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
+                    DateTime fFechaReg = DateTime.Parse(row.Cells["Fecha Registro"].Value.ToString());
+
+
+                    Captura objAsig = new Captura();
+                    objAsig.cvincidencia = icvIncidencia;
+                    objAsig.cvtipo = icvTipo;
+                    objAsig.FechaReg = fFechaReg;
+
+                    ValidarExistencia(ltTrab, objAsig);
+
+                    if (row.Cells[0].Tag.ToString() == "check")
+                    {
+
+                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                        row.Cells[0].Tag = "uncheck";
+                    }
+                    else
+                    {
+                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                        row.Cells[0].Tag = "check";
+                    }
+
+
+
+                    llenarComboIncidencia();
+                    if (ltTrab.Count() == 0)
+                    {
+                        if (Permisos.dcPermisos["Crear"] == 1)
+                        {
+
+                            cbIncidencia.SelectedValue = 20;
+                            cbIncidencia.Enabled = false;
+                            lbAsignacion.Text = "       Asignar Suspensión";
+
+                        }
+                        else
+                        {
+
+                            pnlAsig.Visible = false;
+
+                        }
+                    }
+                    //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                    //cbIncidencia.Enabled = true;
+
+                    //  DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
+                    // form.Show();
                 }
-                else
-                {
-
-                    ltFechasRegistro.Remove(fFechaReg);
-                    ltCvIncidencia.Remove(icvIncidencia);
-                    ltcvTipo.Remove(icvTipo);
-                    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                    row.Cells[0].Tag = "uncheck";
-                }
-
-                llenarComboIncidencia();
-
-
-
-
-                //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                //cbIncidencia.Enabled = true;
-
-                //  DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
-                // form.Show();
             }
-            else
-            {
-                cbIncidencia.SelectedValue = 20;
-                cbIncidencia.Enabled = false;
-
-            }
+         
         }
 
         private void AsignacionIncidenciasTrabajador_Load(object sender, EventArgs e)
@@ -228,7 +350,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             lbNombre.Text = TrabajadorInfo.Nombre;
             lbIdTrab.Text = TrabajadorInfo.IdTrab;
             llenarComboIncidencia();
-            cbTipo.Enabled = false;
+            //cbTipo.Enabled = false;
 
             // IncCalificacion objInc = new IncCalificacion();
             //  LlenarGrid(objInc);
@@ -237,6 +359,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             llenarComboTipo(20);
             ltCvIncidencia.Clear();
             ltFechasRegistro.Clear();
+
+
+            if (Permisos.dcPermisos["Crear"] != 1) {
+
+                labelGrid.Text = "Incidencias Registradas";
+                pnlAsig.Visible = false;
+
+            }
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -253,12 +383,79 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         }
 
+        public void ValidarExistencia(List<Captura> ltTrab, Captura objtrab)
+        {
+            bool bBandera = false;
+            int iCont = 0;
+            if (ltTrab.Count != 0)
+            {
+
+                while (iCont <= (ltTrab.Count - 1))
+                {
+
+                    Captura objComp = ltTrab[iCont];
+
+                    if (CompararObj(objComp, objtrab))
+                    {
+
+                        bBandera = true;
+                        break;
+                    }
+                    else
+                    {
+                        iCont += 1;
+
+                    }
+
+                }
+
+                if (bBandera == true)
+                {
+
+                    ltTrab.Remove(ltTrab[iCont]);
+                }
+                else
+                {
+
+                    ltTrab.Add(objtrab);
+                }
+            }
+            else
+            {
+                ltTrab.Add(objtrab);
+
+            }
+
+        }
+
+
+        public bool CompararObj(Captura obj1, Captura obj2)
+        {
+            bool bBandera = false;
+
+            if (obj1.FechaReg == obj2.FechaReg)
+            {
+                if (obj1.cvincidencia == obj2.cvincidencia)
+                {
+                    if (obj1.cvtipo == obj2.cvtipo)
+                    {
+                        bBandera = true;
+                    }
+                   
+                }
+            }
+           
+
+            return bBandera;
+
+        }
+
         private void llenarComboIncidencia()
         {
 
             ConcepInc objIncidencia = new ConcepInc();
             DataTable dtIncidencia = objIncidencia.ConcepInc_S(6, 0, "", 0, 0, 0, 0, "", "");
-            if (ltCvIncidencia.Count != 0)
+            if (ltTrab.Count != 0)
             {
                 dtIncidencia.Rows.RemoveAt(1);
                 Utilerias.llenarComboxDataTable(cbIncidencia, dtIncidencia, "cvincidencia", "Descripcion");
@@ -299,6 +496,22 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvInc.Columns["cvtipo"].Visible = false;
             dgvInc.Columns["Tiempo Prof"].Width = 40;
             dgvInc.Columns["Tiempo Emp"].Width = 40;
+            foreach (DataGridViewRow row in dgvInc.Rows)
+            {
+                row.Cells[0].Tag = "uncheck";
+            }
+
+
+            if (Permisos.dcPermisos["Crear"] != 1 && Permisos.dcPermisos["Actualizar"] != 1) {
+                dgvInc.Columns.RemoveAt(0);
+            }
+            
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+            timer1.Stop();
         }
 
 
@@ -309,5 +522,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
+    }
+
+    public class Captura {
+
+        public string Idtrab;
+        public DateTime FechaReg;
+        public int cvtipo;
+        public int cvincidencia;
+
     }
 }

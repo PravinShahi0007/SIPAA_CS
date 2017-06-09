@@ -786,7 +786,7 @@ namespace SIPAA_CS.App_Code
             checkheader.Location = rect.Location;
             dgv.Columns[iPosicionCheck].Width = 120;
             dgv.Columns[iPosicionCheck].HeaderText = "    Seleccionar";
-            
+            checkheader.Checked = false;
             dgv.Controls.Add(checkheader);
 
             return checkheader;

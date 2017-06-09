@@ -1,6 +1,7 @@
 ﻿using SIPAA_CS.Accesos;
 using SIPAA_CS.Accesos.Catalogos;
 using SIPAA_CS.App_Code;
+using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -90,17 +91,29 @@ namespace SIPAA_CS.Accesos
 
         private void AccesosDashboard_Load(object sender, EventArgs e)
         {
-            int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            int sysW = SystemInformation.PrimaryMonitorSize.Width;
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            //////////////////////////////////////////////////////////////////////////////////
+
+            Dashboard form = new Dashboard();
+            form.Enabled = false;
+
+            lblusuario.Text = LoginInfo.Nombre;
 
             Usuario objUsuario = new Usuario();
-            string IdTrab = LoginInfo.IdTrab;
-            List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab,5);
+            //string IdTrab = LoginInfo.IdTrab;
+            //List<string> ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(IdTrab, 5);
 
-            LoginInfo.Nombre = lblusuario.Text;
+            //Utilerias.MenuDinamico(MenuAccesos, ltModulosxUsuario);
 
-            Utilerias.MenuDinamico(MenuAccesos, ltModulosxUsuario);
+            //carga imagen
+            //Util.cargaimagen(pictureBox1);
+
+            cargaMenu(0, null, MenuAccesos);
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -142,6 +155,85 @@ namespace SIPAA_CS.Accesos
             //Dashboard d = new Dashboard();
             //d.Show();
             this.Close();
+        }
+
+
+        private void cargaMenu(Int32 IdMaster, ToolStripMenuItem MenuPadre, MenuStrip Menu)
+        {
+            Perfil objPerfil = new Perfil();
+            DataTable menudin = new DataTable();
+            menudin = objPerfil.dtmenudinamicocs(6, LoginInfo.IdTrab, "ACCE");
+            DataView DatosHijos = new DataView(menudin);
+
+            DatosHijos.RowFilter = menudin.Columns["cvindmodulo"].ColumnName + "=" + IdMaster;
+
+            foreach (DataRowView fila in DatosHijos)
+            {
+                ToolStripMenuItem MenuHijo = new ToolStripMenuItem();
+                MenuHijo.Text = fila["descripcion"].ToString();
+                MenuHijo.Name = fila["rutaaaceso"].ToString();
+                MenuHijo.BackColor = Color.FromArgb(10, 62, 120);
+                MenuHijo.ForeColor = Color.White;
+                MenuHijo.Font = new Font("Arial", 12);
+                MenuHijo.Image = Resources.ic_view_carousel_white_24dp;
+
+                //modifica iconos
+                if ((MenuHijo.Text = fila["descripcion"].ToString()) == "Catalogos")
+                {
+                    MenuHijo.Image = Resources.ic_view_carousel_white_24dp;
+                }
+                else if ((MenuHijo.Text = fila["descripcion"].ToString()) == "Asignaciones")
+                {
+                    MenuHijo.Image = Resources.ic_compare_arrows_white_24dp;
+                }
+                else if ((MenuHijo.Text = fila["descripcion"].ToString()) == "Reportes")
+                {
+                    MenuHijo.Image = Resources.ic_assignment_white_24dp;
+                }
+                else if ((MenuHijo.Text = fila["descripcion"].ToString()) == "Procesos")
+                {
+                    MenuHijo.Image = Resources.ic_assignment_white_24dp;
+                }
+                else
+                {
+                    MenuHijo.Image = Resources.ic_view_carousel_white_24dp;
+                }
+
+
+                MenuHijo.Font = new Font(MenuHijo.Font, FontStyle.Regular);
+
+                MenuHijo.Click += new EventHandler(Event);
+
+                if (MenuPadre == null)
+                {
+                    Menu.Items.Add(MenuHijo);
+                }
+                else
+                {
+                    MenuPadre.DropDownItems.Add(MenuHijo);
+                }
+
+                cargaMenu(int.Parse(fila["idmodulo"].ToString()), MenuHijo, Menu);
+            }
+        }
+
+        private void Event(object sender, EventArgs e)
+        {
+            ToolStripMenuItem ItemClick = (ToolStripMenuItem)sender;
+            eclicck(ItemClick.Name);
+        }
+
+        private void eclicck(string NombreFormulario)
+        {
+            Form Frm;
+            if (NombreFormulario != "")
+            {
+                //Frm = (Form)Activator.CreateInstance(null, "SIPAA_CS.RecursosHumanos.Catalogos.PlantillasDetalles").Unwrap();
+                //Frm.Show();
+
+                Frm = (Form)Activator.CreateInstance(null, NombreFormulario).Unwrap();
+                Frm.Show();
+            }
         }
     }
 }

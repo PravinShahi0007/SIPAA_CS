@@ -143,7 +143,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void TrabajadoresPerfil_Load(object sender, EventArgs e)
         {
-            LoginInfo.IdTrab = "ADMIN";
+            //LoginInfo.IdTrab = "ADMIN";
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
@@ -151,11 +151,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             //////////////////////////////////////////////////////////////////////////////////
+            lblusuario.Text = LoginInfo.Nombre;
             SonaTrabajador objTrab = new SonaTrabajador();
             DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%", 6, "%", "%", 0,"", this.Name);
             //   llenarListView(dtTrab, ltvTrabajador);
             llenarGrid(dtTrab, dgvTrab);
-            lblusuario.Text = LoginInfo.Nombre;
+            
         }
 
         //-----------------------------------------------------------------------------------------------

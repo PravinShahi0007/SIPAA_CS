@@ -11,10 +11,10 @@ namespace SIPAA_CS.App_Code
 {
     class Modulo
     {
-
+        public int idModulo;
         public string CVModulo;
         public string Descripcion;
-        public string CVModPadre;
+        public string cvindModulo;
         public int steli;
         public int stcre;
         public int stact;
@@ -29,47 +29,28 @@ namespace SIPAA_CS.App_Code
         public int Estatus;
         
 
-        public List<Modulo> ObtenerListModulos(string CVModulo,string Descripcion,string Ambiente,string Modulo,string Estatus)
+        public DataTable ObtenerListModulos(string CVModulo,string Descripcion,string Ambiente,string Modulo,string Estatus)
         {
 
             List<Modulo> ltModulos = new List<Modulo>();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_accemodulo_S";
             cmd.CommandType = CommandType.StoredProcedure;
-
+            Conexion objConexion = new Conexion();
             cmd.Parameters.Add("CVModulo",SqlDbType.VarChar).Value = CVModulo;
             cmd.Parameters.Add("Descripcion", SqlDbType.VarChar).Value = Descripcion;
             cmd.Parameters.Add("Ambiente", SqlDbType.VarChar).Value = Ambiente;
             cmd.Parameters.Add("Modulo", SqlDbType.VarChar).Value = Modulo;
             cmd.Parameters.Add("Estatus", SqlDbType.VarChar).Value = Estatus;
 
-            Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
-
-            SqlDataReader reader = cmd.ExecuteReader();
-
-
-            while (reader.Read())
-            {
-
-                Modulo objModulo = new Modulo();
-                objModulo.CVModulo = reader.GetString(reader.GetOrdinal("CVMODULO"));
-                objModulo.Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION"));
-               // objModulo.CVModPadre = reader.GetString(reader.GetOrdinal("CVMODPAD"));
-                objModulo.Orden = reader.GetInt32(reader.GetOrdinal("ORDEN"));
-                objModulo.Ambiente = reader.GetString(reader.GetOrdinal("AMBIENTE"));
-                objModulo.strModulo = reader.GetString(reader.GetOrdinal("MODULO"));
-                objModulo.UsuuMod = reader.GetString(reader.GetOrdinal("USUUMOD"));
-                objModulo.FhuMod = reader.GetDateTime(reader.GetOrdinal("FHUMOD"));
-                objModulo.PrguMod = reader.GetString(reader.GetOrdinal("PRGUMOD"));
-                objModulo.Estatus = reader.GetInt32(reader.GetOrdinal("stModulo"));
-
-                ltModulos.Add(objModulo);
-            }
-
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
             objConexion.cerrarConexion();
 
-            return ltModulos;
+            DataTable dt = new DataTable();
+            Adapter.Fill(dt);
+
+            return dt;
 
         }
 
@@ -113,6 +94,7 @@ namespace SIPAA_CS.App_Code
 
 
             DataTable dtModulos = new DataTable();
+            dtModulos.Columns.Add("IdModulo");
             dtModulos.Columns.Add("CVModulo");
             dtModulos.Columns.Add("Descripción");
             dtModulos.Columns.Add("Orden");
@@ -128,6 +110,7 @@ namespace SIPAA_CS.App_Code
                 Modulo objModuloActual = new Modulo();
                 objModuloActual = ltModulos.ElementAt(iContador);
                 DataRow row = dtModulos.NewRow();
+                row["IdModulo"] = objModuloActual.idModulo.ToString();
                 row["CVModulo"] = objModuloActual.CVModulo.ToString();
                 row["Descripción"] = objModuloActual.Descripcion.ToString();
                 row["Orden"] = objModuloActual.Orden;
