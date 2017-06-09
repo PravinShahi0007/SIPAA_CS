@@ -430,9 +430,9 @@ namespace SIPAA_CS.Accesos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Modulos_Load(object sender, EventArgs e)
         {
-            // Diccionario Permisos x Pantalla
-            //DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
-            //Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
             //////////////////////////////////////////////////////
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
