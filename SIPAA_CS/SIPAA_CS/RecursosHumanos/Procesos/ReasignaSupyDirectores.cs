@@ -14,6 +14,11 @@ using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
 
+using SIPAA_CS.RecursosHumanos;
+using static SIPAA_CS.App_Code.Usuario;
+using SIPAA_CS.Accesos;
+
+
 //***********************************************************************************************
 //Autor: Jaime Avendaño Vargas
 //Fecha creación: 04-Abril-2017       Última Modificacion: dd-mm-aaaa
@@ -42,6 +47,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         ReasignaSupyDirector oNombreEmpleado = new ReasignaSupyDirector();
         ReasignaSupyDirector oObtieneSupyDir = new ReasignaSupyDirector();
         ReasignaSupyDirector oActualizaSudyDir = new ReasignaSupyDirector();
+        ReasignaSupyDirector oActualizaSudyDir2 = new ReasignaSupyDirector();
         ReasignaSupyDirector oIncidencias = new ReasignaSupyDirector();
         Utilerias Util = new Utilerias();
                 
@@ -49,6 +55,30 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             InitializeComponent();
         }
+
+
+        private void ReasignaSupyDirectores_Load(object sender, EventArgs e)
+        {
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            /* JAV
+            Usuario objUsuario = new Usuario();
+            string idtrab = LoginInfo.IdTrab;
+            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab, 4);
+            Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
+            //LoginInfo.Nombre = lblusuario.Text;
+            string NomUsu = LoginInfo.Nombre;
+            lblusuario.Text = NomUsu;
+            JAV */
+        }
+
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -255,7 +285,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 if (TxtIdSupFin.Text == "") TxtIdSupFin.Text = "0";
                 if (TxtIdDirFin.Text == "") TxtIdDirFin.Text = "0";
 
-                DataTable dtActualizaSudyDir = oActualizaSudyDir.obtActualizaSudyDir(2, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text));
+                DataTable dtActualizaSudyDir = oActualizaSudyDir.obtActualizaSudyDir(2, Convert.ToInt32(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text));
+                DataTable dtActualizaSudyDir2 = oActualizaSudyDir2.obtActualizaSudyDir2(2, Convert.ToInt32(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text));
 
                 //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
                 if (dtActualizaSudyDir.Rows.Count > 0)

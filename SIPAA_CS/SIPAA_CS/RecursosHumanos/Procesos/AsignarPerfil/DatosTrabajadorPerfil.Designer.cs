@@ -1,4 +1,4 @@
-﻿namespace SIPAA_CS.RecursosHumanos.Procesos
+﻿namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
     partial class DatosTrabajadorPerfil
     {
@@ -799,6 +799,7 @@
             this.button1.TabIndex = 178;
             this.button1.Tag = "Editar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel5
             // 
@@ -825,6 +826,7 @@
             this.button2.TabIndex = 178;
             this.button2.Tag = "Editar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panelAsignacionTrabajador
             // 

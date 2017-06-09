@@ -11,10 +11,10 @@ namespace SIPAA_CS.App_Code
 {
     class Modulo
     {
-
+        public int idModulo;
         public string CVModulo;
         public string Descripcion;
-        public string CVModPadre;
+        public string cvindModulo;
         public int steli;
         public int stcre;
         public int stact;
@@ -29,47 +29,28 @@ namespace SIPAA_CS.App_Code
         public int Estatus;
         
 
-        public List<Modulo> ObtenerListModulos(string CVModulo,string Descripcion,string Ambiente,string Modulo,string Estatus)
+        public DataTable ObtenerListModulos(string CVModulo,string Descripcion,string Ambiente,string Modulo,string Estatus)
         {
 
             List<Modulo> ltModulos = new List<Modulo>();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_accemodulo_S";
             cmd.CommandType = CommandType.StoredProcedure;
-
+            Conexion objConexion = new Conexion();
             cmd.Parameters.Add("CVModulo",SqlDbType.VarChar).Value = CVModulo;
             cmd.Parameters.Add("Descripcion", SqlDbType.VarChar).Value = Descripcion;
             cmd.Parameters.Add("Ambiente", SqlDbType.VarChar).Value = Ambiente;
             cmd.Parameters.Add("Modulo", SqlDbType.VarChar).Value = Modulo;
             cmd.Parameters.Add("Estatus", SqlDbType.VarChar).Value = Estatus;
 
-            Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
-
-            SqlDataReader reader = cmd.ExecuteReader();
-
-
-            while (reader.Read())
-            {
-
-                Modulo objModulo = new Modulo();
-                objModulo.CVModulo = reader.GetString(reader.GetOrdinal("CVMODULO"));
-                objModulo.Descripcion = reader.GetString(reader.GetOrdinal("DESCRIPCION"));
-               // objModulo.CVModPadre = reader.GetString(reader.GetOrdinal("CVMODPAD"));
-                objModulo.Orden = reader.GetInt32(reader.GetOrdinal("ORDEN"));
-                objModulo.Ambiente = reader.GetString(reader.GetOrdinal("AMBIENTE"));
-                objModulo.strModulo = reader.GetString(reader.GetOrdinal("MODULO"));
-                objModulo.UsuuMod = reader.GetString(reader.GetOrdinal("USUUMOD"));
-                objModulo.FhuMod = reader.GetDateTime(reader.GetOrdinal("FHUMOD"));
-                objModulo.PrguMod = reader.GetString(reader.GetOrdinal("PRGUMOD"));
-                objModulo.Estatus = reader.GetInt32(reader.GetOrdinal("stModulo"));
-
-                ltModulos.Add(objModulo);
-            }
-
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
             objConexion.cerrarConexion();
 
-            return ltModulos;
+            DataTable dt = new DataTable();
+            Adapter.Fill(dt);
+
+            return dt;
 
         }
 
@@ -113,6 +94,7 @@ namespace SIPAA_CS.App_Code
 
 
             DataTable dtModulos = new DataTable();
+            dtModulos.Columns.Add("IdModulo");
             dtModulos.Columns.Add("CVModulo");
             dtModulos.Columns.Add("Descripción");
             dtModulos.Columns.Add("Orden");
@@ -128,6 +110,7 @@ namespace SIPAA_CS.App_Code
                 Modulo objModuloActual = new Modulo();
                 objModuloActual = ltModulos.ElementAt(iContador);
                 DataRow row = dtModulos.NewRow();
+                row["IdModulo"] = objModuloActual.idModulo.ToString();
                 row["CVModulo"] = objModuloActual.CVModulo.ToString();
                 row["Descripción"] = objModuloActual.Descripcion.ToString();
                 row["Orden"] = objModuloActual.Orden;
@@ -275,7 +258,7 @@ namespace SIPAA_CS.App_Code
             }
         }
 
-        public DataTable ObtenerModulo(string cvmodulo, string descripcion, string cvmodpad, int orden, string ambiente, string modulo, string rutaaaceso, int stmodulo, string usumod, string prgumod, int opcion)
+        public DataTable ObtenerModulo(int idmodulo, int cvindmodulo, string cvmodulo, string descripcion, int orden, string ambiente, int cvtipomodulo, string rutaacceso, int stmodulo, string usuumod, string prgumod, int opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
@@ -284,17 +267,19 @@ namespace SIPAA_CS.App_Code
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
+            cmd.Parameters.Add("@p_idmodulo", SqlDbType.Int).Value = idmodulo;
+            cmd.Parameters.Add("@p_cvindmodulo", SqlDbType.Int).Value = cvindmodulo;
             cmd.Parameters.Add("@p_cvmodulo", SqlDbType.VarChar).Value = cvmodulo;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
-            cmd.Parameters.Add("@p_cvmodpad", SqlDbType.VarChar).Value = cvmodpad;
             cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = orden;
             cmd.Parameters.Add("@p_ambiente", SqlDbType.VarChar).Value = ambiente;
-            cmd.Parameters.Add("@p_modulo", SqlDbType.VarChar).Value = modulo;
-            cmd.Parameters.Add("@p_rutaaaceso", SqlDbType.VarChar).Value = rutaaaceso;
+            cmd.Parameters.Add("@p_cvtipomodulo", SqlDbType.Int).Value = cvtipomodulo;
+            cmd.Parameters.Add("@p_rutaaaceso", SqlDbType.VarChar).Value = rutaacceso;
             cmd.Parameters.Add("@p_stmodulo", SqlDbType.Int).Value = stmodulo;
-            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usumod;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+
 
             objConexion.asignarConexion(cmd);
 
@@ -307,7 +292,7 @@ namespace SIPAA_CS.App_Code
             return dtModulo;
         }
 
-        public int CrearModulo(string cvmodulo, string descripcion, string cvmodpad, int orden, string ambiente, string modulo, string rutaaaceso, int stmodulo, string usumod, string prgumod, int opcion)
+        public int CrearModulo(int idmodulo, int cvindmodulo, string cvmodulo, string descripcion, int orden, string ambiente, int cvtipomodulo, string rutaacceso, int stmodulo, string usuumod, string prgumod, int opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
@@ -316,18 +301,19 @@ namespace SIPAA_CS.App_Code
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
+            cmd.Parameters.Add("@p_idmodulo", SqlDbType.Int).Value = idmodulo;
+            cmd.Parameters.Add("@p_cvindmodulo", SqlDbType.Int).Value = cvindmodulo;
             cmd.Parameters.Add("@p_cvmodulo", SqlDbType.VarChar).Value = cvmodulo;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
-            cmd.Parameters.Add("@p_cvmodpad", SqlDbType.VarChar).Value = cvmodpad;
             cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = orden;
             cmd.Parameters.Add("@p_ambiente", SqlDbType.VarChar).Value = ambiente;
-            cmd.Parameters.Add("@p_modulo", SqlDbType.VarChar).Value = modulo;
-            cmd.Parameters.Add("@p_rutaaaceso", SqlDbType.VarChar).Value = rutaaaceso;
+            cmd.Parameters.Add("@p_cvtipomodulo", SqlDbType.Int).Value = cvtipomodulo;
+            cmd.Parameters.Add("@p_rutaaaceso", SqlDbType.VarChar).Value = rutaacceso;
             cmd.Parameters.Add("@p_stmodulo", SqlDbType.Int).Value = stmodulo;
-            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usumod;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
-            
+
             objConexion.asignarConexion(cmd);
 
             int response = Convert.ToInt32(cmd.ExecuteScalar());
@@ -338,7 +324,7 @@ namespace SIPAA_CS.App_Code
 
         }
 
-        public DataTable ReporteModulos(string cvmodulo, string descripcion, string cvmodpad, int orden, string ambiente, string modulo, string rutaaaceso, int stmodulo, string usumod, string prgumod, int opcion)
+        public DataTable ReporteModulos(string idmodulo, string cvindmodulo, string cvmodulo, string descripcion, string orden, string ambiente, string cvtipomodulo, string rutaacceso, string stmodulo, string usuumod, string prgumod, int opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
@@ -347,15 +333,16 @@ namespace SIPAA_CS.App_Code
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
+            cmd.Parameters.Add("@p_idmodulo", SqlDbType.VarChar).Value = idmodulo;
+            cmd.Parameters.Add("@p_cvindmodulo", SqlDbType.VarChar).Value = cvindmodulo;
             cmd.Parameters.Add("@p_cvmodulo", SqlDbType.VarChar).Value = cvmodulo;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
-            cmd.Parameters.Add("@p_cvmodpad", SqlDbType.VarChar).Value = cvmodpad;
-            cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = orden;
+            cmd.Parameters.Add("@p_orden", SqlDbType.VarChar).Value = orden;
             cmd.Parameters.Add("@p_ambiente", SqlDbType.VarChar).Value = ambiente;
-            cmd.Parameters.Add("@p_modulo", SqlDbType.VarChar).Value = modulo;
-            cmd.Parameters.Add("@p_rutaaaceso", SqlDbType.VarChar).Value = rutaaaceso;
-            cmd.Parameters.Add("@p_stmodulo", SqlDbType.Int).Value = stmodulo;
-            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usumod;
+            cmd.Parameters.Add("@p_cvtipomodulo", SqlDbType.VarChar).Value = cvtipomodulo;
+            cmd.Parameters.Add("@p_rutaaaceso", SqlDbType.VarChar).Value = rutaacceso;
+            cmd.Parameters.Add("@p_stmodulo", SqlDbType.VarChar).Value = stmodulo;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
 

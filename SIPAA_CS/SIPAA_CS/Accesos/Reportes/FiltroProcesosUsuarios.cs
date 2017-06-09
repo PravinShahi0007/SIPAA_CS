@@ -199,11 +199,18 @@ namespace SIPAA_CS.Accesos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void FiltroProcesosUsuarios_Load(object sender, EventArgs e)
         {
+            //// Diccionario Permisos x Pantalla
+            //DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            //Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            ////////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
             Usuario objUsuario = new Usuario();
             Proceso objProceso = new Proceso();
-            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-
-            DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("", 0, "", "", 0, "", "", 11);
+            
+            DataTable dtUsuario = objUsuario.ObtenerListaUsuarios("%", 0, "", "", 0, "", "", 11);
             DataTable dtProceso = objProceso.ObtenerProceso("","",0,"","",10);
 
             llenaCombo(cbUsuario, dtUsuario, "cvusuario", "nombre");

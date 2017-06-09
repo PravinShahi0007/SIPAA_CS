@@ -43,9 +43,10 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.lblusuario = new System.Windows.Forms.Label();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.PanelMetro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelMetro
@@ -64,21 +65,22 @@
             this.PanelMetro.Location = new System.Drawing.Point(61, 197);
             this.PanelMetro.Name = "PanelMetro";
             this.PanelMetro.Size = new System.Drawing.Size(901, 472);
-            this.PanelMetro.TabIndex = 45;
+            this.PanelMetro.TabIndex = 0;
+            this.PanelMetro.TabStop = true;
             this.PanelMetro.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelMetro_Paint);
             // 
             // btnCompras
             // 
             this.btnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(47)))), ((int)(((byte)(66)))));
             this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompras.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompras.ForeColor = System.Drawing.Color.White;
             this.btnCompras.Image = global::SIPAA_CS.Properties.Resources.ic_local_shipping_white_48dp;
             this.btnCompras.Location = new System.Drawing.Point(600, 316);
             this.btnCompras.Name = "btnCompras";
             this.btnCompras.Size = new System.Drawing.Size(270, 132);
             this.btnCompras.TabIndex = 52;
-            this.btnCompras.Tag = "frmCompras";
+            this.btnCompras.Tag = "COMPR";
             this.btnCompras.Text = "Compras";
             this.btnCompras.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnCompras.UseVisualStyleBackColor = false;
@@ -87,14 +89,14 @@
             // 
             this.btnSistemas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(0)))), ((int)(((byte)(62)))));
             this.btnSistemas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSistemas.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSistemas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSistemas.ForeColor = System.Drawing.Color.White;
             this.btnSistemas.Image = global::SIPAA_CS.Properties.Resources.ic_devices_white_48dp;
             this.btnSistemas.Location = new System.Drawing.Point(316, 316);
             this.btnSistemas.Name = "btnSistemas";
             this.btnSistemas.Size = new System.Drawing.Size(270, 132);
             this.btnSistemas.TabIndex = 51;
-            this.btnSistemas.Tag = "frmSistemas";
+            this.btnSistemas.Tag = "SIST";
             this.btnSistemas.Text = "Sistemas";
             this.btnSistemas.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnSistemas.UseVisualStyleBackColor = false;
@@ -103,14 +105,14 @@
             // 
             this.btnEscolar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(104)))), ((int)(((byte)(174)))));
             this.btnEscolar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEscolar.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscolar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEscolar.ForeColor = System.Drawing.Color.White;
             this.btnEscolar.Image = global::SIPAA_CS.Properties.Resources.ic_school_white_48dp;
             this.btnEscolar.Location = new System.Drawing.Point(31, 316);
             this.btnEscolar.Name = "btnEscolar";
             this.btnEscolar.Size = new System.Drawing.Size(270, 132);
             this.btnEscolar.TabIndex = 50;
-            this.btnEscolar.Tag = "frmControlEscolar";
+            this.btnEscolar.Tag = "CTRESC";
             this.btnEscolar.Text = "Control Escolar";
             this.btnEscolar.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnEscolar.UseVisualStyleBackColor = false;
@@ -119,14 +121,14 @@
             // 
             this.btnDeportivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(89)))), ((int)(((byte)(173)))));
             this.btnDeportivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeportivo.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeportivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeportivo.ForeColor = System.Drawing.Color.White;
             this.btnDeportivo.Image = ((System.Drawing.Image)(resources.GetObject("btnDeportivo.Image")));
             this.btnDeportivo.Location = new System.Drawing.Point(600, 170);
             this.btnDeportivo.Name = "btnDeportivo";
             this.btnDeportivo.Size = new System.Drawing.Size(270, 132);
             this.btnDeportivo.TabIndex = 49;
-            this.btnDeportivo.Tag = "frmDeportivo";
+            this.btnDeportivo.Tag = "DEPOR";
             this.btnDeportivo.Text = "Deportivo";
             this.btnDeportivo.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnDeportivo.UseVisualStyleBackColor = false;
@@ -135,14 +137,14 @@
             // 
             this.btnContabilidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(62)))), ((int)(((byte)(8)))));
             this.btnContabilidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContabilidad.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContabilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContabilidad.ForeColor = System.Drawing.Color.White;
             this.btnContabilidad.Image = global::SIPAA_CS.Properties.Resources.ic_insert_chart_white_48dp;
             this.btnContabilidad.Location = new System.Drawing.Point(316, 170);
             this.btnContabilidad.Name = "btnContabilidad";
             this.btnContabilidad.Size = new System.Drawing.Size(270, 132);
             this.btnContabilidad.TabIndex = 48;
-            this.btnContabilidad.Tag = "frmContabilidad";
+            this.btnContabilidad.Tag = "CONTA";
             this.btnContabilidad.Text = "Contabilidad";
             this.btnContabilidad.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnContabilidad.UseVisualStyleBackColor = false;
@@ -151,14 +153,14 @@
             // 
             this.btnAccesos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(139)))), ((int)(((byte)(32)))));
             this.btnAccesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccesos.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccesos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccesos.ForeColor = System.Drawing.Color.White;
             this.btnAccesos.Image = ((System.Drawing.Image)(resources.GetObject("btnAccesos.Image")));
             this.btnAccesos.Location = new System.Drawing.Point(31, 170);
             this.btnAccesos.Name = "btnAccesos";
             this.btnAccesos.Size = new System.Drawing.Size(270, 132);
             this.btnAccesos.TabIndex = 47;
-            this.btnAccesos.Tag = "AcceDashboard";
+            this.btnAccesos.Tag = "ACCE";
             this.btnAccesos.Text = "Accesos";
             this.btnAccesos.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnAccesos.UseVisualStyleBackColor = false;
@@ -168,14 +170,14 @@
             // 
             this.btnIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(75)))), ((int)(((byte)(43)))));
             this.btnIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIngresos.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresos.ForeColor = System.Drawing.Color.White;
             this.btnIngresos.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresos.Image")));
             this.btnIngresos.Location = new System.Drawing.Point(600, 24);
             this.btnIngresos.Name = "btnIngresos";
             this.btnIngresos.Size = new System.Drawing.Size(270, 132);
             this.btnIngresos.TabIndex = 46;
-            this.btnIngresos.Tag = "frmIngresos";
+            this.btnIngresos.Tag = "INGR";
             this.btnIngresos.Text = "Ingresos";
             this.btnIngresos.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnIngresos.UseVisualStyleBackColor = false;
@@ -184,14 +186,14 @@
             // 
             this.btnAlmacen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(174)))), ((int)(((byte)(65)))));
             this.btnAlmacen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlmacen.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlmacen.ForeColor = System.Drawing.Color.White;
             this.btnAlmacen.Image = ((System.Drawing.Image)(resources.GetObject("btnAlmacen.Image")));
             this.btnAlmacen.Location = new System.Drawing.Point(316, 24);
             this.btnAlmacen.Name = "btnAlmacen";
             this.btnAlmacen.Size = new System.Drawing.Size(270, 132);
             this.btnAlmacen.TabIndex = 45;
-            this.btnAlmacen.Tag = "frmAlmacen";
+            this.btnAlmacen.Tag = "ALMC";
             this.btnAlmacen.Text = "Almacén";
             this.btnAlmacen.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnAlmacen.UseVisualStyleBackColor = false;
@@ -202,14 +204,14 @@
             this.btnRecursosh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(95)))), ((int)(((byte)(143)))));
             this.btnRecursosh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRecursosh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecursosh.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecursosh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecursosh.ForeColor = System.Drawing.Color.White;
             this.btnRecursosh.Image = ((System.Drawing.Image)(resources.GetObject("btnRecursosh.Image")));
             this.btnRecursosh.Location = new System.Drawing.Point(31, 24);
             this.btnRecursosh.Name = "btnRecursosh";
             this.btnRecursosh.Size = new System.Drawing.Size(270, 132);
             this.btnRecursosh.TabIndex = 44;
-            this.btnRecursosh.Tag = "RechDashboard";
+            this.btnRecursosh.Tag = "RECH";
             this.btnRecursosh.Text = "Recursos Humanos";
             this.btnRecursosh.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnRecursosh.UseVisualStyleBackColor = false;
@@ -272,28 +274,31 @@
             this.label4.Text = "SIPAA";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlimgusuario
-            // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(12, 31);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 114;
-            // 
             // lblusuario
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblusuario.Location = new System.Drawing.Point(8, 75);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.Size = new System.Drawing.Size(62, 20);
             this.lblusuario.TabIndex = 115;
-            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.Text = "Usuario  ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 150;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
             // 
             // Dashboard
             // 
@@ -302,8 +307,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnMinimizar);
@@ -316,6 +321,7 @@
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.PanelMetro.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,7 +343,7 @@
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.Label lblusuario;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }

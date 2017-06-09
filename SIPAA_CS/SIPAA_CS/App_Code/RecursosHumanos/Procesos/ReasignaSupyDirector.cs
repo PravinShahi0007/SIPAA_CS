@@ -156,6 +156,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             objConexion.asignarConexion(cmd);
             iOpcion = 2;
 
+
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
             cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idTrab;
             cmd.Parameters.Add("@p_fini", SqlDbType.NChar).Value = dFini;
@@ -177,6 +178,50 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             Adapter.Fill(dtNombreEmpleado);
             return dtNombreEmpleado;
         }
+
+        public DataTable obtActualizaSudyDir2(int iOpcion, int idTrab, string dFini, string dFfin, int idTrabSupn, int idTrabDirn/*, int idTrabSupn, int idTrabDirn*/)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechtinccalif_d_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+            iOpcion = 2;
+
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idTrab;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_FechaInicio", SqlDbType.NChar).Value = dFini;
+            cmd.Parameters.Add("@p_FechaFin", SqlDbType.NChar).Value = dFfin;
+            cmd.Parameters.Add("@p_idtrabsup", SqlDbType.Int).Value = idTrabSupn;
+            cmd.Parameters.Add("@p_idtrabdir", SqlDbType.Int).Value = idTrabDirn;
+            //cmd.Parameters.Add("@p_idtrabsupn", SqlDbType.Int).Value = idTrabSupn;
+            //cmd.Parameters.Add("@p_idtrabdirn", SqlDbType.Int).Value = idTrabDirn;
+            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_tiempoemp", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_tiempoprof", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stsup", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_fhautsup", SqlDbType.NChar).Value = dFfin;
+            cmd.Parameters.Add("@p_stdir", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_premiopunt", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_premioasis", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stinc", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_archivo", SqlDbType.NChar).Value = dFfin;
+            cmd.Parameters.Add("@p_fhautdir", SqlDbType.NChar).Value = dFfin;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.NChar).Value = "JAV";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.NChar).Value = "SQL";
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtNombreEmpleado = new DataTable();
+            Adapter.Fill(dtNombreEmpleado);
+            return dtNombreEmpleado;
+        }
+
+
 
         //metodo data table para llenar grid de busqueda
         public DataTable obtIncidencias(int iOpcion, int idTrab, string dFini, string dFfin)

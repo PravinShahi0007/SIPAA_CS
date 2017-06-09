@@ -332,6 +332,7 @@
             this.Controls.Add(this.btnCerrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FiltrosRegistroDetalle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FiltrosRegistroDetalle";
             this.Load += new System.EventHandler(this.FiltrosRegistroDetalle_Load);
             this.panel1.ResumeLayout(false);

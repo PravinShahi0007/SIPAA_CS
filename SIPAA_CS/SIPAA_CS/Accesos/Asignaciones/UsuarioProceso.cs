@@ -6,7 +6,7 @@ using System.Data;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.Accesos
+namespace SIPAA_CS.Accesos.Asignaciones
 {
     public partial class UsuarioProceso : Form
     {
@@ -78,6 +78,7 @@ namespace SIPAA_CS.Accesos
                     {
                         if (dgvProceso.SelectedRows.Count != 0)
                         {
+                            AsignarProcesos();
                             Utilerias.MultiSeleccionGridViewString(dgvProceso, 1, ltProceso, panelPermisos);
                         }
                     }
@@ -148,20 +149,42 @@ namespace SIPAA_CS.Accesos
             buscar = txtUsuario.Text;
             //buscar.Trim();
 
-            dgvUsuario.Columns.Remove(columnName: "Seleccionar");
+            //dgvUsuario.Columns.Remove(columnName: "Seleccionar");
 
-            LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "", 8);
+            //LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "",11);
             txtUsuario.Text = "";
+
+            if (buscar.Trim() != "")
+            {
+                LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "", 11);
+                LlenaGridProcesos("", "%", 0, "0", "", 8);
+            }
+            else
+            {
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 11);
+                LlenaGridProcesos("", "%", 0, "0", "", 8);
+            }
         }
 
         private void btnBuscarProceso_Click(object sender, EventArgs e)
         {
             descripcion = txtDescripcion.Text;
 
-            dgvProceso.Columns.Remove(columnName: "Seleccionar");
+            //dgvProceso.Columns.Remove(columnName: "Seleccionar");
 
-            LlenaGridProcesos("", descripcion.Trim(), 0, "", "", 8);
+            
             txtDescripcion.Text = "";
+
+            if (descripcion != "")
+            {
+                LlenaGridProcesos("", descripcion.Trim(), 0, "", "", 8);
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 11);
+            }
+            else
+            {
+                LlenaGridProcesos("", "%", 0, "", "", 8);
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 11);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -185,7 +208,7 @@ namespace SIPAA_CS.Accesos
                             {
                                 DataGridViewRow rowusu = this.dgvUsuario.SelectedRows[0];
                                 pass = rowusu.Cells[5].Value.ToString();
-                                string usuumod = "vjiturburuv";
+                                string usuumod = LoginInfo.IdTrab;
                                 string prgumod = this.Name;
                                 Proceso objProceso = new Proceso();
 
@@ -194,7 +217,7 @@ namespace SIPAA_CS.Accesos
                                     //string proc = Convert.ToString(proceso);
                                     objProceso.AsignarUsuarioProceso(CVUsuario, proceso, pass, usuumod, prgumod, 1);
                                 }
-
+                                panelPermisos.Enabled = false;
                                 ltProceso.Clear();
                                 AsignarProcesos();
                                 cbAsignaPassword.Checked = false;
@@ -221,7 +244,7 @@ namespace SIPAA_CS.Accesos
                                     pass = txtPassword.Text;
                                     Utilerias u = new Utilerias();
                                     string p = u.cifradoMd5(pass);
-                                    string usuumod = "vjiturburuv";
+                                    string usuumod = LoginInfo.IdTrab;
                                     string prgumod = this.Name;
                                     Proceso objProceso = new Proceso();
 
@@ -266,7 +289,7 @@ namespace SIPAA_CS.Accesos
                                 {
                                     DataGridViewRow rowusu = this.dgvUsuario.SelectedRows[0];
                                     pass = rowusu.Cells[5].Value.ToString();
-                                    string usuumod = "vjiturburuv";
+                                    string usuumod = LoginInfo.IdTrab;
                                     string prgumod = this.Name;
                                     Proceso objProceso = new Proceso();
 
@@ -299,7 +322,7 @@ namespace SIPAA_CS.Accesos
                                     pass = txtPassword.Text;
                                     Utilerias u = new Utilerias();
                                     string p = u.cifradoMd5(pass);
-                                    string usuumod = "vjiturburuv";
+                                    string usuumod = LoginInfo.IdTrab;
                                     string prgumod = this.Name;
                                     Proceso objProceso = new Proceso();
 
@@ -363,9 +386,9 @@ namespace SIPAA_CS.Accesos
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-            LlenaGridUsuarios("", 0, "", "", 0, "", "",11);
+            LlenaGridUsuarios("%", 0, "", "", 0, "", "",11);
 
-            LlenaGridProcesos("", "", 0, "0", "", 8);
+            LlenaGridProcesos("", "%", 0, "0", "", 8);
 
             cbAsignaPassword.Visible = false;
 
@@ -396,6 +419,10 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void LlenaGridUsuarios(string cvusuario,int idtrab, string nombre, string pass,int stusuario,string usuumod,string prgmod, int opcion)
         {
+            if (dgvUsuario.Columns.Count > 1)
+            {
+                dgvUsuario.Columns.RemoveAt(0);
+            }
 
             DataTable dtFormasRegistro = usuario.ObtenerListaUsuarios(cvusuario, idtrab, nombre, pass, stusuario, usuumod, prgmod, opcion);
             dgvUsuario.DataSource = dtFormasRegistro;
@@ -418,8 +445,11 @@ namespace SIPAA_CS.Accesos
 
         private void LlenaGridProcesos(string cvproceso, string descripcion, int stproceso, string usuumod, string prgumod, int opcion)
         {
-         
 
+            if (dgvProceso.Columns.Count > 1)
+            {
+                dgvProceso.Columns.RemoveAt(0);
+            }
             DataTable dtProcesos = procesos.ObtenerProceso(cvproceso, descripcion, stproceso, usuumod, prgumod, opcion);
             dgvProceso.DataSource = dtProcesos;
             

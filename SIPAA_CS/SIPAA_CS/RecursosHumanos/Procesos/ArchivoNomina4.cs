@@ -1,6 +1,9 @@
-﻿using SIPAA_CS.App_Code;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using SIPAA_CS.Accesos.Reportes;
+using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
+using SIPAA_CS.RecursosHumanos.DataSets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -114,9 +117,28 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
             else
             {
-                //creacsv();
-                creacsvcorto();
-            }            
+                string idTrab = "%";
+                string cvCia = "%";
+                string cvUbicacion = "%";
+                string sNomina = "%";
+                if (txtidtrab.Text != String.Empty) { idTrab = txtidtrab.Text; }
+
+                if (cbCompania.SelectedIndex > 0) { cvCia = cbCompania.SelectedValue.ToString(); }
+                if (cbUbicacion.SelectedIndex > 0) { cvUbicacion = cbUbicacion.SelectedValue.ToString(); }
+                if (cbTiponomina.SelectedIndex > 0) { sNomina = cbTiponomina.SelectedValue.ToString(); }
+                ////Prueba Reporte Incidencias pasadas a Nomina
+                Incidencia objIncidencia = new Incidencia();
+                DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina(idTrab, dtpfechainicial.Value, dtpfechainicial.Value,cvCia,sNomina, cvUbicacion);
+
+                ViewerReporte form = new ViewerReporte();
+                IncidenciasPasadasNomina rptIncidencia = new IncidenciasPasadasNomina();
+                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", "IncidenciasPasadasNomina");
+
+                ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
+                form.RptDoc = ReportDoc;
+                form.Show();
+
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

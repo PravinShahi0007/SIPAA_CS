@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Asignaciones
 {
@@ -19,10 +20,10 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         public string nombre;
         public string temporal;
 
-        public int idplanta;
-        public int idcompania;
-        public List<int> ltArea = new List<int>();
-        public List<int> ltAreaxUsuario = new List<int>();
+        public string idplanta;
+        public string idcompania;
+        public List<string> ltArea = new List<string>();
+        public List<string> ltAreaxUsuario = new List<string>();
 
         Usuario usuario = new Usuario();
         Utilerias utilerias = new Utilerias();
@@ -50,14 +51,13 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             {
                 if (compania == 0)
                 {
-                    LlenarGridPlanteles(cbCompania.SelectedItem.ToString(), txtBuscarPlantel.Text, dgvPlantel);
+                    LlenarGridPlanteles("",cbCompania.SelectedItem.ToString(), txtBuscarPlantel.Text, dgvPlantel);
                     AsignarPlantel();
                 }
                 else
                 {
-                   
-                    LlenarGridPlanteles(cbCompania.SelectedItem.ToString(), txtBuscarPlantel.Text, dgvPlantel);
-                    
+
+                    LlenarGridPlanteles("", cbCompania.SelectedItem.ToString(), txtBuscarPlantel.Text, dgvPlantel);
                     AsignarPlantel();
                 }
             }
@@ -68,7 +68,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
 
                 if (result == DialogResult.Yes)
                 {
-                    LlenarGridPlanteles(cbCompania.SelectedItem.ToString(), txtBuscarPlantel.Text, dgvPlantel);
+                    LlenarGridPlanteles(cbCompania.SelectedItem.ToString(), txtBuscarPlantel.Text,"", dgvPlantel);
                     
                     AsignarPlantel();
                     ltArea.Clear();
@@ -102,7 +102,6 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
                 DataGridViewRow row = this.dgvUsuarios.SelectedRows[0];
                 cvusuario = row.Cells["cvusuario"].Value.ToString();
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-
                 AsignarPlantel();
             }
         }
@@ -111,54 +110,58 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         {
             if (cvusuario != null)
             {
-                if (cbCompania.SelectedIndex != 0)
+                if (cbCompania.SelectedIndex != 0 && dgvUsuarios.SelectedRows.Count != 0)
                 {
                     if (dgvPlantel.SelectedRows.Count != 0)
                     {
-                        DataGridViewRow row = this.dgvPlantel.SelectedRows[0];
-                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                        idplanta = Convert.ToInt32(row.Cells[3].Value.ToString());
-                        
-                        panelPermisos.Enabled = true;
+                        //AsignarPlantel();
+                        Utilerias.MultiSeleccionGridViewString(dgvPlantel, 3, ltArea, panelPermisos);
 
-                        ltArea.Add(idplanta);
+                        //DataGridViewRow row = this.dgvPlantel.SelectedRows[0];
+                        //row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                        //idplanta = row.Cells[3].Value.ToString();
 
-                        if (cbCompania.SelectedIndex > 0)
-                        {
-                            temporal = cbCompania.SelectedValue.ToString();
-                        }
-                        
+                        //panelPermisos.Enabled = true;
 
+                        //ltArea.Add(idplanta);
 
-                        if (row.Cells[0].Tag.ToString() == "check")
-                        {
+                        //if (cbCompania.SelectedIndex > 0)
+                        //{
+                        //    temporal = cbCompania.SelectedValue.ToString();
+                        //}
 
-                            row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                            row.Cells[0].Tag = "uncheck";
+                        //if (ltArea.Count == 0)
+                        //{ panelPermisos.Enabled = false; }
+                        //else
+                        //{ panelPermisos.Enabled = true; }
 
-                        }
-                        else
-                        {
-                            row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                            row.Cells[0].Tag = "check";
+                        //if (row.Cells[0].Tag.ToString() == "check")
+                        //{
 
-                        }
+                        //    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                        //    row.Cells[0].Tag = "uncheck";
+
+                        //}
+                        //else
+                        //{
+                        //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                        //    row.Cells[0].Tag = "check";
+
+                        //}
                     }
                 }
                 else
                 {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a una Compañia");
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a un Usuario y Compañia");
                     timer1.Start();
                 }
 
             }
             else
             {
-
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a un Usuario");
                 timer1.Start();
-
-
+                
             }
         }
 
@@ -167,70 +170,167 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
-            cvusuario = null;
+            //cvusuario = null;
             cbCompania.Enabled = false;
-            string IdTrab = txtIdTrab.Text;
-            string nombre = txtUsuario.Text;
-            dgvUsuarios.Columns.Remove(columnName: "Seleccionar");
-
-            llenarGridUsuarios(IdTrab.Trim(), 0, nombre.Trim(), "", 0, "", "", 7);
-
-            txtUsuario.Text = "";
+            
+            string clave = txtIdTrab.Text;
+            
+           
+            if (txtIdTrab.Text != "")
+            {
+                //llenaCombo();
+                LlenaGridUsuarios(clave.Trim(), 0, "", "", 0, "", "", 8);
+                //llenaCombo();
+                LlenarGridPlanteles("", "", "", dgvPlantel);
+                //llenaCombo();
+            }
+            else
+            {
+                llenaCombo();
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+                LlenarGridPlanteles("", "", "", dgvPlantel);
+                
+            }
+            
             txtIdTrab.Text = "";
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (cbCompania.SelectedIndex != 0)
+            AsignarPlantel();
+            
+            if (Utilerias.SinAsignacionesString(dgvPlantel, 0, 3, ltArea) == true)
             {
-                int idcompania = cbCompania.SelectedIndex;
-                panelPermisos.Enabled = false;
-                try
+                //MessageBox.Show("true");
+                if (cbCompania.SelectedIndex != 0)
                 {
-                    string usuumod = "vjiturburuv";
-                    string prgmod = this.Name;
-                    Usuario objUsuario = new Usuario();
-
-                    foreach (int id in ltArea)
+                    int idcompania = cbCompania.SelectedIndex;
+                    string idcom = Convert.ToString(idcompania);
+                    //panelPermisos.Enabled = false;
+                    try
                     {
-                        objUsuario.AsignarAreaUsuario(cvusuario, idcompania, id, usuumod, prgmod);
+                        string usuumod = LoginInfo.IdTrab;
+                        string prgmod = this.Name;
+                        Usuario objUsuario = new Usuario();
+
+                        foreach (string id in ltArea)
+                        {
+                            objUsuario.AsignarAreaUsuario(cvusuario, idcom, id, usuumod, prgmod, 1);
+                        }
+
+                        ltArea.Clear();
+
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                        timer1.Start();
+                        llenaCombo();
+                        cbCompania.Enabled = false;
+                        panelPermisos.Enabled = false;
+                        LlenarGridPlanteles("", "", "", dgvPlantel);
+                        LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+
                     }
-
-                    ltArea.Clear();
-
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
-                    timer1.Start();
-                    llenaCombo();
-                    cbCompania.Enabled = false;
-                    LlenarGridPlanteles("", "", dgvPlantel);
+                    catch (Exception ex)
+                    {
+                        timer1.Start();
+                        MessageBox.Show("" + ex);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a una Compañia");
                     timer1.Start();
-                    MessageBox.Show("" + ex);
                 }
             }
             else
             {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a una Compañia");
-                timer1.Start();
+                DialogResult result = MessageBox.Show("¿Seguro que desea quitar todas las Asignaciones?", "SIPAA", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    if (cbCompania.SelectedIndex != 0)
+                    {
+                        int idcompania = cbCompania.SelectedIndex;
+                        string idcom = Convert.ToString(idcompania);
+                        //panelPermisos.Enabled = false;
+                        try
+                        {
+                            string usuumod = LoginInfo.IdTrab;
+                            string prgmod = this.Name;
+                            Usuario objUsuario = new Usuario();
+
+                            foreach (string id in ltArea)
+                            {
+                                objUsuario.AsignarAreaUsuario(cvusuario, idcom, id, usuumod, prgmod, 1);
+                            }
+
+                            ltArea.Clear();
+
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                            timer1.Start();
+                            llenaCombo();
+                            cbCompania.Enabled = false;
+                            panelPermisos.Enabled = false;
+                            LlenarGridPlanteles("", "", "", dgvPlantel);
+                            LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            timer1.Start();
+                            MessageBox.Show("" + ex);
+                        }
+                    }
+                    else
+                    {
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a una Compañia");
+                        timer1.Start();
+                    }
+                }
+                else
+                {
+
+                    
+                }
             }
 
 
 
             
+                
         }
 
         private void btnBuscarPlantel_Click(object sender, EventArgs e)
         {
             cbCompania.Enabled = false;
-            LlenarGridPlanteles("", txtBuscarPlantel.Text, dgvPlantel);
+            string plantel = txtBuscarPlantel.Text;
+            if (plantel != "")
+            {
+                llenaCombo();
+                LlenarGridPlanteles("", "", plantel, dgvPlantel);
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+            }
+            else
+            {
+                llenaCombo();
+                LlenarGridPlanteles("", "", plantel, dgvPlantel);
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+            }
+            
             txtBuscarPlantel.Text="";
             
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -243,12 +343,19 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         private void Asignacion_Area_Usuario_Load(object sender, EventArgs e)
         {
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             cbCompania.Enabled = false;
-            llenarGridUsuarios("", 0, "", "", 0, "", "", 7);
-            
+            LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+
             llenaCombo();
-            LlenarGridPlanteles("", "", dgvPlantel);
+            LlenarGridPlanteles("","", "", dgvPlantel);
             
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -276,9 +383,12 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             cbCompania.DataSource = ltCia;
         }
 
-        private void llenarGridUsuarios(string cvusuario, int idtrab, string nombre, string pass, int stusuario, string usuumod, string prgmod, int opcion)
+        private void LlenaGridUsuarios(string cvusuario, int idtrab, string nombre, string pass, int stusuario, string usuumod, string prgmod, int opcion)
         {
-
+            if (dgvUsuarios.Columns.Count > 1)
+            {
+                dgvUsuarios.Columns.RemoveAt(0);
+            }
             DataTable dtFormasRegistro = usuario.ObtenerListaUsuarios(cvusuario, idtrab, nombre, pass, stusuario, usuumod, prgmod, opcion);
             dgvUsuarios.DataSource = dtFormasRegistro;
 
@@ -287,11 +397,14 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             imgCheckProcesos.Name = "Seleccionar";
             dgvUsuarios.Columns.Insert(0, imgCheckProcesos);
             dgvUsuarios.Columns[0].HeaderText = "Seleccionar";
-            dgvUsuarios.Columns[3].Visible = false;
+            dgvUsuarios.Columns[1].HeaderText = "Clave Usuario";
+            dgvUsuarios.Columns[3].HeaderText = "Nombre";
+            dgvUsuarios.Columns[2].Visible = false;
+            dgvUsuarios.Columns[4].Visible = false;
             dgvUsuarios.ClearSelection();
         }
 
-        public void LlenarGridPlanteles(string idCia, string busqueda, DataGridView dgvPlantel)
+        public void LlenarGridPlanteles(string idcompania, string descripcion, string planta, DataGridView dgvPlantel)
         {
 
             if (dgvPlantel.Columns.Count >1)
@@ -299,7 +412,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
                 dgvPlantel.Columns.RemoveAt(0);
             }
             SonaCompania objCia = new SonaCompania();
-            DataTable dtPlantel = objCia.ObtenerPlantelxCompania(idCia, busqueda);
+            DataTable dtPlantel = objCia.ObtenerPlantelxCompania(6,"", descripcion,planta);
 
             dgvPlantel.DataSource = dtPlantel;
 
@@ -308,7 +421,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             imgCheckProcesos.Name = "Seleccionar";
             dgvPlantel.Columns.Insert(0, imgCheckProcesos);
             dgvPlantel.Columns[0].HeaderText = "Seleccionar";
-            
+
             dgvPlantel.Columns[1].Visible = false;
             dgvPlantel.Columns[2].Visible = false;
             dgvPlantel.Columns[3].Visible = false;
@@ -339,12 +452,13 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
 
         private void AsignarPlantel()
         {
-            idcompania = cbCompania.SelectedIndex;
+            //idcompania = cbCompania.SelectedIndex;
+            idcompania = cbCompania.SelectedIndex.ToString();
             AreaUsuario objAreasUsu = new AreaUsuario();
-            ltAreaxUsuario = objAreasUsu.ObtenerAreaxUsuario(idcompania,4);
+            ltAreaxUsuario = objAreasUsu.ObtenerAreaxUsuario(cvusuario, idcompania, "","","",6);
             for (int iContador = 0; iContador < dgvPlantel.Rows.Count; iContador++)
             {
-                int idplanta = Convert.ToInt32(dgvPlantel.Rows[iContador].Cells[3].Value.ToString());
+                string idplanta = dgvPlantel.Rows[iContador].Cells[3].Value.ToString();
 
                 if (ltAreaxUsuario.Contains(idplanta))
                 {

@@ -1,8 +1,9 @@
-﻿using Neurotec.Biometrics;
+﻿
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
 using SIPAA_CS.Properties;
+using SIPAA_CS.RelojChecadorTrabajador;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,9 +20,9 @@ using static SIPAA_CS.App_Code.SonaCompania;
 using static SIPAA_CS.App_Code.Usuario;
 using static SIPAA_CS.App_Code.Utilerias;
 
-namespace SIPAA_CS.RecursosHumanos.Procesos
+namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
-    public partial class AsignacionTrabajadorPerfil : Form
+    public partial class AsignacionTrabajadorPerfil : Form, DPFP.Capture.EventHandler
     {
         int sysH = SystemInformation.PrimaryMonitorSize.Height;
         int sysW = SystemInformation.PrimaryMonitorSize.Width;
@@ -31,17 +32,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         public List<int> ltReloj = new List<int>();
         public List<string> ltRelojxUsuario = new List<string>();
         public string sUsuuMod = LoginInfo.IdTrab;
-        
+
 
         //Huella Digital
-        public Nffv engine;
-        public ResultadoHuella objScanner = new ResultadoHuella();
-        BackgroundWorker task = new BackgroundWorker();
-
-        //Verificar Huella
-        public VerificarHuella objVerificar = new VerificarHuella();
-        public DoWorkEventArgs Args;
-        NffvUser engineUser;
+        public delegate void OnTemplateEventHandler(DPFP.Template template);
+        private DPFP.Capture.Capture Capturer;
+        public Bitmap bitmap;
+        public DPFP.Processing.Enrollment Enroller;
+        public event OnTemplateEventHandler OnTemplate;
+        //private AppData Data;
+        private DPFP.Gui.Enrollment.EnrollmentControl EnrollmentControl;
 
         public AsignacionTrabajadorPerfil()
         {
@@ -105,7 +105,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 panelEditar.Visible = true;
                 ckbEliminar.Visible = true;
                 ckbEliminar.Checked = false;
-                Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
+
+                if (Permisos.dcPermisos["Actualizar"] == 1) {
+                    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
+                    btnGuardar.Visible = true;
+                    iOpcionAdmin = 2;
+                }
+                else{
+                    btnGuardar.Visible = false;
+                }
+
+              
                 DataGridViewRow row = this.dgvHorario.SelectedRows[0];
 
                 string sDiaEntrada = row.Cells[2].Value.ToString();
@@ -126,27 +136,36 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                 // TrabajadorInfo.IdTrab = row.Cells["idtrab"].Value.ToString();
-                iOpcionAdmin = 2;
+               
             }
         }
 
 
         private void dgvForReg_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvForReg.SelectedRows.Count != 0)
+            if (Permisos.dcPermisos["Crear"] != 0 && Permisos.dcPermisos["Actualizar"] != 0)
             {
-                Utilerias.MultiSeleccionGridView(dgvForReg, 1, ltFormasReg, panelPermisos);
+
+                if (dgvForReg.SelectedRows.Count != 0)
+                {
+                    Utilerias.MultiSeleccionGridView(dgvForReg, 1, ltFormasReg, panelPermisos);
+
+
+
+                }
             }
         }
 
 
         private void dgvReloj_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (dgvReloj.SelectedRows.Count != 0)
+            if (Permisos.dcPermisos["Crear"] != 0 && Permisos.dcPermisos["Actualizar"] != 0)
             {
-                iOpcionAdmin = 1;
-                Utilerias.MultiSeleccionGridView(dgvReloj, 1, ltReloj, PanelReloj);
+                if (dgvReloj.SelectedRows.Count != 0)
+                {
+                    iOpcionAdmin = 1;
+                    Utilerias.MultiSeleccionGridView(dgvReloj, 1, ltReloj, PanelReloj);
+                }
             }
         }
 
@@ -494,60 +513,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
         }
 
-
+     
         private void btnAgregarHuella_Click(object sender, EventArgs e)
         {
-            PanelGuardar.Visible = false;
+            PanelGuardarHuella.Visible = false;
             prgbar.Visible = true;
             prgbar.Style = ProgressBarStyle.Marquee;
-            string dbName = "FingerprintsDatabase.dat";
-            string password = "";
-            string scanners = "UareU";
-            //string UserDatabase = "Datos.xml";
-
-         
-
             Utilerias.AsignarBotonResize(btnGuardarHuella, PantallaSistema(), "Guardar");
-
-            switch (iOpcionAdmin)
-            {
-
-                case 2:
-                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 2, "Confirme la Huella en el Lector ");
-                    break;
-
-                default:
-                    if (engine != null)
-                    {
-                        engine.Dispose();
-                    }
-                    
-                    pbHuella.Image = null;
-                    pbVerHuella.Image = null;
-                    engine = new Nffv(dbName, password, scanners);
-                    engine.Users.Clear();
-                    task = new BackgroundWorker();
-                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 2, "Ingrese Huella en el Lector ");
-                    iOpcionAdmin = 1;
-                    break;
-
-            }
-
-
-
-            try
-            {
-
-                task.DoWork += Task_DoWork;
-                task.RunWorkerCompleted += Task_RunWorkerCompleted;
-                task.RunWorkerAsync();
-
-            }
-            catch (Exception ex)
-            {
-                //RegistrarHuella_Load(sender, e);
-            }
-
+                   
+                    Enroller = new DPFP.Processing.Enrollment();            // Create an enrollment.
+                    lbHuella.Text =  String.Format("Ingresos Necesarios: {0}", Enroller.FeaturesNeeded);
+                    FormInit();
+                    Start();
 
         }
 
@@ -555,28 +532,42 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             try
             {
-               
 
-                Image img  = engine.Users[0].GetBitmap();
+                switch (iOpcionAdmin) {
 
-            
+                    case 1:
+                        Image img = bitmap;
+                        ImageConverter converter = new ImageConverter();
+                        byte[] arrImagen = (byte[])converter.ConvertTo(img, typeof(byte[]));
 
-                ImageConverter converter = new ImageConverter();
-                byte[] arrImagen = (byte[])converter.ConvertTo(img, typeof(byte[]));
+                        SonaTrabajador objTrab = new SonaTrabajador();
+                        DataTable dtTrab = objTrab.GestionHuella(Enroller.Template.Bytes, arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 3);
+                        dtTrab = objTrab.GestionHuella(Enroller.Template.Bytes, arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 1);
 
+                        if (dtTrab.Columns.Contains("INSERT"))
+                        {
+                            Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Asignada Correctamente");
+                            Enroller.Clear();
+                        }
 
-                SonaTrabajador objTrab = new SonaTrabajador();
-                DataTable dtTrab = objTrab.GestionHuella(arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 3);
-                dtTrab = objTrab.GestionHuella(arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 1);
+                        break;
 
-                if (dtTrab.Columns.Contains("INSERT"))
-                {
-                    Utilerias.ControlNotificaciones(panelTagHuella,lbMensajeHuella,1,"Huella Asignada Correctamente");
-                    engine.Dispose();
+                    case 3:
+                        SonaTrabajador obj = new SonaTrabajador();
+                        dtTrab = obj.GestionHuella(Enroller.Template.Bytes, new byte[] { }, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 3);
+                        if (dtTrab != null)
+                        {
+                            Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Eliminada Correctamente");
+                            Enroller.Clear();
+                        }
+                        break;
+
                 }
 
+              
+
             }
-            catch(Exception EX) {
+            catch (Exception EX) {
 
                 Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "Error de Comunicación con el Servidor. Favor de Intentarlo más tarde.");
             }
@@ -745,7 +736,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void AsignacionTrabajadorPerfil_Load(object sender, EventArgs e)
         {
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            //////////////////////////////////////////////////////////////////////////////////
+            lblusuario.Text = LoginInfo.Nombre;
+
+
             lbIdTrab.Text = TrabajadorInfo.IdTrab;
             lbNombre.Text = TrabajadorInfo.Nombre;
             PlantillaDetalle objPlantilla = new PlantillaDetalle();
@@ -755,6 +755,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             TrabajadorHorario objHorario = AsignarObjeto();
             llenarGridHorario(objHorario);
             LimpiarFormulario();
+
+            if (Permisos.dcPermisos["Crear"] != 1)
+            {
+
+                btnGuardarPlantilla.Visible = false;
+                btnGuardar.Visible = false;
+                btnAgregar.Visible = false;
+                ckbEliminar.Visible = false;
+            }
+          
+
         }
 
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
@@ -779,6 +790,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             panelTag.Visible = false;
             panelTagForReg.Visible = false;
+            panelTagHuella.Visible = false;
+            lbMensajeHuella.Text = "";
             panelTagRelojCheck.Visible = false;
             timer1.Stop();
         }
@@ -800,6 +813,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     AsignarFormas(TrabajadorInfo.IdTrab);
                     panelPermisos.Enabled = false;
                     ltFormasReg.Clear();
+                    if(Permisos.dcPermisos["Crear"] == 0) { panelPermisos.Visible = false; label24.Text = "Formas de Registro Asignadas Actualmente"; }
                     break;
 
                 case 2:
@@ -807,149 +821,207 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     AsignarReloj(TrabajadorInfo.IdTrab);
                     PanelReloj.Enabled = false;
                     ltReloj.Clear();
+                    if (Permisos.dcPermisos["Crear"] == 0) { PanelReloj.Visible = false; label24.Text = "Relojes Asignados Actualmente"; }
                     break;
 
 
                 case 3:
-                    engine = null;
+                    txtEstatus.Text = String.Empty;
+                    PanelGuardarHuella.Visible = false;
                     pbHuella.Image = null;
-                    pbVerHuella.Image = null;
-                    PanelGuardar.Visible = false;
+                    PanelGuardarHuella.Visible = false;
                     panelTagHuella.Visible = false;
                     SonaTrabajador objTrab = new SonaTrabajador();
                     byte[] byteArray = new byte[] { };
-                    DataTable dtTrab = objTrab.GestionHuella(byteArray, TrabajadorInfo.IdTrab, "", "", 5);
+                    DataTable dtTrab = objTrab.GestionHuella(byteArray, byteArray, TrabajadorInfo.IdTrab, "", "", 5);
                     try
                     {
                         foreach (DataRow row in dtTrab.Rows)
-                        {
-                            byteArray = (byte[])row["template"];
-                        }
+                        { byteArray = (byte[])row["imgtemplate"]; }
                         Image imgHuella = null;
-
-
-
                         MemoryStream ms = new MemoryStream(byteArray);
                         imgHuella = Image.FromStream(ms);
                         ms.Close();
-
                         pbHuella.Image = imgHuella;
-                        pbVerHuella.Image = imgHuella;
                     }
-                    catch {
+                    catch (Exception ex) {
 
                         pbHuella.Image = null;
-                        pbVerHuella.Image = null;
-
                     }
                     break;
-
                         }
-
-
+                    if(Permisos.dcPermisos["Crear"] != 1) { panelHuella.Visible = false; lbHuella.Visible = false; }
+                    if (Permisos.dcPermisos["Eliminar"] != 1) { checkBox1.Visible = false; }
         }
 
 
         //Eventos Huella Digital 
 
-        private void Task_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        public void Start()
         {
-
-             engineUser = objScanner.engineUser;
-            switch (iOpcionAdmin)
+            if (null != Capturer)
             {
-
-                case 1:
-                    if (objScanner.engineStatus == NffvStatus.TemplateCreated)
-                    {
-
-                        pbHuella.Image = engineUser.GetBitmap();
-                        Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 2, "Favor de Confirma la huella Nuevamente.");
-                        iOpcionAdmin = 2;
-                        prgbar.Visible = true;
-                        PanelGuardar.Visible = false;
-                        prgbar.Style = ProgressBarStyle.Marquee;
-                        btnAgregarHuella_Click(sender, e);
-
-
-                    }
-                    break;
-
-                case 0:
-
-                    if (objVerificar.score > 0)
-                    {
-
-                        pbVerHuella.Image = engineUser.GetBitmap();
-                        //engine.Dispose();
-                        Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Confirmada.");
-                        PanelGuardar.Visible = true;
-                        prgbar.Visible = false;
-                        iOpcionAdmin = 3;
-                    }
-                    else
-                    {
-                        pbVerHuella.Image = engineUser.GetBitmap();
-                        Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "Las Huellas nos han Correspondido.");
-                        PanelGuardar.Visible = false;
-                       // engine.Dispose();
-                        prgbar.Visible = false;
-                        pbVerHuella.Image = null;
-                        pbHuella.Image = null;
-                        iOpcionAdmin = 3;
-
-                    }
-                    break;
-
+                try
+                {
+                    Capturer.StartCapture();
+                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Escaneo Iniciado Correctamente. Ingrese su Huella en el Lector.");             
+                }
+                catch
+                {
+                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "No es posible iniciar la Captura");                
+                }
             }
-
-
-
-
-
         }
 
-        private void Task_DoWork(object sender, DoWorkEventArgs e)
+       
+
+        public void Stop()
         {
-            switch (iOpcionAdmin)
+            if (null != Capturer)
             {
-
-                case 1:
-                    doEnroll(sender, e);
-                    CancelScanningHandler(sender, e);
-                    break;
-
-
-                case 2:
-                    doVerify(sender, e);
-                    CancelScanningHandler(sender, e);
-                    iOpcionAdmin = 0;
-                    break;
-
+                try
+                {
+                    Capturer.StopCapture();
+                }
+                catch
+                {
+                  Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "No es posible iniciar la Captura");
+                
+                }
             }
-
-
         }
 
-        private void doEnroll(object sender, DoWorkEventArgs args)
+      
+
+
+        protected DPFP.FeatureSet ExtractFeatures(DPFP.Sample Sample, DPFP.Processing.DataPurpose Purpose)
         {
-
-            objScanner.engineUser = engine.Enroll(20000, out objScanner.engineStatus);
-            //args.Result = objScanner;
-
+            DPFP.Processing.FeatureExtraction Extractor = new DPFP.Processing.FeatureExtraction();  // Create a feature extractor
+            DPFP.Capture.CaptureFeedback feedback = DPFP.Capture.CaptureFeedback.None;
+            DPFP.FeatureSet features = new DPFP.FeatureSet();
+            Extractor.CreateFeatureSet(Sample, Purpose, ref feedback, ref features);            // TODO: return features as a result?
+            if (feedback == DPFP.Capture.CaptureFeedback.Good)
+                return features;
+            else
+                return null;
         }
 
-        private void doVerify(object sender, DoWorkEventArgs args)
+
+        protected void Process(DPFP.Sample Sample)
         {
-            objVerificar.score = engine.Verify(engine.Users[0], 20000, out objVerificar.engineStatus);
-            // args.Result = objVerificar;
+            DPFP.Capture.SampleConversion Convertor = new DPFP.Capture.SampleConversion();
+            bitmap = null;
+            Convertor.ConvertToPicture(Sample, ref bitmap);
+            pbHuella.Image = new Bitmap(bitmap, pbHuella.Size);
+
+            DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Enrollment);
+
+            if (features != null) try
+                {       
+                    Enroller.AddFeatures(features);     // Add feature set to template.
+                }
+                finally
+                {
+                    lbHuella.Text = String.Format("Ingresos Necesarios: {0}", Enroller.FeaturesNeeded);
+
+                    // Check if template has been created.
+                    switch (Enroller.TemplateStatus)
+                    {
+                        case DPFP.Processing.Enrollment.Status.Ready:  
+                            Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Proceso Completado, es posible Guardar");
+                            Stop();
+
+                            prgbar.Visible = false;
+                            PanelGuardarHuella.Visible = true;
+                            break;
+
+                        case DPFP.Processing.Enrollment.Status.Failed:  // report failure and restart capturing
+                            Enroller.Clear();
+                            Stop();
+                            lbHuella.Text = String.Format("Ingresos Necesarios: {0}", Enroller.FeaturesNeeded);
+                            OnTemplate(null);
+                            Start();
+                            break;
+                    }
+                }
         }
-        private void CancelScanningHandler(object sender, EventArgs e)
+
+
+        public virtual void FormInit()
         {
-            engine.Cancel();
+            try
+            {
+                Capturer = new DPFP.Capture.Capture();				// Create a capture operation.
+
+                if (null != Capturer)
+                    Capturer.EventHandler = this;					// Subscribe for capturing events.
+                else
+                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "No es posible iniciar la Captura");
+            }
+            catch
+            {
+                //MessageBox.Show("Can't initiate capture operation!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+          
+        //public void ExchangeData(bool read)
+        //{
+        //    if (read)
+        //    {   // read values from the form's controls to the data object
+        //        Data.EnrolledFingersMask = EnrollmentControl.EnrolledFingerMask;
+        //        Data.MaxEnroll = EnrollmentControl.MaxEnrollFingerCount;
+        //        Data.Update();
+        //    }
+        //    else
+        //    {   // read values from the data object to the form's controls
+        //        EnrollmentControl.EnrolledFingerMask = Data.EnrolledFingersMask;
+        //        EnrollmentControl.MaxEnrollFingerCount = Data.MaxEnroll;
+        //    }
+        //}
 
+        #region EventHandler Members:
+
+        public void OnComplete(object Capture, string ReaderSerialNumber, DPFP.Sample Sample)
+        {
+            txtEstatus.AppendText("Huella CAPTURADA Correctamente." + "\r\n");        
+            Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 2, "INGRESE su Huella Nuevamente");           
+            Process(Sample); 
+        }
+
+        public void OnFingerGone(object Capture, string ReaderSerialNumber)
+        {
+            txtEstatus.AppendText("HUELLA REMOVIDA de Lector." + "\r\n");
+        }
+
+        public void OnFingerTouch(object Capture, string ReaderSerialNumber)
+        {
+            CheckForIllegalCrossThreadCalls = false;
+            txtEstatus.AppendText("El Lector ha sido TOCADO." + "\r\n");
+        }
+
+        public void OnReaderConnect(object Capture, string ReaderSerialNumber)
+        {
+            CheckForIllegalCrossThreadCalls = false;
+            txtEstatus.AppendText("El Lector CONECTADO." + "\r\n");
+        }
+
+        public void OnReaderDisconnect(object Capture, string ReaderSerialNumber)
+        {
+   //         timer1.Start();
+     //       await task
+            //Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 2, "Dispositivo Desconectado");
+
+        }
+
+        public void OnSampleQuality(object Capture, string ReaderSerialNumber, DPFP.Capture.CaptureFeedback CaptureFeedback)
+        {
+            if (CaptureFeedback == DPFP.Capture.CaptureFeedback.Good)
+            txtEstatus.AppendText("La calidad de la Huella es CORRECTA." + "\r\n");
+            else
+                txtEstatus.AppendText("La calidad de la Huella es POBRE." + "\r\n");
+        }
+        #endregion
 
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -959,35 +1031,40 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         private void LlenarGridPlantilla(int iopcion, int icvplantilla)
         {
 
-            if (dgvPlantilla.Columns.Count > 1)
+            if (c.Columns.Count > 1)
             {
 
-                dgvPlantilla.Columns.RemoveAt(0);
+                c.Columns.RemoveAt(0);
             }
 
-            dgvPlantilla.DataSource = null;
+            c.DataSource = null;
             PlantillaDetalle objPlantilla = new PlantillaDetalle();
             DataTable dtiplandet = objPlantilla.dgvplantillaDet(iopcion, icvplantilla);
-            dgvPlantilla.DataSource = dtiplandet;
+            c.DataSource = dtiplandet;
 
-            dgvPlantilla.Columns["cvplantilla"].Visible = false;
-            dgvPlantilla.Columns["descplantilla"].Visible = false;
-            dgvPlantilla.Columns["cvdia"].Visible = false;
-            dgvPlantilla.Columns["cvddiasaltur"].Visible = false;
-            dgvPlantilla.Columns["cvdiasalcom"].Visible = false;
-            dgvPlantilla.Columns["cvdiaregcom"].Visible = false;
-            dgvPlantilla.Columns["stexiste"].Visible = false;
+            c.Columns["cvplantilla"].Visible = false;
+            c.Columns["descplantilla"].Visible = false;
+            c.Columns["cvdia"].Visible = false;
+            c.Columns["cvddiasaltur"].Visible = false;
+            c.Columns["cvdiasalcom"].Visible = false;
+            c.Columns["cvdiaregcom"].Visible = false;
+            c.Columns["stexiste"].Visible = false;
 
-            dgvPlantilla.Columns["Día"].HeaderText = "Día Entrada";
-            dgvPlantilla.Columns["HrEntTurno"].HeaderText = "Hora Entrada";
-            dgvPlantilla.Columns["DíaSalTurno"].HeaderText = "Día Salida";
-            dgvPlantilla.Columns["HrSalTurno"].HeaderText = "Hora Salida";
-            dgvPlantilla.Columns["DíaSalComer"].HeaderText = "Comida Inicio";
-            dgvPlantilla.Columns["HrSalComer"].HeaderText = "Hora Inicio";
-            dgvPlantilla.Columns["DíaRegComida"].HeaderText = "Comida Fin";
-            dgvPlantilla.Columns["HrRegComida"].HeaderText = "Hora Fin";
-            dgvPlantilla.Columns["TotJornada"].HeaderText = "Horas Trabajo";
-            dgvPlantilla.ClearSelection();
+            c.Columns["Día"].HeaderText = "Día Entrada";
+            c.Columns["HrEntTurno"].HeaderText = "Hora Entrada";
+            c.Columns["DíaSalTurno"].HeaderText = "Día Salida";
+            c.Columns["HrSalTurno"].HeaderText = "Hora Salida";
+            c.Columns["DíaSalComer"].HeaderText = "Comida Inicio";
+            c.Columns["HrSalComer"].HeaderText = "Hora Inicio";
+            c.Columns["DíaRegComida"].HeaderText = "Comida Fin";
+            c.Columns["HrRegComida"].HeaderText = "Hora Fin";
+            c.Columns["TotJornada"].HeaderText = "Horas Trabajo";
+            c.ClearSelection();
+
+            if (Permisos.dcPermisos["Crear"] != 1) {
+
+                c.Columns.RemoveAt(0);
+            }
 
         }
 
@@ -1217,13 +1294,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            PanelGuardar.Visible = true;
-            iOpcionAdmin = 1;
-
+            PanelGuardarHuella.Visible = true;
+            Utilerias.AsignarBotonResize(btnGuardarHuella,Utilerias.PantallaSistema(),"Borrar");
+            iOpcionAdmin = 3;
         }
-
-
     }
 }

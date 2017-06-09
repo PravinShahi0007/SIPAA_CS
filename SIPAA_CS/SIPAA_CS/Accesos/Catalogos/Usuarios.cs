@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 using static SIPAA_CS.App_Code.Utilerias;
 
-namespace SIPAA_CS.Accesos
+namespace SIPAA_CS.Accesos.Catalogos
 {
     public partial class Usuarios : Form
     {
@@ -417,14 +417,23 @@ namespace SIPAA_CS.Accesos
         }
         private void btnBuscarSipaa_Click(object sender, EventArgs e)
         {
-            //variable = 3;
+            variable = 3;
             txtNombreSipaa.Text = "";
             ckbElimina.Visible = false;
             buscar = txtBuscarSipaa.Text;
             panel10.Visible = false;
             panel1.Visible = false;
-            dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
-            LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "", 8);
+            //dgvAccesoUsuario.Columns.Remove(columnName: "Seleccionar");
+            
+
+            if (buscar.Trim() != "")
+            {
+                LlenaGridUsuarios(buscar.Trim(), 0, "", "", 0, "", "", 8);
+            }
+            else
+            {
+                LlenaGridUsuarios("%", 0, "", "", 0, "", "", 8);
+            }
         }
 
         private void btnSipaa_Click(object sender, EventArgs e)
@@ -668,6 +677,10 @@ namespace SIPAA_CS.Accesos
         //-----------------------------------------------------------------------------------------------
         private void LlenaGridUsuarios(string cvusuario, int idtrab, string nombre, string pass, int stusuario, string usuumod, string prgmod, int opcion)
         {
+            if (dgvAccesoUsuario.Columns.Count > 1)
+            {
+                dgvAccesoUsuario.Columns.RemoveAt(0);
+            }
             DataTable dtFormasRegistro = usuario.ObtenerListaUsuarios(cvusuario, idtrab, nombre, pass, stusuario, usuumod, prgmod, opcion);
             dgvAccesoUsuario.DataSource = dtFormasRegistro;
 

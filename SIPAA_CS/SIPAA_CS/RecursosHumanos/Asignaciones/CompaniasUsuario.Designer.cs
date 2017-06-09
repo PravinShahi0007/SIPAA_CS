@@ -1,4 +1,4 @@
-﻿namespace SIPAA_CS.RecursosHumanos
+﻿namespace SIPAA_CS.RecursosHumanos.Asignaciones
 {
     partial class CompaniasUsuario
     {
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label3;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompaniasUsuario));
@@ -50,11 +49,9 @@
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.PanelBuscar = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.txtIdTrab = new System.Windows.Forms.TextBox();
             this.btnBuscarUsuario = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtCvUsuario = new System.Windows.Forms.TextBox();
             this.panelPermisos = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -65,7 +62,8 @@
             this.dgvCompanias = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            label5 = new System.Windows.Forms.Label();
+            this.lblusuario = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
@@ -79,19 +77,8 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompanias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label5.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label5.Location = new System.Drawing.Point(56, 84);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(89, 15);
-            label5.TabIndex = 48;
-            label5.Text = "No Trabajador";
             // 
             // label4
             // 
@@ -101,9 +88,9 @@
             label4.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             label4.Location = new System.Drawing.Point(56, 36);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(53, 15);
+            label4.Size = new System.Drawing.Size(87, 15);
             label4.TabIndex = 47;
-            label4.Text = "Nombre";
+            label4.Text = "Clave Usuario";
             // 
             // label3
             // 
@@ -127,7 +114,7 @@
             label7.ForeColor = System.Drawing.Color.Gray;
             label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(70, 62);
+            label7.Location = new System.Drawing.Point(70, 47);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(161, 20);
             label7.TabIndex = 48;
@@ -166,7 +153,7 @@
             label8.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label8.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label8.Location = new System.Drawing.Point(35, 412);
+            label8.Location = new System.Drawing.Point(35, 383);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(59, 15);
             label8.TabIndex = 119;
@@ -179,7 +166,7 @@
             label9.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label9.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label9.Location = new System.Drawing.Point(546, 412);
+            label9.Location = new System.Drawing.Point(546, 383);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(71, 15);
             label9.TabIndex = 122;
@@ -193,7 +180,7 @@
             this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
             this.btnRegresar.Location = new System.Drawing.Point(895, 0);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
+            this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 114;
             this.btnRegresar.TabStop = false;
             this.btnRegresar.UseVisualStyleBackColor = false;
@@ -234,9 +221,9 @@
             this.panelTag.BackColor = System.Drawing.Color.Transparent;
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(2, 309);
+            this.panelTag.Location = new System.Drawing.Point(549, 717);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(455, 48);
+            this.panelTag.Size = new System.Drawing.Size(426, 29);
             this.panelTag.TabIndex = 115;
             this.panelTag.Visible = false;
             // 
@@ -247,7 +234,7 @@
             this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMensaje.ForeColor = System.Drawing.Color.White;
             this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbMensaje.Location = new System.Drawing.Point(45, 13);
+            this.lbMensaje.Location = new System.Drawing.Point(5, 6);
             this.lbMensaje.Name = "lbMensaje";
             this.lbMensaje.Size = new System.Drawing.Size(209, 20);
             this.lbMensaje.TabIndex = 26;
@@ -257,36 +244,15 @@
             // PanelBuscar
             // 
             this.PanelBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.PanelBuscar.Controls.Add(this.panel7);
-            this.PanelBuscar.Controls.Add(label5);
-            this.PanelBuscar.Controls.Add(this.txtIdTrab);
             this.PanelBuscar.Controls.Add(label4);
             this.PanelBuscar.Controls.Add(this.btnBuscarUsuario);
             this.PanelBuscar.Controls.Add(this.panel8);
-            this.PanelBuscar.Controls.Add(this.txtUsuario);
+            this.PanelBuscar.Controls.Add(this.txtCvUsuario);
             this.PanelBuscar.Controls.Add(label3);
             this.PanelBuscar.Location = new System.Drawing.Point(115, 128);
             this.PanelBuscar.Name = "PanelBuscar";
             this.PanelBuscar.Size = new System.Drawing.Size(344, 140);
             this.PanelBuscar.TabIndex = 116;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel7.Location = new System.Drawing.Point(59, 126);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(109, 2);
-            this.panel7.TabIndex = 48;
-            // 
-            // txtIdTrab
-            // 
-            this.txtIdTrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtIdTrab.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIdTrab.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdTrab.Location = new System.Drawing.Point(59, 102);
-            this.txtIdTrab.Name = "txtIdTrab";
-            this.txtIdTrab.Size = new System.Drawing.Size(109, 19);
-            this.txtIdTrab.TabIndex = 47;
             // 
             // btnBuscarUsuario
             // 
@@ -307,18 +273,18 @@
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel8.Location = new System.Drawing.Point(59, 78);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(176, 2);
+            this.panel8.Size = new System.Drawing.Size(176, 1);
             this.panel8.TabIndex = 43;
             // 
-            // txtUsuario
+            // txtCvUsuario
             // 
-            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsuario.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(59, 54);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(176, 19);
-            this.txtUsuario.TabIndex = 42;
+            this.txtCvUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtCvUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCvUsuario.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCvUsuario.Location = new System.Drawing.Point(59, 54);
+            this.txtCvUsuario.Name = "txtCvUsuario";
+            this.txtCvUsuario.Size = new System.Drawing.Size(176, 19);
+            this.txtCvUsuario.TabIndex = 42;
             // 
             // panelPermisos
             // 
@@ -338,7 +304,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardar.Location = new System.Drawing.Point(252, 46);
+            this.btnGuardar.Location = new System.Drawing.Point(252, 32);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 48;
@@ -377,7 +343,7 @@
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel6.Location = new System.Drawing.Point(70, 78);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(152, 2);
+            this.panel6.Size = new System.Drawing.Size(152, 1);
             this.panel6.TabIndex = 43;
             // 
             // txtCompanias
@@ -420,7 +386,7 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvUsuarios.Location = new System.Drawing.Point(38, 430);
+            this.dgvUsuarios.Location = new System.Drawing.Point(38, 401);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersVisible = false;
@@ -462,7 +428,7 @@
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCompanias.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvCompanias.Location = new System.Drawing.Point(549, 430);
+            this.dgvCompanias.Location = new System.Drawing.Point(549, 401);
             this.dgvCompanias.Name = "dgvCompanias";
             this.dgvCompanias.ReadOnly = true;
             this.dgvCompanias.RowHeadersVisible = false;
@@ -494,12 +460,36 @@
             this.label1.TabIndex = 123;
             this.label1.Text = "      Asiganacion Compañias Usuario";
             // 
-            // Asignacion_Companias_Usuario
+            // lblusuario
+            // 
+            this.lblusuario.AutoSize = true;
+            this.lblusuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.ForeColor = System.Drawing.Color.White;
+            this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblusuario.Location = new System.Drawing.Point(10, 74);
+            this.lblusuario.Name = "lblusuario";
+            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.TabIndex = 163;
+            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(10, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 41);
+            this.pictureBox1.TabIndex = 164;
+            this.pictureBox1.TabStop = false;
+            // 
+            // CompaniasUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label1);
             this.Controls.Add(label9);
             this.Controls.Add(this.dgvCompanias);
@@ -513,7 +503,7 @@
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Asignacion_Companias_Usuario";
+            this.Name = "CompaniasUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asignacion_Companias_Usuario";
             this.Load += new System.EventHandler(this.Asignacion_Companias_Usuario_Load);
@@ -527,6 +517,7 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompanias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,11 +531,9 @@
         private System.Windows.Forms.Panel panelTag;
         private System.Windows.Forms.Label lbMensaje;
         private System.Windows.Forms.Panel PanelBuscar;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtIdTrab;
         private System.Windows.Forms.Button btnBuscarUsuario;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtCvUsuario;
         private System.Windows.Forms.Panel panelPermisos;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Panel panel4;
@@ -555,5 +544,7 @@
         private System.Windows.Forms.DataGridView dgvCompanias;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblusuario;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

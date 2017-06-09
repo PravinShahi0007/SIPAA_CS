@@ -12,13 +12,18 @@ using SIPAA_CS.App_Code;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
 
+using SIPAA_CS.RecursosHumanos;
+using static SIPAA_CS.App_Code.Usuario;
+using SIPAA_CS.Accesos;
+
+
 //***********************************************************************************************
 //Autor: Jaime Avendaño Vargas
 //Fecha creación: 28-Mar-2017       Última Modificacion: dd-mm-aaaa
 //Descripción: Días Festivos
 //***********************************************************************************************
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
     public partial class RelojesChecadores : Form
     {
@@ -40,6 +45,29 @@ namespace SIPAA_CS.RecursosHumanos
         {
             InitializeComponent();
         }
+
+        private void RelojesChecadores_Load(object sender, EventArgs e)
+        {
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            /* JAV
+            Usuario objUsuario = new Usuario();
+            string idtrab = LoginInfo.IdTrab;
+            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab, 4);
+            Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
+            //LoginInfo.Nombre = lblusuario.Text;
+            string NomUsu = LoginInfo.Nombre;
+            lblusuario.Text = NomUsu;
+            JAV */
+        }
+
 
         //***********************************************************************************************
         //Autor: Jaime Avendaño Vargas

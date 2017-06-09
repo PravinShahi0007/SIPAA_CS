@@ -48,6 +48,8 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblusuario = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -56,7 +58,71 @@
             this.panelTag.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.ForeColor = System.Drawing.Color.Gray;
+            label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
+            label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label7.Location = new System.Drawing.Point(70, 171);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(157, 17);
+            label7.TabIndex = 66;
+            label7.Text = "       Imprimir Resumen";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.ForeColor = System.Drawing.Color.Gray;
+            label4.Image = ((System.Drawing.Image)(resources.GetObject("label4.Image")));
+            label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label4.Location = new System.Drawing.Point(70, 49);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(138, 17);
+            label4.TabIndex = 65;
+            label4.Text = "       Imprimir Detalle";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.Location = new System.Drawing.Point(39, 45);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(50, 16);
+            label1.TabIndex = 60;
+            label1.Text = "Usuarios";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label6.Location = new System.Drawing.Point(39, 126);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(65, 16);
+            label6.TabIndex = 58;
+            label6.Text = "Ubicaciones";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label9.ForeColor = System.Drawing.Color.Gray;
+            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
+            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label9.Location = new System.Drawing.Point(5, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(229, 17);
+            label9.TabIndex = 41;
+            label9.Text = "       Buscar Ubicaciones Usuarios";
             // 
             // panelTag
             // 
@@ -94,32 +160,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 252);
             this.panel1.TabIndex = 180;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.ForeColor = System.Drawing.Color.Gray;
-            label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
-            label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(70, 171);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(157, 17);
-            label7.TabIndex = 66;
-            label7.Text = "       Imprimir Resumen";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.ForeColor = System.Drawing.Color.Gray;
-            label4.Image = ((System.Drawing.Image)(resources.GetObject("label4.Image")));
-            label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(70, 49);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(138, 17);
-            label4.TabIndex = 65;
-            label4.Text = "       Imprimir Detalle";
             // 
             // btnImprimirResumen
             // 
@@ -162,18 +202,6 @@
             this.pnlBusqueda.TabIndex = 179;
             this.pnlBusqueda.TabStop = true;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(39, 45);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(50, 16);
-            label1.TabIndex = 60;
-            label1.Text = "Usuarios";
-            // 
             // cbUsuario
             // 
             this.cbUsuario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -187,18 +215,6 @@
             this.cbUsuario.TabIndex = 59;
             this.cbUsuario.Text = "Seleccionar un Usuario";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(39, 126);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(65, 16);
-            label6.TabIndex = 58;
-            label6.Text = "Ubicaciones";
-            // 
             // cbUbicacion
             // 
             this.cbUbicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -211,19 +227,6 @@
             this.cbUbicacion.Size = new System.Drawing.Size(291, 25);
             this.cbUbicacion.TabIndex = 57;
             this.cbUbicacion.Text = "Seleccionar una Ubicación";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.ForeColor = System.Drawing.Color.Gray;
-            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
-            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(5, 0);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(229, 17);
-            label9.TabIndex = 41;
-            label9.Text = "       Buscar Ubicaciones Usuarios";
             // 
             // btnRegresar
             // 
@@ -288,12 +291,36 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(10, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 41);
+            this.pictureBox1.TabIndex = 183;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblusuario
+            // 
+            this.lblusuario.AutoSize = true;
+            this.lblusuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.ForeColor = System.Drawing.Color.White;
+            this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblusuario.Location = new System.Drawing.Point(10, 75);
+            this.lblusuario.Name = "lblusuario";
+            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.TabIndex = 182;
+            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FiltroUbicacionesUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.panelTag);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlBusqueda);
@@ -312,6 +339,7 @@
             this.panel1.PerformLayout();
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,5 +360,7 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblusuario;
     }
 }

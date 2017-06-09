@@ -22,7 +22,7 @@ namespace SIPAA_CS.App_Code.Accesos.Asignaciones
 
             List<string> ltDepartamentosxUsuario = new List<string>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "usp_accetusudep_sui";
+            cmd.CommandText = "usp_accetusudep_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = cvusuario;

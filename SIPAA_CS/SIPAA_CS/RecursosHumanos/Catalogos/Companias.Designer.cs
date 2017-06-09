@@ -1,4 +1,4 @@
-﻿namespace SIPAA_CS.RecursosHumanos
+﻿namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
     partial class Companias
     {
@@ -41,18 +41,19 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtcomp = new System.Windows.Forms.TextBox();
             this.dgvcomp = new System.Windows.Forms.DataGridView();
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.btnregresar = new System.Windows.Forms.Button();
             this.btnminimizar = new System.Windows.Forms.Button();
             this.btncerrar = new System.Windows.Forms.Button();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lblusuario = new System.Windows.Forms.Label();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             this.pnlbusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcomp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -179,15 +180,6 @@
             this.dgvcomp.TabIndex = 114;
             this.dgvcomp.TabStop = false;
             // 
-            // pnlimgusuario
-            // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(12, 30);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 113;
-            // 
             // btnregresar
             // 
             this.btnregresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
@@ -197,10 +189,11 @@
             this.btnregresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.btnregresar.Location = new System.Drawing.Point(896, 1);
             this.btnregresar.Name = "btnregresar";
-            this.btnregresar.Size = new System.Drawing.Size(50, 24);
+            this.btnregresar.Size = new System.Drawing.Size(30, 24);
             this.btnregresar.TabIndex = 111;
             this.btnregresar.TabStop = false;
             this.btnregresar.UseVisualStyleBackColor = false;
+            this.btnregresar.Click += new System.EventHandler(this.btnregresar_Click);
             // 
             // btnminimizar
             // 
@@ -238,27 +231,40 @@
             this.lbltitulo.BackColor = System.Drawing.Color.Transparent;
             this.lbltitulo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
+            this.lbltitulo.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbltitulo.Location = new System.Drawing.Point(429, 2);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(190, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(214, 23);
             this.lbltitulo.TabIndex = 108;
-            this.lbltitulo.Text = "Catalogo de Compañias   ";
+            this.lbltitulo.Text = "      Catalogo de Compañias   ";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblusuario
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblusuario.Location = new System.Drawing.Point(7, 73);
+            this.lblusuario.Location = new System.Drawing.Point(6, 74);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.Size = new System.Drawing.Size(58, 20);
             this.lblusuario.TabIndex = 112;
-            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.Text = "Usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 149;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
             // 
             // Companias
             // 
@@ -266,10 +272,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(label2);
             this.Controls.Add(this.pnlbusqueda);
             this.Controls.Add(this.dgvcomp);
-            this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.btnregresar);
             this.Controls.Add(this.btnminimizar);
@@ -283,6 +289,7 @@
             this.pnlbusqueda.ResumeLayout(false);
             this.pnlbusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcomp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,12 +302,12 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtcomp;
         private System.Windows.Forms.DataGridView dgvcomp;
-        private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.Button btnregresar;
         private System.Windows.Forms.Button btnminimizar;
         private System.Windows.Forms.Button btncerrar;
         private System.Windows.Forms.Label lbltitulo;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label lblusuario;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }

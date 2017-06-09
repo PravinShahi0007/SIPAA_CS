@@ -1,4 +1,5 @@
 ﻿using SIPAA_CS.App_Code;
+using SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 using static SIPAA_CS.App_Code.SonaCompania;
 using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.RecursosHumanos.Procesos
+namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
     public partial class DatosTrabajadorPerfil : Form
     {
@@ -85,8 +86,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void DatosTrabajadorPerfil_Load(object sender, EventArgs e)
         {
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            //////////////////////////////////////////////////////////////////////////////////
+            lblusuario.Text = LoginInfo.Nombre;
 
             string sIdtrab = TrabajadorInfo.IdTrab;
             List<string> ltTnom = new List<string>();
@@ -160,6 +167,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AsignacionIncidenciasTrabajador form = new AsignacionIncidenciasTrabajador();
+            form.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            VacIncPermHrEsp nvform = new VacIncPermHrEsp();
+            nvform.Show();
+        }
     }
 }
+ 

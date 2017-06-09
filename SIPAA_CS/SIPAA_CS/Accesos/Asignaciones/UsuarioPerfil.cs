@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.Accesos
+namespace SIPAA_CS.Accesos.Asignaciones
 {
 
     //***********************************************************************************************
@@ -100,12 +100,13 @@ namespace SIPAA_CS.Accesos
                         Utilerias.MultiSeleccionGridView(dgvPerfiles, 1, ltPerfiles, panelPermisos);
                     }
                 }
-            }
-            else
-            {
 
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Usuario");
-                timer1.Start();
+                else
+                {
+
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Usuario");
+                    timer1.Start();
+                }
             }
         }
 
@@ -390,7 +391,13 @@ namespace SIPAA_CS.Accesos
 
             dgvPerfiles.ClearSelection();
 
-        }
+
+            if (Permisos.dcPermisos["Actualizar"] == 0)
+            {
+                dgvPerfiles.Columns[0].HeaderText = "Asignado";
+            }
+
+            }
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

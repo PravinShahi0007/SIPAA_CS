@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 using static SIPAA_CS.App_Code.Utilerias;
 
-namespace SIPAA_CS.Accesos
+namespace SIPAA_CS.Accesos.Catalogos
 {
 
 
@@ -213,7 +213,7 @@ namespace SIPAA_CS.Accesos
         private void Crear_Perfil_Load(object sender, EventArgs e)
         {
 
-
+            lblusuario.Text = LoginInfo.Nombre;
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);

@@ -122,7 +122,7 @@
             lblimprimir.ForeColor = System.Drawing.Color.Gray;
             lblimprimir.Image = ((System.Drawing.Image)(resources.GetObject("lblimprimir.Image")));
             lblimprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblimprimir.Location = new System.Drawing.Point(23, 48);
+            lblimprimir.Location = new System.Drawing.Point(20, 48);
             lblimprimir.Name = "lblimprimir";
             lblimprimir.Size = new System.Drawing.Size(199, 17);
             lblimprimir.TabIndex = 66;

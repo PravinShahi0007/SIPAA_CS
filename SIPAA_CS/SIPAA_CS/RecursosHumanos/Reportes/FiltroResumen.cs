@@ -81,6 +81,25 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
 
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
 
         private void btnImprimirResumen_Click(object sender, EventArgs e)
         {
@@ -136,25 +155,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
 
 
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
-
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
+     
 
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -239,6 +240,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         }
 
+      
 
 
 

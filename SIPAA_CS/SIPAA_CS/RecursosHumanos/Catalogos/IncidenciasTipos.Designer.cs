@@ -1,4 +1,4 @@
-﻿namespace SIPAA_CS.RecursosHumanos
+﻿namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
     partial class IncidenciasTipos
     {
@@ -65,6 +65,8 @@
             this.cbEstatus = new System.Windows.Forms.ComboBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pnlimgusuario = new System.Windows.Forms.Panel();
+            this.lblusuario = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -127,18 +129,6 @@
             label9.TabIndex = 41;
             label9.Text = "       Buscar Incidencia";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label2.Location = new System.Drawing.Point(587, 547);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(243, 15);
-            this.label2.TabIndex = 128;
-            this.label2.Text = "Selecciona el Grid para editar un Registro";
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -174,6 +164,18 @@
             label5.Size = new System.Drawing.Size(41, 16);
             label5.TabIndex = 60;
             label5.Text = "Estatus";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label2.Location = new System.Drawing.Point(587, 547);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(243, 15);
+            this.label2.TabIndex = 128;
+            this.label2.Text = "Selecciona el Grid para editar un Registro";
             // 
             // timer1
             // 
@@ -358,7 +360,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_18dp;
+            this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(419, 2);
             this.label3.Name = "label3";
@@ -494,6 +496,29 @@
             this.cbEstatus.TabIndex = 59;
             this.cbEstatus.Text = "Seleccionar ";
             // 
+            // pnlimgusuario
+            // 
+            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
+            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.pnlimgusuario.Name = "pnlimgusuario";
+            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
+            this.pnlimgusuario.TabIndex = 174;
+            // 
+            // lblusuario
+            // 
+            this.lblusuario.AutoSize = true;
+            this.lblusuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.ForeColor = System.Drawing.Color.White;
+            this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblusuario.Location = new System.Drawing.Point(5, 74);
+            this.lblusuario.Name = "lblusuario";
+            this.lblusuario.Size = new System.Drawing.Size(64, 23);
+            this.lblusuario.TabIndex = 173;
+            this.lblusuario.Text = "Usuario";
+            this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // IncidenciasTipos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,6 +527,8 @@
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.pnlimgusuario);
+            this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(label1);
             this.Controls.Add(this.btnAgregar);
@@ -515,6 +542,7 @@
             this.Controls.Add(this.pnlBusqueda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "IncidenciasTipos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Incapacidad_Tipo";
             this.Load += new System.EventHandler(this.Incapacidad_Tipo_Load);
             this.panelTag.ResumeLayout(false);
@@ -556,5 +584,7 @@
         private System.Windows.Forms.TextBox txtTipoEditar;
         private System.Windows.Forms.ComboBox cbEstatus;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel pnlimgusuario;
+        private System.Windows.Forms.Label lblusuario;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace SIPAA_CS.RecursosHumanos
+﻿namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
     partial class RelojesChecadores
     {
@@ -35,12 +35,11 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label lblFechaRelojChecador;
             System.Windows.Forms.Label lblGridDiasFestivos;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.txtBuscarRC = new System.Windows.Forms.TextBox();
             this.dgvRelojesChecadores = new System.Windows.Forms.DataGridView();
             this.lblusuario = new System.Windows.Forms.Label();
@@ -50,15 +49,6 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.pnlActRelojesChecadores = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.TxtiStActualiza = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.TxtcCvvnc = new System.Windows.Forms.TextBox();
@@ -66,13 +56,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtcIP = new System.Windows.Forms.TextBox();
             this.TxtiRelojChecador = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.ckbEliminar = new System.Windows.Forms.CheckBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.txtDescripcionRC = new System.Windows.Forms.TextBox();
             this.lblActRelojesChecadores = new System.Windows.Forms.Label();
             this.btnInsertar = new System.Windows.Forms.Button();
@@ -80,6 +64,11 @@
             this.panelTag = new System.Windows.Forms.Panel();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -88,16 +77,6 @@
             this.pnlBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelojesChecadores)).BeginInit();
             this.pnlActRelojesChecadores.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panelTag.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,9 +146,9 @@
             // pnlBusqueda
             // 
             this.pnlBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlBusqueda.Controls.Add(this.panel17);
             this.pnlBusqueda.Controls.Add(label4);
             this.pnlBusqueda.Controls.Add(this.btnBuscar);
-            this.pnlBusqueda.Controls.Add(this.panel5);
             this.pnlBusqueda.Controls.Add(this.txtBuscarRC);
             this.pnlBusqueda.Controls.Add(label1);
             this.pnlBusqueda.Location = new System.Drawing.Point(12, 150);
@@ -189,17 +168,10 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
             this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel5.Location = new System.Drawing.Point(29, 63);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(195, 1);
-            this.panel5.TabIndex = 43;
             // 
             // txtBuscarRC
             // 
@@ -216,29 +188,29 @@
             this.dgvRelojesChecadores.AllowUserToAddRows = false;
             this.dgvRelojesChecadores.AllowUserToDeleteRows = false;
             this.dgvRelojesChecadores.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvRelojesChecadores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvRelojesChecadores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRelojesChecadores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRelojesChecadores.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvRelojesChecadores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRelojesChecadores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRelojesChecadores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRelojesChecadores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvRelojesChecadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRelojesChecadores.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRelojesChecadores.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvRelojesChecadores.Location = new System.Drawing.Point(348, 253);
             this.dgvRelojesChecadores.Name = "dgvRelojesChecadores";
             this.dgvRelojesChecadores.ReadOnly = true;
@@ -272,12 +244,13 @@
             this.lbltitulo.BackColor = System.Drawing.Color.Transparent;
             this.lbltitulo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
+            this.lbltitulo.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbltitulo.Location = new System.Drawing.Point(408, 8);
+            this.lbltitulo.Location = new System.Drawing.Point(408, 1);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(206, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(238, 23);
             this.lbltitulo.TabIndex = 117;
-            this.lbltitulo.Text = "Catalogo de Reloj Checador";
+            this.lbltitulo.Text = "        Catalogo de Reloj Checador";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlimgusuario
@@ -335,9 +308,10 @@
             // pnlActRelojesChecadores
             // 
             this.pnlActRelojesChecadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.pnlActRelojesChecadores.Controls.Add(this.panel14);
-            this.pnlActRelojesChecadores.Controls.Add(this.panel11);
-            this.pnlActRelojesChecadores.Controls.Add(this.panel8);
+            this.pnlActRelojesChecadores.Controls.Add(this.panel3);
+            this.pnlActRelojesChecadores.Controls.Add(this.panel2);
+            this.pnlActRelojesChecadores.Controls.Add(this.panel1);
+            this.pnlActRelojesChecadores.Controls.Add(this.panel5);
             this.pnlActRelojesChecadores.Controls.Add(this.TxtiStActualiza);
             this.pnlActRelojesChecadores.Controls.Add(this.label6);
             this.pnlActRelojesChecadores.Controls.Add(this.TxtcCvvnc);
@@ -345,11 +319,9 @@
             this.pnlActRelojesChecadores.Controls.Add(this.label2);
             this.pnlActRelojesChecadores.Controls.Add(this.TxtcIP);
             this.pnlActRelojesChecadores.Controls.Add(this.TxtiRelojChecador);
-            this.pnlActRelojesChecadores.Controls.Add(this.panel1);
             this.pnlActRelojesChecadores.Controls.Add(lblFechaRelojChecador);
             this.pnlActRelojesChecadores.Controls.Add(this.ckbEliminar);
             this.pnlActRelojesChecadores.Controls.Add(label3);
-            this.pnlActRelojesChecadores.Controls.Add(this.panel3);
             this.pnlActRelojesChecadores.Controls.Add(this.txtDescripcionRC);
             this.pnlActRelojesChecadores.Controls.Add(this.lblActRelojesChecadores);
             this.pnlActRelojesChecadores.Controls.Add(this.btnInsertar);
@@ -360,84 +332,6 @@
             this.pnlActRelojesChecadores.TabStop = true;
             this.pnlActRelojesChecadores.Visible = false;
             this.pnlActRelojesChecadores.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlActRelojesChecadores_Paint);
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel14.Controls.Add(this.panel15);
-            this.panel14.Location = new System.Drawing.Point(34, 254);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(76, 1);
-            this.panel14.TabIndex = 46;
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel15.Controls.Add(this.panel16);
-            this.panel15.Location = new System.Drawing.Point(0, -64);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(96, 1);
-            this.panel15.TabIndex = 45;
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel16.Location = new System.Drawing.Point(0, -68);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(250, 2);
-            this.panel16.TabIndex = 44;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel11.Controls.Add(this.panel12);
-            this.panel11.Location = new System.Drawing.Point(37, 195);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(158, 1);
-            this.panel11.TabIndex = 46;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel12.Controls.Add(this.panel13);
-            this.panel12.Location = new System.Drawing.Point(0, -64);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(96, 1);
-            this.panel12.TabIndex = 45;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel13.Location = new System.Drawing.Point(0, -68);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(250, 2);
-            this.panel13.TabIndex = 44;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Location = new System.Drawing.Point(37, 140);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(158, 1);
-            this.panel8.TabIndex = 46;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Location = new System.Drawing.Point(0, -64);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(96, 1);
-            this.panel9.TabIndex = 45;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel10.Location = new System.Drawing.Point(0, -68);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(250, 2);
-            this.panel10.TabIndex = 44;
             // 
             // TxtiStActualiza
             // 
@@ -505,33 +399,6 @@
             this.TxtiRelojChecador.TabIndex = 137;
             this.TxtiRelojChecador.Visible = false;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Location = new System.Drawing.Point(33, 49);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(101, 1);
-            this.panel1.TabIndex = 60;
-            this.panel1.Visible = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(0, -64);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(96, 1);
-            this.panel6.TabIndex = 45;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel7.Location = new System.Drawing.Point(0, -68);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 2);
-            this.panel7.TabIndex = 44;
-            // 
             // ckbEliminar
             // 
             this.ckbEliminar.AutoSize = true;
@@ -544,32 +411,6 @@
             this.ckbEliminar.UseVisualStyleBackColor = true;
             this.ckbEliminar.Visible = false;
             this.ckbEliminar.CheckedChanged += new System.EventHandler(this.ckbEliminar_CheckedChanged);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Location = new System.Drawing.Point(37, 95);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(158, 1);
-            this.panel3.TabIndex = 43;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Location = new System.Drawing.Point(0, -64);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(96, 1);
-            this.panel2.TabIndex = 45;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel4.Location = new System.Drawing.Point(0, -68);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 2);
-            this.panel4.TabIndex = 44;
             // 
             // txtDescripcionRC
             // 
@@ -604,6 +445,7 @@
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(50, 50);
             this.btnInsertar.TabIndex = 54;
+            this.btnInsertar.Tag = "Guardar";
             this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
@@ -617,12 +459,14 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
             this.btnAgregar.TabIndex = 59;
+            this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // panelTag
             // 
+            this.panelTag.BackColor = System.Drawing.Color.Transparent;
             this.panelTag.Controls.Add(this.lblMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTag.Location = new System.Drawing.Point(348, 731);
@@ -649,11 +493,51 @@
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel17.Location = new System.Drawing.Point(28, 65);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(200, 2);
+            this.panel17.TabIndex = 175;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel5.Location = new System.Drawing.Point(39, 93);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(160, 2);
+            this.panel5.TabIndex = 176;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel1.Location = new System.Drawing.Point(39, 141);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(160, 2);
+            this.panel1.TabIndex = 177;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel2.Location = new System.Drawing.Point(39, 197);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(160, 2);
+            this.panel2.TabIndex = 177;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel3.Location = new System.Drawing.Point(40, 257);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(100, 2);
+            this.panel3.TabIndex = 178;
+            // 
             // RelojesChecadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.JSierra;
+            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(lblGridDiasFestivos);
             this.Controls.Add(this.panelTag);
@@ -677,16 +561,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelojesChecadores)).EndInit();
             this.pnlActRelojesChecadores.ResumeLayout(false);
             this.pnlActRelojesChecadores.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
             this.ResumeLayout(false);
@@ -698,7 +572,6 @@
 
         private System.Windows.Forms.Panel pnlBusqueda;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtBuscarRC;
         private System.Windows.Forms.DataGridView dgvRelojesChecadores;
         private System.Windows.Forms.Panel pnlimgusuario;
@@ -709,7 +582,6 @@
         private System.Windows.Forms.Label lbltitulo;
         private System.Windows.Forms.Panel pnlActRelojesChecadores;
         private System.Windows.Forms.CheckBox ckbEliminar;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtDescripcionRC;
         private System.Windows.Forms.Label lblActRelojesChecadores;
         private System.Windows.Forms.Button btnAgregar;
@@ -717,11 +589,6 @@
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnInsertar;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox TxtiRelojChecador;
         private System.Windows.Forms.TextBox TxtiStActualiza;
         private System.Windows.Forms.Label label6;
@@ -729,14 +596,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtcIP;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel5;
     }
 }

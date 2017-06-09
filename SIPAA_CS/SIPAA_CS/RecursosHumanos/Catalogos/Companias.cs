@@ -11,13 +11,15 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
 
+using static SIPAA_CS.App_Code.Usuario;
+
 //***********************************************************************************************
 //Autor: Noe Alvarez Marquina
 //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
 //Descripción: Lee la tabla de compañias de SONARH
 //***********************************************************************************************
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
 
     #region variables
@@ -31,9 +33,8 @@ namespace SIPAA_CS.RecursosHumanos
         {
             InitializeComponent();
         }
+
         SonaCompania companias = new SonaCompania();
-
-
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -61,6 +62,14 @@ namespace SIPAA_CS.RecursosHumanos
             WindowState = FormWindowState.Minimized;
         }
 
+        //boton regresar
+        private void btnregresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
+        }
+
         //boton cerrar
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -83,6 +92,9 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void frmCompanias_Load(object sender, EventArgs e)
         {
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+            
             //inicializa tool tip
             ftooltip();
 

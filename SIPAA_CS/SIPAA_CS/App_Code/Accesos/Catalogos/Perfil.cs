@@ -97,7 +97,7 @@ namespace SIPAA_CS.App_Code
             cmd.CommandText = @"usp_acceusuper_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@P_cvUsuario", SqlDbType.VarChar).Value = scvUsuario;
+            cmd.Parameters.Add("@P_cvusuario", SqlDbType.VarChar).Value = scvUsuario;
             cmd.Parameters.Add("@P_cvPerfil", SqlDbType.VarChar).Value = iCvPerfil;
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = "";
@@ -292,6 +292,32 @@ namespace SIPAA_CS.App_Code
             Adapter.Fill(dtPerfilesUsuarios);
 
             return dtPerfilesUsuarios;
+        }
+
+        //menu dinamico cliente servidor
+        public DataTable dtmenudinamicocs(int iopcion, string susuario, string smodulo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_acceusuper_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@P_cvusuario", SqlDbType.Text).Value = susuario;
+            cmd.Parameters.Add("@P_cvperfil", SqlDbType.Text).Value = smodulo;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.Text).Value = "";
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.Text).Value = "";
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable menudincs = new DataTable();
+            Adapter.Fill(menudincs);
+            return menudincs;
         }
 
 
