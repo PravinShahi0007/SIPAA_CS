@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using static SIPAA_CS.App_Code.SonaCompania;
 using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.RecursosHumanos.Procesos
+namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
     public partial class TrabajadoresPerfil : Form
     {
@@ -143,6 +143,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void TrabajadoresPerfil_Load(object sender, EventArgs e)
         {
+            //LoginInfo.IdTrab = "ADMIN";
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
@@ -150,11 +151,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             //////////////////////////////////////////////////////////////////////////////////
+            lblusuario.Text = LoginInfo.Nombre;
             SonaTrabajador objTrab = new SonaTrabajador();
             DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%", 6, "%", "%", 0,"", this.Name);
             //   llenarListView(dtTrab, ltvTrabajador);
             llenarGrid(dtTrab, dgvTrab);
-            lblusuario.Text = LoginInfo.Nombre;
+            
         }
 
         //-----------------------------------------------------------------------------------------------

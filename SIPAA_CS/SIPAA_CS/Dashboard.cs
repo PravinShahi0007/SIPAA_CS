@@ -44,7 +44,7 @@ namespace SIPAA_CS
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
+            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "SIPAA", MessageBoxButtons.YesNoCancel);
 
             if (result == DialogResult.Yes)
             {
@@ -86,7 +86,7 @@ namespace SIPAA_CS
         private void Dashboard_Load(object sender, EventArgs e)
         {
             // Diccionario Permisos x Pantalla
-            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, "RECH");
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
             //////////////////////////////////////////////////////
             // resize 
@@ -96,9 +96,9 @@ namespace SIPAA_CS
 
             Usuario objUsuario = new Usuario();
             string idtrab = LoginInfo.IdTrab;
-            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab,4);
+            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab,6);
             Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
-            //LoginInfo.Nombre = lblusuario.Text;
+            lblusuario.Text = LoginInfo.Nombre;
             string NomUsu = LoginInfo.Nombre;
             lblusuario.Text = NomUsu;
         }
@@ -115,6 +115,7 @@ namespace SIPAA_CS
             
             RechDashboard form = new RechDashboard();
             form.Show();
+            this.Close();
         }
 
         private void btnAccesos_Click(object sender, EventArgs e)

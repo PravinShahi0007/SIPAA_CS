@@ -279,19 +279,21 @@ namespace SIPAA_CS.Accesos.DataSets {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ReporteModulosDataTable : global::System.Data.TypedTableBase<ReporteModulosRow> {
             
+            private global::System.Data.DataColumn columnidmodulo;
+            
             private global::System.Data.DataColumn columncvmodulo;
             
             private global::System.Data.DataColumn columndescripcion;
             
-            private global::System.Data.DataColumn columncvmodpad;
-            
-            private global::System.Data.DataColumn columnorden;
-            
             private global::System.Data.DataColumn columnambiente;
             
-            private global::System.Data.DataColumn columnmodulo;
+            private global::System.Data.DataColumn columncvindmodulo;
             
-            private global::System.Data.DataColumn columnstmodulo;
+            private global::System.Data.DataColumn columnrutaaceso;
+            
+            private global::System.Data.DataColumn columnEstatus;
+            
+            private global::System.Data.DataColumn columncvtipomodulo1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -328,6 +330,14 @@ namespace SIPAA_CS.Accesos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idmoduloColumn {
+                get {
+                    return this.columnidmodulo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn cvmoduloColumn {
                 get {
                     return this.columncvmodulo;
@@ -344,22 +354,6 @@ namespace SIPAA_CS.Accesos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn cvmodpadColumn {
-                get {
-                    return this.columncvmodpad;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ordenColumn {
-                get {
-                    return this.columnorden;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn ambienteColumn {
                 get {
                     return this.columnambiente;
@@ -368,17 +362,33 @@ namespace SIPAA_CS.Accesos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn moduloColumn {
+            public global::System.Data.DataColumn cvindmoduloColumn {
                 get {
-                    return this.columnmodulo;
+                    return this.columncvindmodulo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn stmoduloColumn {
+            public global::System.Data.DataColumn rutaacesoColumn {
                 get {
-                    return this.columnstmodulo;
+                    return this.columnrutaaceso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EstatusColumn {
+                get {
+                    return this.columnEstatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cvtipomodulo1Column {
+                get {
+                    return this.columncvtipomodulo1;
                 }
             }
             
@@ -419,16 +429,17 @@ namespace SIPAA_CS.Accesos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReporteModulosRow AddReporteModulosRow(string cvmodulo, string descripcion, string cvmodpad, string orden, string ambiente, string modulo, string stmodulo) {
+            public ReporteModulosRow AddReporteModulosRow(string idmodulo, string cvmodulo, string descripcion, string ambiente, string cvindmodulo, string rutaaceso, string Estatus, string cvtipomodulo1) {
                 ReporteModulosRow rowReporteModulosRow = ((ReporteModulosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        idmodulo,
                         cvmodulo,
                         descripcion,
-                        cvmodpad,
-                        orden,
                         ambiente,
-                        modulo,
-                        stmodulo};
+                        cvindmodulo,
+                        rutaaceso,
+                        Estatus,
+                        cvtipomodulo1};
                 rowReporteModulosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReporteModulosRow);
                 return rowReporteModulosRow;
@@ -451,32 +462,35 @@ namespace SIPAA_CS.Accesos.DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
+                this.columnidmodulo = base.Columns["idmodulo"];
                 this.columncvmodulo = base.Columns["cvmodulo"];
                 this.columndescripcion = base.Columns["descripcion"];
-                this.columncvmodpad = base.Columns["cvmodpad"];
-                this.columnorden = base.Columns["orden"];
                 this.columnambiente = base.Columns["ambiente"];
-                this.columnmodulo = base.Columns["modulo"];
-                this.columnstmodulo = base.Columns["stmodulo"];
+                this.columncvindmodulo = base.Columns["cvindmodulo"];
+                this.columnrutaaceso = base.Columns["rutaaceso"];
+                this.columnEstatus = base.Columns["Estatus"];
+                this.columncvtipomodulo1 = base.Columns["cvtipomodulo1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
+                this.columnidmodulo = new global::System.Data.DataColumn("idmodulo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidmodulo);
                 this.columncvmodulo = new global::System.Data.DataColumn("cvmodulo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncvmodulo);
                 this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescripcion);
-                this.columncvmodpad = new global::System.Data.DataColumn("cvmodpad", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncvmodpad);
-                this.columnorden = new global::System.Data.DataColumn("orden", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnorden);
                 this.columnambiente = new global::System.Data.DataColumn("ambiente", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnambiente);
-                this.columnmodulo = new global::System.Data.DataColumn("modulo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmodulo);
-                this.columnstmodulo = new global::System.Data.DataColumn("stmodulo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstmodulo);
+                this.columncvindmodulo = new global::System.Data.DataColumn("cvindmodulo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncvindmodulo);
+                this.columnrutaaceso = new global::System.Data.DataColumn("rutaaceso", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrutaaceso);
+                this.columnEstatus = new global::System.Data.DataColumn("Estatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstatus);
+                this.columncvtipomodulo1 = new global::System.Data.DataColumn("cvtipomodulo1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncvtipomodulo1);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_ReporteModulos");
                 this.ExtendedProperties.Add("Generator_UserTableName", "ReporteModulos");
             }
@@ -621,6 +635,22 @@ namespace SIPAA_CS.Accesos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string idmodulo {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteModulos.idmoduloColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idmodulo\' de la tabla \'ReporteModulos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteModulos.idmoduloColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string cvmodulo {
                 get {
                     try {
@@ -653,38 +683,6 @@ namespace SIPAA_CS.Accesos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string cvmodpad {
-                get {
-                    try {
-                        return ((string)(this[this.tableReporteModulos.cvmodpadColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cvmodpad\' de la tabla \'ReporteModulos\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableReporteModulos.cvmodpadColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string orden {
-                get {
-                    try {
-                        return ((string)(this[this.tableReporteModulos.ordenColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'orden\' de la tabla \'ReporteModulos\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableReporteModulos.ordenColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ambiente {
                 get {
                     try {
@@ -701,34 +699,78 @@ namespace SIPAA_CS.Accesos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string modulo {
+            public string cvindmodulo {
                 get {
                     try {
-                        return ((string)(this[this.tableReporteModulos.moduloColumn]));
+                        return ((string)(this[this.tableReporteModulos.cvindmoduloColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'modulo\' de la tabla \'ReporteModulos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cvindmodulo\' de la tabla \'ReporteModulos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableReporteModulos.moduloColumn] = value;
+                    this[this.tableReporteModulos.cvindmoduloColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string stmodulo {
+            public string rutaaceso {
                 get {
                     try {
-                        return ((string)(this[this.tableReporteModulos.stmoduloColumn]));
+                        return ((string)(this[this.tableReporteModulos.rutaacesoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'stmodulo\' de la tabla \'ReporteModulos\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'rutaaceso\' de la tabla \'ReporteModulos\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableReporteModulos.stmoduloColumn] = value;
+                    this[this.tableReporteModulos.rutaacesoColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Estatus {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteModulos.EstatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Estatus\' de la tabla \'ReporteModulos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteModulos.EstatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string cvtipomodulo1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteModulos.cvtipomodulo1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cvtipomodulo1\' de la tabla \'ReporteModulos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteModulos.cvtipomodulo1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsidmoduloNull() {
+                return this.IsNull(this.tableReporteModulos.idmoduloColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetidmoduloNull() {
+                this[this.tableReporteModulos.idmoduloColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -757,30 +799,6 @@ namespace SIPAA_CS.Accesos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscvmodpadNull() {
-                return this.IsNull(this.tableReporteModulos.cvmodpadColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcvmodpadNull() {
-                this[this.tableReporteModulos.cvmodpadColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsordenNull() {
-                return this.IsNull(this.tableReporteModulos.ordenColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetordenNull() {
-                this[this.tableReporteModulos.ordenColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsambienteNull() {
                 return this.IsNull(this.tableReporteModulos.ambienteColumn);
             }
@@ -793,26 +811,50 @@ namespace SIPAA_CS.Accesos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsmoduloNull() {
-                return this.IsNull(this.tableReporteModulos.moduloColumn);
+            public bool IscvindmoduloNull() {
+                return this.IsNull(this.tableReporteModulos.cvindmoduloColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetmoduloNull() {
-                this[this.tableReporteModulos.moduloColumn] = global::System.Convert.DBNull;
+            public void SetcvindmoduloNull() {
+                this[this.tableReporteModulos.cvindmoduloColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsstmoduloNull() {
-                return this.IsNull(this.tableReporteModulos.stmoduloColumn);
+            public bool IsrutaacesoNull() {
+                return this.IsNull(this.tableReporteModulos.rutaacesoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetstmoduloNull() {
-                this[this.tableReporteModulos.stmoduloColumn] = global::System.Convert.DBNull;
+            public void SetrutaacesoNull() {
+                this[this.tableReporteModulos.rutaacesoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEstatusNull() {
+                return this.IsNull(this.tableReporteModulos.EstatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEstatusNull() {
+                this[this.tableReporteModulos.EstatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscvtipomodulo1Null() {
+                return this.IsNull(this.tableReporteModulos.cvtipomodulo1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcvtipomodulo1Null() {
+                this[this.tableReporteModulos.cvtipomodulo1Column] = global::System.Convert.DBNull;
             }
         }
         

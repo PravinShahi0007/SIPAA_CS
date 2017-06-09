@@ -12,6 +12,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
     class IncCalificacion
     {
         public string sIdtrab = "";
+        public DateTime fFechaRegistro = DateTime.Today;
         public int iCvincidencia = 0;
         public double dTiempoEmp = 0;
         public double dTiempoPro = 0;
@@ -37,14 +38,13 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
 
 
             SqlCommand cmd = new SqlCommand();
-            Conexion objConexion = new Conexion();
-            Usuario objusuario = new Usuario();
-
-
-
-            cmd.CommandText = "usp_rechinccalif_d_suid";
+            cmd.CommandText = @"usp_rechtinccalif_d_suid";
             cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+
+
             cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = objIncidencia.sIdtrab;
+            cmd.Parameters.Add("@P_FechaReg", SqlDbType.DateTime).Value = objIncidencia.fFechaRegistro;
             cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = iOpcion;
             cmd.Parameters.Add("@P_cvincidencia", SqlDbType.Int).Value = objIncidencia.iCvincidencia;
             cmd.Parameters.Add("@P_tiempoemp", SqlDbType.Int).Value = objIncidencia.dTiempoEmp;
@@ -75,12 +75,11 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             DataTable dt = new DataTable();
             dadapter.Fill(dt);
             return (dt);
-
-
-
-
-
         }
+
+
+
+      
     }
 
     

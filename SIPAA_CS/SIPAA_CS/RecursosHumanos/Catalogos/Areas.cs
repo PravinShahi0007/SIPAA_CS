@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
     //***********************************************************************************************
     //Autor: Victor Jesús Iturburu Vergara
@@ -49,9 +49,15 @@ namespace SIPAA_CS.RecursosHumanos
         private void Compania_Plantel_Load(object sender, EventArgs e)
         {
 
-            int sysH = SystemInformation.PrimaryMonitorSize.Height;
-            int sysW = SystemInformation.PrimaryMonitorSize.Width;
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            lblusuario.Text = LoginInfo.Nombre;
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
 
             SonaCompania objCia = new SonaCompania();
             DataTable dtCia = objCia.obtcomp(1, "");
@@ -111,6 +117,31 @@ namespace SIPAA_CS.RecursosHumanos
 
         }
 
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void pnlBusqueda_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
@@ -120,8 +151,8 @@ namespace SIPAA_CS.RecursosHumanos
 
 
 
-    
 
-      
+
+
     }
 }

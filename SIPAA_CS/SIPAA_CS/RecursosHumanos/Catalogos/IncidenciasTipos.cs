@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
     //***********************************************************************************************
     //Autor: Victor Jesús Iturburu Vergara
@@ -306,7 +306,7 @@ namespace SIPAA_CS.RecursosHumanos
         //-----------------------------------------------------------------------------------------------
         private void Incapacidad_Tipo_Load(object sender, EventArgs e)
         {
-
+            lblusuario.Text = LoginInfo.Nombre;
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
@@ -383,7 +383,7 @@ namespace SIPAA_CS.RecursosHumanos
                         }
 
                     }
-                    else if (Permisos.dcPermisos["Eliminar"] == 1)
+                    else if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 0)
                     {
                         iOpcionAdmin = 3;
                         ckbEliminar.Visible = false;
@@ -397,10 +397,11 @@ namespace SIPAA_CS.RecursosHumanos
                             Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Baja");
                         }
                     }
-                    else if (Permisos.dcPermisos["Actualizar"] == 1)
+                    else if (Permisos.dcPermisos["Actualizar"] == 1 && Permisos.dcPermisos["Eliminar"] == 0)
                     {
                         Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
                         iOpcionAdmin = 2;
+                        ckbEliminar.Visible = false;
                     }
 
 

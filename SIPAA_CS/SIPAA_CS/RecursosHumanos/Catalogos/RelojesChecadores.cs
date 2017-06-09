@@ -23,7 +23,7 @@ using SIPAA_CS.Accesos;
 //Descripción: Días Festivos
 //***********************************************************************************************
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
     public partial class RelojesChecadores : Form
     {

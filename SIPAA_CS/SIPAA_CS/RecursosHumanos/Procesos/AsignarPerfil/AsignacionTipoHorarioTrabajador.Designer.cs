@@ -1,4 +1,4 @@
-﻿namespace SIPAA_CS.RecursosHumanos.Procesos
+﻿namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
     partial class AsignacionTipoHorarioTrabajador
     {
@@ -389,10 +389,10 @@
             this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbMensaje.Location = new System.Drawing.Point(4, 3);
             this.lbMensaje.Name = "lbMensaje";
-            this.lbMensaje.Size = new System.Drawing.Size(209, 20);
+            this.lbMensaje.Size = new System.Drawing.Size(60, 20);
             this.lbMensaje.TabIndex = 26;
             this.lbMensaje.Tag = "frmAsignar_Perfil";
-            this.lbMensaje.Text = "       Administración de Perfiles    ";
+            this.lbMensaje.Text = "Mensaje";
             this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1

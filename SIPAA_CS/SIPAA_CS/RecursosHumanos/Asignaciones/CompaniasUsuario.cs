@@ -6,7 +6,7 @@ using System.Data;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
-namespace SIPAA_CS.RecursosHumanos
+namespace SIPAA_CS.RecursosHumanos.Asignaciones
 {
     public partial class CompaniasUsuario : Form
     {
