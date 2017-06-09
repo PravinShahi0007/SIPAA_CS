@@ -13,6 +13,7 @@ using SIPAA_CS.RecursosHumanos.Procesos;
 using SIPAA_CS.Accesos.Reportes;
 using SIPAA_CS.RelojChecadorTrabajador;
 using SIPAA_CS.Accesos.Catalogos;
+using SIPAA_CS.Accesos.Asignaciones;
 
 namespace SIPAA_CS
 {
@@ -26,7 +27,7 @@ namespace SIPAA_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Modulos());
+            Application.Run(new Companias());
         }
     }
 }

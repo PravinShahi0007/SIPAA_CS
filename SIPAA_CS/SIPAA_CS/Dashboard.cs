@@ -98,7 +98,7 @@ namespace SIPAA_CS
             string idtrab = LoginInfo.IdTrab;
             ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab,6);
             Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
-            //LoginInfo.Nombre = lblusuario.Text;
+            lblusuario.Text = LoginInfo.Nombre;
             string NomUsu = LoginInfo.Nombre;
             lblusuario.Text = NomUsu;
         }
@@ -115,6 +115,7 @@ namespace SIPAA_CS
             
             RechDashboard form = new RechDashboard();
             form.Show();
+            this.Close();
         }
 
         private void btnAccesos_Click(object sender, EventArgs e)
