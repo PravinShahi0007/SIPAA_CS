@@ -36,9 +36,9 @@
             System.Windows.Forms.Label lblne;
             System.Windows.Forms.Label lblfi;
             System.Windows.Forms.Label lblff;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -64,8 +64,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panelTag = new System.Windows.Forms.Panel();
             this.lblMensaje = new System.Windows.Forms.Label();
-//            this.dtpfechainicial = new System.Windows.Forms.DateTimePicker();
-//            this.dtpfechafin = new System.Windows.Forms.DateTimePicker();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -191,6 +189,7 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
             this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -218,30 +217,30 @@
             this.dgvMensajes.AllowUserToAddRows = false;
             this.dgvMensajes.AllowUserToDeleteRows = false;
             this.dgvMensajes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvMensajes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvMensajes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvMensajes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMensajes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMensajes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvMensajes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMensajes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMensajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMensajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvMensajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMensajes.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMensajes.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvMensajes.Location = new System.Drawing.Point(350, 179);
             this.dgvMensajes.Name = "dgvMensajes";
             this.dgvMensajes.ReadOnly = true;
@@ -284,7 +283,7 @@
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(885, 7);
+            this.btnRegresar.Location = new System.Drawing.Point(895, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(50, 24);
             this.btnRegresar.TabIndex = 138;
@@ -298,7 +297,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(962, 7);
+            this.btnMinimizar.Location = new System.Drawing.Point(972, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 137;
@@ -313,7 +312,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(988, 7);
+            this.btnCerrar.Location = new System.Drawing.Point(998, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 136;
@@ -328,7 +327,7 @@
             this.lbltitulo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbltitulo.Location = new System.Drawing.Point(435, 5);
+            this.lbltitulo.Location = new System.Drawing.Point(435, 2);
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(166, 23);
             this.lbltitulo.TabIndex = 135;
@@ -356,7 +355,6 @@
             // 
             this.pnldatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.pnldatos.Controls.Add(this.dtpfechafin);
-//            this.pnldatos.Controls.Add(this.cbTrabajador);
             this.pnldatos.Controls.Add(this.dtpfechainicial);
             this.pnldatos.Controls.Add(this.panel4);
             this.pnldatos.Controls.Add(lblff);
@@ -367,6 +365,24 @@
             this.pnldatos.Name = "pnldatos";
             this.pnldatos.Size = new System.Drawing.Size(334, 80);
             this.pnldatos.TabIndex = 145;
+            // 
+            // dtpfechafin
+            // 
+            this.dtpfechafin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpfechafin.Location = new System.Drawing.Point(216, 45);
+            this.dtpfechafin.MinDate = new System.DateTime(1995, 1, 1, 0, 0, 0, 0);
+            this.dtpfechafin.Name = "dtpfechafin";
+            this.dtpfechafin.Size = new System.Drawing.Size(98, 20);
+            this.dtpfechafin.TabIndex = 145;
+            // 
+            // dtpfechainicial
+            // 
+            this.dtpfechainicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpfechainicial.Location = new System.Drawing.Point(65, 43);
+            this.dtpfechainicial.MinDate = new System.DateTime(1995, 1, 1, 0, 0, 0, 0);
+            this.dtpfechainicial.Name = "dtpfechainicial";
+            this.dtpfechainicial.Size = new System.Drawing.Size(97, 20);
+            this.dtpfechainicial.TabIndex = 145;
             // 
             // panel4
             // 
@@ -409,6 +425,7 @@
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(51, 50);
             this.btnInsertar.TabIndex = 134;
+            this.btnInsertar.Tag = "Guardar";
             this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
@@ -453,6 +470,7 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
             this.btnAgregar.TabIndex = 144;
+            this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -481,30 +499,12 @@
             this.lblMensaje.Text = "Barra de mensajes";
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dtpfechainicial
-            // 
-            this.dtpfechainicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpfechainicial.Location = new System.Drawing.Point(65, 43);
-            this.dtpfechainicial.MinDate = new System.DateTime(1995, 1, 1, 0, 0, 0, 0);
-            this.dtpfechainicial.Name = "dtpfechainicial";
-            this.dtpfechainicial.Size = new System.Drawing.Size(97, 20);
-            this.dtpfechainicial.TabIndex = 145;
-            // 
-            // dtpfechafin
-            // 
-            this.dtpfechafin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpfechafin.Location = new System.Drawing.Point(216, 45);
-            this.dtpfechafin.MinDate = new System.DateTime(1995, 1, 1, 0, 0, 0, 0);
-            this.dtpfechafin.Name = "dtpfechafin";
-            this.dtpfechafin.Size = new System.Drawing.Size(98, 20);
-            this.dtpfechafin.TabIndex = 145;
-            // 
             // Mensajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.JSierra;
-            this.ClientSize = new System.Drawing.Size(1024, 700);
+            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.panelTag);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pnlmensajes);

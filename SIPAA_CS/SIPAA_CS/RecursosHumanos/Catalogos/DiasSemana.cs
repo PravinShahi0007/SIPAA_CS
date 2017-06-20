@@ -12,6 +12,11 @@ using SIPAA_CS.App_Code;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
 
+using SIPAA_CS.RecursosHumanos;
+using static SIPAA_CS.App_Code.Usuario;
+using SIPAA_CS.Accesos;
+
+
 //***********************************************************************************************
 //Autor: Jaime Avendaño Vargas
 //Fecha creación: 22-Mar-2017       Última Modificacion: dd-mm-aaaa
@@ -40,6 +45,29 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             InitializeComponent();
         }
+
+        private void DiasSemana_Load(object sender, EventArgs e)
+        {
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+            //////////////////////////////////////////////////////
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            /* JAV
+            Usuario objUsuario = new Usuario();
+            string idtrab = LoginInfo.IdTrab;
+            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab, 4);
+            Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
+            //LoginInfo.Nombre = lblusuario.Text;
+            string NomUsu = LoginInfo.Nombre;
+            lblusuario.Text = NomUsu;
+            JAV */
+        }
+
 
         //***********************************************************************************************
         //Autor: Jaime Avendaño Vargas

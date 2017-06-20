@@ -60,6 +60,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnInsertar = new System.Windows.Forms.Button();
             this.dgvIncidencias = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             lblFormaPago = new System.Windows.Forms.Label();
             this.panelTag.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncidencias)).BeginInit();
@@ -72,7 +80,7 @@
             lblFormaPago.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblFormaPago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblFormaPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblFormaPago.Location = new System.Drawing.Point(33, 134);
+            lblFormaPago.Location = new System.Drawing.Point(12, 128);
             lblFormaPago.Name = "lblFormaPago";
             lblFormaPago.Size = new System.Drawing.Size(52, 16);
             lblFormaPago.TabIndex = 152;
@@ -82,7 +90,7 @@
             // 
             this.cbFormaPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbFormaPago.FormattingEnabled = true;
-            this.cbFormaPago.Location = new System.Drawing.Point(36, 153);
+            this.cbFormaPago.Location = new System.Drawing.Point(15, 147);
             this.cbFormaPago.Name = "cbFormaPago";
             this.cbFormaPago.Size = new System.Drawing.Size(114, 21);
             this.cbFormaPago.TabIndex = 151;
@@ -93,11 +101,12 @@
             // 
             // panelTag
             // 
+            this.panelTag.BackColor = System.Drawing.Color.Transparent;
             this.panelTag.Controls.Add(this.lblMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(448, 705);
+            this.panelTag.Location = new System.Drawing.Point(462, 641);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(531, 25);
+            this.panelTag.Size = new System.Drawing.Size(516, 25);
             this.panelTag.TabIndex = 150;
             this.panelTag.Visible = false;
             // 
@@ -120,12 +129,13 @@
             this.lbltitulo.BackColor = System.Drawing.Color.Transparent;
             this.lbltitulo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
+            this.lbltitulo.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbltitulo.Location = new System.Drawing.Point(345, 6);
+            this.lbltitulo.Location = new System.Drawing.Point(345, 1);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(274, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(314, 23);
             this.lbltitulo.TabIndex = 146;
-            this.lbltitulo.Text = "Reasignación de Supervisor y Director";
+            this.lbltitulo.Text = "          Reasignación de Supervisor y Director";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblusuario
@@ -152,7 +162,7 @@
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(877, 7);
+            this.btnRegresar.Location = new System.Drawing.Point(876, 2);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(50, 24);
             this.btnRegresar.TabIndex = 149;
@@ -166,7 +176,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(954, 7);
+            this.btnMinimizar.Location = new System.Drawing.Point(953, 2);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 148;
@@ -181,7 +191,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(983, 8);
+            this.btnCerrar.Location = new System.Drawing.Point(982, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 147;
@@ -200,21 +210,25 @@
             // 
             // TxtFeIni
             // 
+            this.TxtFeIni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.TxtFeIni.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtFeIni.Enabled = false;
-            this.TxtFeIni.Location = new System.Drawing.Point(254, 154);
+            this.TxtFeIni.Location = new System.Drawing.Point(146, 159);
             this.TxtFeIni.Name = "TxtFeIni";
             this.TxtFeIni.ReadOnly = true;
-            this.TxtFeIni.Size = new System.Drawing.Size(80, 20);
+            this.TxtFeIni.Size = new System.Drawing.Size(75, 13);
             this.TxtFeIni.TabIndex = 153;
             this.TxtFeIni.TabStop = false;
             // 
             // TxtFeFin
             // 
+            this.TxtFeFin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.TxtFeFin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtFeFin.Enabled = false;
-            this.TxtFeFin.Location = new System.Drawing.Point(401, 155);
+            this.TxtFeFin.Location = new System.Drawing.Point(252, 159);
             this.TxtFeFin.Name = "TxtFeFin";
             this.TxtFeFin.ReadOnly = true;
-            this.TxtFeFin.Size = new System.Drawing.Size(75, 20);
+            this.TxtFeFin.Size = new System.Drawing.Size(75, 13);
             this.TxtFeFin.TabIndex = 154;
             this.TxtFeFin.TabStop = false;
             // 
@@ -224,7 +238,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label1.Location = new System.Drawing.Point(253, 136);
+            this.label1.Location = new System.Drawing.Point(145, 128);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 16);
             this.label1.TabIndex = 155;
@@ -236,7 +250,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label2.Location = new System.Drawing.Point(400, 136);
+            this.label2.Location = new System.Drawing.Point(249, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 156;
@@ -244,9 +258,11 @@
             // 
             // TxtIdEmp
             // 
-            this.TxtIdEmp.Location = new System.Drawing.Point(40, 223);
+            this.TxtIdEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.TxtIdEmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtIdEmp.Location = new System.Drawing.Point(18, 242);
             this.TxtIdEmp.Name = "TxtIdEmp";
-            this.TxtIdEmp.Size = new System.Drawing.Size(84, 20);
+            this.TxtIdEmp.Size = new System.Drawing.Size(75, 13);
             this.TxtIdEmp.TabIndex = 157;
             this.TxtIdEmp.Enter += new System.EventHandler(this.TxtIdEmp_Enter);
             this.TxtIdEmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
@@ -258,7 +274,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label4.Location = new System.Drawing.Point(44, 204);
+            this.label4.Location = new System.Drawing.Point(20, 211);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 16);
             this.label4.TabIndex = 159;
@@ -266,38 +282,46 @@
             // 
             // TxtIdSupOri
             // 
+            this.TxtIdSupOri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.TxtIdSupOri.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtIdSupOri.Enabled = false;
-            this.TxtIdSupOri.Location = new System.Drawing.Point(548, 226);
+            this.TxtIdSupOri.Location = new System.Drawing.Point(148, 298);
             this.TxtIdSupOri.Name = "TxtIdSupOri";
             this.TxtIdSupOri.ReadOnly = true;
-            this.TxtIdSupOri.Size = new System.Drawing.Size(113, 20);
+            this.TxtIdSupOri.Size = new System.Drawing.Size(73, 13);
             this.TxtIdSupOri.TabIndex = 160;
             this.TxtIdSupOri.TabStop = false;
             this.TxtIdSupOri.Leave += new System.EventHandler(this.ObtieneSupyDir);
             // 
             // TxtIdDirOri
             // 
+            this.TxtIdDirOri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.TxtIdDirOri.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtIdDirOri.Enabled = false;
-            this.TxtIdDirOri.Location = new System.Drawing.Point(695, 223);
+            this.TxtIdDirOri.Location = new System.Drawing.Point(253, 298);
             this.TxtIdDirOri.Name = "TxtIdDirOri";
             this.TxtIdDirOri.ReadOnly = true;
-            this.TxtIdDirOri.Size = new System.Drawing.Size(109, 20);
+            this.TxtIdDirOri.Size = new System.Drawing.Size(73, 13);
             this.TxtIdDirOri.TabIndex = 161;
             this.TxtIdDirOri.TabStop = false;
             // 
             // TxtIdSupFin
             // 
-            this.TxtIdSupFin.Location = new System.Drawing.Point(543, 551);
+            this.TxtIdSupFin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.TxtIdSupFin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtIdSupFin.Location = new System.Drawing.Point(149, 497);
             this.TxtIdSupFin.Name = "TxtIdSupFin";
-            this.TxtIdSupFin.Size = new System.Drawing.Size(106, 20);
+            this.TxtIdSupFin.Size = new System.Drawing.Size(77, 13);
             this.TxtIdSupFin.TabIndex = 162;
             this.TxtIdSupFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
             // 
             // TxtIdDirFin
             // 
-            this.TxtIdDirFin.Location = new System.Drawing.Point(690, 551);
+            this.TxtIdDirFin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.TxtIdDirFin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtIdDirFin.Location = new System.Drawing.Point(251, 499);
             this.TxtIdDirFin.Name = "TxtIdDirFin";
-            this.TxtIdDirFin.Size = new System.Drawing.Size(113, 20);
+            this.TxtIdDirFin.Size = new System.Drawing.Size(77, 13);
             this.TxtIdDirFin.TabIndex = 163;
             this.TxtIdDirFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdEmp_KeyPress);
             // 
@@ -307,7 +331,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label3.Location = new System.Drawing.Point(540, 532);
+            this.label3.Location = new System.Drawing.Point(145, 472);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 16);
             this.label3.TabIndex = 164;
@@ -319,7 +343,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label5.Location = new System.Drawing.Point(689, 532);
+            this.label5.Location = new System.Drawing.Point(258, 472);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 16);
             this.label5.TabIndex = 165;
@@ -332,7 +356,7 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label6.Location = new System.Drawing.Point(694, 204);
+            this.label6.Location = new System.Drawing.Point(252, 273);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 16);
             this.label6.TabIndex = 166;
@@ -344,7 +368,7 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label7.Location = new System.Drawing.Point(545, 207);
+            this.label7.Location = new System.Drawing.Point(145, 273);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 16);
             this.label7.TabIndex = 167;
@@ -353,11 +377,13 @@
             // 
             // TxtNombreEmpleado
             // 
+            this.TxtNombreEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.TxtNombreEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtNombreEmpleado.Enabled = false;
-            this.TxtNombreEmpleado.Location = new System.Drawing.Point(172, 225);
+            this.TxtNombreEmpleado.Location = new System.Drawing.Point(148, 232);
             this.TxtNombreEmpleado.Name = "TxtNombreEmpleado";
             this.TxtNombreEmpleado.ReadOnly = true;
-            this.TxtNombreEmpleado.Size = new System.Drawing.Size(343, 20);
+            this.TxtNombreEmpleado.Size = new System.Drawing.Size(240, 13);
             this.TxtNombreEmpleado.TabIndex = 168;
             this.TxtNombreEmpleado.TabStop = false;
             // 
@@ -367,7 +393,7 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label8.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label8.Location = new System.Drawing.Point(179, 204);
+            this.label8.Location = new System.Drawing.Point(145, 213);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 16);
             this.label8.TabIndex = 169;
@@ -379,7 +405,7 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label9.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label9.Location = new System.Drawing.Point(370, 555);
+            this.label9.Location = new System.Drawing.Point(12, 442);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(167, 16);
             this.label9.TabIndex = 170;
@@ -391,10 +417,11 @@
             this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnInsertar.Location = new System.Drawing.Point(642, 632);
+            this.btnInsertar.Location = new System.Drawing.Point(211, 529);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(50, 50);
             this.btnInsertar.TabIndex = 171;
+            this.btnInsertar.Tag = "Guardar";
             this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.ActualizaSudyDir);
             // 
@@ -405,19 +432,91 @@
             this.dgvIncidencias.AllowUserToOrderColumns = true;
             this.dgvIncidencias.AllowUserToResizeRows = false;
             this.dgvIncidencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIncidencias.Location = new System.Drawing.Point(252, 273);
+            this.dgvIncidencias.Location = new System.Drawing.Point(400, 112);
             this.dgvIncidencias.Name = "dgvIncidencias";
             this.dgvIncidencias.ReadOnly = true;
             this.dgvIncidencias.RowHeadersVisible = false;
-            this.dgvIncidencias.Size = new System.Drawing.Size(550, 246);
+            this.dgvIncidencias.Size = new System.Drawing.Size(579, 499);
             this.dgvIncidencias.TabIndex = 172;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel1.Location = new System.Drawing.Point(146, 175);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(75, 2);
+            this.panel1.TabIndex = 173;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel2.Location = new System.Drawing.Point(250, 175);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(75, 2);
+            this.panel2.TabIndex = 174;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel3.Location = new System.Drawing.Point(146, 314);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(75, 2);
+            this.panel3.TabIndex = 175;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel4.Location = new System.Drawing.Point(252, 314);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(75, 2);
+            this.panel4.TabIndex = 176;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel5.Location = new System.Drawing.Point(148, 258);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(240, 2);
+            this.panel5.TabIndex = 176;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel6.Location = new System.Drawing.Point(148, 513);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(75, 2);
+            this.panel6.TabIndex = 176;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel7.Location = new System.Drawing.Point(252, 514);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(75, 2);
+            this.panel7.TabIndex = 177;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel8.Location = new System.Drawing.Point(18, 258);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(75, 2);
+            this.panel8.TabIndex = 174;
             // 
             // ReasignaSupyDirectores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.JSierra;
+            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvIncidencias);
             this.Controls.Add(this.btnInsertar);
             this.Controls.Add(this.label9);
@@ -449,6 +548,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReasignaSupyDirectores";
             this.Text = "ReasignaSupyDirectores";
+            this.Load += new System.EventHandler(this.ReasignaSupyDirectores_Load);
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncidencias)).EndInit();
@@ -488,5 +588,13 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.DataGridView dgvIncidencias;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
     }
 }

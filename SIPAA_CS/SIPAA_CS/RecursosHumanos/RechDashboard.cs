@@ -7,11 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+
 using static SIPAA_CS.App_Code.Usuario;
-
-
-
-
 using System.Data;
 using SIPAA_CS.Properties;
 
@@ -42,7 +39,6 @@ namespace SIPAA_CS.RecursosHumanos
             Usuario objUsuario = new Usuario();
 
             cargaMenu(0, null, mstrechum);
-
         }
 
 
@@ -63,6 +59,8 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Dashboard dasb = new Dashboard();
+            dasb.Show();
             this.Close();
         }
 
@@ -140,7 +138,7 @@ namespace SIPAA_CS.RecursosHumanos
             {
                 formulario = (Form)Activator.CreateInstance(null, nombreformulario).Unwrap();
                 formulario.Show();
-                //this.Close();
+                this.Close();
             }
         }
 

@@ -214,6 +214,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Plantillas_Load(object sender, EventArgs e)
         {
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             ipact = 1;
             ipelim = 1;
             ipins = 1;
