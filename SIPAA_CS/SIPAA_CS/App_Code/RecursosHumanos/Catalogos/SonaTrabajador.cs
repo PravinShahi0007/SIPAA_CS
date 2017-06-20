@@ -211,7 +211,7 @@ namespace SIPAA_CS.App_Code
                                        ,int iTraspaso, string sUsumod,string sPrgmod)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechtregistro_suid";
+            cmd.CommandText = @"usp_rechregistro_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
 
