@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SIPAA_CS.App_Code;
+using static SIPAA_CS.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Utilerias;
+
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
 
@@ -238,17 +241,22 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //LLAMA TOOL TIP
             fTooltip();
 
-            //LLAMA METODO LLENAR GRID
-            //SLlenaGrid(1, "");
-
             pins = 1;
             pact = 1;
             pelim = 1;
 
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+
+            //Resize de Pantalla
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //HABILITA BOTON AGREGAR
-            if (pins == 1)
+            if (Permisos.dcPermisos["Crear"]==0) // (pins == 1)
             {
-                btnAgregar.Visible = true;
+                //btnAgregar.Visible = true;
+                btnAgregar.Visible = false;
             }
             //
             fgDiasFestivos(4, "0", "", "bhb", "DiasFestivos");
