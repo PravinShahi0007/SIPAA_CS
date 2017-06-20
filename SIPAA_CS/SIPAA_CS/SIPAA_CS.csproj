@@ -777,17 +777,29 @@
     <Compile Include="RecursosHumanos\Reportes\ViewerReporte.Designer.cs">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="RelojChecadorTrabajador\AdministracionUsuariosReloj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\AdministracionUsuariosReloj.Designer.cs">
+      <DependentUpon>AdministracionUsuariosReloj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\BarraProgreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\BarraProgreso.Designer.cs">
+      <DependentUpon>BarraProgreso.cs</DependentUpon>
+    </Compile>
     <Compile Include="RelojChecadorTrabajador\RegistrarHuella.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RelojChecadorTrabajador\RegistrarHuella.Designer.cs">
       <DependentUpon>RegistrarHuella.cs</DependentUpon>
     </Compile>
-    <Compile Include="RelojChecadorTrabajador\SplashHuella.cs">
+    <Compile Include="RelojChecadorTrabajador\AdministracionRelojChecador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RelojChecadorTrabajador\SplashHuella.Designer.cs">
-      <DependentUpon>SplashHuella.cs</DependentUpon>
+    <Compile Include="RelojChecadorTrabajador\AdministracionRelojChecador.Designer.cs">
+      <DependentUpon>AdministracionRelojChecador.cs</DependentUpon>
     </Compile>
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
@@ -1071,11 +1083,17 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RelojChecadorTrabajador\AdministracionUsuariosReloj.resx">
+      <DependentUpon>AdministracionUsuariosReloj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelojChecadorTrabajador\BarraProgreso.resx">
+      <DependentUpon>BarraProgreso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RelojChecadorTrabajador\RegistrarHuella.resx">
       <DependentUpon>RegistrarHuella.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RelojChecadorTrabajador\SplashHuella.resx">
-      <DependentUpon>SplashHuella.cs</DependentUpon>
+    <EmbeddedResource Include="RelojChecadorTrabajador\AdministracionRelojChecador.resx">
+      <DependentUpon>AdministracionRelojChecador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
@@ -1665,6 +1683,33 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Descargar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Descargar20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Descargar30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sync20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sync30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin30x30.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

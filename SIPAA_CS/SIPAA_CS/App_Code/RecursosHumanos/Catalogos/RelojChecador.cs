@@ -134,7 +134,7 @@ namespace SIPAA_CS.App_Code
         } // public int uditipohr(int p_opcion, int p_cvreloj, string p_descripcion, string p_usuumod, string p_prgumodr)
 
 
-        public List<string> RelojesxTrabajador(string sIdTrab, int iCVReloj, int iOpcion, string sUsuumod, string sPrgmod)
+        public DataTable RelojesxTrabajador(string sIdTrab, int iCVReloj, int iOpcion, string sUsuumod, string sPrgmod)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechtrabreloj_suid";
@@ -155,13 +155,13 @@ namespace SIPAA_CS.App_Code
 
             DataTable dtForReg = new DataTable();
             Adapter.Fill(dtForReg);
-            List<string> ltCVforma = new List<string>();
-            foreach (DataRow row in dtForReg.Rows)
-            {
-                ltCVforma.Add(row["cvreloj"].ToString());
-            }
+            //List<string> ltCVforma = new List<string>();
+            //foreach (DataRow row in dtForReg.Rows)
+            //{
+            //    ltCVforma.Add(row["cvreloj"].ToString());
+            //}
 
-            return ltCVforma;
+            return dtForReg;
 
         }
     } // class DiasFestivos
