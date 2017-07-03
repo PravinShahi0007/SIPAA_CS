@@ -21,7 +21,7 @@ using SIPAA_CS.RecursosHumanos.Asignaciones;
 
 namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
-    public partial class IncidenciasNomimas : Form
+    public partial class IncidenciasNominas : Form
     {
         #region
 
@@ -42,7 +42,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         IncNomina IncNom = new IncNomina();
         Utilerias Util = new Utilerias();
 
-        public IncidenciasNomimas()
+        public IncidenciasNominas()
         {
             InitializeComponent();
         }

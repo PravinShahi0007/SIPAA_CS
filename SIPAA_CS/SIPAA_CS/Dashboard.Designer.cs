@@ -45,6 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.btnPower = new System.Windows.Forms.Button();
             this.PanelMetro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +72,7 @@
             // 
             // btnCompras
             // 
-            this.btnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(47)))), ((int)(((byte)(66)))));
+            this.btnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCompras.ForeColor = System.Drawing.Color.White;
@@ -87,7 +88,7 @@
             // 
             // btnSistemas
             // 
-            this.btnSistemas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(0)))), ((int)(((byte)(62)))));
+            this.btnSistemas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnSistemas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSistemas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSistemas.ForeColor = System.Drawing.Color.White;
@@ -103,7 +104,7 @@
             // 
             // btnEscolar
             // 
-            this.btnEscolar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(104)))), ((int)(((byte)(174)))));
+            this.btnEscolar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
             this.btnEscolar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEscolar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEscolar.ForeColor = System.Drawing.Color.White;
@@ -119,7 +120,7 @@
             // 
             // btnDeportivo
             // 
-            this.btnDeportivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(89)))), ((int)(((byte)(173)))));
+            this.btnDeportivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(85)))), ((int)(((byte)(72)))));
             this.btnDeportivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeportivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeportivo.ForeColor = System.Drawing.Color.White;
@@ -135,7 +136,7 @@
             // 
             // btnContabilidad
             // 
-            this.btnContabilidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(62)))), ((int)(((byte)(8)))));
+            this.btnContabilidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(34)))));
             this.btnContabilidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContabilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContabilidad.ForeColor = System.Drawing.Color.White;
@@ -151,7 +152,7 @@
             // 
             // btnAccesos
             // 
-            this.btnAccesos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(139)))), ((int)(((byte)(32)))));
+            this.btnAccesos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.btnAccesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccesos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccesos.ForeColor = System.Drawing.Color.White;
@@ -168,7 +169,7 @@
             // 
             // btnIngresos
             // 
-            this.btnIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(75)))), ((int)(((byte)(43)))));
+            this.btnIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.btnIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresos.ForeColor = System.Drawing.Color.White;
@@ -184,7 +185,7 @@
             // 
             // btnAlmacen
             // 
-            this.btnAlmacen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(174)))), ((int)(((byte)(65)))));
+            this.btnAlmacen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.btnAlmacen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlmacen.ForeColor = System.Drawing.Color.White;
@@ -201,7 +202,7 @@
             // 
             // btnRecursosh
             // 
-            this.btnRecursosh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(95)))), ((int)(((byte)(143)))));
+            this.btnRecursosh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.btnRecursosh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRecursosh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRecursosh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -300,6 +301,21 @@
             this.ptbimgusuario.TabStop = false;
             this.ptbimgusuario.Visible = false;
             // 
+            // btnPower
+            // 
+            this.btnPower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnPower.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPower.BackgroundImage")));
+            this.btnPower.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnPower.Location = new System.Drawing.Point(916, 1);
+            this.btnPower.Name = "btnPower";
+            this.btnPower.Size = new System.Drawing.Size(30, 24);
+            this.btnPower.TabIndex = 151;
+            this.btnPower.TabStop = false;
+            this.btnPower.UseVisualStyleBackColor = false;
+            this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,6 +323,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.btnPower);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label3);
@@ -345,5 +362,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.Button btnPower;
     }
 }
