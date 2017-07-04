@@ -73,6 +73,7 @@ namespace SIPAA_CS.App_Code
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
+            iRespuesta = 0;
             //
             // Valida que no exista el registro (Valida Llave duplicada - Fecha)
             if (iOpcion == 1)

@@ -184,12 +184,34 @@ namespace SIPAA_CS.App_Code
             return (dtRegistroDetalle);
         }
 
+        public DataTable MasDe3Faltas(string sIdTrab, string sCompania, string sUbicacion, DateTime dtFechaBase)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechmasde3faltas_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+
+            cmd.Parameters.Add("@p_IdTrab", SqlDbType.VarChar).Value = sIdTrab;
+            cmd.Parameters.Add("@P_FechaBase", SqlDbType.DateTime).Value = dtFechaBase;
+            cmd.Parameters.Add("@P_Compania", SqlDbType.VarChar).Value = sCompania;
+            cmd.Parameters.Add("@P_Ubicacion", SqlDbType.VarChar).Value = sUbicacion;
+
+            objConexion.asignarConexion(cmd);
+
+
+            SqlDataAdapter daRegistroDetalle = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+            DataTable dtRegistroDetalle = new DataTable();
+            daRegistroDetalle.Fill(dtRegistroDetalle);
+            return (dtRegistroDetalle);
+        }
+
 
         public DataTable Relojchecador(string sidtrab,int iOpcion,DateTime dtFechaRegistro, TimeSpan tpHoraRegistro,int iCvReloj
                                        ,int iTraspaso, string sUsumod,string sPrgmod)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechtregistro_suid";
+            cmd.CommandText = @"usp_rechregistro_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
 

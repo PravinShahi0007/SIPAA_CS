@@ -94,19 +94,26 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void cbStatusPeriodo_SelectedValueChanged(object sender, EventArgs e)
         {
-            sCadenaStatusPeriodo = cbStatusPeriodo.Text;
-            switch (sCadenaStatusPeriodo)
+            sCadenaStatusPeriodo = cbStatusPeriodo.SelectedValue.ToString();
+
+            if (sCadenaStatusPeriodo != "System.Data.DataRowView")
             {
-                case "Procesar":
-                    iStPeriodoIncidencia = 2;
-                    break;
-                case "Abierto":
-                    iStPeriodoIncidencia = 1;
-                    break;
-                case "Cerrado":
-                    iStPeriodoIncidencia = 0;
-                    break;
-            } // switch (sCadenaStatusPeriodo)
+                iStPeriodoIncidencia = Convert.ToInt32(sCadenaStatusPeriodo);
+            }
+
+            /*            sCadenaStatusPeriodo = cbStatusPeriodo.Text;
+                        switch (sCadenaStatusPeriodo)
+                        {
+                            case "Procesar":
+                                iStPeriodoIncidencia = 2;
+                                break;
+                            case "Abierto":
+                                iStPeriodoIncidencia = 1;
+                                break;
+                            case "Cerrado":
+                                iStPeriodoIncidencia = 0;
+                                break;
+                        } // switch (sCadenaStatusPeriodo)*/
         } // private void cbStatusPeriodo_SelectedIndexChanged(object sender EventArgs e)
 
         //-----------------------------------------------------------------------------------------------
@@ -312,6 +319,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //-----------------------------------------------------------------------------------------------
         private void PeriodosProcesoIncidencia_Load(object sender, EventArgs e)
         {
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //LLAMA TOOL TIP
             fTooltip();
 
@@ -661,6 +671,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 cbStatusPeriodo.Text = sStPeriodoIncidencia;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------

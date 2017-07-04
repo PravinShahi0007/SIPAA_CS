@@ -136,7 +136,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void CompaniasTiposNominas_Load(object sender, EventArgs e)
         {
-            
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             // Entorno de permisos
             iIns = 0;
             iAct = 0;
@@ -196,7 +198,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvTiposNomina.Columns[3].Width = 380;
             dgvTiposNomina.ClearSelection();
         } // private void fgTiposNominas()
-
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S

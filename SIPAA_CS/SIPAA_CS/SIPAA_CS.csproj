@@ -100,7 +100,7 @@
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Neurotec.Biometrics.Nffv">
-      <HintPath>..\..\..\..\..\..\Desktop\ProyectoHuellaDigital_ - copia - copia\ProyectoHuellaDigital_\bin\Debug\Neurotec.Biometrics.Nffv.dll</HintPath>
+      <HintPath>\\192.168.30.238\Sistemasjs\Desarrollo\SDK FreeFingerPrint (RelojChecador)\FreeFingerprintVerificationSDK\bin\Win32_x86\Neurotec.Biometrics.Nffv.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -335,6 +335,7 @@
     <Compile Include="RecursosHumanos\Procesos\AutorizarIncidencias.designer.cs">
       <DependentUpon>AutorizarIncidencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\SonaConcAfec.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\DiasEspeciales.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCalificacion.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\RelojChecador.cs" />
@@ -568,6 +569,11 @@
     <Compile Include="RecursosHumanos\Catalogos\IncidenciasNominas.Designer.cs">
       <DependentUpon>IncidenciasNominas.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\ConceptosNomina.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConceptosNomina.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\DetalleHorario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -699,11 +705,29 @@
     <Compile Include="RecursosHumanos\Catalogos\Ubicaciones.Designer.cs">
       <DependentUpon>Ubicaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\ConceptosNomina.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConceptosNomina.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\DetalleHr.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DetalleHr.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroConceptosNomina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroConceptosNomina.Designer.cs">
+      <DependentUpon>FiltroConceptosNomina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroMasDe3Faltas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltroMasDe3Faltas.Designer.cs">
+      <DependentUpon>FiltroMasDe3Faltas.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\FiltroObservaciones.cs">
       <SubType>Form</SubType>
@@ -777,17 +801,35 @@
     <Compile Include="RecursosHumanos\Reportes\ViewerReporte.Designer.cs">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="RelojChecadorTrabajador\AdministracionUsuariosReloj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\AdministracionUsuariosReloj.Designer.cs">
+      <DependentUpon>AdministracionUsuariosReloj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\BarraProgreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\BarraProgreso.Designer.cs">
+      <DependentUpon>BarraProgreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\Captura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\Captura.Designer.cs">
+      <DependentUpon>Captura.cs</DependentUpon>
+    </Compile>
     <Compile Include="RelojChecadorTrabajador\RegistrarHuella.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RelojChecadorTrabajador\RegistrarHuella.Designer.cs">
       <DependentUpon>RegistrarHuella.cs</DependentUpon>
     </Compile>
-    <Compile Include="RelojChecadorTrabajador\SplashHuella.cs">
+    <Compile Include="RelojChecadorTrabajador\AdministracionRelojChecador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RelojChecadorTrabajador\SplashHuella.Designer.cs">
-      <DependentUpon>SplashHuella.cs</DependentUpon>
+    <Compile Include="RelojChecadorTrabajador\AdministracionRelojChecador.Designer.cs">
+      <DependentUpon>AdministracionRelojChecador.cs</DependentUpon>
     </Compile>
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
@@ -1025,9 +1067,19 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\TiposHorarios.resx">
       <DependentUpon>TiposHorarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\ConceptosNomina.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ConceptosNomina.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\DetalleHr.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DetalleHr.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroConceptosNomina.resx">
+      <DependentUpon>FiltroConceptosNomina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroMasDe3Faltas.resx">
+      <DependentUpon>FiltroMasDe3Faltas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroObservaciones.resx">
       <DependentUpon>FiltroObservaciones.cs</DependentUpon>
@@ -1071,11 +1123,20 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RelojChecadorTrabajador\AdministracionUsuariosReloj.resx">
+      <DependentUpon>AdministracionUsuariosReloj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelojChecadorTrabajador\BarraProgreso.resx">
+      <DependentUpon>BarraProgreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelojChecadorTrabajador\Captura.resx">
+      <DependentUpon>Captura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RelojChecadorTrabajador\RegistrarHuella.resx">
       <DependentUpon>RegistrarHuella.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RelojChecadorTrabajador\SplashHuella.resx">
-      <DependentUpon>SplashHuella.cs</DependentUpon>
+    <EmbeddedResource Include="RelojChecadorTrabajador\AdministracionRelojChecador.resx">
+      <DependentUpon>AdministracionRelojChecador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
@@ -1238,6 +1299,17 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_search_white_18dp.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RecursosHumanos\DataSets\ConceptosNomina.xsc">
+      <DependentUpon>ConceptosNomina.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\ConceptosNomina.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ConceptosNomina.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\ConceptosNomina.xss">
+      <DependentUpon>ConceptosNomina.xsd</DependentUpon>
+    </None>
     <None Include="RecursosHumanos\DataSets\DetalleHorario.xsc">
       <DependentUpon>DetalleHorario.xsd</DependentUpon>
     </None>
@@ -1665,6 +1737,78 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Descargar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Descargar20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Descargar30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sync20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sync30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_folder_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_folder_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Huella.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Huella30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Huellalock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Huellalock20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Huellalock30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pass20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pass30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Passlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Passlock20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Passlock30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Huella20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_power_settings_new_white_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -34,10 +34,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbCarga = new System.Windows.Forms.Label();
             this.PanelCarga = new System.Windows.Forms.Panel();
             this.PanelBarra = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lbCarga = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -93,18 +93,6 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Cargando...";
             // 
-            // lbCarga
-            // 
-            this.lbCarga.AutoSize = true;
-            this.lbCarga.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lbCarga.Location = new System.Drawing.Point(415, 168);
-            this.lbCarga.Name = "lbCarga";
-            this.lbCarga.Size = new System.Drawing.Size(49, 16);
-            this.lbCarga.TabIndex = 17;
-            this.lbCarga.Text = "lbCarga";
-            this.lbCarga.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // PanelCarga
             // 
             this.PanelCarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
@@ -125,6 +113,18 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lbCarga
+            // 
+            this.lbCarga.AutoSize = true;
+            this.lbCarga.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.lbCarga.Location = new System.Drawing.Point(409, 166);
+            this.lbCarga.Name = "lbCarga";
+            this.lbCarga.Size = new System.Drawing.Size(49, 16);
+            this.lbCarga.TabIndex = 17;
+            this.lbCarga.Text = "lbCarga";
+            this.lbCarga.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Splash
             // 
@@ -158,9 +158,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbCarga;
         private System.Windows.Forms.Panel PanelCarga;
         private System.Windows.Forms.Panel PanelBarra;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lbCarga;
     }
 }

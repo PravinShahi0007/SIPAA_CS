@@ -20,8 +20,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         public string sUbicacion;
         public DateTime dtFechaInicio = DateTime.Today;
         public DateTime dtFechaFin = DateTime.Today;
-        public int sysH = SystemInformation.PrimaryMonitorSize.Height;
-        public int sysW = SystemInformation.PrimaryMonitorSize.Width;
+        //public int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        //public int sysW = SystemInformation.PrimaryMonitorSize.Width;
 
         //////instanciamos los objetos (segun san lucas)
         SonaTrabajador oTrabajador = new SonaTrabajador();
@@ -137,7 +137,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void FiltrosRegistroDetalle_Load(object sender, EventArgs e)
         {
-            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            //Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             if (bprimeravez == true)
             {

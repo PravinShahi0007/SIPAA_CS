@@ -21,7 +21,7 @@ using SIPAA_CS.App_Code;
 namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
 
-    public partial class TiposHorario : Form
+    public partial class TiposHorarios : Form
     {
         #region
         //variables utilizadas
@@ -34,7 +34,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         TipoHr TipHr = new TipoHr();
         Utilerias Util = new Utilerias();
 
-        public TiposHorario()
+        public TiposHorarios()
         {
             InitializeComponent();
         }

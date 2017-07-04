@@ -188,7 +188,32 @@ namespace SIPAA_CS.App_Code
 
         }
 
+        public static Bitmap IconosMenu(string Tipo) {
 
+            Bitmap btImage;
+
+            switch (Tipo) {
+
+                case "Catalogos":
+                    btImage = Resources.ic_view_carousel_white_24dp;
+                    break;
+
+                case "Procesos": btImage = Resources.ic_settings_white_24dp;
+                    break;
+
+                case "Reportes": btImage = Resources.ic_assignment_white_24dp;
+                    break;
+
+                case "Asignaciones": btImage = Resources.ic_compare_arrows_white_24dp;
+                    break;
+
+                default: btImage = Resources.ic_folder_white_24dp;
+                    break;
+            }
+
+            return btImage;
+
+        }
         public static void MenuDinamico(MenuStrip MenuAccesos, List<string> ltPermisos)
         {
 
@@ -601,9 +626,9 @@ namespace SIPAA_CS.App_Code
             }
             catch (Exception)
             {
-                
+
             }
-            
+
         }
 
 
@@ -844,11 +869,11 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public static string  ObtenerNombreDiaSemana(string sDia) {
-            
+        public static string ObtenerNombreDiaSemana(string sDia) {
+
             switch (sDia) {
 
-                case "Monday": sDia =  "Lunes"; break;
+                case "Monday": sDia = "Lunes"; break;
                 case "Thursday": sDia = "Martes"; break;
                 case "Wednesday": sDia = "Miércoles"; break;
                 case "Tuesday": sDia = "Jueves"; break;
@@ -856,7 +881,7 @@ namespace SIPAA_CS.App_Code
                 case "Saturday": sDia = "Sábado"; break;
                 case "Sunday": sDia = "Domingo"; break;
 
-           }
+            }
 
             return sDia;
         }
@@ -875,7 +900,7 @@ namespace SIPAA_CS.App_Code
         public static bool CompararMapaBits(Bitmap bmp1, Bitmap bmp2)
         {
             bool equals = true;
-            bool flag = true; 
+            bool flag = true;
 
             if (bmp1.Size == bmp2.Size)
             {
@@ -903,9 +928,159 @@ namespace SIPAA_CS.App_Code
             return equals;
         }
 
+        
+
+    //MENU DINÁMICO
+
+    public static DataTable CrearEncabezados(DataTable dt)
+    {
+
+        DataTable dtEncabezados = new DataTable();
+        dtEncabezados.Clear();
+        dtEncabezados.Columns.Add("Titulo");
+        dtEncabezados.PrimaryKey = new DataColumn[] { dtEncabezados.Columns["Titulo"] };
+
+
+        foreach (DataRow row in dt.Rows)
+        {
+
+            if (Convert.ToInt32(row["Hijos"].ToString()) > 0)
+            {
+                if (!dtEncabezados.Rows.Contains(row["descripcion"].ToString()))
+                {
+                    DataRow nwrow = dtEncabezados.NewRow();
+                    nwrow["Titulo"] = row["cvmodulo"].ToString();
+                    dtEncabezados.Rows.Add(nwrow);
+                }
+            }
+            else
+            {
+                if (!dtEncabezados.Rows.Contains(row["Tipo"].ToString()))
+                {
+                    DataRow nwrow = dtEncabezados.NewRow();
+                    nwrow["Titulo"] = row["Tipo"].ToString();
+                    dtEncabezados.Rows.Add(nwrow);
+                }
+
+            }
+
+        }
+
+        return dtEncabezados;
+    }
+
+    public static void ProcesoMenu(DataTable dt, string sCvUsuario, string cvModPadre, ToolStripMenuItem MenuHijo, MenuStrip Menu,Color colorMenu)
+    {
+
+        foreach (DataRow row in dt.Rows)
+        {
+
+            Modulo objModulo = new Modulo();
+            DataTable dtTipo = objModulo.ObtenerTipoModulo(5, 0, "", "", "", "", "");
+            dtTipo.PrimaryKey = new DataColumn[] { dtTipo.Columns["descripcion"] };
+            ToolStripMenuItem Menuitem = new ToolStripMenuItem();
+            Menuitem.TextAlign = ContentAlignment.MiddleLeft;
+            Menuitem.Text = row["Titulo"].ToString();
+                Menuitem.BackColor = colorMenu;
+            Menuitem.ForeColor = Color.White;
+            Menuitem.Font = new Font("Arial", 12);
+            Perfil objPer = new Perfil();
+
+            if (!dtTipo.Rows.Contains(row["Titulo"].ToString()))
+            {
+                DataTable dtnew = objPer.ReportePerfilesModulos(row["Titulo"].ToString(), "%", sCvUsuario, "CS", 0, 0, 0, 0, 0, 13);
+                DataTable dtnewEncabezado = CrearEncabezados(dtnew);
+
+                DataTable dtmodulo = objModulo.ReporteModulos("%", "%", row["Titulo"].ToString(), "%", "", "%", "%", "", "", "", "", 9);
+
+                Menuitem.Text = dtmodulo.Rows[0]["descripcion"].ToString();
+                Menuitem.Image = Utilerias.IconosMenu(row["Titulo"].ToString());
+                    Menuitem.ImageAlign = ContentAlignment.MiddleLeft;
+
+                if (MenuHijo == null)
+                {
+                    Menu.Items.Add(Menuitem);
+                }
+                else
+                {
+                    MenuHijo.DropDownItems.Add(Menuitem);
+                }
+                ProcesoMenu(dtnewEncabezado, sCvUsuario, row["Titulo"].ToString(), Menuitem, Menu, colorMenu);
+            }
+            else
+            {
+
+                Menuitem.Image = Utilerias.IconosMenu(row["Titulo"].ToString());
+                    Menuitem.ImageAlign = ContentAlignment.MiddleLeft;
+
+                    if (MenuHijo == null)
+                {
+                    Menu.Items.Add(Menuitem);
+                }
+                else
+                {
+                    MenuHijo.DropDownItems.Add(Menuitem);
+                }
+                DataTable dtnew = objPer.ReportePerfilesModulos(cvModPadre, row["Titulo"].ToString(), sCvUsuario, "CS", 0, 0, 0, 0, 0, 13);
+                ValidarHijos(dtnew, Menuitem, colorMenu);
+
+            }
+        }
 
     }
 
+        private static void Menuitem_MouseHover(object sender, EventArgs e)
+        {
+            ToolStripMenuItem mt = (ToolStripMenuItem)sender;
+
+            //mt.BackColor = Color.Blue;
+        }
+
+        public static void ValidarHijos(DataTable dt, ToolStripMenuItem MenuHijo,Color colorMenu)
+    {
+
+        foreach (DataRow row in dt.Rows)
+        {
+
+            if (Convert.ToInt32(row["Hijos"].ToString()) == 0)
+            {
+
+                ToolStripMenuItem Menuitem = new ToolStripMenuItem();
+                Menuitem.Text = row["descripcion"].ToString();
+                    Menuitem.BackColor = colorMenu;
+                Menuitem.ForeColor = Color.White;
+                Menuitem.TextAlign = ContentAlignment.MiddleLeft;
+                Menuitem.Font = new Font("Arial", 12); Menuitem.ImageTransparentColor = Color.Blue;
+                Menuitem.Image = Utilerias.IconosMenu(row["Tipo"].ToString());
+                    Menuitem.ImageAlign = ContentAlignment.MiddleLeft;
+                    Menuitem.Name = row["Ruta"].ToString();
+                Menuitem.Click += new EventHandler(Event);
+                MenuHijo.DropDownItems.Add(Menuitem);
+
+            }
+        }
+
+    }
+
+    private static void Event(object sender, EventArgs e)
+    {
+
+        ToolStripMenuItem ItemClick = (ToolStripMenuItem)sender;
+        eclicck(ItemClick.Name);
+    }
+
+    private static void eclicck(string nombreformulario)
+    {
+        Form formulario;
+        if (nombreformulario != "")
+        {
+            formulario = (Form)Activator.CreateInstance(null, nombreformulario).Unwrap();
+            formulario.Show();
+
+        }
+    }
+
+}
     //public class ResultadoHuella
     //{
     //    public NffvStatus engineStatus;

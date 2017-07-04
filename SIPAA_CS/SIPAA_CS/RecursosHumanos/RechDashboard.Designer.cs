@@ -35,9 +35,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.MsMenu = new System.Windows.Forms.MenuStrip();
+            this.paneltitulo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.mstrechum = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.paneltitulo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,11 +96,11 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_group_white_24dp;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(413, 2);
+            this.label3.Location = new System.Drawing.Point(60, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(249, 23);
+            this.label3.Size = new System.Drawing.Size(177, 23);
             this.label3.TabIndex = 145;
-            this.label3.Text = "       Recursos Humanos                  ";
+            this.label3.Text = "       Recursos Humanos";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblusuario
@@ -127,45 +129,61 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
+            // MsMenu
+            // 
+            this.MsMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.MsMenu.Dock = System.Windows.Forms.DockStyle.None;
+            this.MsMenu.Font = new System.Drawing.Font("Arial Narrow", 14.25F);
+            this.MsMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
+            this.MsMenu.Location = new System.Drawing.Point(0, 0);
+            this.MsMenu.Name = "MsMenu";
+            this.MsMenu.Size = new System.Drawing.Size(30, 206);
+            this.MsMenu.Stretch = false;
+            this.MsMenu.TabIndex = 150;
+            this.MsMenu.Text = "menuStrip1";
+            // 
+            // paneltitulo
+            // 
+            this.paneltitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.paneltitulo.Controls.Add(this.label3);
+            this.paneltitulo.Location = new System.Drawing.Point(0, 97);
+            this.paneltitulo.Name = "paneltitulo";
+            this.paneltitulo.Size = new System.Drawing.Size(301, 60);
+            this.paneltitulo.TabIndex = 152;
+            // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.mstrechum);
-            this.panel1.Location = new System.Drawing.Point(0, 97);
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.MsMenu);
+            this.panel1.Location = new System.Drawing.Point(0, 157);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1024, 26);
-            this.panel1.TabIndex = 149;
-            // 
-            // mstrechum
-            // 
-            this.mstrechum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.mstrechum.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mstrechum.Location = new System.Drawing.Point(0, 0);
-            this.mstrechum.Name = "mstrechum";
-            this.mstrechum.Size = new System.Drawing.Size(1024, 24);
-            this.mstrechum.TabIndex = 2;
-            this.mstrechum.Text = "menuStrip1";
+            this.panel1.Size = new System.Drawing.Size(301, 614);
+            this.panel1.TabIndex = 153;
             // 
             // RechDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.paneltitulo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.ForeColor = System.Drawing.Color.Red;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MainMenuStrip = this.MsMenu;
             this.Name = "RechDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RechDashboard";
             this.Load += new System.EventHandler(this.RechDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.paneltitulo.ResumeLayout(false);
+            this.paneltitulo.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -180,7 +198,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.MenuStrip MsMenu;
+        private System.Windows.Forms.Panel paneltitulo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MenuStrip mstrechum;
     }
 }

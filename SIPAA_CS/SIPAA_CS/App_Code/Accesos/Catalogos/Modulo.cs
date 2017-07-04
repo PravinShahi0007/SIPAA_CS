@@ -356,5 +356,35 @@ namespace SIPAA_CS.App_Code
             Adapter.Fill(dtModulo);
             return dtModulo;
         }
+
+
+        public DataTable ObtenerTipoModulo(int iOpcion,int cvTipo,string sDescripcion,string sEstatus
+                                            ,string usuumod,string fhumod,string prgumod)
+        {
+
+           
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_accetipomodulo_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.VarChar).Value = iOpcion;
+            cmd.Parameters.Add("@P_cvtipomodulo", SqlDbType.VarChar).Value = cvTipo;
+            cmd.Parameters.Add("@P_descripcion", SqlDbType.VarChar).Value = sDescripcion;
+            cmd.Parameters.Add("@P_stmodulo", SqlDbType.VarChar).Value = sEstatus;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = usuumod;
+            cmd.Parameters.Add("@P_fhumod", SqlDbType.VarChar).Value = fhumod;
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = prgumod;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dt = new DataTable();
+            Adapter.Fill(dt);
+
+            return dt;
+
+        }
+
     }
 }

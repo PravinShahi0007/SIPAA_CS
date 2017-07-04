@@ -1157,7 +1157,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void AsignarReloj(string sIdtrab)
         {
             RelojChecador objReloj = new RelojChecador();
-            ltRelojxUsuario = objReloj.RelojesxTrabajador(sIdtrab, 0, 4, "", "");
+             objReloj.RelojesxTrabajador(sIdtrab, 0, 4, "", "");
             Utilerias.ImprimirAsignacionesGrid(dgvReloj, 0, 1, ltRelojxUsuario);
         }
 

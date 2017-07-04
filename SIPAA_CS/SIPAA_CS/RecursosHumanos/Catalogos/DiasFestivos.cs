@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SIPAA_CS.App_Code;
+using static SIPAA_CS.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Utilerias;
+
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
 
@@ -111,20 +114,24 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             dgvDiasFestivos.DataSource = null;
             //llena grid con datos existente
+//            if (dgvDiasFestivos.Columns.Count > 3)
+//            {
+                dgvDiasFestivos.Columns.RemoveAt(0);
+//            }
             fgDiasFestivos(4, "0", txtBuscarDF.Text.Trim(), "bhb", "DiasFestivos");
             txtDescripcionDF.Text = "";
             txtDescripcionDF.Focus();
-            if(dgvDiasFestivos.Columns.Count>3)
+/*            if(dgvDiasFestivos.Columns.Count>3)
             {
                 dgvDiasFestivos.Columns.RemoveAt(0);
-            }
+            }*/
         }
         //boton agregar
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             ckbEliminar.Visible = false;
             pnlActDiasFestivos.Visible = true;
-            lblActDiasFestivos.Text = "     Agregar Tipo de Horario";
+            lblActDiasFestivos.Text = "     Agregar Día Festivo";
             Util.ChangeButton(btnAgregar, 1, false);
             pactbtn = 1;
             dtpFechaDiaFestivo.Text = "";
@@ -226,23 +233,30 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void frmDiasFestivos_Load(object sender, EventArgs e)
+        private void DiasFestivos_Load(object sender, EventArgs e)
         {
-            
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //LLAMA TOOL TIP
             fTooltip();
-
-            //LLAMA METODO LLENAR GRID
-            //SLlenaGrid(1, "");
 
             pins = 1;
             pact = 1;
             pelim = 1;
 
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+
+            //Resize de Pantalla
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //HABILITA BOTON AGREGAR
-            if (pins == 1)
+            if (Permisos.dcPermisos["Crear"]==0) // (pins == 1)
             {
-                btnAgregar.Visible = true;
+                //btnAgregar.Visible = true;
+                btnAgregar.Visible = false;
             }
             //
             fgDiasFestivos(4, "0", "", "bhb", "DiasFestivos");
@@ -376,7 +390,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvDiasFestivos.Columns[0].Visible = false;
                 dgvDiasFestivos.Columns[1].Width = 90;
                 dgvDiasFestivos.Columns[2].Width = 300;
-
                 dgvDiasFestivos.ClearSelection();
             }
             else if (pact == 1)
@@ -491,11 +504,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 txtDescripcionDF.Text = ValorRow;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
-        }
-
-        private void pnlBusqueda_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         //-----------------------------------------------------------------------------------------------
