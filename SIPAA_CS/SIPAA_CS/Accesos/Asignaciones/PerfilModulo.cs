@@ -660,7 +660,7 @@ namespace SIPAA_CS.Accesos.Asignaciones
             ckbImprimir.Checked = false;
             ckbLectura.Checked = false;
 
-            DataTable dtModulo1 = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 7);
+            DataTable dtModulo1 = objModulo.ObtenerModulo("", "", "", "", "", "", "", "", "", "", "", 7);
             Utilerias.llenarComboxDataTable(cbTipoModulo,dtModulo1, "cvtipomodulo", "descripcion");
 
             if (Permisos.dcPermisos["Crear"] != 1 && Permisos.dcPermisos["Eliminar"] != 1 && Permisos.dcPermisos["Actualizar"] != 1)
