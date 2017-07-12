@@ -618,6 +618,7 @@
             this.Controls.Add(this.btnminimizar);
             this.Controls.Add(this.btncerrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PlantillasDetalles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlantillasDetalles";

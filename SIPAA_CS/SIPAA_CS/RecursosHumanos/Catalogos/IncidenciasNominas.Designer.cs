@@ -615,6 +615,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.lbltitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "IncidenciasNominas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IncidenciasNom";

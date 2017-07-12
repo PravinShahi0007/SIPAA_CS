@@ -41,14 +41,15 @@
             System.Windows.Forms.Label label13;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label4;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label14;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.PanelEditar = new System.Windows.Forms.Panel();
-            this.pnlModulo = new System.Windows.Forms.Panel();
             this.cbModuloTipo = new System.Windows.Forms.ComboBox();
+            this.pnlModulo = new System.Windows.Forms.Panel();
+            this.cbModulos = new System.Windows.Forms.ComboBox();
             this.cbTipoMod = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtRuta = new System.Windows.Forms.TextBox();
@@ -78,7 +79,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.observaciones1 = new SIPAA_CS.RecursosHumanos.DataSets.Observaciones();
-            this.cbModulos = new System.Windows.Forms.ComboBox();
             label5 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -235,6 +235,18 @@
             label4.TabIndex = 59;
             label4.Text = "Categorias de Módulo";
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label14.Location = new System.Drawing.Point(22, 9);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(50, 16);
+            label14.TabIndex = 154;
+            label14.Text = "Módulo";
+            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -281,15 +293,6 @@
             this.PanelEditar.TabStop = true;
             this.PanelEditar.Visible = false;
             // 
-            // pnlModulo
-            // 
-            this.pnlModulo.Controls.Add(label14);
-            this.pnlModulo.Controls.Add(this.cbModulos);
-            this.pnlModulo.Location = new System.Drawing.Point(8, 206);
-            this.pnlModulo.Name = "pnlModulo";
-            this.pnlModulo.Size = new System.Drawing.Size(297, 76);
-            this.pnlModulo.TabIndex = 152;
-            // 
             // cbModuloTipo
             // 
             this.cbModuloTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -305,6 +308,31 @@
             this.cbModuloTipo.Size = new System.Drawing.Size(250, 25);
             this.cbModuloTipo.TabIndex = 60;
             this.cbModuloTipo.Text = "Selecciona una Categoria";
+            // 
+            // pnlModulo
+            // 
+            this.pnlModulo.Controls.Add(label14);
+            this.pnlModulo.Controls.Add(this.cbModulos);
+            this.pnlModulo.Location = new System.Drawing.Point(8, 206);
+            this.pnlModulo.Name = "pnlModulo";
+            this.pnlModulo.Size = new System.Drawing.Size(297, 76);
+            this.pnlModulo.TabIndex = 152;
+            // 
+            // cbModulos
+            // 
+            this.cbModulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbModulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbModulos.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbModulos.FormattingEnabled = true;
+            this.cbModulos.Items.AddRange(new object[] {
+            "WEB",
+            "CS",
+            "GLOBAL"});
+            this.cbModulos.Location = new System.Drawing.Point(22, 34);
+            this.cbModulos.Name = "cbModulos";
+            this.cbModulos.Size = new System.Drawing.Size(250, 25);
+            this.cbModulos.TabIndex = 153;
+            this.cbModulos.Text = "Selecciona un Módulo";
             // 
             // cbTipoMod
             // 
@@ -456,30 +484,30 @@
             this.dgvModulos.AllowUserToAddRows = false;
             this.dgvModulos.AllowUserToDeleteRows = false;
             this.dgvModulos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvModulos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvModulos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvModulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvModulos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvModulos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvModulos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvModulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvModulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvModulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvModulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvModulos.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvModulos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvModulos.Location = new System.Drawing.Point(505, 247);
             this.dgvModulos.Name = "dgvModulos";
             this.dgvModulos.ReadOnly = true;
@@ -667,34 +695,6 @@
             this.observaciones1.DataSetName = "Observaciones";
             this.observaciones1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // cbModulos
-            // 
-            this.cbModulos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbModulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbModulos.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbModulos.FormattingEnabled = true;
-            this.cbModulos.Items.AddRange(new object[] {
-            "WEB",
-            "CS",
-            "GLOBAL"});
-            this.cbModulos.Location = new System.Drawing.Point(22, 34);
-            this.cbModulos.Name = "cbModulos";
-            this.cbModulos.Size = new System.Drawing.Size(250, 25);
-            this.cbModulos.TabIndex = 153;
-            this.cbModulos.Text = "Selecciona un Módulo";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label14.Location = new System.Drawing.Point(22, 9);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(50, 16);
-            label14.TabIndex = 154;
-            label14.Text = "Módulo";
-            // 
             // Modulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -717,6 +717,7 @@
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Modulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear_Modulo";

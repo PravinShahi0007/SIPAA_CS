@@ -504,6 +504,7 @@
             this.Controls.Add(this.dgvIncidencia);
             this.Controls.Add(this.pnlBusqueda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "IncidenciasRepresentan";
             this.Text = "Incapacidad_Representa";
             this.Load += new System.EventHandler(this.Incapacidad_Representa_Load);

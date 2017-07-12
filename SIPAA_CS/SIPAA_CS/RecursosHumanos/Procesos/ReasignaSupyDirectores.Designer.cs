@@ -546,6 +546,7 @@
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.pnlimgusuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReasignaSupyDirectores";
             this.Text = "ReasignaSupyDirectores";
             this.Load += new System.EventHandler(this.ReasignaSupyDirectores_Load);
