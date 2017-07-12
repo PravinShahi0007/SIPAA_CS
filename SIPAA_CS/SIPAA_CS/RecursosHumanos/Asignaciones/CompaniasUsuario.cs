@@ -71,22 +71,24 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         }
         private void dgvCompanias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (cvusuario != null)
+            if (Permisos.dcPermisos["Actualizar"] == 1)
             {
-
-                if (dgvCompanias.SelectedRows.Count != 0)
+                if (cvusuario != null)
                 {
-                    Utilerias.MultiSeleccionGridViewString(dgvCompanias, 1, ltCompanias, panelPermisos);
+
+                    if (dgvCompanias.SelectedRows.Count != 0)
+                    {
+                        Utilerias.MultiSeleccionGridViewString(dgvCompanias, 1, ltCompanias, panelPermisos);
                     
+                    }
+
                 }
+                else
+                {
 
-            }
-            else
-            {
-
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a un Usuario");
-                timer1.Start();
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a un Usuario");
+                    timer1.Start();
+                }
             }
 
         }
