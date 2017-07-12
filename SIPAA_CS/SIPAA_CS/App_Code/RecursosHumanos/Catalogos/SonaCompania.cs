@@ -19,6 +19,7 @@ namespace SIPAA_CS.App_Code
             public static string Nombre;
             public static string IdTrabSupervisor;
             public static string NombreSupervisor;
+            public static int cvReloj;
         }
 
 

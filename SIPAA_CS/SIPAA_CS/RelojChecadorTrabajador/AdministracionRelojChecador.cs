@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using zkemkeeper;
+using static SIPAA_CS.App_Code.SonaCompania;
 using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RelojChecadorTrabajador
@@ -191,12 +192,25 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 objR.cvReloj = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
                 objR.IpReloj = row.Cells["IP"].Value.ToString();
 
+               
                 ValidarExistencia(ltReloj, objR);
 
                 if (ltReloj.Count > 0)
                 {
                     panelAccion.Enabled = true;
+                    Reloj obj1 = ltReloj.ElementAt(0);
+                    TrabajadorInfo.cvReloj = obj1.cvReloj;
+                    if (ltReloj.Count > 1)
+                    {
+                        btnAdmin.Enabled = false;
+                    }
+                    else {
+                        btnAdmin.Enabled = true;
+                    }
                 }
+                
+              
+
 
                 if (row.Cells[0].Tag.ToString() == "check")
                 {
@@ -236,6 +250,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 int iSegundo = 0;
                 int iWorkCode = 0;
                 string sIP = String.Empty;
+                bool bBandera = false;
 
                 foreach (Reloj obj in ltReloj)
                 {
@@ -253,22 +268,34 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                             if (objCZKEM.ReadAllGLogData(1))
                             {
-
                                 while (objCZKEM.SSR_GetGeneralLogData(1, out sIdTrab, out sVerify, out iModoCheck, out iAnho
-                                                                      , out iMes, out iDia, out iHora, out iMinuto, out iSegundo
-                                                                      , ref iWorkCode))
+                                                                                                     , out iMes, out iDia, out iHora, out iMinuto, out iSegundo
+                                                                                                     , ref iWorkCode))
                                 {
-                                    int cvReloj = obj.cvReloj;
-                                    // Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Guardando Registros");
-                                    bool bIngreso = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, cvReloj);
-                                   
-                                    RelojChecador objReloj = new RelojChecador();
-                                    objReloj.obtrelojeschecadores(7, obj.cvReloj, "", "", "", 0, "", "");
+                                        bool bIngreso = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, obj.cvReloj);
+                                        if (!bIngreso) { bBandera = true; }                                    
                                 }
-                               
+
                             }
 
                             objCZKEM.Disconnect();
+
+                            if (bBandera != true)
+                            {
+
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Registros Guardados correctamente");
+                                timer1.Start();
+                                objCZKEM.Disconnect();
+                            }
+                            else
+                            {
+
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Uno o más registros no se guardaron correctamente. Por Favor Repite el Proceso");
+                                timer1.Start();
+                                objCZKEM.Disconnect();
+                            }
+
+                            
                         }
                         else
                         {
@@ -366,7 +393,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             string cvreloj = row[1].ToString();
                             string Nombre = row[2].ToString();
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Cargando Datos de Trabajador a Dispositivo");
-                            if (!objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, idtrab, 0, true))
+                            if (!objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre,"", 0, true))
                             {
                                 bBandera = true;
                             }
@@ -745,6 +772,11 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             BarraProgreso.Dialog();
         }
 
+        private void btnAdmin_Click_1(object sender, EventArgs e)
+        {
+            AdministracionUsuariosReloj FORM = new AdministracionUsuariosReloj();
+            FORM.Show();
+        }
     }
 
 

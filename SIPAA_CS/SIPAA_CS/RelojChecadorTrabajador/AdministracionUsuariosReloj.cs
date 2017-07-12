@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using zkemkeeper;
+using static SIPAA_CS.App_Code.SonaCompania;
 using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RelojChecadorTrabajador
@@ -42,6 +43,16 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
             bd.DoWork += Bd_DoWork;
             bd.RunWorkerCompleted += Bd_RunWorkerCompleted;
+
+            RelojChecador obj = new RelojChecador();
+
+            obj.p_cvreloj = TrabajadorInfo.cvReloj;
+            obj.p_ip = "%";
+            obj.p_usuumod = "%";
+            obj.p_prgumodr = "%";
+            obj.p_cvvnc = "%";
+
+            llenarGrid(obj);
 
 
         }
@@ -99,13 +110,25 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 objR.cvreloj = Convert.ToInt32(row.Cells["cvreloj"].Value.ToString());
                 objR.ipReloj = row.Cells["IP"].Value.ToString();
                 objR.idtrab = row.Cells["idtrab"].Value.ToString();
-               
+                objR.Nombre = row.Cells["Nombre"].Value.ToString(); 
+              
 
                 ValidarExistencia(ltUsuario, objR);
 
                 if (ltUsuario.Count > 0)
                 {
                     panelAccion.Enabled = true;
+
+                    UsuarioReloj obj1 = new UsuarioReloj();
+                    obj1 = ltUsuario[0];
+                    RelojxUsuario.idtrab = obj1.idtrab;
+                    RelojxUsuario.IPReloj = obj1.ipReloj;
+                    RelojxUsuario.cvreloj = obj1.cvreloj;
+
+                    if (ltUsuario.Count > 1) {
+                        btnTeclado.Enabled = false;
+                     }
+
                 }
 
                 if (row.Cells[0].Tag.ToString() == "check")
@@ -170,19 +193,18 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             RelojChecador obj = new RelojChecador();
 
             int cvreloj = 0;
-            string desc = "";
-            string ip = "";
-            string cvvnc = "";
+            string desc = "%";
+            string ip = "%";
+            string cvvnc = "%";
             int actualiza = 0;
-            string usumod = "";
-            string prgumod = "";
+            string usumod = "%";
+            string prgumod = "%";
 
-            if (txtDescripcion.Text != String.Empty) { obj.p_descripcion = txtDescripcion.Text; } else { obj.p_descripcion = "%";  }
-            if (txtIP.Text != String.Empty) { obj.p_ip = txtIP.Text; } else { obj.p_ip = "%"; }
-            if (txtidtrab.Text != String.Empty) { obj.p_usuumod = txtidtrab.Text; } else { obj.p_usuumod = "%"; }
-            if (txtNombre.Text != String.Empty) { obj.p_prgumodr = txtNombre.Text; } else { obj.p_prgumodr = "%"; }
+           
+            if (txtidtrab.Text != String.Empty) { obj.p_usuumod = txtidtrab.Text; } 
+            if (txtNombre.Text != String.Empty) { obj.p_prgumodr = txtNombre.Text; } 
 
-            if (cbEstatus.SelectedIndex != 0) { obj.p_cvvnc = cbEstatus.SelectedIndex.ToString(); } else { obj.p_cvvnc = "%"; }
+            if (cbEstatus.SelectedIndex != 0) { obj.p_cvvnc = cbEstatus.SelectedIndex.ToString(); } 
 
             llenarGrid(obj);
 
@@ -209,50 +231,62 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            Mensaje = "Analizando Registros...";
-            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Espera por favor. Eliminando Registros...");
-            bd.RunWorkerAsync();
-            bool bBandera = false;
 
-            foreach (UsuarioReloj obj in ltUsuario) {
-                
-                string cvreloj = obj.cvreloj.ToString();
-                string idtrab = obj.idtrab;
-                string ip = obj.ipReloj;
 
-                if (Connect_Net(ip, 4370))
+            DialogResult result = MessageBox.Show("Las asignaciones e información dentro del Dispositivo serán eliminadas ¿Esta Seguro que desea ELIMINAR la información del Trabajador?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Enabled = false;
+                Mensaje = "Analizando Registros...";
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Espera por favor. Eliminando Registros...");
+                bd.RunWorkerAsync();
+                bool bBandera = false;
+
+                foreach (UsuarioReloj obj in ltUsuario)
                 {
 
-                    if (objCZKEM.DeleteUserInfoEx(1, Convert.ToInt32(idtrab)))
+                    string cvreloj = obj.cvreloj.ToString();
+                    string idtrab = obj.idtrab;
+                    string ip = obj.ipReloj;
+
+                    if (Connect_Net(ip, 4370))
                     {
-                        RelojChecador objReloj = new RelojChecador();
-                        objReloj.RelojesxTrabajador(idtrab, Convert.ToInt32(cvreloj), 1, "", "");
-                        objCZKEM.Disconnect();
+
+                        if (objCZKEM.DeleteUserInfoEx(1, Convert.ToInt32(idtrab)))
+                        {
+                            RelojChecador objReloj = new RelojChecador();
+                            objReloj.RelojesxTrabajador(idtrab, Convert.ToInt32(cvreloj), 1, "", "");
+                            objCZKEM.Disconnect();
+                        }
+                        else
+                        {
+                            bBandera = true;
+                            objCZKEM.Disconnect();
+                        }
                     }
                     else
                     {
-                        bBandera = true;
-                        objCZKEM.Disconnect();
+
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible Conectarse con el Dispositivo.");
+                        // progressBar1.Visible = false;
+                        this.Enabled = true;
                     }
                 }
-                else {
 
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible Conectarse con el Dispositivo.");
-                    progressBar1.Visible = false;
+                if (bBandera != true)
+                {
+                    // progressBar1.Visible = true;
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Registros Borrados correctamente.");
+                    timer1.Start();
+                    this.Enabled = true;
                 }
-            }
-
-            if (bBandera != true)
-            {
-               // progressBar1.Visible = true;
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Registros Borrados correctamente.");
-                timer1.Start();
-
-            }
-            else {
-                //progressBar1.Visible = true;
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Uno o más registros no se han logrado borrar.");
-
+                else
+                {
+                    //progressBar1.Visible = true;
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Uno o más registros no se han logrado borrar.");
+                    this.Enabled = true;
+                }
             }
         }
 
@@ -411,7 +445,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 {
 
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible Conectarse con el Dispositivo.");
-                    progressBar1.Visible = false;
+                    //progressBar1.Visible = false;
                 }
             }
 
@@ -438,14 +472,60 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             BarraProgreso.Dialog();
         }
 
+        private void btnRegresar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnHuellas_Click(object sender, EventArgs e)
+        {
+                  }
+
+        private void btnTeclado_Click(object sender, EventArgs e)
+        {
+            Captura frm = new Captura();
+            frm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class UsuarioReloj {
 
         public string idtrab;
+        public string Nombre;
         public int cvreloj;
         public string ipReloj;
         
    
+    }
+
+
+    public static class RelojxUsuario {
+
+        public static string idtrab;
+        public static string Nombre;
+        public static int cvreloj;
+        public static string IPReloj;
+        public static string Pass;
+
     }
 }

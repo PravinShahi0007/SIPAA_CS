@@ -483,6 +483,66 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Huella {
+            get {
+                object obj = ResourceManager.GetObject("Huella", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Huella20x20 {
+            get {
+                object obj = ResourceManager.GetObject("Huella20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Huella30x30 {
+            get {
+                object obj = ResourceManager.GetObject("Huella30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Huellalock {
+            get {
+                object obj = ResourceManager.GetObject("Huellalock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Huellalock20x20 {
+            get {
+                object obj = ResourceManager.GetObject("Huellalock20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Huellalock30x30 {
+            get {
+                object obj = ResourceManager.GetObject("Huellalock30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_account_circle_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_account_circle_white_18dp", resourceCulture);
@@ -643,6 +703,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_folder_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_folder_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_group_white_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_group_white_24dp", resourceCulture);
@@ -756,6 +826,16 @@ namespace SIPAA_CS.Properties {
         internal static System.Drawing.Bitmap ic_power_settings_new_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("ic_power_settings_new_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_power_settings_new_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_power_settings_new_white_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1007,6 +1087,66 @@ namespace SIPAA_CS.Properties {
             get {
                 object obj = ResourceManager.GetObject("LogoIcono64x64", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pass {
+            get {
+                object obj = ResourceManager.GetObject("Pass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pass20x20 {
+            get {
+                object obj = ResourceManager.GetObject("Pass20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pass30x30 {
+            get {
+                object obj = ResourceManager.GetObject("Pass30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Passlock {
+            get {
+                object obj = ResourceManager.GetObject("Passlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Passlock20x20 {
+            get {
+                object obj = ResourceManager.GetObject("Passlock20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Passlock30x30 {
+            get {
+                object obj = ResourceManager.GetObject("Passlock30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

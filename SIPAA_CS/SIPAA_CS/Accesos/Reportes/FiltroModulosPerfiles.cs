@@ -222,7 +222,7 @@ namespace SIPAA_CS.Accesos.Reportes
             Modulo objModulo = new Modulo();
 
             DataTable dtPerfil = objPerfil.ObtenerPerfiles("", "", "", 10);
-            DataTable dtModulo = objModulo.ObtenerModulo(0, 0, "", "", 0, "", 0, "", 0, "", "", 6);
+            DataTable dtModulo = objModulo.ObtenerModulo("", "", "", "", "", "", "", "", "", "", "", 6);
 
             llenaCombo(cbPerfil, dtPerfil, "cvperfil", "Descripcion");
             llenaCombo(cbModulo, dtModulo, "idmodulo", "descripcion");

@@ -501,4 +501,16 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//Z
 </value>
   </data>
+  <data name="btnPower.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAFvSURBVEhL7ZRNSgNBEIWThUTQeAwlEPQI4kLiyo1nEYx6mGgExXOE4B1idv5t1U10U37V/Tow
+        9EwyYJb54C36vaquSc+kG2tWigktV4/2//8A9jhCfS3nhN1ByzlY1+hQy8VQ2EFfyDmVHZBXGMDyLLr2
+        ifZkV0PRUyg3u0NN2YFoZwOa6CEEZmPZ5VBwEuvsBW3JnhOj0iNqo7cQmvVk5xAOY42dyyqgrPQlY/dj
+        areycginscY6sgooqxrQjalNZeUQ/sQa25BVQFnVgFZM7VdWDmEa0JJVQFnVgM2Y2kxWDmE6oq6s2tBz
+        EFttIiuHML3kC1m1oecqttpAVg5h+kxf0bbspVC7gz68EY5ll0NB+qPdo8IfrQyvQY/eACPZ1VDkV8V3
+        KI9D2ooyyPzJ0+Z+vewqWgyFftmlIe/oEu0j/1Jc/kL9zNOx+Ob1LrsEDf5Lxt69hBGq9+Rl0NxDN+gZ
+        zaQJGqDFL3TNchqNP2kgEC/8bvD3AAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

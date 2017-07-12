@@ -32,13 +32,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.lblusuario = new System.Windows.Forms.Label();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.MenuAccesos = new System.Windows.Forms.MenuStrip();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelMenu.SuspendLayout();
+            this.paneltitulo = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.paneltitulo.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -49,7 +50,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_fingerprint_white_18dp;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(415, 0);
+            this.label3.Location = new System.Drawing.Point(87, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 23);
             this.label3.TabIndex = 0;
@@ -83,16 +84,6 @@
             this.btnMinimizar.TabIndex = 2;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.panel3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.panel3.Location = new System.Drawing.Point(1, 129);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1024, 1);
-            this.panel3.TabIndex = 25;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // btnRegresar
             // 
@@ -133,46 +124,57 @@
             // 
             // MenuAccesos
             // 
-            this.MenuAccesos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.MenuAccesos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.MenuAccesos.Dock = System.Windows.Forms.DockStyle.None;
             this.MenuAccesos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuAccesos.Location = new System.Drawing.Point(27, 3);
+            this.MenuAccesos.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
+            this.MenuAccesos.Location = new System.Drawing.Point(1, 0);
             this.MenuAccesos.Name = "MenuAccesos";
-            this.MenuAccesos.Size = new System.Drawing.Size(100, 24);
+            this.MenuAccesos.Size = new System.Drawing.Size(30, 206);
             this.MenuAccesos.TabIndex = 5;
             this.MenuAccesos.TabStop = true;
             // 
-            // panelMenu
+            // paneltitulo
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.panelMenu.Controls.Add(this.MenuAccesos);
-            this.panelMenu.Location = new System.Drawing.Point(0, 97);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(1024, 32);
-            this.panelMenu.TabIndex = 5;
+            this.paneltitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.paneltitulo.Controls.Add(this.label3);
+            this.paneltitulo.Location = new System.Drawing.Point(0, 97);
+            this.paneltitulo.Name = "paneltitulo";
+            this.paneltitulo.Size = new System.Drawing.Size(300, 60);
+            this.paneltitulo.TabIndex = 153;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.MenuAccesos);
+            this.panel1.Location = new System.Drawing.Point(-1, 156);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(301, 614);
+            this.panel1.TabIndex = 154;
             // 
             // AcceDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.paneltitulo);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.btnMinimizar);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AcceDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AccesosDashboard";
             this.Load += new System.EventHandler(this.AccesosDashboard_Load);
-            this.panelMenu.ResumeLayout(false);
-            this.panelMenu.PerformLayout();
+            this.paneltitulo.ResumeLayout(false);
+            this.paneltitulo.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,11 +184,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnMinimizar;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.MenuStrip MenuAccesos;
-        private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Panel paneltitulo;
+        private System.Windows.Forms.Panel panel1;
     }
 }

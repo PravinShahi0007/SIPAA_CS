@@ -2,7 +2,7 @@
 
 namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
-    partial class IncidenciasNomimas
+    partial class IncidenciasNominas
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncidenciasNomimas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncidenciasNominas));
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label7;
@@ -594,7 +594,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // IncidenciasNomimas
+            // IncidenciasNominas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -615,7 +615,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.lbltitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "IncidenciasNomimas";
+            this.Name = "IncidenciasNominas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IncidenciasNom";
             this.Load += new System.EventHandler(this.IncidenciasNom_Load);

@@ -129,5 +129,21 @@ namespace SIPAA_CS
         {
 
         }
+
+        private void btnPower_Click(object sender, EventArgs e)
+        {
+
+            DialogResult result = MessageBox.Show("¿Esta Seguro de Cerrar Sesión?", "Salir", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                LoginInfo.IdTrab = String.Empty;
+                Acceso frm = new Acceso();
+                this.Hide();
+                frm.Show();
+            }
+
+
+        }
     }
 }

@@ -113,7 +113,8 @@ namespace SIPAA_CS.Accesos
             //carga imagen
             //Util.cargaimagen(pictureBox1);
 
-            cargaMenu(0, null, MenuAccesos);
+            //cargaMenu(0, null, MenuAccesos);
+            CrearMenu();
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -131,6 +132,13 @@ namespace SIPAA_CS.Accesos
 
         }
 
+        public void CrearMenu()
+        {
+            Perfil objPer = new Perfil();
+            DataTable dt = objPer.ReportePerfilesModulos("ACCE", "%", LoginInfo.IdTrab, "CS", 0, 0, 0, 0, 0, 13);
+            DataTable dtEncabezados = Utilerias.CrearEncabezados(dt);
+            Utilerias.ProcesoMenu(dtEncabezados, LoginInfo.IdTrab, "ACCE", null, MenuAccesos, paneltitulo.BackColor);
+        }
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
