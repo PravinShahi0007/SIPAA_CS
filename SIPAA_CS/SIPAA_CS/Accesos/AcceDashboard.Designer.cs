@@ -169,7 +169,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AcceDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AccesosDashboard";
+            this.Text = "Inicio Accesos";
             this.Load += new System.EventHandler(this.AccesosDashboard_Load);
             this.paneltitulo.ResumeLayout(false);
             this.paneltitulo.PerformLayout();

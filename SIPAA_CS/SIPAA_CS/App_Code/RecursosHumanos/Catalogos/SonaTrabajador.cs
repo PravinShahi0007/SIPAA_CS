@@ -129,7 +129,7 @@ namespace SIPAA_CS.App_Code
 
 
 
-        public DataTable GestionHuella(byte[] arrTemplate,byte[] arrImagen, string sIdtrab,string sUsuumod,string sPrgmod,int iOpcion)
+        public DataTable GestionHuella(string sIdtrab,string huellaTmp,int iHuella,string sUsuumod,string sPrgmod,int iOpcion)
         {
 
             SqlCommand cmd = new SqlCommand();
@@ -138,11 +138,11 @@ namespace SIPAA_CS.App_Code
 
             
 
-            cmd.CommandText = "usp_rechhuella_suid";
+            cmd.CommandText = "usp_rechchuellatrab_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = sIdtrab;
-            cmd.Parameters.Add("@P_template", SqlDbType.Image).Value = arrTemplate;
-            cmd.Parameters.Add("@P_imgtemplate",SqlDbType.Image).Value = arrImagen;
+            cmd.Parameters.Add("@P_huellaTmp", SqlDbType.NVarChar).Value = huellaTmp;
+            cmd.Parameters.Add("@P_indicehuella", SqlDbType.Int).Value = iHuella;
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = sUsuumod;
             cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = sPrgmod;
             cmd.Parameters.Add("@P_opcion", SqlDbType.Int).Value = iOpcion;
@@ -161,6 +161,39 @@ namespace SIPAA_CS.App_Code
 
         }
 
+
+        public DataTable GestionIdentidad(string sIdtrab,string sPass, string RostroTmp, string rostrolong, string sUsuumod, string sPrgmod, int iOpcion)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            Conexion objConexion = new Conexion();
+            Usuario objusuario = new Usuario();
+
+
+
+            cmd.CommandText = "usp_rechctrabidentidad_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = sIdtrab;
+            cmd.Parameters.Add("@P_pass", SqlDbType.NVarChar).Value = sPass;
+            cmd.Parameters.Add("@P_rostroTmp", SqlDbType.NVarChar).Value = RostroTmp;
+            cmd.Parameters.Add("@P_rostrolong", SqlDbType.Int).Value = rostrolong;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = sUsuumod;
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = sPrgmod;
+            cmd.Parameters.Add("@P_opcion", SqlDbType.Int).Value = iOpcion;
+
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtTrabajador = new DataTable();
+            dadapter.Fill(dtTrabajador);
+            return (dtTrabajador);
+
+
+        }
         public DataTable ObtenerRegistroDetalle(string sidtrab, DateTime dtfechainicio, DateTime dtfechafin, string scompania, string subicacion)
         {
             SqlCommand cmd = new SqlCommand();
@@ -207,7 +240,7 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public DataTable Relojchecador(string sidtrab,int iOpcion,DateTime dtFechaRegistro, TimeSpan tpHoraRegistro,int iCvReloj
+        public DataTable Relojchecador(string sidtrab,int iOpcion,DateTime dtFechaRegistro, int iTipoCheck ,TimeSpan tpHoraRegistro,int iCvReloj
                                        ,int iTraspaso, string sUsumod,string sPrgmod)
         {
             SqlCommand cmd = new SqlCommand();
@@ -218,6 +251,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sidtrab;
             cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = iOpcion;
             cmd.Parameters.Add("@P_feregistro", SqlDbType.DateTime).Value = dtFechaRegistro;
+            cmd.Parameters.Add("@P_cvtipoasistencia", SqlDbType.Int).Value = iTipoCheck;
             cmd.Parameters.Add("@P_horaregistro", SqlDbType.Time).Value = tpHoraRegistro;
             cmd.Parameters.Add("@P_cvreloj", SqlDbType.Int).Value = iCvReloj;
             cmd.Parameters.Add("@P_traspaso", SqlDbType.Int).Value = iTraspaso;

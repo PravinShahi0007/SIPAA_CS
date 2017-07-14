@@ -1080,7 +1080,58 @@ namespace SIPAA_CS.App_Code
         }
     }
 
-}
+
+        public static string cifrarPass(string sPass, int iOpcion)
+        {
+
+            byte[] llave;
+            byte[] arrCifrado = UTF8Encoding.UTF8.GetBytes(sPass);
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            llave = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes("zkteco"));
+            md5.Clear();
+
+            TripleDESCryptoServiceProvider tripledes = new TripleDESCryptoServiceProvider();
+            tripledes.Key = llave;
+            tripledes.Mode = CipherMode.ECB;
+            tripledes.Padding = PaddingMode.PKCS7;
+            ICryptoTransform convertir = tripledes.CreateEncryptor();
+
+            byte[] resultado = convertir.TransformFinalBlock(arrCifrado, 0, arrCifrado.Length);
+            tripledes.Clear();
+
+            string res = "";
+
+           
+           res =  Convert.ToBase64String(resultado, 0, resultado.Length);
+       
+
+            return res;
+        }
+
+
+        public static string descifrar(string sPass)
+        {
+
+            byte[] llave;
+            byte[] arrCifrado = Convert.FromBase64String(sPass);
+
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            llave = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes("zkteco"));
+            md5.Clear();
+
+            TripleDESCryptoServiceProvider tripledes = new TripleDESCryptoServiceProvider();
+            tripledes.Key = llave;
+            tripledes.Mode = CipherMode.ECB;
+            tripledes.Padding = PaddingMode.PKCS7;
+            ICryptoTransform convertir = tripledes.CreateDecryptor();
+            byte[] resultado = convertir.TransformFinalBlock(arrCifrado, 0, arrCifrado.Length);
+            tripledes.Clear();
+
+            string cadena_descifrada = UTF8Encoding.UTF8.GetString(resultado);
+            return cadena_descifrada;
+        }
+
+    }
     //public class ResultadoHuella
     //{
     //    public NffvStatus engineStatus;

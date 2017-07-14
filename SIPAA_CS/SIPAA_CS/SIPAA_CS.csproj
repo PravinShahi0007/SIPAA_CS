@@ -42,6 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -819,6 +820,12 @@
     <Compile Include="RelojChecadorTrabajador\Captura.Designer.cs">
       <DependentUpon>Captura.cs</DependentUpon>
     </Compile>
+    <Compile Include="RelojChecadorTrabajador\CapturaHora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelojChecadorTrabajador\CapturaHora.Designer.cs">
+      <DependentUpon>CapturaHora.cs</DependentUpon>
+    </Compile>
     <Compile Include="RelojChecadorTrabajador\RegistrarHuella.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1131,6 +1138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RelojChecadorTrabajador\Captura.resx">
       <DependentUpon>Captura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelojChecadorTrabajador\CapturaHora.resx">
+      <DependentUpon>CapturaHora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RelojChecadorTrabajador\RegistrarHuella.resx">
       <DependentUpon>RegistrarHuella.cs</DependentUpon>
@@ -1809,6 +1819,60 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_power_settings_new_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Face.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Face20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Face30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HuellaSync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HuellaSync20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HuellaSync30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Key20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Key30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Persona.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Persona20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Persona30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reloj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reloj20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reloj30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RelojSync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RelojSync20x20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RelojSync30x30.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -541,25 +541,25 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         byte[] arrImagen = (byte[])converter.ConvertTo(img, typeof(byte[]));
 
                         SonaTrabajador objTrab = new SonaTrabajador();
-                        DataTable dtTrab = objTrab.GestionHuella(Enroller.Template.Bytes, arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 3);
-                        dtTrab = objTrab.GestionHuella(Enroller.Template.Bytes, arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 1);
+                     //   DataTable dtTrab = objTrab.GestionHuella(Enroller.Template.Bytes, arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 3);
+                      //  dtTrab = objTrab.GestionHuella(Enroller.Template.Bytes, arrImagen, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 1);
 
-                        if (dtTrab.Columns.Contains("INSERT"))
-                        {
-                            Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Asignada Correctamente");
-                            Enroller.Clear();
-                        }
+                        //if (dtTrab.Columns.Contains("INSERT"))
+                        //{
+                        //    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Asignada Correctamente");
+                        //    Enroller.Clear();
+                        //}
 
                         break;
 
                     case 3:
                         SonaTrabajador obj = new SonaTrabajador();
-                        dtTrab = obj.GestionHuella(Enroller.Template.Bytes, new byte[] { }, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 3);
-                        if (dtTrab != null)
-                        {
-                            Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Eliminada Correctamente");
-                            Enroller.Clear();
-                        }
+                     //   dtTrab = obj.GestionHuella(Enroller.Template.Bytes, new byte[] { }, TrabajadorInfo.IdTrab, sUsuuMod, this.Name, 3);
+                        //if (dtTrab != null)
+                        //{
+                        //    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Eliminada Correctamente");
+                        //    Enroller.Clear();
+                        //}
                         break;
 
                 }
@@ -833,21 +833,21 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     panelTagHuella.Visible = false;
                     SonaTrabajador objTrab = new SonaTrabajador();
                     byte[] byteArray = new byte[] { };
-                    DataTable dtTrab = objTrab.GestionHuella(byteArray, byteArray, TrabajadorInfo.IdTrab, "", "", 5);
-                    try
-                    {
-                        foreach (DataRow row in dtTrab.Rows)
-                        { byteArray = (byte[])row["imgtemplate"]; }
-                        Image imgHuella = null;
-                        MemoryStream ms = new MemoryStream(byteArray);
-                        imgHuella = Image.FromStream(ms);
-                        ms.Close();
-                        pbHuella.Image = imgHuella;
-                    }
-                    catch (Exception ex) {
+                    //DataTable dtTrab = objTrab.GestionHuella(byteArray, byteArray, TrabajadorInfo.IdTrab, "", "", 5);
+                    //try
+                    //{
+                    //    foreach (DataRow row in dtTrab.Rows)
+                    //    { byteArray = (byte[])row["imgtemplate"]; }
+                    //    Image imgHuella = null;
+                    //    MemoryStream ms = new MemoryStream(byteArray);
+                    //    imgHuella = Image.FromStream(ms);
+                    //    ms.Close();
+                    //    pbHuella.Image = imgHuella;
+                    //}
+                    //catch (Exception ex) {
 
-                        pbHuella.Image = null;
-                    }
+                    //    pbHuella.Image = null;
+                    //}
                     break;
                         }
                     if(Permisos.dcPermisos["Crear"] != 1) { panelHuella.Visible = false; lbHuella.Visible = false; }
@@ -1157,7 +1157,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void AsignarReloj(string sIdtrab)
         {
             RelojChecador objReloj = new RelojChecador();
-             objReloj.RelojesxTrabajador(sIdtrab, 0, 4, "", "");
+            DataTable dt =  objReloj.RelojesxTrabajador(sIdtrab, 0, 4, "", "");
+
+            foreach (DataRow row in dt.Rows) {
+
+                if (!ltRelojxUsuario.Contains(Convert.ToInt32(row[0]).ToString())) {
+
+                    ltRelojxUsuario.Add(Convert.ToInt32(row[0]).ToString());
+                }
+            }
+
             Utilerias.ImprimirAsignacionesGrid(dgvReloj, 0, 1, ltRelojxUsuario);
         }
 

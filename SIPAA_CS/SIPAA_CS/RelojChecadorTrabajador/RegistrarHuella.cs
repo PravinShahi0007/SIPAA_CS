@@ -152,67 +152,67 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         protected void Process(DPFP.Sample Sample)
         {
-            DPFP.Capture.SampleConversion Convertor = new DPFP.Capture.SampleConversion();
-            bitmap = null;
-            Convertor.ConvertToPicture(Sample, ref bitmap);
-            pbHuella.Image = new Bitmap(bitmap, pbHuella.Size);
+            //DPFP.Capture.SampleConversion Convertor = new DPFP.Capture.SampleConversion();
+            //bitmap = null;
+            //Convertor.ConvertToPicture(Sample, ref bitmap);
+            //pbHuella.Image = new Bitmap(bitmap, pbHuella.Size);
 
 
-            DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
+            //DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
 
-            // Check quality of the sample and start verification if it's good
-            // TODO: move to a separate task
-            if (features != null)
-            {
-                string sIdTrabVerdadero = "0"; 
-                SonaTrabajador objTrab = new SonaTrabajador();
+            //// Check quality of the sample and start verification if it's good
+            //// TODO: move to a separate task
+            //if (features != null)
+            //{
+            //    string sIdTrabVerdadero = "0"; 
+            //    SonaTrabajador objTrab = new SonaTrabajador();
                
-                DataTable dtTrab = objTrab.GestionHuella(new byte[] { }, new byte[] { }, "", "", this.Name, 4);
-                bool bBandera = false;
+            //    DataTable dtTrab = objTrab.GestionHuella(new byte[] { }, new byte[] { }, "", "", this.Name, 4);
+            //    bool bBandera = false;
 
-                foreach (DataRow row in dtTrab.Rows)
-                {
-                    try
-                    {
-                        string sIdTrab = "";
-                        byte[] byteArray = new byte[] { };
-                        byteArray = (byte[])row["template"];
-                        sIdTrab = row["idTrab"].ToString();
+            //    foreach (DataRow row in dtTrab.Rows)
+            //    {
+            //        try
+            //        {
+            //            string sIdTrab = "";
+            //            byte[] byteArray = new byte[] { };
+            //            byteArray = (byte[])row["template"];
+            //            sIdTrab = row["idTrab"].ToString();
 
-                        Stream stream = new MemoryStream(byteArray);
+            //            Stream stream = new MemoryStream(byteArray);
 
-                        DPFP.Template Tp = new DPFP.Template(stream);
-                        Verificator = new DPFP.Verification.Verification();
-                        // Compare the feature set with our template
-                        DPFP.Verification.Verification.Result result = new DPFP.Verification.Verification.Result();
-                        Verificator.Verify(features, Tp, ref result);
+            //            DPFP.Template Tp = new DPFP.Template(stream);
+            //            Verificator = new DPFP.Verification.Verification();
+            //            // Compare the feature set with our template
+            //            DPFP.Verification.Verification.Result result = new DPFP.Verification.Verification.Result();
+            //            Verificator.Verify(features, Tp, ref result);
 
-                        if (result.Verified == true)
-                        {
-                            sIdTrabVerdadero = sIdTrab;
-                            break;
+            //            if (result.Verified == true)
+            //            {
+            //                sIdTrabVerdadero = sIdTrab;
+            //                break;
 
-                        }
-                    }
-                    catch(Exception e) {}
-                }
+            //            }
+            //        }
+            //        catch(Exception e) {}
+            //    }
 
-                if (sIdTrabVerdadero != "0")
-                {
-                    Stop();
-                    BuscarTrabajador(sIdTrabVerdadero);
-                    timeReload.Start();
-                }else
-                {
+            //    if (sIdTrabVerdadero != "0")
+            //    {
+            //        Stop();
+            //        BuscarTrabajador(sIdTrabVerdadero);
+            //        timeReload.Start();
+            //    }else
+            //    {
 
-                    prgBar.Visible = false;
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Huella NO Encontrada...");
-                    pInfoTrab.Visible = false;
-                    timeReload.Start();
+            //        prgBar.Visible = false;
+            //        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Huella NO Encontrada...");
+            //        pInfoTrab.Visible = false;
+            //        timeReload.Start();
 
-                }
+            //    }
 
-            }
+            //}
 
 
         }
