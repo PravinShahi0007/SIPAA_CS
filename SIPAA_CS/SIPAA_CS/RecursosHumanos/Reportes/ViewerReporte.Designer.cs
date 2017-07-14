@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewerReporte));
             this.ReporteView = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -106,6 +107,7 @@
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.ReporteView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewerReporte";
             this.Text = "ViewerReporte";
             this.Load += new System.EventHandler(this.ViewerReporte_Load);

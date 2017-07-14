@@ -27,9 +27,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
     {
         #region Variables
 
-        int pins;
-        int pact;
-        int pelim;
+//        int pins;
+//        int pact;
+//        int pelim;
         int pactbtn;
         string pfecha;
         int p_rep;
@@ -52,46 +52,46 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void dgvDiasFestivos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (pins == 1 && pact == 1 && pelim == 1)
+            if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Actualizar"] == 1 && Permisos.dcPermisos["Eliminar"] == 1) // (pins == 1 && pact == 1 && pelim == 1)
             {
                 factgrid();
                 Util.ChangeButton(btnInsertar, 2, false);
                 ckbEliminar.Visible = true;
                 pactbtn = 2;
             }
-            else if (pins == 1 && pact == 1)
+            else if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Actualizar"] == 1) // (pins == 1 && pact == 1)
             {
                 Util.ChangeButton(btnInsertar, 2, false);
                 factgrid();
                 pactbtn = 2;
             }
-            else if (pins == 1 && pelim == 1)
-            {
-                Util.ChangeButton(btnInsertar, 2, false);
-                factgrid();
-                ckbEliminar.Visible = true;
-                pactbtn = 2;
-            }
-            else if (pact == 1 && pelim == 1)
+            else if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Eliminar"] == 1) // (pins == 1 && pelim == 1)
             {
                 Util.ChangeButton(btnInsertar, 2, false);
                 factgrid();
                 ckbEliminar.Visible = true;
                 pactbtn = 2;
             }
-            else if (pins == 1)
+            else if (Permisos.dcPermisos["Actualizar"] == 1 && Permisos.dcPermisos["Eliminar"] == 1) // (pact == 1 && pelim == 1)
+            {
+                Util.ChangeButton(btnInsertar, 2, false);
+                factgrid();
+                ckbEliminar.Visible = true;
+                pactbtn = 2;
+            }
+            else if (Permisos.dcPermisos["Crear"] == 1) // (pins == 1)
             {
                 Util.ChangeButton(btnInsertar, 2, false);
                 factgrid();
                 pactbtn = 2;
             }
-            else if (pact == 1)
+            else if (Permisos.dcPermisos["Actualizar"] == 1) // (pact == 1)
             {
                 Util.ChangeButton(btnInsertar, 2, false);
                 factgrid();
                 pactbtn = 2;
             }
-            else if (pelim == 1)
+            else if (Permisos.dcPermisos["Eliminar"] == 1) // (pelim == 1)
             {
                 Util.ChangeButton(btnInsertar, 3, false);
                 factgrid();
@@ -156,7 +156,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 txtDescripcionDF.Focus();
                 timer1.Start();
                 //llena grid con datos existente
-                fgDiasFestivos(4, "0", "", "bhb", "DiasFestivos");
+                //fgDiasFestivos(4, "0", "", "bhb", "DiasFestivos");
+                fgDiasFestivos(4, "0", "", LoginInfo.IdTrab, "DiasFestivos");
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
                 pnlActDiasFestivos.Visible = false;
@@ -172,7 +173,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 txtDescripcionDF.Focus();
                 timer1.Start();
                 //llena grid con datos existente
-                fgDiasFestivos(4, "0", "", "bhb", "DiasFestivos");
+                //fgDiasFestivos(4, "0", "", "bhb", "DiasFestivos");
+                fgDiasFestivos(4, "0", "", LoginInfo.IdTrab, "DiasFestivos");
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
                 pnlActDiasFestivos.Visible = false;
@@ -192,7 +194,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     txtDescripcionDF.Focus();
                     timer1.Start();
                     //llena grid con datos existente
-                    fgDiasFestivos(4, "0", "", "bhb", "DiasFestivos");
+                    //fgDiasFestivos(4, "0", "", "bhb", "DiasFestivos");
+                    fgDiasFestivos(4, "0", "", LoginInfo.IdTrab, "DiasFestivos");
                     ckbEliminar.Checked = false;
                     ckbEliminar.Visible = false;
                     pnlActDiasFestivos.Visible = false;
@@ -235,28 +238,25 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void DiasFestivos_Load(object sender, EventArgs e)
         {
-            //Rezise de la Forma
-            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             //LLAMA TOOL TIP
             fTooltip();
 
-            pins = 1;
-            pact = 1;
-            pelim = 1;
+//            pins = 1;
+//            pact = 1;
+//            pelim = 1;
 
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
 
-            //Resize de Pantalla
+            //Rezise de la Forma
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             //HABILITA BOTON AGREGAR
-            if (Permisos.dcPermisos["Crear"]==0) // (pins == 1)
+            if (Permisos.dcPermisos["Crear"]==1) // (pins == 1)
             {
-                //btnAgregar.Visible = true;
-                btnAgregar.Visible = false;
+                btnAgregar.Visible = true;
             }
             //
             fgDiasFestivos(4, "0", "", "bhb", "DiasFestivos");
@@ -302,21 +302,21 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.ShowAlways = true;
 
             // CONFIGURA EL TEXTO POR OBJETO
-            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btnCerrar,    "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
-            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
-            toolTip1.SetToolTip(this.btnAgregar, "Agrega Registro");
-            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
-//            toolTip1.SetToolTip(this.btnGuardar, "Guarda Registro");
-//            toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
-            toolTip1.SetToolTip(this.btnInsertar, "Insertar Registro");
+            toolTip1.SetToolTip(this.btnRegresar,  "Regresar");
+            toolTip1.SetToolTip(this.btnAgregar,   "Agrega Registro");
+            toolTip1.SetToolTip(this.btnBuscar,    "Busca Registro");
+//          toolTip1.SetToolTip(this.btnGuardar,   "Guarda Registro");
+//          toolTip1.SetToolTip(this.btnEditar,    "Edita Registro");
+            toolTip1.SetToolTip(this.btnInsertar,  "Insertar Registro");
 
         } // private void fTooltip()
 
         private void fgDiasFestivos(int p_opcion, string p_fecha, string p_descripcion, string p_usuumod, string p_prgumodr)
         {
-
-            if (pins == 1 && pact == 1 && pelim == 1)
+            // (pins == 1 && pact == 1 && pelim == 1)
+            if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Actualizar"] == 1 && Permisos.dcPermisos["Eliminar"] == 1)
             {
 
                 DataTable dtDiaFestivo = oDiasFestivos.obtdiasfestivos(p_opcion, p_fecha, p_descripcion, p_usuumod, p_prgumodr);
@@ -333,7 +333,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvDiasFestivos.Columns[2].Width = 300;
                 dgvDiasFestivos.ClearSelection();
             }
-            else if (pins == 1 && pact == 1)
+            else if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Actualizar"] == 1) // (pins == 1 && pact == 1)
             {
                 DataTable dtDiaFestivo = oDiasFestivos.obtdiasfestivos(p_opcion, p_fecha, p_descripcion, p_usuumod, p_prgumodr);
                 dgvDiasFestivos.DataSource = dtDiaFestivo;
@@ -350,7 +350,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvDiasFestivos.ClearSelection();
 
             }
-            else if (pins == 1 && pelim == 1)
+            else if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Eliminar"] == 1) // (pins == 1 && pelim == 1)
             {
                 DataTable dtDiaFestivo = oDiasFestivos.obtdiasfestivos(p_opcion, p_fecha, p_descripcion, p_usuumod, p_prgumodr);
                 dgvDiasFestivos.DataSource = dtDiaFestivo;
@@ -366,7 +366,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvDiasFestivos.Columns[2].Width = 300;
                 dgvDiasFestivos.ClearSelection();
             }
-            else if (pact == 1 && pelim == 1)
+            else if (Permisos.dcPermisos["Actualizar"] == 1 && Permisos.dcPermisos["Eliminar"] == 1) // (pact == 1 && pelim == 1)
             {
                 DataTable dtDiaFestivo = oDiasFestivos.obtdiasfestivos(p_opcion, p_fecha, p_descripcion, p_usuumod, p_prgumodr);
                 dgvDiasFestivos.DataSource = dtDiaFestivo;
@@ -382,7 +382,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvDiasFestivos.Columns[2].Width = 300;
                 dgvDiasFestivos.ClearSelection();
             }
-            else if (pins == 1)
+            else if (Permisos.dcPermisos["Crear"] == 1) // (pins == 1)
             {
                 DataTable dtDiaFestivo = oDiasFestivos.obtdiasfestivos(p_opcion, p_fecha, p_descripcion, p_usuumod, p_prgumodr);
                 dgvDiasFestivos.DataSource = dtDiaFestivo;
@@ -392,7 +392,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvDiasFestivos.Columns[2].Width = 300;
                 dgvDiasFestivos.ClearSelection();
             }
-            else if (pact == 1)
+            else if (Permisos.dcPermisos["Actualizar"] == 1) // (pact == 1)
             {
                 DataTable dtDiaFestivo = oDiasFestivos.obtdiasfestivos(p_opcion, p_fecha, p_descripcion, p_usuumod, p_prgumodr);
                 dgvDiasFestivos.DataSource = dtDiaFestivo;
@@ -408,7 +408,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvDiasFestivos.Columns[2].Width = 300;
                 dgvDiasFestivos.ClearSelection();
             }
-            else if (pelim == 1)
+            else if (Permisos.dcPermisos["Eliminar"] == 1) // (pelim == 1)
             {
                 DataTable dtDiaFestivo = oDiasFestivos.obtdiasfestivos(p_opcion, p_fecha, p_descripcion, p_usuumod, p_prgumodr);
                 dgvDiasFestivos.DataSource = dtDiaFestivo;
@@ -504,6 +504,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 txtDescripcionDF.Text = ValorRow;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         //-----------------------------------------------------------------------------------------------

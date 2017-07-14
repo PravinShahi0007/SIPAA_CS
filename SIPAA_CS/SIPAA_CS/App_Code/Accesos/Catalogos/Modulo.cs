@@ -258,7 +258,7 @@ namespace SIPAA_CS.App_Code
             }
         }
 
-        public DataTable ObtenerModulo(int idmodulo, int cvindmodulo, string cvmodulo, string descripcion, int orden, string ambiente, int cvtipomodulo, string rutaacceso, int stmodulo, string usuumod, string prgumod, int opcion)
+        public DataTable ObtenerModulo(string idmodulo, string cvindmodulo, string cvmodulo, string descripcion, string orden, string ambiente, string cvtipomodulo, string rutaacceso, string stmodulo, string usuumod, string prgumod, int opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
@@ -267,15 +267,15 @@ namespace SIPAA_CS.App_Code
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@p_idmodulo", SqlDbType.Int).Value = idmodulo;
-            cmd.Parameters.Add("@p_cvindmodulo", SqlDbType.Int).Value = cvindmodulo;
+            cmd.Parameters.Add("@p_idmodulo", SqlDbType.VarChar).Value = idmodulo;
+            cmd.Parameters.Add("@p_cvindmodulo", SqlDbType.VarChar).Value = cvindmodulo;
             cmd.Parameters.Add("@p_cvmodulo", SqlDbType.VarChar).Value = cvmodulo;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
-            cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = orden;
+            cmd.Parameters.Add("@p_orden", SqlDbType.VarChar).Value = orden;
             cmd.Parameters.Add("@p_ambiente", SqlDbType.VarChar).Value = ambiente;
-            cmd.Parameters.Add("@p_cvtipomodulo", SqlDbType.Int).Value = cvtipomodulo;
+            cmd.Parameters.Add("@p_cvtipomodulo", SqlDbType.VarChar).Value = cvtipomodulo;
             cmd.Parameters.Add("@p_rutaaaceso", SqlDbType.VarChar).Value = rutaacceso;
-            cmd.Parameters.Add("@p_stmodulo", SqlDbType.Int).Value = stmodulo;
+            cmd.Parameters.Add("@p_stmodulo", SqlDbType.VarChar).Value = stmodulo;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
@@ -292,7 +292,7 @@ namespace SIPAA_CS.App_Code
             return dtModulo;
         }
 
-        public int CrearModulo(int idmodulo, int cvindmodulo, string cvmodulo, string descripcion, int orden, string ambiente, int cvtipomodulo, string rutaacceso, int stmodulo, string usuumod, string prgumod, int opcion)
+        public int CrearModulo(string idmodulo, string cvindmodulo, string cvmodulo, string descripcion, string orden, string ambiente, string cvtipomodulo, string rutaacceso, string stmodulo, string usuumod, string prgumod, int opcion)
         {
 
             SqlCommand cmd = new SqlCommand();
@@ -301,15 +301,15 @@ namespace SIPAA_CS.App_Code
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@p_idmodulo", SqlDbType.Int).Value = idmodulo;
-            cmd.Parameters.Add("@p_cvindmodulo", SqlDbType.Int).Value = cvindmodulo;
+            cmd.Parameters.Add("@p_idmodulo", SqlDbType.VarChar).Value = idmodulo;
+            cmd.Parameters.Add("@p_cvindmodulo", SqlDbType.VarChar).Value = cvindmodulo;
             cmd.Parameters.Add("@p_cvmodulo", SqlDbType.VarChar).Value = cvmodulo;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = descripcion;
-            cmd.Parameters.Add("@p_orden", SqlDbType.Int).Value = orden;
+            cmd.Parameters.Add("@p_orden", SqlDbType.VarChar).Value = orden;
             cmd.Parameters.Add("@p_ambiente", SqlDbType.VarChar).Value = ambiente;
-            cmd.Parameters.Add("@p_cvtipomodulo", SqlDbType.Int).Value = cvtipomodulo;
+            cmd.Parameters.Add("@p_cvtipomodulo", SqlDbType.VarChar).Value = cvtipomodulo;
             cmd.Parameters.Add("@p_rutaaaceso", SqlDbType.VarChar).Value = rutaacceso;
-            cmd.Parameters.Add("@p_stmodulo", SqlDbType.Int).Value = stmodulo;
+            cmd.Parameters.Add("@p_stmodulo", SqlDbType.VarChar).Value = stmodulo;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;

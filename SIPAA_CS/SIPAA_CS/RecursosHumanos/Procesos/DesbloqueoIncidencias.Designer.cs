@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DesbloqueoIncidencias));
             this.lblFormaPago = new System.Windows.Forms.Label();
             this.cbFormaPago = new System.Windows.Forms.ComboBox();
             this.TxtFeIni = new System.Windows.Forms.TextBox();
@@ -249,6 +250,7 @@
             this.Controls.Add(this.cbFormaPago);
             this.Controls.Add(this.lblFormaPago);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DesbloqueoIncidencias";
             this.Text = "DesbloqueoIncidencias";
             this.Load += new System.EventHandler(this.DesbloqueoIncidencias_Load);

@@ -546,6 +546,7 @@
             this.Controls.Add(this.dgvConsulta);
             this.Controls.Add(this.pnlBusqueda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Statues";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Statues";

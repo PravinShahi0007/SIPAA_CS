@@ -347,6 +347,7 @@
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TrabajadoresPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TrabajadoresPerfiles";

@@ -48,6 +48,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cbTipoModulo = new System.Windows.Forms.ComboBox();
             this.cbAmbiente = new System.Windows.Forms.ComboBox();
             this.btnBuscarModulo = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -76,7 +77,6 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lblusuario = new System.Windows.Forms.Label();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
-            this.cbTipoModulo = new System.Windows.Forms.ComboBox();
             label6 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
@@ -258,6 +258,23 @@
             this.panel4.Size = new System.Drawing.Size(570, 138);
             this.panel4.TabIndex = 64;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // cbTipoModulo
+            // 
+            this.cbTipoModulo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTipoModulo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTipoModulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbTipoModulo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipoModulo.FormattingEnabled = true;
+            this.cbTipoModulo.Items.AddRange(new object[] {
+            "Seleccionar Ambiente",
+            "Web",
+            "CS"});
+            this.cbTipoModulo.Location = new System.Drawing.Point(284, 46);
+            this.cbTipoModulo.Name = "cbTipoModulo";
+            this.cbTipoModulo.Size = new System.Drawing.Size(177, 24);
+            this.cbTipoModulo.TabIndex = 57;
+            this.cbTipoModulo.Text = "Seleccionar Tipo";
             // 
             // cbAmbiente
             // 
@@ -654,23 +671,6 @@
             this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
             this.pnlimgusuario.TabIndex = 118;
             // 
-            // cbTipoModulo
-            // 
-            this.cbTipoModulo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbTipoModulo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbTipoModulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbTipoModulo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTipoModulo.FormattingEnabled = true;
-            this.cbTipoModulo.Items.AddRange(new object[] {
-            "Seleccionar Ambiente",
-            "Web",
-            "CS"});
-            this.cbTipoModulo.Location = new System.Drawing.Point(284, 46);
-            this.cbTipoModulo.Name = "cbTipoModulo";
-            this.cbTipoModulo.Size = new System.Drawing.Size(177, 24);
-            this.cbTipoModulo.TabIndex = 57;
-            this.cbTipoModulo.Text = "Seleccionar Tipo";
-            // 
             // PerfilModulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -693,6 +693,7 @@
             this.Controls.Add(this.dgvModulos);
             this.Controls.Add(this.panelPermisos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PerfilModulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asignar_Modulo";

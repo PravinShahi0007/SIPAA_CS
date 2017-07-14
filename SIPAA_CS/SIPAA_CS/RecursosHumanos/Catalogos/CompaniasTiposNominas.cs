@@ -106,12 +106,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
         } // private void btnBuscar_Click(object sender, EventArgs e)
 
-        //Boton Minimizar
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        } // private void btnMinimizar_Click(object sender, EventArgs e)
-
         //boton cerrar
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -126,6 +120,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 // No hace nada, se queda en la pantalla
             }
         } // private void btnCerrar_Click(object sender, EventArgs e)
+
+        //Boton Minimizar
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        } // private void btnMinimizar_Click(object sender, EventArgs e)
+
+        //Boton Regresar
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   

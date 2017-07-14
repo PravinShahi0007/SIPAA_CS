@@ -68,53 +68,59 @@ namespace SIPAA_CS.Accesos.Asignaciones
         private void dgvProceso_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             pass = txtPassword.Text;
-            if (dgvUsuario.SelectedRows.Count != 0)
+
+            if (Permisos.dcPermisos["Actualizar"] == 1)
             {
 
-                if (dgvProceso.SelectedRows.Count != 0)
+
+                if (dgvUsuario.SelectedRows.Count != 0)
                 {
-                    //check palomeado
-                    if (cbAsignaPassword.Checked == true)
+
+                    if (dgvProceso.SelectedRows.Count != 0)
                     {
-                        if (dgvProceso.SelectedRows.Count != 0)
+                        //check palomeado
+                        if (cbAsignaPassword.Checked == true)
                         {
-                            AsignarProcesos();
-                            Utilerias.MultiSeleccionGridViewString(dgvProceso, 1, ltProceso, panelPermisos);
+                            if (dgvProceso.SelectedRows.Count != 0)
+                            {
+                                AsignarProcesos();
+                                Utilerias.MultiSeleccionGridViewString(dgvProceso, 1, ltProceso, panelPermisos);
+                            }
                         }
-                    }
-                    //checkbox vacio
-                    else if (cbAsignaPassword.Checked == false)
-                    {
-                        DataGridViewRow row = this.dgvProceso.SelectedRows[0];
-                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                        string cvpro = row.Cells[1].Value.ToString();
-
-                        panelPermisos.Enabled = true;
-
-                        ltProceso.Add(cvpro);
-
-                        if (row.Cells[0].Tag.ToString() == "check")
+                        //checkbox vacio
+                        else if (cbAsignaPassword.Checked == false)
                         {
-
-                            row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                            row.Cells[0].Tag = "uncheck";
-
-                        }
-                        else
-                        {
+                            DataGridViewRow row = this.dgvProceso.SelectedRows[0];
                             row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                            row.Cells[0].Tag = "check";
+                            string cvpro = row.Cells[1].Value.ToString();
+
+                            panelPermisos.Enabled = true;
+
+                            ltProceso.Add(cvpro);
+
+                            if (row.Cells[0].Tag.ToString() == "check")
+                            {
+
+                                row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                                row.Cells[0].Tag = "uncheck";
+
+                            }
+                            else
+                            {
+                                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                                row.Cells[0].Tag = "check";
+
+                            }
 
                         }
-                        
                     }
-                }
 
-            }
-            else
-            {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Selecciona primero un Usuario");
-                timer1.Start();
+                }
+                else
+                {
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Selecciona primero un Usuario");
+                    timer1.Start();
+                }
             }
         }
         

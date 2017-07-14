@@ -176,6 +176,7 @@
             this.Controls.Add(this.button3);
             this.ForeColor = System.Drawing.Color.Red;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MsMenu;
             this.Name = "RechDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

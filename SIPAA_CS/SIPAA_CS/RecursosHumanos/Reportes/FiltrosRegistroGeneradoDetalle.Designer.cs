@@ -368,6 +368,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pnlBusqueda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FiltrosRegistroGeneradoDetalle";
             this.Text = "FiltrosRegistroGeneradoDetalle";
             this.Load += new System.EventHandler(this.FiltrosRegistroGeneradoDetalle_Load);

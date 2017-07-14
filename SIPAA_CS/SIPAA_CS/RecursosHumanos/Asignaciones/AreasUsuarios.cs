@@ -108,60 +108,65 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
 
         private void dgvPlantel_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (cvusuario != null)
+            if (Permisos.dcPermisos["Actualizar"] == 1)
             {
-                if (cbCompania.SelectedIndex != 0 && dgvUsuarios.SelectedRows.Count != 0)
+
+
+                if (cvusuario != null)
                 {
-                    if (dgvPlantel.SelectedRows.Count != 0)
+                    if (cbCompania.SelectedIndex != 0 && dgvUsuarios.SelectedRows.Count != 0)
                     {
-                        //AsignarPlantel();
-                        Utilerias.MultiSeleccionGridViewString(dgvPlantel, 3, ltArea, panelPermisos);
+                        if (dgvPlantel.SelectedRows.Count != 0)
+                        {
+                            //AsignarPlantel();
+                            Utilerias.MultiSeleccionGridViewString(dgvPlantel, 3, ltArea, panelPermisos);
 
-                        //DataGridViewRow row = this.dgvPlantel.SelectedRows[0];
-                        //row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                        //idplanta = row.Cells[3].Value.ToString();
+                            //DataGridViewRow row = this.dgvPlantel.SelectedRows[0];
+                            //row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                            //idplanta = row.Cells[3].Value.ToString();
 
-                        //panelPermisos.Enabled = true;
+                            //panelPermisos.Enabled = true;
 
-                        //ltArea.Add(idplanta);
+                            //ltArea.Add(idplanta);
 
-                        //if (cbCompania.SelectedIndex > 0)
-                        //{
-                        //    temporal = cbCompania.SelectedValue.ToString();
-                        //}
+                            //if (cbCompania.SelectedIndex > 0)
+                            //{
+                            //    temporal = cbCompania.SelectedValue.ToString();
+                            //}
 
-                        //if (ltArea.Count == 0)
-                        //{ panelPermisos.Enabled = false; }
-                        //else
-                        //{ panelPermisos.Enabled = true; }
+                            //if (ltArea.Count == 0)
+                            //{ panelPermisos.Enabled = false; }
+                            //else
+                            //{ panelPermisos.Enabled = true; }
 
-                        //if (row.Cells[0].Tag.ToString() == "check")
-                        //{
+                            //if (row.Cells[0].Tag.ToString() == "check")
+                            //{
 
-                        //    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                        //    row.Cells[0].Tag = "uncheck";
+                            //    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                            //    row.Cells[0].Tag = "uncheck";
 
-                        //}
-                        //else
-                        //{
-                        //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                        //    row.Cells[0].Tag = "check";
+                            //}
+                            //else
+                            //{
+                            //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                            //    row.Cells[0].Tag = "check";
 
-                        //}
+                            //}
+                        }
                     }
+                    else
+                    {
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a un Usuario y Compañia");
+                        timer1.Start();
+                    }
+
                 }
                 else
                 {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a un Usuario y Compañia");
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a un Usuario");
                     timer1.Start();
-                }
 
-            }
-            else
-            {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha Seleccionado a un Usuario");
-                timer1.Start();
-                
+                }
             }
         }
 

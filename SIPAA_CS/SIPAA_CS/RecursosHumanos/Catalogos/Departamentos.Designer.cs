@@ -276,6 +276,7 @@
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lbltitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Departamentos";
             this.Text = "Departamentos";
             this.Load += new System.EventHandler(this.Departamentos_Load);

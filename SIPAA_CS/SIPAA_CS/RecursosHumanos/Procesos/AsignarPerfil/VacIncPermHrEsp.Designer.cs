@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label label13;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VacIncPermHrEsp));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label label13;
             this.lblusuario = new System.Windows.Forms.Label();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -48,6 +48,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvInc)).BeginInit();
             this.panelTrab.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label13.ForeColor = System.Drawing.Color.Gray;
+            label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
+            label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label13.Location = new System.Drawing.Point(12, 10);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(144, 17);
+            label13.TabIndex = 202;
+            label13.Text = "      Datos Trabajador";
             // 
             // lblusuario
             // 
@@ -175,19 +188,6 @@
             this.panelTrab.Size = new System.Drawing.Size(483, 100);
             this.panelTrab.TabIndex = 209;
             // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label13.ForeColor = System.Drawing.Color.Gray;
-            label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
-            label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label13.Location = new System.Drawing.Point(12, 10);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(144, 17);
-            label13.TabIndex = 202;
-            label13.Text = "      Datos Trabajador";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -244,6 +244,7 @@
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VacIncPermHrEsp";
             this.Text = "VacIncPermHrEsp";
             this.Load += new System.EventHandler(this.VacIncPermHrEsp_Load);

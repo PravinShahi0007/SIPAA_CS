@@ -12,6 +12,8 @@ using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.Generales;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
+using static SIPAA_CS.App_Code.Usuario;
+using static SIPAA_CS.App_Code.Utilerias;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
 
@@ -121,46 +123,46 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //-----------------------------------------------------------------------------------------------
         private void dgvPeriodosProcesoIncidencias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (iIns == 1 && iAct == 1 && iElim == 1)
+            if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Actualizar"] == 1 && Permisos.dcPermisos["Eliminar"] == 1) // (iIns == 1 && iAct == 1 && iElim == 1)
             {
                 factgrid();
                 Util.ChangeButton(btnInsertar, 2, false);
                 ckbEliminar.Visible = true;
                 iActbtn = 2;
             }
-            else if (iIns == 1 && iAct == 1)
+            else if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Actualizar"] == 1) // (iIns == 1 && iAct == 1)
             {
                 Util.ChangeButton(btnInsertar, 2, false);
                 factgrid();
                 iActbtn = 2;
             }
-            else if (iIns == 1 && iElim == 1)
-            {
-                Util.ChangeButton(btnInsertar, 2, false);
-                factgrid();
-                ckbEliminar.Visible = true;
-                iActbtn = 2;
-            }
-            else if (iAct == 1 && iElim == 1)
+            else if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Eliminar"] == 1) // (iIns == 1 && iElim == 1)
             {
                 Util.ChangeButton(btnInsertar, 2, false);
                 factgrid();
                 ckbEliminar.Visible = true;
                 iActbtn = 2;
             }
-            else if (iIns == 1)
+            else if (Permisos.dcPermisos["Actualizar"] == 1 && Permisos.dcPermisos["Eliminar"] == 1) // (iAct == 1 && iElim == 1)
+            {
+                Util.ChangeButton(btnInsertar, 2, false);
+                factgrid();
+                ckbEliminar.Visible = true;
+                iActbtn = 2;
+            }
+            else if (Permisos.dcPermisos["Crear"] == 1) // (iIns == 1)
             {
                 Util.ChangeButton(btnInsertar, 2, false);
                 factgrid();
                 iActbtn = 2;
             }
-            else if (iAct == 1)
+            else if (Permisos.dcPermisos["Actualizar"] == 1) // (iAct == 1)
             {
                 Util.ChangeButton(btnInsertar, 2, false);
                 factgrid();
                 iActbtn = 2;
             }
-            else if (iElim == 1)
+            else if (Permisos.dcPermisos["Eliminar"] == 1) // (iElim == 1)
             {
                 Util.ChangeButton(btnInsertar, 3, false);
                 factgrid();
@@ -327,12 +329,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             //
             // Los valores deben venir de los permisos con los que cuente el PERFIL de USUARIO
-            iIns = 1; // Permite Insertar
-            iAct = 1; // Permite Actualizar
-            iElim = 1; // Permite Eliminar
+//            iIns = 1; // Permite Insertar
+//            iAct = 1; // Permite Actualizar
+//            iElim = 1; // Permite Eliminar
+
+            // Diccionario Permisos x Pantalla
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
+
 
             //HABILITA BOTON AGREGAR
-            if (iIns == 1)
+            if (Permisos.dcPermisos["Crear"] == 1) // (iIns == 1)
             {
                 btnAgregar.Visible = true;
             }
@@ -675,7 +682,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         //-----------------------------------------------------------------------------------------------

@@ -37,6 +37,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlAct = new System.Windows.Forms.Panel();
+            this.lblRep = new System.Windows.Forms.Label();
+            this.cboRep = new System.Windows.Forms.ComboBox();
+            this.lblGen = new System.Windows.Forms.Label();
+            this.cboGen = new System.Windows.Forms.ComboBox();
             this.btnActiva = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtCapOrd = new System.Windows.Forms.TextBox();
@@ -65,10 +69,6 @@
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.cboGen = new System.Windows.Forms.ComboBox();
-            this.lblGen = new System.Windows.Forms.Label();
-            this.cboRep = new System.Windows.Forms.ComboBox();
-            this.lblRep = new System.Windows.Forms.Label();
             this.pnlAct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncidencia)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
@@ -137,6 +137,46 @@
             this.pnlAct.TabIndex = 147;
             this.pnlAct.TabStop = true;
             this.pnlAct.Visible = false;
+            // 
+            // lblRep
+            // 
+            this.lblRep.AutoSize = true;
+            this.lblRep.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.lblRep.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblRep.Location = new System.Drawing.Point(36, 220);
+            this.lblRep.Name = "lblRep";
+            this.lblRep.Size = new System.Drawing.Size(103, 16);
+            this.lblRep.TabIndex = 60;
+            this.lblRep.Text = "Representa una:";
+            // 
+            // cboRep
+            // 
+            this.cboRep.FormattingEnabled = true;
+            this.cboRep.Location = new System.Drawing.Point(145, 220);
+            this.cboRep.Name = "cboRep";
+            this.cboRep.Size = new System.Drawing.Size(137, 21);
+            this.cboRep.TabIndex = 7;
+            // 
+            // lblGen
+            // 
+            this.lblGen.AutoSize = true;
+            this.lblGen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.lblGen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblGen.Location = new System.Drawing.Point(36, 164);
+            this.lblGen.Name = "lblGen";
+            this.lblGen.Size = new System.Drawing.Size(90, 16);
+            this.lblGen.TabIndex = 59;
+            this.lblGen.Text = "Generada por:";
+            // 
+            // cboGen
+            // 
+            this.cboGen.FormattingEnabled = true;
+            this.cboGen.Location = new System.Drawing.Point(145, 164);
+            this.cboGen.Name = "cboGen";
+            this.cboGen.Size = new System.Drawing.Size(137, 21);
+            this.cboGen.TabIndex = 6;
             // 
             // btnActiva
             // 
@@ -495,46 +535,6 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
             // 
-            // cboGen
-            // 
-            this.cboGen.FormattingEnabled = true;
-            this.cboGen.Location = new System.Drawing.Point(145, 164);
-            this.cboGen.Name = "cboGen";
-            this.cboGen.Size = new System.Drawing.Size(137, 21);
-            this.cboGen.TabIndex = 6;
-            // 
-            // lblGen
-            // 
-            this.lblGen.AutoSize = true;
-            this.lblGen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblGen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblGen.Location = new System.Drawing.Point(36, 164);
-            this.lblGen.Name = "lblGen";
-            this.lblGen.Size = new System.Drawing.Size(90, 16);
-            this.lblGen.TabIndex = 59;
-            this.lblGen.Text = "Generada por:";
-            // 
-            // cboRep
-            // 
-            this.cboRep.FormattingEnabled = true;
-            this.cboRep.Location = new System.Drawing.Point(145, 220);
-            this.cboRep.Name = "cboRep";
-            this.cboRep.Size = new System.Drawing.Size(137, 21);
-            this.cboRep.TabIndex = 7;
-            // 
-            // lblRep
-            // 
-            this.lblRep.AutoSize = true;
-            this.lblRep.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblRep.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblRep.Location = new System.Drawing.Point(36, 220);
-            this.lblRep.Name = "lblRep";
-            this.lblRep.Size = new System.Drawing.Size(103, 16);
-            this.lblRep.TabIndex = 60;
-            this.lblRep.Text = "Representa una:";
-            // 
             // Incidencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,6 +555,7 @@
             this.Controls.Add(this.dgvIncidencia);
             this.Controls.Add(this.pnlBusqueda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Incidencias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Incidencias";
