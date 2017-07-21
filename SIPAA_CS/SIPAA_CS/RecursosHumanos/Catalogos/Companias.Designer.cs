@@ -249,9 +249,9 @@
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblusuario.Location = new System.Drawing.Point(6, 74);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(58, 20);
+            this.lblusuario.Size = new System.Drawing.Size(56, 20);
             this.lblusuario.TabIndex = 112;
-            this.lblusuario.Text = "Usuario ";
+            this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ptbimgusuario

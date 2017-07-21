@@ -34,8 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.pnlAct = new System.Windows.Forms.Panel();
             this.lblRep = new System.Windows.Forms.Label();
             this.cboRep = new System.Windows.Forms.ComboBox();
@@ -69,10 +67,13 @@
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.lblusuario = new System.Windows.Forms.Label();
             this.pnlAct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncidencia)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
             this.panelTag.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -83,35 +84,12 @@
             this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
             this.btnAgregar.Location = new System.Drawing.Point(926, 156);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(50, 50);
+            this.btnAgregar.Size = new System.Drawing.Size(55, 55);
             this.btnAgregar.TabIndex = 151;
             this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Location = new System.Drawing.Point(36, 30);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(37, 41);
-            this.panel2.TabIndex = 150;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(3, 74);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 23);
-            this.label5.TabIndex = 149;
-            this.label5.Text = "     Marco Dupont";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlAct
             // 
@@ -144,7 +122,7 @@
             this.lblRep.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.lblRep.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblRep.Location = new System.Drawing.Point(36, 220);
+            this.lblRep.Location = new System.Drawing.Point(23, 221);
             this.lblRep.Name = "lblRep";
             this.lblRep.Size = new System.Drawing.Size(103, 16);
             this.lblRep.TabIndex = 60;
@@ -153,7 +131,7 @@
             // cboRep
             // 
             this.cboRep.FormattingEnabled = true;
-            this.cboRep.Location = new System.Drawing.Point(145, 220);
+            this.cboRep.Location = new System.Drawing.Point(132, 221);
             this.cboRep.Name = "cboRep";
             this.cboRep.Size = new System.Drawing.Size(137, 21);
             this.cboRep.TabIndex = 7;
@@ -164,7 +142,7 @@
             this.lblGen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.lblGen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblGen.Location = new System.Drawing.Point(36, 164);
+            this.lblGen.Location = new System.Drawing.Point(22, 165);
             this.lblGen.Name = "lblGen";
             this.lblGen.Size = new System.Drawing.Size(90, 16);
             this.lblGen.TabIndex = 59;
@@ -173,7 +151,7 @@
             // cboGen
             // 
             this.cboGen.FormattingEnabled = true;
-            this.cboGen.Location = new System.Drawing.Point(145, 164);
+            this.cboGen.Location = new System.Drawing.Point(131, 165);
             this.cboGen.Name = "cboGen";
             this.cboGen.Size = new System.Drawing.Size(137, 21);
             this.cboGen.TabIndex = 6;
@@ -186,7 +164,7 @@
             this.btnActiva.Image = global::SIPAA_CS.Properties.Resources.Alta;
             this.btnActiva.Location = new System.Drawing.Point(362, 19);
             this.btnActiva.Name = "btnActiva";
-            this.btnActiva.Size = new System.Drawing.Size(50, 50);
+            this.btnActiva.Size = new System.Drawing.Size(55, 55);
             this.btnActiva.TabIndex = 8;
             this.btnActiva.Tag = "Alta";
             this.btnActiva.UseVisualStyleBackColor = false;
@@ -196,9 +174,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(32, 124);
+            this.panel1.Location = new System.Drawing.Point(24, 125);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 2);
+            this.panel1.Size = new System.Drawing.Size(250, 1);
             this.panel1.TabIndex = 44;
             // 
             // txtCapOrd
@@ -207,7 +185,7 @@
             this.txtCapOrd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCapOrd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCapOrd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCapOrd.Location = new System.Drawing.Point(34, 108);
+            this.txtCapOrd.Location = new System.Drawing.Point(26, 109);
             this.txtCapOrd.Name = "txtCapOrd";
             this.txtCapOrd.Size = new System.Drawing.Size(250, 15);
             this.txtCapOrd.TabIndex = 5;
@@ -218,7 +196,7 @@
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(36, 89);
+            this.label6.Location = new System.Drawing.Point(21, 90);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 16);
             this.label6.TabIndex = 57;
@@ -228,7 +206,7 @@
             // 
             this.ckbEliminar.AutoSize = true;
             this.ckbEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbEliminar.Location = new System.Drawing.Point(290, 48);
+            this.ckbEliminar.Location = new System.Drawing.Point(282, 49);
             this.ckbEliminar.Name = "ckbEliminar";
             this.ckbEliminar.Size = new System.Drawing.Size(47, 17);
             this.ckbEliminar.TabIndex = 55;
@@ -243,7 +221,7 @@
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(36, 23);
+            this.label2.Location = new System.Drawing.Point(22, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 44;
@@ -252,9 +230,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel3.Location = new System.Drawing.Point(32, 66);
+            this.panel3.Location = new System.Drawing.Point(24, 67);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 2);
+            this.panel3.Size = new System.Drawing.Size(250, 1);
             this.panel3.TabIndex = 43;
             // 
             // txtCapInc
@@ -263,7 +241,7 @@
             this.txtCapInc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCapInc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCapInc.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCapInc.Location = new System.Drawing.Point(34, 49);
+            this.txtCapInc.Location = new System.Drawing.Point(26, 50);
             this.txtCapInc.Name = "txtCapInc";
             this.txtCapInc.Size = new System.Drawing.Size(250, 15);
             this.txtCapInc.TabIndex = 4;
@@ -383,7 +361,7 @@
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(35, 21);
+            this.label4.Location = new System.Drawing.Point(24, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 16);
             this.label4.TabIndex = 44;
@@ -395,9 +373,9 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(362, 11);
+            this.btnBuscar.Location = new System.Drawing.Point(362, 17);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(50, 50);
+            this.btnBuscar.Size = new System.Drawing.Size(55, 55);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -406,9 +384,9 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel5.Location = new System.Drawing.Point(32, 63);
+            this.panel5.Location = new System.Drawing.Point(27, 71);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(250, 2);
+            this.panel5.Size = new System.Drawing.Size(250, 1);
             this.panel5.TabIndex = 43;
             // 
             // txtFormReg
@@ -416,7 +394,7 @@
             this.txtFormReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtFormReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFormReg.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFormReg.Location = new System.Drawing.Point(34, 46);
+            this.txtFormReg.Location = new System.Drawing.Point(29, 54);
             this.txtFormReg.Name = "txtFormReg";
             this.txtFormReg.Size = new System.Drawing.Size(250, 15);
             this.txtFormReg.TabIndex = 1;
@@ -483,12 +461,13 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(464, 0);
+            this.label3.Location = new System.Drawing.Point(447, 1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 23);
+            this.label3.Size = new System.Drawing.Size(200, 23);
             this.label3.TabIndex = 157;
-            this.label3.Text = "Incidencias";
+            this.label3.Text = "      Cátalogo de Incidencias";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegresar
@@ -498,7 +477,7 @@
             this.btnRegresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Location = new System.Drawing.Point(945, 2);
+            this.btnRegresar.Location = new System.Drawing.Point(908, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 156;
@@ -512,7 +491,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(975, 2);
+            this.btnMinimizar.Location = new System.Drawing.Point(975, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 155;
@@ -527,13 +506,39 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(1000, 2);
+            this.btnCerrar.Location = new System.Drawing.Point(1000, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 154;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
+            // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 159;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
+            // 
+            // lblusuario
+            // 
+            this.lblusuario.AutoSize = true;
+            this.lblusuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.ForeColor = System.Drawing.Color.White;
+            this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblusuario.Location = new System.Drawing.Point(8, 75);
+            this.lblusuario.Name = "lblusuario";
+            this.lblusuario.Size = new System.Drawing.Size(56, 20);
+            this.lblusuario.TabIndex = 158;
+            this.lblusuario.Text = "usuario ";
+            this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Incidencias
             // 
@@ -542,6 +547,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
+            this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMinimizar);
@@ -549,8 +556,6 @@
             this.Controls.Add(this.panelTag);
             this.Controls.Add(this.lblModifElim);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.pnlAct);
             this.Controls.Add(this.dgvIncidencia);
             this.Controls.Add(this.pnlBusqueda);
@@ -567,6 +572,7 @@
             this.pnlBusqueda.PerformLayout();
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -575,8 +581,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnlAct;
         private System.Windows.Forms.CheckBox ckbEliminar;
         private System.Windows.Forms.Label label2;
@@ -610,5 +614,7 @@
         private System.Windows.Forms.Label lblRep;
         private System.Windows.Forms.ComboBox cboRep;
         private System.Windows.Forms.Label lblGen;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.Label lblusuario;
     }
 }

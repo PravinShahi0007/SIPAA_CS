@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.RecursosHumanos.Asignaciones;
+using static SIPAA_CS.App_Code.Usuario;
 
 
 //***********************************************************************************************
@@ -324,6 +325,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             }
         }
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -332,7 +339,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void IncidenciasNom_Load(object sender, EventArgs e)
         {
-            
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "Companias.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             //habilita tool tip
             ftooltip();
 
@@ -503,15 +522,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvincnomia.ClearSelection();
             lblModif.Visible = false;
         }
-
-
         //llena los combos para guardar nuevo registro
         private void fcargarcbo()
         {
             Util.cargarcombo(cbostdir, IncNom.cboEsNoPr(5));
             Util.cargarcombo(cbformapago, IncNom.cboPeriodoTipo(4));
             Util.cargarcombo(cbopremio, IncNom.cboEsNoPr(5));
-            Util.cargarcombo(cboafect, IncNom.cboAfec(4));
+            Util.cargarcombo(cboafect, IncNom.cboAfec(6));
             Util.cargarcombo(cbopasanom, IncNom.cboEsNoPr(5));
             Util.cargarcombo(cbotipohr, IncNom.cboTipoHr(4));
         }

@@ -14,6 +14,8 @@ using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.Generales;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 
+using static SIPAA_CS.App_Code.Usuario;
+
 
 //***********************************************************************************************
 //Autor: Marco Dupont
@@ -261,6 +263,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //BOTON REGRESAR
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
 
@@ -272,6 +276,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Incidencias_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "Incidencias.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;

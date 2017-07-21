@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.App_Code;
+using static SIPAA_CS.App_Code.Usuario;
+
 //***********************************************************************************************
 //Autor: Marco Dupont
 //Fecha creación: 17-Mar-2017       Última Modificacion: dd-mm-aaaa
@@ -200,6 +202,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         }
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
         //BOTON MINIMIZAR
@@ -231,7 +235,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void frmFormReg_Load(object sender, EventArgs e)
         {
-            
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "FormasRegistros.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
@@ -307,10 +323,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvForReg.Columns.Insert(0, imgCheckUsuarios);
                 dgvForReg.Columns[0].HeaderText = "Selección";
             }
-            dgvForReg.Columns[0].Width = 55;
+            dgvForReg.Columns[0].Width = 60;
             dgvForReg.Columns[1].Visible = false;
-            dgvForReg.Columns[2].Width = 155;
-            dgvForReg.Columns[3].Width = 45;
+            dgvForReg.Columns[2].Width = 185;
+            dgvForReg.Columns[3].Width = 80;
             dgvForReg.Columns[4].Visible = false;
 
             dgvForReg.ClearSelection();

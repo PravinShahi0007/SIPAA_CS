@@ -162,6 +162,8 @@ namespace SIPAA_CS.App_Code
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            cmd.Parameters.Add("@p_IdAfecta", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_Descripcion", SqlDbType.VarChar).Value = "";
 
             //objConexion.asignarConexion(cmd);
 
