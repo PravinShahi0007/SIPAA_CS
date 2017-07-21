@@ -27,6 +27,9 @@ namespace SIPAA_CS.RecursosHumanos
 
         private void RechDashboard_Load(object sender, EventArgs e)
         {
+            //inicia tool tip
+            ftooltip();
+
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
@@ -142,5 +145,26 @@ namespace SIPAA_CS.RecursosHumanos
         {
 
         }
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+        private void ftooltip()
+        {
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
+
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.button3, "Cerrar Sistema");
+            toolTip1.SetToolTip(this.button2, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.button1, "Regresar");
+        }
+
     }
 }

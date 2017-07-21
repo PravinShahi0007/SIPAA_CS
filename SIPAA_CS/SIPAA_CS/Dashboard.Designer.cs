@@ -225,9 +225,9 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(973, 2);
+            this.btnMinimizar.Location = new System.Drawing.Point(974, 1);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(23, 23);
+            this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 2;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -239,9 +239,9 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(997, 2);
+            this.btnCerrar.Location = new System.Drawing.Point(999, 1);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(23, 23);
+            this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 1;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -308,9 +308,9 @@
             this.btnPower.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnPower.Location = new System.Drawing.Point(916, 1);
+            this.btnPower.Location = new System.Drawing.Point(924, 1);
             this.btnPower.Name = "btnPower";
-            this.btnPower.Size = new System.Drawing.Size(30, 24);
+            this.btnPower.Size = new System.Drawing.Size(24, 24);
             this.btnPower.TabIndex = 151;
             this.btnPower.TabStop = false;
             this.btnPower.UseVisualStyleBackColor = false;

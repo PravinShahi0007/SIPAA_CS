@@ -12,9 +12,10 @@ using SIPAA_CS.Properties;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
+using static SIPAA_CS.App_Code.Usuario;
 
 //***********************************************************************************************
-//Autor: Marco Dupont
+//Autor: Marco Dupont               modif: noe alvarez marquina(se agrega funcionalidad, estandar, imagen, usuario)
 //Fecha creación: 28-Mar-2017       Última Modificacion: dd-mm-aaaa
 //Descripción: Consulta Catálogo de Formas de PAgo SonarH
 //***********************************************************************************************
@@ -64,6 +65,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //BOTON REGRESAR
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
         //BOTON MINIMIZAR   
@@ -78,7 +81,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void FoarmasPagos_Load(object sender, EventArgs e)
         {
-            
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "FormasPagos.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;

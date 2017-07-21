@@ -130,6 +130,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //Boton Regresar
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
 
@@ -142,6 +144,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void CompaniasTiposNominas_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "CompaniasTiposNominas.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //TOOL TIP
+            fTooltip();
+
             //Rezise de la Forma
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
@@ -149,7 +164,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             iIns = 0;
             iAct = 0;
             iElim = 0;
-        } // private void CompaniasTiposNominas_Load(object sender, EventArgs e)
+        } 
 
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 

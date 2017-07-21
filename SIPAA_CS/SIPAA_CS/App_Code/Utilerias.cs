@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
+using SIPAA_CS.RecursosHumanos;
+
 namespace SIPAA_CS.App_Code
 {
     class Utilerias
@@ -1064,20 +1066,21 @@ namespace SIPAA_CS.App_Code
 
     private static void Event(object sender, EventArgs e)
     {
-
         ToolStripMenuItem ItemClick = (ToolStripMenuItem)sender;
         eclicck(ItemClick.Name);
-    }
+        }
 
     private static void eclicck(string nombreformulario)
     {
-        Form formulario;
+            Form formulario;
         if (nombreformulario != "")
         {
+
+
             formulario = (Form)Activator.CreateInstance(null, nombreformulario).Unwrap();
             formulario.Show();
 
-        }
+            }
     }
 
 
@@ -1132,6 +1135,7 @@ namespace SIPAA_CS.App_Code
         }
 
     }
+    
     //public class ResultadoHuella
     //{
     //    public NffvStatus engineStatus;

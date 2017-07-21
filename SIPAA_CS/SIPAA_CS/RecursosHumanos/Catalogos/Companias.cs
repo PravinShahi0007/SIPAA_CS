@@ -13,6 +13,8 @@ using SIPAA_CS.App_Code;
 
 using static SIPAA_CS.App_Code.Usuario;
 
+
+
 //***********************************************************************************************
 //Autor: Noe Alvarez Marquina
 //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
@@ -92,6 +94,16 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void frmCompanias_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "Companias.cs")
+                {
+                    f.Hide();
+                }
+            }
+
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
             
@@ -135,8 +147,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvcomp.ClearSelection();
         }
 
-        //-----------------------------------------------------------------------------------------------
-        //                                      R E P O R T E S
-        //-----------------------------------------------------------------------------------------------
+
     }
 }

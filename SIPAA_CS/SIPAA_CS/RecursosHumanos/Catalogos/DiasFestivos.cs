@@ -16,7 +16,7 @@ using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
 
 //***********************************************************************************************
-//Autor: Benjamin Huizar Barajas
+//Autor: Benjamin Huizar Barajas    modif: noe alvarez marquina (se corrige ortografía, standar, secuencia )
 //Fecha creación: 15-Mar-2017       Última Modificacion: dd-mm-aaaa
 //Descripción: Días Festivos
 //***********************************************************************************************
@@ -213,7 +213,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             WindowState = FormWindowState.Minimized;
         }
-
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
+        }
         //boton cerrar
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -238,6 +243,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void DiasFestivos_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "DiasFestivos.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
 
             //LLAMA TOOL TIP
             fTooltip();
@@ -505,12 +522,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
         }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------

@@ -13,7 +13,7 @@ using static SIPAA_CS.App_Code.Usuario;
 namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
     //***********************************************************************************************
-    //Autor: Victor Jesús Iturburu Vergara
+    //Autor: Victor Jesús Iturburu Vergara  Modif:noe alvarez marquina 17/07/2017 (se agrega estandar y se ordena tabulador)
     //Fecha creación:23-03-2017       Última Modificacion: 23-03-2017
     //Descripción: Consulta a Sonar de Áreas
     //***********************************************************************************************
@@ -36,7 +36,16 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
+            if (cbCia.SelectedValue.ToString() == "0")
+            {
+                DialogResult result = MessageBox.Show("Debé seleccionar una compañia", "SIPAA");
+                cbCia.Focus();
+            }
+            else
+            {
+                LlenarGridPlanteles(cbCia.SelectedValue.ToString(), txtBuscarPerfil.Text, dgvPlantel, 6);
+            }
+            
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -49,6 +58,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Compania_Plantel_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "Areas.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+
+            //tool tip
+            ftooltip();
 
             lblusuario.Text = LoginInfo.Nombre;
             // Diccionario Permisos x Pantalla
@@ -61,36 +83,44 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
 
             SonaCompania objCia = new SonaCompania();
-            DataTable dtCia = objCia.obtcomp(1, "");
-            List<string> ltCia = new List<string>();
-            foreach (DataRow row in dtCia.Rows)
-            {
-                ltCia.Add(row["Descripción"].ToString());
-            }
-            cbCia.DataSource = ltCia;
-            LlenarGridPlanteles("", "", dgvPlantel);
-        }
-        private void PanelPlantilla_Paint(object sender, PaintEventArgs e)
-        {
-            SonaCompania objCia = new SonaCompania();
-            DataTable dtCia = objCia.obtcomp(1, "");
-            List<string> ltCia = new List<string>();
-            foreach (DataRow row in dtCia.Rows)
-            {
-                ltCia.Add(row["Descripción"].ToString());
-            }
-            cbCia.DataSource = ltCia;
-            LlenarGridPlanteles("", "", dgvPlantel);
-        }
+            DataTable dtCia = objCia.obtcomp(4, "");
 
-        private void cbCia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
+            Utilerias.llenarComboxDataTable(cbCia,dtCia,"Clave","Descripción");
+
+            //List<string> ltCia = new List<string>();
+
+            //foreach (DataRow row in dtCia.Rows)
+            //{
+            //    ltCia.Add(row["Descripción"].ToString());
+            //}
+            //cbCia.DataSource = ltCia;
+
+            LlenarGridPlanteles("", "", dgvPlantel,8);
+
+            txtBuscarPerfil.Focus();
+
         }
-        private void txtBuscarPerfil_KeyUp(object sender, KeyEventArgs e)
-        {
-            LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
-        }
+        //private void PanelPlantilla_Paint(object sender, PaintEventArgs e)
+        //{
+        //    SonaCompania objCia = new SonaCompania();
+        //    DataTable dtCia = objCia.obtcomp(1, "");
+        //    List<string> ltCia = new List<string>();
+        //    foreach (DataRow row in dtCia.Rows)
+        //    {
+        //        ltCia.Add(row["Descripción"].ToString());
+        //    }
+        //    cbCia.DataSource = ltCia;
+        //    LlenarGridPlanteles("", "", dgvPlantel);
+        //}
+
+        //private void cbCia_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
+        //}
+        //private void txtBuscarPerfil_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
+        //}
 
         private void PanelPlantilla_Paint_1(object sender, PaintEventArgs e)
         {
@@ -100,13 +130,30 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
+        //agrega noe alvarez marquina 17/07/2017
+        private void ftooltip()
+        {
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
 
-        public void LlenarGridPlanteles(string idcompania, string busqueda, DataGridView dgvPlantel)
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.btnCerrar, "Cerrar Sistema");
+            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
+            toolTip1.SetToolTip(this.btnBuscar, "Buscar Registro");
+        }
+        public void LlenarGridPlanteles(string idcompania, string busqueda, DataGridView dgvPlantel, int iopc)
         {
 
 
             SonaCompania objCia = new SonaCompania();
-            DataTable dtPlantel = objCia.ObtenerPlantelxCompania(6, idcompania, busqueda, "");
+            DataTable dtPlantel = objCia.ObtenerPlantelxCompania(iopc, idcompania, busqueda, "");
 
             dgvPlantel.DataSource = dtPlantel;
 
@@ -120,6 +167,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            RechDashboard inirh = new RechDashboard();
+            inirh.Show();
             this.Close();
         }
 

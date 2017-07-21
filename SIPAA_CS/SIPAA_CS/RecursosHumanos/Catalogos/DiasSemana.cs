@@ -18,8 +18,8 @@ using SIPAA_CS.Accesos;
 
 
 //***********************************************************************************************
-//Autor: Jaime Avendaño Vargas
-//Fecha creación: 22-Mar-2017       Última Modificacion: dd-mm-aaaa
+//Autor: Jaime Avendaño Vargas      modif: noe alvarez marquina (se agrega standar, tooltip, funcionalidad, picture box fotografia, label usuario, tamaño)
+//Fecha creación: 22-Mar-2017       Última Modificacion: 21/07/2017
 //Descripción: Días Festivos
 //***********************************************************************************************
 
@@ -48,6 +48,22 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void DiasSemana_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "Companias.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //LLAMA TOOL TIP
+            sTooltip();
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
@@ -67,13 +83,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             lblusuario.Text = NomUsu;
             JAV */
         }
-
-
-        //***********************************************************************************************
-        //Autor: Jaime Avendaño Vargas
-        //Fecha creación: 22-Mar-2017       Última Modificacion: dd-mm-aaaa
-        //Descripción: Administra Días Festivos
-        //***********************************************************************************************
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -134,7 +143,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             }
 
-        } // private void dgvDSem_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        } 
 
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
@@ -236,7 +245,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 }
             }
 
-        } // private void btnInsertar_Click(object sender, EventArgs e)
+        }
 
         //Boton minimizar
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -258,7 +267,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 // No hace nada, se queda en la pantalla
             }
         }
-
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -266,30 +280,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void DiaSemana_Load(object sender, EventArgs e)
-        {
-            
-            //LLAMA TOOL TIP
-            sTooltip();
-
-            //LLAMA METODO LLENAR GRID
-            //            SLlenaGrid(1, "");
-
-            pins = 1;
-            pact = 1;
-            pelim = 1;
-
-            //HABILITA BOTON AGREGAR
-            /*
-            if (pins == 1)
-            {
-                btnAgregar.Visible = true;
-            }
-            */
-            //
-            fgDSem(4, 0, "", "JAV", "DiasFestivos");
-            //            txtBuscarDF.Focus();
-        }
 
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
         {
@@ -332,10 +322,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
-            //toolTip1.SetToolTip(this.btnAgregar, "Agrega Registro");
             toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
-            //            toolTip1.SetToolTip(this.btnGuardar, "Guarda Registro");
-            //            toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
             toolTip1.SetToolTip(this.btnInsertar, "Insertar Registro");
 
         } // private void sTooltip()
@@ -475,8 +462,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 dgvDSem.Columns[0].Visible = false;
                 //                dgvDiasFestivos.Columns[2].Visible = false;
-                dgvDSem.Columns[1].Width = 55;
-                dgvDSem.Columns[2].Width = 120;
+                dgvDSem.Columns[1].Width = 250;
+                //dgvDSem.Columns[2].Width = 120; noe alvarez marquina el datatable solo devielve 2 columnas
                 dgvDSem.ClearSelection();
             }
         }
@@ -551,76 +538,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             
         }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbltitulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblusuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlimgusuario_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBuscarDF_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblGridDiasFestivos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDescripcionDF_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpFechaDiaFestivo_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblActDiasFestivos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFechaDiaFestivo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------
 
-    } // public partial class frmDiasFestivos : Form
-} // namespace SIPAA_CS.Recursos_Humanos.Administracion
+    } 
+} 

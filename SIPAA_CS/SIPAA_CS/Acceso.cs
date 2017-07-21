@@ -46,7 +46,7 @@ namespace SIPAA_CS
         //-----------------------------------------------------------------------------------------------
         private void btnCerrar_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que deseas salir?", "SIPAA", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -54,7 +54,6 @@ namespace SIPAA_CS
             }
             else if (result == DialogResult.No)
             {
-
             }
         }
 
@@ -119,25 +118,25 @@ namespace SIPAA_CS
                                         }
                                         else
                                         {
-                                            MessageBox.Show("No tienes Módulos Asignados");
+                                            MessageBox.Show("No tienes módulos asignados","SIPAA");
                                         }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Usuario y contraseña no coincide");
+                                        MessageBox.Show("Usuario y contraseña no coincide","SIPAA");
                                         txtUsuario.Focus();
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("El usuario  esta inaactivo en sipaa");
+                                    MessageBox.Show("El usuario  esta inaactivo en sipaa","SIPAA");
                                     txtUsuario.Focus();
                                 }
 
                             }
                             else
                             {
-                                MessageBox.Show("El usuario " + usuario.Nombre + " esta inactivo");
+                                MessageBox.Show("El usuario " + usuario.Nombre + " esta inactivo","SIPAA");
                                 txtUsuario.Focus();
                                 //utilerias.DisableBotones(btnGuardar, 1, true);
                             }
@@ -145,14 +144,14 @@ namespace SIPAA_CS
                         }
                         else
                         {
-                            MessageBox.Show("No se encontró usuario en SONARH");
+                            MessageBox.Show("No se encontró usuario en SONARH","SIPAA");
                             txtUsuario.Focus();
                         }
                     }
                     catch (Exception)
                     {
 
-                        MessageBox.Show("No se encontró usuario en SONARH");
+                        MessageBox.Show("No se encontró usuario en SONARH","SIPAA");
                         txtUsuario.Focus();
                     }
                 }
@@ -201,19 +200,19 @@ namespace SIPAA_CS
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No tienes Módulos Asignados");
+                                    MessageBox.Show("No tienes módulos asignados","SIPAA");
                                 }
                                
                             }
                             else
                             {
-                                MessageBox.Show("Usuario y Contraseña no coincide");
+                                MessageBox.Show("Usuario y contraseña incorrectos","SIPAA");
                                 txtUsuario.Focus();
                             }
                         }
                         else
                         {
-                            MessageBox.Show("El usuario esta Inaactivo en SIPAA");
+                            MessageBox.Show("El usuario esta inaactivo en SIPAA","SIPAA");
                             txtUsuario.Focus();
                         }
                         
@@ -221,14 +220,14 @@ namespace SIPAA_CS
                     catch (Exception ex)
                     {
 
-                        MessageBox.Show("No se encontró usuario en SONARH");
+                        MessageBox.Show("No se encontró usuario en SONARH","SIPAA");
                         txtUsuario.Focus();
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Asigna Usuario y Contraseña");
+                MessageBox.Show("Asigna usuario y contraseña","SIPAA");
                 txtUsuario.Focus();
             }
             
@@ -236,13 +235,14 @@ namespace SIPAA_CS
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
-
-
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
         private void Acceso_Load(object sender, EventArgs e)
         {
+            //inicia tool tip
+            ftooltip();
+
             txtUsuario.Focus();
         }
         private void panel1_MouseUp(object sender, MouseEventArgs e)
@@ -262,11 +262,25 @@ namespace SIPAA_CS
                 Location = new Point(Cursor.Position.X - formPosition.X, Cursor.Position.Y - formPosition.Y);
             }
         }
-        
+
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
+        private void ftooltip()
+        {
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
 
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.btnCerrar, "Cerrar Sistema");
+            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
+        }
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

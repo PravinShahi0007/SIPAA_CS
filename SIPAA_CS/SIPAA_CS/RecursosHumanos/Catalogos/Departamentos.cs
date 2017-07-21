@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
 
+using static SIPAA_CS.App_Code.Usuario;
+
 namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
 
@@ -31,8 +33,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         SonaDepartamento departamentos = new SonaDepartamento();
 
         //***********************************************************************************************
-        //Autor: 
-        //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
+        //Autor:                          modif: noe alvarez marquina (se arreglan llamados a sp conforme al standar)
+        //Fecha creación:dd-mm-aaaa       Última Modificacion: 20/07/2017
         //Descripción: Lee la tabla de compañias de SONARH
         //***********************************************************************************************
 
@@ -50,15 +52,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             //llena grid
-            fgdeptos(1, txtComp.Text.Trim());
+            fgdeptos(5, txtComp.Text.Trim());
             txtComp.Text = "";
             txtComp.Focus();
-
-            //DataTable listadeptos = departamentos.obtdepto(1, txtComp.Text.Trim());
-            //dgvComp.DataSource = listadeptos;
-            //txtComp.Text = "";
-            //txtComp.Focus();
-
         }
 
         //boton minimizar        
@@ -81,19 +77,32 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             }
         }
-
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
+        }
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
         private void Departamentos_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "Departamentos.cs")
+                {
+                    f.Hide();
+                }
+            }
+
             //Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
-            //DataTable listadeptos = departamentos.obtdepto(1, "%");
-            //dgvComp.DataSource = listadeptos;
-            //txtComp.Text = "";
-            //txtComp.Focus();
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
 
             //inicializa tool tip
             ftooltip();
@@ -101,7 +110,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             txtComp.Focus();
 
             //llena grid
-            fgdeptos(1, "");
+            fgdeptos(4, "");
 
         }
 
@@ -138,6 +147,5 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //dgvComp.Columns[2].Width = 125;
             dgvComp.ClearSelection();
         }
-
     }
 }

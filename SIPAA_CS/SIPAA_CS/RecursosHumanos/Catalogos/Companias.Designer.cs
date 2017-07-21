@@ -187,7 +187,7 @@
             this.btnregresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnregresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnregresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnregresar.Location = new System.Drawing.Point(896, 1);
+            this.btnregresar.Location = new System.Drawing.Point(903, 1);
             this.btnregresar.Name = "btnregresar";
             this.btnregresar.Size = new System.Drawing.Size(30, 24);
             this.btnregresar.TabIndex = 111;
@@ -237,7 +237,7 @@
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(214, 23);
             this.lbltitulo.TabIndex = 108;
-            this.lbltitulo.Text = "      Catalogo de Compañias   ";
+            this.lbltitulo.Text = "      Cátalogo de Compañias   ";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblusuario
@@ -285,7 +285,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Companias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmCompanias";
+            this.Text = "Compañias";
             this.Load += new System.EventHandler(this.frmCompanias_Load);
             this.pnlbusqueda.ResumeLayout(false);
             this.pnlbusqueda.PerformLayout();

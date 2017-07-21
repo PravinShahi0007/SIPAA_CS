@@ -8,6 +8,12 @@ using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.Accesos;
 using System.Data;
 
+//***********************************************************************************************
+//Autor: ------------------       modifico: noe alvarez marquina (se agrega estandar)
+//Fecha creación:dd-mm-aaaa       Última Modificacion: 17/07/2017
+//Descripción: -------------------------------
+//***********************************************************************************************
+
 namespace SIPAA_CS
 {
     public partial class Dashboard : Form
@@ -44,7 +50,7 @@ namespace SIPAA_CS
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "SIPAA", MessageBoxButtons.YesNoCancel);
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -67,7 +73,7 @@ namespace SIPAA_CS
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNoCancel);
 
             if (result == DialogResult.Yes)
             {
@@ -85,6 +91,9 @@ namespace SIPAA_CS
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            //inicia tool tip
+            ftooltip();
+
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, "RECH");
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
@@ -133,7 +142,7 @@ namespace SIPAA_CS
         private void btnPower_Click(object sender, EventArgs e)
         {
 
-            DialogResult result = MessageBox.Show("¿Esta Seguro de Cerrar Sesión?", "Salir", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("¿Esta seguro de cerrar sesión?", "SIPAA", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -144,6 +153,25 @@ namespace SIPAA_CS
             }
 
 
+        }
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+        private void ftooltip()
+        {
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
+
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.btnCerrar, "Cerrar Sistema");
+            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnPower, "Cerara Sesión");
         }
     }
 }
