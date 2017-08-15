@@ -990,7 +990,7 @@ namespace SIPAA_CS.App_Code
 
             if (!dtTipo.Rows.Contains(row["Titulo"].ToString()))
             {
-                DataTable dtnew = objPer.ReportePerfilesModulos(row["Titulo"].ToString(), "%", sCvUsuario, "CS", 0, 0, 0, 0, 0, 13);
+                DataTable dtnew = objPer.ReportePerfilesModulos(row["Titulo"].ToString(), "%", sCvUsuario, "CS", 0, 0, 0, 0, 0, 14);
                 DataTable dtnewEncabezado = CrearEncabezados(dtnew);
 
                 DataTable dtmodulo = objModulo.ReporteModulos("%", "%", row["Titulo"].ToString(), "%", "", "%", "%", "", "", "", "", 9);
@@ -1023,7 +1023,7 @@ namespace SIPAA_CS.App_Code
                 {
                     MenuHijo.DropDownItems.Add(Menuitem);
                 }
-                DataTable dtnew = objPer.ReportePerfilesModulos(cvModPadre, row["Titulo"].ToString(), sCvUsuario, "CS", 0, 0, 0, 0, 0, 13);
+             DataTable dtnew = objPer.ReportePerfilesModulos(cvModPadre, row["Titulo"].ToString(), sCvUsuario, "CS", 0, 0, 0, 0, 0, 14);
                 ValidarHijos(dtnew, Menuitem, colorMenu);
 
             }
