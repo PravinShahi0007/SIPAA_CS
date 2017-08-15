@@ -136,6 +136,7 @@ namespace SIPAA_CS.App_Code
 
         public DataTable RelojesxTrabajador(string sIdTrab, int iCVReloj, int iOpcion, string sUsuumod, string sPrgmod)
         {
+          
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechtrabreloj_suid";
             cmd.CommandType = CommandType.StoredProcedure;

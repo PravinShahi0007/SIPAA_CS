@@ -58,6 +58,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                 DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
                 form.Show();
+                this.Close(); 
             }
         }
 
@@ -145,6 +146,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             //LoginInfo.IdTrab = "ADMIN";
             // Diccionario Permisos x Pantalla
+            lblusuario.Text = LoginInfo.Nombre;
+
+           
+           
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
             //////////////////////////////////////////////////////

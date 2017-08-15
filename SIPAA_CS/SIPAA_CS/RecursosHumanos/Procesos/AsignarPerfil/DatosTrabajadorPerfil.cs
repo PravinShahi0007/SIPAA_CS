@@ -66,12 +66,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             AsignacionTrabajadorPerfil form = new AsignacionTrabajadorPerfil();
             form.Show();
+            this.Close(); 
         }
 
         private void btnTipoHr_Click(object sender, EventArgs e)
         {
             AsignacionTipoHorarioTrabajador form = new AsignacionTipoHorarioTrabajador();
             form.Show();
+            this.Close(); 
 
         }
 
@@ -171,12 +173,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             AsignacionIncidenciasTrabajador form = new AsignacionIncidenciasTrabajador();
             form.Show();
+            this.Close(); 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             VacIncPermHrEsp nvform = new VacIncPermHrEsp();
             nvform.Show();
+            this.Close();  
         }
     }
 }

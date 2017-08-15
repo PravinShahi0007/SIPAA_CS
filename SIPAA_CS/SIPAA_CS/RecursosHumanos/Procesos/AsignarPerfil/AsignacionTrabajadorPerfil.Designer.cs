@@ -1369,6 +1369,7 @@
             this.label14.Size = new System.Drawing.Size(205, 18);
             this.label14.TabIndex = 57;
             this.label14.Text = "        Registrar Nueva Huella";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // btnAgregarHuella
             // 

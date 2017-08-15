@@ -91,5 +91,10 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         {
             this.Hide();
         }
+
+        private void BarraProgreso_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
