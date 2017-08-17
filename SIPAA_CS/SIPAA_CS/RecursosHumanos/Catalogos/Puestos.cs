@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using SIPAA_CS.App_Code;
 
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
+using static SIPAA_CS.App_Code.Usuario;
 
 //***********************************************************************************************
 //Autor: noe alvarez marquina
@@ -44,6 +45,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             WindowState = FormWindowState.Minimized;
         }
+        private void btnregresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
+        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
@@ -65,6 +72,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Puestos_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "Companias.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             //inicializa tool tip
             ftooltip();
 
@@ -103,6 +123,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             dgvpuestos.ClearSelection();
         }
+
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------
