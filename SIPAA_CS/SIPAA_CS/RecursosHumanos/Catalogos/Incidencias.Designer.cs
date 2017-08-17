@@ -130,6 +130,8 @@
             // 
             // cboRep
             // 
+            this.cboRep.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboRep.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboRep.FormattingEnabled = true;
             this.cboRep.Location = new System.Drawing.Point(132, 221);
             this.cboRep.Name = "cboRep";
@@ -150,6 +152,8 @@
             // 
             // cboGen
             // 
+            this.cboGen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboGen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboGen.FormattingEnabled = true;
             this.cboGen.Location = new System.Drawing.Point(131, 165);
             this.cboGen.Name = "cboGen";
