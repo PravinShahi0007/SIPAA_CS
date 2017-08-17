@@ -1114,7 +1114,7 @@ namespace SIPAA_CS.App_Code
 
         public static string descifrar(string sPass)
         {
-
+           
             byte[] llave;
             byte[] arrCifrado = Convert.FromBase64String(sPass);
 

@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-
 using static SIPAA_CS.App_Code.Usuario;
 using System.Data;
 using SIPAA_CS.Properties;
@@ -21,10 +20,10 @@ namespace SIPAA_CS.RecursosHumanos
             InitializeComponent();
         }
 
-        Perfil Perf = new Perfil();
+       /* Perfil Perf = new Perfil();
         Usuario usuario = new Usuario();
         Utilerias Util = new Utilerias();
-
+        */
         private void RechDashboard_Load(object sender, EventArgs e)
         {
             //inicia tool tip
@@ -34,10 +33,11 @@ namespace SIPAA_CS.RecursosHumanos
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
-            Dashboard form = new Dashboard();
-            form.Enabled = false;
+            /*Dashboard form = new Dashboard();
+            form.Enabled = false; */
 
             lblusuario.Text = LoginInfo.Nombre;
+          
 
             Usuario objUsuario = new Usuario();
 
@@ -140,10 +140,12 @@ namespace SIPAA_CS.RecursosHumanos
             Utilerias.ProcesoMenu(dtEncabezados, "ADMIN", "RECH", null, MsMenu,paneltitulo.BackColor);
         }
 
+
+
      
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         //-----------------------------------------------------------------------------------------------

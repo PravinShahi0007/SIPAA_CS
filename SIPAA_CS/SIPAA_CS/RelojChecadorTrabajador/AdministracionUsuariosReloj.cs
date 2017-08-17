@@ -604,6 +604,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         private void btnRegresar_Click_1(object sender, EventArgs e)
         {
+            AdministracionRelojChecador Form = new AdministracionRelojChecador();
+            Form.Show(); 
             this.Close();
         }
 

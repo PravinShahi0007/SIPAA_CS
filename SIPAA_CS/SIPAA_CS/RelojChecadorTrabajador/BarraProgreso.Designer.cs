@@ -106,6 +106,7 @@
             this.Name = "BarraProgreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BarraProgreso";
+            this.Load += new System.EventHandler(this.BarraProgreso_Load_1);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
