@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.App_Code;
+using static SIPAA_CS.App_Code.Usuario;
 
 //***********************************************************************************************
 //Autor: Noe Alvarez Marquina
@@ -266,6 +267,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             WindowState = FormWindowState.Minimized;
         }
 
+        private void btnregresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
+        }
+
         //boton cerrar
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -288,6 +296,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void TipoHorario_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "Companias.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             //habilita tool tip
             ftooltip();
 
@@ -351,6 +372,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnregresar, "Regresar");
             toolTip1.SetToolTip(this.btnbuscar, "Busca Registro");
         }
+
         private void fgtphr(int p_opcion, int p_cvtipohr, string p_descripcion, string p_usuumod, string p_prgumodr)
         {
 
