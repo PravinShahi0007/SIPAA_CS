@@ -253,7 +253,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(962, 101);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(55, 55);
-            this.btnAgregar.TabIndex = 135;
+            this.btnAgregar.TabIndex = 15;
             this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -305,7 +305,7 @@
             this.cbModulos.Location = new System.Drawing.Point(18, 200);
             this.cbModulos.Name = "cbModulos";
             this.cbModulos.Size = new System.Drawing.Size(250, 25);
-            this.cbModulos.TabIndex = 153;
+            this.cbModulos.TabIndex = 6;
             this.cbModulos.Text = "Selecciona un Módulo";
             // 
             // cbModuloTipo
@@ -321,7 +321,7 @@
             this.cbModuloTipo.Location = new System.Drawing.Point(16, 149);
             this.cbModuloTipo.Name = "cbModuloTipo";
             this.cbModuloTipo.Size = new System.Drawing.Size(250, 25);
-            this.cbModuloTipo.TabIndex = 60;
+            this.cbModuloTipo.TabIndex = 5;
             this.cbModuloTipo.Text = "Selecciona una Categoria";
             // 
             // pnlModulo
@@ -343,7 +343,7 @@
             this.cbTipoMod.Location = new System.Drawing.Point(17, 98);
             this.cbTipoMod.Name = "cbTipoMod";
             this.cbTipoMod.Size = new System.Drawing.Size(250, 25);
-            this.cbTipoMod.TabIndex = 151;
+            this.cbTipoMod.TabIndex = 4;
             this.cbTipoMod.Text = "Selecciona un Tipo de Módulo";
             this.cbTipoMod.SelectedIndexChanged += new System.EventHandler(this.cbTipoMod_SelectedIndexChanged);
             // 
@@ -363,7 +363,7 @@
             this.txtRuta.Location = new System.Drawing.Point(12, 394);
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.Size = new System.Drawing.Size(250, 15);
-            this.txtRuta.TabIndex = 68;
+            this.txtRuta.TabIndex = 10;
             // 
             // panel3
             // 
@@ -381,7 +381,7 @@
             this.txtCvModulo.Location = new System.Drawing.Point(16, 252);
             this.txtCvModulo.Name = "txtCvModulo";
             this.txtCvModulo.Size = new System.Drawing.Size(250, 15);
-            this.txtCvModulo.TabIndex = 64;
+            this.txtCvModulo.TabIndex = 7;
             // 
             // panel2
             // 
@@ -399,7 +399,7 @@
             this.txtOrden.Location = new System.Drawing.Point(12, 348);
             this.txtOrden.Name = "txtOrden";
             this.txtOrden.Size = new System.Drawing.Size(250, 15);
-            this.txtOrden.TabIndex = 62;
+            this.txtOrden.TabIndex = 9;
             // 
             // btnGuardar
             // 
@@ -410,7 +410,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(211, 434);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(55, 55);
-            this.btnGuardar.TabIndex = 52;
+            this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Tag = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -422,7 +422,7 @@
             this.ckbEliminar.Location = new System.Drawing.Point(14, 434);
             this.ckbEliminar.Name = "ckbEliminar";
             this.ckbEliminar.Size = new System.Drawing.Size(47, 17);
-            this.ckbEliminar.TabIndex = 55;
+            this.ckbEliminar.TabIndex = 11;
             this.ckbEliminar.Tag = "Eliminar";
             this.ckbEliminar.Text = "Baja";
             this.ckbEliminar.UseVisualStyleBackColor = true;
@@ -443,6 +443,7 @@
             this.cbAmbiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbAmbiente.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAmbiente.FormattingEnabled = true;
+            this.cbAmbiente.ItemHeight = 17;
             this.cbAmbiente.Items.AddRange(new object[] {
             "WEB",
             "CS",
@@ -450,7 +451,7 @@
             this.cbAmbiente.Location = new System.Drawing.Point(17, 45);
             this.cbAmbiente.Name = "cbAmbiente";
             this.cbAmbiente.Size = new System.Drawing.Size(250, 25);
-            this.cbAmbiente.TabIndex = 33;
+            this.cbAmbiente.TabIndex = 3;
             this.cbAmbiente.Text = "Selecciona un Ambiente";
             // 
             // txtDescripcion
@@ -461,7 +462,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(14, 300);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(250, 15);
-            this.txtDescripcion.TabIndex = 4;
+            this.txtDescripcion.TabIndex = 8;
             // 
             // lblAccion
             // 
@@ -515,6 +516,7 @@
             this.dgvModulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvModulos.Size = new System.Drawing.Size(637, 538);
             this.dgvModulos.TabIndex = 132;
+            this.dgvModulos.TabStop = false;
             this.dgvModulos.Tag = "Editar";
             this.dgvModulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModulos_CellContentClick);
             // 
@@ -529,7 +531,7 @@
             this.pnlBusqueda.Location = new System.Drawing.Point(10, 101);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(346, 94);
-            this.pnlBusqueda.TabIndex = 131;
+            this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
             // 
             // btnBuscar

@@ -125,6 +125,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             }
         }
 
+        private void FiltroMasDe3Faltas_Load(object sender, EventArgs e)
+        {
+
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------

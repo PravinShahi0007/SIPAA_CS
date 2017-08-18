@@ -332,6 +332,7 @@
             this.Name = "FiltroMasDe3Faltas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FiltroMasDe3Faltas";
+            this.Load += new System.EventHandler(this.FiltroMasDe3Faltas_Load);
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
             this.pnlImprimir.ResumeLayout(false);
