@@ -160,8 +160,8 @@ namespace SIPAA_CS.Accesos
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            //Dashboard d = new Dashboard();
-            //d.Show();
+            Dashboard d = new Dashboard();
+            d.Show();
             this.Close();
         }
 
