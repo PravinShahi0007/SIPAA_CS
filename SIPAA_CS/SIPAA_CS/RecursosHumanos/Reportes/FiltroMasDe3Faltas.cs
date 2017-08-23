@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Reportes
 {
@@ -127,7 +128,44 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void FiltroMasDe3Faltas_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "FiltroMasDe3Faltas.cs")
+                {
+                    f.Hide();
+                }
+            }
 
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+        }
+
+        private void btnRegresar_Click_1(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
+        }
+
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
         }
 
         //-----------------------------------------------------------------------------------------------

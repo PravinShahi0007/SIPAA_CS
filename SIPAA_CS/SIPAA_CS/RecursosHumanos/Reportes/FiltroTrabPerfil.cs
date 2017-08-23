@@ -14,6 +14,7 @@ using SIPAA_CS.Conexiones;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using SIPAA_CS.RecursosHumanos.DataSets;
+using static SIPAA_CS.App_Code.Usuario;
 
 //***********************************************************************************************
 //Autor: Marco Dupont
@@ -141,6 +142,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
 
@@ -173,6 +176,19 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void FiltroTrabPerfil_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "FiltroTrabPerfil.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;

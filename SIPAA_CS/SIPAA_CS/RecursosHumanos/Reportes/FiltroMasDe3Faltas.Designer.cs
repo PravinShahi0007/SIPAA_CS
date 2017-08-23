@@ -35,7 +35,6 @@
             System.Windows.Forms.Label label9;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FiltroMasDe3Faltas));
             System.Windows.Forms.Label label4;
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.lblusuario = new System.Windows.Forms.Label();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -133,27 +132,18 @@
             label4.TabIndex = 65;
             label4.Text = "       Imprimir Reporte";
             // 
-            // pnlimgusuario
-            // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(12, 30);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 123;
-            // 
             // lblusuario
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblusuario.Location = new System.Drawing.Point(8, 74);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(124, 23);
+            this.lblusuario.Size = new System.Drawing.Size(52, 20);
             this.lblusuario.TabIndex = 124;
-            this.lblusuario.Text = "Nombre Usuario";
+            this.lblusuario.Text = "usuario";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbltitulo
@@ -162,12 +152,13 @@
             this.lbltitulo.BackColor = System.Drawing.Color.Transparent;
             this.lbltitulo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
+            this.lbltitulo.Image = global::SIPAA_CS.Properties.Resources.ic_assignment_white_24dp;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbltitulo.Location = new System.Drawing.Point(285, 2);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(459, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(450, 23);
             this.lbltitulo.TabIndex = 125;
-            this.lbltitulo.Text = "      Filtros de Reporte - Mas de 3 Faltas en un Período de 30 días";
+            this.lbltitulo.Text = "      Filtros de Reporte más de 3 Faltas en un Período de 30 días";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegresar
@@ -182,6 +173,7 @@
             this.btnRegresar.Size = new System.Drawing.Size(30, 25);
             this.btnRegresar.TabIndex = 138;
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click_1);
             // 
             // btnMinimizar
             // 
@@ -196,6 +188,7 @@
             this.btnMinimizar.TabIndex = 137;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click_1);
             // 
             // btnCerrar
             // 
@@ -210,6 +203,7 @@
             this.btnCerrar.TabIndex = 136;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
             // 
             // pnlBusqueda
             // 
@@ -277,7 +271,7 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel7.Location = new System.Drawing.Point(65, 75);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 2);
+            this.panel7.Size = new System.Drawing.Size(250, 1);
             this.panel7.TabIndex = 43;
             // 
             // txtIdTrab
@@ -285,7 +279,7 @@
             this.txtIdTrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtIdTrab.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtIdTrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdTrab.Location = new System.Drawing.Point(65, 55);
+            this.txtIdTrab.Location = new System.Drawing.Point(66, 59);
             this.txtIdTrab.Name = "txtIdTrab";
             this.txtIdTrab.Size = new System.Drawing.Size(250, 15);
             this.txtIdTrab.TabIndex = 1;
@@ -307,7 +301,7 @@
             this.btnImprimir.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
             this.btnImprimir.Location = new System.Drawing.Point(239, 33);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(50, 50);
+            this.btnImprimir.Size = new System.Drawing.Size(55, 55);
             this.btnImprimir.TabIndex = 2;
             this.btnImprimir.Tag = "Buscar";
             this.btnImprimir.UseVisualStyleBackColor = false;
@@ -326,12 +320,11 @@
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lbltitulo);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.pnlimgusuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FiltroMasDe3Faltas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FiltroMasDe3Faltas";
+            this.Text = "Más de 3 Faltas en 30 Días";
             this.Load += new System.EventHandler(this.FiltroMasDe3Faltas_Load);
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
@@ -343,8 +336,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Label lbltitulo;
         private System.Windows.Forms.Button btnRegresar;

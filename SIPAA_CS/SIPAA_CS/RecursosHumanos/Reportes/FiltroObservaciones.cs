@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using static SIPAA_CS.App_Code.Usuario;
+
 namespace SIPAA_CS.RecursosHumanos.Reportes
 {
     public partial class FiltroObservaciones : Form
@@ -173,6 +175,19 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void FiltroObservaciones_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "FiltroObservaciones.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             SonaCompania objCia = new SonaCompania();
             DataTable dtCia = objCia.obtcomp(5, "");
@@ -203,12 +218,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            WindowState = FormWindowState.Minimized;
         }
 
 
@@ -255,6 +272,20 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             }
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
         }
 
 

@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using static SIPAA_CS.App_Code.Usuario;
+
 namespace SIPAA_CS.RecursosHumanos.Reportes
 {
     public partial class FiltrosRegistroGeneradoDetalle : Form
@@ -111,6 +113,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
 
@@ -140,6 +144,18 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void FiltrosRegistroGeneradoDetalle_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "FiltrosRegistroGeneradoDetalle.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
 
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 

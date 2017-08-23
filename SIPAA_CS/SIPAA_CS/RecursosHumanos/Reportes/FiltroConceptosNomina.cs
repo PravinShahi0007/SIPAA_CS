@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Reportes
 {
@@ -84,6 +85,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
 
@@ -100,6 +103,22 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             {
                 Application.Exit();
             }
+        }
+
+        private void FiltroConceptosNomina_Load(object sender, EventArgs e)
+        {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "FiltroConceptosNomina.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
         }
 
         //-----------------------------------------------------------------------------------------------

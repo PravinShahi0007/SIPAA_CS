@@ -53,7 +53,7 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             label4 = new System.Windows.Forms.Label();
             lblDescripcion = new System.Windows.Forms.Label();
             lblIdAfectacion = new System.Windows.Forms.Label();
@@ -64,6 +64,7 @@
             this.pnlImprimir.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -272,7 +273,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel2.Location = new System.Drawing.Point(64, 195);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 2);
+            this.panel2.Size = new System.Drawing.Size(250, 1);
             this.panel2.TabIndex = 59;
             // 
             // panel3
@@ -280,7 +281,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel3.Location = new System.Drawing.Point(65, 110);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 2);
+            this.panel3.Size = new System.Drawing.Size(250, 1);
             this.panel3.TabIndex = 43;
             // 
             // txtIdAfecta
@@ -288,7 +289,7 @@
             this.txtIdAfecta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtIdAfecta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtIdAfecta.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdAfecta.Location = new System.Drawing.Point(65, 90);
+            this.txtIdAfecta.Location = new System.Drawing.Point(66, 93);
             this.txtIdAfecta.Name = "txtIdAfecta";
             this.txtIdAfecta.Size = new System.Drawing.Size(250, 15);
             this.txtIdAfecta.TabIndex = 1;
@@ -302,7 +303,7 @@
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.btnRegresar.Location = new System.Drawing.Point(917, 1);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(30, 25);
+            this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 145;
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
@@ -341,26 +342,27 @@
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblusuario.Location = new System.Drawing.Point(8, 75);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(124, 23);
+            this.lblusuario.Size = new System.Drawing.Size(52, 20);
             this.lblusuario.TabIndex = 147;
-            this.lblusuario.Text = "Nombre Usuario";
+            this.lblusuario.Text = "usuario";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblusuario.Visible = false;
             // 
-            // pnlimgusuario
+            // ptbimgusuario
             // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(12, 31);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 146;
-            this.pnlimgusuario.Visible = false;
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 150;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
             // 
             // FiltroConceptosNomina
             // 
@@ -369,8 +371,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
@@ -382,13 +384,15 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FiltroConceptosNomina";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FiltroConceptosNomina";
+            this.Text = "Conceptos Nómina";
+            this.Load += new System.EventHandler(this.FiltroConceptosNomina_Load);
             this.pnlImprimir.ResumeLayout(false);
             this.pnlImprimir.PerformLayout();
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,6 +417,6 @@
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label lblusuario;
-        private System.Windows.Forms.Panel pnlimgusuario;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }
