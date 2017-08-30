@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
@@ -113,6 +114,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void Empleados_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "Companias.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             //llama el tooltip
@@ -154,6 +168,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //dgvEmpleados.Columns[1].Width = 355;
             //dgvComp.Columns[2].Width = 125;
             dgvEmpleados.ClearSelection();
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
         }
     }
 }

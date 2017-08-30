@@ -348,6 +348,19 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         private void Asignacion_Area_Usuario_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "AreasUsuarios.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
@@ -488,7 +501,8 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
 

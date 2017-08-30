@@ -182,7 +182,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 //llenado de combo ubicaciones
                 //util.cargarcombo(cbUbicacion, oUbicacion.obtenerSonaUbicacion("",6));
-                Utilerias.llenarComboxDataTable(cbUbicacion, oUbicacion.obtenerSonaUbicacion("", 6), "Clave", "Descripción");
+                Utilerias.llenarComboxDataTable(cbUbicacion, oUbicacion.obtenerSonaUbicacion("", 6), "Clave", "Descripcion");
                 bprimeravez = false;
             }
         }

@@ -104,15 +104,6 @@ namespace SIPAA_CS.App_Code
             return dtIncidencia;
         }
 
-        /* @P_idtrab as varchar(50)
-	,@P_fechainicio AS DATETIME
-	,@P_fechafin AS DATETIME
-	,@P_Depto AS VARCHAR(150)
-	,@P_cia  AS VARCHAR(150)
-	,@P_tnom  AS VARCHAR(150)
-	,@P_ubicacion  AS VARCHAR(150)
-	,@P_plantel  AS VARCHAR(150)
-        */
 
         public DataTable ReporteResumen(string sIdTrab, DateTime dtFechaInicio
                                                      , DateTime dtFechaFin, string sDepto, string sCompania,string sTNom

@@ -241,6 +241,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             WindowState = FormWindowState.Minimized;
         }
 
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
+        }
+
         //boton cerrar
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -265,6 +272,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void frmRelojesChecadores_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "Companias.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             //LLAMA TOOL TIP
             fTooltip();
 

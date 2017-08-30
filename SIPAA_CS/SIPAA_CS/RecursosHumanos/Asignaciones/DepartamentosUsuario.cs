@@ -77,6 +77,8 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         }
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
@@ -216,6 +218,19 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         //-----------------------------------------------------------------------------------------------
         private void DepartamentosUsuario_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "DepartamentosUsuario.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);

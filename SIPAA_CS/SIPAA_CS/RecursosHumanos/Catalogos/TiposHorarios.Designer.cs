@@ -34,11 +34,10 @@
             System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiposHorarios));
             System.Windows.Forms.Label label3;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbluid = new System.Windows.Forms.Label();
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnregresar = new System.Windows.Forms.Button();
             this.btnminimizar = new System.Windows.Forms.Button();
@@ -58,6 +57,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -66,6 +66,7 @@
             this.pnlbusqueda.SuspendLayout();
             this.pnltiphr.SuspendLayout();
             this.panelTag.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -131,27 +132,18 @@
             this.lbluid.TabIndex = 41;
             this.lbluid.Text = "     Agregar Tipo de Horario";
             // 
-            // pnlimgusuario
-            // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(11, 30);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 128;
-            // 
             // lblusuario
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblusuario.Location = new System.Drawing.Point(6, 73);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.Size = new System.Drawing.Size(56, 20);
             this.lblusuario.TabIndex = 127;
-            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnregresar
@@ -161,11 +153,12 @@
             this.btnregresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnregresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnregresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnregresar.Location = new System.Drawing.Point(936, 1);
+            this.btnregresar.Location = new System.Drawing.Point(913, 1);
             this.btnregresar.Name = "btnregresar";
             this.btnregresar.Size = new System.Drawing.Size(30, 24);
             this.btnregresar.TabIndex = 136;
             this.btnregresar.UseVisualStyleBackColor = false;
+            this.btnregresar.Click += new System.EventHandler(this.btnregresar_Click);
             // 
             // btnminimizar
             // 
@@ -174,7 +167,7 @@
             this.btnminimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnminimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnminimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnminimizar.Location = new System.Drawing.Point(972, 1);
+            this.btnminimizar.Location = new System.Drawing.Point(974, 1);
             this.btnminimizar.Name = "btnminimizar";
             this.btnminimizar.Size = new System.Drawing.Size(24, 24);
             this.btnminimizar.TabIndex = 125;
@@ -189,7 +182,7 @@
             this.btncerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btncerrar.Location = new System.Drawing.Point(998, 1);
+            this.btncerrar.Location = new System.Drawing.Point(999, 1);
             this.btncerrar.Name = "btncerrar";
             this.btncerrar.Size = new System.Drawing.Size(24, 24);
             this.btncerrar.TabIndex = 124;
@@ -209,7 +202,7 @@
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(249, 23);
             this.lbltitulo.TabIndex = 123;
-            this.lbltitulo.Text = "       Catalogo de Tipos de Horario  ";
+            this.lbltitulo.Text = "       Cátalogo de Tipos de Horario  ";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvtiphr
@@ -217,29 +210,29 @@
             this.dgvtiphr.AllowUserToAddRows = false;
             this.dgvtiphr.AllowUserToDeleteRows = false;
             this.dgvtiphr.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvtiphr.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvtiphr.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvtiphr.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvtiphr.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvtiphr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvtiphr.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvtiphr.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvtiphr.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvtiphr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvtiphr.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvtiphr.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvtiphr.Location = new System.Drawing.Point(479, 185);
             this.dgvtiphr.Name = "dgvtiphr";
             this.dgvtiphr.ReadOnly = true;
@@ -275,7 +268,7 @@
             this.btnbuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
             this.btnbuscar.Location = new System.Drawing.Point(339, 14);
             this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(50, 50);
+            this.btnbuscar.Size = new System.Drawing.Size(55, 55);
             this.btnbuscar.TabIndex = 137;
             this.btnbuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -335,7 +328,7 @@
             this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
             this.btninsertar.Location = new System.Drawing.Point(339, 13);
             this.btninsertar.Name = "btninsertar";
-            this.btninsertar.Size = new System.Drawing.Size(50, 50);
+            this.btninsertar.Size = new System.Drawing.Size(55, 55);
             this.btninsertar.TabIndex = 134;
             this.btninsertar.UseVisualStyleBackColor = false;
             this.btninsertar.Click += new System.EventHandler(this.btninsertar_Click);
@@ -365,9 +358,9 @@
             this.btnagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnagregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnagregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
-            this.btnagregar.Location = new System.Drawing.Point(941, 131);
+            this.btnagregar.Location = new System.Drawing.Point(936, 126);
             this.btnagregar.Name = "btnagregar";
-            this.btnagregar.Size = new System.Drawing.Size(50, 50);
+            this.btnagregar.Size = new System.Drawing.Size(55, 55);
             this.btnagregar.TabIndex = 135;
             this.btnagregar.UseVisualStyleBackColor = false;
             this.btnagregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -401,19 +394,31 @@
             this.lbMensaje.Text = "Administración de Perfiles    ";
             this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 150;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
+            // 
             // TiposHorarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.panelTag);
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.pnltiphr);
             this.Controls.Add(this.pnlbusqueda);
             this.Controls.Add(label2);
             this.Controls.Add(this.dgvtiphr);
-            this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.btnregresar);
             this.Controls.Add(this.btnminimizar);
@@ -423,7 +428,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TiposHorarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TipoHorario";
+            this.Text = "Tipos de Horario";
             this.Load += new System.EventHandler(this.TipoHorario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvtiphr)).EndInit();
             this.pnlbusqueda.ResumeLayout(false);
@@ -432,14 +437,13 @@
             this.pnltiphr.PerformLayout();
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Button btnregresar;
         private System.Windows.Forms.Button btnminimizar;
@@ -460,5 +464,6 @@
         private System.Windows.Forms.CheckBox cbxEliminar;
         private System.Windows.Forms.Label lbluid;
         private System.Windows.Forms.Button btnbuscar;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }

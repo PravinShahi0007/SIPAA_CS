@@ -131,7 +131,8 @@ namespace SIPAA_CS
         {
             AcceDashboard Ads = new AcceDashboard();
             Ads.Show();
-            //this.Hide();   
+            this.Close();
+  
         }
 
         private void btnAlmacen_Click(object sender, EventArgs e)

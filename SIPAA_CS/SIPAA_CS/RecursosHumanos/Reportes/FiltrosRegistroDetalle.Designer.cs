@@ -49,6 +49,8 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtIdTrab = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.lblusuario = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -58,6 +60,7 @@
             label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -155,7 +158,7 @@
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.btnRegresar.Location = new System.Drawing.Point(916, 1);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(30, 25);
+            this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 135;
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
@@ -207,7 +210,7 @@
             this.btnImprimirDetalle.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
             this.btnImprimirDetalle.Location = new System.Drawing.Point(239, 33);
             this.btnImprimirDetalle.Name = "btnImprimirDetalle";
-            this.btnImprimirDetalle.Size = new System.Drawing.Size(50, 50);
+            this.btnImprimirDetalle.Size = new System.Drawing.Size(55, 55);
             this.btnImprimirDetalle.TabIndex = 2;
             this.btnImprimirDetalle.Tag = "Buscar";
             this.btnImprimirDetalle.UseVisualStyleBackColor = false;
@@ -308,7 +311,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_18dp;
+            this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_assignment_white_24dp;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(413, 3);
             this.label3.Name = "label3";
@@ -317,6 +320,32 @@
             this.label3.Text = "      Filtros de Reporte Registro Detalle";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 151;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
+            // 
+            // lblusuario
+            // 
+            this.lblusuario.AutoSize = true;
+            this.lblusuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.ForeColor = System.Drawing.Color.White;
+            this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblusuario.Location = new System.Drawing.Point(7, 75);
+            this.lblusuario.Name = "lblusuario";
+            this.lblusuario.Size = new System.Drawing.Size(56, 20);
+            this.lblusuario.TabIndex = 150;
+            this.lblusuario.Text = "usuario ";
+            this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FiltrosRegistroDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,6 +353,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
+            this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlBusqueda);
@@ -334,12 +365,13 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FiltrosRegistroDetalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FiltrosRegistroDetalle";
+            this.Text = "Registro Detalle";
             this.Load += new System.EventHandler(this.FiltrosRegistroDetalle_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,5 +392,7 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txtIdTrab;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.Label lblusuario;
     }
 }

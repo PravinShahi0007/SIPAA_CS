@@ -37,8 +37,7 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label lblStatus;
             System.Windows.Forms.Label lblCheca;
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblusuario = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -53,6 +52,7 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnimpdethr = new System.Windows.Forms.Button();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             lblubicacion = new System.Windows.Forms.Label();
             lblidcia = new System.Windows.Forms.Label();
             lblidtrab = new System.Windows.Forms.Label();
@@ -64,6 +64,7 @@
             this.pnlBusqueda.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // lblubicacion
@@ -165,28 +166,19 @@
             lblCheca.TabIndex = 64;
             lblCheca.Text = "Checa";
             // 
-            // panel2
+            // lblusuario
             // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Location = new System.Drawing.Point(38, 30);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(37, 41);
-            this.panel2.TabIndex = 149;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(5, 74);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 23);
-            this.label5.TabIndex = 148;
-            this.label5.Text = "     Marco Dupont";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblusuario.AutoSize = true;
+            this.lblusuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.ForeColor = System.Drawing.Color.White;
+            this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblusuario.Location = new System.Drawing.Point(9, 75);
+            this.lblusuario.Name = "lblusuario";
+            this.lblusuario.Size = new System.Drawing.Size(52, 20);
+            this.lblusuario.TabIndex = 148;
+            this.lblusuario.Text = "usuario";
+            this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -194,12 +186,13 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_assignment_white_24dp;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(416, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 23);
+            this.label3.Size = new System.Drawing.Size(172, 23);
             this.label3.TabIndex = 147;
-            this.label3.Text = "Perfil de Empleados";
+            this.label3.Text = "      Perfil de Empleados";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
@@ -210,7 +203,7 @@
             this.btnRegresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Location = new System.Drawing.Point(943, 1);
+            this.btnRegresar.Location = new System.Drawing.Point(915, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 146;
@@ -224,7 +217,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(972, 1);
+            this.btnMinimizar.Location = new System.Drawing.Point(973, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 145;
@@ -239,7 +232,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(998, 1);
+            this.btnCerrar.Location = new System.Drawing.Point(999, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 144;
@@ -363,7 +356,7 @@
             this.btnImprimir.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
             this.btnImprimir.Location = new System.Drawing.Point(282, 32);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(50, 50);
+            this.btnImprimir.Size = new System.Drawing.Size(55, 55);
             this.btnImprimir.TabIndex = 6;
             this.btnImprimir.Tag = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
@@ -387,11 +380,24 @@
             this.btnimpdethr.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
             this.btnimpdethr.Location = new System.Drawing.Point(282, 32);
             this.btnimpdethr.Name = "btnimpdethr";
-            this.btnimpdethr.Size = new System.Drawing.Size(50, 50);
+            this.btnimpdethr.Size = new System.Drawing.Size(55, 55);
             this.btnimpdethr.TabIndex = 7;
             this.btnimpdethr.Tag = "Imprimir";
             this.btnimpdethr.UseVisualStyleBackColor = false;
             this.btnimpdethr.Click += new System.EventHandler(this.btnimpdethr_Click);
+            // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 150;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
             // 
             // FiltroTrabPerfil
             // 
@@ -399,11 +405,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlBusqueda);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMinimizar);
@@ -412,7 +418,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FiltroTrabPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FiltroTrabPerfil";
+            this.Text = "Perfil de Empleados";
             this.Load += new System.EventHandler(this.FiltroTrabPerfil_Load);
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
@@ -420,15 +426,14 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnMinimizar;
@@ -443,5 +448,6 @@
         private System.Windows.Forms.ComboBox cboEmpleados;
         private System.Windows.Forms.ComboBox cboStatus;
         private System.Windows.Forms.ComboBox CbCheca;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }

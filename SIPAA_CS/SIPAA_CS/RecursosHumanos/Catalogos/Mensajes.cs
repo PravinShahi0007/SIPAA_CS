@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
+using static SIPAA_CS.App_Code.Usuario;
 
 //***********************************************************************************************
 //Autor: Jose Luis Alvarez Delgado
@@ -228,12 +229,33 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             }
         }
+        //boton regresar
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
+        }
 
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
         private void Mensajes_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "Mensajes.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
+
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             ftooltip();

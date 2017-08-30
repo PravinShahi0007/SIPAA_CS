@@ -198,6 +198,8 @@ namespace SIPAA_CS.Accesos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void btnRegresa_Click(object sender, EventArgs e)
         {
+            AcceDashboard accedb = new AcceDashboard();
+            accedb.Show();
             this.Close();
         }
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -236,7 +238,7 @@ namespace SIPAA_CS.Accesos.Catalogos
             PanelEditar.Visible = true;
             ckbEliminar.Visible = false;
             Utilerias.AsignarBotonResize(btnGuardar,Utilerias.PantallaSistema(),"Guardar");
-            txtCvModulo.Focus();
+            cbAmbiente.Focus();
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -284,7 +286,7 @@ namespace SIPAA_CS.Accesos.Catalogos
                                     cbAmbiente.Text = "Selecciona un Ambiente";
                                     cbModuloTipo.Text = "Selecciona una Categoría";
                                     PanelEditar.Visible = false;
-                                    Modulos_Load(sender, e);
+                                    //Modulos_Load(sender, e);
 
                                     if (response == 1)
                                     {
@@ -359,7 +361,7 @@ namespace SIPAA_CS.Accesos.Catalogos
                                     cbModuloTipo.Text = "Selecciona una Categoría";
                                     cbModulos.Text = "Selecciona un Módulo";
                                     PanelEditar.Visible = false;
-                                    Modulos_Load(sender, e);
+                                    //Modulos_Load(sender, e);
 
                                     if (response == 1)
                                     {
@@ -437,7 +439,7 @@ namespace SIPAA_CS.Accesos.Catalogos
                             cbAmbiente.Text = "Selecciona un Ambiente";
                             cbModuloTipo.Text = "Selecciona una Categoría";
                             PanelEditar.Visible = false;
-                            Modulos_Load(sender, e);
+                            //Modulos_Load(sender, e);
 
                             if (response == 1)
                             {
@@ -579,7 +581,7 @@ namespace SIPAA_CS.Accesos.Catalogos
                         cbModuloTipo.Text = "Selecciona una Categoría";
                         cbModulos.Text = "Selecciona un Módulo";
                         PanelEditar.Visible = false;
-                        Modulos_Load(sender, e);
+                        //Modulos_Load(sender, e);
 
                         if (response == 1)
                         {
@@ -635,13 +637,13 @@ namespace SIPAA_CS.Accesos.Catalogos
 
                     if (response == 1)
                     {
-                        Modulos_Load(sender, e);
+                        //Modulos_Load(sender, e);
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El Módulo esta Activado");
                         timer1.Start();
                     }
                     else if (response == 0)
                     {
-                        Modulos_Load(sender, e);
+                        //Modulos_Load(sender, e);
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El Módulo esta Inactivo");
                         timer1.Start();
                     }
@@ -676,6 +678,19 @@ namespace SIPAA_CS.Accesos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Modulos_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "FiltroMasDe3Faltas.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             //Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);

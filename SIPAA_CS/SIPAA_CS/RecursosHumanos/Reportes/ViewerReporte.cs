@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.RecursosHumanos.Reportes
 {
@@ -27,13 +28,13 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void ViewerReporte_Load(object sender, EventArgs e)
         {
-              Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
+           Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
            
             ReporteView.ReportSource = RptDoc;
-             
-            
 
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
         }
 
        
@@ -50,12 +51,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
 
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+            this.Close();
         }
     }
 }

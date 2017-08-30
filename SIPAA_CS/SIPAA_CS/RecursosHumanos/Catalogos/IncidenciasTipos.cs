@@ -293,6 +293,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
 
@@ -306,7 +308,21 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Incapacidad_Tipo_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "IncidenciasTipos.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+
+            ftooltip();
+
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
@@ -447,6 +463,24 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 timer1.Start();
             }
 
+        }
+
+        private void ftooltip()
+        {
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
+
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
+            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
         }
 
 
