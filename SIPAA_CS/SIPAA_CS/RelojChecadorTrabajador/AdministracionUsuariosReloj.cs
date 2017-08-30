@@ -20,9 +20,12 @@ namespace SIPAA_CS.RelojChecadorTrabajador
     public partial class AdministracionUsuariosReloj : Form
     {
 
-        CheckBox chk = new CheckBox();
+        //CheckBox chk = new CheckBox();
+        CheckBox ckheader = new CheckBox();
         public CZKEMClass objCZKEM = new CZKEMClass();
         public List<UsuarioReloj> ltUsuario = new List<UsuarioReloj>();
+        public List<string> ltRelojxUsuario = new List<string>();
+        List<Reloj> ltReloj = new List<Reloj>();
         BackgroundWorker bd = new BackgroundWorker();
         public string Mensaje;
 
@@ -31,9 +34,25 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             InitializeComponent();
         }
 
+        public class Reloj
+        {
+            public int cvReloj;
+            public string IpReloj;
+            public bool Teclado;
+            public bool Huella;
+            public bool Rostro;
+            public bool MultipleHuella;
+            public string UltimaDescarga;
+            public string Descripcion;
+            public string UsuSincChecadas;
+        }
+
         private void AdministracionUsuariosReloj_Load(object sender, EventArgs e)
         {
-            LoginInfo.IdTrab = "ADMIN";
+            //LoginInfo.IdTrab = "ADMIN";
+            //lblusuario.Text = LoginInfo.Nombre;
+            //LoginInfo.IdTrab;
+            
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
@@ -42,7 +61,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             //////////////////////////////////////////////////////////////////////////////////
             lblusuario.Text = LoginInfo.Nombre;
-
+        
             bd.DoWork += Bd_DoWork;
             bd.RunWorkerCompleted += Bd_RunWorkerCompleted;
 
@@ -59,8 +78,87 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             //ValidarBotones();
             //prgb1.Maximum = 100;
             //prgb1.Value = 0;
+            //llenarGridReloj("%");
+            LlenarGrid(6, 0, "%", "%", "%", 0, "", "");
+
+        }
+
+        public void LlenarGrid(int p_opcion, int p_cvreloj, string p_descripcion, string p_ip, string p_cvvnc, int p_stactualiza, string p_usuumod, string p_prgumodr)
+        {
+
+            if (dgvRelojes.Columns.Count > 0)
+            {
+                dgvRelojes.Columns.RemoveAt(0);
+            }
 
 
+            RelojChecador objReloj = new RelojChecador();
+            DataTable dtRelojChecador = objReloj.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
+            dgvRelojes.DataSource = dtRelojChecador;
+
+            Utilerias.AgregarCheck(dgvRelojes, 0);
+
+            ckheader = Utilerias.AgregarCheckboxHeader(dgvRelojes, 0);
+
+            ckheader.CheckedChanged += Ckheader_CheckedChanged;
+            dgvRelojes.Columns["Clave"].Visible = false;
+            dgvRelojes.Columns["Actualiza"].Visible = false;
+            dgvRelojes.Columns["ClaveVNC"].Visible = false;
+            dgvRelojes.Columns["multiplehuella"].Visible = false;
+            //////////////////////// 
+            // estas de aqui abajo las oculte como vista previa, porque el usuario no necesita esos datos y no sirven para nada
+            dgvRelojes.Columns["teclado"].Visible = false;
+            dgvRelojes.Columns["huella"].Visible = false;
+            dgvRelojes.Columns["IP"].Visible = false;
+            dgvRelojes.Columns["Rostro"].Visible = false;
+            ///////////////////////
+            dgvRelojes.Columns["Usuario Sincronizó Checadas"].Visible = false;
+            dgvRelojes.Columns["Usuario Sincronizó Usuarios"].Visible = false;
+            dgvRelojes.Columns[0].Width = 90;
+
+
+            foreach (DataGridViewRow row in dgvRelojes.Rows)
+            {
+                row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                row.Cells[0].Tag = "uncheck";
+            }
+        }
+
+        private void Ckheader_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox chk = (CheckBox)sender;
+
+            if (chk.Checked == true)
+            {
+                ltReloj.Clear();
+
+                foreach (DataGridViewRow row in dgvRelojes.Rows)
+                {
+
+                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+
+                    Reloj objR = new Reloj();
+                    objR.cvReloj = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
+                    objR.IpReloj = row.Cells["IP"].Value.ToString();
+                    ltReloj.Add(objR);
+
+                    panelAccion.Enabled = true;
+                  //btnAdmin.Enabled = false;
+                }
+
+            }
+            else
+            {
+
+                ltReloj.Clear();
+                foreach (DataGridViewRow row in dgvRelojes.Rows)
+                {
+                    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                    row.Cells[0].Tag = "uncheck";
+                }
+                panelAccion.Enabled = false;
+
+            }
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -82,24 +180,57 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             this.Close();
         }
 
+       /* private void llenarGridReloj(string sDescripcion)
+        {
+            if (dgvRelojes.Columns.Count > 1)
+            {
+                dgvRelojes.Columns.RemoveAt(0);
+            }
+
+            RelojChecador objReloj = new RelojChecador();
+            DataTable dtRelojChecador = objReloj.obtrelojeschecadores(4, 0, sDescripcion, "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
+            dgvRelojes.DataSource = dtRelojChecador;
+
+            Utilerias.AgregarCheck(dgvRelojes, 0);
+            //dgvRelojesChecadores.Columns[0].Width = 75;
+            //dgvRelojesChecadores.Columns[1].Width = 50;
+            dgvRelojes.Columns[0].Width = 65; //65
+            dgvRelojes.Columns[1].Visible = false; //false
+            dgvRelojes.Columns[3].Visible = false; // true 
+            dgvRelojes.Columns[4].Visible = false; // false
+            dgvRelojes.Columns[5].Visible = false;
+            dgvRelojes.Columns[6].Visible = false;
+            dgvRelojes.Columns[7].Visible = false;
+            dgvRelojes.Columns[8].Visible = false;
+            dgvRelojes.Columns[9].Visible = false;
+            dgvRelojes.ClearSelection();
+
+
+            //CheckBox ckbHeader = Utilerias.AgregarCheckboxHeader(dgvReloj, 0);
+            // ckbHeader.CheckedChanged += Checkheader_CheckedChanged;
+        }*/
+
+
+
+
 
         private void llenarGrid(RelojChecador obj) {
 
-            if (dgvReloj.Columns.Count > 0) { dgvReloj.Columns.RemoveAt(0); }
+            if (dgvEmpleados.Columns.Count > 0) { dgvEmpleados.Columns.RemoveAt(0); }
 
             DataTable dt = obj.obtrelojeschecadores(9,obj.p_cvreloj,obj.p_descripcion,obj.p_ip,obj.p_cvvnc,0,obj.p_usuumod,obj.p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
 
-            dgvReloj.DataSource = dt;
+            dgvEmpleados.DataSource = dt;
 
-            Utilerias.AgregarCheck(dgvReloj,0);
+            Utilerias.AgregarCheck(dgvEmpleados,0);
             
-            dgvReloj.Columns["cvreloj"].Visible = false;
-            dgvReloj.Columns["valida_Huella"].Visible = false;
-            dgvReloj.Columns["valida_Teclado"].Visible = false;
-            dgvReloj.Columns["multiplehuella"].Visible = false;
-            dgvReloj.Columns["IP"].Visible = false;
+            dgvEmpleados.Columns["cvreloj"].Visible = false;
+            dgvEmpleados.Columns["valida_Huella"].Visible = false;
+            dgvEmpleados.Columns["valida_Teclado"].Visible = false;
+            dgvEmpleados.Columns["multiplehuella"].Visible = false;
+            dgvEmpleados.Columns["IP"].Visible = false;
 
-            foreach (DataGridViewRow row in dgvReloj.Rows)
+            foreach (DataGridViewRow row in dgvEmpleados.Rows)
             {
                 row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
                 row.Cells[0].Tag = "uncheck";
@@ -107,14 +238,57 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         }
 
-      
+        private void AsignarReloj(string sIdtrab)
+        {
+            RelojChecador objReloj = new RelojChecador();
+           
+            DataTable dt = objReloj.RelojesxTrabajador(sIdtrab, 0, 4, "", "");
+
+            foreach (DataRow row in dt.Rows)
+            {
+
+                if (!ltRelojxUsuario.Contains(Convert.ToInt32(row[0]).ToString()))
+                {
+
+                    ltRelojxUsuario.Add(Convert.ToInt32(row[0]).ToString());
+                }
+            }
+
+            /////
+            foreach (DataGridViewRow fila in dgvEmpleados.Rows)
+            {
+                fila.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                fila.Cells[0].Tag = "uncheck";
+            }
+            /////
+          
+
+
+            Utilerias.ImprimirAsignacionesGrid(dgvRelojes, 0, 1, ltRelojxUsuario);
+        }
+
+
+
+
         private void dgvReloj_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (dgvReloj.SelectedRows.Count != 0)
+            if (dgvEmpleados.SelectedRows.Count != 0)
             {
+                foreach (DataGridViewRow fila in dgvEmpleados.Rows)
+                {
+                    fila.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                    fila.Cells[0].Tag = "uncheck";
+                }
+                       
+                 DataGridViewRow row2 = dgvEmpleados.SelectedRows[0];
+                 string  Trabajador=row2.Cells[1].Value.ToString();
+                 AsignarReloj(Trabajador);
+                //AsignarReloj(TrabajadorInfo.IdTrab);
+                
+                //Borra cada celda seleccionada
 
-                DataGridViewRow row = this.dgvReloj.SelectedRows[0];
+                DataGridViewRow row = this.dgvEmpleados.SelectedRows[0];
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                 UsuarioReloj objR = new UsuarioReloj();
                 objR.cvreloj = Convert.ToInt32(row.Cells["cvreloj"].Value.ToString());
@@ -188,6 +362,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                     row.Cells[0].Tag = "check";
                 }
+                ltRelojxUsuario.Clear();
             }
         }
 
