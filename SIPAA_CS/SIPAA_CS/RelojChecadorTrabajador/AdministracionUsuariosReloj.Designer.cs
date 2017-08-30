@@ -45,17 +45,21 @@
             System.Windows.Forms.Label label17;
             System.Windows.Forms.Label label12;
             System.Windows.Forms.Label label18;
+            System.Windows.Forms.Label label3;
+            System.Windows.Forms.Label label19;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label label3;
             this.lblusuario = new System.Windows.Forms.Label();
             this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.dgvReloj = new System.Windows.Forms.DataGridView();
+            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.cbEstatus = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -64,6 +68,7 @@
             this.txtidtrab = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panelAccion = new System.Windows.Forms.Panel();
+            this.btnPerfil = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -80,7 +85,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.pnlMensaje = new System.Windows.Forms.Panel();
-            this.btnPerfil = new System.Windows.Forms.Button();
+            this.dgvRelojes = new System.Windows.Forms.DataGridView();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
@@ -97,7 +102,8 @@
             label12 = new System.Windows.Forms.Label();
             label18 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReloj)).BeginInit();
+            label19 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
             this.panelAccion.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -105,6 +111,7 @@
             this.panel1.SuspendLayout();
             this.panelTag.SuspendLayout();
             this.pnlMensaje.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRelojes)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -115,9 +122,9 @@
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label2.Location = new System.Drawing.Point(373, 108);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(115, 16);
+            label2.Size = new System.Drawing.Size(178, 16);
             label2.TabIndex = 176;
-            label2.Text = "Relojes Asignados";
+            label2.Text = "Empleados asignados al reloj";
             // 
             // label4
             // 
@@ -293,6 +300,30 @@
             label18.TabIndex = 218;
             label18.Text = "Descargar Registros";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.ForeColor = System.Drawing.Color.Gray;
+            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label3.Location = new System.Drawing.Point(286, 233);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(41, 20);
+            label3.TabIndex = 224;
+            label3.Text = "Perfil";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label19.Location = new System.Drawing.Point(373, 422);
+            label19.Name = "label19";
+            label19.Size = new System.Drawing.Size(188, 16);
+            label19.TabIndex = 202;
+            label19.Text = "Relojes asignados al empleado";
+            // 
             // lblusuario
             // 
             this.lblusuario.AutoSize = true;
@@ -374,47 +405,48 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
             // 
-            // dgvReloj
+            // dgvEmpleados
             // 
-            this.dgvReloj.AllowUserToAddRows = false;
-            this.dgvReloj.AllowUserToDeleteRows = false;
-            this.dgvReloj.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvReloj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvReloj.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvReloj.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.dgvReloj.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvReloj.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReloj.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvReloj.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvReloj.Location = new System.Drawing.Point(376, 127);
-            this.dgvReloj.Name = "dgvReloj";
-            this.dgvReloj.ReadOnly = true;
-            this.dgvReloj.RowHeadersVisible = false;
-            this.dgvReloj.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvReloj.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
-            this.dgvReloj.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
-            this.dgvReloj.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReloj.Size = new System.Drawing.Size(643, 552);
-            this.dgvReloj.TabIndex = 173;
-            this.dgvReloj.Tag = "Editar";
-            this.dgvReloj.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReloj_CellContentClick);
+            this.dgvEmpleados.AllowUserToAddRows = false;
+            this.dgvEmpleados.AllowUserToDeleteRows = false;
+            this.dgvEmpleados.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvEmpleados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvEmpleados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.dgvEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvEmpleados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmpleados.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvEmpleados.Location = new System.Drawing.Point(376, 127);
+            this.dgvEmpleados.MultiSelect = false;
+            this.dgvEmpleados.Name = "dgvEmpleados";
+            this.dgvEmpleados.ReadOnly = true;
+            this.dgvEmpleados.RowHeadersVisible = false;
+            this.dgvEmpleados.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvEmpleados.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
+            this.dgvEmpleados.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
+            this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmpleados.Size = new System.Drawing.Size(612, 275);
+            this.dgvEmpleados.TabIndex = 173;
+            this.dgvEmpleados.Tag = "Editar";
+            this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReloj_CellContentClick);
             // 
             // pnlBusqueda
             // 
@@ -528,6 +560,20 @@
             this.panelAccion.Name = "panelAccion";
             this.panelAccion.Size = new System.Drawing.Size(363, 404);
             this.panelAccion.TabIndex = 180;
+            // 
+            // btnPerfil
+            // 
+            this.btnPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerfil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnPerfil.Image = global::SIPAA_CS.Properties.Resources.Admin;
+            this.btnPerfil.Location = new System.Drawing.Point(282, 180);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Size = new System.Drawing.Size(50, 50);
+            this.btnPerfil.TabIndex = 223;
+            this.btnPerfil.Tag = "Pass";
+            this.btnPerfil.UseVisualStyleBackColor = false;
+            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
             // 
             // panel5
             // 
@@ -674,7 +720,7 @@
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTag.Location = new System.Drawing.Point(1, 6);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(648, 44);
+            this.panelTag.Size = new System.Drawing.Size(639, 44);
             this.panelTag.TabIndex = 198;
             this.panelTag.Visible = false;
             // 
@@ -712,34 +758,49 @@
             this.pnlMensaje.Controls.Add(this.progressBar1);
             this.pnlMensaje.Location = new System.Drawing.Point(376, 685);
             this.pnlMensaje.Name = "pnlMensaje";
-            this.pnlMensaje.Size = new System.Drawing.Size(655, 66);
+            this.pnlMensaje.Size = new System.Drawing.Size(643, 66);
             this.pnlMensaje.TabIndex = 200;
             // 
-            // btnPerfil
+            // dgvRelojes
             // 
-            this.btnPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPerfil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnPerfil.Image = global::SIPAA_CS.Properties.Resources.Admin;
-            this.btnPerfil.Location = new System.Drawing.Point(282, 180);
-            this.btnPerfil.Name = "btnPerfil";
-            this.btnPerfil.Size = new System.Drawing.Size(50, 50);
-            this.btnPerfil.TabIndex = 223;
-            this.btnPerfil.Tag = "Pass";
-            this.btnPerfil.UseVisualStyleBackColor = false;
-            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.ForeColor = System.Drawing.Color.Gray;
-            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(286, 233);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(41, 20);
-            label3.TabIndex = 224;
-            label3.Text = "Perfil";
+            this.dgvRelojes.AllowUserToAddRows = false;
+            this.dgvRelojes.AllowUserToDeleteRows = false;
+            this.dgvRelojes.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvRelojes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvRelojes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvRelojes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvRelojes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.dgvRelojes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvRelojes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRelojes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvRelojes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRelojes.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvRelojes.Location = new System.Drawing.Point(376, 446);
+            this.dgvRelojes.Name = "dgvRelojes";
+            this.dgvRelojes.ReadOnly = true;
+            this.dgvRelojes.RowHeadersVisible = false;
+            this.dgvRelojes.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvRelojes.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
+            this.dgvRelojes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
+            this.dgvRelojes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRelojes.Size = new System.Drawing.Size(612, 223);
+            this.dgvRelojes.TabIndex = 201;
+            this.dgvRelojes.Tag = "Editar";
             // 
             // AdministracionUsuariosReloj
             // 
@@ -748,11 +809,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(label19);
+            this.Controls.Add(this.dgvRelojes);
             this.Controls.Add(this.pnlMensaje);
             this.Controls.Add(this.panelAccion);
             this.Controls.Add(label2);
             this.Controls.Add(this.pnlBusqueda);
-            this.Controls.Add(this.dgvReloj);
+            this.Controls.Add(this.dgvEmpleados);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.label1);
@@ -765,7 +828,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministracionUsuariosReloj";
             this.Load += new System.EventHandler(this.AdministracionUsuariosReloj_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReloj)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
             this.panelAccion.ResumeLayout(false);
@@ -779,6 +842,7 @@
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
             this.pnlMensaje.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRelojes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -792,7 +856,7 @@
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.DataGridView dgvReloj;
+        private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.Panel pnlBusqueda;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel2;
@@ -818,5 +882,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel pnlMensaje;
         private System.Windows.Forms.Button btnPerfil;
+        private System.Windows.Forms.DataGridView dgvRelojes;
     }
 }

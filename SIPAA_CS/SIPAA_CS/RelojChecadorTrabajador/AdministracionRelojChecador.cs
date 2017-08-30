@@ -123,6 +123,13 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             dgvReloj.Columns["Actualiza"].Visible = false;
             dgvReloj.Columns["ClaveVNC"].Visible = false;
             dgvReloj.Columns["multiplehuella"].Visible = false;
+            //////////////////////// 
+            // estas de aqui abajo las oculte como vista previa, porque el usuario no necesita esos datos y no sirven para nada
+            dgvReloj.Columns["teclado"].Visible = false;
+            dgvReloj.Columns["huella"].Visible = false;
+            dgvReloj.Columns["IP"].Visible = false;
+            dgvReloj.Columns["Rostro"].Visible = false;
+            ///////////////////////
             dgvReloj.Columns["Usuario Sincronizó Checadas"].Visible = false;
             dgvReloj.Columns["Usuario Sincronizó Usuarios"].Visible = false;
             dgvReloj.Columns[0].Width = 90;

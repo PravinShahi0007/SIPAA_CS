@@ -535,11 +535,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                    if (auxiliar)
                     {
 
-                        //if (Grupo!=0) // TENIA 1
-                       // {
+                       // if (Grupo!=1) // TENIA 1
+                        //{
                             RelojChecador objReloj2 = new RelojChecador();
                             objReloj2.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
-                        //}
+                       //}
                         
                         int iCont = 0;
                         RelojChecador objReloj = new RelojChecador();
@@ -1267,7 +1267,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             RelojChecador objReloj = new RelojChecador();
             DataTable dt = objReloj.RelojesxTrabajador(this.lbIdTrab.Text, 25, 11, "%", "%");
             DataRow row = dt.Rows[0];
-            Valor = Convert.ToInt32(row["cvgruposreloj"].ToString());
+            Grupo= Valor = Convert.ToInt32(row["cvgruposreloj"].ToString());
+            
             foreach (DataGridViewRow fila in dgvGrupos.Rows)
             {
              int aux = Convert.ToInt32( fila.Cells[1].Value.ToString());
@@ -1328,6 +1329,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvGrupos.DataSource = dtRelojChecador;
             Utilerias.AgregarCheck(dgvGrupos, 0);
             dgvGrupos.Columns[0].Width = 65;
+         
             dgvGrupos.Columns[1].Visible = false; 
             dgvGrupos.Columns[2].Visible = true;
             dgvGrupos.ClearSelection();
@@ -1388,12 +1390,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                if (bConexion != false)
                 {
                     objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, iOpcion, sUsuuMod, sPrguMod);
-                    MessageBox.Show(Grupo.ToString());
-                    if (Grupo != 0)
-                    {
-                       
-                        objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
-                    }
+                    objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
+                    
                     string idtrab = lbIdTrab.Text;
                     string Nombre = lbNombre.Text;
                     objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, "", 0, true);
@@ -1772,6 +1770,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                  DataGridViewRow row = dgvGrupos.SelectedRows[0];
                    
                     Grupo = Convert.ToInt32( row.Cells[1].Value);
+                   // MessageBox.Show(Grupo.ToString());
                    
 
                     try
