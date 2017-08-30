@@ -87,7 +87,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
             if (dgvReloj.Columns.Count > 0) { dgvReloj.Columns.RemoveAt(0); }
 
-            DataTable dt = obj.obtrelojeschecadores(9,obj.p_cvreloj,obj.p_descripcion,obj.p_ip,obj.p_cvvnc,0,obj.p_usuumod,obj.p_prgumodr);
+            DataTable dt = obj.obtrelojeschecadores(9,obj.p_cvreloj,obj.p_descripcion,obj.p_ip,obj.p_cvvnc,0,obj.p_usuumod,obj.p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
 
             dgvReloj.DataSource = dt;
 
@@ -249,7 +249,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
             RelojChecador objReloj = new RelojChecador();
 
-            DataTable dtRelojChecador = objReloj.obtrelojeschecadores(10, TrabajadorInfo.cvReloj, "", "", "", 0, "", "");
+            DataTable dtRelojChecador = objReloj.obtrelojeschecadores(10, TrabajadorInfo.cvReloj, "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
             
             if (dtRelojChecador.Rows[0]["Teclado"].ToString() != "True") { btnTeclado.Enabled = false; } else { btnTeclado.Enabled = true; }
 
@@ -750,7 +750,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                 RelojChecador objReloj = new RelojChecador();
                                 int iCv = TrabajadorInfo.cvReloj;
                                 DataTable dt = objReloj.RelojesxTrabajador(idtrab, iCv, 6, "%", "%");
-                                DataTable dtRelojChecador = objReloj.obtrelojeschecadores(10, TrabajadorInfo.cvReloj, "", "", "", 0, "", "");
+                                DataTable dtRelojChecador = objReloj.obtrelojeschecadores(10, TrabajadorInfo.cvReloj, "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
 
                                 // bool bBandera = true;
                                 bool bBanderaPass = false;

@@ -591,17 +591,21 @@ namespace SIPAA_CS.App_Code
         {
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
             imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
-            imgCheckUsuarios.Tag = "checkGrid";
+            imgCheckUsuarios.Tag = "uncheck"; //checkGrid
             dgv.Columns.Insert(iPosicion, imgCheckUsuarios);
             dgv.Columns[iPosicion].HeaderText = "Seleccionar";
             dgv.Columns[iPosicion].Width = 100;
         }
 
-        public static void MultiSeleccionGridView(DataGridView dgv, int iPositionClave, List<int> ltCv, Control ctrl)
+       
+     
+     
+
+        public static void MultiSeleccionGridView(DataGridView dgv, int iPositionClave, List<int> ltCv, Control ctrl) 
         {
             DataGridViewRow row = dgv.SelectedRows[0];
             int iCv = Convert.ToInt32(row.Cells[iPositionClave].Value.ToString());
-
+           
             if (ltCv.Contains(iCv))
             { ltCv.Remove(iCv); }
             else
@@ -614,21 +618,24 @@ namespace SIPAA_CS.App_Code
 
             try
             {
+               
                 switch (row.Cells[0].Tag.ToString())
                 {
                     case "check":
                         row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
                         row.Cells[0].Tag = "uncheck";
+                        
                         break;
                     case "uncheck":
                         row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                         row.Cells[0].Tag = "check";
+                       
                         break;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
 
         }
@@ -990,7 +997,7 @@ namespace SIPAA_CS.App_Code
 
             if (!dtTipo.Rows.Contains(row["Titulo"].ToString()))
             {
-                DataTable dtnew = objPer.ReportePerfilesModulos(row["Titulo"].ToString(), "%", sCvUsuario, "CS", 0, 0, 0, 0, 0, 14);
+                DataTable dtnew = objPer.ReportePerfilesModulos(row["Titulo"].ToString(), "%", sCvUsuario, "CS", 0, 0, 0, 0, 0, 13);
                 DataTable dtnewEncabezado = CrearEncabezados(dtnew);
 
                 DataTable dtmodulo = objModulo.ReporteModulos("%", "%", row["Titulo"].ToString(), "%", "", "%", "%", "", "", "", "", 9);
@@ -1023,7 +1030,7 @@ namespace SIPAA_CS.App_Code
                 {
                     MenuHijo.DropDownItems.Add(Menuitem);
                 }
-             DataTable dtnew = objPer.ReportePerfilesModulos(cvModPadre, row["Titulo"].ToString(), sCvUsuario, "CS", 0, 0, 0, 0, 0, 14);
+             DataTable dtnew = objPer.ReportePerfilesModulos(cvModPadre, row["Titulo"].ToString(), sCvUsuario, "CS", 0, 0, 0, 0, 0, 13);
                 ValidarHijos(dtnew, Menuitem, colorMenu);
 
             }
@@ -1101,13 +1108,8 @@ namespace SIPAA_CS.App_Code
 
             byte[] resultado = convertir.TransformFinalBlock(arrCifrado, 0, arrCifrado.Length);
             tripledes.Clear();
-
             string res = "";
-
-           
-           res =  Convert.ToBase64String(resultado, 0, resultado.Length);
-       
-
+            res =  Convert.ToBase64String(resultado, 0, resultado.Length);
             return res;
         }
 

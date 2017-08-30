@@ -368,6 +368,391 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void dgvrechcplantilla_d_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //DataGridViewRow row = this.dgvrechcplantilla_d.SelectedRows[0];
+            //iexistereg = Convert.ToInt32(row.Cells["stexiste"].Value.ToString());
+            //icvplantilla = Convert.ToInt32(row.Cells["cvplantilla"].Value.ToString());
+            //icvdia = Convert.ToInt32(row.Cells["cvdia"].Value.ToString());
+
+            //if (iins == 1 && iact == 1 && ielim == 1 && iexistereg == 1)//insertar-actualizar-eliminar EXISTE registro
+            //{
+            //    pnlpland.Visible = true;
+
+            //    cbdia.Enabled = false;
+            //    Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+            //    cbdia.Text = "";
+
+            //    cbdiasalida.Enabled = true;
+            //    Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+            //    cbdiasalida.Text = "";
+
+            //    cbdia.Text = row.Cells["Día"].Value.ToString();
+            //    mtbhrinijor.Enabled = true;
+            //    mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+            //    cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+            //    mtbhterminojornada.Enabled = true;
+            //    mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+            //    mtbmincomida.Enabled = true;
+            //    mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+            //    mtbhrjornada.Enabled = true;
+            //    mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+            //    mtbhrsalcomerd.Enabled = true;
+            //    mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+            //    mtbhrsalcomerh.Enabled = true;
+            //    mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+ 
+            //    cbxlimpiarreg.Visible = true;
+            //    cbxlimpiarreg.Checked = false;
+            //    btnguardar.Image = Resources.Editar;
+            //    mtbhrinijor.Focus();
+            //    iactbtn = 2;
+   
+            //}
+            //else if(iins == 1 && iact == 1 && ielim == 1 && iexistereg == 0)//insertar-actualizar-eliminar NO EXISTE registro
+            //{
+            //    pnlpland.Visible = true;
+
+            //    cbdia.Enabled = false;
+            //    Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+            //    cbdia.Text = "";
+
+            //    cbdiasalida.Enabled = true;
+            //    Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+            //    cbdiasalida.Text = "";
+
+            //    cbdia.Text = row.Cells["Día"].Value.ToString();
+            //    mtbhrinijor.Enabled = true;
+            //    mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+            //    cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+            //    mtbhterminojornada.Enabled = true;
+            //    mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+            //    mtbmincomida.Enabled = true;
+            //    mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+            //    mtbhrjornada.Enabled = true;
+            //    mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+            //    mtbhrsalcomerd.Enabled = true;
+            //    mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+            //    mtbhrsalcomerh.Enabled = true;
+            //    mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+            //    cbxlimpiarreg.Visible = false;
+            //    btnguardar.Image = Resources.Guardar;
+            //    mtbhrinijor.Focus();
+            //    iactbtn = 1;
+            //}
+            //else if (iins == 1 && iact == 1 && iexistereg == 1)//insertar-actualizar EXISTE registro
+            //{
+            //    pnlpland.Visible = true;
+
+            //    cbdia.Enabled = false;
+            //    Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+            //    cbdia.Text = "";
+
+            //    cbdiasalida.Enabled = true;
+            //    Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+            //    cbdiasalida.Text = "";
+
+            //    cbdia.Text = row.Cells["Día"].Value.ToString();
+            //    mtbhrinijor.Enabled = true;
+            //    mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+            //    cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+            //    mtbhterminojornada.Enabled = true;
+            //    mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+            //    mtbmincomida.Enabled = true;
+            //    mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+            //    mtbhrjornada.Enabled = true;
+            //    mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+            //    mtbhrsalcomerd.Enabled = true;
+            //    mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+            //    mtbhrsalcomerh.Enabled = true;
+            //    mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+            //    cbxlimpiarreg.Visible = false;
+            //    btnguardar.Image = Resources.Editar;
+            //    mtbhrinijor.Focus();
+            //    iactbtn = 2;
+            //}
+            //else if (iins == 1 && iact == 1 && iexistereg == 0)//insertar-actualizar NO EXISTE registro
+            //{
+            //    pnlpland.Visible = true;
+
+            //    cbdia.Enabled = false;
+            //    Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+            //    cbdia.Text = "";
+
+            //    cbdiasalida.Enabled = true;
+            //    Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+            //    cbdiasalida.Text = "";
+
+            //    cbdia.Text = row.Cells["Día"].Value.ToString();
+            //    mtbhrinijor.Enabled = true;
+            //    mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+            //    cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+            //    mtbhterminojornada.Enabled = true;
+            //    mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+            //    mtbmincomida.Enabled = true;
+            //    mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+            //    mtbhrjornada.Enabled = true;
+            //    mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+            //    mtbhrsalcomerd.Enabled = true;
+            //    mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+            //    mtbhrsalcomerh.Enabled = true;
+            //    mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+            //    cbxlimpiarreg.Visible = false;
+            //    btnguardar.Image = Resources.Guardar;
+            //    mtbhrinijor.Focus();
+            //    iactbtn = 1;
+            //}
+            //else if (iins == 1 && ielim == 1 && iexistereg == 1)//insertar-eliminar EXISTE registro
+            //{
+
+            //    pnlpland.Visible = true;
+
+            //    cbdia.Enabled = false;
+            //    Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+            //    cbdia.Text = "";
+
+            //    cbdiasalida.Enabled = false;
+            //    Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+            //    cbdiasalida.Text = "";
+
+            //    cbdia.Text = row.Cells["Día"].Value.ToString();
+            //    mtbhrinijor.Enabled = false;
+            //    mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+            //    cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+            //    mtbhterminojornada.Enabled = false;
+            //    mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+            //    mtbmincomida.Enabled = false;
+            //    mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+            //    mtbhrjornada.Enabled = false;
+            //    mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+            //    mtbhrsalcomerd.Enabled = false;
+            //    mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+            //    mtbhrsalcomerh.Enabled = false;
+            //    mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+            //    cbxlimpiarreg.Visible = true;
+            //    cbxlimpiarreg.Checked = true;
+            //    cbxlimpiarreg.Enabled = false;
+            //    btnguardar.Image = Resources.Baja;
+            //    btnguardar.Focus();
+            //    iactbtn = 3;
+            //}
+            //else if (iins == 1 && ielim == 1 && iexistereg == 0)//insertar-eliminar NO EXISTE registro
+            //{
+            //    pnlpland.Visible = true;
+
+            //    cbdia.Enabled = false;
+            //    Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+            //    cbdia.Text = "";
+
+            //    cbdiasalida.Enabled = true;
+            //    Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+            //    cbdiasalida.Text = "";
+
+            //    cbdia.Text = row.Cells["Día"].Value.ToString();
+            //    mtbhrinijor.Enabled = true;
+            //    mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+            //    cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+            //    mtbhterminojornada.Enabled = true;
+            //    mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+            //    mtbmincomida.Enabled = true;
+            //    mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+            //    mtbhrjornada.Enabled = true;
+            //    mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+            //    mtbhrsalcomerd.Enabled = true;
+            //    mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+            //    mtbhrsalcomerh.Enabled = true;
+            //    mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+            //    cbxlimpiarreg.Visible = false;
+            //    btnguardar.Image = Resources.Baja;
+            //    mtbhrinijor.Focus();
+            //    iactbtn = 1;
+            //}
+            //else if (iact == 1 && ielim == 1 && iexistereg == 1)//actualizar-eliminar EXISTE registro
+            //{
+            //    pnlpland.Visible = true;
+
+            //    cbdia.Enabled = false;
+            //    Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+            //    cbdia.Text = "";
+
+            //    cbdiasalida.Enabled = true;
+            //    Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+            //    cbdiasalida.Text = "";
+
+            //    cbdia.Text = row.Cells["Día"].Value.ToString();
+            //    mtbhrinijor.Enabled = true;
+            //    mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+            //    cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+            //    mtbhterminojornada.Enabled = true;
+            //    mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+            //    mtbmincomida.Enabled = true;
+            //    mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+            //    mtbhrjornada.Enabled = true;
+            //    mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+            //    mtbhrsalcomerd.Enabled = true;
+            //    mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+            //    mtbhrsalcomerh.Enabled = true;
+            //    mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+            //    cbxlimpiarreg.Visible = true;
+            //    cbxlimpiarreg.Checked = false;
+            //    btnguardar.Image = Resources.Baja;
+            //    btnguardar.Focus();
+            //    iactbtn = 3;
+            //}
+            //else if (iact == 1 && ielim == 1 && iexistereg == 0)//actualizar-eliminar NO EXISTE registro
+            //{
+            //    pnlmenssuid.Visible = false;
+            //    DialogResult result = MessageBox.Show("No tienes permisos para agregar datos al registro", "SIPAA", MessageBoxButtons.OK);
+            //}
+            //else if (iins == 1 && iexistereg == 1)//inserta EXISTE registro
+            //{
+            //    pnlpland.Visible = false;
+            //    DialogResult result = MessageBox.Show("No tienes permisos para agregar datos al registro", "SIPAA", MessageBoxButtons.OK);
+            //}
+            //else if (iins == 1 && iexistereg == 0)//inserta EXISTE registro
+            //{
+            //    pnlpland.Visible = true;
+
+            //    cbdia.Enabled = false;
+            //    Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+            //    cbdia.Text = "";
+
+            //    cbdiasalida.Enabled = true;
+            //    Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+            //    cbdiasalida.Text = "";
+
+            //    cbdia.Text = row.Cells["Día"].Value.ToString();
+            //    mtbhrinijor.Enabled = true;
+            //    mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+            //    cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+            //    mtbhterminojornada.Enabled = true;
+            //    mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+            //    mtbmincomida.Enabled = true;
+            //    mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+            //    mtbhrjornada.Enabled = true;
+            //    mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+            //    mtbhrsalcomerd.Enabled = true;
+            //    mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+            //    mtbhrsalcomerh.Enabled = true;
+            //    mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+            //    cbxlimpiarreg.Visible = false;
+            //    btnguardar.Image = Resources.Guardar;
+            //    mtbhrinijor.Focus();
+            //    iactbtn = 1;
+            //}
+            //else if (iact == 1 && iexistereg == 1)//inserta EXISTE registro
+            //{
+            //    pnlpland.Visible = true;
+
+            //    cbdia.Enabled = false;
+            //    Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+            //    cbdia.Text = "";
+
+            //    cbdiasalida.Enabled = true;
+            //    Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+            //    cbdiasalida.Text = "";
+
+            //    cbdia.Text = row.Cells["Día"].Value.ToString();
+            //    mtbhrinijor.Enabled = true;
+            //    mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+            //    cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+            //    mtbhterminojornada.Enabled = true;
+            //    mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+            //    mtbmincomida.Enabled = true;
+            //    mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+            //    mtbhrjornada.Enabled = true;
+            //    mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+            //    mtbhrsalcomerd.Enabled = true;
+            //    mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+            //    mtbhrsalcomerh.Enabled = true;
+            //    mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+            //    cbxlimpiarreg.Visible = false;
+            //    btnguardar.Image = Resources.Guardar;
+            //    mtbhrinijor.Focus();
+            //    iactbtn = 2;
+            //}
+            //else if (iact == 1 && iexistereg == 0)//inserta NO EXISTE registro
+            //{
+            //    pnlpland.Visible = false;
+            //    DialogResult result = MessageBox.Show("No tienes permisos para agregar datos al registro", "SIPAA", MessageBoxButtons.OK);
+            //}
+            //else if (ielim == 1 && iexistereg == 1)//inserta EXISTE registro
+            //{
+            //    pnlpland.Visible = true;
+
+            //    cbdia.Enabled = false;
+            //    Util.cargarcombo(cbdia, PlantDet.cbdias(6));
+            //    cbdia.Text = "";
+
+            //    cbdiasalida.Enabled = false;
+            //    Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
+            //    cbdiasalida.Text = "";
+
+            //    cbdia.Text = row.Cells["Día"].Value.ToString();
+            //    mtbhrinijor.Enabled = false;
+            //    mtbhrinijor.Text = row.Cells["HrEntTurno"].Value.ToString();
+            //    cbdiasalida.Text = row.Cells["DíaSalTurno"].Value.ToString();
+            //    mtbhterminojornada.Enabled = false;
+            //    mtbhterminojornada.Text = row.Cells["HrSalTurno"].Value.ToString();
+            //    mtbmincomida.Enabled = false;
+            //    mtbmincomida.Text = row.Cells["TiempoComida"].Value.ToString();
+            //    mtbhrjornada.Enabled = false;
+            //    mtbhrjornada.Text = row.Cells["TotJornada"].Value.ToString();
+            //    mtbhrsalcomerd.Enabled = false;
+            //    mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
+            //    mtbhrsalcomerh.Enabled = false;
+            //    mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+
+            //    cbxlimpiarreg.Visible = true;
+            //    cbxlimpiarreg.Checked = true;
+            //    cbxlimpiarreg.Enabled = false;
+            //    btnguardar.Image = Resources.Baja;
+            //    btnguardar.Focus();
+            //    iactbtn = 3;
+            //}
+            //else if (ielim == 1 && iexistereg == 0)//inserta EXISTE registro
+            //{
+            //    pnlpland.Visible = false;
+            //    DialogResult result = MessageBox.Show("No tienes permisos para limpiar el registro", "SIPAA", MessageBoxButtons.OK);
+            //}
+            //else
+            //{
+            //    pnlmenssuid.Visible = false;
+            //    DialogResult result = MessageBox.Show("Revise sus permisos con el administrador del sistema", "SIPAA", MessageBoxButtons.OK);
+            //}
+
+        }
+
+        private void pnlpland_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void actualizaGrid()
+        {
+            if (dgvrechcplantilla_d.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = this.dgvrechcplantilla_d.SelectedRows[0];
+
+                for (int i = 0; i < dgvrechcplantilla_d.Rows.Count; i++)
+                {
+                    dgvrechcplantilla_d.Rows[i].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                }
+
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+            }
+        }
+
+        private void dgvrechcplantilla_d_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            actualizaGrid();
+
             DataGridViewRow row = this.dgvrechcplantilla_d.SelectedRows[0];
             iexistereg = Convert.ToInt32(row.Cells["stexiste"].Value.ToString());
             icvplantilla = Convert.ToInt32(row.Cells["cvplantilla"].Value.ToString());
@@ -399,15 +784,15 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
                 mtbhrsalcomerh.Enabled = true;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
- 
+
                 cbxlimpiarreg.Visible = true;
                 cbxlimpiarreg.Checked = false;
                 btnguardar.Image = Resources.Editar;
                 mtbhrinijor.Focus();
                 iactbtn = 2;
-   
+
             }
-            else if(iins == 1 && iact == 1 && ielim == 1 && iexistereg == 0)//insertar-actualizar-eliminar NO EXISTE registro
+            else if (iins == 1 && iact == 1 && ielim == 1 && iexistereg == 0)//insertar-actualizar-eliminar NO EXISTE registro
             {
                 pnlpland.Visible = true;
 
@@ -726,12 +1111,66 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 pnlmenssuid.Visible = false;
                 DialogResult result = MessageBox.Show("Revise sus permisos con el administrador del sistema", "SIPAA", MessageBoxButtons.OK);
             }
-
         }
 
-        private void pnlpland_Paint(object sender, PaintEventArgs e)
+        private void mtbhrinijor_MouseClick(object sender, MouseEventArgs e)
         {
+            mtbhrinijor.SelectAll();
+        }
 
+        private void mtbhrinijor_Enter(object sender, EventArgs e)
+        {
+            mtbhrinijor.SelectionStart = 0;
+        }
+
+        private void mtbhrjornada_MouseClick(object sender, MouseEventArgs e)
+        {
+            mtbhrjornada.SelectAll();
+        }
+
+        private void mtbhrjornada_Enter(object sender, EventArgs e)
+        {
+            mtbhrjornada.SelectionStart = 0;
+        }
+
+        private void mtbhterminojornada_MouseClick(object sender, MouseEventArgs e)
+        {
+            mtbhterminojornada.SelectAll();
+        }
+
+        private void mtbhterminojornada_Enter(object sender, EventArgs e)
+        {
+            mtbhterminojornada.SelectionStart = 0;
+        }
+
+        private void mtbmincomida_MouseClick(object sender, MouseEventArgs e)
+        {
+            mtbmincomida.SelectAll(); 
+        }
+
+        private void mtbmincomida_Enter(object sender, EventArgs e)
+        {
+            mtbmincomida.SelectionStart = 0;
+        }
+
+        private void mtbhrsalcomerd_MouseClick(object sender, MouseEventArgs e)
+        {
+            mtbhrsalcomerd.SelectAll();
+        }
+
+        private void mtbhrsalcomerd_Enter(object sender, EventArgs e)
+        {
+            mtbhrsalcomerd.SelectionStart = 0; 
+        }
+
+        private void mtbhrsalcomerh_MouseClick(object sender, MouseEventArgs e)
+        {
+            mtbhrsalcomerh.SelectAll(); 
+        }
+
+        private void mtbhrsalcomerh_Enter(object sender, EventArgs e)
+        {
+            mtbhrsalcomerh.SelectionStart = 0; 
         }
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S

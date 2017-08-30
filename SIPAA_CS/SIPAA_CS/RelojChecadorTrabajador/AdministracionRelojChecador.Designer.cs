@@ -704,9 +704,10 @@
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTag.Location = new System.Drawing.Point(0, 1);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(654, 44);
+            this.panelTag.Size = new System.Drawing.Size(650, 44);
             this.panelTag.TabIndex = 197;
             this.panelTag.Visible = false;
+            this.panelTag.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTag_Paint);
             // 
             // lbMensaje
             // 
@@ -732,7 +733,7 @@
             // 
             this.progressBar1.Location = new System.Drawing.Point(1, 46);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(659, 10);
+            this.progressBar1.Size = new System.Drawing.Size(650, 10);
             this.progressBar1.TabIndex = 200;
             // 
             // timer2

@@ -365,6 +365,7 @@
             this.dgvrechcplantilla_d.Size = new System.Drawing.Size(640, 514);
             this.dgvrechcplantilla_d.TabIndex = 147;
             this.dgvrechcplantilla_d.TabStop = false;
+            this.dgvrechcplantilla_d.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvrechcplantilla_d_CellClick);
             this.dgvrechcplantilla_d.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvrechcplantilla_d_CellContentClick);
             // 
             // pnlmenssuid
@@ -437,6 +438,8 @@
             this.mtbhrjornada.Name = "mtbhrjornada";
             this.mtbhrjornada.Size = new System.Drawing.Size(74, 15);
             this.mtbhrjornada.TabIndex = 6;
+            this.mtbhrjornada.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbhrjornada_MouseClick);
+            this.mtbhrjornada.Enter += new System.EventHandler(this.mtbhrjornada_Enter);
             // 
             // panel6
             // 
@@ -456,6 +459,8 @@
             this.mtbhrsalcomerh.Name = "mtbhrsalcomerh";
             this.mtbhrsalcomerh.Size = new System.Drawing.Size(74, 15);
             this.mtbhrsalcomerh.TabIndex = 11;
+            this.mtbhrsalcomerh.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbhrsalcomerh_MouseClick);
+            this.mtbhrsalcomerh.Enter += new System.EventHandler(this.mtbhrsalcomerh_Enter);
             // 
             // panel5
             // 
@@ -475,6 +480,8 @@
             this.mtbhrsalcomerd.Name = "mtbhrsalcomerd";
             this.mtbhrsalcomerd.Size = new System.Drawing.Size(74, 15);
             this.mtbhrsalcomerd.TabIndex = 10;
+            this.mtbhrsalcomerd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbhrsalcomerd_MouseClick);
+            this.mtbhrsalcomerd.Enter += new System.EventHandler(this.mtbhrsalcomerd_Enter);
             // 
             // panel4
             // 
@@ -494,6 +501,8 @@
             this.mtbmincomida.Name = "mtbmincomida";
             this.mtbmincomida.Size = new System.Drawing.Size(74, 15);
             this.mtbmincomida.TabIndex = 9;
+            this.mtbmincomida.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbmincomida_MouseClick);
+            this.mtbmincomida.Enter += new System.EventHandler(this.mtbmincomida_Enter);
             // 
             // panel3
             // 
@@ -513,6 +522,8 @@
             this.mtbhterminojornada.Name = "mtbhterminojornada";
             this.mtbhterminojornada.Size = new System.Drawing.Size(74, 15);
             this.mtbhterminojornada.TabIndex = 8;
+            this.mtbhterminojornada.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbhterminojornada_MouseClick);
+            this.mtbhterminojornada.Enter += new System.EventHandler(this.mtbhterminojornada_Enter);
             // 
             // panel1
             // 
@@ -545,6 +556,8 @@
             this.mtbhrinijor.Name = "mtbhrinijor";
             this.mtbhrinijor.Size = new System.Drawing.Size(74, 15);
             this.mtbhrinijor.TabIndex = 5;
+            this.mtbhrinijor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbhrinijor_MouseClick);
+            this.mtbhrinijor.Enter += new System.EventHandler(this.mtbhrinijor_Enter);
             // 
             // cbdia
             // 
