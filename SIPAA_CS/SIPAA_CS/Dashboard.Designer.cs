@@ -207,7 +207,7 @@
             this.btnRecursosh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRecursosh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecursosh.ForeColor = System.Drawing.Color.White;
-            this.btnRecursosh.Image = ((System.Drawing.Image)(resources.GetObject("btnRecursosh.Image")));
+            this.btnRecursosh.Image = global::SIPAA_CS.Properties.Resources.ic_group_white_48dp;
             this.btnRecursosh.Location = new System.Drawing.Point(31, 24);
             this.btnRecursosh.Name = "btnRecursosh";
             this.btnRecursosh.Size = new System.Drawing.Size(270, 132);

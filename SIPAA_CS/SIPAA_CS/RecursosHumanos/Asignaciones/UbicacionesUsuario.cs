@@ -149,7 +149,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             {
                 try
                 {
-                    string usuumod = "vjiturburuv";
+                    string usuumod = LoginInfo.IdTrab;
                     string prgmod = this.Name;
                     Usuario objUsuario = new Usuario();
 
