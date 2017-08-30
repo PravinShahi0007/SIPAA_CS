@@ -76,6 +76,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            DatosTrabajadorPerfil dattrabperf = new DatosTrabajadorPerfil();
+            dattrabperf.Show();
             this.Close();
         }
 
@@ -338,7 +340,19 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void AsignacionIncidenciasTrabajador_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "IncidenciasExtSuspRetro.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);

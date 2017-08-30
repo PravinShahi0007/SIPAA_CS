@@ -43,6 +43,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            TrabajadoresPerfil trabperf = new TrabajadoresPerfil();
+            trabperf.Show();
             this.Close();
         }
 

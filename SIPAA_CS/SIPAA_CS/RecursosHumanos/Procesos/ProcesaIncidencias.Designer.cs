@@ -34,9 +34,9 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label4;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.btnregresar = new System.Windows.Forms.Button();
             this.btnminimizar = new System.Windows.Forms.Button();
@@ -51,6 +51,8 @@
             this.dgvregistros = new System.Windows.Forms.DataGridView();
             this.pnlprocesoinc = new System.Windows.Forms.Panel();
             this.btnguardar = new System.Windows.Forms.Button();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.lblusuario = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -59,6 +61,7 @@
             this.pnlbusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvregistros)).BeginInit();
             this.pnlprocesoinc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
@@ -129,12 +132,13 @@
             this.lbltitulo.BackColor = System.Drawing.Color.Transparent;
             this.lbltitulo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
+            this.lbltitulo.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbltitulo.Location = new System.Drawing.Point(380, 1);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(172, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(196, 23);
             this.lbltitulo.TabIndex = 109;
-            this.lbltitulo.Text = "Proceso de Incidencias";
+            this.lbltitulo.Text = "      Proceso de Incidencias";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnregresar
@@ -143,12 +147,13 @@
             this.btnregresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnregresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.btnregresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnregresar.Location = new System.Drawing.Point(896, 1);
+            this.btnregresar.Location = new System.Drawing.Point(912, 1);
             this.btnregresar.Name = "btnregresar";
-            this.btnregresar.Size = new System.Drawing.Size(50, 24);
+            this.btnregresar.Size = new System.Drawing.Size(30, 24);
             this.btnregresar.TabIndex = 145;
             this.btnregresar.TabStop = false;
             this.btnregresar.UseVisualStyleBackColor = false;
+            this.btnregresar.Click += new System.EventHandler(this.btnregresar_Click);
             // 
             // btnminimizar
             // 
@@ -258,9 +263,9 @@
             this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnbuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnbuscar.Location = new System.Drawing.Point(660, 4);
+            this.btnbuscar.Location = new System.Drawing.Point(660, 3);
             this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(50, 50);
+            this.btnbuscar.Size = new System.Drawing.Size(55, 55);
             this.btnbuscar.TabIndex = 2;
             this.btnbuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnbuscar.UseVisualStyleBackColor = false;
@@ -271,29 +276,29 @@
             this.dgvregistros.AllowUserToAddRows = false;
             this.dgvregistros.AllowUserToDeleteRows = false;
             this.dgvregistros.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvregistros.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvregistros.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvregistros.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvregistros.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvregistros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvregistros.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvregistros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvregistros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvregistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvregistros.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvregistros.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvregistros.Location = new System.Drawing.Point(10, 165);
             this.dgvregistros.Name = "dgvregistros";
             this.dgvregistros.ReadOnly = true;
@@ -324,11 +329,37 @@
             this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnguardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnguardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnguardar.Location = new System.Drawing.Point(173, 4);
+            this.btnguardar.Location = new System.Drawing.Point(184, 2);
             this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(50, 50);
+            this.btnguardar.Size = new System.Drawing.Size(55, 55);
             this.btnguardar.TabIndex = 42;
             this.btnguardar.UseVisualStyleBackColor = false;
+            // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 204;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
+            // 
+            // lblusuario
+            // 
+            this.lblusuario.AutoSize = true;
+            this.lblusuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.ForeColor = System.Drawing.Color.White;
+            this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblusuario.Location = new System.Drawing.Point(8, 75);
+            this.lblusuario.Name = "lblusuario";
+            this.lblusuario.Size = new System.Drawing.Size(52, 20);
+            this.lblusuario.TabIndex = 203;
+            this.lblusuario.Text = "usuario";
+            this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ProcesaIncidencias
             // 
@@ -337,6 +368,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
+            this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.pnlprocesoinc);
             this.Controls.Add(this.dgvregistros);
             this.Controls.Add(this.pnlbusqueda);
@@ -348,13 +381,14 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProcesaIncidencias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ProcesaIncidencias";
+            this.Text = "Procesa Incidencias";
             this.Load += new System.EventHandler(this.ProcesaIncidencias_Load);
             this.pnlbusqueda.ResumeLayout(false);
             this.pnlbusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvregistros)).EndInit();
             this.pnlprocesoinc.ResumeLayout(false);
             this.pnlprocesoinc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,5 +410,7 @@
         private System.Windows.Forms.TextBox txtfecini;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtfecfin;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.Label lblusuario;
     }
 }

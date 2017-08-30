@@ -36,9 +36,8 @@
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label8;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArchivoNomina4));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -57,6 +56,7 @@
             this.btngenerararchivo = new System.Windows.Forms.Button();
             this.btnpendientesaut = new System.Windows.Forms.Button();
             this.btnfechashrreg = new System.Windows.Forms.Button();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -66,6 +66,7 @@
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArchivoNomina4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -164,27 +165,18 @@
             label8.TabIndex = 175;
             label8.Text = "Número de Nómina:";
             // 
-            // pnlimgusuario
-            // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(1, 29);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 157;
-            // 
             // lblusuario
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblusuario.Location = new System.Drawing.Point(-4, 75);
+            this.lblusuario.Location = new System.Drawing.Point(7, 74);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(251, 23);
+            this.lblusuario.Size = new System.Drawing.Size(52, 20);
             this.lblusuario.TabIndex = 156;
-            this.lblusuario.Text = "Nombre del Usuario con permisos ";
+            this.lblusuario.Text = "usuario";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegresar
@@ -193,12 +185,13 @@
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(894, 1);
+            this.btnRegresar.Location = new System.Drawing.Point(917, 1);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(50, 24);
+            this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 155;
             this.btnRegresar.TabStop = false;
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // btnMinimizar
             // 
@@ -207,7 +200,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(971, 1);
+            this.btnMinimizar.Location = new System.Drawing.Point(975, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 154;
@@ -221,12 +214,13 @@
             this.lbltitulo.BackColor = System.Drawing.Color.Transparent;
             this.lbltitulo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
+            this.lbltitulo.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbltitulo.Location = new System.Drawing.Point(383, 3);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(289, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(317, 23);
             this.lbltitulo.TabIndex = 152;
-            this.lbltitulo.Text = "Generación de Archivo para Nómina 4.0";
+            this.lbltitulo.Text = "       Generación de Archivo para Nómina 4.0";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCerrar
@@ -236,7 +230,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(997, 1);
+            this.btnCerrar.Location = new System.Drawing.Point(1000, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 153;
@@ -323,8 +317,8 @@
             this.dgvArchivoNomina4.AllowUserToAddRows = false;
             this.dgvArchivoNomina4.AllowUserToDeleteRows = false;
             this.dgvArchivoNomina4.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvArchivoNomina4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvArchivoNomina4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvArchivoNomina4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvArchivoNomina4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvArchivoNomina4.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -381,12 +375,25 @@
             this.btnfechashrreg.Text = "Fechas y Horas de Registro";
             this.btnfechashrreg.UseVisualStyleBackColor = true;
             // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 179;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
+            // 
             // ArchivoNomina4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.btnfechashrreg);
             this.Controls.Add(this.btnpendientesaut);
             this.Controls.Add(this.btngenerararchivo);
@@ -408,7 +415,6 @@
             this.Controls.Add(label1);
             this.Controls.Add(this.cbTiponomina);
             this.Controls.Add(this.cbCompania);
-            this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMinimizar);
@@ -418,17 +424,16 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ArchivoNomina4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ArchivoNomina4";
+            this.Text = "Archivo Nómina 4.0";
             this.Load += new System.EventHandler(this.ArchivoNomina4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArchivoNomina4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnMinimizar;
@@ -447,5 +452,6 @@
         private System.Windows.Forms.Button btngenerararchivo;
         private System.Windows.Forms.Button btnpendientesaut;
         private System.Windows.Forms.Button btnfechashrreg;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }

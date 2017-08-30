@@ -38,6 +38,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         //-----------------------------------------------------------------------------------------------
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            DatosTrabajadorPerfil dattrabperf = new DatosTrabajadorPerfil();
+            dattrabperf.Show();
             this.Close();
         }
 
@@ -66,6 +68,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void VacIncPermHrEsp_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "VacIncPermHrEsp.cs")
+                {
+                    f.Hide();
+                }
+            }
+
 
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);

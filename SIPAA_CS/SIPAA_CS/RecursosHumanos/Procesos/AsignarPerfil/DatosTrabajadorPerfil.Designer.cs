@@ -50,7 +50,6 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ltvTnom = new System.Windows.Forms.ListView();
             this.lbFechaIngreso = new System.Windows.Forms.Label();
@@ -91,6 +90,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panelAsignacionTrabajador = new System.Windows.Forms.Panel();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             label7 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
@@ -115,6 +115,7 @@
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panelAsignacionTrabajador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -335,7 +336,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(970, 2);
+            this.btnMinimizar.Location = new System.Drawing.Point(975, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 116;
@@ -350,7 +351,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(994, 2);
+            this.btnCerrar.Location = new System.Drawing.Point(1001, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 115;
@@ -364,9 +365,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_18dp;
+            this.label1.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(410, 4);
+            this.label1.Location = new System.Drawing.Point(410, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(234, 22);
             this.label1.TabIndex = 118;
@@ -376,24 +377,15 @@
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblusuario.Location = new System.Drawing.Point(8, 73);
+            this.lblusuario.Location = new System.Drawing.Point(7, 73);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.Size = new System.Drawing.Size(52, 20);
             this.lblusuario.TabIndex = 121;
-            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.Text = "usuario";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlimgusuario
-            // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(12, 29);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 120;
             // 
             // panel1
             // 
@@ -427,9 +419,9 @@
             // 
             this.ltvTnom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ltvTnom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ltvTnom.Location = new System.Drawing.Point(22, 340);
+            this.ltvTnom.Location = new System.Drawing.Point(79, 322);
             this.ltvTnom.Name = "ltvTnom";
-            this.ltvTnom.Size = new System.Drawing.Size(370, 22);
+            this.ltvTnom.Size = new System.Drawing.Size(315, 22);
             this.ltvTnom.TabIndex = 20;
             this.ltvTnom.UseCompatibleStateImageBehavior = false;
             // 
@@ -437,7 +429,7 @@
             // 
             this.lbFechaIngreso.AutoSize = true;
             this.lbFechaIngreso.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFechaIngreso.Location = new System.Drawing.Point(94, 387);
+            this.lbFechaIngreso.Location = new System.Drawing.Point(94, 366);
             this.lbFechaIngreso.Name = "lbFechaIngreso";
             this.lbFechaIngreso.Size = new System.Drawing.Size(96, 16);
             this.lbFechaIngreso.TabIndex = 19;
@@ -467,7 +459,7 @@
             // 
             this.panel4.Controls.Add(this.lbCheca);
             this.panel4.Controls.Add(this.label14);
-            this.panel4.Location = new System.Drawing.Point(14, 421);
+            this.panel4.Location = new System.Drawing.Point(14, 400);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(378, 33);
             this.panel4.TabIndex = 173;
@@ -476,7 +468,7 @@
             // 
             this.lbCheca.AutoSize = true;
             this.lbCheca.Font = new System.Drawing.Font("Arial Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheca.Location = new System.Drawing.Point(50, 9);
+            this.lbCheca.Location = new System.Drawing.Point(85, 5);
             this.lbCheca.Name = "lbCheca";
             this.lbCheca.Size = new System.Drawing.Size(77, 22);
             this.lbCheca.TabIndex = 174;
@@ -486,7 +478,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label14.Location = new System.Drawing.Point(3, 10);
+            this.label14.Location = new System.Drawing.Point(26, 10);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(41, 13);
             this.label14.TabIndex = 10;
@@ -557,7 +549,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label12.Location = new System.Drawing.Point(8, 387);
+            this.label12.Location = new System.Drawing.Point(8, 366);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(78, 13);
             this.label12.TabIndex = 9;
@@ -722,7 +714,7 @@
             this.btnTipoHr.Image = global::SIPAA_CS.Properties.Resources.Editar;
             this.btnTipoHr.Location = new System.Drawing.Point(277, 6);
             this.btnTipoHr.Name = "btnTipoHr";
-            this.btnTipoHr.Size = new System.Drawing.Size(50, 50);
+            this.btnTipoHr.Size = new System.Drawing.Size(55, 55);
             this.btnTipoHr.TabIndex = 177;
             this.btnTipoHr.Tag = "Editar";
             this.btnTipoHr.UseVisualStyleBackColor = false;
@@ -769,7 +761,7 @@
             this.btnAsignaciones.Image = global::SIPAA_CS.Properties.Resources.Editar;
             this.btnAsignaciones.Location = new System.Drawing.Point(277, 28);
             this.btnAsignaciones.Name = "btnAsignaciones";
-            this.btnAsignaciones.Size = new System.Drawing.Size(50, 50);
+            this.btnAsignaciones.Size = new System.Drawing.Size(55, 55);
             this.btnAsignaciones.TabIndex = 178;
             this.btnAsignaciones.Tag = "Editar";
             this.btnAsignaciones.UseVisualStyleBackColor = false;
@@ -795,7 +787,7 @@
             this.button1.Image = global::SIPAA_CS.Properties.Resources.Editar;
             this.button1.Location = new System.Drawing.Point(277, 19);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 50);
+            this.button1.Size = new System.Drawing.Size(55, 55);
             this.button1.TabIndex = 178;
             this.button1.Tag = "Editar";
             this.button1.UseVisualStyleBackColor = false;
@@ -822,7 +814,7 @@
             this.button2.Image = global::SIPAA_CS.Properties.Resources.Editar;
             this.button2.Location = new System.Drawing.Point(277, 28);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 50);
+            this.button2.Size = new System.Drawing.Size(55, 55);
             this.button2.TabIndex = 178;
             this.button2.Tag = "Editar";
             this.button2.UseVisualStyleBackColor = false;
@@ -841,6 +833,18 @@
             this.panelAsignacionTrabajador.Size = new System.Drawing.Size(403, 578);
             this.panelAsignacionTrabajador.TabIndex = 186;
             // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 187;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
+            // 
             // DatosTrabajadorPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -848,10 +852,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(label13);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMinimizar);
@@ -861,7 +865,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DatosTrabajadorPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DatosTrabajadorPerfil";
+            this.Text = "Datos Trabajador-Perfil";
             this.Load += new System.EventHandler(this.DatosTrabajadorPerfil_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -879,6 +883,7 @@
             this.panel5.PerformLayout();
             this.panelAsignacionTrabajador.ResumeLayout(false);
             this.panelAsignacionTrabajador.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -891,7 +896,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblusuario;
-        private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -932,5 +936,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panelAsignacionTrabajador;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }

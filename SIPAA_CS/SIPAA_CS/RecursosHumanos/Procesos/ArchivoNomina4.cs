@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 
 //***********************************************************************************************
 //Autor: Jose Luis Alvarez Delgado
@@ -168,6 +169,20 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //-----------------------------------------------------------------------------------------------
         private void ArchivoNomina4_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "ArchivoNomina4.cs")
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
+
             if (bprimeravez == true)
             {
                 Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
@@ -364,6 +379,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
             }
             Application.Restart();
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
         }
 
         //-----------------------------------------------------------------------------------------------

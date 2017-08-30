@@ -115,6 +115,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void button1_Click(object sender, EventArgs e)
         {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
 
@@ -144,6 +146,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void TrabajadoresPerfil_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "TrabajadoresPerfil.cs")
+                {
+                    f.Hide();
+                }
+            }
+
             //LoginInfo.IdTrab = "ADMIN";
             // Diccionario Permisos x Pantalla
             lblusuario.Text = LoginInfo.Nombre;
@@ -161,7 +173,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%", 6, "%", "%", 0,"", this.Name);
             //   llenarListView(dtTrab, ltvTrabajador);
             llenarGrid(dtTrab, dgvTrab);
-            
+            txtdtrab.Focus();
+
+
         }
 
         //-----------------------------------------------------------------------------------------------

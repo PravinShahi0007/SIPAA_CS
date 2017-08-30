@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
+using static SIPAA_CS.App_Code.Usuario;
 
 
 //***********************************************************************************************
@@ -100,6 +101,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
         }
 
+        //botón regresar
+        private void btnregresar_Click(object sender, EventArgs e)
+        {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -111,6 +120,19 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             try
             {
+                //cierra formularios abiertos
+                FormCollection formulariosApp = Application.OpenForms;
+                foreach (Form f in formulariosApp)
+                {
+                    if (f.Name != "ProcesaIncidencias.cs")
+                    {
+                        f.Hide();
+                    }
+                }
+
+                //llena etiqueta de usuario
+                lblusuario.Text = LoginInfo.Nombre;
+
                 //función para tool tip
                 ftooltip();
 
@@ -167,6 +189,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
 
         }
+
 
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 

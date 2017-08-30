@@ -41,7 +41,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -72,6 +71,7 @@
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             label23 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -85,6 +85,7 @@
             this.pnlAsig.SuspendLayout();
             this.panelTrab.SuspendLayout();
             this.panelTag.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label23
@@ -119,7 +120,7 @@
             label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(246, 36);
+            label3.Location = new System.Drawing.Point(209, 36);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(66, 16);
             label3.TabIndex = 207;
@@ -131,7 +132,7 @@
             label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(62, 34);
+            label4.Location = new System.Drawing.Point(25, 34);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(96, 16);
             label4.TabIndex = 206;
@@ -189,24 +190,15 @@
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblusuario.Location = new System.Drawing.Point(11, 74);
+            this.lblusuario.Location = new System.Drawing.Point(11, 77);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.Size = new System.Drawing.Size(50, 16);
             this.lblusuario.TabIndex = 125;
-            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.Text = "usuario";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlimgusuario
-            // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(15, 30);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 124;
             // 
             // btnRegresar
             // 
@@ -215,7 +207,7 @@
             this.btnRegresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Location = new System.Drawing.Point(919, 1);
+            this.btnRegresar.Location = new System.Drawing.Point(918, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 123;
@@ -229,7 +221,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(972, 1);
+            this.btnMinimizar.Location = new System.Drawing.Point(974, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 122;
@@ -244,7 +236,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(996, 1);
+            this.btnCerrar.Location = new System.Drawing.Point(999, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 121;
@@ -260,7 +252,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(338, 3);
+            this.label1.Location = new System.Drawing.Point(343, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(319, 23);
             this.label1.TabIndex = 120;
@@ -285,7 +277,7 @@
             // 
             this.dpFechaFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaFin.Location = new System.Drawing.Point(249, 55);
+            this.dpFechaFin.Location = new System.Drawing.Point(212, 55);
             this.dpFechaFin.Name = "dpFechaFin";
             this.dpFechaFin.Size = new System.Drawing.Size(137, 25);
             this.dpFechaFin.TabIndex = 205;
@@ -296,9 +288,9 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(418, 36);
+            this.btnBuscar.Location = new System.Drawing.Point(414, 25);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(50, 50);
+            this.btnBuscar.Size = new System.Drawing.Size(55, 55);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -308,7 +300,7 @@
             // 
             this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaInicio.Location = new System.Drawing.Point(65, 55);
+            this.dpFechaInicio.Location = new System.Drawing.Point(28, 55);
             this.dpFechaInicio.Name = "dpFechaInicio";
             this.dpFechaInicio.Size = new System.Drawing.Size(139, 25);
             this.dpFechaInicio.TabIndex = 204;
@@ -598,6 +590,18 @@
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 213;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
+            // 
             // AsignacionIncidenciasTrabajador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -605,6 +609,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.panelTag);
             this.Controls.Add(this.labelGrid);
             this.Controls.Add(this.pnlAsig);
@@ -612,7 +617,6 @@
             this.Controls.Add(this.dgvInc);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
@@ -623,7 +627,7 @@
             this.Name = "AsignacionIncidenciasTrabajador";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AsignacionIncidenciasTrabajador";
+            this.Text = "Suspensiones Retroactivos";
             this.Load += new System.EventHandler(this.AsignacionIncidenciasTrabajador_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -634,6 +638,7 @@
             this.panelTrab.PerformLayout();
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -642,7 +647,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblusuario;
-        private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;
@@ -673,5 +677,6 @@
         private System.Windows.Forms.Label lbMensaje;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }

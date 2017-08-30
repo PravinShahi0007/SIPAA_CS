@@ -172,6 +172,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            DatosTrabajadorPerfil dattrabperf = new DatosTrabajadorPerfil();
+            dattrabperf.Show();
             this.Close();
         }
 
@@ -204,7 +206,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void AsignacionTipoHorarioTrabajador_Load(object sender, EventArgs e)
         {
 
-            lblusuario.Text = LoginInfo.Nombre;
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "AsignacionTipoHorarioTrabajador.cs")
+                {
+                    f.Hide();
+                }
+            }
          
             lbNombre.Text = TrabajadorInfo.Nombre;
             lbIdTrab.Text = TrabajadorInfo.IdTrab;
@@ -223,11 +233,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             AsignarTipoHr();
 
 
-            if (Permisos.dcPermisos["Actualizar"] != 1 && Permisos.dcPermisos["Eliminar"] != 1) {
+            ////if (Permisos.dcPermisos["Actualizar"] != 1 && Permisos.dcPermisos["Eliminar"] != 1) {
 
-                panelPermisos.Visible = false;
+            ////    panelPermisos.Visible = false;
 
-            }
+            ////}
+
+            txtBuscar.Focus();
 
         }
 
@@ -258,10 +270,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvTipoHr.Columns[3].Visible = false;
 
 
-            if (Permisos.dcPermisos["Actualizar"] != 1 && Permisos.dcPermisos["Eliminar"] != 1)
-            {
-                dgvTipoHr.Columns.RemoveAt(0);
-            }
+            //if (Permisos.dcPermisos["Actualizar"] != 1 && Permisos.dcPermisos["Eliminar"] != 1)
+            //{
+            //    dgvTipoHr.Columns.RemoveAt(0);
+            //}
         }
 
         private void AsignarTipoHr()
