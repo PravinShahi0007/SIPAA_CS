@@ -353,7 +353,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //cbTipo.Enabled = false;
 
             // IncCalificacion objInc = new IncCalificacion();
-            //  LlenarGrid(objInc);
+            //LlenarGrid(objInc);
 
            
             llenarComboTipo(20);

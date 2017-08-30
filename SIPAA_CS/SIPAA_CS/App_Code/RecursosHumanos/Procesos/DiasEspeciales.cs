@@ -12,7 +12,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
     class DiasEspeciales
     {
 
-        public string sIdTrab = String.Empty;
+        public string sIdTrab = "0";
         public int iCvIncidencia = 0;
         public int iCvTipo = 0;
         public DateTime fFechaInicio = DateTime.Now;
@@ -51,10 +51,10 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@P_Orden", SqlDbType.Int).Value = objDias.iOrden;
             cmd.Parameters.Add("@P_Subsidio", SqlDbType.Int).Value = objDias.iSubsidio;
             cmd.Parameters.Add("@P_idtrabrys", SqlDbType.Int).Value = objDias.iIdtrabrys;
-            cmd.Parameters.Add("@P_IdCompania", SqlDbType.Int).Value = objDias.iIdCompania;
-            cmd.Parameters.Add("@P_IdPlanta", SqlDbType.Int).Value = objDias.iIPlanta;
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = objDias.sUsuumod;
             cmd.Parameters.Add("@P_prgumon", SqlDbType.VarChar).Value = objDias.sPrgumod;
+            cmd.Parameters.Add("@P_IdCompania", SqlDbType.Int).Value = objDias.iIdCompania;
+            cmd.Parameters.Add("@P_IdPlanta", SqlDbType.Int).Value = objDias.iIPlanta;
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
