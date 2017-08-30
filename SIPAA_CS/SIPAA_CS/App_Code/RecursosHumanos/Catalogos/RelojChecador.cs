@@ -16,7 +16,7 @@ using System.Data.SqlClient;
 
 namespace SIPAA_CS.App_Code
 {
-    class RelojChecador
+   public class RelojChecador
     {
         //variables
         public int    p_opcion;
@@ -45,7 +45,7 @@ namespace SIPAA_CS.App_Code
         } // public RelojChecador()
 
         //metodo data table para llenar grid de busqueda
-        public DataTable obtrelojeschecadores(int p_opcion, int p_cvreloj, string p_descripcion, string p_ip, string p_cvvnc, int p_stactualiza, string p_usuumod, string p_prgumodr)
+        public DataTable obtrelojeschecadores(int p_opcion, int p_cvreloj, string p_descripcion, string p_ip, string p_cvvnc, int p_stactualiza, string p_usuumod, string p_prgumodr, string p_ususincchecadas ,string p_ususincusuario)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechcreloj_suid";
@@ -61,6 +61,8 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_stactualiza", SqlDbType.Int).Value = p_stactualiza;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
+            cmd.Parameters.Add("@p_ususincchecadas", SqlDbType.VarChar ).Value = p_ususincchecadas;
+            cmd.Parameters.Add("@p_ususincusuario",SqlDbType.VarChar ).Value = p_ususincusuario;
 
             objConexion.asignarConexion(cmd);
 

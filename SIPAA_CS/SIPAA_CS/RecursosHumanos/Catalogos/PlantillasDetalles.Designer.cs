@@ -40,9 +40,9 @@
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
             System.Windows.Forms.Label label10;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnregresar = new System.Windows.Forms.Button();
             this.btnminimizar = new System.Windows.Forms.Button();
             this.btncerrar = new System.Windows.Forms.Button();
@@ -326,29 +326,29 @@
             this.dgvrechcplantilla_d.AllowUserToAddRows = false;
             this.dgvrechcplantilla_d.AllowUserToDeleteRows = false;
             this.dgvrechcplantilla_d.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvrechcplantilla_d.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvrechcplantilla_d.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
             this.dgvrechcplantilla_d.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvrechcplantilla_d.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvrechcplantilla_d.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvrechcplantilla_d.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvrechcplantilla_d.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvrechcplantilla_d.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
             this.dgvrechcplantilla_d.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvrechcplantilla_d.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvrechcplantilla_d.DefaultCellStyle = dataGridViewCellStyle39;
             this.dgvrechcplantilla_d.Location = new System.Drawing.Point(377, 158);
             this.dgvrechcplantilla_d.Name = "dgvrechcplantilla_d";
             this.dgvrechcplantilla_d.ReadOnly = true;
@@ -360,6 +360,7 @@
             this.dgvrechcplantilla_d.Size = new System.Drawing.Size(640, 514);
             this.dgvrechcplantilla_d.TabIndex = 147;
             this.dgvrechcplantilla_d.TabStop = false;
+            this.dgvrechcplantilla_d.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvrechcplantilla_d_CellClick);
             this.dgvrechcplantilla_d.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvrechcplantilla_d_CellContentClick);
             // 
             // pnlmenssuid
@@ -432,6 +433,8 @@
             this.mtbhrjornada.Name = "mtbhrjornada";
             this.mtbhrjornada.Size = new System.Drawing.Size(74, 15);
             this.mtbhrjornada.TabIndex = 6;
+            this.mtbhrjornada.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbhrjornada_MouseClick);
+            this.mtbhrjornada.Enter += new System.EventHandler(this.mtbhrjornada_Enter);
             // 
             // panel6
             // 
@@ -451,6 +454,8 @@
             this.mtbhrsalcomerh.Name = "mtbhrsalcomerh";
             this.mtbhrsalcomerh.Size = new System.Drawing.Size(74, 15);
             this.mtbhrsalcomerh.TabIndex = 11;
+            this.mtbhrsalcomerh.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbhrsalcomerh_MouseClick);
+            this.mtbhrsalcomerh.Enter += new System.EventHandler(this.mtbhrsalcomerh_Enter);
             // 
             // panel5
             // 
@@ -470,6 +475,8 @@
             this.mtbhrsalcomerd.Name = "mtbhrsalcomerd";
             this.mtbhrsalcomerd.Size = new System.Drawing.Size(74, 15);
             this.mtbhrsalcomerd.TabIndex = 10;
+            this.mtbhrsalcomerd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbhrsalcomerd_MouseClick);
+            this.mtbhrsalcomerd.Enter += new System.EventHandler(this.mtbhrsalcomerd_Enter);
             // 
             // panel4
             // 
@@ -489,6 +496,8 @@
             this.mtbmincomida.Name = "mtbmincomida";
             this.mtbmincomida.Size = new System.Drawing.Size(74, 15);
             this.mtbmincomida.TabIndex = 9;
+            this.mtbmincomida.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbmincomida_MouseClick);
+            this.mtbmincomida.Enter += new System.EventHandler(this.mtbmincomida_Enter);
             // 
             // panel3
             // 
@@ -508,6 +517,8 @@
             this.mtbhterminojornada.Name = "mtbhterminojornada";
             this.mtbhterminojornada.Size = new System.Drawing.Size(74, 15);
             this.mtbhterminojornada.TabIndex = 8;
+            this.mtbhterminojornada.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbhterminojornada_MouseClick);
+            this.mtbhterminojornada.Enter += new System.EventHandler(this.mtbhterminojornada_Enter);
             // 
             // panel1
             // 
@@ -540,6 +551,8 @@
             this.mtbhrinijor.Name = "mtbhrinijor";
             this.mtbhrinijor.Size = new System.Drawing.Size(74, 15);
             this.mtbhrinijor.TabIndex = 5;
+            this.mtbhrinijor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mtbhrinijor_MouseClick);
+            this.mtbhrinijor.Enter += new System.EventHandler(this.mtbhrinijor_Enter);
             // 
             // cbdia
             // 

@@ -341,7 +341,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             if (pins == 1 && pact == 1 && pelim == 1)
             {
 
-                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr);
+                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
                 dgvRelojesChecadores.DataSource = dtRelojChecador;
 
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
@@ -360,7 +360,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else if (pins == 1 && pact == 1)
             {
-                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr);
+                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
                 dgvRelojesChecadores.DataSource = dtRelojChecador;
 
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
@@ -380,7 +380,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else if (pins == 1 && pelim == 1)
             {
-                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr);
+                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
                 dgvRelojesChecadores.DataSource = dtRelojChecador;
 
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
@@ -399,7 +399,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else if (pact == 1 && pelim == 1)
             {
-                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr);
+                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
                 dgvRelojesChecadores.DataSource = dtRelojChecador;
 
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
@@ -418,7 +418,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else if (pins == 1)
             {
-                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr);
+                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
                 dgvRelojesChecadores.DataSource = dtRelojChecador;
 
                 dgvRelojesChecadores.Columns[0].Visible = false;
@@ -433,7 +433,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else if (pact == 1)
             {
-                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr);
+                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
                 dgvRelojesChecadores.DataSource = dtRelojChecador;
 
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
@@ -452,7 +452,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else if (pelim == 1)
             {
-                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr);
+                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
                 dgvRelojesChecadores.DataSource = dtRelojChecador;
 
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
@@ -472,7 +472,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else
             {
 
-                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr);
+                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
                 dgvRelojesChecadores.DataSource = dtRelojChecador;
 
                 dgvRelojesChecadores.Columns[0].Visible = false;

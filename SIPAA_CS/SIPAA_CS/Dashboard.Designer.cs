@@ -308,9 +308,9 @@
             this.btnPower.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnPower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnPower.Location = new System.Drawing.Point(924, 1);
+            this.btnPower.Location = new System.Drawing.Point(918, 1);
             this.btnPower.Name = "btnPower";
-            this.btnPower.Size = new System.Drawing.Size(24, 24);
+            this.btnPower.Size = new System.Drawing.Size(26, 24);
             this.btnPower.TabIndex = 151;
             this.btnPower.TabStop = false;
             this.btnPower.UseVisualStyleBackColor = false;

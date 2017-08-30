@@ -28,7 +28,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
 
 
          
-        public DataTable GestionHorario(int iOpcion,TrabajadorHorario objTrabhr)
+        public DataTable GestionHorario(int iOpcion)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechtrabhorario_suid";
@@ -37,20 +37,20 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             
 
             cmd.Parameters.Add("@P_opcion", SqlDbType.Int).Value = iOpcion;
-            cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = objTrabhr.sIdTrab;
-            cmd.Parameters.Add("@P_idplantilla", SqlDbType.Int).Value = objTrabhr.iCvPlantilla;
-            cmd.Parameters.Add("@P_cvdia", SqlDbType.Int).Value = objTrabhr.iCvDia;
-            cmd.Parameters.Add("@P_hrentrada", SqlDbType.Time).Value = objTrabhr.sHoraEntrada;
-            cmd.Parameters.Add("@P_cvdiaSalidaTurno", SqlDbType.Int).Value = objTrabhr.iCvdiaSalidaTurno;
-            cmd.Parameters.Add("@P_hrSalidaTurno", SqlDbType.Time).Value = objTrabhr.sHoraSalidaTurno;
-            cmd.Parameters.Add("@P_tiempocomida", SqlDbType.Int).Value = objTrabhr.iTiempoComida;
-            cmd.Parameters.Add("@P_cvdiaComidaInicio", SqlDbType.Int).Value = objTrabhr.iCvdiaComidaInicio;
-            cmd.Parameters.Add("@P_hrComidaInicio", SqlDbType.Time).Value = objTrabhr.sHoraComidaInicio;
-            cmd.Parameters.Add("@P_cvdiaComidaFin", SqlDbType.Int).Value = objTrabhr.iCvdiaComidaFin;
-            cmd.Parameters.Add("@P_hrComidaFin", SqlDbType.Time).Value = objTrabhr.sHoraComidaFin;
-            cmd.Parameters.Add("@P_noTotalhoras", SqlDbType.VarChar).Value = objTrabhr.iHorasTotalTrabajo;
-            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = objTrabhr.sUsuumod;
-            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = objTrabhr.sPrgumod;
+            cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = this.sIdTrab;
+            cmd.Parameters.Add("@P_idplantilla", SqlDbType.Int).Value = this.iCvPlantilla;
+            cmd.Parameters.Add("@P_cvdia", SqlDbType.Int).Value = this.iCvDia;
+            cmd.Parameters.Add("@P_hrentrada", SqlDbType.Time).Value = this.sHoraEntrada;
+            cmd.Parameters.Add("@P_cvdiaSalidaTurno", SqlDbType.Int).Value = this.iCvdiaSalidaTurno;
+            cmd.Parameters.Add("@P_hrSalidaTurno", SqlDbType.Time).Value = this.sHoraSalidaTurno;
+            cmd.Parameters.Add("@P_tiempocomida", SqlDbType.Int).Value = this.iTiempoComida;
+            cmd.Parameters.Add("@P_cvdiaComidaInicio", SqlDbType.Int).Value = this.iCvdiaComidaInicio;
+            cmd.Parameters.Add("@P_hrComidaInicio", SqlDbType.Time).Value = this.sHoraComidaInicio;
+            cmd.Parameters.Add("@P_cvdiaComidaFin", SqlDbType.Int).Value = this.iCvdiaComidaFin;
+            cmd.Parameters.Add("@P_hrComidaFin", SqlDbType.Time).Value = this.sHoraComidaFin;
+            cmd.Parameters.Add("@P_noTotalhoras", SqlDbType.VarChar).Value = this.iHorasTotalTrabajo;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = this.sUsuumod;
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = this.sPrgumod;
 
             objConexion.asignarConexion(cmd);
 

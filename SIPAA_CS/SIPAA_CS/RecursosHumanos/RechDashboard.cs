@@ -135,7 +135,7 @@ namespace SIPAA_CS.RecursosHumanos
         public void CrearMenu()
         {
             Perfil objPer = new Perfil();
-            DataTable dt = objPer.ReportePerfilesModulos("RECH", "%", "ADMIN", "CS", 0, 0, 0, 0, 0, 14);
+            DataTable dt = objPer.ReportePerfilesModulos("RECH", "%", "ADMIN", "CS", 0, 0, 0, 0, 0, 13);
             DataTable dtEncabezados = Utilerias.CrearEncabezados(dt);
             Utilerias.ProcesoMenu(dtEncabezados, "ADMIN", "RECH", null, MsMenu,paneltitulo.BackColor);
         }
