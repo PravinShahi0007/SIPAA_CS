@@ -131,7 +131,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             dgvReloj.Columns["IP"].Visible = false;
             dgvReloj.Columns["Rostro"].Visible = false;
             ///////////////////////
-            dgvReloj.Columns["Usuario Sincronizó Checadas"].Visible = false;
+            dgvReloj.Columns["Usuario Sincronizó Asistencias"].Visible = false;
             dgvReloj.Columns["Usuario Sincronizó Usuarios"].Visible = false;
             dgvReloj.Columns[0].Width = 90;
            
@@ -217,9 +217,9 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 objR.Huella = Convert.ToBoolean(row.Cells["Huella"].Value);
                 objR.Rostro = Convert.ToBoolean(row.Cells["Rostro"].Value);
                 objR.MultipleHuella = Convert.ToBoolean(row.Cells["multiplehuella"].Value);
-                objR.UltimaDescarga = row.Cells["Ultima Descarga Checadas"].Value.ToString();
+                objR.UltimaDescarga = row.Cells["Ultima Descarga Asistencias"].Value.ToString();
                 objR.Descripcion = row.Cells["Descripción"].Value.ToString();
-                objR.UsuSincChecadas = row.Cells["Usuario Sincronizó Checadas"].Value.ToString(); 
+                objR.UsuSincChecadas = row.Cells["Usuario Sincronizó Asistencias"].Value.ToString(); 
                 ValidarExistencia(ltReloj, objR);
 
                 if (ltReloj.Count > 0)

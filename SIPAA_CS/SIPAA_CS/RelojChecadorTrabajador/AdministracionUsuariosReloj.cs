@@ -111,11 +111,13 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             dgvRelojes.Columns["huella"].Visible = false;
             dgvRelojes.Columns["IP"].Visible = false;
             dgvRelojes.Columns["Rostro"].Visible = false;
+            
+         
             ///////////////////////
-            dgvRelojes.Columns["Usuario Sincronizó Checadas"].Visible = false;
+            dgvRelojes.Columns["Usuario Sincronizó Asistencias"].Visible = false;
             dgvRelojes.Columns["Usuario Sincronizó Usuarios"].Visible = false;
             dgvRelojes.Columns[0].Width = 90;
-
+              
 
             foreach (DataGridViewRow row in dgvRelojes.Rows)
             {
@@ -229,6 +231,11 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             dgvEmpleados.Columns["valida_Teclado"].Visible = false;
             dgvEmpleados.Columns["multiplehuella"].Visible = false;
             dgvEmpleados.Columns["IP"].Visible = false;
+            dgvEmpleados.Columns["Enviado"].Visible = false;
+            dgvEmpleados.Columns["Huella Digital"].Visible = false;
+            dgvEmpleados.Columns["Teclado"].Visible = false;
+
+         
 
             foreach (DataGridViewRow row in dgvEmpleados.Rows)
             {
@@ -311,11 +318,21 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     RelojxUsuario.cvreloj = obj1.cvreloj;
                     RelojxUsuario.Nombre = obj1.Nombre;
 
-                    //btnTeclado.Enabled = true;
+                    
 
                     btnPerfil.Enabled = true;
 
+                    btnFace.Enabled = true;
+                    btnHuella.Enabled = true;
+                    btnDescarga.Enabled = true;
+                    btnKey.Enabled = true;
+                    btnBorrar.Enabled = true;
+                    btnTeclado.Enabled = true;
+                    btnSync.Enabled = true;
+                    //btnTeclado.Enabled = false;
+                    //btnPerfil.Enabled = false;
 
+                    /*
                     if (!ValidarBorrar(ltUsuario))
                     {
                         btnFace.Enabled = false;
@@ -337,15 +354,16 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         btnSync.Enabled = true;
                         ValidarBotones();
                     }
+                    
 
-                   
                     if (ltUsuario.Count > 1)
                     {
-                        btnTeclado.Enabled = false;
+                       // btnTeclado.Enabled = false;
                         btnPerfil.Enabled = false;
-                    }
+                    }*/
                 }
-                else {
+                else
+                {
                     panelAccion.Enabled = false;
                 }
 
@@ -1313,6 +1331,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             TrabajadorInfo.IdTrab = obj.idtrab;
             AsignacionTrabajadorPerfil frm = new AsignacionTrabajadorPerfil();
             frm.Show();
+            this.Close();
         }
     }
 

@@ -443,7 +443,7 @@
             this.dgvEmpleados.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvEmpleados.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmpleados.Size = new System.Drawing.Size(612, 275);
+            this.dgvEmpleados.Size = new System.Drawing.Size(562, 275);
             this.dgvEmpleados.TabIndex = 173;
             this.dgvEmpleados.Tag = "Editar";
             this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReloj_CellContentClick);
@@ -798,7 +798,7 @@
             this.dgvRelojes.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvRelojes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvRelojes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRelojes.Size = new System.Drawing.Size(612, 223);
+            this.dgvRelojes.Size = new System.Drawing.Size(620, 223);
             this.dgvRelojes.TabIndex = 201;
             this.dgvRelojes.Tag = "Editar";
             // 
