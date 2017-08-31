@@ -52,7 +52,17 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         private void SplashHuella_Load(object sender, EventArgs e)
         {
-            
+
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != "AdministracionRelojChecador.cs")
+                {
+                    f.Hide();
+                }
+            }
+
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
