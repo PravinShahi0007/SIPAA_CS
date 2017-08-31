@@ -1,5 +1,6 @@
 ﻿using SIPAA_CS.App_Code;
 using SIPAA_CS.Properties;
+using SIPAA_CS.RecursosHumanos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -1103,8 +1104,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            Dashboard Form = new Dashboard();
-            Form.Show(); 
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
 

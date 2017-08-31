@@ -251,6 +251,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            DatosTrabajadorPerfil dattrabperf = new DatosTrabajadorPerfil();
+            dattrabperf.Show();
             this.Close();
         }
 

@@ -281,22 +281,20 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     fila.Cells[0].Tag = "uncheck";
                 }
                        
-                 DataGridViewRow row2 = dgvEmpleados.SelectedRows[0];
-                 string  Trabajador=row2.Cells[1].Value.ToString();
-                 AsignarReloj(Trabajador);
-                //AsignarReloj(TrabajadorInfo.IdTrab);
-                
-                //Borra cada celda seleccionada
-
-                DataGridViewRow row = this.dgvEmpleados.SelectedRows[0];
+                DataGridViewRow row = dgvEmpleados.SelectedRows[0];
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                string  Trabajador=row.Cells[1].Value.ToString();
+                AsignarReloj(Trabajador);
+                //AsignarReloj(TrabajadorInfo.IdTrab);
+                //Borra cada celda seleccionada
+                //DataGridViewRow row = dgvEmpleados.SelectedRows[0];
+                //row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                 UsuarioReloj objR = new UsuarioReloj();
                 objR.cvreloj = Convert.ToInt32(row.Cells["cvreloj"].Value.ToString());
                 objR.ipReloj = row.Cells["IP"].Value.ToString();
                 objR.idtrab = row.Cells["idtrab"].Value.ToString();
                 objR.Nombre = row.Cells["Nombre"].Value.ToString();
                 objR.Enviado = Convert.ToBoolean(row.Cells["Enviado"].Value);
-
                 objR.Teclado = row.Cells["valida_Teclado"].Value.ToString();
                 objR.Huella = row.Cells["valida_Huella"].Value.ToString();
 

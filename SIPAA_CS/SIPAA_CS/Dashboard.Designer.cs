@@ -153,10 +153,11 @@
             // btnAccesos
             // 
             this.btnAccesos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            this.btnAccesos.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_fingerprint_white_48dp;
+            this.btnAccesos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAccesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccesos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccesos.ForeColor = System.Drawing.Color.White;
-            this.btnAccesos.Image = ((System.Drawing.Image)(resources.GetObject("btnAccesos.Image")));
             this.btnAccesos.Location = new System.Drawing.Point(31, 170);
             this.btnAccesos.Name = "btnAccesos";
             this.btnAccesos.Size = new System.Drawing.Size(270, 132);
@@ -203,11 +204,11 @@
             // btnRecursosh
             // 
             this.btnRecursosh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            this.btnRecursosh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRecursosh.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_group_white_48dp;
+            this.btnRecursosh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnRecursosh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRecursosh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecursosh.ForeColor = System.Drawing.Color.White;
-            this.btnRecursosh.Image = global::SIPAA_CS.Properties.Resources.ic_group_white_48dp;
             this.btnRecursosh.Location = new System.Drawing.Point(31, 24);
             this.btnRecursosh.Name = "btnRecursosh";
             this.btnRecursosh.Size = new System.Drawing.Size(270, 132);
