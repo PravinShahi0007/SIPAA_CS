@@ -836,7 +836,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         private void timer1_Tick(object sender, EventArgs e)
         {
           //  panelTag.Visible = false;
-           // progressBar1.Value = 0;
+          // progressBar1.Value = 0;
               progressBar1.Visible = false;
               pnlMensaje.Visible = false;
               panelTag.Visible = false;
