@@ -506,6 +506,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void btnBuscarReloj_Click(object sender, EventArgs e)
         {
 
+          /*  bool bBandera = false;
+            bBandera = ConsultaReloj("Foto", "170012", 2, 4);
+            */
+
+
             string sBusqueda = "";
             if (txtBuscarReloj.Text != String.Empty)
               sBusqueda = txtBuscarReloj.Text;
@@ -1400,6 +1405,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     objCZKEM.SetUserGroup(1,Convert.ToInt32( idtrab),Grupo);
                 }      
             }
+
+
             Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Guardando asignaciones");
             panelTagRelojCheck.Update();
             FormaReg objFr = new FormaReg();
@@ -1611,6 +1618,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             bBandera = false; 
                         }
                     }
+                    break;
+                    /*
+                case "Foto":
+                    int longitud = 0;
+                    byte Foto;
+                    string NombreFoto = "170014.jpg";
+                    if (objCZKEM.GetPhotoByName(1,NombreFoto, out Foto, out longitud))
+                        MessageBox.Show("Foto");
+                    */
+
                     break;
 
                 case "Huella":

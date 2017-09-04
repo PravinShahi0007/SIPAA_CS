@@ -94,6 +94,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             if (pins == 1 && pact == 1 && pelim == 1)
             {
+                
                 factgrid();
                 Util.ChangeButton(btnInsertar, 2, false);
                 ckbEliminar.Visible = true;

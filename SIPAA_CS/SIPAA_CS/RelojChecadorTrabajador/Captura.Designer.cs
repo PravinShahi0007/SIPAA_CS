@@ -43,12 +43,12 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.panelTag = new System.Windows.Forms.Panel();
+            this.prgb1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.txtPass = new System.Windows.Forms.MaskedTextBox();
             this.txtConfPass = new System.Windows.Forms.MaskedTextBox();
-            this.prgb1 = new System.Windows.Forms.ProgressBar();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panelMensaje = new System.Windows.Forms.Panel();
@@ -225,9 +225,17 @@
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTag.Location = new System.Drawing.Point(0, 12);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(457, 44);
+            this.panelTag.Size = new System.Drawing.Size(444, 44);
             this.panelTag.TabIndex = 199;
             this.panelTag.Visible = false;
+            // 
+            // prgb1
+            // 
+            this.prgb1.Location = new System.Drawing.Point(0, 39);
+            this.prgb1.Name = "prgb1";
+            this.prgb1.Size = new System.Drawing.Size(457, 2);
+            this.prgb1.Step = 1;
+            this.prgb1.TabIndex = 205;
             // 
             // timer1
             // 
@@ -267,17 +275,10 @@
             this.txtConfPass.Location = new System.Drawing.Point(55, 184);
             this.txtConfPass.Mask = "99999";
             this.txtConfPass.Name = "txtConfPass";
+            this.txtConfPass.PasswordChar = '*';
             this.txtConfPass.Size = new System.Drawing.Size(204, 19);
             this.txtConfPass.TabIndex = 204;
             this.txtConfPass.ValidatingType = typeof(int);
-            // 
-            // prgb1
-            // 
-            this.prgb1.Location = new System.Drawing.Point(0, 39);
-            this.prgb1.Name = "prgb1";
-            this.prgb1.Size = new System.Drawing.Size(457, 2);
-            this.prgb1.Step = 1;
-            this.prgb1.TabIndex = 205;
             // 
             // panel4
             // 
@@ -303,7 +304,7 @@
             this.panelMensaje.Controls.Add(this.panelTag);
             this.panelMensaje.Location = new System.Drawing.Point(0, 259);
             this.panelMensaje.Name = "panelMensaje";
-            this.panelMensaje.Size = new System.Drawing.Size(456, 71);
+            this.panelMensaje.Size = new System.Drawing.Size(447, 57);
             this.panelMensaje.TabIndex = 222;
             // 
             // CapturaTrabajador
@@ -311,7 +312,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(456, 315);
+            this.ClientSize = new System.Drawing.Size(454, 314);
             this.Controls.Add(this.panelMensaje);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.txtConfPass);
