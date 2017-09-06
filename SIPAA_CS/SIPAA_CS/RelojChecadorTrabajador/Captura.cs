@@ -63,6 +63,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     panelMensaje.Enabled = false;
                     bool bConexion = Connect_Net(RelojxUsuario.IPReloj, 4370);
                   
+                   
+
                     if (bConexion != false)
                     {
                         string idtrab = RelojxUsuario.idtrab;

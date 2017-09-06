@@ -77,8 +77,10 @@ namespace SIPAA_CS.App_Code
 
         public static void ControlNotificaciones(Panel panelTag, Label lbMensaje, int iClase, string strMensaje)
         {
-            //panelTag.Dispose();
-            panelTag.Visible = false;
+            panelTag.Dispose();
+          //  panelTag.Visible = false;
+            panelTag.Visible = true;
+            
             switch (iClase)
             {
 

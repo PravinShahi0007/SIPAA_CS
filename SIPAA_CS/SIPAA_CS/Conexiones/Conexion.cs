@@ -14,7 +14,7 @@ namespace SIPAA_CS.Conexiones
         SqlConnection cn;
         SqlConnection cns;
         SqlCommand cmd;
-        SqlDataReader dr;
+        //SqlDataReader dr;
         SqlDataAdapter da;
         DataTable dt;
 

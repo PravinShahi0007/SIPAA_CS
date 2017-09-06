@@ -326,8 +326,6 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             {
                 /*Panel de mensajes*/
                 pnlMensaje.Enabled = true;
-                //Mensaje = "Descargando Registros del Dispositivo...";
-                // Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Espere por favor. Descargando Registros...");
                 progressBar1.Value = 20;
                 pnlMensaje.Enabled = false;
                 string sIdTrab = String.Empty;
@@ -339,7 +337,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 {
                     foreach (Reloj obj in ltReloj)
                     {
-                       // iCont += 1;
+                       
                        
                         DialogResult Resultado = MessageBox.Show("El reloj " + obj.Descripcion.ToString() + " tuvo una descarga de asistencia  \nen la fecha:   " + obj.UltimaDescarga +" por el usuario "+obj.UsuSincChecadas+ " \n¿Desea Sincronizarlo de nuevo?", "SIPPA", MessageBoxButtons.YesNo);
                         if (Resultado == DialogResult.Yes)
@@ -384,7 +382,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registros Guardados correctamente");
                                     progressBar1.Value = 100;
                                     pnlMensaje.Enabled = false;
-                                    //timer1.Start();                            
+                                                             
                                 }
                                 else
                                 {
@@ -392,7 +390,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     progressBar1.Visible = false;
                                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Uno o más registros no se guardaron correctamente. Por Favor Repite el Proceso");
                                     pnlMensaje.Enabled = false;
-                                   // timer1.Start();
+                                   
                                  }
 
 
@@ -672,6 +670,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                 string cvreloj = row[1].ToString();
                                 string Nombre = row["Nombre"].ToString();
                                 string aux =row["administrador"].ToString();
+                                int Grupo = Convert.ToInt32( row["cvgruposreloj"].ToString()); 
                                 int Permiso = 0;
                                 if (Convert.ToBoolean(row["administrador"].ToString()))
                                     Permiso = 3; 
@@ -693,7 +692,9 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     {
                                       if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true)) //tenia !
                                            bBanderaPass = true;
-                                   }
+                                       
+                                        objCZKEM.SetUserGroup(1, Convert.ToInt32(idtrab), Grupo);
+                                    }
                                     catch
                                     {
                                         bBanderaPass = false;
@@ -1176,6 +1177,13 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         private void btnHuella_Click(object sender, EventArgs e)
         {
           
+
+
+
+
+
+
+
             ProcesoReloj("Huella");
             ProcesoReloj("Face");
             ProcesoReloj("Pass");
@@ -1415,7 +1423,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         {
             CapturaHora frm = new CapturaHora(ltReloj);
             frm.Show();
-            this.Close(); 
+            this.Close();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

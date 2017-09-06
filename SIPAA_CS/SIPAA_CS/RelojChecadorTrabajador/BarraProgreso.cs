@@ -17,8 +17,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         {
             InitializeComponent();
             label1.Text = Title;
-            //bd.DoWork += Bd_DoWork;
-            //bd.RunWorkerCompleted += Bd_RunWorkerCompleted;
+            bd.DoWork += Bd_DoWork;
+            bd.RunWorkerCompleted += Bd_RunWorkerCompleted;
             pbar.Style = ProgressBarStyle.Marquee;
             timer1.Interval = 5000;
             //timer1.Start();

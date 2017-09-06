@@ -145,7 +145,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             dgvRelojesChecadores.DataSource = null;
             //llena grid con datos existente
-            fgRelojesChecadores(4, 0, txtBuscarRC.Text.Trim(), "", "", 0, "JAV", "RelojesChecadores");
+            fgRelojesChecadores(4, 0, txtBuscarRC.Text.Trim(), "", "", 0, LoginInfo.IdTrab, this.Name);
             txtDescripcionRC.Text = "";
             txtDescripcionRC.Focus();
             if(dgvRelojesChecadores.Columns.Count>5)
