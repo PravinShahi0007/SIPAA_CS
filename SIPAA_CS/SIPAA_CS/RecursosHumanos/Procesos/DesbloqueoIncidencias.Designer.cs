@@ -218,7 +218,7 @@
             // btnDesbloqueo
             // 
             this.btnDesbloqueo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesbloqueo.Location = new System.Drawing.Point(612, 257);
+            this.btnDesbloqueo.Location = new System.Drawing.Point(811, 257);
             this.btnDesbloqueo.Name = "btnDesbloqueo";
             this.btnDesbloqueo.Size = new System.Drawing.Size(121, 40);
             this.btnDesbloqueo.TabIndex = 178;

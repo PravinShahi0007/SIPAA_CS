@@ -72,6 +72,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Puestos_Load(object sender, EventArgs e)
         {
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //cierra formularios abiertos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
@@ -111,7 +114,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btncerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnregresar, "Regresar");
-            toolTip1.SetToolTip(this.btnbuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btnbuscar, "Buscar Registros");
         }
         private void fgptos(int popc, string pbusq)
         {

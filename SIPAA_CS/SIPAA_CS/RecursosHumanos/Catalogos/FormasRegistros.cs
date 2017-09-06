@@ -82,6 +82,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (txtCapFR.Text.Trim() == "")
                 {
                     DialogResult result = MessageBox.Show("Captura el dato a guardar", "SIPAA", MessageBoxButtons.OK);
+                txtCapFR.Focus();
                 }
                 else
                 {
@@ -89,7 +90,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                     if (vValida <= 0)
                     {
-                        sGuardaMod(1, 0, txtCapFR.Text.Trim(), iSt, "150076", "frmFormReg");
+                        sGuardaMod(1, 0, txtCapFR.Text.Trim(), iSt, LoginInfo.IdTrab, "frmFormReg");
                         txtCapFR.Text = "";
 
                         panelTag.Visible = true;
@@ -129,7 +130,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                     if (vValida <= 0)
                     {
-                        sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), 0, "150076", "frmFormReg");
+                        sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), 0, LoginInfo.IdTrab, "frmFormReg");
                         txtCapFR.Text = "";
                         panelTag.Visible = true;
                         timer1.Start();
@@ -149,7 +150,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 }
                 else
                 {
-                    sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), 0, "150076", "frmFormReg");
+                    sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), 0, LoginInfo.IdTrab, "frmFormReg");
                     txtCapFR.Text = "";
                     panelTag.Visible = true;
                     timer1.Start();
@@ -167,7 +168,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             if (result == DialogResult.Yes)
             {
                 iSt = 0;
-                sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, "150076", "frmFormReg");
+                sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, LoginInfo.IdTrab, "frmFormReg");
                 txtCapFR.Text = "";
                 panelTag.Visible = true;
                 timer1.Start();
@@ -187,7 +188,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     iSt = 1;
-                    sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, "150076", "frmFormReg");
+                    sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, LoginInfo.IdTrab, "frmFormReg");
                     txtCapFR.Text = "";
                     panelTag.Visible = true;
                     timer1.Start();
@@ -300,8 +301,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnCerrar, "Cierra Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimiza Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresa");
-            toolTip1.SetToolTip(this.btnAgregar, "Agrega Registro");
-            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btnAgregar, "Agregar Registros");
+            toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
             toolTip1.SetToolTip(this.btnGuardar, "Guarda Registro");
             toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
             toolTip1.SetToolTip(this.btnEliminar, "Elimina Registro");
@@ -323,10 +324,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvForReg.Columns.Insert(0, imgCheckUsuarios);
                 dgvForReg.Columns[0].HeaderText = "Selección";
             }
-            dgvForReg.Columns[0].Width = 60;
+            dgvForReg.Columns[0].Width = 75;
             dgvForReg.Columns[1].Visible = false;
-            dgvForReg.Columns[2].Width = 185;
-            dgvForReg.Columns[3].Width = 80;
+            dgvForReg.Columns[2].Width = 190;
+            dgvForReg.Columns[3].Width = 90;
             dgvForReg.Columns[4].Visible = false;
 
             dgvForReg.ClearSelection();

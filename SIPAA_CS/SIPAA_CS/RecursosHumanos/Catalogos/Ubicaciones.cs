@@ -60,6 +60,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 }
             }
 
+            //llama el tooltip
+            ftooltip();
+
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
 
@@ -114,6 +117,25 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 Application.Exit();
             }
+        }
+
+        /////////funciones. FUNCION tooltip
+        private void ftooltip()
+        {
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
+
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
+            toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
         }
 
         //-----------------------------------------------------------------------------------------------

@@ -41,10 +41,10 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.dgvPlantel = new System.Windows.Forms.DataGridView();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
-            this.cbCia = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtBuscarPerfil = new System.Windows.Forms.TextBox();
+            this.cbCia = new System.Windows.Forms.ComboBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
@@ -60,11 +60,10 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Enabled = false;
             label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(27, 75);
+            label6.Location = new System.Drawing.Point(24, 79);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(66, 16);
             label6.TabIndex = 58;
@@ -101,7 +100,7 @@
             label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(544, 147);
+            label1.Location = new System.Drawing.Point(432, 146);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(62, 16);
             label1.TabIndex = 59;
@@ -114,7 +113,7 @@
             this.btnRegresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Location = new System.Drawing.Point(903, 1);
+            this.btnRegresar.Location = new System.Drawing.Point(911, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 112;
@@ -159,12 +158,10 @@
             this.dgvPlantel.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.dgvPlantel.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvPlantel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPlantel.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPlantel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvPlantel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPlantel.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -181,7 +178,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPlantel.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvPlantel.Location = new System.Drawing.Point(547, 166);
+            this.dgvPlantel.Location = new System.Drawing.Point(432, 166);
             this.dgvPlantel.Name = "dgvPlantel";
             this.dgvPlantel.ReadOnly = true;
             this.dgvPlantel.RowHeadersVisible = false;
@@ -189,37 +186,55 @@
             this.dgvPlantel.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvPlantel.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvPlantel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlantel.Size = new System.Drawing.Size(440, 539);
+            this.dgvPlantel.Size = new System.Drawing.Size(555, 539);
             this.dgvPlantel.TabIndex = 109;
             this.dgvPlantel.TabStop = false;
             this.dgvPlantel.Tag = "Editar";
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.panel7);
+            this.pnlBusqueda.Controls.Add(this.txtBuscarPerfil);
             this.pnlBusqueda.Controls.Add(label6);
             this.pnlBusqueda.Controls.Add(this.cbCia);
             this.pnlBusqueda.Controls.Add(label8);
             this.pnlBusqueda.Controls.Add(this.btnBuscar);
-            this.pnlBusqueda.Controls.Add(this.panel7);
-            this.pnlBusqueda.Controls.Add(this.txtBuscarPerfil);
             this.pnlBusqueda.Controls.Add(label9);
-            this.pnlBusqueda.Location = new System.Drawing.Point(42, 166);
+            this.pnlBusqueda.Location = new System.Drawing.Point(12, 166);
             this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(437, 131);
+            this.pnlBusqueda.Size = new System.Drawing.Size(394, 131);
             this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
             this.pnlBusqueda.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBusqueda_Paint);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel7.Location = new System.Drawing.Point(29, 67);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(289, 2);
+            this.panel7.TabIndex = 181;
+            // 
+            // txtBuscarPerfil
+            // 
+            this.txtBuscarPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtBuscarPerfil.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBuscarPerfil.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarPerfil.Location = new System.Drawing.Point(30, 50);
+            this.txtBuscarPerfil.Name = "txtBuscarPerfil";
+            this.txtBuscarPerfil.Size = new System.Drawing.Size(286, 15);
+            this.txtBuscarPerfil.TabIndex = 180;
             // 
             // cbCia
             // 
             this.cbCia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbCia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbCia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCia.FormattingEnabled = true;
-            this.cbCia.Location = new System.Drawing.Point(27, 99);
+            this.cbCia.Location = new System.Drawing.Point(26, 100);
             this.cbCia.Name = "cbCia";
-            this.cbCia.Size = new System.Drawing.Size(280, 25);
+            this.cbCia.Size = new System.Drawing.Size(280, 24);
             this.cbCia.TabIndex = 2;
             this.cbCia.Text = "Seleccionar";
             // 
@@ -230,30 +245,12 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(369, 70);
+            this.btnBuscar.Location = new System.Drawing.Point(329, 9);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(50, 50);
+            this.btnBuscar.Size = new System.Drawing.Size(55, 55);
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel7.Location = new System.Drawing.Point(27, 63);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(289, 1);
-            this.panel7.TabIndex = 43;
-            // 
-            // txtBuscarPerfil
-            // 
-            this.txtBuscarPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtBuscarPerfil.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBuscarPerfil.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarPerfil.Location = new System.Drawing.Point(28, 46);
-            this.txtBuscarPerfil.Name = "txtBuscarPerfil";
-            this.txtBuscarPerfil.Size = new System.Drawing.Size(286, 15);
-            this.txtBuscarPerfil.TabIndex = 1;
             // 
             // label3
             // 
@@ -336,10 +333,10 @@
         private System.Windows.Forms.Panel pnlBusqueda;
         private System.Windows.Forms.ComboBox cbCia;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtBuscarPerfil;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox txtBuscarPerfil;
     }
 }

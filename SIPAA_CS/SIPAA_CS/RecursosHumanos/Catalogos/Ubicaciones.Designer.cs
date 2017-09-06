@@ -61,11 +61,11 @@
             label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(496, 193);
+            label1.Location = new System.Drawing.Point(496, 142);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(109, 16);
             label1.TabIndex = 45;
-            label1.Text = "Ubicacion Plantel";
+            label1.Text = "Ubicación Plantel";
             // 
             // label9
             // 
@@ -74,11 +74,11 @@
             label9.ForeColor = System.Drawing.Color.Gray;
             label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
             label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(5, 0);
+            label9.Location = new System.Drawing.Point(5, 5);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(123, 17);
+            label9.Size = new System.Drawing.Size(143, 17);
             label9.TabIndex = 41;
-            label9.Text = "     Buscar Plantel";
+            label9.Text = "     Buscar Ubicación";
             // 
             // label8
             // 
@@ -86,7 +86,7 @@
             label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(35, 21);
+            label8.Location = new System.Drawing.Point(26, 26);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(65, 16);
             label8.TabIndex = 44;
@@ -141,7 +141,7 @@
             this.txtBuscarUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtBuscarUbicacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBuscarUbicacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarUbicacion.Location = new System.Drawing.Point(33, 48);
+            this.txtBuscarUbicacion.Location = new System.Drawing.Point(30, 52);
             this.txtBuscarUbicacion.Name = "txtBuscarUbicacion";
             this.txtBuscarUbicacion.Size = new System.Drawing.Size(286, 15);
             this.txtBuscarUbicacion.TabIndex = 1;
@@ -150,9 +150,9 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel7.Location = new System.Drawing.Point(32, 65);
+            this.panel7.Location = new System.Drawing.Point(29, 70);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(289, 1);
+            this.panel7.Size = new System.Drawing.Size(289, 2);
             this.panel7.TabIndex = 43;
             // 
             // btnBuscar
@@ -176,7 +176,7 @@
             this.pnlBusqueda.Controls.Add(this.panel7);
             this.pnlBusqueda.Controls.Add(this.txtBuscarUbicacion);
             this.pnlBusqueda.Controls.Add(label9);
-            this.pnlBusqueda.Location = new System.Drawing.Point(40, 212);
+            this.pnlBusqueda.Location = new System.Drawing.Point(40, 161);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(437, 99);
             this.pnlBusqueda.TabIndex = 62;
@@ -211,7 +211,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUbicacion.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvUbicacion.Location = new System.Drawing.Point(497, 212);
+            this.dgvUbicacion.Location = new System.Drawing.Point(497, 161);
             this.dgvUbicacion.Name = "dgvUbicacion";
             this.dgvUbicacion.ReadOnly = true;
             this.dgvUbicacion.RowHeadersVisible = false;
@@ -219,7 +219,7 @@
             this.dgvUbicacion.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvUbicacion.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvUbicacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUbicacion.Size = new System.Drawing.Size(494, 505);
+            this.dgvUbicacion.Size = new System.Drawing.Size(494, 550);
             this.dgvUbicacion.TabIndex = 63;
             this.dgvUbicacion.Tag = "Editar";
             // 
@@ -242,12 +242,12 @@
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblusuario.Location = new System.Drawing.Point(6, 73);
+            this.lblusuario.Location = new System.Drawing.Point(6, 77);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(62, 23);
+            this.lblusuario.Size = new System.Drawing.Size(50, 16);
             this.lblusuario.TabIndex = 174;
             this.lblusuario.Text = "usuario";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

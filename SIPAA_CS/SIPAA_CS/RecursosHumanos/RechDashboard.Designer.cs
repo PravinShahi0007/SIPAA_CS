@@ -52,7 +52,7 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.button1.Location = new System.Drawing.Point(903, 1);
+            this.button1.Location = new System.Drawing.Point(913, 1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(30, 24);
             this.button1.TabIndex = 144;

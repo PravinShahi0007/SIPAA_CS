@@ -52,21 +52,21 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 factgrid();
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 cbxEliminar.Visible = true;
                 iactbtn = 2;
             }
             else if (iins == 1 && iact == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 factgrid();
                 iactbtn = 2;
             }
             else if (iins == 1 && ielim == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 factgrid();
                 cbxEliminar.Visible = true;
                 iactbtn = 2;
@@ -74,7 +74,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (iact == 1 && ielim == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 factgrid();
                 cbxEliminar.Visible = true;
                 iactbtn = 2;
@@ -82,21 +82,21 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (iins == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 factgrid();
                 iactbtn = 2;
             }
             else if (iact == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 factgrid();
                 iactbtn = 2;
             }
             else if (ielim == 1)
             {
                 Util.ChangeButton(btninsertar, 3, false);
-                btnagregar.Image = Resources.Baja;
+                //btnagregar.Image = Resources.Baja;
                 factgrid();
                 cbxEliminar.Visible = true;
                 iactbtn = 3;
@@ -126,7 +126,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             pnltiphr.Visible = true;
             lbluid.Text = "     Agregar Tipo de Horario";
             Util.ChangeButton(btninsertar, 1, false);
-            btnagregar.Image = Resources.Guardar;
+            btnagregar.Image = Resources.Agregar;
             iactbtn = 1;
             txttipohriu.Text = "";
             txttipohriu.Focus();
@@ -135,7 +135,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             if (txttipohriu.Text.Trim() == "" && iactbtn ==1)
             {
-                lbMensaje.Text = "Capture un dato a guardar";
+                //lbMensaje.Text = "Capture un dato a guardar";
+                DialogResult result = MessageBox.Show("Capture un dato a guardar", "SIPAA", MessageBoxButtons.OK);
+                txttipohriu.Focus();
             }
             else if(iactbtn == 1)//insertar
             {
@@ -306,6 +308,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 }
             }
 
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
 
@@ -339,14 +344,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             if (cbxEliminar.Checked == true)
             {
                 Util.ChangeButton(btninsertar, 3, false);
-                btnagregar.Image = Resources.Baja;
+                //btnagregar.Image = Resources.Baja;
                 lbluid.Text = "     Elimina Tipo de Horario";
                 iactbtn = 3;
-            }
-            else
+            }            else
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 lbluid.Text = "     Modifica Tipo de Horario";
                 iactbtn = 2;
             }

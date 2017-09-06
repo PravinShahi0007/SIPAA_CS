@@ -72,7 +72,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
             /* JAV
             Usuario objUsuario = new Usuario();
             string idtrab = LoginInfo.IdTrab;

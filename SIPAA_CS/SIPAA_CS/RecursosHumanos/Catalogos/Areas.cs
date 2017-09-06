@@ -44,6 +44,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else
             {
                 LlenarGridPlanteles(cbCia.SelectedValue.ToString(), txtBuscarPerfil.Text, dgvPlantel, 6);
+                txtBuscarPerfil.Text = "";
             }
             
         }
@@ -87,40 +88,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             Utilerias.llenarComboxDataTable(cbCia,dtCia,"Clave","Descripción");
 
-            //List<string> ltCia = new List<string>();
-
-            //foreach (DataRow row in dtCia.Rows)
-            //{
-            //    ltCia.Add(row["Descripción"].ToString());
-            //}
-            //cbCia.DataSource = ltCia;
 
             LlenarGridPlanteles("", "", dgvPlantel,8);
 
             txtBuscarPerfil.Focus();
 
         }
-        //private void PanelPlantilla_Paint(object sender, PaintEventArgs e)
-        //{
-        //    SonaCompania objCia = new SonaCompania();
-        //    DataTable dtCia = objCia.obtcomp(1, "");
-        //    List<string> ltCia = new List<string>();
-        //    foreach (DataRow row in dtCia.Rows)
-        //    {
-        //        ltCia.Add(row["Descripción"].ToString());
-        //    }
-        //    cbCia.DataSource = ltCia;
-        //    LlenarGridPlanteles("", "", dgvPlantel);
-        //}
-
-        //private void cbCia_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
-        //}
-        //private void txtBuscarPerfil_KeyUp(object sender, KeyEventArgs e)
-        //{
-        //    LlenarGridPlanteles(cbCia.SelectedItem.ToString(), txtBuscarPerfil.Text, dgvPlantel);
-        //}
 
         private void PanelPlantilla_Paint_1(object sender, PaintEventArgs e)
         {
@@ -146,7 +119,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnCerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
-            toolTip1.SetToolTip(this.btnBuscar, "Buscar Registro");
+            toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
         }
         public void LlenarGridPlanteles(string idcompania, string busqueda, DataGridView dgvPlantel, int iopc)
         {
@@ -160,6 +133,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvPlantel.Columns[0].Visible = false;
             dgvPlantel.Columns[1].Visible = false;
             dgvPlantel.Columns[2].Visible = false;
+            dgvPlantel.Columns[3].Width = 280;
+            dgvPlantel.Columns[4].Width = 240;
             dgvPlantel.ClearSelection();
 
 
