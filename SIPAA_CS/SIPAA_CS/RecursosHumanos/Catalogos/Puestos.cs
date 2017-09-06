@@ -72,9 +72,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Puestos_Load(object sender, EventArgs e)
         {
-            //Rezise de la Forma
-            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-
             //cierra formularios abiertos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
@@ -84,6 +81,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     f.Hide();
                 }
             }
+
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;

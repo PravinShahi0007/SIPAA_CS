@@ -26,7 +26,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         }
         public int iContador;
         BackgroundWorker bd = new BackgroundWorker();
-       // private DoWorkEventHandler callback;
+       private DoWorkEventHandler callback;
         private Exception error;
         private RunWorkerCompletedEventArgs results;
 

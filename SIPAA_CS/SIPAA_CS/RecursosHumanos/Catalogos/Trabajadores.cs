@@ -127,6 +127,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
 
+            //Rezise de la Forma
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             //llama el tooltip
@@ -136,7 +137,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             txtEmpleado.Focus();
 
             //llena grid
-            fgridEmpleados(1,"");
+            //fgridEmpleados(1,"");
         }
 
         /////////funciones. FUNCION tooltip

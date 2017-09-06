@@ -89,7 +89,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             Utilerias.llenarComboxDataTable(cbCia,dtCia,"Clave","Descripción");
 
 
-            LlenarGridPlanteles("", "", dgvPlantel,8);
+            //LlenarGridPlanteles("", "", dgvPlantel,8);
 
             txtBuscarPerfil.Focus();
 
