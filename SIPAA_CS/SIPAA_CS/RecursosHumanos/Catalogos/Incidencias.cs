@@ -292,6 +292,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;
             int sysW = SystemInformation.PrimaryMonitorSize.Width;
+
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
             //LLAMA TOOL TIP

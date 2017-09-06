@@ -94,7 +94,7 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(448, 158);
+            label2.Location = new System.Drawing.Point(448, 141);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(61, 16);
             label2.TabIndex = 153;
@@ -131,7 +131,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
-            this.btnAgregar.Location = new System.Drawing.Point(954, 122);
+            this.btnAgregar.Location = new System.Drawing.Point(954, 105);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(55, 55);
             this.btnAgregar.TabIndex = 155;
@@ -169,7 +169,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPlantillas.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvPlantillas.Location = new System.Drawing.Point(450, 179);
+            this.dgvPlantillas.Location = new System.Drawing.Point(450, 162);
             this.dgvPlantillas.Name = "dgvPlantillas";
             this.dgvPlantillas.ReadOnly = true;
             this.dgvPlantillas.RowHeadersVisible = false;
@@ -177,7 +177,7 @@
             this.dgvPlantillas.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvPlantillas.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvPlantillas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlantillas.Size = new System.Drawing.Size(564, 413);
+            this.dgvPlantillas.Size = new System.Drawing.Size(564, 563);
             this.dgvPlantillas.TabIndex = 152;
             this.dgvPlantillas.TabStop = false;
             this.dgvPlantillas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlantillas_CellContentClick);
@@ -295,7 +295,7 @@
             this.pnlmensajes.Controls.Add(this.panel2);
             this.pnlmensajes.Controls.Add(this.txtmensajeiu);
             this.pnlmensajes.Controls.Add(this.lbluid);
-            this.pnlmensajes.Location = new System.Drawing.Point(1, 298);
+            this.pnlmensajes.Location = new System.Drawing.Point(1, 281);
             this.pnlmensajes.Name = "pnlmensajes";
             this.pnlmensajes.Size = new System.Drawing.Size(439, 93);
             this.pnlmensajes.TabIndex = 154;
@@ -367,7 +367,7 @@
             this.pnlBusqueda.Controls.Add(this.panel5);
             this.pnlBusqueda.Controls.Add(this.txtMensaje);
             this.pnlBusqueda.Controls.Add(label1);
-            this.pnlBusqueda.Location = new System.Drawing.Point(1, 190);
+            this.pnlBusqueda.Location = new System.Drawing.Point(1, 173);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(439, 88);
             this.pnlBusqueda.TabIndex = 145;
@@ -394,7 +394,7 @@
             this.panelTaga.Controls.Add(this.lblavisos);
             this.panelTaga.Controls.Add(this.lblMensaje);
             this.panelTaga.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTaga.Location = new System.Drawing.Point(451, 598);
+            this.panelTaga.Location = new System.Drawing.Point(451, 731);
             this.panelTaga.Name = "panelTaga";
             this.panelTaga.Size = new System.Drawing.Size(563, 25);
             this.panelTaga.TabIndex = 156;
@@ -448,7 +448,7 @@
             this.pnlnotif.Controls.Add(this.lblnotif);
             this.pnlnotif.Controls.Add(this.label6);
             this.pnlnotif.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlnotif.Location = new System.Drawing.Point(451, 600);
+            this.pnlnotif.Location = new System.Drawing.Point(451, 733);
             this.pnlnotif.Name = "pnlnotif";
             this.pnlnotif.Size = new System.Drawing.Size(563, 25);
             this.pnlnotif.TabIndex = 158;
