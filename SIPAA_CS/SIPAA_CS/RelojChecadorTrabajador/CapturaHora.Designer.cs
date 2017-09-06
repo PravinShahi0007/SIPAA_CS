@@ -338,7 +338,7 @@
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTag.Location = new System.Drawing.Point(3, 3);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(457, 46);
+            this.panelTag.Size = new System.Drawing.Size(443, 46);
             this.panelTag.TabIndex = 215;
             this.panelTag.Visible = false;
             // 
@@ -363,7 +363,7 @@
             this.panelMensaje.Controls.Add(this.prgb1);
             this.panelMensaje.Location = new System.Drawing.Point(-2, 314);
             this.panelMensaje.Name = "panelMensaje";
-            this.panelMensaje.Size = new System.Drawing.Size(472, 72);
+            this.panelMensaje.Size = new System.Drawing.Size(455, 72);
             this.panelMensaje.TabIndex = 217;
             // 
             // timer1

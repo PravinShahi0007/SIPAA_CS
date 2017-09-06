@@ -51,7 +51,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.pnlimgusuario = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -64,6 +63,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.panelAccion = new System.Windows.Forms.Panel();
+            this.btnHuella = new System.Windows.Forms.Button();
             this.btnReloj = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -71,7 +71,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnSync = new System.Windows.Forms.Button();
             this.btnKey = new System.Windows.Forms.Button();
-            this.btnHuella = new System.Windows.Forms.Button();
             this.btnFace = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.btnDescarga = new System.Windows.Forms.Button();
@@ -82,6 +81,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.pnlMensaje = new System.Windows.Forms.Panel();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             label2 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -106,6 +106,7 @@
             this.panel2.SuspendLayout();
             this.panelTag.SuspendLayout();
             this.pnlMensaje.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -205,6 +206,7 @@
             label11.Size = new System.Drawing.Size(50, 20);
             label11.TabIndex = 205;
             label11.Text = "Rostro";
+            label11.Visible = false;
             // 
             // label13
             // 
@@ -212,11 +214,11 @@
             label13.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label13.Location = new System.Drawing.Point(107, 112);
+            label13.Location = new System.Drawing.Point(50, 112);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(48, 20);
+            label13.Size = new System.Drawing.Size(156, 20);
             label13.TabIndex = 206;
-            label13.Text = "Huella";
+            label13.Text = "Sincroniza Briométricos";
             // 
             // label14
             // 
@@ -229,6 +231,7 @@
             label14.Size = new System.Drawing.Size(68, 20);
             label14.TabIndex = 207;
             label14.Text = "Password";
+            label14.Visible = false;
             // 
             // label15
             // 
@@ -329,19 +332,10 @@
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblusuario.Location = new System.Drawing.Point(2, 73);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.Size = new System.Drawing.Size(62, 23);
             this.lblusuario.TabIndex = 127;
-            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.Text = "usuario";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlimgusuario
-            // 
-            this.pnlimgusuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlimgusuario.BackgroundImage")));
-            this.pnlimgusuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlimgusuario.Location = new System.Drawing.Point(6, 29);
-            this.pnlimgusuario.Name = "pnlimgusuario";
-            this.pnlimgusuario.Size = new System.Drawing.Size(37, 41);
-            this.pnlimgusuario.TabIndex = 126;
             // 
             // label1
             // 
@@ -463,7 +457,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(32, 121);
+            this.panel1.Location = new System.Drawing.Point(32, 122);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 1);
             this.panel1.TabIndex = 46;
@@ -513,6 +507,8 @@
             // panelAccion
             // 
             this.panelAccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panelAccion.Controls.Add(label13);
+            this.panelAccion.Controls.Add(this.btnHuella);
             this.panelAccion.Controls.Add(label19);
             this.panelAccion.Controls.Add(this.btnReloj);
             this.panelAccion.Controls.Add(this.panel4);
@@ -524,10 +520,8 @@
             this.panelAccion.Controls.Add(this.btnSync);
             this.panelAccion.Controls.Add(label15);
             this.panelAccion.Controls.Add(label14);
-            this.panelAccion.Controls.Add(label13);
             this.panelAccion.Controls.Add(label11);
             this.panelAccion.Controls.Add(this.btnKey);
-            this.panelAccion.Controls.Add(this.btnHuella);
             this.panelAccion.Controls.Add(this.btnFace);
             this.panelAccion.Controls.Add(label10);
             this.panelAccion.Controls.Add(this.btnAdmin);
@@ -541,6 +535,20 @@
             this.panelAccion.Size = new System.Drawing.Size(363, 497);
             this.panelAccion.TabIndex = 175;
             this.panelAccion.TabStop = true;
+            // 
+            // btnHuella
+            // 
+            this.btnHuella.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnHuella.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHuella.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnHuella.Image = global::SIPAA_CS.Properties.Resources.HuellaSync;
+            this.btnHuella.Location = new System.Drawing.Point(108, 59);
+            this.btnHuella.Name = "btnHuella";
+            this.btnHuella.Size = new System.Drawing.Size(50, 50);
+            this.btnHuella.TabIndex = 203;
+            this.btnHuella.Tag = "HuellaSync";
+            this.btnHuella.UseVisualStyleBackColor = false;
+            this.btnHuella.Click += new System.EventHandler(this.btnHuella_Click);
             // 
             // btnReloj
             // 
@@ -622,6 +630,7 @@
             // btnKey
             // 
             this.btnKey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnKey.Enabled = false;
             this.btnKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnKey.Image = global::SIPAA_CS.Properties.Resources.Key;
@@ -631,25 +640,13 @@
             this.btnKey.TabIndex = 204;
             this.btnKey.Tag = "Key";
             this.btnKey.UseVisualStyleBackColor = false;
+            this.btnKey.Visible = false;
             this.btnKey.Click += new System.EventHandler(this.btnKey_Click);
-            // 
-            // btnHuella
-            // 
-            this.btnHuella.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnHuella.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHuella.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnHuella.Image = global::SIPAA_CS.Properties.Resources.HuellaSync;
-            this.btnHuella.Location = new System.Drawing.Point(108, 59);
-            this.btnHuella.Name = "btnHuella";
-            this.btnHuella.Size = new System.Drawing.Size(50, 50);
-            this.btnHuella.TabIndex = 203;
-            this.btnHuella.Tag = "HuellaSync";
-            this.btnHuella.UseVisualStyleBackColor = false;
-            this.btnHuella.Click += new System.EventHandler(this.btnHuella_Click);
             // 
             // btnFace
             // 
             this.btnFace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnFace.Enabled = false;
             this.btnFace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnFace.Image = global::SIPAA_CS.Properties.Resources.Face;
@@ -659,6 +656,7 @@
             this.btnFace.TabIndex = 202;
             this.btnFace.Tag = "Face";
             this.btnFace.UseVisualStyleBackColor = false;
+            this.btnFace.Visible = false;
             this.btnFace.Click += new System.EventHandler(this.btnFace_Click);
             // 
             // btnAdmin
@@ -750,6 +748,18 @@
             this.pnlMensaje.Size = new System.Drawing.Size(621, 52);
             this.pnlMensaje.TabIndex = 201;
             // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(10, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 202;
+            this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Visible = false;
+            // 
             // AdministracionRelojChecador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -758,13 +768,13 @@
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.pnlMensaje);
             this.Controls.Add(this.panelAccion);
             this.Controls.Add(label2);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.dgvReloj);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.pnlimgusuario);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMinimizar);
@@ -789,6 +799,7 @@
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
             this.pnlMensaje.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -797,7 +808,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblusuario;
-        private System.Windows.Forms.Panel pnlimgusuario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnMinimizar;
@@ -829,5 +839,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnReloj;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }

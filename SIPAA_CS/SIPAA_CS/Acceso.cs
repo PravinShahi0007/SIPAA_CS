@@ -63,12 +63,10 @@ namespace SIPAA_CS
         }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            //valida si estan vacios los textbox
+            
             if (txtUsuario.Text != String.Empty && txtPwd.Text != String.Empty)
             {
-                //MessageBox.Show("esta lleno");
-
-                //valida si es numero
+                
                 if (utilerias.IsNumber(txtUsuario.Text))
                 {
                     user = txtUsuario.Text;
@@ -78,7 +76,7 @@ namespace SIPAA_CS
                     string password = utilerias.cifradoMd5(pwd);
 
                     Console.Write(password);
-                    //MessageBox.Show("es numero");
+                   
                     try
                     {
                         //obtiene la lista 
@@ -206,8 +204,11 @@ namespace SIPAA_CS
                             }
                             else
                             {
-                                MessageBox.Show("Usuario y contraseña incorrectos","SIPAA");
+                                MessageBox.Show("Usuario y/o contraseña incorrectos","SIPAA");
                                 txtUsuario.Focus();
+                                txtPwd.Text = "";
+                                txtUsuario.Text = ""; 
+                               
                             }
                         }
                         else

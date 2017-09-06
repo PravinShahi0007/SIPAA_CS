@@ -43,7 +43,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         public DPFP.Processing.Enrollment Enroller;
         public event OnTemplateEventHandler OnTemplate;
         
-        private DPFP.Gui.Enrollment.EnrollmentControl EnrollmentControl;
+       // private DPFP.Gui.Enrollment.EnrollmentControl EnrollmentControl;
         AdministracionRelojChecador AdminRelojChecador = new AdministracionRelojChecador();
 
 
@@ -506,6 +506,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void btnBuscarReloj_Click(object sender, EventArgs e)
         {
 
+          /*  bool bBandera = false;
+            bBandera = ConsultaReloj("Foto", "170012", 2, 4);
+            */
+
+
             string sBusqueda = "";
             if (txtBuscarReloj.Text != String.Empty)
               sBusqueda = txtBuscarReloj.Text;
@@ -539,13 +544,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                        // if (Grupo!=1) // TENIA 1
                         //{
-                            RelojChecador objReloj2 = new RelojChecador();
-                            objReloj2.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
-                       //}
-                        
-                        int iCont = 0;
                         RelojChecador objReloj = new RelojChecador();
-                        objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 3, sUsuuMod, Name);//borra asignaciones de reloj                  
+                        objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
+                        objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 3, sUsuuMod, Name);
+                        if (this.chkAdmin.Checked==true)
+                        objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 13, sUsuuMod, Name);
+                        //}
+
+                        int iCont = 0;
+                       // RelojChecador objReloj = new RelojChecador();
+                        //objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 3, sUsuuMod, Name);//borra asignaciones de reloj                  
                         bool bConexion = false;
                         foreach (Reloj obj in ltReloj2)
                         {
@@ -1348,6 +1356,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             RelojChecador objReloj = new RelojChecador();
             DataTable dtRelojChecador = objReloj.obtrelojeschecadores(4, 0, sDescripcion, "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
+            
             dgvReloj.DataSource = dtRelojChecador;
 
             Utilerias.AgregarCheck(dgvReloj, 0);
@@ -1365,9 +1374,19 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvReloj.ClearSelection();
 
 
-            //CheckBox ckbHeader = Utilerias.AgregarCheckboxHeader(dgvReloj, 0);
-            // ckbHeader.CheckedChanged += Checkheader_CheckedChanged;
-        }
+            /////////////////////
+            int admin = 0;
+            DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
+            foreach (DataRow row in dt.Rows)
+             {
+                admin = Convert.ToInt32(row["administrador"].ToString());
+                
+             }
+            if (admin != 0)
+                chkAdmin.Checked = true;
+            
+             ////////////////////
+          }
 
         private void AsignarFormas(string sIdtrab)
         {
@@ -1393,13 +1412,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 {
                     objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, iOpcion, sUsuuMod, sPrguMod);
                     objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
-                    
+                    if (chkAdmin.Checked==true)
+                    objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 13, sUsuuMod, Name);
                     string idtrab = lbIdTrab.Text;
                     string Nombre = lbNombre.Text;
                     objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, "", 0, true);
                     objCZKEM.SetUserGroup(1,Convert.ToInt32( idtrab),Grupo);
                 }      
             }
+
+
             Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Guardando asignaciones");
             panelTagRelojCheck.Update();
             FormaReg objFr = new FormaReg();
@@ -1456,6 +1478,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "sincronizando. ");
                     panelTagRelojCheck.Update();
                     foreach (DataRow row in dt.Rows)
+                        
                     {
                         Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "sincronizando. . ");
                         panelTagRelojCheck.Update();
@@ -1612,7 +1635,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         }
                     }
                     break;
+                    /*
+                case "Foto":
+                    int longitud = 0;
+                    byte Foto;
+                    string NombreFoto = "170014.jpg";
+                    if (objCZKEM.GetPhotoByName(1,NombreFoto, out Foto, out longitud))
+                        MessageBox.Show("Foto");
+                    
 
+                    break;
+                    */
                 case "Huella":
                     
                     int flag = 0;

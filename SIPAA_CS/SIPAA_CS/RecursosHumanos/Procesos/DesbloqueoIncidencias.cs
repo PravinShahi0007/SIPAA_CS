@@ -32,13 +32,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         #region Variables
 
         int iIdFormaPago;
-        int iOpcion;
+       // int iOpcion;
         bool bClickPrimeraVezFormaPago = true;
-        string sFechaInicioPeriodoIncidencia;
-        string sFechaFinPeriodoIncidencia;
-        string sDescripcion;
-        int iStPeriodoIncidencia;
-        int iResp; 
+        //string sFechaInicioPeriodoIncidencia;
+        //string sFechaFinPeriodoIncidencia;
+        //string sDescripcion;
+        //int iStPeriodoIncidencia;
+        //int iResp; 
 
         #endregion
 
