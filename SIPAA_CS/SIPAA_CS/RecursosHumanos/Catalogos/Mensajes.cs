@@ -112,7 +112,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             txtidtrab.Text = "";
-            cbTrabajador.Text = "Seleccionar Empleado...";
+            //cbTrabajador.Text = "Seleccionar Empleado...";
 
             pnlmensajes.Visible = false;
             gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
