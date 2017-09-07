@@ -83,6 +83,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void dgvRelojesChecadores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //cellclick();
+        }
+        
+        private void cellclick()
+        {
             if (pins == 1 && pact == 1 && pelim == 1)
             {
                 factgrid();
@@ -133,8 +138,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
 
             }
-
-        } // private void dgvRelojesChecadores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        }
+        // private void dgvRelojesChecadores_CellContentClick(object sender, DataGridViewCellEventArgs e)
 
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
@@ -178,7 +183,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 1)//insertar
             {
                 //inserta registro nuevo
-                fuidRelojesChecadores(1, 9999, txtDescripcionRC.Text, TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), "JAV", "RelojesChecadores");
+                fuidRelojesChecadores(1, 9999, txtDescripcionRC.Text, TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
                 dgvRelojesChecadores.DataSource = null;
                 dgvRelojesChecadores.Columns.RemoveAt(0);
                 panelTag.Visible = true;
@@ -186,7 +191,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 txtDescripcionRC.Focus();
                 timer1.Start();
                 //llena grid con datos existente
-                fgRelojesChecadores(4, 0, "", "", "", 0, "JAV", "RelojesChecadores");
+                fgRelojesChecadores(4, 0, "", "", "", 0, LoginInfo.IdTrab, this.Name);
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
                 pnlActRelojesChecadores.Visible = false;
@@ -194,7 +199,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 2)//actualizar
             {
                 //inserta registro nuevo
-                fuidRelojesChecadores(2, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), "JAV", "RelojesChecadores");
+                fuidRelojesChecadores(2, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
                 dgvRelojesChecadores.DataSource = null;
                 dgvRelojesChecadores.Columns.RemoveAt(0);
                 panelTag.Visible = true;
@@ -202,7 +207,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 txtDescripcionRC.Focus();
                 timer1.Start();
                 //llena grid con datos existente
-                fgRelojesChecadores(4, 0, "", "", "", 0, "JAV", "RelojesChecadores");
+                fgRelojesChecadores(4, 0, "", "", "", 0, LoginInfo.IdTrab, this.Name);
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
                 pnlActRelojesChecadores.Visible = false;
@@ -214,7 +219,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     //inserta registro nuevo
-                    fuidRelojesChecadores(3, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), "JAV", "RelojesChecadores");
+                    fuidRelojesChecadores(3, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
                     dgvRelojesChecadores.DataSource = null;
                     dgvRelojesChecadores.Columns.RemoveAt(0);
                     panelTag.Visible = true;
@@ -222,7 +227,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     txtDescripcionRC.Focus();
                     timer1.Start();
                     //llena grid con datos existente
-                    fgRelojesChecadores(4, 0, "", "", "", 0, "JAV", "RelojesChecadores");
+                    fgRelojesChecadores(4, 0, "", "", "", 0, LoginInfo.IdTrab, this.Name);
                     ckbEliminar.Checked = false;
                     ckbEliminar.Visible = false;
                     pnlActRelojesChecadores.Visible = false;
@@ -301,7 +306,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 btnAgregar.Visible = true;
             }
             //
-            fgRelojesChecadores(4, 0, "", "", "", 0, "JAV", "RelojesChecadores");
+            fgRelojesChecadores(4, 0, "", "", "", 0, LoginInfo.IdTrab, this.Name);
             //txtBuscarDF.Focus();
         } // private void frmRelojesChecadores_Load(object sender, EventArgs e)
 
@@ -369,12 +374,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 imgCheckUsuarios.Name = "img";
                 dgvRelojesChecadores.Columns.Insert(0, imgCheckUsuarios);
                 dgvRelojesChecadores.Columns[0].HeaderText = "Selección";
-                //dgvRelojesChecadores.Columns[0].Width = 75;
-                //dgvRelojesChecadores.Columns[1].Width = 50;
+                /*
+                dgvRelojesChecadores.Columns[0].Width = 75;
+                dgvRelojesChecadores.Columns[1].Width = 50;
                 dgvRelojesChecadores.Columns[2].Width = 100;
                 dgvRelojesChecadores.Columns[3].Width = 120;
                 dgvRelojesChecadores.Columns[4].Width = 80;
-                dgvRelojesChecadores.Columns[5].Width = 70;
+                dgvRelojesChecadores.Columns[5].Width = 70;*/
+                
+                /*Se ajusta tamaño de columna de acuerdo al contenido*/
+                for (int i = 0; i < dgvRelojesChecadores.Columns.Count; i++)
+                    dgvRelojesChecadores.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+
 
                 dgvRelojesChecadores.ClearSelection();
             }
@@ -388,13 +400,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 imgCheckUsuarios.Name = "img";
                 dgvRelojesChecadores.Columns.Insert(0, imgCheckUsuarios);
                 dgvRelojesChecadores.Columns[0].HeaderText = "Selección";
-
+                /*
                 dgvRelojesChecadores.Columns[0].Width = 75;
                 dgvRelojesChecadores.Columns[1].Width = 50;
                 dgvRelojesChecadores.Columns[2].Width = 200;
                 dgvRelojesChecadores.Columns[3].Width = 120;
                 dgvRelojesChecadores.Columns[4].Width = 80;
-                dgvRelojesChecadores.Columns[5].Width = 70;
+                dgvRelojesChecadores.Columns[5].Width = 70;*/
+                
+                /*Se ajusta tamaño de columna de acuerdo al contenido*/
+                for (int i = 0; i < dgvRelojesChecadores.Columns.Count; i++)
+                    dgvRelojesChecadores.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
                 dgvRelojesChecadores.ClearSelection();
 
             }
@@ -408,13 +425,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 imgCheckUsuarios.Name = "img";
                 dgvRelojesChecadores.Columns.Insert(0, imgCheckUsuarios);
                 dgvRelojesChecadores.Columns[0].HeaderText = "Selección";
-
+                /*
                 dgvRelojesChecadores.Columns[0].Width = 75;
                 dgvRelojesChecadores.Columns[1].Width = 50;
                 dgvRelojesChecadores.Columns[2].Width = 200;
                 dgvRelojesChecadores.Columns[3].Width = 120;
                 dgvRelojesChecadores.Columns[4].Width = 80;
-                dgvRelojesChecadores.Columns[5].Width = 70;
+                dgvRelojesChecadores.Columns[5].Width = 70;*/
+
+                /*Se ajusta tamaño de columna de acuerdo al contenido*/
+                for (int i = 0; i < dgvRelojesChecadores.Columns.Count; i++)
+                    dgvRelojesChecadores.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
                 dgvRelojesChecadores.ClearSelection();
             }
             else if (pact == 1 && pelim == 1)
@@ -427,13 +449,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 imgCheckUsuarios.Name = "img";
                 dgvRelojesChecadores.Columns.Insert(0, imgCheckUsuarios);
                 dgvRelojesChecadores.Columns[0].HeaderText = "Selección";
-
+                /*
                 dgvRelojesChecadores.Columns[0].Width = 75;
                 dgvRelojesChecadores.Columns[1].Width = 50;
                 dgvRelojesChecadores.Columns[2].Width = 200;
                 dgvRelojesChecadores.Columns[3].Width = 120;
                 dgvRelojesChecadores.Columns[4].Width = 80;
-                dgvRelojesChecadores.Columns[5].Width = 70;
+                dgvRelojesChecadores.Columns[5].Width = 70;*/
+
+                /*Se ajusta tamaño de columna de acuerdo al contenido*/
+                for (int i = 0; i < dgvRelojesChecadores.Columns.Count; i++)
+                    dgvRelojesChecadores.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
                 dgvRelojesChecadores.ClearSelection();
             }
             else if (pins == 1)
@@ -442,12 +469,17 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvRelojesChecadores.DataSource = dtRelojChecador;
 
                 dgvRelojesChecadores.Columns[0].Visible = false;
+                /*
                 dgvRelojesChecadores.Columns[0].Width = 75;
                 dgvRelojesChecadores.Columns[1].Width = 50;
                 dgvRelojesChecadores.Columns[2].Width = 200;
                 dgvRelojesChecadores.Columns[3].Width = 120;
                 dgvRelojesChecadores.Columns[4].Width = 80;
-                dgvRelojesChecadores.Columns[5].Width = 70;
+                dgvRelojesChecadores.Columns[5].Width = 70;*/
+
+                /*Se ajusta tamaño de columna de acuerdo al contenido*/
+                for (int i = 0; i < dgvRelojesChecadores.Columns.Count; i++)
+                    dgvRelojesChecadores.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
                 dgvRelojesChecadores.ClearSelection();
             }
@@ -461,13 +493,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 imgCheckUsuarios.Name = "img";
                 dgvRelojesChecadores.Columns.Insert(0, imgCheckUsuarios);
                 dgvRelojesChecadores.Columns[0].HeaderText = "Selección";
-
+                /*
                 dgvRelojesChecadores.Columns[0].Width = 75;
                 dgvRelojesChecadores.Columns[1].Width = 50;
                 dgvRelojesChecadores.Columns[2].Width = 200;
                 dgvRelojesChecadores.Columns[3].Width = 120;
                 dgvRelojesChecadores.Columns[4].Width = 80;
-                dgvRelojesChecadores.Columns[5].Width = 70;
+                dgvRelojesChecadores.Columns[5].Width = 70;*/
+
+                /*Se ajusta tamaño de columna de acuerdo al contenido*/
+                for (int i = 0; i < dgvRelojesChecadores.Columns.Count; i++)
+                    dgvRelojesChecadores.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
                 dgvRelojesChecadores.ClearSelection();
             }
             else if (pelim == 1)
@@ -480,13 +517,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 imgCheckUsuarios.Name = "img";
                 dgvRelojesChecadores.Columns.Insert(0, imgCheckUsuarios);
                 dgvRelojesChecadores.Columns[0].HeaderText = "Selección";
-
+                /*
                 dgvRelojesChecadores.Columns[0].Width = 75;
                 dgvRelojesChecadores.Columns[1].Width = 50;
                 dgvRelojesChecadores.Columns[2].Width = 200;
                 dgvRelojesChecadores.Columns[3].Width = 120;
                 dgvRelojesChecadores.Columns[4].Width = 80;
-                dgvRelojesChecadores.Columns[5].Width = 70;
+                dgvRelojesChecadores.Columns[5].Width = 70;*/
+
+                /*Se ajusta tamaño de columna de acuerdo al contenido*/
+                for (int i = 0; i < dgvRelojesChecadores.Columns.Count; i++)
+                    dgvRelojesChecadores.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
                 dgvRelojesChecadores.ClearSelection();
             }
             else
@@ -496,12 +538,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvRelojesChecadores.DataSource = dtRelojChecador;
 
                 dgvRelojesChecadores.Columns[0].Visible = false;
+                /*
                 dgvRelojesChecadores.Columns[0].Width = 75;
                 dgvRelojesChecadores.Columns[1].Width = 50;
                 dgvRelojesChecadores.Columns[2].Width = 200;
                 dgvRelojesChecadores.Columns[3].Width = 120;
                 dgvRelojesChecadores.Columns[4].Width = 80;
-                dgvRelojesChecadores.Columns[5].Width = 70;
+                dgvRelojesChecadores.Columns[5].Width = 70;*/
+
+                /*Se ajusta tamaño de columna de acuerdo al contenido*/
+                for (int i = 0; i < dgvRelojesChecadores.Columns.Count; i++)
+                    dgvRelojesChecadores.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
                 dgvRelojesChecadores.ClearSelection();
             }
         }
@@ -566,8 +614,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 pcvreloj = int.Parse(row.Cells["Clave"].Value.ToString());
                 string ValorRow = row.Cells["Descripción"].Value.ToString();
                 string ValorIp = row.Cells["IP"].Value.ToString();
-                string ValorCvvnc = row.Cells["ClaveVNC"].Value.ToString();
-                int ValorStactualiza = int.Parse(row.Cells["Actualiza"].Value.ToString());
+                /*string ValorCvvnc = row.Cells["ClaveVNC"].Value.ToString();
+                int ValorStactualiza = int.Parse(row.Cells["Actualiza"].Value.ToString());*/
+                string ValorCvvnc = string.Empty;
+                int ValorStactualiza = 0;
                 pnlActRelojesChecadores.Visible = true;
                 lblActRelojesChecadores.Text = "     Modifica Reloj Checador";
                 TxtiRelojChecador.Text = pcvreloj.ToString();
@@ -593,6 +643,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void dgvRelojesChecadores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            cellclick();
         }
 
         //-----------------------------------------------------------------------------------------------
