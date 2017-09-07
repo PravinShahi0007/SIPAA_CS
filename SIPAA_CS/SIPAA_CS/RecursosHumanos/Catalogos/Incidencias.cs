@@ -81,35 +81,24 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             txtCapInc.Text = "";
             txtCapOrd.Text = "";
             iSt = 1;
-            Util.cargarcombo(cboRep, Cstatus.cbo(7,"rechcincidencia"));
-            Util.cargarcombo(cboGen, Cstatus.cbo(8, "rechcincidencia"));
+            Utilerias.llenarComboxDataTable(cboRep, Cstatus.cbo(7, "rechcincidencia"), "Clave","Descripción");
+            Utilerias.llenarComboxDataTable(cboGen, Cstatus.cbo(8, "rechcincidencia"), "Clave", "Descripción");
             txtCapInc.Focus();
         }
         //BOTON GUARDAR
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             //VALIDA ESCRITURA DE ALGUN TEXTO
+            Boolean bvalidacampos = fvalidacampos();
 
-            if (txtCapInc.Text.Trim() == "")
+            if (bvalidacampos == true)
             {
-                DialogResult result = MessageBox.Show("Captura el dato a guardar", "SIPAA", MessageBoxButtons.OK);
-            }
-            else
-            {
-                sValIns(5, 0, txtCapInc.Text.Trim(), 0, 0, 0, 0, "150076", "Incidencias");
-
+                //valida registro duplicado
+                sValIns(5, 0, txtCapInc.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                //
                 if (vValida <= 0)
                 {
-                    if (txtCapOrd.Text.Trim() != "")
-                    {
-                        v_Orden = int.Parse(txtCapOrd.Text);
-                    }
-                    else
-                    {
-                        v_Orden = 0;
-                    }
-
-                    sGuardaMod(1, 0, txtCapInc.Text.Trim(), v_Orden, iStGen, iStRep, iSt, "150076", "Incidencias");
+                    sGuardaMod(1, 0, txtCapInc.Text.Trim(), Int32.Parse(txtCapOrd.Text.Trim()), Int32.Parse(cboGen.SelectedValue.ToString()), Int32.Parse(cboRep.SelectedValue.ToString()), iSt, LoginInfo.IdTrab, this.Name);
                     txtCapInc.Text = "";
 
                     panelTag.Visible = true;
@@ -133,26 +122,16 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
             //VALIDA ESCRITURA DE ALGUN TEXTO
-            if (txtCapInc.Text.Trim() == "")
-            {
-                DialogResult result = MessageBox.Show("La Descripción no puede esta en blanco", "SIPAA", MessageBoxButtons.OK);
-                txtCapInc.Focus();
-            }
-            else
+            Boolean bvalidacampos = fvalidacampos();
+
+            if (bvalidacampos == true)
             {
                 if (sDescAnt == txtCapInc.Text.Trim())
                 {
-                    if (txtCapOrd.Text.Trim() != "")
-                    {
-                        v_Orden = int.Parse(txtCapOrd.Text);
-                    }
-                    else
-                    {
-                        v_Orden = 0;
-                    }
-                    iStGen =  Int32.Parse(cboGen.SelectedValue.ToString());
+
+                    iStGen = Int32.Parse(cboGen.SelectedValue.ToString());
                     iStRep = Int32.Parse(cboRep.SelectedValue.ToString());
-                    sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), v_Orden, iStGen, iStRep, 0, "150076", "Incidencias");
+                    sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), v_Orden, iStGen, iStRep, 0, LoginInfo.IdTrab, this.Name);
                     txtCapInc.Text = "";
                     panelTag.Visible = true;
                     timer1.Start();
@@ -163,7 +142,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 }
                 else
                 {
-                    sValIns(5, 0, txtCapInc.Text.Trim(), 0, 0, 0, 0, "150076", "Incidencias");
+                    sValIns(5, 0, txtCapInc.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
                     if (vValida >= 1)
                     {
                         SLlenaGrid(4, 0, txtCapInc.Text.Trim(), 0, 0, 0, 0, "", "");
@@ -174,17 +153,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     }
                     else
                     {
-                        if (txtCapOrd.Text.Trim() != "")
-                        {
-                            v_Orden = int.Parse(txtCapOrd.Text);
-                        }
-                        else
-                        {
-                            v_Orden = 0;
-                        }
                         iStGen = Int32.Parse(cboGen.SelectedValue.ToString());
                         iStRep = Int32.Parse(cboRep.SelectedValue.ToString());
-                        sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), v_Orden, iStGen, iStRep, 0, "150076", "Incidencias");
+                        sGuardaMod(2, iCvFR, txtCapInc.Text.Trim(), v_Orden, iStGen, iStRep, 0, LoginInfo.IdTrab, this.Name);
                         txtCapInc.Text = "";
                         panelTag.Visible = true;
                         timer1.Start();
@@ -195,6 +166,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     }
                 }
             }
+            
         }
         //BOTON ELIMINAR
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -203,7 +175,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             if (result == DialogResult.Yes)
             {
                 iSt = 0;
-                sGuardaMod(3, iCvFR, txtCapInc.Text.Trim(), 0, 0, 0, iSt, "150076", "Incidencias");
+                sGuardaMod(3, iCvFR, txtCapInc.Text.Trim(), 0, 0, 0, iSt, LoginInfo.IdTrab, this.Name);
                 txtCapInc.Text = "";
                 panelTag.Visible = true;
                 timer1.Start();
@@ -225,7 +197,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 iSt = 1;
                 v_Orden = int.Parse(txtCapOrd.Text);
-                sGuardaMod(3, iCvFR, txtCapInc.Text.Trim(), 0, 0, v_Orden, iSt, "150076", "frmFormReg");
+                sGuardaMod(3, iCvFR, txtCapInc.Text.Trim(), 0, 0, v_Orden, iSt, LoginInfo.IdTrab, this.Name);
                 txtCapInc.Text = "";
                 panelTag.Visible = true;
                 timer1.Start();
@@ -280,7 +252,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "Incidencias.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -303,7 +275,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             iEli = 1;
 
             //LLAMA METODO LLENAR GRID
-            SLlenaGrid(4, 0, "", 0, 0, 0, 0, "", "");
+            SLlenaGrid(4, 0, "", 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
 
             //HABILITA BOTON AGREGAR
             if (iAgr == 1)
@@ -311,6 +283,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 btnAgregar.Visible = true;
                 pnlAct.Visible = false;
             }
+
+            txtFormReg.Focus();
         }
         //evento tick de timer de mensajes
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -366,16 +340,16 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvIncidencia.Columns[0].HeaderText = "Selección";
             }
             
-            dgvIncidencia.Columns[0].Width = 50;
+            dgvIncidencia.Columns[0].Width = 75;
             dgvIncidencia.Columns[1].Visible = false;
-            dgvIncidencia.Columns[2].Width = 155;
-            dgvIncidencia.Columns[3].Width = 35;
+            dgvIncidencia.Columns[2].Width = 225;
+            dgvIncidencia.Columns[3].Width = 50;
             dgvIncidencia.Columns[4].Visible = false;
-            dgvIncidencia.Columns[5].Width = 55;
+            dgvIncidencia.Columns[5].Width = 85;
             dgvIncidencia.Columns[6].Visible = false;
-            dgvIncidencia.Columns[7].Width = 55;
+            dgvIncidencia.Columns[7].Width = 85;
             dgvIncidencia.Columns[8].Visible = false;
-            dgvIncidencia.Columns[9].Width = 45;
+            dgvIncidencia.Columns[9].Width = 70;
             dgvIncidencia.ClearSelection();
             sHabilitaPermisos();
         }
@@ -473,8 +447,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 iStRep = Convert.ToInt32(row.Cells["STREP"].Value.ToString());
                 iSt = Convert.ToInt32(row.Cells["ST"].Value.ToString());
 
-                Util.cargarcombo(cboRep, Cstatus.cbo(7, "rechcincidencia"));
-                Util.cargarcombo(cboGen, Cstatus.cbo(8, "rechcincidencia"));
+                Utilerias.llenarComboxDataTable(cboRep, Cstatus.cbo(7, "rechcincidencia"), "Clave", "Descripción");
+                Utilerias.llenarComboxDataTable(cboGen, Cstatus.cbo(8, "rechcincidencia"), "Clave", "Descripción");
 
                 cboGen.SelectedValue = iStGen;
                 cboRep.SelectedValue = iStRep;
@@ -494,6 +468,39 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     ckbEliminar.Text = "Baja";
                 }
 
+            }
+        }
+
+        //validacion de campos
+        private Boolean fvalidacampos()
+        {
+            if (txtCapInc.Text.Trim() == "")
+            {
+                DialogResult result = MessageBox.Show("Capture una descripción", "SIPAA", MessageBoxButtons.OK);
+                txtCapInc.Focus();
+                return false;
+            }
+            else if (txtCapOrd.Text.Trim() == "")
+            {
+                DialogResult result = MessageBox.Show("Capture el orden", "SIPAA", MessageBoxButtons.OK);
+                txtCapOrd.Focus();
+                return false;
+            }
+            else if (cboGen.Text.Trim() == "" || cboGen.SelectedIndex == -1 || Int32.Parse(cboGen.SelectedValue.ToString()) == 0)
+            {
+                DialogResult result = MessageBox.Show("Selecione una opción *Generada por*", "SIPAA", MessageBoxButtons.OK);
+                cboGen.Focus();
+                return false;
+            }
+            else if (cboRep.Text.Trim() == "" || cboRep.SelectedIndex == -1 || Int32.Parse(cboRep.SelectedValue.ToString()) == 0)
+            {
+                DialogResult result = MessageBox.Show("Selecione una opción *Representa*", "SIPAA", MessageBoxButtons.OK);
+                cboRep.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 

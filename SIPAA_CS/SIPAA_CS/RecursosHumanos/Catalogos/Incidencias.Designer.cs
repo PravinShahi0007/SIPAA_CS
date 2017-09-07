@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Incidencias));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.pnlAct = new System.Windows.Forms.Panel();
             this.lblRep = new System.Windows.Forms.Label();
@@ -60,7 +60,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
-            this.lblModifElim = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
@@ -69,6 +68,8 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblModifElim = new System.Windows.Forms.Label();
             this.pnlAct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIncidencia)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
@@ -82,10 +83,11 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
-            this.btnAgregar.Location = new System.Drawing.Point(926, 156);
+            this.btnAgregar.Location = new System.Drawing.Point(944, 102);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(55, 55);
             this.btnAgregar.TabIndex = 151;
+            this.btnAgregar.TabStop = false;
             this.btnAgregar.Tag = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
@@ -97,7 +99,6 @@
             this.pnlAct.Controls.Add(this.cboRep);
             this.pnlAct.Controls.Add(this.lblGen);
             this.pnlAct.Controls.Add(this.cboGen);
-            this.pnlAct.Controls.Add(this.btnActiva);
             this.pnlAct.Controls.Add(this.panel1);
             this.pnlAct.Controls.Add(this.txtCapOrd);
             this.pnlAct.Controls.Add(this.label6);
@@ -106,12 +107,13 @@
             this.pnlAct.Controls.Add(this.panel3);
             this.pnlAct.Controls.Add(this.txtCapInc);
             this.pnlAct.Controls.Add(this.lblAct);
+            this.pnlAct.Controls.Add(this.btnActiva);
             this.pnlAct.Controls.Add(this.btnEliminar);
             this.pnlAct.Controls.Add(this.btnEditar);
             this.pnlAct.Controls.Add(this.btnGuardar);
-            this.pnlAct.Location = new System.Drawing.Point(36, 335);
+            this.pnlAct.Location = new System.Drawing.Point(12, 321);
             this.pnlAct.Name = "pnlAct";
-            this.pnlAct.Size = new System.Drawing.Size(437, 248);
+            this.pnlAct.Size = new System.Drawing.Size(353, 313);
             this.pnlAct.TabIndex = 147;
             this.pnlAct.TabStop = true;
             this.pnlAct.Visible = false;
@@ -122,7 +124,7 @@
             this.lblRep.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.lblRep.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblRep.Location = new System.Drawing.Point(23, 221);
+            this.lblRep.Location = new System.Drawing.Point(21, 205);
             this.lblRep.Name = "lblRep";
             this.lblRep.Size = new System.Drawing.Size(103, 16);
             this.lblRep.TabIndex = 60;
@@ -132,11 +134,13 @@
             // 
             this.cboRep.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboRep.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboRep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboRep.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboRep.FormattingEnabled = true;
-            this.cboRep.Location = new System.Drawing.Point(132, 221);
+            this.cboRep.Location = new System.Drawing.Point(130, 202);
             this.cboRep.Name = "cboRep";
-            this.cboRep.Size = new System.Drawing.Size(137, 21);
-            this.cboRep.TabIndex = 7;
+            this.cboRep.Size = new System.Drawing.Size(199, 24);
+            this.cboRep.TabIndex = 6;
             // 
             // lblGen
             // 
@@ -144,7 +148,7 @@
             this.lblGen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.lblGen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblGen.Location = new System.Drawing.Point(22, 165);
+            this.lblGen.Location = new System.Drawing.Point(22, 155);
             this.lblGen.Name = "lblGen";
             this.lblGen.Size = new System.Drawing.Size(90, 16);
             this.lblGen.TabIndex = 59;
@@ -154,11 +158,13 @@
             // 
             this.cboGen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboGen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboGen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboGen.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboGen.FormattingEnabled = true;
-            this.cboGen.Location = new System.Drawing.Point(131, 165);
+            this.cboGen.Location = new System.Drawing.Point(117, 152);
             this.cboGen.Name = "cboGen";
-            this.cboGen.Size = new System.Drawing.Size(137, 21);
-            this.cboGen.TabIndex = 6;
+            this.cboGen.Size = new System.Drawing.Size(211, 24);
+            this.cboGen.TabIndex = 5;
             // 
             // btnActiva
             // 
@@ -166,7 +172,7 @@
             this.btnActiva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActiva.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnActiva.Image = global::SIPAA_CS.Properties.Resources.Alta;
-            this.btnActiva.Location = new System.Drawing.Point(362, 19);
+            this.btnActiva.Location = new System.Drawing.Point(274, 245);
             this.btnActiva.Name = "btnActiva";
             this.btnActiva.Size = new System.Drawing.Size(55, 55);
             this.btnActiva.TabIndex = 8;
@@ -180,7 +186,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel1.Location = new System.Drawing.Point(24, 125);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 1);
+            this.panel1.Size = new System.Drawing.Size(305, 2);
             this.panel1.TabIndex = 44;
             // 
             // txtCapOrd
@@ -189,10 +195,10 @@
             this.txtCapOrd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCapOrd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCapOrd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCapOrd.Location = new System.Drawing.Point(26, 109);
+            this.txtCapOrd.Location = new System.Drawing.Point(26, 107);
             this.txtCapOrd.Name = "txtCapOrd";
-            this.txtCapOrd.Size = new System.Drawing.Size(250, 15);
-            this.txtCapOrd.TabIndex = 5;
+            this.txtCapOrd.Size = new System.Drawing.Size(305, 15);
+            this.txtCapOrd.TabIndex = 4;
             // 
             // label6
             // 
@@ -200,7 +206,7 @@
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(21, 90);
+            this.label6.Location = new System.Drawing.Point(21, 83);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 16);
             this.label6.TabIndex = 57;
@@ -210,10 +216,10 @@
             // 
             this.ckbEliminar.AutoSize = true;
             this.ckbEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbEliminar.Location = new System.Drawing.Point(282, 49);
+            this.ckbEliminar.Location = new System.Drawing.Point(24, 246);
             this.ckbEliminar.Name = "ckbEliminar";
             this.ckbEliminar.Size = new System.Drawing.Size(47, 17);
-            this.ckbEliminar.TabIndex = 55;
+            this.ckbEliminar.TabIndex = 7;
             this.ckbEliminar.Text = "Baja";
             this.ckbEliminar.UseVisualStyleBackColor = true;
             this.ckbEliminar.Visible = false;
@@ -236,7 +242,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel3.Location = new System.Drawing.Point(24, 67);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 1);
+            this.panel3.Size = new System.Drawing.Size(305, 2);
             this.panel3.TabIndex = 43;
             // 
             // txtCapInc
@@ -247,8 +253,8 @@
             this.txtCapInc.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCapInc.Location = new System.Drawing.Point(26, 50);
             this.txtCapInc.Name = "txtCapInc";
-            this.txtCapInc.Size = new System.Drawing.Size(250, 15);
-            this.txtCapInc.TabIndex = 4;
+            this.txtCapInc.Size = new System.Drawing.Size(305, 15);
+            this.txtCapInc.TabIndex = 3;
             // 
             // lblAct
             // 
@@ -269,10 +275,10 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.Baja;
-            this.btnEliminar.Location = new System.Drawing.Point(362, 19);
+            this.btnEliminar.Location = new System.Drawing.Point(279, 247);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(50, 50);
-            this.btnEliminar.TabIndex = 8;
+            this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Tag = "Baja";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Visible = false;
@@ -284,10 +290,10 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnEditar.Image = global::SIPAA_CS.Properties.Resources.Editar;
-            this.btnEditar.Location = new System.Drawing.Point(362, 19);
+            this.btnEditar.Location = new System.Drawing.Point(278, 245);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(50, 50);
-            this.btnEditar.TabIndex = 8;
+            this.btnEditar.TabIndex = 10;
             this.btnEditar.Tag = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Visible = false;
@@ -299,10 +305,10 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardar.Location = new System.Drawing.Point(362, 19);
+            this.btnGuardar.Location = new System.Drawing.Point(279, 246);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
-            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.TabIndex = 11;
             this.btnGuardar.Tag = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
@@ -311,30 +317,30 @@
             // 
             this.dgvIncidencia.AllowUserToAddRows = false;
             this.dgvIncidencia.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvIncidencia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvIncidencia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvIncidencia.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvIncidencia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvIncidencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvIncidencia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvIncidencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvIncidencia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvIncidencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvIncidencia.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvIncidencia.Location = new System.Drawing.Point(488, 212);
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvIncidencia.DefaultCellStyle = dataGridViewCellStyle27;
+            this.dgvIncidencia.Location = new System.Drawing.Point(386, 163);
             this.dgvIncidencia.Name = "dgvIncidencia";
             this.dgvIncidencia.ReadOnly = true;
             this.dgvIncidencia.RowHeadersVisible = false;
@@ -342,8 +348,9 @@
             this.dgvIncidencia.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvIncidencia.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvIncidencia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvIncidencia.Size = new System.Drawing.Size(488, 345);
+            this.dgvIncidencia.Size = new System.Drawing.Size(613, 548);
             this.dgvIncidencia.TabIndex = 148;
+            this.dgvIncidencia.TabStop = false;
             this.dgvIncidencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIncidencia_CellContentClick_1);
             // 
             // pnlBusqueda
@@ -353,10 +360,10 @@
             this.pnlBusqueda.Controls.Add(this.panel5);
             this.pnlBusqueda.Controls.Add(this.txtFormReg);
             this.pnlBusqueda.Controls.Add(this.label1);
-            this.pnlBusqueda.Location = new System.Drawing.Point(36, 212);
+            this.pnlBusqueda.Location = new System.Drawing.Point(12, 163);
             this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(437, 87);
-            this.pnlBusqueda.TabIndex = 146;
+            this.pnlBusqueda.Size = new System.Drawing.Size(353, 87);
+            this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
             // 
             // label4
@@ -377,7 +384,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(362, 17);
+            this.btnBuscar.Location = new System.Drawing.Point(285, 17);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(55, 55);
             this.btnBuscar.TabIndex = 2;
@@ -390,7 +397,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel5.Location = new System.Drawing.Point(27, 71);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(250, 1);
+            this.panel5.Size = new System.Drawing.Size(250, 2);
             this.panel5.TabIndex = 43;
             // 
             // txtFormReg
@@ -398,7 +405,7 @@
             this.txtFormReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtFormReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFormReg.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFormReg.Location = new System.Drawing.Point(29, 54);
+            this.txtFormReg.Location = new System.Drawing.Point(29, 53);
             this.txtFormReg.Name = "txtFormReg";
             this.txtFormReg.Size = new System.Drawing.Size(250, 15);
             this.txtFormReg.TabIndex = 1;
@@ -422,9 +429,9 @@
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTag.ForeColor = System.Drawing.Color.White;
-            this.panelTag.Location = new System.Drawing.Point(488, 560);
+            this.panelTag.Location = new System.Drawing.Point(386, 722);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(438, 25);
+            this.panelTag.Size = new System.Drawing.Size(613, 34);
             this.panelTag.TabIndex = 153;
             this.panelTag.Visible = false;
             // 
@@ -434,25 +441,12 @@
             this.lbMensaje.BackColor = System.Drawing.Color.Transparent;
             this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMensaje.ForeColor = System.Drawing.Color.Navy;
-            this.lbMensaje.Location = new System.Drawing.Point(10, 3);
+            this.lbMensaje.Location = new System.Drawing.Point(7, 6);
             this.lbMensaje.Name = "lbMensaje";
             this.lbMensaje.Size = new System.Drawing.Size(181, 20);
             this.lbMensaje.TabIndex = 26;
             this.lbMensaje.Text = "Administración de Perfiles    ";
             this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblModifElim
-            // 
-            this.lblModifElim.AutoSize = true;
-            this.lblModifElim.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModifElim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblModifElim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblModifElim.Location = new System.Drawing.Point(485, 560);
-            this.lblModifElim.Name = "lblModifElim";
-            this.lblModifElim.Size = new System.Drawing.Size(93, 16);
-            this.lblModifElim.TabIndex = 152;
-            this.lblModifElim.Text = "Seleccion Grid";
-            this.lblModifElim.Visible = false;
             // 
             // timer1
             // 
@@ -485,6 +479,7 @@
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 156;
+            this.btnRegresar.TabStop = false;
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
@@ -544,6 +539,31 @@
             this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(383, 141);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 16);
+            this.label5.TabIndex = 160;
+            this.label5.Text = "Incidencias";
+            // 
+            // lblModifElim
+            // 
+            this.lblModifElim.AutoSize = true;
+            this.lblModifElim.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModifElim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.lblModifElim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblModifElim.Location = new System.Drawing.Point(393, 732);
+            this.lblModifElim.Name = "lblModifElim";
+            this.lblModifElim.Size = new System.Drawing.Size(93, 16);
+            this.lblModifElim.TabIndex = 161;
+            this.lblModifElim.Text = "Seleccion Grid";
+            this.lblModifElim.Visible = false;
+            // 
             // Incidencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,6 +571,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label3);
@@ -558,11 +579,11 @@
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.panelTag);
-            this.Controls.Add(this.lblModifElim);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pnlAct);
             this.Controls.Add(this.dgvIncidencia);
             this.Controls.Add(this.pnlBusqueda);
+            this.Controls.Add(this.lblModifElim);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Incidencias";
@@ -603,7 +624,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelTag;
         private System.Windows.Forms.Label lbMensaje;
-        private System.Windows.Forms.Label lblModifElim;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label6;
@@ -620,5 +640,7 @@
         private System.Windows.Forms.Label lblGen;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Label lblusuario;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblModifElim;
     }
 }
