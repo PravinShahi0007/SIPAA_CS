@@ -35,9 +35,9 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label lblFechaRelojChecador;
             System.Windows.Forms.Label lblGridDiasFestivos;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -197,29 +197,29 @@
             this.dgvRelojesChecadores.AllowUserToAddRows = false;
             this.dgvRelojesChecadores.AllowUserToDeleteRows = false;
             this.dgvRelojesChecadores.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvRelojesChecadores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvRelojesChecadores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvRelojesChecadores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRelojesChecadores.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvRelojesChecadores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRelojesChecadores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRelojesChecadores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRelojesChecadores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvRelojesChecadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRelojesChecadores.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRelojesChecadores.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvRelojesChecadores.Location = new System.Drawing.Point(350, 172);
             this.dgvRelojesChecadores.Name = "dgvRelojesChecadores";
             this.dgvRelojesChecadores.ReadOnly = true;
@@ -342,6 +342,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(180, 1);
             this.panel3.TabIndex = 178;
+            this.panel3.Visible = false;
             // 
             // panel2
             // 
@@ -350,6 +351,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(180, 1);
             this.panel2.TabIndex = 177;
+            this.panel2.Visible = false;
             // 
             // panel1
             // 
@@ -375,6 +377,7 @@
             this.TxtiStActualiza.Name = "TxtiStActualiza";
             this.TxtiStActualiza.Size = new System.Drawing.Size(180, 13);
             this.TxtiStActualiza.TabIndex = 143;
+            this.TxtiStActualiza.Visible = false;
             this.TxtiStActualiza.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtiStActualiza_KeyPress);
             // 
             // label6
@@ -386,6 +389,7 @@
             this.label6.Size = new System.Drawing.Size(86, 13);
             this.label6.TabIndex = 142;
             this.label6.Text = "Estado Actualiza";
+            this.label6.Visible = false;
             // 
             // TxtcCvvnc
             // 
@@ -395,6 +399,7 @@
             this.TxtcCvvnc.Name = "TxtcCvvnc";
             this.TxtcCvvnc.Size = new System.Drawing.Size(180, 13);
             this.TxtcCvvnc.TabIndex = 141;
+            this.TxtcCvvnc.Visible = false;
             // 
             // label5
             // 
@@ -405,6 +410,7 @@
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 140;
             this.label5.Text = "Clave VNC";
+            this.label5.Visible = false;
             // 
             // label2
             // 
@@ -437,7 +443,7 @@
             // 
             this.ckbEliminar.AutoSize = true;
             this.ckbEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbEliminar.Location = new System.Drawing.Point(225, 242);
+            this.ckbEliminar.Location = new System.Drawing.Point(215, 124);
             this.ckbEliminar.Name = "ckbEliminar";
             this.ckbEliminar.Size = new System.Drawing.Size(47, 17);
             this.ckbEliminar.TabIndex = 55;
