@@ -183,7 +183,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 1)//insertar
             {
                 //inserta registro nuevo
-                fuidRelojesChecadores(1, 9999, txtDescripcionRC.Text, TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
+                fuidRelojesChecadores(1, 9999, txtDescripcionRC.Text, TxtcIP.Text, string.Empty, 0, LoginInfo.IdTrab, this.Name);
+                //fuidRelojesChecadores(1, 9999, txtDescripcionRC.Text, TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
                 dgvRelojesChecadores.DataSource = null;
                 dgvRelojesChecadores.Columns.RemoveAt(0);
                 panelTag.Visible = true;
@@ -199,7 +200,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 2)//actualizar
             {
                 //inserta registro nuevo
-                fuidRelojesChecadores(2, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
+                fuidRelojesChecadores(2, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, string.Empty, 0, LoginInfo.IdTrab, this.Name);
+                //fuidRelojesChecadores(2, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
                 dgvRelojesChecadores.DataSource = null;
                 dgvRelojesChecadores.Columns.RemoveAt(0);
                 panelTag.Visible = true;
@@ -219,7 +221,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     //inserta registro nuevo
-                    fuidRelojesChecadores(3, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
+                    fuidRelojesChecadores(3, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, string.Empty, 0, LoginInfo.IdTrab, this.Name);
+                    //fuidRelojesChecadores(3, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
                     dgvRelojesChecadores.DataSource = null;
                     dgvRelojesChecadores.Columns.RemoveAt(0);
                     panelTag.Visible = true;
