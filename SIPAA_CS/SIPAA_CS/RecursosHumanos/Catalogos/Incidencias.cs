@@ -486,13 +486,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 txtCapOrd.Focus();
                 return false;
             }
-            else if (cboGen.Text.Trim() == "" || cboGen.SelectedIndex == -1 || Int32.Parse(cboGen.SelectedValue.ToString()) == 0)
+            else if (cboGen.Text.Trim() == "" || cboGen.SelectedIndex == -1 || cboGen.SelectedIndex == 0)
             {
                 DialogResult result = MessageBox.Show("Selecione una opción *Generada por*", "SIPAA", MessageBoxButtons.OK);
                 cboGen.Focus();
                 return false;
             }
-            else if (cboRep.Text.Trim() == "" || cboRep.SelectedIndex == -1 || Int32.Parse(cboRep.SelectedValue.ToString()) == 0)
+            else if (cboRep.Text.Trim() == "" || cboRep.SelectedIndex == -1 || cboRep.SelectedIndex == 0)
             {
                 DialogResult result = MessageBox.Show("Selecione una opción *Representa*", "SIPAA", MessageBoxButtons.OK);
                 cboRep.Focus();

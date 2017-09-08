@@ -209,7 +209,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             objIncidencia.TipoIncidencia = txtTipoEditar.Text;
 
             objIncidencia.PrguMod = this.Name;
-            // objIncidencia.FhuMod = DateTime.Now;
             objIncidencia.UsuuMod = "vjiturburuv";
             try
             {
@@ -243,8 +242,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                         break;
                 }
-                // LlenarComboRepresenta(cbIncidencia, 6);
 
+                // LlenarComboRepresenta(cbIncidencia, 6);
                 LlenarComboTipoIncidencia(cbTipo, "Tipo", "cvtipo", 5);
                 LLenarGridIncapacidad(dgvIncidencia, "%", "%");
 
