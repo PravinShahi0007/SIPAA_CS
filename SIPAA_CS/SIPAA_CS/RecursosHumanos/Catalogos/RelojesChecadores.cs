@@ -40,10 +40,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         RelojChecador oRelojesChecadores = new RelojChecador();
         Utilerias Util = new Utilerias();
+        System.Net.IPAddress ip;
 
         public RelojesChecadores()
         {
             InitializeComponent();
+            lblMensaje.Text = string.Empty;
         }
 
         private void RelojesChecadores_Load(object sender, EventArgs e)
@@ -176,13 +178,30 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             TxtiStActualiza.Text = "";
         }
 
+        private bool validaIP()
+        {
+            if (!System.Net.IPAddress.TryParse(TxtcIP.Text, out ip))
+            {
+                panelTag.Enabled = true;
+                Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "La dirección IP no es valida.");
+                panelTag.Enabled = false;
+                timer1.Start();
+
+                return false;
+            }
+
+            return true;
+        }
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            if (txtDescripcionRC.Text.Trim() == "" && pactbtn == 1)
+            if ((txtDescripcionRC.Text.Trim() == string.Empty || TxtcIP.Text.Trim() == string.Empty) && pactbtn != 3)
             {
-                lblMensaje.Text = "Capture un dato a guardar";
+                panelTag.Enabled = true;
+                Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "Capture un dato a guardar");
+                panelTag.Enabled = false;
+                timer1.Start();
             }
-            else if (pactbtn == 1)//insertar
+            else if (pactbtn == 1 && validaIP())//insertar
             {
                 //inserta registro nuevo
                 fuidRelojesChecadores(1, 9999, txtDescripcionRC.Text, TxtcIP.Text, string.Empty, 0, LoginInfo.IdTrab, this.Name);
@@ -199,7 +218,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 ckbEliminar.Visible = false;
                 pnlActRelojesChecadores.Visible = false;
             }
-            else if (pactbtn == 2)//actualizar
+            else if (pactbtn == 2 && validaIP())//actualizar
             {
                 //inserta registro nuevo
                 fuidRelojesChecadores(2, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, string.Empty, 0, LoginInfo.IdTrab, this.Name);
