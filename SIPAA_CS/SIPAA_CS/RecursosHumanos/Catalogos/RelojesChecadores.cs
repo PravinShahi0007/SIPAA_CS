@@ -55,7 +55,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
-
+            lblMensaje.Text = string.Empty;
 
             /* JAV
             Usuario objUsuario = new Usuario();
@@ -88,6 +88,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         
         private void cellclick()
         {
+            ckbEliminar.Checked = false;
+
             if (pins == 1 && pact == 1 && pelim == 1)
             {
                 factgrid();
@@ -163,8 +165,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             ckbEliminar.Visible = false;
             pnlActRelojesChecadores.Visible = true;
-            lblActRelojesChecadores.Text = "     Agregar Tipo de Horario";
-            Util.ChangeButton(btnAgregar, 1, false);
+            lblActRelojesChecadores.Text = "     Agregar Reloj Checador";
+            Util.ChangeButton(btnInsertar, 1, false);
             pactbtn = 1;
             TxtiRelojChecador.Text = "";
             txtDescripcionRC.Text = "";
@@ -187,7 +189,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 //fuidRelojesChecadores(1, 9999, txtDescripcionRC.Text, TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
                 dgvRelojesChecadores.DataSource = null;
                 dgvRelojesChecadores.Columns.RemoveAt(0);
-                panelTag.Visible = true;
+                //panelTag.Visible = true;
                 txtDescripcionRC.Text = "";
                 txtDescripcionRC.Focus();
                 timer1.Start();
@@ -204,7 +206,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 //fuidRelojesChecadores(2, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
                 dgvRelojesChecadores.DataSource = null;
                 dgvRelojesChecadores.Columns.RemoveAt(0);
-                panelTag.Visible = true;
+                //panelTag.Visible = true;
                 txtDescripcionRC.Text = "";
                 txtDescripcionRC.Focus();
                 timer1.Start();
@@ -225,7 +227,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     //fuidRelojesChecadores(3, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
                     dgvRelojesChecadores.DataSource = null;
                     dgvRelojesChecadores.Columns.RemoveAt(0);
-                    panelTag.Visible = true;
+                    //panelTag.Visible = true;
                     txtDescripcionRC.Text = "";
                     txtDescripcionRC.Focus();
                     timer1.Start();
@@ -584,16 +586,24 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             switch (p_rep.ToString())
             {
                 case "1":
-                    lblMensaje.Text = "Registro agregado correctamente";
+                    panelTag.Enabled = true;
+                    Utilerias.ControlNotificaciones(panelTag, lblMensaje, 1, "Registro agregado correctamente");
+                    panelTag.Enabled = false;
                     break;
                 case "2":
-                    lblMensaje.Text = "Registro modificado correctamente";
+                    panelTag.Enabled = true;
+                    Utilerias.ControlNotificaciones(panelTag, lblMensaje, 1, "Registro modificado correctamente");
+                    panelTag.Enabled = false;
                     break;
                 case "3":
-                    lblMensaje.Text = "Registro eliminado correctamente";
+                    panelTag.Enabled = true;
+                    Utilerias.ControlNotificaciones(panelTag, lblMensaje, 1, "Registro eliminado correctamente");
+                    panelTag.Enabled = false;
                     break;
                 case "99":
-                    lblMensaje.Text = "Registro ya existe";
+                    panelTag.Enabled = true;
+                    Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "Registro ya existe");
+                    panelTag.Enabled = false;
                     break;
                 default:
                     lblMensaje.Text = "";
@@ -651,6 +661,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void dgvRelojesChecadores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             cellclick();
+        }
+
+        private void lblMensaje_Click(object sender, EventArgs e)
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------
