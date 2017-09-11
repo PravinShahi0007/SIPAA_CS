@@ -77,8 +77,8 @@ namespace SIPAA_CS.App_Code
 
         public static void ControlNotificaciones(Panel panelTag, Label lbMensaje, int iClase, string strMensaje)
         {
-            panelTag.Dispose();
-
+            //panelTag.Dispose();
+          //  panelTag.Visible = false;
             panelTag.Visible = true;
             
             switch (iClase)
@@ -86,6 +86,7 @@ namespace SIPAA_CS.App_Code
 
                 case 1:
                     //Clase Success - Color Verde
+
                     panelTag.Visible = true;
                     panelTag.BackColor = ColorTranslator.FromHtml("#2e7d32");
                     lbMensaje.BackColor = ColorTranslator.FromHtml("#2e7d32");
@@ -121,6 +122,7 @@ namespace SIPAA_CS.App_Code
             pass = BitConverter.ToString(hash).Replace("-", "");
             return pass;
         }
+
         public bool IsNumber(string inputvalue)
         {
             Regex isnumber = new Regex("[^0-9]");
@@ -596,6 +598,10 @@ namespace SIPAA_CS.App_Code
             dgv.Columns[iPosicion].HeaderText = "Seleccionar";
             dgv.Columns[iPosicion].Width = 100;
         }
+
+       
+     
+     
 
         public static void MultiSeleccionGridView(DataGridView dgv, int iPositionClave, List<int> ltCv, Control ctrl) 
         {
@@ -1146,4 +1152,6 @@ namespace SIPAA_CS.App_Code
     //    public NffvStatus engineStatus;
     //    public int score;
     //}
+
+
 }
