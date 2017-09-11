@@ -87,7 +87,7 @@
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label1.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            label1.Location = new System.Drawing.Point(381, 141);
+            label1.Location = new System.Drawing.Point(374, 141);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(69, 16);
             label1.TabIndex = 127;
@@ -366,9 +366,9 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(419, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 23);
+            this.label3.Size = new System.Drawing.Size(164, 23);
             this.label3.TabIndex = 118;
-            this.label3.Text = "       Tipo de Incapacidad";
+            this.label3.Text = "       Tipo de Incidencia";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PanelEditar
@@ -378,9 +378,9 @@
             this.PanelEditar.Controls.Add(this.cbIncidencia);
             this.PanelEditar.Controls.Add(label7);
             this.PanelEditar.Controls.Add(label4);
-            this.PanelEditar.Controls.Add(this.btnGuardar);
             this.PanelEditar.Controls.Add(this.ckbEliminar);
             this.PanelEditar.Controls.Add(this.lblAccion);
+            this.PanelEditar.Controls.Add(this.btnGuardar);
             this.PanelEditar.Location = new System.Drawing.Point(21, 467);
             this.PanelEditar.Name = "PanelEditar";
             this.PanelEditar.Size = new System.Drawing.Size(337, 218);
@@ -401,7 +401,7 @@
             this.txtTipoEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtTipoEditar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTipoEditar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoEditar.Location = new System.Drawing.Point(19, 107);
+            this.txtTipoEditar.Location = new System.Drawing.Point(19, 106);
             this.txtTipoEditar.Name = "txtTipoEditar";
             this.txtTipoEditar.Size = new System.Drawing.Size(250, 15);
             this.txtTipoEditar.TabIndex = 6;
@@ -421,7 +421,6 @@
             this.cbIncidencia.Name = "cbIncidencia";
             this.cbIncidencia.Size = new System.Drawing.Size(247, 24);
             this.cbIncidencia.TabIndex = 5;
-            this.cbIncidencia.Text = "Seleccionar ";
             // 
             // dgvIncidencia
             // 
@@ -434,7 +433,7 @@
             this.dgvIncidencia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvIncidencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvIncidencia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
