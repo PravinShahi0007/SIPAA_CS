@@ -347,6 +347,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         }
 
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 
