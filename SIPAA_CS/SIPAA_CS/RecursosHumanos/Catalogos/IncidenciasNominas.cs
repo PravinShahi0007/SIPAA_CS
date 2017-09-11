@@ -42,6 +42,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         IncNomina IncNom = new IncNomina();
         Utilerias Util = new Utilerias();
+        Perfil DatPerfil = new Perfil();
 
         public IncidenciasNominas()
         {
@@ -172,7 +173,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                                                      Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
                                                      Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
                                                      Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
-                                                     txtcampo.Text.Trim(), "null", 1, "nam", "IncidenciasNominas");
+                                                     txtcampo.Text.Trim(), "null", 1, LoginInfo.IdTrab, this.Name);
 
                     if (iverifpk > 0)
                     {
@@ -186,7 +187,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                                                          Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
                                                          Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
                                                          Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
-                                                         txtcampo.Text.Trim(), "null", 1, "nam", "IncidenciasNominas");
+                                                         txtcampo.Text.Trim(), "null", 1, LoginInfo.IdTrab, this.Name);
                         dgvincnomia.DataSource = null;
 
                         if (iins == 1 && iact == 0 && ielim == 0)
@@ -215,7 +216,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                                                 Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
                                                 Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
                                                 Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
-                                                txtcampo.Text.Trim(), "null", 1, "nam", "IncidenciasNominas");
+                                                txtcampo.Text.Trim(), "null", 1, LoginInfo.IdTrab, this.Name);
                 dgvincnomia.DataSource = null;
 
                 if (iins == 1 && iact == 0 && ielim == 0)
@@ -244,7 +245,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                                                      Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
                                                      Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
                                                      Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
-                                                     txtcampo.Text.Trim(), "null", 1, "nam", "IncidenciasNominas");
+                                                     txtcampo.Text.Trim(), "null", 1, LoginInfo.IdTrab, this.Name);
                     dgvincnomia.DataSource = null;
 
                     if (iins == 1 && iact == 0 && ielim == 0)
@@ -343,7 +344,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "IncidenciasNominas.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -356,9 +357,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             ftooltip();
 
             //variables accesos
-            iins = 1;
-            iact = 1;
-            ielim =1;
+            DataTable Permisos = DatPerfil.accpantalla(LoginInfo.IdTrab, this.Name);
+            iins = Int32.Parse(Permisos.Rows[0][3].ToString());
+            iact = Int32.Parse(Permisos.Rows[0][4].ToString());
+            ielim = Int32.Parse(Permisos.Rows[0][5].ToString());
+
 
             iactbtn = 0;
             iresp = 0;

@@ -189,7 +189,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "Companias.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -768,7 +768,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 cbdiasalida.Enabled = true;
                 Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
-                cbdiasalida.Text = "";
 
                 cbdia.Text = row.Cells["Día"].Value.ToString();
                 mtbhrinijor.Enabled = true;
@@ -784,6 +783,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
                 mtbhrsalcomerh.Enabled = true;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+                cbdiasalida.Text = row.Cells["Día"].Value.ToString();
 
                 cbxlimpiarreg.Visible = true;
                 cbxlimpiarreg.Checked = false;
@@ -802,7 +802,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 cbdiasalida.Enabled = true;
                 Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
-                cbdiasalida.Text = "";
 
                 cbdia.Text = row.Cells["Día"].Value.ToString();
                 mtbhrinijor.Enabled = true;
@@ -818,6 +817,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
                 mtbhrsalcomerh.Enabled = true;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+                cbdiasalida.Text = row.Cells["Día"].Value.ToString();
 
                 cbxlimpiarreg.Visible = false;
                 btnguardar.Image = Resources.Guardar;
@@ -834,7 +834,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 cbdiasalida.Enabled = true;
                 Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
-                cbdiasalida.Text = "";
 
                 cbdia.Text = row.Cells["Día"].Value.ToString();
                 mtbhrinijor.Enabled = true;
@@ -850,6 +849,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
                 mtbhrsalcomerh.Enabled = true;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+                cbdiasalida.Text = row.Cells["Día"].Value.ToString();
 
                 cbxlimpiarreg.Visible = false;
                 btnguardar.Image = Resources.Editar;
@@ -866,7 +866,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 cbdiasalida.Enabled = true;
                 Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
-                cbdiasalida.Text = "";
 
                 cbdia.Text = row.Cells["Día"].Value.ToString();
                 mtbhrinijor.Enabled = true;
@@ -882,6 +881,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
                 mtbhrsalcomerh.Enabled = true;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+                cbdiasalida.Text = row.Cells["Día"].Value.ToString();
 
                 cbxlimpiarreg.Visible = false;
                 btnguardar.Image = Resources.Guardar;
@@ -899,7 +899,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 cbdiasalida.Enabled = false;
                 Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
-                cbdiasalida.Text = "";
 
                 cbdia.Text = row.Cells["Día"].Value.ToString();
                 mtbhrinijor.Enabled = false;
@@ -915,6 +914,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
                 mtbhrsalcomerh.Enabled = false;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+                cbdiasalida.Text = row.Cells["Día"].Value.ToString();
 
                 cbxlimpiarreg.Visible = true;
                 cbxlimpiarreg.Checked = true;
@@ -933,7 +933,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 cbdiasalida.Enabled = true;
                 Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
-                cbdiasalida.Text = "";
 
                 cbdia.Text = row.Cells["Día"].Value.ToString();
                 mtbhrinijor.Enabled = true;
@@ -949,6 +948,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
                 mtbhrsalcomerh.Enabled = true;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+                cbdiasalida.Text = row.Cells["Día"].Value.ToString();
 
                 cbxlimpiarreg.Visible = false;
                 btnguardar.Image = Resources.Baja;
@@ -965,7 +965,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 cbdiasalida.Enabled = true;
                 Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
-                cbdiasalida.Text = "";
 
                 cbdia.Text = row.Cells["Día"].Value.ToString();
                 mtbhrinijor.Enabled = true;
@@ -981,6 +980,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
                 mtbhrsalcomerh.Enabled = true;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+                cbdiasalida.Text = row.Cells["Día"].Value.ToString();
 
                 cbxlimpiarreg.Visible = true;
                 cbxlimpiarreg.Checked = false;
@@ -1008,7 +1008,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 cbdiasalida.Enabled = true;
                 Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
-                cbdiasalida.Text = "";
 
                 cbdia.Text = row.Cells["Día"].Value.ToString();
                 mtbhrinijor.Enabled = true;
@@ -1024,6 +1023,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
                 mtbhrsalcomerh.Enabled = true;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+                cbdiasalida.Text = row.Cells["Día"].Value.ToString();
 
                 cbxlimpiarreg.Visible = false;
                 btnguardar.Image = Resources.Guardar;
@@ -1040,7 +1040,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 cbdiasalida.Enabled = true;
                 Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
-                cbdiasalida.Text = "";
 
                 cbdia.Text = row.Cells["Día"].Value.ToString();
                 mtbhrinijor.Enabled = true;
@@ -1056,6 +1055,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
                 mtbhrsalcomerh.Enabled = true;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+                cbdiasalida.Text = row.Cells["Día"].Value.ToString();
 
                 cbxlimpiarreg.Visible = false;
                 btnguardar.Image = Resources.Guardar;
@@ -1077,7 +1077,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 cbdiasalida.Enabled = false;
                 Util.cargarcombo(cbdiasalida, PlantDet.cbdias(6));
-                cbdiasalida.Text = "";
 
                 cbdia.Text = row.Cells["Día"].Value.ToString();
                 mtbhrinijor.Enabled = false;
@@ -1093,6 +1092,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 mtbhrsalcomerd.Text = row.Cells["HrSalComer"].Value.ToString();
                 mtbhrsalcomerh.Enabled = false;
                 mtbhrsalcomerh.Text = row.Cells["HrRegComida"].Value.ToString();
+                cbdiasalida.Text = row.Cells["Día"].Value.ToString();
 
                 cbxlimpiarreg.Visible = true;
                 cbxlimpiarreg.Checked = true;

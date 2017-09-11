@@ -320,6 +320,34 @@ namespace SIPAA_CS.App_Code
             return menudincs;
         }
 
+        public DataTable accpantalla(string susurio, string smodulo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_accepermod_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
 
+            cmd.Parameters.Add("@P_cvmodulo", SqlDbType.Text).Value = smodulo;
+            cmd.Parameters.Add("@P_cvperfil", SqlDbType.Text).Value = "";
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.Text).Value = "";
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.Text).Value = susurio;
+            cmd.Parameters.Add("@P_stact", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_steli", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_stcre", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_stimp", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_stlec", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = 15;
+
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable accepant = new DataTable();
+            Adapter.Fill(accepant);
+            return accepant;
+        }
     }
 }

@@ -63,7 +63,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "Areas.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -89,7 +89,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             Utilerias.llenarComboxDataTable(cbCia,dtCia,"Clave","Descripción");
 
 
-            LlenarGridPlanteles("", "", dgvPlantel,8);
+            //LlenarGridPlanteles("", "", dgvPlantel,8);
 
             txtBuscarPerfil.Focus();
 

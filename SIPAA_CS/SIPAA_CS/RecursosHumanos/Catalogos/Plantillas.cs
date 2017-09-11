@@ -33,6 +33,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         #endregion
 
         Utilerias Util = new Utilerias();
+        Perfil DatPerfil = new Perfil();
         DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
 
         public Plantillas()
@@ -120,30 +121,41 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {          
             if (txtmensajeiu.Text.Trim() == "" && ipactbtn == 1)
             {
-                lblavisos.Text = "Capture un dato a guardar";
+                DialogResult result = MessageBox.Show("Capture un dato a guardar", "SIPAA", MessageBoxButtons.OK);
+                txtmensajeiu.Focus();
             }
             else if (ipactbtn == 1)//insertar
             {
                 //inserta registro nuevo 
-                fuidPlantillas(1, 0, txtmensajeiu.Text.Trim(), "JLA", "InsPlantillas");
+                fuidPlantillas(1, 0, txtmensajeiu.Text.Trim(), LoginInfo.IdTrab, this.Name);
                 dgvPlantillas.DataSource = null;
                 dgvPlantillas.Columns.RemoveAt(0);
-                panelTag.Visible = true;
+                panelTaga.Visible = false;
+                pnlnotif.Visible = true;
+                pnlnotif.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                pnlnotif.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                lblnotif.Text = "Registro Guardado Correctamente";
+                timer1.Start();
                 txtmensajeiu.Text = "";
                 txtmensajeiu.Focus();
                 //llena grid con datos existente
                 gridPlantillas(4, 0,"","","");
+
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
-                pnlmensajes.Visible = false;
             }
             else if (ipactbtn == 2)//actualizar
             {
                 //Actualizar
-                fuidPlantillas(2, Convert.ToInt32(txtcvplantilla.Text.Trim()), txtmensajeiu.Text.Trim(), "JLA", "InsPlantillas");
+                fuidPlantillas(2, Convert.ToInt32(txtcvplantilla.Text.Trim()), txtmensajeiu.Text.Trim(), LoginInfo.IdTrab, this.Name);
                 dgvPlantillas.DataSource = null;
                 dgvPlantillas.Columns.RemoveAt(0);
-                panelTag.Visible = true;
+                panelTaga.Visible = false;
+                pnlnotif.Visible = true;
+                pnlnotif.BackColor = ColorTranslator.FromHtml("#0277bd");
+                pnlnotif.BackColor = ColorTranslator.FromHtml("#0277bd");
+                lblnotif.Text = "Registro Actualizado Correctamente";
+                timer1.Start();
                 txtmensajeiu.Text = "";
                 txtmensajeiu.Focus();
                 //llena grid con datos existente
@@ -159,10 +171,15 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     //Eliminar
-                    fuidPlantillas(3, Convert.ToInt32(txtcvplantilla.Text.Trim()), txtmensajeiu.Text.Trim(), "JLA", "InsPlantillas");
+                    fuidPlantillas(3, Convert.ToInt32(txtcvplantilla.Text.Trim()), txtmensajeiu.Text.Trim(), LoginInfo.IdTrab, this.Name);
                     dgvPlantillas.DataSource = null;
                     dgvPlantillas.Columns.RemoveAt(0);
-                    panelTag.Visible = true;
+                    panelTaga.Visible = false;
+                    pnlnotif.Visible = true;
+                    pnlnotif.BackColor = ColorTranslator.FromHtml("#f44336");
+                    pnlnotif.BackColor = ColorTranslator.FromHtml("#f44336");
+                    lblnotif.Text = "Registro Eliminado Correctamente";
+                    timer1.Start();
                     txtmensajeiu.Text = "";
                     txtmensajeiu.Focus();
                     //llena grid con datos existente
@@ -185,7 +202,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             ckbEliminar.Visible = false;
             pnlmensajes.Visible = true;
             lbluid.Text = "     Agregar Plantilla";
-            Util.ChangeButton(btnAgregar, 1, false);
             ipactbtn = 1;
             txtmensajeiu.Text = "";
             txtmensajeiu.Focus();
@@ -226,7 +242,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "Plantillas.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -235,12 +251,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
 
+            //Rezise de la Forma
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
-            ipact = 1;
-            ipelim = 1;
-            ipins = 1;
+            //permisos
+            DataTable Permisos = DatPerfil.accpantalla(LoginInfo.IdTrab, this.Name);
+            ipins = Int32.Parse(Permisos.Rows[0][3].ToString());
+            ipact = Int32.Parse(Permisos.Rows[0][4].ToString());
+            ipelim = Int32.Parse(Permisos.Rows[0][5].ToString());
 
+            lblavisos.Text = "Para modificar seleccione un registro del grid";
+
+            //tool tip
             ftooltip();
 
             if (ipins==1)
@@ -271,6 +293,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            pnlnotif.Visible = false;
+            panelTaga.Visible = true;
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
@@ -291,7 +319,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
             toolTip1.SetToolTip(this.btnAgregar, "Agrega Registro");
-            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
             toolTip1.SetToolTip(this.btnInsertar, "Insertar Registro");
         }
 
@@ -410,7 +438,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvPlantillas.ClearSelection();
             }
             dgvPlantillas.Columns[1].Visible = false;
-            dgvPlantillas.Columns[2].Width = 450;
+            //dgvPlantillas.Columns[2].Width = 450;
         }
 
         private void fuidPlantillas(int ipopcion, int ipcvplantilla, string spdescripcion, string spusuumod, string spprgumod)
@@ -437,24 +465,24 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 txtMensaje.Focus();
             } // 
 
-            switch (ip_rep.ToString())
-            {
-                case "1":
-                    lblavisos.Text = "Registro agregado correctamente";
-                    break;
-                case "2":
-                    lblavisos.Text = "Registro modificado correctamente";
-                    break;
-                case "3":
-                    lblavisos.Text = "Registro eliminado correctamente";
-                    break;
-                case "99":
-                    lblavisos.Text = "Registro ya existe";
-                    break;
-                default:
-                    lblavisos.Text = "";
-                    break;
-            } 
+            //switch (ip_rep.ToString())
+            //{
+            //    case "1":
+            //        lblavisos.Text = "Registro agregado correctamente";
+            //        break;
+            //    case "2":
+            //        lblavisos.Text = "Registro modificado correctamente";
+            //        break;
+            //    case "3":
+            //        lblavisos.Text = "Registro eliminado correctamente";
+            //        break;
+            //    case "99":
+            //        lblavisos.Text = "Registro ya existe";
+            //        break;
+            //    default:
+            //        lblavisos.Text = "";
+            //        break;
+            //} 
         } //    
 
         private void factgrid()
