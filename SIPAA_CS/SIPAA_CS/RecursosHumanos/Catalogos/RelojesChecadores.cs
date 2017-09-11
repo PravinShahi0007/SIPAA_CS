@@ -40,12 +40,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         RelojChecador oRelojesChecadores = new RelojChecador();
         Utilerias Util = new Utilerias();
-        System.Net.IPAddress ip;
+        System.Net.IPAddress ip;  
 
         public RelojesChecadores()
         {
             InitializeComponent();
-            lblMensaje.Text = string.Empty;
+            lblMensaje.Text = string.Empty;            
         }
 
         private void RelojesChecadores_Load(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
-            lblMensaje.Text = string.Empty;
+            //lblMensaje.Text = string.Empty;
 
             /* JAV
             Usuario objUsuario = new Usuario();
@@ -67,7 +67,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //LoginInfo.Nombre = lblusuario.Text;
             string NomUsu = LoginInfo.Nombre;
             lblusuario.Text = NomUsu;
-            JAV */
+            JAV */            
         }
 
 
@@ -183,7 +183,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             if (!System.Net.IPAddress.TryParse(TxtcIP.Text, out ip))
             {
                 panelTag.Enabled = true;
-                Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "La dirección IP no es valida.");
+                Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "La dirección IP no es válida.");
                 panelTag.Enabled = false;
                 timer1.Start();
 
@@ -197,7 +197,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             if ((txtDescripcionRC.Text.Trim() == string.Empty || TxtcIP.Text.Trim() == string.Empty) && pactbtn != 3)
             {
                 panelTag.Enabled = true;
-                Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "Capture un dato a guardar");
+                Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "Capture todos los campos");
                 panelTag.Enabled = false;
                 timer1.Start();
             }
