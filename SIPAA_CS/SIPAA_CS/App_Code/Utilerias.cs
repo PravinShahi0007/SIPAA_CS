@@ -807,6 +807,12 @@ namespace SIPAA_CS.App_Code
             return bBandera;
         }
 
+        public static void AjustaGridView(DataGridView dgv)
+        {
+            for (int i = 0; i < dgv.Columns.Count; i++)
+                dgv.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+        }
+
         public static CheckBox AgregarCheckboxHeader(DataGridView dgv, int iPosicionCheck) {
 
 

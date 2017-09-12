@@ -214,6 +214,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
 
             }
+            objCZKEM.ClearUserSMS(1);
             objCZKEM.ClearSMS(1);
         }
 
@@ -255,6 +256,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     objCZKEM.SetSMS(1, max, tag, Horas, dtpfechainicial.Value.Year + "-" + dtpfechainicial.Value.Month + "-" + dtpfechainicial.Value.Day + " 00:01:00", txtmensajeiu.Text);
                     
                 }
+                objCZKEM.Disconnect();
 
             }
             if (rbPersonal.Checked==true)
@@ -424,6 +426,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            
 
             ftooltip();
             pnldatos.Visible = false;
@@ -507,15 +510,24 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns.Insert(0, imgCheckUsuarios);
                 dgvMensajes.Columns[0].HeaderText = "Selección";
 
-                dgvMensajes.Columns[0].Width = 80;
+                /*dgvMensajes.Columns[0].Width = 80;
                 dgvMensajes.Columns[1].Width = 95;
-                dgvMensajes.Columns[2].Width = 95;
-                dgvMensajes.Columns[3].Width = 85;
+               // dgvMensajes.Columns[2].Width = 95;
+                dgvMensajes.Columns[2].Visible = false; 
+                //dgvMensajes.Columns[3].Width = 85;
                 dgvMensajes.Columns[3].Width = 300;
                 // dgvMensajes.Columns[4].Width = 80;
                 // dgvMensajes.Columns[4].Visible = false;                                     
-                //dgvMensajes.Columns[5].Width = 300;
+                //dgvMensajes.Columns[5].Width = 300;*/
+                dgvMensajes.Columns[3].Visible = false;
                 dgvMensajes.ClearSelection();
+                
+
+                for (int i = 0; i < dgvMensajes.Columns.Count; i++)
+                    dgvMensajes.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+
+
             }
             else if (pins == 1 && pact == 1)
             {
