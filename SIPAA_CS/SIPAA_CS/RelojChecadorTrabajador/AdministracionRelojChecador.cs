@@ -669,12 +669,16 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                 string idtrab = row["idtrab"].ToString();
                                 string cvreloj = row[1].ToString();
                                 string Nombre = row["Nombre"].ToString();
-                                string aux =row["administrador"].ToString();
+                                //string aux =row["administrador"].ToString();
                                 int Grupo = Convert.ToInt32( row["cvgruposreloj"].ToString()); 
                                 int Permiso = 0;
+                                string pass_desc = string.Empty;
+                               // if (row["pass"].ToString() != String.Empty)
+                                 if (!string.IsNullOrEmpty(row["pass"].ToString()))
+                                        pass_desc = Utilerias.descifrar(row["pass"].ToString());
                                 if (Convert.ToBoolean(row["administrador"].ToString()))
                                     Permiso = 3; 
-                                string pass_desc = "";
+                               
                                 SonaTrabajador objTrab = new SonaTrabajador();
                                 //objTrab.GestionIdentidad(idtrab, "", "", "0", LoginInfo.IdTrab, this.Name, 1);
 
@@ -1302,6 +1306,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
            // byte tmp = new byte();
             int iFaceLong = 0;
             bool bBandera = false;
+         
             switch (Opcion)
             {
 
@@ -1316,7 +1321,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         SonaTrabajador objTrab = new SonaTrabajador();
                         try
                         {
-                            objTrab.GestionIdentidad(idtrab, "", sFaceTmp, iFaceLong.ToString(), LoginInfo.IdTrab, this.Name, 7);
+                            objTrab.GestionIdentidad(idtrab, "", sFaceTmp, iFaceLong.ToString(), LoginInfo.IdTrab, Name, 7);
                         }
                         catch
                         {

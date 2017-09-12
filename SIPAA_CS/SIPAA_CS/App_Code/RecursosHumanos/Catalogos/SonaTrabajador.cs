@@ -180,6 +180,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = sUsuumod;
             cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = sPrgmod;
             cmd.Parameters.Add("@P_opcion", SqlDbType.Int).Value = iOpcion;
+           
 
 
             objConexion.asignarConexion(cmd);
