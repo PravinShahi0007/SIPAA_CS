@@ -57,6 +57,7 @@ namespace SIPAA_CS.App_Code
             cmd.CommandText = @"usp_rechinctipo_suid";
             cmd.CommandType = CommandType.StoredProcedure;
 
+            //cmd.Parameters.Add("P_cvincidencia", SqlDbType.Int).Value = "32";
             cmd.Parameters.Add("P_cvincidencia", SqlDbType.Int).Value = objIncidencia.CVIncidencia;
             cmd.Parameters.Add("P_incidencia", SqlDbType.VarChar).Value = objIncidencia.Descripcion;
             cmd.Parameters.Add("P_cvtipo", SqlDbType.Int).Value = objIncidencia.CVTipo;

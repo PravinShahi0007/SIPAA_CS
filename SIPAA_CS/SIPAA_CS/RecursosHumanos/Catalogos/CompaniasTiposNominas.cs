@@ -131,7 +131,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "CompaniasTiposNominas.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }

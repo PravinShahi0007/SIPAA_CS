@@ -148,7 +148,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 1)//insertar
             {
                 //inserta registro nuevo
-                fuidDiasFestivos(1, dtpFechaDiaFestivo.Text, txtDescripcionDF.Text.Trim(), "bhb", "DiasFestivos");
+                fuidDiasFestivos(1, dtpFechaDiaFestivo.Text, txtDescripcionDF.Text.Trim(), LoginInfo.IdTrab, this.Name);
                 dgvDiasFestivos.DataSource = null;
                 dgvDiasFestivos.Columns.RemoveAt(0);
                 panelTag.Visible = true;

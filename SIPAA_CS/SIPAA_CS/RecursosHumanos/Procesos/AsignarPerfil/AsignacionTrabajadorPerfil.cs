@@ -534,7 +534,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
                 // llenarGridReloj("%");
                 // AsignarReloj(TrabajadorInfo.IdTrab);
-                
                 relojseleccionados();
                 if (ltReloj2.Count > 0)
                 {
@@ -582,6 +581,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
              }
             catch (Exception ex)
             {
+               // MessageBox.Show(ex.ToString());
                 Utilerias.ControlNotificaciones(panelTagForReg, lbMensajeForReg, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
                 timer1.Start();
                 AsignarReloj(TrabajadorInfo.IdTrab);
@@ -1374,18 +1374,19 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvReloj.ClearSelection();
 
 
-            /////////////////////
+            
             int admin = 0;
             DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
             foreach (DataRow row in dt.Rows)
              {
-                admin = Convert.ToInt32(row["administrador"].ToString());
-                
-             }
+               
+                    if (Convert.ToBoolean(row["administrador"].ToString()))
+                    admin = 1;
+
+            }
             if (admin != 0)
                 chkAdmin.Checked = true;
-            
-             ////////////////////
+            ////////////////////
           }
 
         private void AsignarFormas(string sIdtrab)
@@ -1400,7 +1401,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void CrearAsignaciones_Reloj(string sUsuuMod, string sPrguMod, int iOpcion)
         {
             RelojChecador objReloj = new RelojChecador();
+            SonaTrabajador objTrab = new SonaTrabajador();
             bool bConexion = false;
+            
             int iCont = 0;
             foreach (Reloj obj in ltReloj2)
             {
@@ -1410,10 +1413,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 bConexion = Connect_Net(obj.IpReloj, 4370);
                if (bConexion != false)
                 {
+                    
                     objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, iOpcion, sUsuuMod, sPrguMod);
                     objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
-                    if (chkAdmin.Checked==true)
-                    objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 13, sUsuuMod, Name);
+                    if (chkAdmin.Checked == true)
+                        objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "", sUsuuMod, sPrguMod, 8);
+                   // else
+                     //   objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "", sUsuuMod, sPrguMod, 9);
+
+
+                    // objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 13, sUsuuMod, Name);
+
+
                     string idtrab = lbIdTrab.Text;
                     string Nombre = lbNombre.Text;
                     objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, "", 0, true);
@@ -1441,7 +1452,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         ProcesoReloj("Face",obj);
                         ProcesoReloj("Huella", obj);
                         ProcesoReloj("Pass", obj);
-                        break;
+
+                    break;
                       
                 }
                 //************
@@ -1486,7 +1498,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         string cvreloj = row[1].ToString();
                         string Nombre = row["Nombre"].ToString();
                         string pass_desc = "";
-                        int admin = Convert.ToInt32(row["administrador"].ToString()); 
+                        int Permiso = 0;
+                        if (Convert.ToBoolean(row["administrador"].ToString()))
+                            Permiso = 3;
+                       
+                       // Convert.ToInt32(row["administrador"].ToString()); 
                         int GruposReloj = Convert.ToInt32( row["cvgruposreloj"].ToString()); 
                         SonaTrabajador objTrab = new SonaTrabajador();
 
@@ -1496,7 +1512,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             {
                                 if (row["pass"].ToString() != String.Empty)
                                     pass_desc = Utilerias.descifrar(row["pass"].ToString());
-                                objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc,admin, true); 
+                                objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc,Permiso, true); 
                                 objCZKEM.SetUserGroup(1, Convert.ToInt32(idtrab),GruposReloj );
                             }
                             catch
@@ -1615,6 +1631,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             string sFaceTmp = "";
             int iFaceLong = 0;
             bool bBandera = false;
+          
+           
             switch (Opcion)
             {
 
@@ -1833,5 +1851,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 }
             }
        }
+
+        private void chkAdmin_CheckedChanged(object sender, EventArgs e)
+        {
+            PanelReloj.Enabled = true; 
+        }
     }
 }

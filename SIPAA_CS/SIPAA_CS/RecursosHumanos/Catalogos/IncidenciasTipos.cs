@@ -30,6 +30,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         public string strEstatus;
         public int sysH;
         public int sysW;
+
+        Incidencia incid = new Incidencia();
+
         public IncidenciasTipos()
         {
             InitializeComponent();
@@ -48,25 +51,25 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             objIncidencia.UsuuMod = "";
             objIncidencia.PrguMod = "";
             objIncidencia.Estatus = "";
-            //int iOpcion = 5;
+
             DataTable dtIncidencia = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, Opcion);
 
+            Utilerias.llenarComboxDataTable(cbIncidencia, dtIncidencia, "cvincidencia", "Incidencia");
 
+            //List<string> ltCombo = new List<string>();
+            //foreach (DataRow row in dtIncidencia.Rows)
+            //{
+            //    ltCombo.Add(row[Display].ToString());
+            //}
 
-            List<string> ltCombo = new List<string>();
-            foreach (DataRow row in dtIncidencia.Rows)
-            {
-                ltCombo.Add(row[Display].ToString());
-            }
-
-            ltCombo.Insert(0, "Seleccionar");
-            cb.DataSource = ltCombo;
-            cb.DisplayMember = Display;
-            if (cb.Items.Count == 0)
-            {
-                cb.Enabled = false;
-                cb.SelectedText = "Sin datos para Asignar";
-            }
+            //ltCombo.Insert(0, "Seleccionar");
+            //cb.DataSource = ltCombo;
+            //cb.DisplayMember = Display;
+            //if (cb.Items.Count == 0)
+            //{
+            //    cb.Enabled = false;
+            //    cb.SelectedText = "Sin datos para Asignar";
+            //}
 
         }
 
@@ -110,7 +113,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvIncidencia.Columns[2].Visible = false;
             dgvIncidencia.Columns[3].Width = 200;
             dgvIncidencia.Columns[4].Width = 150;
-            dgvIncidencia.Columns[5].Width = 20;
+            dgvIncidencia.Columns[5].Visible = false;
 
             dgvIncidencia.ClearSelection();
 
@@ -175,6 +178,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Guardar");
            
             txtTipoEditar.Text = String.Empty;
+            txtTipoEditar.Focus();
 
         }
 
@@ -197,24 +201,23 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-             strIncidencia = cbIncidencia.SelectedItem.ToString();
+            //strIncidencia = cbIncidencia.SelectedValue.ToString();
 
             lblAccion.Text = "       Asignar Tipo Incapacidad";
 
             Incidencia objIncidencia = new Incidencia();
-            objIncidencia.CVIncidencia = cvIncidencia;
+            objIncidencia.CVIncidencia = Int32.Parse(cbIncidencia.SelectedValue.ToString());
             objIncidencia.CVTipo = cvTipo;
-            objIncidencia.Descripcion = strIncidencia;
+            objIncidencia.Descripcion = txtTipoEditar.Text;
             objIncidencia.Estatus = "";
             objIncidencia.TipoIncidencia = txtTipoEditar.Text;
 
             objIncidencia.PrguMod = this.Name;
-            // objIncidencia.FhuMod = DateTime.Now;
-            objIncidencia.UsuuMod = "vjiturburuv";
+            objIncidencia.UsuuMod = LoginInfo.IdTrab;
             try
             {
                 string Mensaje = "";
-                if (strEstatus == "1")
+                if (strEstatus == "Activo")
                 {
                     Mensaje = "¿Seguro que desea dar de BAJA el Registro?";
                 }
@@ -243,8 +246,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                         break;
                 }
-                // LlenarComboRepresenta(cbIncidencia, 6);
 
+                // LlenarComboRepresenta(cbIncidencia, 6);
                 LlenarComboTipoIncidencia(cbTipo, "Tipo", "cvtipo", 5);
                 LLenarGridIncapacidad(dgvIncidencia, "%", "%");
 
@@ -277,7 +280,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 Incidencia = txtBuscarIncidencia.Text;
             }
 
-            if (cbTipo.SelectedIndex == 0)
+            if (cbTipo.SelectedValue.ToString() == "0")
             {
                 Tipo = "%";
             }
@@ -287,7 +290,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
 
             LLenarGridIncapacidad(dgvIncidencia, Incidencia, Tipo);
-            // LlenarComboTipoIncidencia(cbTipo, "Tipo", "cvtipo", 5);
+
         }
 
 
@@ -308,11 +311,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Incapacidad_Tipo_Load(object sender, EventArgs e)
         {
+            Incidencia objIncidencia = new Incidencia();
             //cierra formularios abiertos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "IncidenciasTipos.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -332,7 +336,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             ///////////////////////////////////////////////////////////////////////////////////////////////////
 
             LLenarGridIncapacidad(dgvIncidencia, "", "");
-            LlenarComboTipoIncidencia(cbTipo, "Tipo", "cvtipo", 5);
+
+
+            //LlenarComboTipoIncidencia(cbTipo, "Tipo", "cvtipo", 5);
+
+
+            Utilerias.llenarComboxDataTable(cbTipo, incid.ObtenerIncidenciaxTipo(objIncidencia,5), "cvincidencia", "Incidencia");
 
             if (Permisos.dcPermisos["Crear"] == 0) {
 
@@ -367,12 +376,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     txtTipoEditar.Text = strTipoIncidencia;
                     strEstatus = row.Cells["Estatus"].Value.ToString();
 
-                    LlenarComboTipoIncidencia(cbIncidencia, "Incidencia", "cvincidencia", 6);
+                    Incidencia objIncidencia = new Incidencia();
+                    Utilerias.llenarComboxDataTable(cbIncidencia, incid.ObtenerIncidenciaxTipo(objIncidencia, 6), "cvincidencia", "Incidencia");
+
                     ckbEliminar.Visible = true;
                     ckbEliminar.Checked = false;
 
                     txtTipoEditar.Text = strTipoIncidencia;
-                    cbIncidencia.SelectedItem = strIncidencia;
+                    cbIncidencia.Text = row.Cells["Incidencia"].Value.ToString();
                     lblAccion.Text = "      Editar Incidencia";
                     cbIncidencia.Enabled = false;
                     PanelEditar.Visible = true;
