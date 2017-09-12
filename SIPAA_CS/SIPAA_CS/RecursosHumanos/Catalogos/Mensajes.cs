@@ -15,7 +15,7 @@ using zkemkeeper;
 
 //***********************************************************************************************
 //Autor: Jose Luis Alvarez Delgado
-//Fecha creación: 20-Mar-2017       Última Modificacion: 30-Mar-2017 
+//Fecha creación: 20-Mar-2017       Última Modificacion: 12-Sep-2017  
 //Descripción: Catalogo Mensajes
 //***********************************************************************************************
 
@@ -260,12 +260,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             if (rbPersonal.Checked==true)
             {
                dt= objReloj.RelojesxTrabajador(txtidtrab.Text, 0, 15, "%", "%");
-               
-               //p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
-                foreach (DataRow row in dt.Rows)
+               foreach (DataRow row in dt.Rows)
                 {
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
-                    
                     if (bConexion != false)
                     {
                         p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
@@ -284,6 +281,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             switch (p_rep.ToString())
             {
                 case "99":
+                    //estoy aceptando la opcion 99 porque me arroja ese numero el store, despues voy a buscar porque lo hace 
                     lblMensaje.Text = "Registro agregado correctamente";
                     break;
                 case "2":
@@ -322,7 +320,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 //inserta registro nuevo 
                 GuardaMensajeReloj();            
                 //fuidMensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(),sUsuuMod , Name);
-           
+                
                 dgvMensajes.DataSource = null;
                 dgvMensajes.Columns.RemoveAt(0);
                 panelTag.Visible = true;
@@ -334,6 +332,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
                 pnlmensajes.Visible = false;
+              
             }
             else if (pactbtn == 2)//actualizar
             {
@@ -512,9 +511,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns[1].Width = 95;
                 dgvMensajes.Columns[2].Width = 95;
                 dgvMensajes.Columns[3].Width = 85;
-               // dgvMensajes.Columns[4].Width = 80;
-                dgvMensajes.Columns[4].Visible = false;                                     
-                dgvMensajes.Columns[5].Width = 300;
+                dgvMensajes.Columns[3].Width = 300;
+                // dgvMensajes.Columns[4].Width = 80;
+                // dgvMensajes.Columns[4].Visible = false;                                     
+                //dgvMensajes.Columns[5].Width = 300;
                 dgvMensajes.ClearSelection();
             }
             else if (pins == 1 && pact == 1)

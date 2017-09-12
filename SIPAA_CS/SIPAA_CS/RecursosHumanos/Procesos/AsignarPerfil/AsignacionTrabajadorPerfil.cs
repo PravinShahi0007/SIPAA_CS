@@ -1362,15 +1362,20 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             Utilerias.AgregarCheck(dgvReloj, 0);
             //dgvRelojesChecadores.Columns[0].Width = 75;
             //dgvRelojesChecadores.Columns[1].Width = 50;
+            
+
             dgvReloj.Columns[0].Width = 65; //65
-            dgvReloj.Columns[1].Visible = false; //false
-            dgvReloj.Columns[3].Visible = false; // true 
-            dgvReloj.Columns[4].Visible = false; // false
+            dgvReloj.Columns[1].Visible = false;
+            dgvReloj.Columns[3].Visible = false;
+            dgvReloj.Columns[4].Visible = false;
             dgvReloj.Columns[5].Visible = false;
             dgvReloj.Columns[6].Visible = false;
             dgvReloj.Columns[7].Visible = false;
+            
+            
+            /*dgvReloj.Columns[7].Visible = false;
             dgvReloj.Columns[8].Visible = false;
-            dgvReloj.Columns[9].Visible = false;
+            dgvReloj.Columns[9].Visible = false;*/
             dgvReloj.ClearSelection();
 
 
