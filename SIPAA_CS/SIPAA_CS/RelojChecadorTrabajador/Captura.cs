@@ -70,6 +70,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         string idtrab = RelojxUsuario.idtrab;
                         string Nombre = RelojxUsuario.Nombre;
                         string Pass = txtPass.Text;
+                        
 
                         panelMensaje.Enabled = true;
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Enviando Datos.");
