@@ -62,7 +62,7 @@
             label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(25, 22);
+            label4.Location = new System.Drawing.Point(25, 27);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(76, 16);
             label4.TabIndex = 44;
@@ -88,7 +88,7 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(459, 130);
+            label2.Location = new System.Drawing.Point(403, 131);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(73, 16);
             label2.TabIndex = 115;
@@ -102,7 +102,7 @@
             this.pnlbusqueda.Controls.Add(this.panel5);
             this.pnlbusqueda.Controls.Add(this.txtcomp);
             this.pnlbusqueda.Controls.Add(label1);
-            this.pnlbusqueda.Location = new System.Drawing.Point(47, 150);
+            this.pnlbusqueda.Location = new System.Drawing.Point(23, 151);
             this.pnlbusqueda.Name = "pnlbusqueda";
             this.pnlbusqueda.Size = new System.Drawing.Size(360, 87);
             this.pnlbusqueda.TabIndex = 0;
@@ -125,9 +125,9 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel5.Location = new System.Drawing.Point(29, 63);
+            this.panel5.Location = new System.Drawing.Point(28, 68);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(250, 1);
+            this.panel5.Size = new System.Drawing.Size(250, 2);
             this.panel5.TabIndex = 43;
             // 
             // txtcomp
@@ -135,7 +135,7 @@
             this.txtcomp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtcomp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtcomp.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcomp.Location = new System.Drawing.Point(30, 46);
+            this.txtcomp.Location = new System.Drawing.Point(30, 50);
             this.txtcomp.Name = "txtcomp";
             this.txtcomp.Size = new System.Drawing.Size(250, 15);
             this.txtcomp.TabIndex = 1;
@@ -168,7 +168,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvcomp.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvcomp.Location = new System.Drawing.Point(460, 151);
+            this.dgvcomp.Location = new System.Drawing.Point(406, 151);
             this.dgvcomp.Name = "dgvcomp";
             this.dgvcomp.ReadOnly = true;
             this.dgvcomp.RowHeadersVisible = false;
@@ -176,7 +176,7 @@
             this.dgvcomp.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvcomp.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvcomp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvcomp.Size = new System.Drawing.Size(512, 547);
+            this.dgvcomp.Size = new System.Drawing.Size(578, 547);
             this.dgvcomp.TabIndex = 114;
             this.dgvcomp.TabStop = false;
             // 
@@ -187,7 +187,7 @@
             this.btnregresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnregresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnregresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnregresar.Location = new System.Drawing.Point(903, 1);
+            this.btnregresar.Location = new System.Drawing.Point(911, 1);
             this.btnregresar.Name = "btnregresar";
             this.btnregresar.Size = new System.Drawing.Size(30, 24);
             this.btnregresar.TabIndex = 111;

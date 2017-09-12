@@ -92,7 +92,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "Departamentos.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -132,7 +132,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
-            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
         }
 
         //Llena el Grid de Departamentos

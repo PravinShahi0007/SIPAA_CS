@@ -34,6 +34,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         TipoHr TipHr = new TipoHr();
         Utilerias Util = new Utilerias();
+        Perfil DatPerfil = new Perfil();
 
         public TiposHorarios()
         {
@@ -52,21 +53,21 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 factgrid();
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 cbxEliminar.Visible = true;
                 iactbtn = 2;
             }
             else if (iins == 1 && iact == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 factgrid();
                 iactbtn = 2;
             }
             else if (iins == 1 && ielim == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 factgrid();
                 cbxEliminar.Visible = true;
                 iactbtn = 2;
@@ -74,7 +75,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (iact == 1 && ielim == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 factgrid();
                 cbxEliminar.Visible = true;
                 iactbtn = 2;
@@ -82,21 +83,21 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (iins == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 factgrid();
                 iactbtn = 2;
             }
             else if (iact == 1)
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 factgrid();
                 iactbtn = 2;
             }
             else if (ielim == 1)
             {
                 Util.ChangeButton(btninsertar, 3, false);
-                btnagregar.Image = Resources.Baja;
+                //btnagregar.Image = Resources.Baja;
                 factgrid();
                 cbxEliminar.Visible = true;
                 iactbtn = 3;
@@ -115,7 +116,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvtiphr.DataSource = null;
             dgvtiphr.Columns.RemoveAt(0);
             //llena grid con datos existente
-            fgtphr(4, 0, txttipohr.Text.Trim(), "nam", "TipoHorario");
+            fgtphr(4, 0, txttipohr.Text.Trim(), LoginInfo.IdTrab, this.Name);
             txttipohr.Text = "";
             txttipohr.Focus();
         }
@@ -126,7 +127,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             pnltiphr.Visible = true;
             lbluid.Text = "     Agregar Tipo de Horario";
             Util.ChangeButton(btninsertar, 1, false);
-            btnagregar.Image = Resources.Guardar;
+            btnagregar.Image = Resources.Agregar;
             iactbtn = 1;
             txttipohriu.Text = "";
             txttipohriu.Focus();
@@ -135,7 +136,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             if (txttipohriu.Text.Trim() == "" && iactbtn ==1)
             {
-                lbMensaje.Text = "Capture un dato a guardar";
+                //lbMensaje.Text = "Capture un dato a guardar";
+                DialogResult result = MessageBox.Show("Capture un dato a guardar", "SIPAA", MessageBoxButtons.OK);
+                txttipohriu.Focus();
             }
             else if(iactbtn == 1)//insertar
             {
@@ -148,7 +151,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     dgvtiphr.DataSource = null;
                     dgvtiphr.Columns.RemoveAt(0);
                     //llena grid con datos existente
-                    fgtphr(4, 0, txttipohriu.Text.Trim(), "nam", "TipoHorario");
+                    fgtphr(4, 0, txttipohriu.Text.Trim(), LoginInfo.IdTrab, this.Name);
+
+                    
                 }
                 else
                 {
@@ -160,14 +165,21 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                         dgvtiphr.DataSource = null;
                         dgvtiphr.Columns.RemoveAt(0);
                         //llena grid con datos existente
-                        fgtphr(4, 0, txttipohriu.Text.Trim(), "nam", "TipoHorario");
+                        fgtphr(4, 0, txttipohriu.Text.Trim(), LoginInfo.IdTrab, this.Name);
 
                         DialogResult result = MessageBox.Show("Exiten " + ivalresp + " registros similares, desea agregar el registro", "SIPAA", MessageBoxButtons.YesNo);
 
                         if (result == DialogResult.Yes)
                         {
                             //inserta registro nuevo
-                            fuidtiphr(1, 0, txttipohriu.Text.Trim(), "nam", "TipoHorario");
+                            fuidtiphr(1, 0, txttipohriu.Text.Trim(), LoginInfo.IdTrab, this.Name);
+
+                            //panel notificaciones
+                            panelTag.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                            panelTag.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                            lbMensaje.Text = "Registro agregado correctamente";
+                            timer1.Start();
+
                             dgvtiphr.DataSource = null;
                             if (iins == 1 && iact == 0 && ielim == 0)
                             {
@@ -177,15 +189,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                             {
                                 dgvtiphr.Columns.RemoveAt(0);
                             }
-                            panelTag.Visible = true;
+                            
                             txttipohriu.Text = "";
                             txttipohriu.Focus();
-                            timer1.Start();
                             //llena grid con datos existente
-                            fgtphr(4, 0, "", "nam", "TipoHorario");
+                            fgtphr(4, 0, "", LoginInfo.IdTrab, this.Name);
                             cbxEliminar.Checked = false;
                             cbxEliminar.Visible = false;
-                            pnltiphr.Visible = false;
+                            
                         }
                         else if (result == DialogResult.No)
                         {
@@ -196,7 +207,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     else
                     {
                         //inserta registro nuevo
-                        fuidtiphr(1, 0, txttipohriu.Text.Trim(), "nam", "TipoHorario");
+                        fuidtiphr(1, 0, txttipohriu.Text.Trim(), LoginInfo.IdTrab, this.Name);
+
+                        //panel notificaciones
+                        panelTag.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                        panelTag.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                        lbMensaje.Text = "Registro agregado correctamente";
+                        timer1.Start();
+
                         dgvtiphr.DataSource = null;
                         if (iins == 1 && iact == 0 && ielim == 0)
                         {
@@ -206,15 +224,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                         {
                             dgvtiphr.Columns.RemoveAt(0);
                         }
-                        panelTag.Visible = true;
+
                         txttipohriu.Text = "";
                         txttipohriu.Focus();
-                        timer1.Start();
                         //llena grid con datos existente
-                        fgtphr(4, 0, "", "nam", "TipoHorario");
+                        fgtphr(4, 0, "", LoginInfo.IdTrab, this.Name);
                         cbxEliminar.Checked = false;
                         cbxEliminar.Visible = false;
-                        pnltiphr.Visible = false;
                     }
                 }
 
@@ -222,18 +238,22 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (iactbtn == 2)//actualizar
             {
                 //inserta registro nuevo
-                fuidtiphr(2, icvtipohr, txttipohriu.Text.Trim(), "nam", "TipoHorario");
+                fuidtiphr(2, icvtipohr, txttipohriu.Text.Trim(), LoginInfo.IdTrab, this.Name);
+
+                //panel notificaciones
+                panelTag.BackColor = ColorTranslator.FromHtml("#0277bd");
+                panelTag.BackColor = ColorTranslator.FromHtml("#0277bd");
+                lbMensaje.Text = "Registro modificado correctamente";
+                timer1.Start();
+
                 dgvtiphr.DataSource = null;
                 dgvtiphr.Columns.RemoveAt(0);
-                panelTag.Visible = true;
                 txttipohriu.Text = "";
                 txttipohriu.Focus();
-                timer1.Start();
                 //llena grid con datos existente
-                fgtphr(4, 0, "", "nam", "TipoHorario");
+                fgtphr(4, 0, "", LoginInfo.IdTrab, this.Name);
                 cbxEliminar.Checked = false;
                 cbxEliminar.Visible = false;
-                pnltiphr.Visible = false;
             }
             else if (iactbtn == 3)//eliminar
             {
@@ -241,19 +261,23 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 if (result == DialogResult.Yes)
                 {
-                    //inserta registro nuevo
-                    fuidtiphr(3, icvtipohr, txttipohriu.Text.Trim(), "nam", "TipoHorario");
+                    //eliminar registro
+                    fuidtiphr(3, icvtipohr, txttipohriu.Text.Trim(), LoginInfo.IdTrab, this.Name);
+
+                    //panel notificaciones
+                    panelTag.BackColor = ColorTranslator.FromHtml("#f44336");
+                    panelTag.BackColor = ColorTranslator.FromHtml("#f44336");
+                    lbMensaje.Text = "Registro eliminado correctamente";
+                    timer1.Start();
+
                     dgvtiphr.DataSource = null;
                     dgvtiphr.Columns.RemoveAt(0);
-                    panelTag.Visible = true;
                     txttipohriu.Text = "";
                     txttipohriu.Focus();
-                    timer1.Start();
                     //llena grid con datos existente
-                    fgtphr(4, 0, "", "nam", "TipoHorario");
+                    fgtphr(4, 0, "", LoginInfo.IdTrab, this.Name);
                     cbxEliminar.Checked = false;
                     cbxEliminar.Visible = false;
-                    pnltiphr.Visible = false;
                 }
                 else if (result == DialogResult.No)
                 {
@@ -300,11 +324,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "Companias.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
             }
+
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
@@ -313,9 +340,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             ftooltip();
 
             //variable para inserta nuevo registro
-            iins = 1;
-            iact = 1;
-            ielim = 1;
+            DataTable Permisos = DatPerfil.accpantalla(LoginInfo.IdTrab, this.Name);
+            iins = Int32.Parse(Permisos.Rows[0][3].ToString());
+            iact = Int32.Parse(Permisos.Rows[0][4].ToString());
+            ielim = Int32.Parse(Permisos.Rows[0][5].ToString());
+
             icvtipohr = 0;
             iactbtn = 0;
             iresp = 0;
@@ -326,12 +355,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
 
             //llena grid con datos existente
-            fgtphr(4,0,"","nam","TipoHorario");
+            fgtphr(4,0,"",LoginInfo.IdTrab, this.Name);
         }
         //evento tick de timer de mensajes
         private void timer1_Tick(object sender, EventArgs e)
         {
-            panelTag.Visible = false;
+            fpnlnotif();
             timer1.Stop();
         }
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
@@ -339,14 +368,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             if (cbxEliminar.Checked == true)
             {
                 Util.ChangeButton(btninsertar, 3, false);
-                btnagregar.Image = Resources.Baja;
+                //btnagregar.Image = Resources.Baja;
                 lbluid.Text = "     Elimina Tipo de Horario";
                 iactbtn = 3;
-            }
-            else
+            }            else
             {
                 Util.ChangeButton(btninsertar, 2, false);
-                btnagregar.Image = Resources.Editar;
+                //btnagregar.Image = Resources.Editar;
                 lbluid.Text = "     Modifica Tipo de Horario";
                 iactbtn = 2;
             }
@@ -392,6 +420,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvtiphr.Columns[2].Width = 400;
                 dgvtiphr.Columns[3].Visible = false;
                 dgvtiphr.ClearSelection();
+
+                panelTag.Visible = true;
             }
             else if (iins == 1 && iact == 1)
             {
@@ -409,6 +439,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvtiphr.Columns[2].Width = 400;
                 dgvtiphr.Columns[3].Visible = false;
                 dgvtiphr.ClearSelection();
+
+                panelTag.Visible = true;
             }
             else if (iins == 1 && ielim == 1)
             {
@@ -426,6 +458,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvtiphr.Columns[2].Width = 400;
                 dgvtiphr.Columns[3].Visible = false;
                 dgvtiphr.ClearSelection();
+
+                panelTag.Visible = true;
             }
             else if (iact == 1 && ielim == 1)
             {
@@ -443,6 +477,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvtiphr.Columns[2].Width = 400;
                 dgvtiphr.Columns[3].Visible = false;
                 dgvtiphr.ClearSelection();
+
+                panelTag.Visible = true;
             }
             else if (iins == 1)
             {
@@ -471,6 +507,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvtiphr.Columns[2].Width = 400;
                 dgvtiphr.Columns[3].Visible = false;
                 dgvtiphr.ClearSelection();
+
+                panelTag.Visible = true;
             }
             else if (ielim == 1)
             {
@@ -488,6 +526,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvtiphr.Columns[2].Width = 400;
                 dgvtiphr.Columns[3].Visible = false;
                 dgvtiphr.ClearSelection();
+
+                panelTag.Visible = true;
             }
             else
             {
@@ -500,6 +540,61 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvtiphr.Columns[2].Visible = false;
 
                 dgvtiphr.ClearSelection();
+            }
+        }
+
+
+        private void fpnlnotif()
+        {
+
+            if (iins == 1 && iact == 1 && ielim == 1)
+            {
+                panelTag.Visible = true;
+                panelTag.BackColor = Color.Transparent;
+                panelTag.BackColor = Color.Transparent;
+                lbMensaje.Text = "Para modificar seleccione un registro del grid";
+            }
+            else if (iins == 1 && iact == 1)
+            {
+                panelTag.Visible = true;
+                panelTag.BackColor = Color.Transparent;
+                panelTag.BackColor = Color.Transparent;
+                lbMensaje.Text = "Para modificar seleccione un registro del grid";
+            }
+            else if (iins == 1 && ielim == 1)
+            {
+                panelTag.Visible = true;
+                panelTag.BackColor = Color.Transparent;
+                panelTag.BackColor = Color.Transparent;
+                lbMensaje.Text = "Para modificar seleccione un registro del grid";
+            }
+            else if (iact == 1 && ielim == 1)
+            {
+                panelTag.Visible = true;
+                panelTag.BackColor = Color.Transparent;
+                panelTag.BackColor = Color.Transparent;
+                lbMensaje.Text = "Para modificar seleccione un registro del grid";
+            }
+            else if (iins == 1)
+            {
+                
+            }
+            else if (iact == 1)
+            {
+                panelTag.Visible = true;
+                panelTag.BackColor = Color.Transparent;
+                panelTag.BackColor = Color.Transparent;
+                lbMensaje.Text = "Para modificar seleccione un registro del grid";
+            }
+            else if (ielim == 1)
+            {
+                panelTag.Visible = true;
+                panelTag.BackColor = Color.Transparent;
+                panelTag.BackColor = Color.Transparent;
+                lbMensaje.Text = "Para modificar seleccione un registro del grid";
+            }
+            else
+            {
             }
         }
 

@@ -12,7 +12,7 @@ using SIPAA_CS.Properties;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
-
+using static SIPAA_CS.App_Code.Usuario;
 
 //***********************************************************************************************
 //Autor: Benjamin Huizar Barajas
@@ -29,6 +29,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         int iIns;
         int iAct;
         int iElim;
+
+        int iinicio = 0;
 
         bool bPuedeBuscar = false;
         bool bClickPrimeraVezCompania = true;
@@ -53,39 +55,15 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
 
-        //
-        // Llena Combox Box de Compañias con la tabla de SONARH
-        private void cbCompania_Click(object sender, EventArgs e)
-        {
-            if (bClickPrimeraVezCompania)
-            {
-                DataTable dtCompania = oCompania.obtCompania2(5, "");
-                cbCompania.DataSource = dtCompania;
-                cbCompania.DisplayMember = "Descripción";
-                cbCompania.ValueMember = "Clave";
-                bClickPrimeraVezCompania = false;
-            } // if (bClickPrimeraVezCompania)
-        } // private void cbCompania_Click(object sender, EventArgs e)
-
         private void cbCompania_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int iIdCompaniaBuscar;
-            if (!bClickPrimeraVezCompania)
+             if (iinicio == 1)
             {
-                if (!bPuedeBuscar)
-                {
-                    bPuedeBuscar = true;
-                    btnBuscar.Enabled = true;
-                    txtBuscarTipoNomina.Enabled = true;
-                } // if (!bPuedeBuscar)
-                txtBuscarTipoNomina.Text = "";
-                iIdCompaniaBuscar = Convert.ToInt32(cbCompania.SelectedValue.ToString());
-                //
                 // Llama a la función que procesa el DataGridView de Tipo de Nómina
-                fgTiposNominas(5, iIdCompaniaBuscar, "");
-            } // if (!bClickPrimeraVezCompania)
-              //            }
-        } // private void cbCompania_SelectedIndexChanged(object sender, EventArgs e)
+                fgTiposNominas(5, Convert.ToInt32(cbCompania.SelectedValue.ToString()), "");
+            }
+
+        }
 
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
@@ -98,13 +76,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //Botón Buscar    
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            int iIdCompaniaBuscar;
-            if (bPuedeBuscar)
+
+            if (txtBuscarTipoNomina.Text == "" && Convert.ToInt32(cbCompania.SelectedValue.ToString()) == 0)
             {
-                iIdCompaniaBuscar = Convert.ToInt32(cbCompania.SelectedValue.ToString());
-                fgTiposNominas(4, iIdCompaniaBuscar, txtBuscarTipoNomina.Text);
+
+                DialogResult result = MessageBox.Show("¿Debé seleccionar una compañia?", "SIPAA", MessageBoxButtons.YesNo);
+                cbCompania.Focus();
             }
-        } // private void btnBuscar_Click(object sender, EventArgs e)
+            else
+            {
+                fgTiposNominas(4, Convert.ToInt32(cbCompania.SelectedValue.ToString()), txtBuscarTipoNomina.Text);
+            }
+        } 
 
         //boton cerrar
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -148,11 +131,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "CompaniasTiposNominas.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
             }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
 
             //TOOL TIP
             fTooltip();
@@ -164,6 +150,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             iIns = 0;
             iAct = 0;
             iElim = 0;
+
+            //llena combo
+            iinicio = 0;
+            DataTable dtCompania = oCompania.obtCompania2(5, "");
+            Utilerias.llenarComboxDataTable(cbCompania, dtCompania, "Clave", "Descripcion");
+
+            txtBuscarTipoNomina.Focus();
+            iinicio = 1;
         } 
 
         //-----------------------------------------------------------------------------------------------
@@ -187,13 +181,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
-            //toolTip1.SetToolTip(this.btnAgregar, "Agrega Registro");
-            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
-            //toolTip1.SetToolTip(this.btnGuardar, "Guarda Registro");
-            //toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
-            //toolTip1.SetToolTip(this.btnInsertar, "Insertar Registro");
+            toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
 
-        } // private void fTooltip()
+        } 
 
         //
         // Grid para mostrar Tipos de Nómina
@@ -213,10 +203,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvTiposNomina.Columns.Insert(0, imgCheckUsuarios);
             dgvTiposNomina.Columns[0].HeaderText = "Selección";
 
-            dgvTiposNomina.Columns[0].Width = 75;
+            dgvTiposNomina.Columns[0].Visible = false;
             dgvTiposNomina.Columns[1].Visible = false;
-            dgvTiposNomina.Columns[2].Width = 80;
-            dgvTiposNomina.Columns[3].Width = 380;
+            dgvTiposNomina.Columns[2].Visible = false;
+            dgvTiposNomina.Columns[3].Width = 450;
             dgvTiposNomina.ClearSelection();
         } // private void fgTiposNominas()
 

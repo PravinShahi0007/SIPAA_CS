@@ -85,7 +85,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "FormasPagos.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -136,7 +136,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //LLENA GRID
         private void SLlenaGrid(int p_opcion, int p_idforma, string p_descripcion)
         {
-
             DataTable dtConsulta = CFormaPago.FormaPago_S(p_opcion, p_idforma, p_descripcion);
             dgvConsulta.DataSource = dtConsulta;
 

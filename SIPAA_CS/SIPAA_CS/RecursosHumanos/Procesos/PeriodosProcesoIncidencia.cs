@@ -242,7 +242,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 txtDescripcionPeriodoIncidencia.Focus();
                 timer1.Start();
                 //llena grid con datos existente
-                fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, "bhb", "PeriodosProcesoIncidencia");
+                fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name);
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
                 pnlActPeriodoIncidencia.Visible = false;
@@ -258,7 +258,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 txtDescripcionPeriodoIncidencia.Focus();
                 timer1.Start();
                 //llena grid con datos existente
-                fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, "bhb", "PeriodosProcesoIncidencia");
+                fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name);
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
                 pnlActPeriodoIncidencia.Visible = false;
