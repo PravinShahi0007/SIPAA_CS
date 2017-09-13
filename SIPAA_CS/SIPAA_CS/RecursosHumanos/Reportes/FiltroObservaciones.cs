@@ -74,7 +74,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             foreach (DataRow row in dt.Rows)
             {
 
-                ltvalores.Add(row[sValor].ToString());
+                ltvalores.Add(row[1].ToString());
             }
 
             ltvalores.Insert(0, "Seleccionar");
