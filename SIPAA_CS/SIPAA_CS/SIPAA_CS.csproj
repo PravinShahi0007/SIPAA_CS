@@ -979,6 +979,9 @@
     <EmbeddedResource Include="Accesos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp2.resx">
+      <DependentUpon>VacIncPermHrEsp2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AutorizarIncidencias.resx">
       <DependentUpon>AutorizarIncidencias.cs</DependentUpon>
     </EmbeddedResource>
