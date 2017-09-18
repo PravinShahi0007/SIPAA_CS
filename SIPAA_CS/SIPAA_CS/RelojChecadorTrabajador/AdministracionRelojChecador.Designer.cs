@@ -157,6 +157,7 @@
             label3.Size = new System.Drawing.Size(20, 16);
             label3.TabIndex = 47;
             label3.Text = "IP";
+            label3.Visible = false;
             // 
             // label6
             // 
@@ -461,6 +462,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 2);
             this.panel1.TabIndex = 46;
+            this.panel1.Visible = false;
             // 
             // txtIP
             // 
@@ -471,6 +473,7 @@
             this.txtIP.Name = "txtIP";
             this.txtIP.Size = new System.Drawing.Size(250, 15);
             this.txtIP.TabIndex = 45;
+            this.txtIP.Visible = false;
             // 
             // btnBuscar
             // 
