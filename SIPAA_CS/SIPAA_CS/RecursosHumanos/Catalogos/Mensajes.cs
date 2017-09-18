@@ -514,7 +514,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns[3].Width = 85;
                // dgvMensajes.Columns[4].Width = 80;
                 dgvMensajes.Columns[4].Visible = false;                                     
-                dgvMensajes.Columns[5].Width = 300;
+                //dgvMensajes.Columns[5].Width = 300;
                 dgvMensajes.ClearSelection();
             }
             else if (pins == 1 && pact == 1)
