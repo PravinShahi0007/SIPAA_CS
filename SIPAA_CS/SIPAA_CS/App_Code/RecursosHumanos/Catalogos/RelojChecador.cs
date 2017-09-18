@@ -97,6 +97,11 @@ namespace SIPAA_CS.App_Code
                 cmd.Parameters.Add("@p_stactualiza", SqlDbType.Int).Value = p_stactualiza;
                 cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
                 cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
+                /***
+                 * parametros adicionales para el control de sincronizaciones, funcional en proceso reloj checador
+                 * */
+                cmd.Parameters.Add("@p_ususincusuario", SqlDbType.VarChar).Value = string.Empty;
+                cmd.Parameters.Add("@p_ususincchecadas", SqlDbType.VarChar).Value = string.Empty;
                 objConexion.asignarConexion(cmd);
                 //
                 p_respuesta = Convert.ToInt32(cmd.ExecuteScalar());
@@ -119,6 +124,12 @@ namespace SIPAA_CS.App_Code
                 cmd.Parameters.Add("@p_stactualiza", SqlDbType.Int).Value = p_stactualiza;
                 cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = p_usuumod;
                 cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = p_prgumodr;
+                /***
+                 * parametros adicionales para el control de sincronizaciones, funcional en proceso reloj checador
+                 * */
+                cmd.Parameters.Add("@p_ususincusuario", SqlDbType.VarChar).Value = string.Empty;
+                cmd.Parameters.Add("@p_ususincchecadas", SqlDbType.VarChar).Value = string.Empty;
+
                 objConexion.asignarConexion(cmd);
                 //
                 p_respuesta = Convert.ToInt32(cmd.ExecuteScalar());

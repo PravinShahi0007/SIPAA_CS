@@ -35,6 +35,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         #endregion
 
         FormaReg FormasRegistro = new FormaReg();
+        Perfil DatPerfil = new Perfil();
 
         public FormasRegistros()
         {
@@ -90,7 +91,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                     if (vValida <= 0)
                     {
-                        sGuardaMod(1, 0, txtCapFR.Text.Trim(), iSt, LoginInfo.IdTrab, "frmFormReg");
+                        sGuardaMod(1, 0, txtCapFR.Text.Trim(), iSt, LoginInfo.IdTrab, this.Name);
                         txtCapFR.Text = "";
 
                         panelTag.Visible = true;
@@ -130,7 +131,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                     if (vValida <= 0)
                     {
-                        sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), 0, LoginInfo.IdTrab, "frmFormReg");
+                        sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), 0, LoginInfo.IdTrab, this.Name);
                         txtCapFR.Text = "";
                         panelTag.Visible = true;
                         timer1.Start();
@@ -150,7 +151,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 }
                 else
                 {
-                    sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), 0, LoginInfo.IdTrab, "frmFormReg");
+                    sGuardaMod(2, iCvFR, txtCapFR.Text.Trim(), 0, LoginInfo.IdTrab, this.Name);
                     txtCapFR.Text = "";
                     panelTag.Visible = true;
                     timer1.Start();
@@ -168,7 +169,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             if (result == DialogResult.Yes)
             {
                 iSt = 0;
-                sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, LoginInfo.IdTrab, "frmFormReg");
+                sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, LoginInfo.IdTrab, this.Name);
                 txtCapFR.Text = "";
                 panelTag.Visible = true;
                 timer1.Start();
@@ -188,7 +189,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     iSt = 1;
-                    sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, LoginInfo.IdTrab, "frmFormReg");
+                    sGuardaMod(3, iCvFR, txtCapFR.Text.Trim(), iSt, LoginInfo.IdTrab, this.Name);
                     txtCapFR.Text = "";
                     panelTag.Visible = true;
                     timer1.Start();
@@ -240,7 +241,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "FormasRegistros.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -257,9 +258,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //LLAMA TOOL TIP
             sTooltip();
 
-            iAgr = 1;
-            iAct = 1;
-            iEli = 1;
+            //variable para inserta nuevo registro
+            DataTable Permisos = DatPerfil.accpantalla(LoginInfo.IdTrab, this.Name);
+            iAgr = Int32.Parse(Permisos.Rows[0][3].ToString());
+            iAct = Int32.Parse(Permisos.Rows[0][4].ToString());
+            iEli = Int32.Parse(Permisos.Rows[0][5].ToString());
 
             //LLAMA METODO LLENAR GRID
             SLlenaGrid(4, 0,"",0,"","");
