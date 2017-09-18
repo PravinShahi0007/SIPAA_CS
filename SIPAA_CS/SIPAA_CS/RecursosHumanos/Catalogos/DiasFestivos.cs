@@ -118,13 +118,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 //            {
                 dgvDiasFestivos.Columns.RemoveAt(0);
 //            }
-            fgDiasFestivos(4, "0", txtBuscarDF.Text.Trim(), "bhb", "DiasFestivos");
+            fgDiasFestivos(4, "0", txtBuscarDF.Text.Trim(), lblusuario.Text, "DiasFestivos");
             txtDescripcionDF.Text = "";
             txtDescripcionDF.Focus();
-/*            if(dgvDiasFestivos.Columns.Count>3)
+           if(dgvDiasFestivos.Columns.Count>3)
             {
                 dgvDiasFestivos.Columns.RemoveAt(0);
-            }*/
+            }
         }
         //boton agregar
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -148,8 +148,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 1)//insertar
             {
                 //inserta registro nuevo
-                fuidDiasFestivos(1, dtpFechaDiaFestivo.Text, txtDescripcionDF.Text.Trim(), LoginInfo.IdTrab, this.Name);
-                dgvDiasFestivos.DataSource = null;
+                fuidDiasFestivos(1, dtpFechaDiaFestivo.Text, txtDescripcionDF.Text.Trim(), lblusuario.Text, "DiasFestivos");
+                dgvDiasFestivos.DataSource = null; 
                 dgvDiasFestivos.Columns.RemoveAt(0);
                 panelTag.Visible = true;
                 txtDescripcionDF.Text = "";
@@ -165,7 +165,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 2)//actualizar
             {
                 //inserta registro nuevo
-                fuidDiasFestivos(2, pfecha, txtDescripcionDF.Text.Trim(), "bhb", "DiasFestivos");
+                fuidDiasFestivos(2, pfecha, txtDescripcionDF.Text.Trim(), lblusuario.Text, "DiasFestivos");
                 dgvDiasFestivos.DataSource = null;
                 dgvDiasFestivos.Columns.RemoveAt(0);
                 panelTag.Visible = true;
@@ -186,7 +186,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     //inserta registro nuevo
-                    fuidDiasFestivos(3, pfecha, txtDescripcionDF.Text.Trim(), "bhb", "DiasFestivos");
+                    fuidDiasFestivos(3, pfecha, txtDescripcionDF.Text.Trim(), lblusuario.Text, "DiasFestivos");
                     dgvDiasFestivos.DataSource = null;
                     dgvDiasFestivos.Columns.RemoveAt(0);
                     panelTag.Visible = true;
@@ -194,7 +194,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     txtDescripcionDF.Focus();
                     timer1.Start();
                     //llena grid con datos existente
-                    //fgDiasFestivos(4, "0", "", "bhb", "DiasFestivos");
+                    //fgDiasFestivos(4, "0", "", lblusuario.Text, "DiasFestivos");
                     fgDiasFestivos(4, "0", "", LoginInfo.IdTrab, "DiasFestivos");
                     ckbEliminar.Checked = false;
                     ckbEliminar.Visible = false;

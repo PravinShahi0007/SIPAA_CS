@@ -35,9 +35,9 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label lblFechaDiaFestivo;
             System.Windows.Forms.Label lblGridDiasFestivos;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -148,8 +148,8 @@
             this.pnlBusqueda.Controls.Add(label1);
             this.pnlBusqueda.Location = new System.Drawing.Point(12, 190);
             this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(450, 87);
-            this.pnlBusqueda.TabIndex = 116;
+            this.pnlBusqueda.Size = new System.Drawing.Size(450, 92);
+            this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
             // 
             // btnBuscar
@@ -181,9 +181,9 @@
             this.txtBuscarDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtBuscarDF.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBuscarDF.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarDF.Location = new System.Drawing.Point(30, 46);
+            this.txtBuscarDF.Location = new System.Drawing.Point(28, 55);
             this.txtBuscarDF.Name = "txtBuscarDF";
-            this.txtBuscarDF.Size = new System.Drawing.Size(350, 15);
+            this.txtBuscarDF.Size = new System.Drawing.Size(336, 15);
             this.txtBuscarDF.TabIndex = 1;
             // 
             // dgvDiasFestivos
@@ -191,29 +191,29 @@
             this.dgvDiasFestivos.AllowUserToAddRows = false;
             this.dgvDiasFestivos.AllowUserToDeleteRows = false;
             this.dgvDiasFestivos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvDiasFestivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvDiasFestivos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDiasFestivos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDiasFestivos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvDiasFestivos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDiasFestivos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDiasFestivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDiasFestivos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDiasFestivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDiasFestivos.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDiasFestivos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDiasFestivos.Location = new System.Drawing.Point(478, 190);
             this.dgvDiasFestivos.Name = "dgvDiasFestivos";
             this.dgvDiasFestivos.ReadOnly = true;
@@ -253,7 +253,7 @@
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(214, 23);
             this.lbltitulo.TabIndex = 117;
-            this.lbltitulo.Text = "      Cátalogo de Días Festivos";
+            this.lbltitulo.Text = "      Catálogo de Días Festivos";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegresar
@@ -313,7 +313,7 @@
             this.pnlActDiasFestivos.Controls.Add(this.btnInsertar);
             this.pnlActDiasFestivos.Location = new System.Drawing.Point(12, 302);
             this.pnlActDiasFestivos.Name = "pnlActDiasFestivos";
-            this.pnlActDiasFestivos.Size = new System.Drawing.Size(450, 167);
+            this.pnlActDiasFestivos.Size = new System.Drawing.Size(450, 173);
             this.pnlActDiasFestivos.TabIndex = 125;
             this.pnlActDiasFestivos.TabStop = true;
             this.pnlActDiasFestivos.Visible = false;
@@ -382,7 +382,7 @@
             this.lblActDiasFestivos.ForeColor = System.Drawing.Color.Gray;
             this.lblActDiasFestivos.Image = ((System.Drawing.Image)(resources.GetObject("lblActDiasFestivos.Image")));
             this.lblActDiasFestivos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblActDiasFestivos.Location = new System.Drawing.Point(4, 4);
+            this.lblActDiasFestivos.Location = new System.Drawing.Point(4, 9);
             this.lblActDiasFestivos.Name = "lblActDiasFestivos";
             this.lblActDiasFestivos.Size = new System.Drawing.Size(155, 17);
             this.lblActDiasFestivos.TabIndex = 41;
