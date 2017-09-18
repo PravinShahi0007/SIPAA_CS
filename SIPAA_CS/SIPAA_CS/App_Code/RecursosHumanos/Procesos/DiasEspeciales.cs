@@ -64,6 +64,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         }
 
         //metodo para insertar registro Dias Esp
+        /*
         public int InsertarDiasEspecialesxTrabajador(string sIdTrab, int iOpcion, int iCvIncidencia, int iCvTipo, DateTime fFechaInicio, DateTime fFechaFin, int iDias, 
             string tpHoraentrada, string tpHoraSalida, string sReferencia, int iOrden, int iSubsidio, int iIdtrabrys, string spusuumod, string spprgumod, int iIdCompania, int iIPlanta)
         {
@@ -94,6 +95,6 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             objConexion.asignarConexion(cmd);
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
             objConexion.cerrarConexion();
-        }
+        }*/
     } 
 }
