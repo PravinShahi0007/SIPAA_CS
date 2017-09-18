@@ -334,6 +334,12 @@
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.Designer.cs">
+      <DependentUpon>IncidenciasExtSuspRetroGeneral.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\AutorizarIncidencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -948,6 +954,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.resx">
+      <DependentUpon>IncidenciasExtSuspRetroGeneral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AutorizarIncidencias.resx">
       <DependentUpon>AutorizarIncidencias.cs</DependentUpon>
