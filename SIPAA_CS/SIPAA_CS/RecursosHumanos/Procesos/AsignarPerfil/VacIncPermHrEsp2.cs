@@ -127,6 +127,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             ///Aqui hay que asignar los valores en la tabla
             //para insertar registro nuevo 
+            /*
             fuidPlantillas(1, 0, txtmensajeiu.Text.Trim(), LoginInfo.IdTrab, this.Name);
 
             dgvPlantillas.DataSource = null;
@@ -138,7 +139,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             lblnotif.Text = "Registro Guardado Correctamente";
             timer1.Start();
             txtmensajeiu.Text = "";
-            txtmensajeiu.Focus();
+            txtmensajeiu.Focus(); */
             //llena grid con datos existente
             //gridPlantillas(4, 0, "", "", "");
         }
