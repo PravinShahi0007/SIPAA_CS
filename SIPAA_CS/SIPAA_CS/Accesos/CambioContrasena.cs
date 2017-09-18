@@ -45,7 +45,6 @@ namespace SIPAA_CS.Accesos
 
             try
             {
-
                 //valida campos
                 Boolean bvalidacampos = fvalidacampos();
 
