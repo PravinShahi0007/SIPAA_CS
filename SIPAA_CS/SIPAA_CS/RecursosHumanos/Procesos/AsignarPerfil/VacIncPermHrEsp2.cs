@@ -8,34 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
-
 using static SIPAA_CS.App_Code.Usuario;
+using SIPAA_CS.Properties;
+using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
 
-namespace SIPAA_CS.RecursosHumanos.Catalogos
+namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
-
-    #region variables
-
-
-    #endregion
-
-    public partial class Departamentos : Form
+    public partial class VacIncPermHrEsp2 : Form
     {
-        //public int sysH = SystemInformation.PrimaryMonitorSize.Height;
-        //public int sysW = SystemInformation.PrimaryMonitorSize.Width;
-        Utilerias util = new Utilerias();
-        public Departamentos()
+        public VacIncPermHrEsp2()
         {
             InitializeComponent();
         }
-        SonaDepartamento departamentos = new SonaDepartamento();
+        string NoTrabajador;
+
+        SonaTrabajador contenedorempleados = new SonaTrabajador();
+        Utilerias util = new Utilerias();
 
         //***********************************************************************************************
-        //Autor:                          modif: noe alvarez marquina (se arreglan llamados a sp conforme al standar)
-        //Fecha creación:dd-mm-aaaa       Última Modificacion: 20/07/2017
-        //Descripción: Lee la tabla de compañias de SONARH
+        //Autor: José Luis Alvarez Delgado
+        //Fecha creación:14-09-2017     Última Modificacion: 
+        //Descripción: -------------------------------
         //***********************************************************************************************
 
         //-----------------------------------------------------------------------------------------------
@@ -44,27 +38,53 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
+
+        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            for (int iContador = 0; iContador < dgvEmpleados.Rows.Count; iContador++)
+            {
+                dgvEmpleados.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+            }
+
+            if (dgvEmpleados.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dgvEmpleados.SelectedRows[0];
+
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+
+                NoTrabajador = row.Cells["NoEmpleado"].Value.ToString();
+                llenarGridDiasEsp(NoTrabajador);
+
+                //DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
+                //form.Show();
+                //this.Close();
+            }
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
 
-        //boton buscar compañia 
+        //boton buscar empleados
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             //llena grid
-            fgdeptos(5, txtComp.Text.Trim());
-            txtComp.Text = "";
-            txtComp.Focus();
+            if (txtEmpleado.Text == String.Empty)
+            {
+                fgridEmpleados(3, txtEmpleado.Text.Trim()); //todos los activos x Num
+                txtEmpleado.Text = "";
+                txtEmpleado.Focus();
+            }
         }
 
         //boton minimizar        
-        private void btnMinimizar_Click_1(object sender, EventArgs e)
+        private void btnMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
         //boton cerrar
-        private void btnCerrar_Click_1(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
 
@@ -74,19 +94,23 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else if (result == DialogResult.No)
             {
-
             }
         }
+
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             RechDashboard rechdb = new RechDashboard();
             rechdb.Show();
             this.Close();
         }
+
+        //-----------------------------------------------------------------------------------------------
+        //                           C A J A S      D E      T E X T O   
+        //-----------------------------------------------------------------------------------------------
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void Departamentos_Load(object sender, EventArgs e)
+        private void VacIncPermHrEsp2_Load(object sender, EventArgs e)
         {
             //cierra formularios abiertos
             FormCollection formulariosApp = Application.OpenForms;
@@ -98,25 +122,27 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 }
             }
 
-            //Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
-            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
 
-            //inicializa tool tip
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
+            //llama el tooltip
             ftooltip();
 
-            txtComp.Focus();
+            //pone el foco en el campo de busqueda
+            txtEmpleado.Focus();
 
             //llena grid
-            fgdeptos(4, "");
-
+            //fgridEmpleados(1,"");
         }
 
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
+
+        /////////funciones. FUNCION tooltip
         private void ftooltip()
         {
             //crea tool tip
@@ -135,17 +161,29 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
         }
 
-        //Llena el Grid de Departamentos
-        private void fgdeptos(int popc, string pbusq)
+        //FUNCION que Llena el Grid de Empleados
+        private void fgridEmpleados(int popc, string pbusq)
         {
+            DataTable dtempleados = contenedorempleados.obtenerempleados(popc, pbusq);
+            dgvEmpleados.DataSource = dtempleados;
 
-            DataTable dtdepartamentos = departamentos.obtdepto(popc, pbusq);
-            dgvComp.DataSource = dtdepartamentos;
-
-            dgvComp.Columns[0].Visible = false;
-            dgvComp.Columns[1].Width = 355;
-            //dgvComp.Columns[2].Width = 125;
-            dgvComp.ClearSelection();
+            Utilerias.AgregarCheck(dgvEmpleados, 0);
+            dgvEmpleados.ClearSelection();
         }
+
+        private void llenarGridDiasEsp(string NoTrabajador)
+        {
+            DiasEspeciales objDia = new DiasEspeciales();
+
+            objDia.sIdTrab = NoTrabajador;
+            DataTable dtdias = objDia.ObtenerDiasEspecialesxTrabajador(objDia, 4);
+
+            dgvInc.DataSource = dtdias;
+        }
+        //-----------------------------------------------------------------------------------------------
+        //                                      R E P O R T E
+        //-----------------------------------------------------------------------------------------------
+
+
     }
 }

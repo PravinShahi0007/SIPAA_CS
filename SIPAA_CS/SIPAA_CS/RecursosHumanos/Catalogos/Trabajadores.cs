@@ -118,7 +118,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "Companias.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -127,6 +127,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
 
+            //Rezise de la Forma
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             //llama el tooltip
@@ -136,7 +137,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             txtEmpleado.Focus();
 
             //llena grid
-            fgridEmpleados(1,"");
+            //fgridEmpleados(1,"");
         }
 
         /////////funciones. FUNCION tooltip
@@ -155,7 +156,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
-            toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
         }
 
         //FUNCION que Llena el Grid de Empleados

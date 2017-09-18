@@ -488,7 +488,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel2.Location = new System.Drawing.Point(36, 131);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(204, 1);
+            this.panel2.Size = new System.Drawing.Size(204, 2);
             this.panel2.TabIndex = 52;
             // 
             // txtNombre
@@ -506,7 +506,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel3.Location = new System.Drawing.Point(36, 79);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(204, 1);
+            this.panel3.Size = new System.Drawing.Size(204, 2);
             this.panel3.TabIndex = 49;
             // 
             // txtidtrab
@@ -732,6 +732,7 @@
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(616, 44);
             this.panelTag.TabIndex = 198;
+            this.panelTag.Visible = false;
             // 
             // lbMensaje
             // 

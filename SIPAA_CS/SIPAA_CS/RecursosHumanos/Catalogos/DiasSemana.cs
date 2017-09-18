@@ -52,7 +52,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "DiasSemana.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -71,7 +71,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
-
 
             /* JAV
             Usuario objUsuario = new Usuario();

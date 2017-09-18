@@ -36,9 +36,9 @@
             System.Windows.Forms.Label lblne;
             System.Windows.Forms.Label lblfi;
             System.Windows.Forms.Label lblff;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -50,6 +50,9 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.pnlmensajes = new System.Windows.Forms.Panel();
+            this.chkCaduca = new System.Windows.Forms.CheckBox();
+            this.rbPersonal = new System.Windows.Forms.RadioButton();
+            this.rbPublico = new System.Windows.Forms.RadioButton();
             this.pnldatos = new System.Windows.Forms.Panel();
             this.dtpfechafin = new System.Windows.Forms.DateTimePicker();
             this.dtpfechainicial = new System.Windows.Forms.DateTimePicker();
@@ -200,15 +203,17 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel5.Location = new System.Drawing.Point(29, 63);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(250, 1);
+            this.panel5.Size = new System.Drawing.Size(250, 2);
             this.panel5.TabIndex = 43;
             // 
             // txtMensaje
             // 
             this.txtMensaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtMensaje.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMensaje.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMensaje.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMensaje.Location = new System.Drawing.Point(30, 49);
+            this.txtMensaje.MaxLength = 113;
             this.txtMensaje.Name = "txtMensaje";
             this.txtMensaje.Size = new System.Drawing.Size(250, 15);
             this.txtMensaje.TabIndex = 1;
@@ -218,30 +223,30 @@
             this.dgvMensajes.AllowUserToAddRows = false;
             this.dgvMensajes.AllowUserToDeleteRows = false;
             this.dgvMensajes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvMensajes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvMensajes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMensajes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMensajes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvMensajes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvMensajes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMensajes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMensajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMensajes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMensajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMensajes.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMensajes.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMensajes.Location = new System.Drawing.Point(350, 179);
             this.dgvMensajes.Name = "dgvMensajes";
             this.dgvMensajes.ReadOnly = true;
@@ -331,6 +336,9 @@
             // pnlmensajes
             // 
             this.pnlmensajes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlmensajes.Controls.Add(this.chkCaduca);
+            this.pnlmensajes.Controls.Add(this.rbPersonal);
+            this.pnlmensajes.Controls.Add(this.rbPublico);
             this.pnlmensajes.Controls.Add(this.pnldatos);
             this.pnlmensajes.Controls.Add(this.ckbEliminar);
             this.pnlmensajes.Controls.Add(this.btnInsertar);
@@ -340,10 +348,51 @@
             this.pnlmensajes.Controls.Add(this.lbluid);
             this.pnlmensajes.Location = new System.Drawing.Point(1, 284);
             this.pnlmensajes.Name = "pnlmensajes";
-            this.pnlmensajes.Size = new System.Drawing.Size(343, 240);
+            this.pnlmensajes.Size = new System.Drawing.Size(343, 284);
             this.pnlmensajes.TabIndex = 143;
             this.pnlmensajes.TabStop = true;
             this.pnlmensajes.Visible = false;
+            // 
+            // chkCaduca
+            // 
+            this.chkCaduca.AutoSize = true;
+            this.chkCaduca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chkCaduca.Location = new System.Drawing.Point(155, 197);
+            this.chkCaduca.Name = "chkCaduca";
+            this.chkCaduca.Size = new System.Drawing.Size(98, 17);
+            this.chkCaduca.TabIndex = 148;
+            this.chkCaduca.Text = "Nunca Caduca";
+            this.chkCaduca.UseVisualStyleBackColor = true;
+            this.chkCaduca.Visible = false;
+            this.chkCaduca.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // rbPersonal
+            // 
+            this.rbPersonal.AutoSize = true;
+            this.rbPersonal.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.rbPersonal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.rbPersonal.Location = new System.Drawing.Point(13, 220);
+            this.rbPersonal.Name = "rbPersonal";
+            this.rbPersonal.Size = new System.Drawing.Size(130, 20);
+            this.rbPersonal.TabIndex = 147;
+            this.rbPersonal.TabStop = true;
+            this.rbPersonal.Text = "Mensaje Personal";
+            this.rbPersonal.UseVisualStyleBackColor = true;
+            this.rbPersonal.CheckedChanged += new System.EventHandler(this.rbPersonal_CheckedChanged);
+            // 
+            // rbPublico
+            // 
+            this.rbPublico.AutoSize = true;
+            this.rbPublico.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.rbPublico.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.rbPublico.Location = new System.Drawing.Point(14, 194);
+            this.rbPublico.Name = "rbPublico";
+            this.rbPublico.Size = new System.Drawing.Size(122, 20);
+            this.rbPublico.TabIndex = 146;
+            this.rbPublico.TabStop = true;
+            this.rbPublico.Text = "Mensaje Público";
+            this.rbPublico.UseVisualStyleBackColor = true;
+            this.rbPublico.CheckedChanged += new System.EventHandler(this.rbPublico_CheckedChanged);
             // 
             // pnldatos
             // 
@@ -368,6 +417,9 @@
             this.dtpfechafin.Name = "dtpfechafin";
             this.dtpfechafin.Size = new System.Drawing.Size(98, 20);
             this.dtpfechafin.TabIndex = 145;
+            this.dtpfechafin.Value = new System.DateTime(2017, 9, 7, 14, 23, 29, 0);
+            this.dtpfechafin.ValueChanged += new System.EventHandler(this.dtpfechafin_ValueChanged);
+            this.dtpfechafin.Leave += new System.EventHandler(this.dtpfechafin_Leave);
             // 
             // dtpfechainicial
             // 
@@ -377,13 +429,17 @@
             this.dtpfechainicial.Name = "dtpfechainicial";
             this.dtpfechainicial.Size = new System.Drawing.Size(97, 20);
             this.dtpfechainicial.TabIndex = 145;
+            this.dtpfechainicial.Value = new System.DateTime(2017, 9, 7, 14, 23, 24, 0);
+            this.dtpfechainicial.ValueChanged += new System.EventHandler(this.dtpfechainicial_ValueChanged);
+            this.dtpfechainicial.Validating += new System.ComponentModel.CancelEventHandler(this.dtpfechainicial_Validating);
+            this.dtpfechainicial.Validated += new System.EventHandler(this.dtpfechainicial_Validated);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel4.Location = new System.Drawing.Point(73, 21);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(85, 1);
+            this.panel4.Size = new System.Drawing.Size(85, 2);
             this.panel4.TabIndex = 45;
             // 
             // txtidtrab
@@ -400,7 +456,7 @@
             // 
             this.ckbEliminar.AutoSize = true;
             this.ckbEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbEliminar.Location = new System.Drawing.Point(235, 212);
+            this.ckbEliminar.Location = new System.Drawing.Point(155, 223);
             this.ckbEliminar.Name = "ckbEliminar";
             this.ckbEliminar.Size = new System.Drawing.Size(47, 17);
             this.ckbEliminar.TabIndex = 135;
@@ -415,7 +471,7 @@
             this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnInsertar.Location = new System.Drawing.Point(280, 180);
+            this.btnInsertar.Location = new System.Drawing.Point(280, 208);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(55, 55);
             this.btnInsertar.TabIndex = 134;
@@ -428,15 +484,17 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel2.Location = new System.Drawing.Point(13, 177);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(322, 1);
+            this.panel2.Size = new System.Drawing.Size(322, 2);
             this.panel2.TabIndex = 43;
             // 
             // txtmensajeiu
             // 
             this.txtmensajeiu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtmensajeiu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtmensajeiu.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtmensajeiu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmensajeiu.Location = new System.Drawing.Point(16, 161);
+            this.txtmensajeiu.MaxLength = 113;
             this.txtmensajeiu.Name = "txtmensajeiu";
             this.txtmensajeiu.Size = new System.Drawing.Size(315, 15);
             this.txtmensajeiu.TabIndex = 1;
@@ -478,7 +536,6 @@
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(662, 25);
             this.panelTag.TabIndex = 136;
-            this.panelTag.Visible = false;
             // 
             // lblMensaje
             // 
@@ -573,5 +630,8 @@
         private System.Windows.Forms.DateTimePicker dtpfechainicial;
         private System.Windows.Forms.ComboBox cbTrabajador;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.RadioButton rbPersonal;
+        private System.Windows.Forms.RadioButton rbPublico;
+        private System.Windows.Forms.CheckBox chkCaduca;
     }
 }

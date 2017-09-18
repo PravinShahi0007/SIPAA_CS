@@ -76,11 +76,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "Companias.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
             }
+
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
@@ -111,7 +114,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btncerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnregresar, "Regresar");
-            toolTip1.SetToolTip(this.btnbuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btnbuscar, "Buscar Registros");
         }
         private void fgptos(int popc, string pbusq)
         {

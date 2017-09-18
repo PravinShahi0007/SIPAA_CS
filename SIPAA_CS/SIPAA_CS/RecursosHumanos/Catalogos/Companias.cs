@@ -94,11 +94,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void frmCompanias_Load(object sender, EventArgs e)
         {
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //cierra formularios abiertos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "Companias.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -133,7 +136,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btncerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnregresar, "Regresar");
-            toolTip1.SetToolTip(this.btnbuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btnbuscar, "Buscar Registros");
         }
         //llena grid compañias
         private void fgcomp(int iopc, string sbusq)
@@ -142,8 +145,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvcomp.DataSource = dtcompania;
 
             dgvcomp.Columns[0].Visible = false;//clave
-            dgvcomp.Columns[1].Width = 355;//descripción
-            dgvcomp.Columns[2].Width = 125;//rfc
+            dgvcomp.Columns[1].Width = 395;//descripción
+            dgvcomp.Columns[2].Width = 130;//rfc
             dgvcomp.ClearSelection();
         }
 

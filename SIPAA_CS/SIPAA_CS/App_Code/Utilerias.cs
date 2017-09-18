@@ -77,9 +77,12 @@ namespace SIPAA_CS.App_Code
 
         public static void ControlNotificaciones(Panel panelTag, Label lbMensaje, int iClase, string strMensaje)
         {
-            panelTag.Dispose();
+            //panelTag.Dispose();
           //  panelTag.Visible = false;
             panelTag.Visible = true;
+            panelTag.Enabled = true;
+            lbMensaje.Enabled = false;
+            
             
             switch (iClase)
             {
@@ -91,6 +94,8 @@ namespace SIPAA_CS.App_Code
                     panelTag.BackColor = ColorTranslator.FromHtml("#2e7d32");
                     lbMensaje.BackColor = ColorTranslator.FromHtml("#2e7d32");
                     lbMensaje.Text = strMensaje;
+                    panelTag.Enabled = false;
+                    lbMensaje.Enabled = false;
 
                     break;
                 case 2:
@@ -99,6 +104,8 @@ namespace SIPAA_CS.App_Code
                     panelTag.BackColor = ColorTranslator.FromHtml("#0277bd");
                     lbMensaje.BackColor = ColorTranslator.FromHtml("#0277bd");
                     lbMensaje.Text = strMensaje;
+                    panelTag.Enabled = false;
+                    lbMensaje.Enabled = false;
                     break;
                 case 3:
                     //Clase Danger - Color Rojo    
@@ -106,6 +113,8 @@ namespace SIPAA_CS.App_Code
                     panelTag.BackColor = ColorTranslator.FromHtml("#f44336");
                     lbMensaje.BackColor = ColorTranslator.FromHtml("#f44336");
                     lbMensaje.Text = strMensaje;
+                    panelTag.Enabled = false;
+                    lbMensaje.Enabled = false;
                     break;
                 default:
 
@@ -805,6 +814,12 @@ namespace SIPAA_CS.App_Code
                 }
             }
             return bBandera;
+        }
+
+        public static void AjustaGridView(DataGridView dgv)
+        {
+            for (int i = 0; i < dgv.Columns.Count; i++)
+                dgv.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
         public static CheckBox AgregarCheckboxHeader(DataGridView dgv, int iPosicionCheck) {

@@ -266,7 +266,7 @@
             this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnbuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnbuscar.Location = new System.Drawing.Point(339, 14);
+            this.btnbuscar.Location = new System.Drawing.Point(334, 14);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(55, 55);
             this.btnbuscar.TabIndex = 137;
@@ -277,7 +277,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel5.Location = new System.Drawing.Point(29, 63);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(250, 1);
+            this.panel5.Size = new System.Drawing.Size(250, 2);
             this.panel5.TabIndex = 43;
             // 
             // txttipohr
@@ -285,7 +285,7 @@
             this.txttipohr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txttipohr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txttipohr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttipohr.Location = new System.Drawing.Point(30, 46);
+            this.txttipohr.Location = new System.Drawing.Point(30, 45);
             this.txttipohr.Name = "txttipohr";
             this.txttipohr.Size = new System.Drawing.Size(250, 15);
             this.txttipohr.TabIndex = 1;
@@ -309,6 +309,7 @@
             // cbxEliminar
             // 
             this.cbxEliminar.AutoSize = true;
+            this.cbxEliminar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbxEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cbxEliminar.Location = new System.Drawing.Point(286, 45);
             this.cbxEliminar.Name = "cbxEliminar";
@@ -325,8 +326,8 @@
             this.btninsertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
-            this.btninsertar.Location = new System.Drawing.Point(339, 13);
+            this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.btninsertar.Location = new System.Drawing.Point(337, 13);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(55, 55);
             this.btninsertar.TabIndex = 134;
@@ -338,7 +339,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel2.Location = new System.Drawing.Point(29, 63);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 1);
+            this.panel2.Size = new System.Drawing.Size(250, 2);
             this.panel2.TabIndex = 43;
             // 
             // txttipohriu
@@ -346,7 +347,7 @@
             this.txttipohriu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txttipohriu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txttipohriu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttipohriu.Location = new System.Drawing.Point(30, 46);
+            this.txttipohriu.Location = new System.Drawing.Point(30, 45);
             this.txttipohriu.Name = "txttipohriu";
             this.txttipohriu.Size = new System.Drawing.Size(250, 15);
             this.txttipohriu.TabIndex = 4;
@@ -367,7 +368,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 5000;
+            this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // panelTag
@@ -375,7 +376,7 @@
             this.panelTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(479, 686);
+            this.panelTag.Location = new System.Drawing.Point(479, 675);
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(512, 25);
             this.panelTag.TabIndex = 134;
@@ -389,9 +390,9 @@
             this.lbMensaje.ForeColor = System.Drawing.Color.Navy;
             this.lbMensaje.Location = new System.Drawing.Point(10, 3);
             this.lbMensaje.Name = "lbMensaje";
-            this.lbMensaje.Size = new System.Drawing.Size(181, 20);
+            this.lbMensaje.Size = new System.Drawing.Size(289, 20);
             this.lbMensaje.TabIndex = 26;
-            this.lbMensaje.Text = "Administración de Perfiles    ";
+            this.lbMensaje.Text = "Para modificar seleccione un registro del grid  ";
             this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ptbimgusuario

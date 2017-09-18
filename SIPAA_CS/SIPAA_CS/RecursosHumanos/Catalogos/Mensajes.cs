@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,10 +11,11 @@ using System.Windows.Forms;
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code;
 using static SIPAA_CS.App_Code.Usuario;
+using zkemkeeper;
 
 //***********************************************************************************************
 //Autor: Jose Luis Alvarez Delgado
-//Fecha creación: 20-Mar-2017       Última Modificacion: 30-Mar-2017 
+//Fecha creación: 20-Mar-2017       Última Modificacion: 12-Sep-2017  
 //Descripción: Catalogo Mensajes
 //***********************************************************************************************
 
@@ -38,6 +40,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         #endregion
 
         Utilerias Util = new Utilerias();
+        public string sUsuuMod = LoginInfo.IdTrab;
+
+        int tag = 253;
+        bool bandera = true;
 
         public Mensajes()
         {
@@ -112,7 +118,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             txtidtrab.Text = "";
-            cbTrabajador.Text = "Seleccionar Empleado...";
+           // cbTrabajador.Text = "Seleccionar Empleado...";
 
             pnlmensajes.Visible = false;
             gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
@@ -134,7 +140,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             ckbEliminar.Visible = false;
             pnlmensajes.Visible = true;
             lbluid.Text = "     Agregar Mensaje";
-            Util.ChangeButton(btnAgregar, 1, false);
+            bandera = true; 
+            //Util.ChangeButton(btnAgregar, 1, false);
             pactbtn = 1;
             txtidtrab.Text = "";
             txtmensajeiu.Text = "";
@@ -143,34 +150,230 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //cbTrabajador.Text = "Seleccionar Empleado...";
             //cbTrabajador.Focus();
         }
+        public CZKEMClass objCZKEM = new CZKEMClass();
+        public bool Connect_Net(string IPAdd, int Port)
+        {
+            if (objCZKEM.Connect_Net(IPAdd, Port))
+            {
+                if (objCZKEM.RegEvent(1, 65535))
+                {
+
+
+                }
+                return true;
+            }
+            return false;
+        }
+
+
+        private  void EliminaMensajesReloj()
+        {
+            int tagReloj = 0;
+            int minutos = 0;
+            string comienzo = string.Empty;
+            string contenido = string.Empty;
+            //obtener el maximo de los mensajes
+            int inicio = pantallaMensajes.fudimensajes(5, 160452, 1, "%", "%", "%", sUsuuMod, Name);
+            int max= pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
+            
+            for (int i = inicio; i <= max; i++)
+            {
+                if (objCZKEM.GetSMS(1, i, ref tagReloj, ref minutos, ref comienzo, ref contenido))
+                    if (minutos != 0)
+                    {
+
+                        int Dia_Hoy = DateTime.Today.Day;
+                        int Mes_Hoy = DateTime.Today.Month;
+                        string Mes_Mensaje = comienzo.Substring(5, 2);
+                        string Año_Mensaje = comienzo.Substring(0, 4);
+                        string Dia_Mensaje = comienzo.Substring(8, 2);
+                        if (Mes_Hoy == Convert.ToInt32(Mes_Mensaje))
+                        {
+                            if ((minutos / 1440) + Convert.ToInt32(Dia_Mensaje) < Dia_Hoy)
+                                objCZKEM.DeleteSMS(1, i);
+
+                        }
+                        else
+                        {
+                            // string fullMonthName = new DateTime(Convert.ToInt32(Año_Mensaje), Convert.ToInt32(Mes_Mensaje), Convert.ToInt32(Dia_Mensaje)).ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
+                            int DiasdelMes = System.DateTime.DaysInMonth(Convert.ToInt32(Año_Mensaje), Convert.ToInt32(Mes_Mensaje));
+                            DiasdelMes = DiasdelMes - Convert.ToInt32(Dia_Mensaje);
+                            if (DiasdelMes > 0)
+                                DiasdelMes += 1;
+                            if (DiasdelMes > (minutos / 1140))
+                                objCZKEM.DeleteSMS(1, i);
+                            else
+                            {
+                                DiasdelMes = Math.Abs(DiasdelMes - (minutos / 1140));
+                                if ((1 + DiasdelMes) < Dia_Hoy)
+                                    objCZKEM.DeleteSMS(1, i);
+
+                            }
+
+
+                        }
+                    }
+
+
+            }
+            objCZKEM.ClearUserSMS(1);
+            objCZKEM.ClearSMS(1);
+        }
+
+
+        private void GuardaMensajeReloj()
+        {
+            int Horas = 0;
+            int DiaFinal = dtpfechafin.Value.Day;
+            int DiaInicial = dtpfechainicial.Value.Day;
+            int MesFinal = dtpfechafin.Value.Month;
+            int MesInicial = dtpfechafin.Value.Month;
+            RelojChecador objReloj = new RelojChecador();
+            DataTable dt = new DataTable(); 
+
+            if (MesFinal==MesInicial)
+            {
+              if (DiaFinal>DiaInicial)
+                Horas = DiaFinal - DiaInicial;
+            }
+            if (Horas == 0)
+                Horas = 1;
+            else
+                Horas += 1;
+            Horas = Horas * 1440;
+
+
+            bool bConexion = false;
+            if (rbPublico.Checked==true)
+            {
+                
+         // aqui debe de ir un store Procedure que me de las ip's a las que voy a guardar el mensaje, de momento solo lo voy a hacer con esa IP
+                bConexion = Connect_Net("192.168.9.94", 4370);
+                if (bConexion != false)
+                {
+                    EliminaMensajesReloj();
+                    p_rep = pantallaMensajes.fudimensajes(1, 1, 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+                    //EliminaMensajesReloj();
+                    int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
+                    objCZKEM.SetSMS(1, max, tag, Horas, dtpfechainicial.Value.Year + "-" + dtpfechainicial.Value.Month + "-" + dtpfechainicial.Value.Day + " 00:01:00", txtmensajeiu.Text);
+                    
+                }
+                objCZKEM.Disconnect();
+
+            }
+           if (rbPersonal.Checked==true)
+            {
+               dt= objReloj.RelojesxTrabajador(txtidtrab.Text, 0, 15, "%", "%");
+               foreach (DataRow row in dt.Rows)
+                {
+                    bConexion = Connect_Net(row["ip"].ToString(), 4370);
+                    if (bConexion != false)
+                    {
+                        p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+                        EliminaMensajesReloj();
+                        int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
+                        if (objCZKEM.SetSMS(1, max, tag, Horas, dtpfechainicial.Value.Year + "-" + dtpfechainicial.Value.Month + "-" + dtpfechainicial.Value.Day + " 00:01:00", txtmensajeiu.Text))
+                          // objCZKEM.SetUserSMS(1, 1, max);
+                        objCZKEM.SSR_SetUserSMS(1, txtidtrab.Text.Trim(), max);
+                     }
+                    
+                    objCZKEM.Disconnect();
+                }
+            }
+
+
+            switch (p_rep.ToString())
+            {
+                case "99":
+                    //estoy aceptando la opcion 99 porque me arroja ese numero el store, despues voy a buscar porque lo hace 
+                    lblMensaje.Text = "Registro agregado correctamente";
+                    break;
+                case "2":
+                    lblMensaje.Text = "Registro modificado correctamente";
+                    break;
+                case "3":
+                    lblMensaje.Text = "Registro eliminado correctamente";
+                    break;
+                case "1":
+                    lblMensaje.Text = "Registro ya existe";
+                    break;
+                default:
+                    lblMensaje.Text = "";
+                    break;
+            }
+
+
+
+
+
+        }
+
 
         //boton
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            if (txtmensajeiu.Text.Trim() == "" && pactbtn == 1)
+           
+            
+            
+
+
+           // if (txtmensajeiu.Text.Trim() == "" && pactbtn == 1)
+             //   lblMensaje.Text = "Capture un dato a guardar";
+            /*if (rbPersonal.Checked==true)
+             {
+                if (string.IsNullOrEmpty(txtidtrab.Text))
+                    lblMensaje.Text = "Tiene que capturar el numero del empleado";
+             }*/
+           if (pactbtn == 1)//insertar
             {
-                lblMensaje.Text = "Capture un dato a guardar";
-            }
-            else if (pactbtn == 1)//insertar
-            {
-                //inserta registro nuevo 
-                fuidMensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), "JLA", "InsMensajes");
-                dgvMensajes.DataSource = null;
-                dgvMensajes.Columns.RemoveAt(0);
-                panelTag.Visible = true;
-                txtidtrab.Text = "";
-                txtmensajeiu.Text = "";
-                txtidtrab.Focus();
-                //llena grid con datos existente
-                gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
-                ckbEliminar.Checked = false;
-                ckbEliminar.Visible = false;
-                pnlmensajes.Visible = false;
+
+                if (rbPersonal.Checked == false && rbPublico.Checked == false)
+                    MessageBox.Show("Tiene que elegir que tipo de mensaje sera", "SIPAA", MessageBoxButtons.OK);
+                else
+                {
+                    if (rbPersonal.Checked == true && string.IsNullOrEmpty(txtidtrab.Text))
+                         lblMensaje.Text = "Tiene que capturar el numero del empleado";
+                    else if (string.IsNullOrEmpty( txtmensajeiu.Text.Trim()))
+                        lblMensaje.Text = "Capture una descripcion para el mensaje";
+                    else
+                    {
+                        //inserta registro nuevo 
+                        GuardaMensajeReloj();
+                        dgvMensajes.DataSource = null;
+                        dgvMensajes.Columns.RemoveAt(0);
+                        panelTag.Visible = true;
+                        txtidtrab.Text = "";
+                        txtmensajeiu.Text = "";
+                        txtidtrab.Focus();
+                        //llena grid con datos existente
+                        gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
+                        ckbEliminar.Checked = false;
+                        ckbEliminar.Visible = false;
+                        pnlmensajes.Visible = false;
+                    }
+                      
+                    
+
+                }
+                ////inserta registro nuevo 
+                //GuardaMensajeReloj();                   
+                //dgvMensajes.DataSource = null;
+                //dgvMensajes.Columns.RemoveAt(0);
+                //panelTag.Visible = true;
+                //txtidtrab.Text = "";
+                //txtmensajeiu.Text = "";
+                //txtidtrab.Focus();
+                ////llena grid con datos existente
+                //gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
+                //ckbEliminar.Checked = false;
+                //ckbEliminar.Visible = false;
+                //pnlmensajes.Visible = false;
+              
             }
             else if (pactbtn == 2)//actualizar
             {
                 //Actualizar
-                fuidMensajes(2, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), "JLA", "InsMensajes");
+                fuidMensajes(2, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                 dgvMensajes.DataSource = null;
                 dgvMensajes.Columns.RemoveAt(0);
                 panelTag.Visible = true;
@@ -190,7 +393,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     //Eliminar
-                    fuidMensajes(3, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), "JLA", "InsMensajes");
+                    fuidMensajes(3, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                     dgvMensajes.DataSource = null;
                     dgvMensajes.Columns.RemoveAt(0);
                     panelTag.Visible = true;
@@ -257,6 +460,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            
 
             ftooltip();
             pnldatos.Visible = false;
@@ -340,12 +544,24 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns.Insert(0, imgCheckUsuarios);
                 dgvMensajes.Columns[0].HeaderText = "Selección";
 
-                dgvMensajes.Columns[0].Width = 65;
-                dgvMensajes.Columns[1].Width = 80;
-                dgvMensajes.Columns[2].Width = 80;
-                dgvMensajes.Columns[3].Width = 80;
-                dgvMensajes.Columns[4].Width = 300;
+                /*dgvMensajes.Columns[0].Width = 80;
+                dgvMensajes.Columns[1].Width = 95;
+               // dgvMensajes.Columns[2].Width = 95;
+                dgvMensajes.Columns[2].Visible = false; 
+                //dgvMensajes.Columns[3].Width = 85;
+                dgvMensajes.Columns[3].Width = 300;
+                // dgvMensajes.Columns[4].Width = 80;
+                // dgvMensajes.Columns[4].Visible = false;                                     
+                //dgvMensajes.Columns[5].Width = 300;*/
+                dgvMensajes.Columns[3].Visible = false;
                 dgvMensajes.ClearSelection();
+                
+
+                for (int i = 0; i < dgvMensajes.Columns.Count; i++)
+                    dgvMensajes.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+
+
             }
             else if (pins == 1 && pact == 1)
             {
@@ -468,7 +684,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             //agrega registro
             if (pactbtn == 1)
-            {                
+            {
+              
+               
                 p_rep = pantallaMensajes.fudimensajes(popc, pidtrab, pcvmensaje, pdescripcion, pfeinicio, pfefin, pusuumod, pprgumod);
                 txtmensajeiu.Text = "";
             }
@@ -508,6 +726,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void factgrid()
         {
+            bandera = false;
             for (int iContador = 0; iContador < dgvMensajes.Rows.Count; iContador++)
             {
                 dgvMensajes.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
@@ -534,6 +753,79 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 pnldatos.Visible = false;
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+            }
+        }
+
+        private void dtpfechainicial_ValueChanged(object sender, EventArgs e)
+        {
+
+            DateTime Date = DateTime.Today.Date;
+            if (dtpfechainicial.Value.Date < Date && bandera==true)
+            {
+                MessageBox.Show("No puede elegir una fecha anterior a la actual", "SIPPA", MessageBoxButtons.OK);
+                dtpfechainicial.Value = DateTime.Today.Date;
+            }
+            dtpfechafin.Value = dtpfechainicial.Value;
+        }
+
+        private void rbPublico_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbPublico.Checked==true)
+            {
+                tag = 253;
+                chkCaduca.Checked = false;
+                chkCaduca.Visible = true;
+            }
+            else
+               chkCaduca.Visible = false;
+           
+                
+               
+            // 253 es para mensajes publicos , 254 para personales y 255 para borradores, pero esos no los recomiendo que los usen pues no se pueden
+            // asignar
+        }
+
+        private void rbPersonal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbPersonal.Checked==true)
+            {
+                tag = 254;
+                chkCaduca.Checked = false;
+            }
+           
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkCaduca.Checked == true)
+                dtpfechafin.Enabled = dtpfechainicial.Enabled = false;
+            else
+                dtpfechafin.Enabled = dtpfechainicial.Enabled = true;
+
+
+        }
+
+        private void dtpfechafin_Leave(object sender, EventArgs e)
+        {
+           
+                
+        }
+
+        private void dtpfechainicial_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void dtpfechainicial_Validated(object sender, EventArgs e)
+        {
+        }
+
+        private void dtpfechafin_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpfechafin.Value.Date < dtpfechainicial.Value.Date)
+            {
+                MessageBox.Show("No puede elegir una fecha final menor a la de inicio, se pondra la misma fecha de inicio", "SIPPA", MessageBoxButtons.OK);
+                dtpfechafin.Value = dtpfechainicial.Value.Date;
             }
         }
     }

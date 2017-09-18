@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Plantillas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvPlantillas = new System.Windows.Forms.DataGridView();
             this.lblusuario = new System.Windows.Forms.Label();
@@ -54,10 +55,14 @@
             this.txtMensaje = new System.Windows.Forms.TextBox();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.panelTag = new System.Windows.Forms.Panel();
+            this.panelTaga = new System.Windows.Forms.Panel();
             this.lblavisos = new System.Windows.Forms.Label();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pnlnotif = new System.Windows.Forms.Panel();
+            this.lblnotif = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
@@ -65,8 +70,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlantillas)).BeginInit();
             this.pnlmensajes.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
-            this.panelTag.SuspendLayout();
+            this.panelTaga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
+            this.pnlnotif.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -75,7 +81,7 @@
             label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(18, 24);
+            label3.Location = new System.Drawing.Point(18, 31);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(76, 16);
             label3.TabIndex = 44;
@@ -88,7 +94,7 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(453, 158);
+            label2.Location = new System.Drawing.Point(448, 141);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(61, 16);
             label2.TabIndex = 153;
@@ -100,7 +106,7 @@
             label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(25, 25);
+            label4.Location = new System.Drawing.Point(25, 30);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(76, 16);
             label4.TabIndex = 44;
@@ -125,7 +131,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
-            this.btnAgregar.Location = new System.Drawing.Point(954, 122);
+            this.btnAgregar.Location = new System.Drawing.Point(954, 105);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(55, 55);
             this.btnAgregar.TabIndex = 155;
@@ -139,31 +145,31 @@
             this.dgvPlantillas.AllowUserToAddRows = false;
             this.dgvPlantillas.AllowUserToDeleteRows = false;
             this.dgvPlantillas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvPlantillas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvPlantillas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPlantillas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPlantillas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPlantillas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvPlantillas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPlantillas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPlantillas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPlantillas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPlantillas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPlantillas.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvPlantillas.Location = new System.Drawing.Point(450, 179);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPlantillas.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvPlantillas.Location = new System.Drawing.Point(450, 162);
             this.dgvPlantillas.Name = "dgvPlantillas";
             this.dgvPlantillas.ReadOnly = true;
             this.dgvPlantillas.RowHeadersVisible = false;
@@ -171,7 +177,7 @@
             this.dgvPlantillas.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvPlantillas.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvPlantillas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlantillas.Size = new System.Drawing.Size(564, 413);
+            this.dgvPlantillas.Size = new System.Drawing.Size(564, 563);
             this.dgvPlantillas.TabIndex = 152;
             this.dgvPlantillas.TabStop = false;
             this.dgvPlantillas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlantillas_CellContentClick);
@@ -238,7 +244,7 @@
             // 
             this.ckbEliminar.AutoSize = true;
             this.ckbEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbEliminar.Location = new System.Drawing.Point(332, 46);
+            this.ckbEliminar.Location = new System.Drawing.Point(332, 55);
             this.ckbEliminar.Name = "ckbEliminar";
             this.ckbEliminar.Size = new System.Drawing.Size(47, 17);
             this.ckbEliminar.TabIndex = 135;
@@ -253,7 +259,7 @@
             this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnInsertar.Location = new System.Drawing.Point(380, 14);
+            this.btnInsertar.Location = new System.Drawing.Point(380, 17);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(55, 55);
             this.btnInsertar.TabIndex = 134;
@@ -264,9 +270,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(20, 64);
+            this.panel2.Location = new System.Drawing.Point(20, 74);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(305, 1);
+            this.panel2.Size = new System.Drawing.Size(305, 2);
             this.panel2.TabIndex = 43;
             // 
             // txtmensajeiu
@@ -274,7 +280,7 @@
             this.txtmensajeiu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtmensajeiu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtmensajeiu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmensajeiu.Location = new System.Drawing.Point(24, 45);
+            this.txtmensajeiu.Location = new System.Drawing.Point(22, 55);
             this.txtmensajeiu.Name = "txtmensajeiu";
             this.txtmensajeiu.Size = new System.Drawing.Size(305, 15);
             this.txtmensajeiu.TabIndex = 1;
@@ -289,9 +295,9 @@
             this.pnlmensajes.Controls.Add(this.panel2);
             this.pnlmensajes.Controls.Add(this.txtmensajeiu);
             this.pnlmensajes.Controls.Add(this.lbluid);
-            this.pnlmensajes.Location = new System.Drawing.Point(1, 276);
+            this.pnlmensajes.Location = new System.Drawing.Point(1, 281);
             this.pnlmensajes.Name = "pnlmensajes";
-            this.pnlmensajes.Size = new System.Drawing.Size(439, 77);
+            this.pnlmensajes.Size = new System.Drawing.Size(439, 93);
             this.pnlmensajes.TabIndex = 154;
             this.pnlmensajes.TabStop = true;
             this.pnlmensajes.Visible = false;
@@ -338,9 +344,9 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel5.Location = new System.Drawing.Point(29, 63);
+            this.panel5.Location = new System.Drawing.Point(29, 73);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(313, 1);
+            this.panel5.Size = new System.Drawing.Size(313, 2);
             this.panel5.TabIndex = 43;
             // 
             // txtMensaje
@@ -348,7 +354,7 @@
             this.txtMensaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtMensaje.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMensaje.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMensaje.Location = new System.Drawing.Point(30, 46);
+            this.txtMensaje.Location = new System.Drawing.Point(30, 54);
             this.txtMensaje.Name = "txtMensaje";
             this.txtMensaje.Size = new System.Drawing.Size(309, 15);
             this.txtMensaje.TabIndex = 1;
@@ -361,9 +367,9 @@
             this.pnlBusqueda.Controls.Add(this.panel5);
             this.pnlBusqueda.Controls.Add(this.txtMensaje);
             this.pnlBusqueda.Controls.Add(label1);
-            this.pnlBusqueda.Location = new System.Drawing.Point(1, 190);
+            this.pnlBusqueda.Location = new System.Drawing.Point(1, 173);
             this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(439, 74);
+            this.pnlBusqueda.Size = new System.Drawing.Size(439, 88);
             this.pnlBusqueda.TabIndex = 145;
             this.pnlBusqueda.TabStop = true;
             // 
@@ -382,17 +388,16 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // panelTag
+            // panelTaga
             // 
-            this.panelTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.panelTag.Controls.Add(this.lblavisos);
-            this.panelTag.Controls.Add(this.lblMensaje);
-            this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(451, 598);
-            this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(563, 25);
-            this.panelTag.TabIndex = 156;
-            this.panelTag.Visible = false;
+            this.panelTaga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panelTaga.Controls.Add(this.lblavisos);
+            this.panelTaga.Controls.Add(this.lblMensaje);
+            this.panelTaga.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTaga.Location = new System.Drawing.Point(451, 731);
+            this.panelTaga.Name = "panelTaga";
+            this.panelTaga.Size = new System.Drawing.Size(563, 25);
+            this.panelTaga.TabIndex = 156;
             // 
             // lblavisos
             // 
@@ -400,11 +405,11 @@
             this.lblavisos.BackColor = System.Drawing.Color.Transparent;
             this.lblavisos.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblavisos.ForeColor = System.Drawing.Color.Navy;
-            this.lblavisos.Location = new System.Drawing.Point(5, 2);
+            this.lblavisos.Location = new System.Drawing.Point(4, 2);
             this.lblavisos.Name = "lblavisos";
-            this.lblavisos.Size = new System.Drawing.Size(50, 20);
+            this.lblavisos.Size = new System.Drawing.Size(281, 20);
             this.lblavisos.TabIndex = 27;
-            this.lblavisos.Text = "Avisos";
+            this.lblavisos.Text = "Para modificar seleccione un registro del grid";
             this.lblavisos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblMensaje
@@ -432,6 +437,49 @@
             this.ptbimgusuario.TabStop = false;
             this.ptbimgusuario.Visible = false;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pnlnotif
+            // 
+            this.pnlnotif.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlnotif.Controls.Add(this.lblnotif);
+            this.pnlnotif.Controls.Add(this.label6);
+            this.pnlnotif.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlnotif.Location = new System.Drawing.Point(451, 733);
+            this.pnlnotif.Name = "pnlnotif";
+            this.pnlnotif.Size = new System.Drawing.Size(563, 25);
+            this.pnlnotif.TabIndex = 158;
+            this.pnlnotif.Visible = false;
+            // 
+            // lblnotif
+            // 
+            this.lblnotif.AutoSize = true;
+            this.lblnotif.BackColor = System.Drawing.Color.Transparent;
+            this.lblnotif.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnotif.ForeColor = System.Drawing.Color.White;
+            this.lblnotif.Location = new System.Drawing.Point(4, 2);
+            this.lblnotif.Name = "lblnotif";
+            this.lblnotif.Size = new System.Drawing.Size(50, 20);
+            this.lblnotif.TabIndex = 27;
+            this.lblnotif.Text = "Avisos";
+            this.lblnotif.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Navy;
+            this.label6.Location = new System.Drawing.Point(9, -40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(122, 20);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Barra de mensajes";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Plantillas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,7 +487,7 @@
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.ptbimgusuario);
-            this.Controls.Add(this.panelTag);
+            this.Controls.Add(this.panelTaga);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvPlantillas);
             this.Controls.Add(this.lblusuario);
@@ -450,6 +498,7 @@
             this.Controls.Add(this.pnlmensajes);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.pnlnotif);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Plantillas";
@@ -461,9 +510,11 @@
             this.pnlmensajes.PerformLayout();
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
-            this.panelTag.ResumeLayout(false);
-            this.panelTag.PerformLayout();
+            this.panelTaga.ResumeLayout(false);
+            this.panelTaga.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
+            this.pnlnotif.ResumeLayout(false);
+            this.pnlnotif.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,10 +539,14 @@
         private System.Windows.Forms.TextBox txtMensaje;
         private System.Windows.Forms.Panel pnlBusqueda;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Panel panelTag;
+        private System.Windows.Forms.Panel panelTaga;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.TextBox txtcvplantilla;
         private System.Windows.Forms.Label lblavisos;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel pnlnotif;
+        private System.Windows.Forms.Label lblnotif;
+        private System.Windows.Forms.Label label6;
     }
 }

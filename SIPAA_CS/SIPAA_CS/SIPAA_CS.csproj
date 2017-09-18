@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>22</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -334,6 +334,12 @@
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp2.Designer.cs">
+      <DependentUpon>VacIncPermHrEsp2.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\AutorizarIncidencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -948,6 +954,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp2.resx">
+      <DependentUpon>VacIncPermHrEsp2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AutorizarIncidencias.resx">
       <DependentUpon>AutorizarIncidencias.cs</DependentUpon>

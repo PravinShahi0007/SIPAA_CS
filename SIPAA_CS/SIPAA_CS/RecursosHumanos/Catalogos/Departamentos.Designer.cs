@@ -32,9 +32,9 @@
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Departamentos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -73,7 +73,7 @@
             label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(25, 22);
+            label4.Location = new System.Drawing.Point(25, 25);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(76, 16);
             label4.TabIndex = 44;
@@ -88,9 +88,9 @@
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label1.Location = new System.Drawing.Point(4, 4);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(180, 17);
+            label1.Size = new System.Drawing.Size(188, 17);
             label1.TabIndex = 41;
-            label1.Text = "     Buscar Departamentos";
+            label1.Text = "       Buscar Departamentos";
             // 
             // pnlBusqueda
             // 
@@ -125,9 +125,9 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel5.Location = new System.Drawing.Point(29, 63);
+            this.panel5.Location = new System.Drawing.Point(29, 66);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(250, 1);
+            this.panel5.Size = new System.Drawing.Size(250, 2);
             this.panel5.TabIndex = 43;
             // 
             // txtComp
@@ -135,7 +135,7 @@
             this.txtComp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtComp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtComp.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComp.Location = new System.Drawing.Point(30, 46);
+            this.txtComp.Location = new System.Drawing.Point(30, 48);
             this.txtComp.Name = "txtComp";
             this.txtComp.Size = new System.Drawing.Size(250, 15);
             this.txtComp.TabIndex = 0;
@@ -145,30 +145,30 @@
             this.dgvComp.AllowUserToAddRows = false;
             this.dgvComp.AllowUserToDeleteRows = false;
             this.dgvComp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvComp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvComp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvComp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvComp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvComp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvComp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvComp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvComp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvComp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvComp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvComp.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvComp.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvComp.Location = new System.Drawing.Point(457, 150);
             this.dgvComp.Name = "dgvComp";
             this.dgvComp.ReadOnly = true;
@@ -201,7 +201,7 @@
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.btnRegresar.Image = global::SIPAA_CS.Properties.Resources.ic_reply_white_18dp;
-            this.btnRegresar.Location = new System.Drawing.Point(901, 1);
+            this.btnRegresar.Location = new System.Drawing.Point(913, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 120;
@@ -245,7 +245,7 @@
             this.lbltitulo.BackColor = System.Drawing.Color.Transparent;
             this.lbltitulo.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
-            this.lbltitulo.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_18dp;
+            this.lbltitulo.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbltitulo.Location = new System.Drawing.Point(408, 0);
             this.lbltitulo.Name = "lbltitulo";
