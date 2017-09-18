@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
-using SIPAA_CS.Accesos.;
+using SIPAA_CS.Accesos;
 
 namespace SIPAA_CS
 {
