@@ -151,7 +151,7 @@ namespace SIPAA_CS.Accesos.Catalogos
             objPerfil.CVPerfil = IdPerfil;
             objPerfil.Descripcion = txtPerfil.Text.Trim();
             objPerfil.PrguMod = this.Name;
-            objPerfil.UsuuMod = LoginInfo.IdTrab;
+            objPerfil.UsuuMod = "vjiturburuv";
             string strMensaje = "";
 
             if (txtPerfil.Text.Trim() == String.Empty)

@@ -265,11 +265,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             iEli = Int32.Parse(Permisos.Rows[0][5].ToString());
 
             //LLAMA METODO LLENAR GRID
-            SLlenaGrid(6, 0,"",0,"",""); // TENIA LA 4
-
+            SLlenaGrid(4, 0,"",0,"","");
             
-            Utilerias.AjustaGridView(dgvForReg);
-
             //HABILITA BOTON AGREGAR
             if (iAgr == 1)
             {

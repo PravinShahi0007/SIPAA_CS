@@ -128,11 +128,23 @@
     <Compile Include="Acceso.Designer.cs">
       <DependentUpon>Acceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\Asignaciones\ResetPassw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Asignaciones\ResetPassw.Designer.cs">
+      <DependentUpon>ResetPassw.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\Asignaciones\UsuarioProceso.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accesos\Asignaciones\UsuarioProceso.Designer.cs">
       <DependentUpon>UsuarioProceso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\CambioContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\CambioContrasena.Designer.cs">
+      <DependentUpon>CambioContrasena.cs</DependentUpon>
     </Compile>
     <Compile Include="Accesos\DataSets\ReporteAreasUsuarios.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -334,11 +346,11 @@
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
-    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp2.cs">
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp2.Designer.cs">
-      <DependentUpon>VacIncPermHrEsp2.cs</DependentUpon>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.Designer.cs">
+      <DependentUpon>IncidenciasExtSuspRetroGeneral.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AutorizarIncidencias.cs">
       <SubType>Form</SubType>
@@ -857,6 +869,9 @@
     <EmbeddedResource Include="Acceso.resx">
       <DependentUpon>Acceso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Asignaciones\ResetPassw.resx">
+      <DependentUpon>ResetPassw.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Asignaciones\UsuarioProceso.resx">
       <DependentUpon>UsuarioProceso.cs</DependentUpon>
     </EmbeddedResource>
@@ -868,6 +883,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Asignaciones\UsuarioPerfil.resx">
       <DependentUpon>UsuarioPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\CambioContrasena.resx">
+      <DependentUpon>CambioContrasena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Catalogos\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
@@ -955,8 +973,8 @@
     <EmbeddedResource Include="Accesos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp2.resx">
-      <DependentUpon>VacIncPermHrEsp2.cs</DependentUpon>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.resx">
+      <DependentUpon>IncidenciasExtSuspRetroGeneral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AutorizarIncidencias.resx">
       <DependentUpon>AutorizarIncidencias.cs</DependentUpon>

@@ -12,6 +12,7 @@ using SIPAA_CS.App_Code;
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.Properties;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
+using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 
 namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
@@ -25,6 +26,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         SonaTrabajador contenedorempleados = new SonaTrabajador();
         Utilerias util = new Utilerias();
+        ConcepInc ConceptoIncidencias = new ConcepInc();
+        Incidencia TipoIncidencias = new Incidencia();
 
         //***********************************************************************************************
         //Autor: José Luis Alvarez Delgado
@@ -53,11 +56,20 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
                 NoTrabajador = row.Cells["NoEmpleado"].Value.ToString();
+
                 llenarGridDiasEsp(NoTrabajador);
 
-                //DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
-                //form.Show();
-                //this.Close();
+                dgvInc.Columns[0].Width = 190;
+                dgvInc.Columns[1].Width = 190;
+                dgvInc.Columns[2].Width = 95;
+                dgvInc.Columns[3].Width = 95;
+                dgvInc.Columns[4].Width = 95;
+                dgvInc.Columns[5].Width = 95;
+                dgvInc.Columns[6].Width = 35;
+                dgvInc.Columns[7].Width = 110;
+                dgvInc.Columns[8].Width = 68;
+                //Guajolocombo Conceptos Incidencia
+                CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
             }
         }
 
@@ -72,9 +84,64 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             if (txtEmpleado.Text == String.Empty)
             {
                 fgridEmpleados(3, txtEmpleado.Text.Trim()); //todos los activos x Num
+                dgvEmpleados.Columns[0].Width =85;
+                dgvEmpleados.Columns[1].Width =100;
+                dgvEmpleados.Columns[2].Width =140;
+                dgvEmpleados.Columns[3].Width =140;
+                dgvEmpleados.Columns[4].Width =150;
+                dgvEmpleados.Columns[5].Visible = false;
+                dgvEmpleados.Columns[6].Visible =false;
                 txtEmpleado.Text = "";
                 txtEmpleado.Focus();
             }
+        }
+
+        private void cbConcepto_DropDown(object sender, EventArgs e)
+        {
+            cbTipo.Text=string.Empty;
+        }
+
+        private void cbTipo_DropDown(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(cbConcepto.Text))
+            {
+                Incidencia objIncidencia = new Incidencia();
+                objIncidencia.CVIncidencia = Int32.Parse(cbConcepto.SelectedValue.ToString());
+                objIncidencia.Descripcion = "";
+                objIncidencia.CVTipo = 0;
+                objIncidencia.TipoIncidencia = "";
+                objIncidencia.Estatus = "";
+                objIncidencia.UsuuMod = "";
+                objIncidencia.PrguMod = "";
+                objIncidencia.Estatus = "";
+                int Opcion = 8;
+
+                DataTable dtIncidencia = TipoIncidencias.ObtenerIncidenciaxTipo(objIncidencia, Opcion);
+                cbTipo.DataSource = dtIncidencia;
+                cbTipo.DisplayMember = "Tipo";
+                cbTipo.ValueMember = "cvtipo";
+            }
+        }
+
+        private void btnAsignar_Click(object sender, EventArgs e)
+        {
+            ///Aqui hay que asignar los valores en la tabla
+            //para insertar registro nuevo 
+            /*
+            fuidPlantillas(1, 0, txtmensajeiu.Text.Trim(), LoginInfo.IdTrab, this.Name);
+
+            dgvPlantillas.DataSource = null;
+            dgvPlantillas.Columns.RemoveAt(0);
+            panelTaga.Visible = false;
+            pnlnotif.Visible = true;
+            pnlnotif.BackColor = ColorTranslator.FromHtml("#2e7d32");
+            pnlnotif.BackColor = ColorTranslator.FromHtml("#2e7d32");
+            lblnotif.Text = "Registro Guardado Correctamente";
+            timer1.Start();
+            txtmensajeiu.Text = "";
+            txtmensajeiu.Focus(); */
+            //llena grid con datos existente
+            //gridPlantillas(4, 0, "", "", "");
         }
 
         //boton minimizar        
@@ -180,6 +247,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             dgvInc.DataSource = dtdias;
         }
+
+        private void CbConceptoIncidencia(int p_opcion, int p_cvIncidencia, string p_descripcion, int p_orden, int p_stgenera, int p_strepresenta, int p_stincidencia, string p_usuumod, string p_prgumodr)
+        {
+            DataTable dtIncidencia = ConceptoIncidencias.ConcepInc_S(p_opcion, p_cvIncidencia, p_descripcion, p_orden, p_stgenera, p_strepresenta, p_stincidencia, p_usuumod, p_prgumodr);
+            cbConcepto.DataSource = dtIncidencia;
+            cbConcepto.DisplayMember = "Descripcion";
+            cbConcepto.ValueMember = "Clave";
+
+            //dgvIncidencia.ClearSelection();
+            //sHabilitaPermisos();
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

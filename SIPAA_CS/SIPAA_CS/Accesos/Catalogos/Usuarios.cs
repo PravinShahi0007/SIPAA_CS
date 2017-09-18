@@ -219,6 +219,8 @@ namespace SIPAA_CS.Accesos.Catalogos
 
             pass = utilerias.cifradoMd5(passw);
 
+            //valida que el usuario este activo en sonarh
+           //int istusu = usuario.ivalusuactivo(idtrab,19);
 
             //AGREGAR
             if (variable == 1)
@@ -259,6 +261,8 @@ namespace SIPAA_CS.Accesos.Catalogos
                         txtPassword.Text = "";
                         MessageBox.Show("El usuario " + nombre + " se agrego correctamente");
                         panel10.Visible = false;
+                        dgvAccesoUsuario.DataSource = null;
+                        LlenaGridUsuarios("", 0, "", "", 0, "", "", 12);
                     }
 
                     txtBuscar.Text = "";
