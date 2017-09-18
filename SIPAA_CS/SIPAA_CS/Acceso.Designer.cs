@@ -56,6 +56,7 @@
             this.label1.Size = new System.Drawing.Size(52, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Usuario";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -68,6 +69,7 @@
             this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel4
             // 
@@ -76,6 +78,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(250, 1);
             this.panel4.TabIndex = 18;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // panel3
             // 
@@ -84,6 +87,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(250, 1);
             this.panel3.TabIndex = 19;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // txtUsuario
             // 
@@ -95,6 +99,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(250, 18);
             this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // txtPwd
             // 
@@ -107,6 +112,7 @@
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(250, 18);
             this.txtPwd.TabIndex = 1;
+            this.txtPwd.TextChanged += new System.EventHandler(this.txtPwd_TextChanged);
             // 
             // button4
             // 
@@ -203,6 +209,7 @@
             this.label4.TabIndex = 49;
             this.label4.Text = "Acceso - SIPAA";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Acceso
             // 

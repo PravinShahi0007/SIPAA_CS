@@ -212,6 +212,32 @@ namespace SIPAA_CS.App_Code
             return regreso;
         }
 
+        //valida usuario activo
+        public int ivalusuactivo(int iidtrab, int iopcion)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_acceusuario_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = iidtrab;
+            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_opcion", SqlDbType.VarChar).Value = iopcion;
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            int regreso = Convert.ToInt32(cmd.ExecuteScalar());
+
+            objConexion.cerrarConexion();
+
+            return regreso;
+        }
+
         public DataTable ObtenerAccesosUsuario(string cvusuario, int idtrab, string nombre, string passw, int stusuario, string usuumod, string prgmod, int opcion)
         {
 
@@ -473,6 +499,58 @@ namespace SIPAA_CS.App_Code
         public static class Permisos
         {
             public static Dictionary<string, int> dcPermisos;
+        }
+
+        public int iactpw(int iopcion, string susurio, string pwnuevo, string susumodif, string sprgmodif)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_acceusuario_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = susurio;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = pwnuevo;
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susumodif;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sprgmodif;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            objConexion.asignarConexion(cmd);
+
+            int regreso = Convert.ToInt32(cmd.ExecuteScalar());
+            objConexion.cerrarConexion();
+            return regreso;
+
+        }
+
+        public DataTable irstpwd(int iopcion, string scveusuario, string pwnuevo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_acceusuario_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = scveusuario;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = pwnuevo;
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            objConexion.cerrarConexion();
+
+            DataTable dtusuario = new DataTable();
+            Adapter.Fill(dtusuario);
+            return dtusuario;
+
         }
     }
 

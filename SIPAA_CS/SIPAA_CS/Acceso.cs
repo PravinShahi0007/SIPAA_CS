@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
+using SIPAA_CS.Accesos;
 
 namespace SIPAA_CS
 {
@@ -63,7 +64,10 @@ namespace SIPAA_CS
         }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            
+
+            string usuariov = utilerias.cifradoMd5(txtUsuario.Text.Trim());
+            string passworwv = utilerias.cifradoMd5(txtPwd.Text.Trim());
+
             if (txtUsuario.Text != String.Empty && txtPwd.Text != String.Empty)
             {
                 
@@ -75,7 +79,7 @@ namespace SIPAA_CS
 
                     string password = utilerias.cifradoMd5(pwd);
 
-                    Console.Write(password);
+                   // Console.Write(password);
                    
                     try
                     {
@@ -99,20 +103,27 @@ namespace SIPAA_CS
                                     if (respuesta == 1)
                                     {
                                         ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 6);
-                                        
+                                        LoginInfo.IdTrab = txtUsuario.Text;
+                                        usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
+                                        string NomUsu = usuario.Nombre;
+                                        LoginInfo.Nombre = NomUsu;
+
                                         if (ltModulosxUsuario.Count != 0)
                                         {
-                                            //MessageBox.Show("si tienes padres");
-                                            Dashboard ds = new Dashboard();
-                                            LoginInfo.IdTrab = txtUsuario.Text;
+                                            //valida usuario
+                                            if (usuariov == passworwv)
+                                            {
+                                                CambioContrasena camcon = new CambioContrasena();
+                                                camcon.Show();
+                                                this.Close();
+                                            }
+                                            else
+                                            {
+                                                Dashboard ds = new Dashboard();
+                                                ds.Show();
+                                                this.Close();
+                                            }
 
-                                            usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
-
-                                            string NomUsu = usuario.Nombre;
-                                            LoginInfo.Nombre = NomUsu;
-                                            //ds.RecibirIdTrab(txtUsuario.Text);
-                                            ds.Show();
-                                            this.Close();
                                         }
                                         else
                                         {
@@ -162,6 +173,7 @@ namespace SIPAA_CS
                     pwd = txtPwd.Text;
                     //int us = Convert.ToInt32(user);
 
+
                     string password = utilerias.cifradoMd5(pwd);
 
                     Console.Write(password);
@@ -179,26 +191,31 @@ namespace SIPAA_CS
                             int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), 0, "", password.Trim(), 0, "", "", 10);
                             if (respuesta == 1)
                             {
-
                                 ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 6);
+                                LoginInfo.IdTrab = txtUsuario.Text;
+                                usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
+                                string NomUsu = usuario.Nombre;
+                                LoginInfo.Nombre = NomUsu;
 
-                                if (ltModulosxUsuario.Count != 0)
+                                //valida usuario
+                                if (usuariov == passworwv)
                                 {
-                                    //MessageBox.Show("si tienes padres");
-                                    Dashboard ds = new Dashboard();
-                                    LoginInfo.IdTrab = txtUsuario.Text;
-
-                                    usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
-
-                                    string NomUsu = usuario.Nombre;
-                                    LoginInfo.Nombre = NomUsu;
-                                    //ds.RecibirIdTrab(txtUsuario.Text);
-                                    ds.Show();
+                                    CambioContrasena camcon = new CambioContrasena();
+                                    camcon.Show();
                                     this.Close();
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No tienes módulos asignados","SIPAA");
+                                    if (ltModulosxUsuario.Count != 0)
+                                    {
+                                        //MessageBox.Show("si tienes padres");
+                                        Dashboard ds = new Dashboard();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("No tienes módulos asignados", "SIPAA");
+                                    }
+
                                 }
                                
                             }
@@ -220,7 +237,6 @@ namespace SIPAA_CS
                     }
                     catch (Exception ex)
                     {
-
                         MessageBox.Show("No se encontró usuario en SONARH","SIPAA");
                         txtUsuario.Focus();
                     }
@@ -281,6 +297,41 @@ namespace SIPAA_CS
             //configura texto del objeto
             toolTip1.SetToolTip(this.btnCerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPwd_TextChanged(object sender, EventArgs e)
+        {
+
         }
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
