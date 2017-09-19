@@ -64,10 +64,11 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         }
 
         //metodo para insertar registro Dias Esp
-        /*
-        public int InsertarDiasEspecialesxTrabajador(string sIdTrab, int iOpcion, int iCvIncidencia, int iCvTipo, DateTime fFechaInicio, DateTime fFechaFin, int iDias, 
+        public int InsertarDiasEspecialesxTrabajador(int sIdTrab, int iOpcion, int iCvIncidencia, int iCvTipo, string fFechaInicio, string fFechaFin, int iDias, 
             string tpHoraentrada, string tpHoraSalida, string sReferencia, int iOrden, int iSubsidio, int iIdtrabrys, string spusuumod, string spprgumod, int iIdCompania, int iIPlanta)
         {
+            
+            int iprespuesta = 0;
             ////////////////////////////////
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechtrabdiasesp_suid";
@@ -77,11 +78,11 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = iOpcion;
             cmd.Parameters.Add("@P_cvincidencia", SqlDbType.Int).Value = iCvIncidencia;
             cmd.Parameters.Add("@P_cvtipo", SqlDbType.Int).Value = iCvTipo;
-            cmd.Parameters.Add("@P_FechaInicio", SqlDbType.DateTime).Value = fFechaInicio;
-            cmd.Parameters.Add("@P_FechaFin", SqlDbType.DateTime).Value = fFechaFin;
+            cmd.Parameters.Add("@P_FechaInicio", SqlDbType.DateTime).Value = Convert.ToDateTime(fFechaInicio);
+            cmd.Parameters.Add("@P_FechaFin", SqlDbType.DateTime).Value = Convert.ToDateTime(fFechaFin);
             cmd.Parameters.Add("@P_Dias", SqlDbType.Int).Value = iDias;
-            cmd.Parameters.Add("@P_HoraEntrada", SqlDbType.Time).Value = tpHoraentrada;
-            cmd.Parameters.Add("@P_HoraSalida", SqlDbType.Time).Value = tpHoraSalida;
+            cmd.Parameters.Add("@P_HoraEntrada", SqlDbType.VarChar).Value = tpHoraentrada;
+            cmd.Parameters.Add("@P_HoraSalida", SqlDbType.VarChar).Value = tpHoraSalida;
             cmd.Parameters.Add("@P_Referencia", SqlDbType.VarChar).Value = sReferencia;
             cmd.Parameters.Add("@P_Orden", SqlDbType.Int).Value = iOrden;
             cmd.Parameters.Add("@P_Subsidio", SqlDbType.Int).Value = iSubsidio;
@@ -95,6 +96,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             objConexion.asignarConexion(cmd);
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
             objConexion.cerrarConexion();
-        }*/
+
+            return (iprespuesta);
+        }
     } 
 }

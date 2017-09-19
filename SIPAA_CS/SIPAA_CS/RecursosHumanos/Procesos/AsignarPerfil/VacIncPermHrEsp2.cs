@@ -28,6 +28,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         Utilerias util = new Utilerias();
         ConcepInc ConceptoIncidencias = new ConcepInc();
         Incidencia TipoIncidencias = new Incidencia();
+        DiasEspeciales DiasEspeciales = new DiasEspeciales();
 
         //***********************************************************************************************
         //Autor: José Luis Alvarez Delgado
@@ -68,8 +69,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 dgvInc.Columns[6].Width = 35;
                 dgvInc.Columns[7].Width = 110;
                 dgvInc.Columns[8].Width = 68;
-                //Guajolocombo Conceptos Incidencia
-                CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
+                ////Guajolocombo Conceptos Incidencia
+                //CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
             }
         }
 
@@ -93,6 +94,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 dgvEmpleados.Columns[6].Visible =false;
                 txtEmpleado.Text = "";
                 txtEmpleado.Focus();
+                //Guajolocombo Conceptos Incidencia
+                CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
             }
         }
 
@@ -127,9 +130,25 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             ///Aqui hay que asignar los valores en la tabla
             //para insertar registro nuevo 
-            /*
-            fuidPlantillas(1, 0, txtmensajeiu.Text.Trim(), LoginInfo.IdTrab, this.Name);
 
+            foreach (DataGridViewRow row in dgvEmpleados.Rows)
+            {
+                try
+                {
+                    int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
+                    fInsDiasEsp(iIdTrab, 1, Convert.ToInt32(cbConcepto.SelectedValue.ToString()), Convert.ToInt32(cbTipo.SelectedValue.ToString()), dtpFechaInical.Text.Trim(),
+                                dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), txtHoraEntrada.Text, txtHoraSalida.Text, txtReferencia.Text, 4,
+                                Convert.ToInt32(txtSubsidio.Text), 0, LoginInfo.IdTrab, this.Name, 0, 0);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(""+ex);
+                }
+
+            }
+
+            /*
             dgvPlantillas.DataSource = null;
             dgvPlantillas.Columns.RemoveAt(0);
             panelTaga.Visible = false;
@@ -139,9 +158,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             lblnotif.Text = "Registro Guardado Correctamente";
             timer1.Start();
             txtmensajeiu.Text = "";
-            txtmensajeiu.Focus(); */
-            //llena grid con datos existente
-            //gridPlantillas(4, 0, "", "", "");
+            txtmensajeiu.Focus();
+            */
         }
 
         //boton minimizar        
@@ -257,6 +275,39 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             //dgvIncidencia.ClearSelection();
             //sHabilitaPermisos();
+        }
+
+        private void fInsDiasEsp(int iIdTrab, int iOpcion, int iCvIncidencia, int iCvTipo, string fFechaInicio, string fFechaFin, int iDias,
+            string tpHoraentrada, string tpHoraSalida, string sReferencia, int iOrden, int iSubsidio, int iIdtrabrys, string spusuumod, string spprgumod, int iIdCompania, int iIPlanta)
+        {
+            DiasEspeciales.InsertarDiasEspecialesxTrabajador(iIdTrab, iOpcion, iCvIncidencia, iCvTipo, fFechaInicio, fFechaFin, iDias, tpHoraentrada, tpHoraSalida,
+                sReferencia, iOrden, iSubsidio, iIdtrabrys, spusuumod, spprgumod, iIdCompania, iIPlanta);
+
+            //txtmensajeiu.Text = "";
+            //txtMensaje.Focus();
+
+            /*
+            //agrega registro
+            if (ipactbtn == 1)
+            {
+                ip_rep = oPlantillas.fuid_sp_plantillas(ipopcion, ipcvplantilla, spdescripcion, spusuumod, spprgumod);
+                txtmensajeiu.Text = "";
+                txtMensaje.Focus();
+            }
+            //actualiza registro
+            else if (ipactbtn == 2)
+            {
+                ip_rep = oPlantillas.fuid_sp_plantillas(ipopcion, ipcvplantilla, spdescripcion, spusuumod, spprgumod);
+                txtmensajeiu.Text = "";
+                txtMensaje.Focus();
+            }
+            //elimina registro
+            else if (ipactbtn == 3)
+            {
+                ip_rep = oPlantillas.fuid_sp_plantillas(ipopcion, ipcvplantilla, spdescripcion, spusuumod, spprgumod);
+                txtmensajeiu.Text = "";
+                txtMensaje.Focus();
+            } */
         }
 
         //-----------------------------------------------------------------------------------------------
