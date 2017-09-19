@@ -682,7 +682,7 @@ namespace SIPAA_CS.Accesos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "FiltroMasDe3Faltas.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -738,7 +738,10 @@ namespace SIPAA_CS.Accesos.Catalogos
             imgCheckProcesos.Image = Resources.ic_lens_blue_grey_600_18dp;
             imgCheckProcesos.Name = "Seleccionar";
             dgvModulo.Columns.Insert(0, imgCheckProcesos);
+            dgvModulo.Columns[0].Width = 90;
+            dgvModulo.Columns[3].Width = 380;
             dgvModulo.Columns[3].HeaderText = "Descripción";
+            dgvModulo.Columns[4].Width = 70;
             dgvModulo.Columns[4].HeaderText = "Ambiente";
             dgvModulo.Columns[5].HeaderText = "Tipo Módulo";
             dgvModulos.Columns[1].Visible = false;
@@ -747,10 +750,7 @@ namespace SIPAA_CS.Accesos.Catalogos
             dgvModulos.Columns[6].Visible = false;
             dgvModulos.Columns[7].Visible = false;
             dgvModulos.Columns[8].Visible = false;
-
-
-
-
+            dgvModulo.Columns[9].Width = 70;
 
             dgvModulo.ClearSelection();
         }
