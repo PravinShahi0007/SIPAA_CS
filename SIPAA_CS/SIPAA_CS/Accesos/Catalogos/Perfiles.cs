@@ -54,18 +54,20 @@ namespace SIPAA_CS.Accesos.Catalogos
             }
 
             dgvPerfiles.DataSource = dtPerfiles;
+
+            dgvPerfiles.Columns[0].Width = 90;
+            dgvPerfiles.Columns[2].Width = 400;
+            dgvPerfiles.Columns[6].Width = 80;
+            
+
             dgvPerfiles.Columns["CVPERFIL"].Visible = false;
             dgvPerfiles.Columns["USUUMOD"].Visible = false;
             dgvPerfiles.Columns["FHUMOD"].Visible = false;
             dgvPerfiles.Columns["PRGUMOD"].Visible = false;
            
             dgvPerfiles.Visible = true;
-
-             
-
             
             dgvPerfiles.ClearSelection();
-
 
         }
         //-----------------------------------------------------------------------------------------------
@@ -140,6 +142,8 @@ namespace SIPAA_CS.Accesos.Catalogos
             btnGuardar.Image = Resources.Guardar;
             //Utilerias.CambioBoton(btnGuardar,btnEliminar ,btnEditar, btnGuardar);
             Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Guardar");
+
+            txtPerfil.Focus();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -158,7 +162,7 @@ namespace SIPAA_CS.Accesos.Catalogos
             {
 
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "El Campo Perfil no puede ir vacio.");
-
+                txtPerfil.Focus();
             }
             else
             {
@@ -182,9 +186,7 @@ namespace SIPAA_CS.Accesos.Catalogos
                 ckbEliminar.Checked = false;
                 if (iResponse != 0)
                 {
-
                     btnBuscar_Click(sender, e);
-
                 }
 
             }
@@ -212,6 +214,15 @@ namespace SIPAA_CS.Accesos.Catalogos
 
         private void Crear_Perfil_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != this.Name)
+                {
+                    f.Hide();
+                }
+            }
 
             lblusuario.Text = LoginInfo.Nombre;
             // Diccionario Permisos x Pantalla
@@ -222,21 +233,15 @@ namespace SIPAA_CS.Accesos.Catalogos
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
             Modulo objModulo = new Modulo();
             
-
             if (Permisos.dcPermisos["Crear"] == 0 ) {
 
                 btnAgregar.Visible = false;
             }
 
-           
-
             lblAccion.Text = "       Perfil Seleccionado";
             txtPerfil.Text = "Sin Selección";
-
 
             Perfil objPerfil = new Perfil();
 
@@ -476,6 +481,8 @@ namespace SIPAA_CS.Accesos.Catalogos
 
         private void btnRegresar_Click_1(object sender, EventArgs e)
         {
+            AcceDashboard accedb = new AcceDashboard();
+            accedb.Show();
             this.Close();
         }
 

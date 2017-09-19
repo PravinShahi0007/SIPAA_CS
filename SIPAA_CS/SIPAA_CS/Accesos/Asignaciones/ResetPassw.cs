@@ -86,7 +86,10 @@ namespace SIPAA_CS.Accesos.Asignaciones
             if (dtusuario.Rows.Count <= 0)
             {
                 DialogResult result = MessageBox.Show("El usuario que busca no existe, verificar", "SIPAA", MessageBoxButtons.OK);
+                txtusuario.Text = "";
+                txtestatus.Text = "";
                 txtcvusuarios.Focus();
+                btguardar.Enabled = false;
             }
             else if (istusu == 0)
             {
