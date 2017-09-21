@@ -51,21 +51,27 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public DataTable ObtenerInformacionTrabajador(int popcion, string ptextoabuscar)
+        public DataTable obtenerempleadosxfiltros(int popcion, string pidtrab, string pidcompania, string pidarea, string pidpuesto, 
+            string piddepartamento, string pidubicacion, string pidtiponomina)
         {
+            //Filtros Multiples JLA 21 sep 2017
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_sonatrabajador_s";
+            cmd.CommandText = @"usp_trabajador_fm";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             SqlConnection sqlcn = objConexion.conexionSonarh();
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
-            cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = ptextoabuscar;
+            cmd.Parameters.Add("@p_IdTrab", SqlDbType.VarChar).Value = pidtrab;
+            cmd.Parameters.Add("@p_IdCompania", SqlDbType.VarChar).Value = pidcompania;
+            cmd.Parameters.Add("@p_IdArea", SqlDbType.VarChar).Value = pidarea;
+            cmd.Parameters.Add("@p_IdPuesto", SqlDbType.VarChar).Value = pidpuesto;
+            cmd.Parameters.Add("@p_IdDepartamento", SqlDbType.VarChar).Value = piddepartamento;
+            cmd.Parameters.Add("@p_IdUbicacion", SqlDbType.VarChar).Value = pidubicacion;
+            cmd.Parameters.Add("@p_IdTipoNomina", SqlDbType.VarChar).Value = pidtiponomina;
 
             objConexion.asignarConexion(cmd);
-
             SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
-
             objConexion.cerrarConexions();
 
             DataTable dtEmpleados = new DataTable();
@@ -176,7 +182,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = sIdtrab;
             cmd.Parameters.Add("@P_pass", SqlDbType.NVarChar).Value = sPass;
             cmd.Parameters.Add("@P_rostroTmp", SqlDbType.NVarChar).Value = RostroTmp;
-            cmd.Parameters.Add("@P_rostrolong", SqlDbType.Int).Value = rostrolong;
+            cmd.Parameters.Add("@P_rostrolong", SqlDbType.Int).Value =Convert.ToInt32( rostrolong);
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = sUsuumod;
             cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = sPrgmod;
             cmd.Parameters.Add("@P_opcion", SqlDbType.Int).Value = iOpcion;

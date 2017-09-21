@@ -73,13 +73,15 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechtrabdiasesp_suid";
             cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = sIdTrab;
             cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = iOpcion;
             cmd.Parameters.Add("@P_cvincidencia", SqlDbType.Int).Value = iCvIncidencia;
             cmd.Parameters.Add("@P_cvtipo", SqlDbType.Int).Value = iCvTipo;
-            cmd.Parameters.Add("@P_FechaInicio", SqlDbType.DateTime).Value = Convert.ToDateTime(fFechaInicio);
-            cmd.Parameters.Add("@P_FechaFin", SqlDbType.DateTime).Value = Convert.ToDateTime(fFechaFin);
+            cmd.Parameters.Add("@P_FechaInicio", SqlDbType.VarChar).Value = fFechaInicio;
+            cmd.Parameters.Add("@P_FechaFin", SqlDbType.VarChar).Value = fFechaFin;
             cmd.Parameters.Add("@P_Dias", SqlDbType.Int).Value = iDias;
             cmd.Parameters.Add("@P_HoraEntrada", SqlDbType.VarChar).Value = tpHoraentrada;
             cmd.Parameters.Add("@P_HoraSalida", SqlDbType.VarChar).Value = tpHoraSalida;
@@ -91,10 +93,9 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@P_prgumon", SqlDbType.VarChar).Value = sPrgumod;
             cmd.Parameters.Add("@P_IdCompania", SqlDbType.Int).Value = iIdCompania;
             cmd.Parameters.Add("@P_IdPlanta", SqlDbType.Int).Value = iIPlanta;
-
-            Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
-            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+
+            iprespuesta = Convert.ToInt32(cmd.ExecuteScalar());
             objConexion.cerrarConexion();
 
             return (iprespuesta);

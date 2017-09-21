@@ -189,11 +189,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             if (dgvEmpleados.Columns.Count > 0) { dgvEmpleados.Columns.RemoveAt(0); }
 
             DataTable dt = obj.obtrelojeschecadores(9,obj.p_cvreloj,obj.p_descripcion,obj.p_ip,obj.p_cvvnc,0,obj.p_usuumod,obj.p_prgumodr, LoginInfo.IdTrab, LoginInfo.IdTrab);
-
             dgvEmpleados.DataSource = dt;
-
             Utilerias.AgregarCheck(dgvEmpleados,0);
-            
             dgvEmpleados.Columns["cvreloj"].Visible = false;
             dgvEmpleados.Columns["valida_Huella"].Visible = false;
             dgvEmpleados.Columns["valida_Teclado"].Visible = false;
@@ -204,7 +201,6 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             dgvEmpleados.Columns["Teclado"].Visible = false;
 
          
-
             foreach (DataGridViewRow row in dgvEmpleados.Rows)
             {
                 row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;

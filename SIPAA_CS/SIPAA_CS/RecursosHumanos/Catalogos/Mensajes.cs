@@ -509,12 +509,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns[0].HeaderText = "Selección";
 
                 dgvMensajes.Columns[0].Width = 80;
-                dgvMensajes.Columns[1].Width = 95;
-                dgvMensajes.Columns[2].Width = 95;
-                dgvMensajes.Columns[3].Width = 85;
-               // dgvMensajes.Columns[4].Width = 80;
-                dgvMensajes.Columns[4].Visible = false;                                     
-                //dgvMensajes.Columns[5].Width = 300;
+                dgvMensajes.Columns[1].Width = 90;
+                dgvMensajes.Columns[2].Width = 90;
+                //dgvMensajes.Columns[3].Width = 85;
+                dgvMensajes.Columns[4].Width = 300;
+                dgvMensajes.Columns[3].Visible = false;                                     
+               // dgvMensajes.Columns[5].Width = 300;
                 dgvMensajes.ClearSelection();
             }
             else if (pins == 1 && pact == 1)
@@ -728,6 +728,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 tag = 253;
                 chkCaduca.Checked = false;
                 chkCaduca.Visible = true;
+                dgvNombre.DataSource = new DataSet();
+                txtidtrab.Text = "";
+                txtidtrab.Enabled = false;
+                txtmensajeiu.Text = "";
             }
             else
                chkCaduca.Visible = false;
@@ -744,6 +748,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 tag = 254;
                 chkCaduca.Checked = false;
+                txtidtrab.Enabled = true;
+                txtmensajeiu.Text = ""; 
             }
            
         }
@@ -779,6 +785,22 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 MessageBox.Show("No puede elegir una fecha final menor a la de inicio, se pondra la misma fecha de inicio", "SIPPA", MessageBoxButtons.OK);
                 dtpfechafin.Value = dtpfechainicial.Value.Date;
+            }
+        }
+
+        private void txtidtrab_TextChanged(object sender, EventArgs e)
+        {
+            if (txtidtrab.Text!=string.Empty)
+            {
+                SonaTrabajador objTrab = new SonaTrabajador();
+                DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(txtidtrab.Text, 14, "1", "1", 0, LoginInfo.IdTrab, this.Name);
+                //llenarGrid(dtTrab, dgvNombre);
+                if (dgvNombre.Columns.Count > 0)
+                     dgvNombre.Columns.RemoveAt(0);
+                
+                dgvNombre.DataSource = dtTrab;
+                //Utilerias.AgregarCheck(dgv, 0);
+
             }
         }
     }
