@@ -76,7 +76,7 @@ namespace SIPAA_CS.App_Code
         } // public DataTable obtrelojeschecadores(int p_opcion, int p_cvreloj, string p_descripcion, string p_usuumod, string p_prgumodr)
 
         //metodo insertar, actualizar, eliminar registro, listar x descripción, listar x fecha
-        public int udirelojeschecadores(int p_opcion, int p_cvreloj, string p_descripcion, string p_ip, string p_cvvnc, int p_stactualiza, string p_usuumod, string p_prgumodr)
+        public int udirelojeschecadores(int p_opcion, int p_cvreloj, string p_descripcion, string p_ip, string p_cvvnc, int p_stactualiza, string p_usuumod, string p_prgumodr, bool teclado, bool huella, bool mhuella, bool rostro)
         {
             int p_respuesta = 0;
             int p_respuestaValidacion = 0;
@@ -102,6 +102,12 @@ namespace SIPAA_CS.App_Code
                  * */
                 cmd.Parameters.Add("@p_ususincusuario", SqlDbType.VarChar).Value = string.Empty;
                 cmd.Parameters.Add("@p_ususincchecadas", SqlDbType.VarChar).Value = string.Empty;
+
+                cmd.Parameters.Add("@p_teclado", SqlDbType.Bit).Value = teclado;
+                cmd.Parameters.Add("@p_huella", SqlDbType.Bit).Value = huella;
+                cmd.Parameters.Add("@p_multiplehuella", SqlDbType.Bit).Value = mhuella;
+                cmd.Parameters.Add("@p_rostro", SqlDbType.Bit).Value = rostro;
+
                 objConexion.asignarConexion(cmd);
                 //
                 p_respuesta = Convert.ToInt32(cmd.ExecuteScalar());
@@ -129,6 +135,11 @@ namespace SIPAA_CS.App_Code
                  * */
                 cmd.Parameters.Add("@p_ususincusuario", SqlDbType.VarChar).Value = string.Empty;
                 cmd.Parameters.Add("@p_ususincchecadas", SqlDbType.VarChar).Value = string.Empty;
+
+                cmd.Parameters.Add("@p_teclado", SqlDbType.Bit).Value = teclado;
+                cmd.Parameters.Add("@p_huella", SqlDbType.Bit).Value = huella;
+                cmd.Parameters.Add("@p_multiplehuella", SqlDbType.Bit).Value = mhuella;
+                cmd.Parameters.Add("@p_rostro", SqlDbType.Bit).Value = rostro;
 
                 objConexion.asignarConexion(cmd);
                 //
