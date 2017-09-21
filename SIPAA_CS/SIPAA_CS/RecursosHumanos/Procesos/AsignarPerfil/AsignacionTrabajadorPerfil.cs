@@ -508,7 +508,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             try
             {
-                string UsuuMod = LoginInfo.Nombre;
+                string UsuuMod = LoginInfo.IdTrab;
                 string PrguMod = this.Name;
                 FormaReg objFr = new FormaReg();
                 LlenarGridFormasRegistro("%");
@@ -535,6 +535,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
                 Utilerias.ControlNotificaciones(panelTagForReg, lbMensajeForReg, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
                 timer1.Start();
                 AsignarFormas(TrabajadorInfo.IdTrab);
@@ -570,10 +571,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
           
             Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Comienza proceso");
             System.Threading.Thread.Sleep(1000);
-            
-           
-         
-           try
+            try
             {
                
                 relojseleccionados();
@@ -1453,20 +1451,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             RelojChecador objReloj = new RelojChecador();
             SonaTrabajador objTrab = new SonaTrabajador();
             bool bConexion = false;
-            
             int iCont = 0;
             foreach (Reloj obj in ltReloj2)
             {
                 iCont += 1;
-               
-               // panelTagRelojCheck.Enabled = true;
-                //lbMensajeRelojCheck.Enabled = true;
                 Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj2.Count);
-                //panelTagRelojCheck.Enabled = false;
-                //lbMensajeRelojCheck.Enabled = false;
-                //System.Threading.Thread.Sleep(1000); parece que no la voy  a ocupar
-
-                
                 bConexion = Connect_Net(obj.IpReloj, 4370);
               if (bConexion != false)
                 {
@@ -1474,13 +1463,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, iOpcion, sUsuuMod, sPrguMod);
                      objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
                     if (chkAdmin.Checked == true)
-                        objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "", sUsuuMod, sPrguMod, 8);
-                   // else
-                     //   objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "", sUsuuMod, sPrguMod, 9);
-                     
-                    // objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 13, sUsuuMod, Name);
-
-
+                        objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, sPrguMod, 8);
                     string idtrab = lbIdTrab.Text;
                     string Nombre = lbNombre.Text;
                     objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, "", 0, true); //
@@ -1489,15 +1472,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
             
             Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Guardando asignaciones");
-           
-          
-
-            //FormaReg objFr = new FormaReg();
-          
-
-            //objFr.FormasxUsuario(TrabajadorInfo.IdTrab, 1, 1, sUsuuMod, sPrguMod);
-            //objFr.FormasxUsuario(TrabajadorInfo.IdTrab, 4, 1, sUsuuMod, sPrguMod);
-
             DialogResult Resultado = MessageBox.Show("Por favor capture los biométricos del empleado, AL TERMINAR \npresione ACEPTAR para que los datos se sincronicen\nen caso de no poder tomar los biometricos, presione CANCELAR", "SIPAA", MessageBoxButtons.OKCancel);
             if (Resultado == DialogResult.OK)
             {
