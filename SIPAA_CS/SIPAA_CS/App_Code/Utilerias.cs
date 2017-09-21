@@ -375,11 +375,11 @@ namespace SIPAA_CS.App_Code
 
         public void cargarcombo(ComboBox nombre, DataTable datoscbo)
         {
-            p_inicbo = 0;
+            //p_inicbo = 0;
             nombre.DataSource = datoscbo;
             nombre.DisplayMember = "Descripción";
             nombre.ValueMember = "Clave";
-            p_inicbo = 1;
+            //p_inicbo = 1;
             //nombre.Text = "";
         }
 

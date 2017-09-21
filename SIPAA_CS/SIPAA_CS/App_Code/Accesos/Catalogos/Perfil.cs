@@ -330,8 +330,8 @@ namespace SIPAA_CS.App_Code
 
             cmd.Parameters.Add("@P_cvmodulo", SqlDbType.Text).Value = smodulo;
             cmd.Parameters.Add("@P_cvperfil", SqlDbType.Text).Value = "";
-            cmd.Parameters.Add("@P_usuumod", SqlDbType.Text).Value = "";
-            cmd.Parameters.Add("@P_prgumod", SqlDbType.Text).Value = susurio;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.Text).Value = susurio;
+            cmd.Parameters.Add("@P_prgumod", SqlDbType.Text).Value = smodulo;
             cmd.Parameters.Add("@P_stact", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_steli", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@P_stcre", SqlDbType.Int).Value = 0;
