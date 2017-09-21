@@ -23,12 +23,19 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             InitializeComponent();
         }
         string NoTrabajador;
+        string svalidacampos;
 
         SonaTrabajador contenedorempleados = new SonaTrabajador();
         Utilerias util = new Utilerias();
         ConcepInc ConceptoIncidencias = new ConcepInc();
         Incidencia TipoIncidencias = new Incidencia();
         DiasEspeciales DiasEspeciales = new DiasEspeciales();
+        SonaCompania2 oCompañia = new SonaCompania2();
+        SonaTipoNomina oTiponomina = new SonaTipoNomina();
+        SonaUbicacion oUbicacion = new SonaUbicacion();
+        SonaPuesto puestos = new SonaPuesto();
+        SonaDepartamento departamentos = new SonaDepartamento();
+        SonaCompania objCia = new SonaCompania();
 
         //***********************************************************************************************
         //Autor: José Luis Alvarez Delgado
@@ -39,6 +46,39 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
+
+        private void cbTiponomina_DropDown(object sender, EventArgs e)
+        {
+            if (cbCompania.SelectedValue.ToString() != "" | cbCompania.SelectedValue.ToString() != "Seleccionar")
+            {
+                //llenado de combo tipo nomina
+                DataTable dtTipoNomina = oTiponomina.obtTipoNomina(5, Convert.ToInt32(cbCompania.SelectedValue.ToString()), 0, "");
+                cbTiponomina.DataSource = dtTipoNomina;
+                cbTiponomina.DisplayMember = "Descripción";
+                cbTipo.ValueMember = "Clave";
+            }
+            else
+            {
+                MessageBox.Show("Debes elejir la Compañia", "SIPAA", MessageBoxButtons.OK);
+            }
+        }
+
+        private void cbAreas_DropDown(object sender, EventArgs e)
+        {
+            if (cbCompania.SelectedValue.ToString() != "" | cbCompania.SelectedValue.ToString() != "Seleccionar")
+            {
+                //llenado de combo Areas
+                DataTable dtPlantel = objCia.ObtenerPlantelxCompania(9, cbCompania.SelectedValue.ToString(), "", "");
+                cbAreas.DataSource = dtPlantel;
+                cbAreas.DisplayMember = "Descripción";
+                cbAreas.ValueMember = "Clave";
+            }
+            else
+            {
+                MessageBox.Show("Debes elejir la Compañia", "SIPAA", MessageBoxButtons.OK);
+            }
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
@@ -81,22 +121,71 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         //boton buscar empleados
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //llena grid
-            if (txtEmpleado.Text == String.Empty)
-            {
-                fgridEmpleados(3, txtEmpleado.Text.Trim()); //todos los activos x Num
+            //if (txtEmpleado.Text !="" & cbCompania.SelectedValue.ToString() != "" & cbAreas.SelectedValue.ToString() != "" & cbPuestos.SelectedValue.ToString() != "" & 
+            //    cbDepartamentos.SelectedValue.ToString() != "" & cbUbicacion.SelectedValue.ToString() != "" & cbTiponomina.SelectedValue.ToString() != "")
+            //{
+            //    MessageBox.Show("Debe seleccionar por lo menos un filtro de busqueda", "SIPAA", MessageBoxButtons.OK);
+            //    txtEmpleado.Focus();
+            //}
+            //else
+            //{ 
+                //llena grid Con Filtros
+                string fIdTrab = "%";
+                string fIdCompania = "%";
+                string fIdArea = "%";
+                string fIdPuesto = "%";
+                string fIdDepartamento = "%";
+                string fIdUbicacion = "%";
+                string fIdTipoNomina = "%";
+
+                if (txtEmpleado.Text != "")
+                {
+                    fIdTrab = txtEmpleado.Text.Trim();
+                }
+                
+                //if (cbCompania.SelectedValue.ToString() != "" & cbCompania.SelectedValue.ToString() != "Seleccionar")
+                if (Convert.ToInt32(cbCompania.SelectedIndex.ToString()) > 0)
+                {
+                    fIdCompania = cbCompania.SelectedValue.ToString();
+                }
+                //if (cbAreas.SelectedValue.ToString() != "" & cbAreas.SelectedValue.ToString() != "Seleccionar")
+                //{
+                //    fIdArea = cbAreas.SelectedValue.ToString();
+                //}
+                //if (cbPuestos.SelectedValue.ToString() != "" & cbPuestos.SelectedValue.ToString() != "Seleccionar")
+                if (Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) > 0)
+                {
+                    fIdPuesto = cbPuestos.SelectedValue.ToString();
+                }
+                //if (cbDepartamentos.SelectedValue.ToString() != "")
+                if (Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) > 0)
+                {
+                    fIdDepartamento = cbDepartamentos.SelectedValue.ToString();
+                }
+                //if (cbUbicacion.SelectedValue.ToString() != "")
+                if (Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) > 0)
+                {
+                    fIdUbicacion = cbUbicacion.SelectedValue.ToString();
+                }
+                //if (cbTiponomina.SelectedValue.ToString() != "" & cbTiponomina.SelectedValue.ToString() != "Seleccionar")
+                //{
+                //    fIdTipoNomina = cbTiponomina.SelectedValue.ToString();
+                //}
+                
+                //fgridEmpleados(3, txtEmpleado.Text.Trim()); //todos los activos x Num
+                fgridEmpleados(1,fIdTrab,fIdCompania,fIdArea,fIdPuesto,fIdDepartamento,fIdUbicacion,fIdTipoNomina);
                 dgvEmpleados.Columns[0].Width =85;
                 dgvEmpleados.Columns[1].Width =100;
-                dgvEmpleados.Columns[2].Width =140;
-                dgvEmpleados.Columns[3].Width =140;
-                dgvEmpleados.Columns[4].Width =150;
-                dgvEmpleados.Columns[5].Visible = false;
-                dgvEmpleados.Columns[6].Visible =false;
+                dgvEmpleados.Columns[2].Width =250;
+                dgvEmpleados.Columns[3].Width =130;
+                dgvEmpleados.Columns[4].Width =68;
                 txtEmpleado.Text = "";
                 txtEmpleado.Focus();
                 //Guajolocombo Conceptos Incidencia
                 CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
-            }
+                txtSubsidio.Text = "0";
+                txtDias.Text = "0";
+            //}
         }
 
         private void cbConcepto_DropDown(object sender, EventArgs e)
@@ -131,35 +220,33 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             ///Aqui hay que asignar los valores en la tabla
             //para insertar registro nuevo 
 
-            foreach (DataGridViewRow row in dgvEmpleados.Rows)
+            fvalidacampos();
+
+            if (svalidacampos != "0")
             {
-                try
-                {
-                    int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
-                    fInsDiasEsp(iIdTrab, 1, Convert.ToInt32(cbConcepto.SelectedValue.ToString()), Convert.ToInt32(cbTipo.SelectedValue.ToString()), dtpFechaInical.Text.Trim(),
-                                dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), txtHoraEntrada.Text, txtHoraSalida.Text, txtReferencia.Text, 4,
-                                Convert.ToInt32(txtSubsidio.Text), 0, LoginInfo.IdTrab, this.Name, 0, 0);
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show(""+ex);
-                }
-
+                DialogResult result = MessageBox.Show(svalidacampos, "SIPAA", MessageBoxButtons.OK);
             }
+            else
+            {
 
-            /*
-            dgvPlantillas.DataSource = null;
-            dgvPlantillas.Columns.RemoveAt(0);
-            panelTaga.Visible = false;
-            pnlnotif.Visible = true;
-            pnlnotif.BackColor = ColorTranslator.FromHtml("#2e7d32");
-            pnlnotif.BackColor = ColorTranslator.FromHtml("#2e7d32");
-            lblnotif.Text = "Registro Guardado Correctamente";
-            timer1.Start();
-            txtmensajeiu.Text = "";
-            txtmensajeiu.Focus();
-            */
+                string usuumod = LoginInfo.IdTrab;
+                string prgumod = this.Name;
+
+                foreach (DataGridViewRow row in dgvEmpleados.Rows)
+                {
+                    try
+                    {
+                       int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
+                       fInsDiasEsp(iIdTrab, 1, Convert.ToInt32(cbConcepto.SelectedValue.ToString()), Convert.ToInt32(cbTipo.SelectedValue.ToString()), dtpFechaInical.Text.Trim(),
+                       dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), tpHoraEntrada.Text.Trim(), tpHoraSalida.Text.Trim(), txtReferencia.Text, 4,
+                       Convert.ToInt32(txtSubsidio.Text), 0, usuumod, prgumod, 0, 0);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+            }
         }
 
         //boton minimizar        
@@ -219,15 +306,31 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //pone el foco en el campo de busqueda
             txtEmpleado.Focus();
 
-            //llena grid
-            //fgridEmpleados(1,"");
+            //llenado de combo compañias
+            Utilerias.llenarComboxDataTable(cbCompania, oCompañia.obtCompania2(5, ""), "Clave", "Descripcion");
+
+            //llenado de combo ubicaciones
+            Utilerias.llenarComboxDataTable(cbUbicacion, oUbicacion.obtenerSonaUbicacion("", 6), "Clave", "Descripcion");
+
+            //Combo Puestos
+            DataTable dtpuestos = puestos.obtptos(4, "");
+            cbPuestos.DataSource = dtpuestos;
+            cbPuestos.DisplayMember = "Descripción";
+            cbPuestos.ValueMember = "Clave";
+            cbPuestos.Text = "Seleccionar";
+
+            //Combo Departamentos
+            DataTable dtdepartamentos = departamentos.obtdepto(4, "");
+            cbDepartamentos.DataSource = dtdepartamentos;
+            cbDepartamentos.DisplayMember = "Descripción";
+            cbDepartamentos.ValueMember = "Clave";
+            cbDepartamentos.Text = "Seleccionar";
         }
 
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
 
-        /////////funciones. FUNCION tooltip
         private void ftooltip()
         {
             //crea tool tip
@@ -247,9 +350,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         }
 
         //FUNCION que Llena el Grid de Empleados
-        private void fgridEmpleados(int popc, string pbusq)
+        private void fgridEmpleados(int popcion, string pidtrab, string pidcompania, string pidarea, string pidpuesto,
+            string piddepartamento, string pidubicacion, string pidtiponomina)
         {
-            DataTable dtempleados = contenedorempleados.obtenerempleados(popc, pbusq);
+            DataTable dtempleados = contenedorempleados.obtenerempleadosxfiltros(popcion, pidtrab, pidcompania, pidarea, pidpuesto,
+            piddepartamento, pidubicacion, pidtiponomina);
             dgvEmpleados.DataSource = dtempleados;
 
             Utilerias.AgregarCheck(dgvEmpleados, 0);
@@ -262,7 +367,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             objDia.sIdTrab = NoTrabajador;
             DataTable dtdias = objDia.ObtenerDiasEspecialesxTrabajador(objDia, 4);
-
             dgvInc.DataSource = dtdias;
         }
 
@@ -272,9 +376,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             cbConcepto.DataSource = dtIncidencia;
             cbConcepto.DisplayMember = "Descripcion";
             cbConcepto.ValueMember = "Clave";
-
-            //dgvIncidencia.ClearSelection();
-            //sHabilitaPermisos();
         }
 
         private void fInsDiasEsp(int iIdTrab, int iOpcion, int iCvIncidencia, int iCvTipo, string fFechaInicio, string fFechaFin, int iDias,
@@ -310,10 +411,24 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             } */
         }
 
+        //funcion validar campos
+        protected string fvalidacampos()
+        {
+
+            if (cbConcepto.Text == "") { svalidacampos = "Selecione Concepto"; cbConcepto.Focus(); }
+
+            else if (cbTipo.Text == "") { svalidacampos = "Selecione Tipo"; cbTipo.Focus(); }
+
+            else if (txtReferencia.Text == "") { svalidacampos = "Capture Referencia"; txtReferencia.Focus(); }
+
+            else if (dtpFechaInical.Text == "") { svalidacampos = "Selecione Fecha Inicial"; dtpFechaInical.Focus(); }
+
+            else { svalidacampos = "0"; }
+            return svalidacampos;
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
-
-
     }
 }

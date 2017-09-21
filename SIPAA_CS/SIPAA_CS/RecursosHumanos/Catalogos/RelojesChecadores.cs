@@ -40,12 +40,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         RelojChecador oRelojesChecadores = new RelojChecador();
         Utilerias Util = new Utilerias();
-        System.Net.IPAddress ip;  
+        System.Net.IPAddress ip;
 
         public RelojesChecadores()
         {
             InitializeComponent();
-            lblMensaje.Text = string.Empty;            
+            lblMensaje.Text = string.Empty;
         }
 
         private void RelojesChecadores_Load(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //LoginInfo.Nombre = lblusuario.Text;
             string NomUsu = LoginInfo.Nombre;
             lblusuario.Text = NomUsu;
-            JAV */            
+            JAV */
         }
 
 
@@ -87,7 +87,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             //cellclick();
         }
-        
+
         private void cellclick()
         {
             ckbEliminar.Checked = false;
@@ -152,12 +152,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //boton buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            pnlActRelojesChecadores.Visible = false;
             dgvRelojesChecadores.DataSource = null;
             //llena grid con datos existente
             fgRelojesChecadores(4, 0, txtBuscarRC.Text.Trim(), "", "", 0, LoginInfo.IdTrab, this.Name);
             txtDescripcionRC.Text = "";
             txtDescripcionRC.Focus();
-            if(dgvRelojesChecadores.Columns.Count>5)
+            if (dgvRelojesChecadores.Columns.Count > 5)
             {
                 dgvRelojesChecadores.Columns.RemoveAt(0);
             }
@@ -165,6 +166,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //boton agregar
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            ipc = null;
+            clearBoxes();
             ckbEliminar.Visible = false;
             pnlActRelojesChecadores.Visible = true;
             lblActRelojesChecadores.Text = "     Agregar Reloj Checador";
@@ -174,7 +177,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             txtDescripcionRC.Text = "";
             txtDescripcionRC.Focus();
             TxtcIP.Text = "";
-            TxtcCvvnc.Text = "";
             TxtiStActualiza.Text = "";
         }
 
@@ -206,20 +208,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             return status;
         }
-        //private bool validaIP()
-        //{
-        //    if (!System.Net.IPAddress.TryParse(TxtcIP.Text, out ip))
-        //    {
-        //        panelTag.Enabled = true;
-        //        Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "La dirección IP no es válida.");
-        //        panelTag.Enabled = false;
-        //        timer1.Start();
-
-        //        return false;
-        //    }
-
-        //    return true;
-        //}
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             if ((txtDescripcionRC.Text.Trim() == string.Empty || TxtcIP.Text.Trim() == string.Empty) && pactbtn != 3)
@@ -232,8 +220,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 1 && validaIP())//insertar
             {
                 //inserta registro nuevo
-                fuidRelojesChecadores(1, 9999, txtDescripcionRC.Text, TxtcIP.Text, string.Empty, 0, LoginInfo.IdTrab, this.Name);
-                //fuidRelojesChecadores(1, 9999, txtDescripcionRC.Text, TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
+                fuidRelojesChecadores(1, 9999, txtDescripcionRC.Text, TxtcIP.Text, string.Empty, 0, LoginInfo.IdTrab, this.Name);                
                 dgvRelojesChecadores.DataSource = null;
                 dgvRelojesChecadores.Columns.RemoveAt(0);
                 //panelTag.Visible = true;
@@ -249,8 +236,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 2 && validaIP())//actualizar
             {
                 //inserta registro nuevo
-                fuidRelojesChecadores(2, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, string.Empty, 0, LoginInfo.IdTrab, this.Name);
-                //fuidRelojesChecadores(2, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
+                fuidRelojesChecadores(2, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, string.Empty, 0, LoginInfo.IdTrab, this.Name);                
                 dgvRelojesChecadores.DataSource = null;
                 dgvRelojesChecadores.Columns.RemoveAt(0);
                 //panelTag.Visible = true;
@@ -270,8 +256,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     //inserta registro nuevo
-                    fuidRelojesChecadores(3, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, string.Empty, 0, LoginInfo.IdTrab, this.Name);
-                    //fuidRelojesChecadores(3, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, TxtcCvvnc.Text, int.Parse(TxtiStActualiza.Text), LoginInfo.IdTrab, this.Name);
+                    fuidRelojesChecadores(3, pcvreloj, txtDescripcionRC.Text.Trim(), TxtcIP.Text, string.Empty, 0, LoginInfo.IdTrab, this.Name);                    
                     dgvRelojesChecadores.DataSource = null;
                     dgvRelojesChecadores.Columns.RemoveAt(0);
                     //panelTag.Visible = true;
@@ -406,8 +391,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
             toolTip1.SetToolTip(this.btnAgregar, "Agrega Registro");
             toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
-//            toolTip1.SetToolTip(this.btnGuardar, "Guarda Registro");
-//            toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
+            //            toolTip1.SetToolTip(this.btnGuardar, "Guarda Registro");
+            //            toolTip1.SetToolTip(this.btnEditar, "Edita Registro");
             toolTip1.SetToolTip(this.btnInsertar, "Insertar Registro");
 
         } // private void fTooltip()
@@ -433,7 +418,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvRelojesChecadores.Columns[3].Width = 120;
                 dgvRelojesChecadores.Columns[4].Width = 80;
                 dgvRelojesChecadores.Columns[5].Width = 70;*/
-                
+
                 /*Se ajusta tamaño de columna de acuerdo al contenido*/
                 for (int i = 0; i < dgvRelojesChecadores.Columns.Count; i++)
                     dgvRelojesChecadores.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -459,7 +444,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvRelojesChecadores.Columns[3].Width = 120;
                 dgvRelojesChecadores.Columns[4].Width = 80;
                 dgvRelojesChecadores.Columns[5].Width = 70;*/
-                
+
                 /*Se ajusta tamaño de columna de acuerdo al contenido*/
                 for (int i = 0; i < dgvRelojesChecadores.Columns.Count; i++)
                     dgvRelojesChecadores.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -608,24 +593,29 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void fuidRelojesChecadores(int p_opcion, int p_cvreloj, string p_descripcion, string p_ip, string p_cvvnc, int p_stactualiza, string p_usuumod, string p_prgumodr)
         {
+            bool teclado = ckbxTeclado.Checked;
+            bool huella = ckbxHuella.Checked;
+            bool mhuella = ckbxMultHuella.Checked;
+            bool rostro = ckbxRostro.Checked;
+            
             //agrega registro
             if (pactbtn == 1)
             {
-                p_rep = oRelojesChecadores.udirelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr);
+                p_rep = oRelojesChecadores.udirelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, teclado, huella, mhuella, rostro);
                 //lbMensaje.Text = p_rep.ToString();
                 txtDescripcionRC.Text = "";
             }
             //actualiza registro
             else if (pactbtn == 2)
             {
-                p_rep = oRelojesChecadores.udirelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr);
+                p_rep = oRelojesChecadores.udirelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, teclado, huella, mhuella, rostro);
                 //lbMensaje.Text = p_rep.ToString();
                 txtDescripcionRC.Text = "";
             }
             //elimina registro
             else if (pactbtn == 3)
             {
-                p_rep = oRelojesChecadores.udirelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr);
+                p_rep = oRelojesChecadores.udirelojeschecadores(p_opcion, p_cvreloj, p_descripcion, p_ip, p_cvvnc, p_stactualiza, p_usuumod, p_prgumodr, teclado, huella, mhuella, rostro);
                 //lbMensaje.Text = p_rep.ToString();
                 txtDescripcionRC.Text = "";
             } // 
@@ -658,6 +648,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             } // switch (p_rep.ToString())
         } // 
 
+        private void clearBoxes()
+        {
+            setValuesCheckBox(
+                new CheckBox[]{ ckbxTeclado, ckbxHuella, ckbxMultHuella, ckbxRostro },
+                new bool[]{ false, false, false, false } );
+        }
 
         private void factgrid()
         {
@@ -674,8 +670,17 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 pcvreloj = int.Parse(row.Cells["Clave"].Value.ToString());
                 string ValorRow = row.Cells["Descripción"].Value.ToString();
                 string ValorIp = ipc = row.Cells["IP"].Value.ToString();
-                /*string ValorCvvnc = row.Cells["ClaveVNC"].Value.ToString();
-                int ValorStactualiza = int.Parse(row.Cells["Actualiza"].Value.ToString());*/
+
+                clearBoxes();
+
+                setValuesCheckBox(
+                    new CheckBox[] { ckbxTeclado, ckbxHuella, ckbxMultHuella, ckbxRostro },
+                    new bool[] {
+                        (bool) row.Cells["teclado"].Value,
+                        (bool) row.Cells["huella"].Value,
+                        (bool) row.Cells["multiplehuella"].Value,
+                        (bool) row.Cells["rostro"].Value } );
+
                 string ValorCvvnc = string.Empty;
                 int ValorStactualiza = 0;
                 pnlActRelojesChecadores.Visible = true;
@@ -684,10 +689,16 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 TxtiRelojChecador.Focus();
                 txtDescripcionRC.Text = ValorRow;
                 TxtcIP.Text = ValorIp;
-                TxtcCvvnc.Text = ValorCvvnc;
                 TxtiStActualiza.Text = ValorStactualiza.ToString();
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
+        }
+
+        private void setValuesCheckBox(CheckBox[] ckboxes, bool[] values)
+        {
+            if(ckboxes.Length == values.Length)
+                for (int i = 0; i < ckboxes.Length; i++)
+                    ckboxes[i].Checked = values[i];
         }
 
         private void pnlActRelojesChecadores_Paint(object sender, PaintEventArgs e)
@@ -711,6 +722,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         }
 
         private void lblMensaje_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }

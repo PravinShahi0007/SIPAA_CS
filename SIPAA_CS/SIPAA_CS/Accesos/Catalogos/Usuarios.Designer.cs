@@ -78,7 +78,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dgvAccesoUsuario = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             label8 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
@@ -92,7 +91,6 @@
             this.panel1.SuspendLayout();
             this.panelTag.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccesoUsuario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -151,9 +149,9 @@
             label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label3.Location = new System.Drawing.Point(19, 34);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(43, 16);
+            label3.Size = new System.Drawing.Size(104, 16);
             label3.TabIndex = 124;
-            label3.Text = "IdTrab";
+            label3.Text = "No de Empleado";
             // 
             // label4
             // 
@@ -187,7 +185,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = global::SIPAA_CS.Properties.Resources.ic_view_carousel_white_24dp;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(363, 1);
+            this.label1.Location = new System.Drawing.Point(377, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 22);
             this.label1.TabIndex = 3;
@@ -238,7 +236,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardar.Location = new System.Drawing.Point(359, 83);
+            this.btnGuardar.Location = new System.Drawing.Point(303, 127);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 38;
@@ -253,7 +251,7 @@
             this.label2.ForeColor = System.Drawing.Color.DimGray;
             this.label2.Image = global::SIPAA_CS.Properties.Resources.ic_keyboard_arrow_right_grey_600_18dp;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(3, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(184, 16);
             this.label2.TabIndex = 4;
@@ -264,7 +262,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel4.Location = new System.Drawing.Point(22, 84);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 1);
+            this.panel4.Size = new System.Drawing.Size(250, 2);
             this.panel4.TabIndex = 23;
             // 
             // txtBuscar
@@ -272,7 +270,7 @@
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBuscar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(22, 60);
+            this.txtBuscar.Location = new System.Drawing.Point(24, 63);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(250, 18);
             this.txtBuscar.TabIndex = 24;
@@ -284,7 +282,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(311, 36);
+            this.btnBuscar.Location = new System.Drawing.Point(280, 37);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
             this.btnBuscar.TabIndex = 25;
@@ -300,9 +298,9 @@
             this.panel9.Controls.Add(this.txtBuscar);
             this.panel9.Controls.Add(this.panel4);
             this.panel9.Controls.Add(this.btnBuscar);
-            this.panel9.Location = new System.Drawing.Point(80, 117);
+            this.panel9.Location = new System.Drawing.Point(16, 114);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(389, 115);
+            this.panel9.Size = new System.Drawing.Size(349, 115);
             this.panel9.TabIndex = 41;
             // 
             // panel10
@@ -319,9 +317,9 @@
             this.panel10.Controls.Add(this.panel8);
             this.panel10.Controls.Add(this.panel7);
             this.panel10.Controls.Add(this.txtPassword);
-            this.panel10.Location = new System.Drawing.Point(35, 271);
+            this.panel10.Location = new System.Drawing.Point(16, 269);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(433, 199);
+            this.panel10.Size = new System.Drawing.Size(369, 199);
             this.panel10.TabIndex = 42;
             // 
             // label14
@@ -331,7 +329,7 @@
             this.label14.ForeColor = System.Drawing.Color.DimGray;
             this.label14.Image = global::SIPAA_CS.Properties.Resources.ic_keyboard_arrow_right_grey_600_18dp;
             this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label14.Location = new System.Drawing.Point(-3, 0);
+            this.label14.Location = new System.Drawing.Point(4, 4);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(174, 16);
             this.label14.TabIndex = 45;
@@ -426,7 +424,7 @@
             this.panel1.Controls.Add(this.txtNombreSipaa);
             this.panel1.Controls.Add(this.btnSipaa);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(35, 492);
+            this.panel1.Location = new System.Drawing.Point(16, 492);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(433, 159);
             this.panel1.TabIndex = 46;
@@ -529,7 +527,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(970, 1);
+            this.btnMinimizar.Location = new System.Drawing.Point(974, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 114;
@@ -544,7 +542,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(994, 1);
+            this.btnCerrar.Location = new System.Drawing.Point(1000, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 113;
@@ -586,14 +584,14 @@
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblusuario.Location = new System.Drawing.Point(10, 74);
+            this.lblusuario.Location = new System.Drawing.Point(10, 75);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(172, 23);
+            this.lblusuario.Size = new System.Drawing.Size(52, 20);
             this.lblusuario.TabIndex = 119;
-            this.lblusuario.Text = "Noe Alvarez Marquina  ";
+            this.lblusuario.Text = "usuario";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -664,14 +662,6 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(10, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(43, 41);
-            this.pictureBox1.TabIndex = 122;
-            this.pictureBox1.TabStop = false;
-            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -679,7 +669,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvAccesoUsuario);
             this.Controls.Add(this.label6);
@@ -711,7 +700,6 @@
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccesoUsuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -756,6 +744,5 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtCvUsuario1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
