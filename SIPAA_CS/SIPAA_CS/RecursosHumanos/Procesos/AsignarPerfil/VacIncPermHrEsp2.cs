@@ -178,7 +178,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 dgvEmpleados.Columns[1].Width =100;
                 dgvEmpleados.Columns[2].Width =250;
                 dgvEmpleados.Columns[3].Width =130;
-                dgvEmpleados.Columns[4].Width =68;
+                dgvEmpleados.Columns[4].Width =70;
                 txtEmpleado.Text = "";
                 txtEmpleado.Focus();
                 //Guajolocombo Conceptos Incidencia
