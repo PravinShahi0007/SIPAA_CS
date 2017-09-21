@@ -46,7 +46,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             lbFechaT.Text = String.Empty;
             PeriodoProcesoIncidencia objInc = new PeriodoProcesoIncidencia();
 
-            DataTable dtInc = objInc.obtPeriodosProcesoIncidencia(10, 0, "", "", "%", 0, "", "");
+            DataTable dtInc = objInc.obtPeriodosProcesoIncidencia(10, 0, "", "", "%", 0, "", "","","","","","","","","","","");
 
             if (dtInc != null)
             {
@@ -69,7 +69,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             {
                 
                 PeriodoProcesoIncidencia objInc = new PeriodoProcesoIncidencia();
-                DataTable dtInc = objInc.obtPeriodosProcesoIncidencia(9, Convert.ToInt32(cbTipoNomina.SelectedValue.ToString()),"", "", "", 0, "", "");
+                DataTable dtInc = objInc.obtPeriodosProcesoIncidencia(9, Convert.ToInt32(cbTipoNomina.SelectedValue.ToString()),"", "", "", 0, "", "","","","","","","","","","","");
 
                 foreach (DataRow row in dtInc.Rows) {
                      sFechai = row["FecIni"].ToString();

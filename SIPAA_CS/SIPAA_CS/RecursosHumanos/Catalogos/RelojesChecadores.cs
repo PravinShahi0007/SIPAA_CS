@@ -35,7 +35,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         int pactbtn;
         int pcvreloj;
         int p_rep;
-
+        string ipc;
         #endregion
 
         RelojChecador oRelojesChecadores = new RelojChecador();
@@ -180,18 +180,46 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private bool validaIP()
         {
-            if (!System.Net.IPAddress.TryParse(TxtcIP.Text, out ip))
+            bool status = false;
+            string ipval = TxtcIP.Text.Trim();
+
+            if (System.Net.IPAddress.TryParse(ipval, out ip))
+            {
+                DataTable dtRelojChecador = oRelojesChecadores.obtrelojeschecadores(12, 0, "", ipval, "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
+
+                if (dtRelojChecador.Rows.Count > 0 && ipval != ipc)
+                {
+                    MessageBox.Show("La dirección IP ingresada ya se encuentra asignada\nFavor de verificar", "SIPAA");
+                }
+                else
+                {
+                    status = true;
+                }
+            }
+            else
             {
                 panelTag.Enabled = true;
                 Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "La dirección IP no es válida.");
                 panelTag.Enabled = false;
                 timer1.Start();
-
-                return false;
             }
 
-            return true;
+            return status;
         }
+        //private bool validaIP()
+        //{
+        //    if (!System.Net.IPAddress.TryParse(TxtcIP.Text, out ip))
+        //    {
+        //        panelTag.Enabled = true;
+        //        Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "La dirección IP no es válida.");
+        //        panelTag.Enabled = false;
+        //        timer1.Start();
+
+        //        return false;
+        //    }
+
+        //    return true;
+        //}
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             if ((txtDescripcionRC.Text.Trim() == string.Empty || TxtcIP.Text.Trim() == string.Empty) && pactbtn != 3)
@@ -645,7 +673,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 pcvreloj = int.Parse(row.Cells["Clave"].Value.ToString());
                 string ValorRow = row.Cells["Descripción"].Value.ToString();
-                string ValorIp = row.Cells["IP"].Value.ToString();
+                string ValorIp = ipc = row.Cells["IP"].Value.ToString();
                 /*string ValorCvvnc = row.Cells["ClaveVNC"].Value.ToString();
                 int ValorStactualiza = int.Parse(row.Cells["Actualiza"].Value.ToString());*/
                 string ValorCvvnc = string.Empty;

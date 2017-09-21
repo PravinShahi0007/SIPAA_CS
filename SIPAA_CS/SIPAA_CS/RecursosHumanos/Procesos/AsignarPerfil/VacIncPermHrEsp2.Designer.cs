@@ -28,26 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label2;
-            System.Windows.Forms.Label label4;
-            System.Windows.Forms.Label label5;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VacIncPermHrEsp2));
-            System.Windows.Forms.Label label6;
-            System.Windows.Forms.Label label3;
-            System.Windows.Forms.Label label7;
-            System.Windows.Forms.Label label8;
-            System.Windows.Forms.Label label9;
-            System.Windows.Forms.Label label10;
-            System.Windows.Forms.Label label11;
-            System.Windows.Forms.Label label12;
-            System.Windows.Forms.Label label13;
-            System.Windows.Forms.Label label14;
-            System.Windows.Forms.Label label15;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -66,7 +65,7 @@
             this.txtEmpleado = new System.Windows.Forms.TextBox();
             this.lblusuario = new System.Windows.Forms.Label();
             this.pnlAgregarInc = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtHoraSalida = new System.Windows.Forms.TextBox();
             this.txtHoraEntrada = new System.Windows.Forms.TextBox();
             this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaInical = new System.Windows.Forms.DateTimePicker();
@@ -76,20 +75,6 @@
             this.btnAsignar = new System.Windows.Forms.Button();
             this.cbTipo = new System.Windows.Forms.ComboBox();
             this.cbConcepto = new System.Windows.Forms.ComboBox();
-            label2 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
-            label5 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
-            label7 = new System.Windows.Forms.Label();
-            label8 = new System.Windows.Forms.Label();
-            label9 = new System.Windows.Forms.Label();
-            label10 = new System.Windows.Forms.Label();
-            label11 = new System.Windows.Forms.Label();
-            label12 = new System.Windows.Forms.Label();
-            label13 = new System.Windows.Forms.Label();
-            label14 = new System.Windows.Forms.Label();
-            label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
@@ -99,184 +84,183 @@
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(27, 202);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(73, 16);
-            label2.TabIndex = 209;
-            label2.Text = "Empleados";
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(27, 202);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 16);
+            this.label2.TabIndex = 209;
+            this.label2.Text = "Empleados";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(25, 54);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(76, 16);
-            label4.TabIndex = 44;
-            label4.Text = "Descripción";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Location = new System.Drawing.Point(25, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 16);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Descripción";
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.ForeColor = System.Drawing.Color.Gray;
-            label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
-            label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(4, 4);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(182, 17);
-            label5.TabIndex = 41;
-            label5.Text = "     Buscar Empleados por:";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Gray;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(4, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(182, 17);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "     Buscar Empleados por:";
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(27, 502);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(164, 16);
-            label6.TabIndex = 210;
-            label6.Text = "Detalle de Dias Especiales";
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(27, 502);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(164, 16);
+            this.label6.TabIndex = 210;
+            this.label6.Text = "Detalle de Dias Especiales";
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(27, 665);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(151, 16);
-            label3.TabIndex = 212;
-            label3.Text = "Agregar Dias Especiales";
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(27, 665);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(151, 16);
+            this.label3.TabIndex = 212;
+            this.label3.Text = "Agregar Dias Especiales";
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(3, 10);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(63, 16);
-            label7.TabIndex = 214;
-            label7.Text = "Concepto";
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.Location = new System.Drawing.Point(3, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 16);
+            this.label7.TabIndex = 214;
+            this.label7.Text = "Concepto";
             // 
             // label8
             // 
-            label8.AutoSize = true;
-            label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(241, 10);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(32, 16);
-            label8.TabIndex = 215;
-            label8.Text = "Tipo";
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.Location = new System.Drawing.Point(241, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(32, 16);
+            this.label8.TabIndex = 215;
+            this.label8.Text = "Tipo";
             // 
             // label9
             // 
-            label9.AutoSize = true;
-            label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(449, 10);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(69, 16);
-            label9.TabIndex = 217;
-            label9.Text = "Referencia";
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label9.Location = new System.Drawing.Point(449, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 16);
+            this.label9.TabIndex = 217;
+            this.label9.Text = "Referencia";
             // 
             // label10
             // 
-            label10.AutoSize = true;
-            label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label10.Location = new System.Drawing.Point(677, 10);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(74, 16);
-            label10.TabIndex = 218;
-            label10.Text = "% Subsidio";
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.Location = new System.Drawing.Point(677, 10);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 16);
+            this.label10.TabIndex = 218;
+            this.label10.Text = "% Subsidio";
             // 
             // label11
             // 
-            label11.AutoSize = true;
-            label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label11.Location = new System.Drawing.Point(3, 38);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(81, 16);
-            label11.TabIndex = 219;
-            label11.Text = "Fecha Inicial";
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label11.Location = new System.Drawing.Point(3, 38);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(81, 16);
+            this.label11.TabIndex = 219;
+            this.label11.Text = "Fecha Inicial";
             // 
             // label12
             // 
-            label12.AutoSize = true;
-            label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label12.Location = new System.Drawing.Point(215, 38);
-            label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(76, 16);
-            label12.TabIndex = 220;
-            label12.Text = "Fecha Final";
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label12.Location = new System.Drawing.Point(215, 38);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 16);
+            this.label12.TabIndex = 220;
+            this.label12.Text = "Fecha Final";
             // 
             // label13
             // 
-            label13.AutoSize = true;
-            label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label13.Location = new System.Drawing.Point(419, 38);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(84, 16);
-            label13.TabIndex = 221;
-            label13.Text = "Hora Entrada";
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label13.Location = new System.Drawing.Point(419, 38);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(84, 16);
+            this.label13.TabIndex = 221;
+            this.label13.Text = "Hora Entrada";
             // 
             // label14
             // 
-            label14.AutoSize = true;
-            label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label14.Location = new System.Drawing.Point(617, 37);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(75, 16);
-            label14.TabIndex = 222;
-            label14.Text = "Hora Salida";
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label14.Location = new System.Drawing.Point(617, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(75, 16);
+            this.label14.TabIndex = 222;
+            this.label14.Text = "Hora Salida";
             // 
             // label15
             // 
-            label15.AutoSize = true;
-            label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label15.Location = new System.Drawing.Point(814, 10);
-            label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(103, 16);
-            label15.TabIndex = 223;
-            label15.Text = "Diás del Periodo";
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label15.Location = new System.Drawing.Point(814, 10);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(103, 16);
+            this.label15.TabIndex = 223;
+            this.label15.Text = "Diás del Periodo";
             // 
             // btnRegresar
             // 
@@ -290,6 +274,7 @@
             this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 133;
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // btnMinimizar
             // 
@@ -304,6 +289,7 @@
             this.btnMinimizar.TabIndex = 132;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
             // 
@@ -318,6 +304,7 @@
             this.btnCerrar.TabIndex = 131;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // label1
             // 
@@ -412,11 +399,11 @@
             this.pnlBusqueda.Controls.Add(this.panel1);
             this.pnlBusqueda.Controls.Add(this.radioBtnapaterno);
             this.pnlBusqueda.Controls.Add(this.radioBtnnempleado);
-            this.pnlBusqueda.Controls.Add(label4);
+            this.pnlBusqueda.Controls.Add(this.label4);
             this.pnlBusqueda.Controls.Add(this.btnBuscar);
             this.pnlBusqueda.Controls.Add(this.panel5);
             this.pnlBusqueda.Controls.Add(this.txtEmpleado);
-            this.pnlBusqueda.Controls.Add(label5);
+            this.pnlBusqueda.Controls.Add(this.label5);
             this.pnlBusqueda.Location = new System.Drawing.Point(14, 97);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(461, 104);
@@ -551,7 +538,7 @@
             // pnlAgregarInc
             // 
             this.pnlAgregarInc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlAgregarInc.Controls.Add(this.textBox1);
+            this.pnlAgregarInc.Controls.Add(this.txtHoraSalida);
             this.pnlAgregarInc.Controls.Add(this.txtHoraEntrada);
             this.pnlAgregarInc.Controls.Add(this.dtpFechaFinal);
             this.pnlAgregarInc.Controls.Add(this.dtpFechaInical);
@@ -559,28 +546,28 @@
             this.pnlAgregarInc.Controls.Add(this.txtSubsidio);
             this.pnlAgregarInc.Controls.Add(this.txtReferencia);
             this.pnlAgregarInc.Controls.Add(this.btnAsignar);
-            this.pnlAgregarInc.Controls.Add(label15);
-            this.pnlAgregarInc.Controls.Add(label14);
-            this.pnlAgregarInc.Controls.Add(label13);
-            this.pnlAgregarInc.Controls.Add(label12);
-            this.pnlAgregarInc.Controls.Add(label11);
-            this.pnlAgregarInc.Controls.Add(label10);
-            this.pnlAgregarInc.Controls.Add(label9);
+            this.pnlAgregarInc.Controls.Add(this.label15);
+            this.pnlAgregarInc.Controls.Add(this.label14);
+            this.pnlAgregarInc.Controls.Add(this.label13);
+            this.pnlAgregarInc.Controls.Add(this.label12);
+            this.pnlAgregarInc.Controls.Add(this.label11);
+            this.pnlAgregarInc.Controls.Add(this.label10);
+            this.pnlAgregarInc.Controls.Add(this.label9);
             this.pnlAgregarInc.Controls.Add(this.cbTipo);
-            this.pnlAgregarInc.Controls.Add(label8);
-            this.pnlAgregarInc.Controls.Add(label7);
+            this.pnlAgregarInc.Controls.Add(this.label8);
+            this.pnlAgregarInc.Controls.Add(this.label7);
             this.pnlAgregarInc.Controls.Add(this.cbConcepto);
             this.pnlAgregarInc.Location = new System.Drawing.Point(24, 683);
             this.pnlAgregarInc.Name = "pnlAgregarInc";
             this.pnlAgregarInc.Size = new System.Drawing.Size(974, 65);
             this.pnlAgregarInc.TabIndex = 213;
             // 
-            // textBox1
+            // txtHoraSalida
             // 
-            this.textBox1.Location = new System.Drawing.Point(698, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 231;
+            this.txtHoraSalida.Location = new System.Drawing.Point(698, 33);
+            this.txtHoraSalida.Name = "txtHoraSalida";
+            this.txtHoraSalida.Size = new System.Drawing.Size(100, 20);
+            this.txtHoraSalida.TabIndex = 231;
             // 
             // txtHoraEntrada
             // 
@@ -666,10 +653,10 @@
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.pnlAgregarInc);
-            this.Controls.Add(label3);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(label6);
-            this.Controls.Add(label2);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.dgvEmpleados);
             this.Controls.Add(this.dgvInc);
@@ -717,7 +704,7 @@
         private System.Windows.Forms.Panel pnlAgregarInc;
         private System.Windows.Forms.ComboBox cbConcepto;
         private System.Windows.Forms.ComboBox cbTipo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtHoraSalida;
         private System.Windows.Forms.TextBox txtHoraEntrada;
         private System.Windows.Forms.DateTimePicker dtpFechaFinal;
         private System.Windows.Forms.DateTimePicker dtpFechaInical;
@@ -725,5 +712,19 @@
         private System.Windows.Forms.TextBox txtSubsidio;
         private System.Windows.Forms.TextBox txtReferencia;
         private System.Windows.Forms.Button btnAsignar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
     }
 }

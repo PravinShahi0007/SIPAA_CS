@@ -50,9 +50,9 @@
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label4.Location = new System.Drawing.Point(12, 105);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(548, 29);
+            this.label4.Size = new System.Drawing.Size(513, 29);
             this.label4.TabIndex = 57;
-            this.label4.Text = "Por seguridad debes de cambiar tu contraseña";
+            this.label4.Text = "Por seguridad debes cambiar tu contraseña";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btguardar
@@ -86,7 +86,7 @@
             this.txtcontrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtcontrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtcontrasena.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcontrasena.Location = new System.Drawing.Point(295, 218);
+            this.txtcontrasena.Location = new System.Drawing.Point(295, 219);
             this.txtcontrasena.MaxLength = 16;
             this.txtcontrasena.Name = "txtcontrasena";
             this.txtcontrasena.PasswordChar = '*';
