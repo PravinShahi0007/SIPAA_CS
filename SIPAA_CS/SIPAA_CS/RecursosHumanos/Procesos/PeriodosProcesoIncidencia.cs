@@ -76,7 +76,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             if (bClickPrimeraVezFormaPago)
             {
-                DataTable dtFormaPago = oSonaFormaPago.FormaPago_S(4, 0, "");
+                DataTable dtFormaPago = oSonaFormaPago.FormaPago_S(6, 0, "");
                 cbFormaPago.DataSource = dtFormaPago;
                 cbFormaPago.DisplayMember = "Descripción";
                 cbFormaPago.ValueMember = "Clave";
@@ -177,7 +177,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //boton buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dgvPeriodosProcesoIncidencias.DataSource = null;
+            /*dgvPeriodosProcesoIncidencias.DataSource = null;
             string Buscar = txtBuscarDF.Text;
             //llena grid con datos existente
             fgPeriodosProcesoIncidencia(4, iIdFormaPago, "", "", Buscar, iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "");
@@ -191,7 +191,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
 
             fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", Buscar, iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "");
-
+            */
         }
         //boton agregar
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -230,60 +230,71 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
+            bool rV;
             if (txtDescripcionPeriodoIncidencia.Text.Trim() == "" && iActbtn == 1)
             {
                 lblMensaje.Text = "Capture un dato a guardar";
             }
             else if (iActbtn == 1)//insertar
             {
-                //inserta registro nuevo
-                fuidPeriodosProcesoIncidencia(1, iIdFormaPago, dtpFechaInicioPeriodoIncidencia.Text, dtpFechaFinPeriodoIncidencia.Text, txtDescripcionPeriodoIncidencia.Text.Trim(), iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,
-                dtpFechaInicioProcesarIncidencia.Text, dtpFechaFinProcesarIncidencia.Text,
-                dtpFechaInicioConsultarIncidencia.Text,
-                dtpFechaFinConsultarIncidencia.Text,
-                dtpFechaInicioCalificarIncidenciaSup.Text,
-                dtpFechaFinCalificarIncidenciaSup.Text,
-                dtpFechaInicioCalificarIncidenciaDir.Text,
-                dtpFechaFinCalificarIncidenciaDir.Text, "", "");
-                panelTag.Visible = true;
-                txtDescripcionPeriodoIncidencia.Text = "";
-                txtDescripcionPeriodoIncidencia.Focus();
-                timer1.Start();
-                //llena grid con datos existente
-                fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,"","","","","","","","","","");
-                ckbEliminar.Checked = false;
-                ckbEliminar.Visible = false;
-                pnlActPeriodoIncidencia.Visible = false;
+                rV = validarFechas_Periodos();
+                if (rV == true)
+                { 
+                   //inserta registro nuevo
+                    fuidPeriodosProcesoIncidencia(1, iIdFormaPago, dtpFechaInicioPeriodoIncidencia.Text, dtpFechaFinPeriodoIncidencia.Text, txtDescripcionPeriodoIncidencia.Text.Trim(), iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,
+                    dtpFechaInicioProcesarIncidencia.Text, dtpFechaFinProcesarIncidencia.Text,
+                    dtpFechaInicioConsultarIncidencia.Text,
+                    dtpFechaFinConsultarIncidencia.Text,
+                    dtpFechaInicioCalificarIncidenciaSup.Text,
+                    dtpFechaFinCalificarIncidenciaSup.Text,
+                    dtpFechaInicioCalificarIncidenciaDir.Text,
+                    dtpFechaFinCalificarIncidenciaDir.Text, "", "");
+                    panelTag.Visible = true;
+                    txtDescripcionPeriodoIncidencia.Text = "";
+                    txtDescripcionPeriodoIncidencia.Focus();
+                    timer1.Start();
+                    //llena grid con datos existente
+                    fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "");
+                    ckbEliminar.Checked = false;
+                    ckbEliminar.Visible = false;
+                    pnlActPeriodoIncidencia.Visible = false;
+               }
+                
+
             }
             else if (iActbtn == 2)//actualizar
             {
-
-                if (iStPeriodoIncidencia==1)
+                rV = validarFechas_Periodos();
+                if (rV == true)
                 {
-                    // Colocar el periodo abierto anterior en 0
-                    fuidPeriodosProcesoIncidencia(12, iIdFormaPago, "", "", "", 0, LoginInfo.IdTrab, this.Name,"","","","","","","","","","");
+                    /*  if (iStPeriodoIncidencia==1)
+                      {
+                          // Colocar el periodo abierto anterior en 0
+                          fuidPeriodosProcesoIncidencia(12, iIdFormaPago, "", "", "", 0, LoginInfo.IdTrab, this.Name,"","","","","","","","","","");
+                      }*/
+
+
+
+                    fuidPeriodosProcesoIncidencia(2, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, txtDescripcionPeriodoIncidencia.Text.Trim(), iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,
+                    dtpFechaInicioProcesarIncidencia.Text,
+                    dtpFechaFinProcesarIncidencia.Text,
+                    dtpFechaInicioConsultarIncidencia.Text,
+                    dtpFechaFinConsultarIncidencia.Text,
+                    dtpFechaInicioCalificarIncidenciaSup.Text,
+                    dtpFechaFinCalificarIncidenciaSup.Text,
+                    dtpFechaInicioCalificarIncidenciaDir.Text,
+                    dtpFechaFinCalificarIncidenciaDir.Text, dtpFechaInicioPeriodoIncidencia.Text, dtpFechaFinPeriodoIncidencia.Text);
+                    panelTag.Visible = true;
+                    txtDescripcionPeriodoIncidencia.Text = "";
+                    txtDescripcionPeriodoIncidencia.Focus();
+                    timer1.Start();
+                    //llena grid con datos existente
+                    //fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, "bhb", "PeriodosProcesoIncidencia");
+                    fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "");
+                    ckbEliminar.Checked = false;
+                    ckbEliminar.Visible = false;
+                    pnlActPeriodoIncidencia.Visible = false;
                 }
-
-
-                fuidPeriodosProcesoIncidencia(2, iIdFormaPago, sFechaInicioPeriodoIncidencia,sFechaFinPeriodoIncidencia, txtDescripcionPeriodoIncidencia.Text.Trim(), iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,
-                dtpFechaInicioProcesarIncidencia.Text,
-                dtpFechaFinProcesarIncidencia.Text, 
-                dtpFechaInicioConsultarIncidencia.Text,
-                dtpFechaFinConsultarIncidencia.Text,
-                dtpFechaInicioCalificarIncidenciaSup.Text,
-                dtpFechaFinCalificarIncidenciaSup.Text, 
-                dtpFechaInicioCalificarIncidenciaDir.Text,
-                dtpFechaFinCalificarIncidenciaDir.Text,dtpFechaInicioPeriodoIncidencia.Text, dtpFechaFinPeriodoIncidencia.Text);
-                panelTag.Visible = true;
-                txtDescripcionPeriodoIncidencia.Text = "";
-                txtDescripcionPeriodoIncidencia.Focus();
-                timer1.Start();
-                //llena grid con datos existente
-                //fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, "bhb", "PeriodosProcesoIncidencia");
-                fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "");
-                ckbEliminar.Checked = false;
-                ckbEliminar.Visible = false;
-                pnlActPeriodoIncidencia.Visible = false;
             }
             else if (iActbtn == 3)//eliminar
             {
@@ -361,6 +372,31 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             {
                 btnAgregar.Visible = true;
             }
+
+            if (bClickPrimeraVezFormaPago)
+            {
+                DataTable dtFormaPago = oSonaFormaPago.FormaPago_S(6, 0, "");
+
+               // Utilerias.llenarComboxDataTable(cbFormaPago, dtFormaPago, "Clave", "Descripción");
+
+                cbFormaPago.DataSource = dtFormaPago;
+                cbFormaPago.DisplayMember = "Descripción";
+                cbFormaPago.ValueMember = "Clave";
+
+                bClickPrimeraVezFormaPago = false;
+
+            } // if (bClickPrimeraVezFormaPago)
+
+            int iIdFormaPagoBuscar = 0;
+            if (!bClickPrimeraVezFormaPago)
+            {
+                pnlActPeriodoIncidencia.Visible = false;
+                iIdFormaPagoBuscar = Convert.ToInt32(cbFormaPago.SelectedValue.ToString());
+                iIdFormaPago = iIdFormaPagoBuscar;
+                fgPeriodosProcesoIncidencia(6, iIdFormaPagoBuscar, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "");
+            } // if (!bClickPrimeraVezFormaPago)
+
+
 
         } // private void PeriodosProcesoIncidencia_Load(object sender, EventArgs e)
 
@@ -571,7 +607,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dgvPeriodosProcesoIncidencias.Columns[4].Width = 130;
                 dgvPeriodosProcesoIncidencias.Columns[5].Width = 60;
                 dgvPeriodosProcesoIncidencias.Columns[5].Visible = false;
-                //dgvPeriodosProcesoIncidencias.Columns[6].Width = 80;
+                // dgvPeriodosProcesoIncidencias.Columns[6].Width = 80;
                 dgvPeriodosProcesoIncidencias.ClearSelection();
             }
             else
@@ -742,7 +778,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void dtpFechaInicioPeriodoIncidencia_ValueChanged(object sender, EventArgs e)
         {
-            //dtpFechaFinPeriodoIncidencia.Value = DateTime.Now.AddDays(15);
+            
         }
 
         private void dtpFechaInicioProcesarIncidencia_ValueChanged(object sender, EventArgs e)
@@ -768,27 +804,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void dtpFechaFinPeriodoIncidencia_ValueChanged(object sender, EventArgs e)
         {
-               
+
         }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
-              
-            dgvPeriodosProcesoIncidencias.DataSource = null;
-            string Buscar = txtBuscarDF.Text;
-            //llena grid con datos existente
-            fgPeriodosProcesoIncidencia(4, iIdFormaPago, "", "", Buscar, iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "");
-            txtBuscarDF.Text = "";
-            //txtDescripcionPeriodoIncidencia.Text = "";
-            //txtDescripcionPeriodoIncidencia.Focus();
-
-            if (dgvPeriodosProcesoIncidencias.Columns.Count > 3)
-            {
-                dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
-            }
-
-          //  fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", Buscar, iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "");
-
+                       
         }
 
         private void pnlBusqueda_Paint(object sender, PaintEventArgs e)
@@ -796,6 +817,107 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         }
 
+
+       
+
+        private bool validarFechas_Periodos()
+        {
+            bool resultadoValida = true;
+
+            if (dtpFechaFinPeriodoIncidencia.Value.Date < dtpFechaInicioPeriodoIncidencia.Value.Date)
+            {
+                MessageBox.Show("No puede elegir una Fecha de Fin de Periodo de Incidencia menor a la de Inicio de Periodo de Incidencia", "SIPPA - Periodo Incidencia", MessageBoxButtons.OK);
+                //Poner el foco en dtpFechaFinPeriodoIncidencia
+                dtpFechaFinPeriodoIncidencia.Focus();
+               
+                resultadoValida = false;
+            }
+            else
+            {
+                if (dtpFechaInicioProcesarIncidencia.Value.Date <= dtpFechaFinPeriodoIncidencia.Value.Date)
+                {
+                    MessageBox.Show("No puede elegir una Fecha de Inicio de Procesar Incidencia menor o igual a la de Fin de Periodo de Incidencia", "SIPPA - Procesar Incidencia", MessageBoxButtons.OK);
+                    // poner el foco en dtpFechaInicioProcesarIncidencia
+                    dtpFechaInicioProcesarIncidencia.Focus();
+                    resultadoValida = false;
+                }
+                else
+                {
+                    if (dtpFechaFinProcesarIncidencia.Value.Date < dtpFechaInicioProcesarIncidencia.Value.Date)
+                    {
+                        MessageBox.Show("No puede elegir una Fecha de Fin de Procesar Incidencia menor a la de Inicio de Procesar Incidencia", "SIPPA - Procesar Incidencia", MessageBoxButtons.OK);
+                        //Poner el foco en dtpFechaFinProcesarIncidencia
+                        dtpFechaFinProcesarIncidencia.Focus();
+                        resultadoValida = false;
+                    }
+                    else
+                    { 
+                        if (dtpFechaInicioConsultarIncidencia.Value.Date<=dtpFechaFinProcesarIncidencia.Value.Date)
+                        {
+                            MessageBox.Show("No puede elegir una Fecha de Inicio de Consultar Incidencia menor o igual a la de Fin de Procesar Incidencia", "SIPPA - Consultar Incidencia", MessageBoxButtons.OK);
+                            // Poner el foco en dtpFechaInicioConsultarIncidencia
+                            dtpFechaInicioConsultarIncidencia.Focus();
+                            resultadoValida = false;
+                        }
+                        else
+                        {
+                            if (dtpFechaFinConsultarIncidencia.Value.Date < dtpFechaInicioConsultarIncidencia.Value.Date)
+                            {
+                                MessageBox.Show("No puede elegir una Fecha de Fin de Consultar Incidencia menor a la de Inicio de Consultar Incidencia", "SIPPA - Consultar Incidencia", MessageBoxButtons.OK);
+                                // POner el foco en dtpFechaFinConsultarIncidencia.Value.Date
+                                dtpFechaFinConsultarIncidencia.Focus();
+                                resultadoValida = false;
+                            }
+                            else
+                            {
+                                if (dtpFechaInicioCalificarIncidenciaSup.Value.Date<=dtpFechaFinConsultarIncidencia.Value.Date)
+                                {
+                                    MessageBox.Show("No puede elegir una Fecha de Inicio de Calificar Incidencia Supervisor menor o igual a la de Fin de Consultar Incidencia", "SIPPA - Calificar Incidencia Supervisor", MessageBoxButtons.OK);
+                                    // poner el foco en dtpFechaInicioCalificarIncidenciaSup
+                                    dtpFechaInicioCalificarIncidenciaSup.Focus();
+                                    resultadoValida = false;
+                                }
+                                else
+                                {
+                                    if (dtpFechaFinCalificarIncidenciaSup.Value.Date <dtpFechaInicioCalificarIncidenciaSup.Value.Date)
+                                    {
+                                        MessageBox.Show("No puede elegir una Fecha de Fin de Calificar Incidencia Supervisor menor o a la de Inicio de Calificar Incidencia Supervisor", "SIPPA - Calificar Incidencia Supervisor", MessageBoxButtons.OK);
+                                        // poner el foco en dtpFechaFinCalificarIncidenciaSup
+                                        dtpFechaFinCalificarIncidenciaSup.Focus();
+                                        resultadoValida = false;
+                                    }
+                                    else
+                                    {
+                                        if (dtpFechaInicioCalificarIncidenciaDir.Value.Date<=dtpFechaFinCalificarIncidenciaSup.Value.Date)
+                                        {
+                                            MessageBox.Show("No puede elegir una Fecha de Inicio de Calificar Incidencia Director menor o igual a la de Fin de Calificar de Incidencia Supervisor", "SIPPA - Calificar Incidencia Director", MessageBoxButtons.OK);
+                                            // poner el foco en dtpFechaInicioCalificarIncidenciaDir
+                                            dtpFechaInicioCalificarIncidenciaDir.Focus();
+                                            resultadoValida = false;
+                                        }
+                                        else
+                                        {
+                                            if (dtpFechaFinCalificarIncidenciaDir.Value.Date < dtpFechaInicioCalificarIncidenciaDir.Value.Date)
+                                            {
+                                                MessageBox.Show("No puede elegir una Fecha de Fin de Calificar Incidencia Director menor  a la de Fin de Calificar de Incidencia Director", "SIPPA - Calificar Incidencia Director", MessageBoxButtons.OK);
+                                                // poner el foco en dtpFechaFinCalificarIncidenciaDir
+                                                dtpFechaFinCalificarIncidenciaDir.Focus();
+                                                resultadoValida = false;
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+            }
+
+            return resultadoValida;
+        }
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------
