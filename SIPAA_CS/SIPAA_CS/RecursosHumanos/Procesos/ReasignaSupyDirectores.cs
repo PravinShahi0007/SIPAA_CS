@@ -220,9 +220,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 btnInsertar.Enabled = false;
             }
 
-            //llena combo con formas de pago
-            fllenacbformpago();
+            int icalperact = Resupdir.actsupdir(12,0, "", "", 0,0, LoginInfo.IdTrab, this.Name, 0);
 
+            if (icalperact <= 0)
+            {
+                DialogResult result = MessageBox.Show("No existe ningún periodo activo", "SIPAA", MessageBoxButtons.OK);
+                cbFormaPago.Enabled = false;
+            }
+            else
+            {
+                //llena combo con formas de pago
+                fllenacbformpago();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
