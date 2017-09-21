@@ -35,9 +35,9 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label lblFechaRelojChecador;
             System.Windows.Forms.Label lblGridDiasFestivos;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -49,14 +49,13 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.pnlActRelojesChecadores = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.ckbxRostro = new System.Windows.Forms.CheckBox();
+            this.ckbxHuella = new System.Windows.Forms.CheckBox();
+            this.ckbxMultHuella = new System.Windows.Forms.CheckBox();
+            this.ckbxTeclado = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.TxtiStActualiza = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TxtcCvvnc = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtcIP = new System.Windows.Forms.TextBox();
             this.TxtiRelojChecador = new System.Windows.Forms.TextBox();
@@ -197,29 +196,29 @@
             this.dgvRelojesChecadores.AllowUserToAddRows = false;
             this.dgvRelojesChecadores.AllowUserToDeleteRows = false;
             this.dgvRelojesChecadores.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvRelojesChecadores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvRelojesChecadores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvRelojesChecadores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRelojesChecadores.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvRelojesChecadores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRelojesChecadores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRelojesChecadores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRelojesChecadores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvRelojesChecadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRelojesChecadores.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRelojesChecadores.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvRelojesChecadores.Location = new System.Drawing.Point(350, 172);
             this.dgvRelojesChecadores.MultiSelect = false;
             this.dgvRelojesChecadores.Name = "dgvRelojesChecadores";
@@ -311,14 +310,13 @@
             // pnlActRelojesChecadores
             // 
             this.pnlActRelojesChecadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.pnlActRelojesChecadores.Controls.Add(this.panel3);
-            this.pnlActRelojesChecadores.Controls.Add(this.panel2);
+            this.pnlActRelojesChecadores.Controls.Add(this.ckbxRostro);
+            this.pnlActRelojesChecadores.Controls.Add(this.ckbxHuella);
+            this.pnlActRelojesChecadores.Controls.Add(this.ckbxMultHuella);
+            this.pnlActRelojesChecadores.Controls.Add(this.ckbxTeclado);
             this.pnlActRelojesChecadores.Controls.Add(this.panel1);
             this.pnlActRelojesChecadores.Controls.Add(this.panel5);
             this.pnlActRelojesChecadores.Controls.Add(this.TxtiStActualiza);
-            this.pnlActRelojesChecadores.Controls.Add(this.label6);
-            this.pnlActRelojesChecadores.Controls.Add(this.TxtcCvvnc);
-            this.pnlActRelojesChecadores.Controls.Add(this.label5);
             this.pnlActRelojesChecadores.Controls.Add(this.label2);
             this.pnlActRelojesChecadores.Controls.Add(this.TxtcIP);
             this.pnlActRelojesChecadores.Controls.Add(this.TxtiRelojChecador);
@@ -330,29 +328,63 @@
             this.pnlActRelojesChecadores.Controls.Add(this.btnInsertar);
             this.pnlActRelojesChecadores.Location = new System.Drawing.Point(10, 325);
             this.pnlActRelojesChecadores.Name = "pnlActRelojesChecadores";
-            this.pnlActRelojesChecadores.Size = new System.Drawing.Size(331, 276);
+            this.pnlActRelojesChecadores.Size = new System.Drawing.Size(331, 319);
             this.pnlActRelojesChecadores.TabIndex = 125;
             this.pnlActRelojesChecadores.TabStop = true;
             this.pnlActRelojesChecadores.Visible = false;
             this.pnlActRelojesChecadores.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlActRelojesChecadores_Paint);
             // 
-            // panel3
+            // ckbxRostro
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel3.Location = new System.Drawing.Point(26, 254);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(180, 1);
-            this.panel3.TabIndex = 178;
-            this.panel3.Visible = false;
+            this.ckbxRostro.AutoSize = true;
+            this.ckbxRostro.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.ckbxRostro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.ckbxRostro.Location = new System.Drawing.Point(27, 242);
+            this.ckbxRostro.Name = "ckbxRostro";
+            this.ckbxRostro.Size = new System.Drawing.Size(65, 20);
+            this.ckbxRostro.TabIndex = 178;
+            this.ckbxRostro.Text = "Rostro";
+            this.ckbxRostro.UseVisualStyleBackColor = true;
+            this.ckbxRostro.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // panel2
+            // ckbxHuella
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(26, 194);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(180, 1);
-            this.panel2.TabIndex = 177;
-            this.panel2.Visible = false;
+            this.ckbxHuella.AutoSize = true;
+            this.ckbxHuella.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.ckbxHuella.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.ckbxHuella.Location = new System.Drawing.Point(27, 190);
+            this.ckbxHuella.Name = "ckbxHuella";
+            this.ckbxHuella.Size = new System.Drawing.Size(63, 20);
+            this.ckbxHuella.TabIndex = 178;
+            this.ckbxHuella.Text = "Huella";
+            this.ckbxHuella.UseVisualStyleBackColor = true;
+            this.ckbxHuella.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // ckbxMultHuella
+            // 
+            this.ckbxMultHuella.AutoSize = true;
+            this.ckbxMultHuella.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.ckbxMultHuella.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.ckbxMultHuella.Location = new System.Drawing.Point(27, 216);
+            this.ckbxMultHuella.Name = "ckbxMultHuella";
+            this.ckbxMultHuella.Size = new System.Drawing.Size(112, 20);
+            this.ckbxMultHuella.TabIndex = 178;
+            this.ckbxMultHuella.Text = "Multiple Huella";
+            this.ckbxMultHuella.UseVisualStyleBackColor = true;
+            this.ckbxMultHuella.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // ckbxTeclado
+            // 
+            this.ckbxTeclado.AutoSize = true;
+            this.ckbxTeclado.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.ckbxTeclado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.ckbxTeclado.Location = new System.Drawing.Point(27, 164);
+            this.ckbxTeclado.Name = "ckbxTeclado";
+            this.ckbxTeclado.Size = new System.Drawing.Size(71, 20);
+            this.ckbxTeclado.TabIndex = 178;
+            this.ckbxTeclado.Text = "Teclado";
+            this.ckbxTeclado.UseVisualStyleBackColor = true;
+            this.ckbxTeclado.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // panel1
             // 
@@ -380,38 +412,6 @@
             this.TxtiStActualiza.TabIndex = 143;
             this.TxtiStActualiza.Visible = false;
             this.TxtiStActualiza.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtiStActualiza_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label6.Location = new System.Drawing.Point(25, 217);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 13);
-            this.label6.TabIndex = 142;
-            this.label6.Text = "Estado Actualiza";
-            this.label6.Visible = false;
-            // 
-            // TxtcCvvnc
-            // 
-            this.TxtcCvvnc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.TxtcCvvnc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtcCvvnc.Location = new System.Drawing.Point(27, 179);
-            this.TxtcCvvnc.Name = "TxtcCvvnc";
-            this.TxtcCvvnc.Size = new System.Drawing.Size(180, 13);
-            this.TxtcCvvnc.TabIndex = 141;
-            this.TxtcCvvnc.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label5.Location = new System.Drawing.Point(25, 160);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
-            this.label5.TabIndex = 140;
-            this.label5.Text = "Clave VNC";
-            this.label5.Visible = false;
             // 
             // label2
             // 
@@ -520,11 +520,11 @@
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.BackColor = System.Drawing.Color.Transparent;
-            this.lblMensaje.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.ForeColor = System.Drawing.Color.White;
             this.lblMensaje.Location = new System.Drawing.Point(10, 7);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(121, 20);
+            this.lblMensaje.Size = new System.Drawing.Size(113, 20);
             this.lblMensaje.TabIndex = 26;
             this.lblMensaje.Text = "Barra de mensajes";
             this.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -606,16 +606,15 @@
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.TextBox TxtiRelojChecador;
         private System.Windows.Forms.TextBox TxtiStActualiza;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TxtcCvvnc;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtcIP;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.CheckBox ckbxTeclado;
+        private System.Windows.Forms.CheckBox ckbxRostro;
+        private System.Windows.Forms.CheckBox ckbxHuella;
+        private System.Windows.Forms.CheckBox ckbxMultHuella;
     }
 }
