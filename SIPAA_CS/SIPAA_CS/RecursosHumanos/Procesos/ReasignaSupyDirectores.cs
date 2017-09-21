@@ -20,8 +20,8 @@ using SIPAA_CS.Accesos;
 
 
 //***********************************************************************************************
-//Autor: Jaime Avendaño Vargas
-//Fecha creación: 04-Abril-2017       Última Modificacion: dd-mm-aaaa
+//Autor: Jaime Avendaño Vargas        noe alvarez marquina
+//Fecha creación: 04-Abril-2017       Última Modificacion: 20/09/2017
 //Descripción: Reasignación de Supervisor y Director
 //***********************************************************************************************
 
@@ -29,54 +29,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 {
     public partial class ReasignaSupyDirectores : Form
     {
-        #region Variables
 
-        int iIdFormaPago;
-        int iOpcion;
-        bool bClickPrimeraVezFormaPago = true;
-        string sFechaInicioPeriodoIncidencia;
-        string sFechaFinPeriodoIncidencia;
-        string sDescripcion;
-        int iStPeriodoIncidencia;
-        int iResp; // iResp -> iResp
-
-        #endregion
+        ReasignaSupyDirector Resupdir = new ReasignaSupyDirector();
 
         SonaFormaPago oSonaFormaPago = new SonaFormaPago();
-        ReasignaSupyDirector oPeriodoProcesoIncidencia = new ReasignaSupyDirector();
-        ReasignaSupyDirector oNombreEmpleado = new ReasignaSupyDirector();
-        ReasignaSupyDirector oObtieneSupyDir = new ReasignaSupyDirector();
-        ReasignaSupyDirector oActualizaSudyDir = new ReasignaSupyDirector();
-        ReasignaSupyDirector oActualizaSudyDir2 = new ReasignaSupyDirector();
-        ReasignaSupyDirector oIncidencias = new ReasignaSupyDirector();
         Utilerias Util = new Utilerias();
-                
+        Perfil DatPerfil = new Perfil();
+
         public ReasignaSupyDirectores()
         {
             InitializeComponent();
-        }
-
-
-        private void ReasignaSupyDirectores_Load(object sender, EventArgs e)
-        {
-            // Diccionario Permisos x Pantalla
-            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
-            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
-            //////////////////////////////////////////////////////
-            // resize 
-            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-            ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-            /* JAV
-            Usuario objUsuario = new Usuario();
-            string idtrab = LoginInfo.IdTrab;
-            ltModulosxUsuario = objUsuario.ObtenerListaModulosxUsuario(idtrab, 4);
-            Utilerias.DashboardDinamico(PanelMetro, ltModulosxUsuario);
-            //LoginInfo.Nombre = lblusuario.Text;
-            string NomUsu = LoginInfo.Nombre;
-            lblusuario.Text = NomUsu;
-            JAV */
         }
 
 
@@ -84,89 +46,57 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
 
-        //
-        // Llena Combo Box de Forma Pago de la tabla de SONARH
-        private void cbFormaPago_Click(object sender, EventArgs e)
-        {
-            if (bClickPrimeraVezFormaPago)
-            {
-                DataTable dtFormaPago = oSonaFormaPago.FormaPago_S(4, 0, "");
-                cbFormaPago.DataSource = dtFormaPago;
-                cbFormaPago.DisplayMember = "Descripción";
-                cbFormaPago.ValueMember = "Clave";
-                bClickPrimeraVezFormaPago = false;
-            } // if (bClickPrimeraVezFormaPago)
-        } // private void cbFormaPago_Click(object sender, EventArgs e)
-
         private void cbFormaPago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int iIdFormaPagoBuscar = 0;
-
-            // JAV MessageBox.Show(cbFormaPago.SelectedIndex.ToString(), "Mensaje X", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-
-            if (!bClickPrimeraVezFormaPago)
+            if (Util.p_inicbo == 0)
             {
-                // JAV pnlActPeriodoIncidencia.Visible = false;
-                /*
-                 * if (cbFormaPago.SelectedIndex == 0)
-                                {
-                                    iIdFormaPagoBuscar = 1;
-                                }
-                                else
-                                {
-                                    if (cbFormaPago.SelectedIndex == 1)
-                                    {
-                                        iIdFormaPagoBuscar = 2;
-                                    }
-                              }
-                */
+                // obtiene fechas de periodo
+                DataTable dtfechas = Resupdir.dtfecperiodo(4, Int32.Parse(cbFormaPago.SelectedValue.ToString()), LoginInfo.IdTrab, this.Name);
+                TxtFeIni.Text = dtfechas.Rows[0][2].ToString();
+                TxtFeFin.Text = dtfechas.Rows[0][3].ToString();
 
-                iIdFormaPagoBuscar = Convert.ToInt32(cbFormaPago.SelectedValue.ToString());
-                iIdFormaPago = iIdFormaPagoBuscar;
-
-                string sUsuumod;
-                string sPrgumod;
-
-                sUsuumod = "";
-                sPrgumod = "";
-                
-                // Obtiene Fecha de Inicio y Fin de Periodo Activo
-
-                DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(7, iIdFormaPago, "", "", "", 1, "", "");
-
-                if (dtPeriodosProcesoIncidencias.Rows.Count > 0)
+                if (cbFormaPago.SelectedValue.ToString() == "0" || cbFormaPago.Text == "" || TxtFeIni.Text.Trim() == "" || TxtFeFin.Text.Trim() == "")
                 {
-                    TxtFeIni.Text = dtPeriodosProcesoIncidencias.Rows[0][1].ToString().Substring(0,10);
-                    TxtFeFin.Text = dtPeriodosProcesoIncidencias.Rows[0][2].ToString().Substring(0, 10);
-                    TxtNombreEmpleado.Text = "";
-                    TxtIdEmp.Text = "";
-                    TxtIdDirOri.Text = "";
-                    TxtIdDirFin.Text = "";
-                    TxtIdSupFin.Text = "";
-                    TxtIdSupOri.Text = "";
-                    dgvIncidencias.DataSource = null;
+                    DialogResult result = MessageBox.Show("Selecciona un periodo", "SIPAA", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    TxtFeIni.Text = "";
-                    TxtFeFin.Text = "";
-                    TxtNombreEmpleado.Text = "";
-                    TxtIdEmp.Text = "";
-                    TxtIdDirOri.Text = "";
-                    TxtIdDirFin.Text = "";
-                    TxtIdSupFin.Text = "";
-                    TxtIdSupOri.Text = "";
-                    dgvIncidencias.DataSource = null;
+                    cbtrab();
                 }
+            }
+        }
 
+        private void cbempleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Util.p_inicbo == 0)
+            {
+                cbsupervisor.DataSource = null;
+                DataTable dtsup = Resupdir.dttrabsupdir(6, TxtFeIni.Text.Trim(), TxtFeFin.Text.Trim(), Int32.Parse(cbempleado.SelectedValue.ToString()), LoginInfo.IdTrab, this.Name,0);
+                Util.cargarcombo(cbsupervisor, dtsup);
 
-                // JAV txtDescripcionPeriodoIncidencia.Text = cbFormaPago.SelectedItem.ToString();
-                // JAV fgPeriodosProcesoIncidencia(6, iIdFormaPagoBuscar, "", "", "", iStPeriodoIncidencia, "bhb", "PeriodosProcesoIncidencia");
-            } // if (!bClickPrimeraVezFormaPago)
-        } // private void cbFormaPago_SelectedIndexChanged(object sender, EventArgs e)
+                cbdirector.DataSource = null;
+                DataTable dtdir = Resupdir.dttrabsupdir(7, TxtFeIni.Text.Trim(), TxtFeFin.Text.Trim(), Int32.Parse(cbempleado.SelectedValue.ToString()), LoginInfo.IdTrab, this.Name,0);
+                Util.cargarcombo(cbdirector, dtdir);
 
+                //llena cb nuevo supervisor y director
+                cbsupervnuevo.DataSource = null;
+                DataTable dtsupnew = Resupdir.dttrabsupdir(8,"","",0, LoginInfo.IdTrab, this.Name,0);
+                Utilerias.llenarComboxDataTable(cbsupervnuevo, dtsupnew, "IdTrab", "supdir");
 
+                cbdirecnuevo.DataSource = null;
+                DataTable dtdirnew = Resupdir.dttrabsupdir(8, "", "", 0, LoginInfo.IdTrab, this.Name,0);
+                Utilerias.llenarComboxDataTable(cbdirecnuevo, dtdirnew, "IdTrab", "supdir");
 
+                fllenagrid(10, TxtFeIni.Text.Trim(), TxtFeFin.Text.Trim(), Int32.Parse(cbempleado.SelectedValue.ToString()));
+            }
+
+        }
+        //-----------------------------------------------------------------------------------------------
+        //                                      G R I D // S
+        //-----------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------
+        //                                     B O T O N E S
+        //-----------------------------------------------------------------------------------------------
 
         //Boton minimizar
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -189,140 +119,199 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void btnRegresar_Click(object sender, EventArgs e)
         {
-
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
+            this.Close();
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void btnInsertar_Click(object sender, EventArgs e)
         {
+            //valida campos
+            Boolean bvalidacampos = fvalidacampos();
 
-        }
-
-        private void ObtieneEmpleado(object sender, EventArgs e)
-        {
-
-            if (TxtFeIni.Text != "" && TxtFeFin.Text != "")
+            if (bvalidacampos == true)
             {
-                // Obtiene Nombre del Empleado
-
-                DataTable dtNombreEmpleado = oNombreEmpleado.obtNombreEmpleado(TxtIdEmp.Text, 14/*, 0, 0, ""*/);
-                //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
-                if (dtNombreEmpleado.Rows.Count > 0)
+                //variable supervisor nuevo
+                int isupnew;
+                if (cbsupervnuevo.Text.Trim() == "" || cbsupervnuevo.SelectedIndex == -1 || cbsupervnuevo.SelectedIndex == 0)
                 {
-                    TxtNombreEmpleado.Text = dtNombreEmpleado.Rows[0][2].ToString();
-
-                    // ******   Obtiene datos de Supervisor y Director  >>>>>>>
-                    DataTable dtObtieneSupyDir = oObtieneSupyDir.obtObtieneSupyDir(4, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10)/*, Convert.ToInt16(TxtIdSupOri.Text), Convert.ToInt16(TxtIdDirOri.Text), Convert.ToInt16(TxtIdSupFin.Text), Convert.ToInt16(TxtIdDirFin.Text)*/);
-                    DataTable dtIncidencias = oIncidencias.obtIncidencias(10, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10));
-                    dgvIncidencias.DataSource = dtIncidencias;
-                    dgvIncidencias.ClearSelection();
-
-
-                    //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
-                    if (dtObtieneSupyDir.Rows.Count > 0)
-                    {
-                        TxtIdSupOri.Text = dtObtieneSupyDir.Rows[0][0].ToString();
-                        TxtIdDirOri.Text = dtObtieneSupyDir.Rows[0][1].ToString();
-                    }
-                    else
-                    {
-                        TxtIdSupOri.Text = "";
-                        TxtIdDirOri.Text = "";
-                        dgvIncidencias.DataSource = null;
-                        TxtIdEmp.Focus();
-                    }
-
-                    // ******   Obtiene datos de Supervisor y Director  <<<<<<<<<<
+                    isupnew = 0;
                 }
                 else
                 {
-                    TxtNombreEmpleado.Text = "Empleado No EXISTE";
-                    TxtIdSupOri.Text = "";
-                    TxtIdDirOri.Text = "";
-                    TxtIdSupFin.Text = "";
-                    TxtIdDirFin.Text = "";
-                    TxtIdEmp.Focus();
-                    dgvIncidencias.DataSource = null;
+                    isupnew = Int32.Parse(cbsupervnuevo.SelectedValue.ToString());
+                }
+
+                //actualiza datos
+                int iresp = Resupdir.actsupdir(2, Int32.Parse(cbempleado.SelectedValue.ToString()), TxtFeIni.Text.Trim(), TxtFeFin.Text.Trim(), isupnew, Int32.Parse(cbdirecnuevo.SelectedValue.ToString()), LoginInfo.IdTrab, this.Name, 0);
+
+                if (iresp == 2)
+                {
+                    Util.p_inicbo = 1;
+                    dgvdatos.DataSource = null;
+                    cbdirecnuevo.DataSource = null;
+                    cbsupervnuevo.DataSource = null;
+                    cbdirector.DataSource = null;
+                    cbsupervisor.DataSource = null;
+                    cbempleado.DataSource = null;
+                    TxtFeFin.Text = "";
+                    TxtFeIni.Text = "";
+                    cbFormaPago.DataSource = null;
+                    //llena combo con formas de pago
+                    fllenacbformpago();
+                    cbFormaPago.Focus();
+                    panelTag.Visible = true;
+                    panelTag.BackColor = ColorTranslator.FromHtml("#0277bd");
+                    lblMensaje.Text = "Registro Actualizado Correctamente";
+                    timer1.Start();
+                    Util.p_inicbo = 0;
+                }
+                else
+                {
                 }
             }
             else
             {
-                MessageBox.Show("Debe Seleccionar Forma de pago valido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                cbFormaPago.Focus();
             }
         }
 
-        private void ObtieneSupyDir(object sender, EventArgs e)
+        //-----------------------------------------------------------------------------------------------
+        //                           C A J A S      D E      T E X T O   
+        //-----------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------
+        //                                     E V E N T O S
+        //-----------------------------------------------------------------------------------------------
+
+        private void ReasignaSupyDirectores_Load(object sender, EventArgs e)
         {
-            // Obtiene Nombre del Empleado
+            // resize 
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
-            DataTable dtObtieneSupyDir = oObtieneSupyDir.obtObtieneSupyDir(4, Convert.ToInt16(TxtIdEmp.Text), TxtFeIni.Text.Substring(0,10), TxtFeFin.Text.Substring(0,10)/*, Convert.ToInt16(TxtIdSupOri.Text), Convert.ToInt16(TxtIdDirOri.Text), Convert.ToInt16(TxtIdSupFin.Text), Convert.ToInt16(TxtIdDirFin.Text)*/);
-
-            //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
-            if (dtObtieneSupyDir.Rows.Count > 0)
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
             {
-                TxtIdSupOri.Text = dtObtieneSupyDir.Rows[0][0].ToString();
-                TxtIdDirOri.Text = dtObtieneSupyDir.Rows[0][1].ToString();
-                TxtIdDirFin.Text = "";
-                TxtIdSupFin.Text = "";
-                dgvIncidencias.DataSource = null;
+                if (f.Name != this.Name)
+                {
+                    f.Hide();
+                }
+            }
+
+            //variables accesos
+            DataTable Permisos = DatPerfil.accpantalla(LoginInfo.IdTrab, this.Name);
+            int iins = Int32.Parse(Permisos.Rows[0][3].ToString());
+            int iact = Int32.Parse(Permisos.Rows[0][4].ToString());
+            int ielim = Int32.Parse(Permisos.Rows[0][5].ToString());
+
+            //tool tip
+            ftooltip();
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
+            if (iins == 1 || iact == 1 || ielim == 1)
+            {
+                btnInsertar.Enabled = true;
             }
             else
             {
-                    TxtIdSupOri.Text = "";
-                    TxtIdDirOri.Text = "";
-                    dgvIncidencias.DataSource = null;
+                btnInsertar.Enabled = false;
             }
-        }
 
-        private void ActualizaSudyDir(object sender, EventArgs e)
-        {
-            // Actualiza datos de supervisor y director
-
-            if (TxtIdEmp.Text != "" && TxtFeIni.Text != "" && TxtFeFin.Text != "")
-            {
-                if (TxtIdSupFin.Text == "") TxtIdSupFin.Text = "0";
-                if (TxtIdDirFin.Text == "") TxtIdDirFin.Text = "0";
-
-                DataTable dtActualizaSudyDir = oActualizaSudyDir.obtActualizaSudyDir(2, Convert.ToInt32(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text));
-                DataTable dtActualizaSudyDir2 = oActualizaSudyDir2.obtActualizaSudyDir2(2, Convert.ToInt32(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), Convert.ToInt32(TxtIdSupFin.Text), Convert.ToInt32(TxtIdDirFin.Text));
-
-                //TxtFeIni.Text = dtPeriodosProcesoIncidencias.Container.ToString();
-                if (dtActualizaSudyDir.Rows.Count > 0)
-                {
-                    if (TxtIdSupFin.Text == "0") TxtIdSupFin.Text = "";
-                    if (TxtIdDirFin.Text == "0") TxtIdDirFin.Text = "";
-                    TxtIdSupOri.Text = TxtIdSupFin.Text;
-                    TxtIdDirOri.Text = TxtIdDirFin.Text;
-                }
-                else
-                {
-                    TxtIdSupFin.Text = "";
-                    TxtIdDirFin.Text = "";
-                }
-            }
+            //llena combo con formas de pago
+            fllenacbformpago();
 
         }
 
-        private void TxtIdEmp_KeyPress(object sender, KeyPressEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
+            panelTag.Visible = false;
+            timer1.Stop();
+        }
+        //-----------------------------------------------------------------------------------------------
+        //                                      F U N C I O N E S 
+        //-----------------------------------------------------------------------------------------------
+
+        private void ftooltip()
+        {
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
+
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.btnCerrar, "Cerrar Sistema");
+            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
         }
 
-        private void TxtIdEmp_Enter(object sender, EventArgs e)
+        // Llena Combo Box de Forma Pago de la tabla de SONARH
+        private void fllenacbformpago()
         {
-            if (TxtFeIni.Text == "" || TxtFeFin.Text == "")
+            Util.p_inicbo = 1;
+            DataTable dtFormaPago = oSonaFormaPago.FormaPago_S(4, 0, "");
+            Utilerias.llenarComboxDataTable(cbFormaPago, dtFormaPago, "Clave", "Descripción");
+            Util.p_inicbo = 0;
+        }
+
+        public void cbtrab()
+        {
+            Util.p_inicbo = 1;
+            DataTable dttrab = Resupdir.dttrabsupdir(5, TxtFeIni.Text, TxtFeFin.Text, 0, LoginInfo.IdTrab, this.Name, Int32.Parse(cbFormaPago.SelectedValue.ToString()));
+            Utilerias.llenarComboxDataTable(cbempleado, dttrab, "idtrab", "trab");
+            Util.p_inicbo = 0;
+        }
+
+        public void fllenagrid(int iopc, string sfecini, string sfecfin, int iintrab)
+        {
+            DataTable dttrab = Resupdir.dttrabsupdir(10, sfecini, sfecfin, iintrab, LoginInfo.IdTrab, this.Name, 0);
+            dgvdatos.DataSource = dttrab;
+
+            dgvdatos.Columns[0].Visible = false;//empleado
+            dgvdatos.Columns[1].Width = 130;//fecha registro
+            dgvdatos.Columns[2].Width = 100;//hr registro
+            dgvdatos.Columns[3].Width = 100;//hr salida
+            dgvdatos.Columns[4].Width = 100;//dif tiempo
+            dgvdatos.ClearSelection();
+        }
+
+        //validacion de campos
+        private Boolean fvalidacampos()
+        {
+            if (cbFormaPago.Text.Trim() == "" || cbFormaPago.SelectedIndex == -1 || cbFormaPago.SelectedIndex == 0)
             {
-                MessageBox.Show("Debe Seleccionar Forma de pago valido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                TxtIdEmp.Text = "";
+                DialogResult result = MessageBox.Show("Seleccione un periodo", "SIPAA", MessageBoxButtons.OK);
                 cbFormaPago.Focus();
+                return false;
+            }
+            else if (cbempleado.Text.Trim() == "" || cbempleado.SelectedIndex == -1 || cbempleado.SelectedIndex == 0)
+            {
+                DialogResult result = MessageBox.Show("Seleccione un empleado", "SIPAA", MessageBoxButtons.OK);
+                cbempleado.Focus();
+                return false;
+            }
+            else if (cbdirecnuevo.Text.Trim() == "" || cbdirecnuevo.SelectedIndex == -1 || cbdirecnuevo.SelectedIndex == 0)
+            {
+                DialogResult result = MessageBox.Show("Selecione Director nuevo", "SIPAA", MessageBoxButtons.OK);
+                cbdirecnuevo.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
+        //-----------------------------------------------------------------------------------------------
+        //                                      R E P O R T E S
+        //-----------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------
+        //                                      C O M B O S
+        //-----------------------------------------------------------------------------------------------
     }
 }
