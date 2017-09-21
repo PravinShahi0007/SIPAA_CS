@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResetPassw));
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResetPassw));
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -39,14 +39,14 @@
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.btguardar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtestatus = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtusuario = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtcvusuarios = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtusuario = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtestatus = new System.Windows.Forms.TextBox();
-            this.btguardar = new System.Windows.Forms.Button();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -55,6 +55,55 @@
             this.pnlBusqueda.SuspendLayout();
             this.SuspendLayout();
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label8.Location = new System.Drawing.Point(25, 41);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(105, 16);
+            label8.TabIndex = 44;
+            label8.Text = "Clave de Usuario";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label9.ForeColor = System.Drawing.Color.Gray;
+            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
+            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label9.Location = new System.Drawing.Point(5, 4);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(166, 17);
+            label9.TabIndex = 41;
+            label9.Text = "     Busqueda de usuario";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label2.Location = new System.Drawing.Point(25, 138);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(52, 16);
+            label2.TabIndex = 182;
+            label2.Text = "Usuario";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label3.Location = new System.Drawing.Point(24, 218);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(53, 16);
+            label3.TabIndex = 185;
+            label3.Text = "Estatus";
+            // 
             // btnRegresar
             // 
             this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
@@ -62,7 +111,7 @@
             this.btnRegresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Location = new System.Drawing.Point(913, 2);
+            this.btnRegresar.Location = new System.Drawing.Point(734, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 115;
@@ -77,7 +126,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(975, 2);
+            this.btnMinimizar.Location = new System.Drawing.Point(789, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 114;
@@ -92,7 +141,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(1000, 2);
+            this.btnCerrar.Location = new System.Drawing.Point(815, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 113;
@@ -141,104 +190,31 @@
             this.pnlBusqueda.Controls.Add(label8);
             this.pnlBusqueda.Controls.Add(this.btnBuscar);
             this.pnlBusqueda.Controls.Add(label9);
-            this.pnlBusqueda.Location = new System.Drawing.Point(322, 150);
+            this.pnlBusqueda.Location = new System.Drawing.Point(249, 102);
             this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(394, 477);
+            this.pnlBusqueda.Size = new System.Drawing.Size(394, 369);
             this.pnlBusqueda.TabIndex = 180;
             this.pnlBusqueda.TabStop = true;
             // 
-            // panel7
+            // btguardar
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel7.Location = new System.Drawing.Point(27, 77);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(289, 2);
-            this.panel7.TabIndex = 181;
-            // 
-            // txtcvusuarios
-            // 
-            this.txtcvusuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtcvusuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtcvusuarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcvusuarios.Location = new System.Drawing.Point(28, 59);
-            this.txtcvusuarios.Name = "txtcvusuarios";
-            this.txtcvusuarios.Size = new System.Drawing.Size(286, 15);
-            this.txtcvusuarios.TabIndex = 0;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(25, 32);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(105, 16);
-            label8.TabIndex = 44;
-            label8.Text = "Clave de Usuario";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(329, 21);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(55, 55);
-            this.btnBuscar.TabIndex = 1;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.ForeColor = System.Drawing.Color.Gray;
-            label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
-            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(5, 4);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(166, 17);
-            label9.TabIndex = 41;
-            label9.Text = "     Busqueda de usuario";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(27, 206);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(289, 2);
-            this.panel1.TabIndex = 184;
-            // 
-            // txtusuario
-            // 
-            this.txtusuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtusuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtusuario.Enabled = false;
-            this.txtusuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtusuario.Location = new System.Drawing.Point(28, 188);
-            this.txtusuario.Name = "txtusuario";
-            this.txtusuario.Size = new System.Drawing.Size(286, 15);
-            this.txtusuario.TabIndex = 2;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(25, 161);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(52, 16);
-            label2.TabIndex = 182;
-            label2.Text = "Usuario";
+            this.btguardar.BackColor = System.Drawing.Color.Red;
+            this.btguardar.Enabled = false;
+            this.btguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btguardar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btguardar.ForeColor = System.Drawing.Color.White;
+            this.btguardar.Location = new System.Drawing.Point(68, 291);
+            this.btguardar.Name = "btguardar";
+            this.btguardar.Size = new System.Drawing.Size(210, 50);
+            this.btguardar.TabIndex = 4;
+            this.btguardar.Text = "Restaurar Contraseña";
+            this.btguardar.UseVisualStyleBackColor = false;
+            this.btguardar.Click += new System.EventHandler(this.btguardar_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(26, 286);
+            this.panel2.Location = new System.Drawing.Point(26, 263);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(289, 2);
             this.panel2.TabIndex = 187;
@@ -249,45 +225,69 @@
             this.txtestatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtestatus.Enabled = false;
             this.txtestatus.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtestatus.Location = new System.Drawing.Point(27, 268);
+            this.txtestatus.Location = new System.Drawing.Point(27, 245);
             this.txtestatus.Name = "txtestatus";
             this.txtestatus.Size = new System.Drawing.Size(286, 15);
             this.txtestatus.TabIndex = 3;
             // 
-            // label3
+            // panel1
             // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(24, 241);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(53, 16);
-            label3.TabIndex = 185;
-            label3.Text = "Estatus";
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel1.Location = new System.Drawing.Point(27, 183);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(289, 2);
+            this.panel1.TabIndex = 184;
             // 
-            // btguardar
+            // txtusuario
             // 
-            this.btguardar.BackColor = System.Drawing.Color.Red;
-            this.btguardar.Enabled = false;
-            this.btguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btguardar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btguardar.ForeColor = System.Drawing.Color.White;
-            this.btguardar.Location = new System.Drawing.Point(68, 334);
-            this.btguardar.Name = "btguardar";
-            this.btguardar.Size = new System.Drawing.Size(210, 50);
-            this.btguardar.TabIndex = 4;
-            this.btguardar.Text = "Restaurar Contraseña";
-            this.btguardar.UseVisualStyleBackColor = false;
-            this.btguardar.Click += new System.EventHandler(this.btguardar_Click);
+            this.txtusuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtusuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtusuario.Enabled = false;
+            this.txtusuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtusuario.Location = new System.Drawing.Point(28, 165);
+            this.txtusuario.Name = "txtusuario";
+            this.txtusuario.Size = new System.Drawing.Size(286, 15);
+            this.txtusuario.TabIndex = 2;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel7.Location = new System.Drawing.Point(27, 86);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(289, 2);
+            this.panel7.TabIndex = 181;
+            // 
+            // txtcvusuarios
+            // 
+            this.txtcvusuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtcvusuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtcvusuarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcvusuarios.Location = new System.Drawing.Point(28, 68);
+            this.txtcvusuarios.Name = "txtcvusuarios";
+            this.txtcvusuarios.Size = new System.Drawing.Size(286, 15);
+            this.txtcvusuarios.TabIndex = 0;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
+            this.btnBuscar.Location = new System.Drawing.Point(329, 30);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(55, 55);
+            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // ResetPassw
             // 
             this.AcceptButton = this.btguardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.BackgroundImage = global::SIPAA_CS.Properties.Resources.log2;
+            this.ClientSize = new System.Drawing.Size(840, 495);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
