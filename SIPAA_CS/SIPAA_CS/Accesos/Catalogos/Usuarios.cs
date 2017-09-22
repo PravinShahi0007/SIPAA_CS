@@ -175,6 +175,8 @@ namespace SIPAA_CS.Accesos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            AcceDashboard accedb = new AcceDashboard();
+            accedb.Show();
             this.Close();
         }
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -183,7 +185,7 @@ namespace SIPAA_CS.Accesos.Catalogos
         }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
+            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -647,6 +649,16 @@ namespace SIPAA_CS.Accesos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Crear_Acceso_Usuario_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != this.Name)
+                {
+                    f.Hide();
+                }
+            }
+
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
@@ -655,6 +667,8 @@ namespace SIPAA_CS.Accesos.Catalogos
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
 
             panel1.Visible = false;
             panel10.Visible = false;
@@ -693,10 +707,15 @@ namespace SIPAA_CS.Accesos.Catalogos
             imgCheckProcesos.Name = "Seleccionar";
             dgvAccesoUsuario.Columns.Insert(0, imgCheckProcesos);
             dgvAccesoUsuario.Columns[0].HeaderText = "Seleccionar";
+            dgvAccesoUsuario.Columns[0].Width = 90;
             dgvAccesoUsuario.Columns[1].HeaderText = "Clave Usuario";
-            dgvAccesoUsuario.Columns[2].HeaderText = "IdTrabajador";
+            dgvAccesoUsuario.Columns[1].Width = 75;
+            dgvAccesoUsuario.Columns[2].HeaderText = "No Trabajador";
+            dgvAccesoUsuario.Columns[2].Width = 75;
             dgvAccesoUsuario.Columns[3].HeaderText = "Nombre";
+            dgvAccesoUsuario.Columns[3].Width = 330;
             dgvAccesoUsuario.Columns[4].HeaderText = "Estatus";
+            dgvAccesoUsuario.Columns[4].Width = 60;
             dgvAccesoUsuario.ClearSelection();
         }
         
