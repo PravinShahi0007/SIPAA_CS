@@ -305,14 +305,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //llama el tooltip
             ftooltip();
 
-            //pone el foco en el campo de busqueda
-            cbEmpleados.Focus();
-
             //llenado de combo compañias
             Utilerias.llenarComboxDataTable(cbCompania, oCompañia.obtCompania2(5, ""), "Clave", "Descripción");
 
             //llenado de combo ubicaciones
-            Utilerias.llenarComboxDataTable(cbUbicacion, oUbicacion.obtenerSonaUbicacion("", 6), "Clave", "Descripcion");
+            Utilerias.llenarComboxDataTable(cbUbicacion, oUbicacion.obtenerSonaUbicacion("", 6), "Clave", "Descripción");
 
             //Combo Puestos
             DataTable dtpuestos = puestos.obtptos(4, "");
