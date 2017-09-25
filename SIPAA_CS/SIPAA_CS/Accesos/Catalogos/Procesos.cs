@@ -279,6 +279,8 @@ namespace SIPAA_CS.Accesos.Catalogos
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            AcceDashboard accedb = new AcceDashboard();
+            accedb.Show();
             this.Close();
         }
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -305,6 +307,19 @@ namespace SIPAA_CS.Accesos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void Crear_Procesos_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != this.Name)
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
@@ -336,8 +351,11 @@ namespace SIPAA_CS.Accesos.Catalogos
             imgCheckProcesos.Image = Resources.ic_lens_blue_grey_600_18dp;
             imgCheckProcesos.Name = "Seleccionar";
             dgvProceso.Columns.Insert(0, imgCheckProcesos);
+            dgvProceso.Columns[0].Width = 90;
             dgvProceso.Columns[0].HeaderText = "Seleccionar";
             dgvProceso.Columns[1].Visible = false;
+            dgvProceso.Columns[2].Width = 410;
+            dgvProceso.Columns[3].Width = 90;
             dgvProceso.ClearSelection();
         }
         //-----------------------------------------------------------------------------------------------

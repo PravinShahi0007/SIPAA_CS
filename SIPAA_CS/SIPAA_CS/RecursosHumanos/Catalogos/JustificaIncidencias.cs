@@ -436,13 +436,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvjustinc.Columns[2].Visible = false;
             dgvjustinc.Columns[3].Width = 150;
             dgvjustinc.Columns[4].Width = 180;
-            dgvjustinc.Columns[5].Width = 75;
-            dgvjustinc.Columns[6].Width = 180;
-            dgvjustinc.Columns[7].Width = 90;
+            dgvjustinc.Columns[5].Width = 150;
+            dgvjustinc.Columns[6].Width = 80;
+            dgvjustinc.Columns[7].Width = 80;
             dgvjustinc.Columns[8].Width = 90;
             dgvjustinc.Columns[9].Visible = false;
             dgvjustinc.Columns[10].Visible = false;
             dgvjustinc.Columns[11].Visible = false;
+            dgvjustinc.Columns[12].Visible = false;
             dgvjustinc.ClearSelection();
             lblModif.Visible = true;
         }
