@@ -25,6 +25,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
     {
         #region
         int iins, iact, ielim;
+
+        int iactbtn;
+
+        int icvjustinc, icvincidencia;
         #endregion
 
         Perfil DatPerfil = new Perfil();
@@ -42,6 +46,65 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
+
+        //accion al tocar grid conforme a permisos del usuario
+        private void dgvjustinc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (iins == 1 && iact == 1 && ielim == 1)
+            {
+                factgrid();
+                Util.ChangeButton(btninsertar, 2, false);
+                ckbeliminar.Visible = true;
+                ckbeliminar.Checked = false;
+                iactbtn = 2;
+            }
+            else if (iins == 1 && iact == 1)
+            {
+                factgrid();
+                Util.ChangeButton(btninsertar, 2, false);
+                iactbtn = 2;
+            }
+            else if (iins == 1 && ielim == 1)
+            {
+                factgrid();
+                Util.ChangeButton(btninsertar, 2, false);
+                ckbeliminar.Visible = true;
+                ckbeliminar.Checked = false;
+                iactbtn = 2;
+            }
+            else if (iact == 1 && ielim == 1)
+            {
+                factgrid();
+                Util.ChangeButton(btninsertar, 2, false);
+                ckbeliminar.Visible = true;
+                ckbeliminar.Checked = false;
+                iactbtn = 2;
+            }
+            else if (iins == 1)
+            {
+                factgrid();
+                Util.ChangeButton(btninsertar, 2, false);
+                iactbtn = 2;
+            }
+            else if (iact == 1)
+            {
+                factgrid();
+                Util.ChangeButton(btninsertar, 2, false);
+                iactbtn = 2;
+            }
+            else if (ielim == 1)
+            {
+                factgrid();
+                Util.ChangeButton(btninsertar, 3, false);
+                ckbeliminar.Visible = true;
+                ckbeliminar.Checked = false;
+                iactbtn = 3;
+            }
+            else
+            {
+
+            }
+        }
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
@@ -69,7 +132,20 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            dgvjustinc.DataSource = null;
+
+            int inumcolumngrid = dgvjustinc.ColumnCount;
+
+            if (inumcolumngrid == 1)
+            {
+                dgvjustinc.Columns.RemoveAt(0);
+            }
+
+            //llena grid
+            fdgvsuid(4);
+
             pnlsuid.Visible = true;
+            Util.ChangeButton(btninsertar, 1, false);
             cboincidencias.Focus();
 
             //cb incidencias
@@ -77,10 +153,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             DataTable dtinc = JustInc.dtdgvcb(7, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cboincidencias, dtinc, "cvincidencia", "descrip");
 
+            txtdesc.Text = "";
+
             //cb tipociclo
             cbociclo.DataSource = null;
             DataTable dttipciclo = JustInc.dtdgvcb(8, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbociclo, dttipciclo, "cvciclo", "descrip");
+
+            txtnoeventos.Text = "";
 
             //cb tipo evento
             cbotipevento.DataSource = null;
@@ -91,6 +171,145 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             cbotipeval.DataSource = null;
             DataTable dttipeval = JustInc.dtdgvcb(6, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbotipeval, dttipeval, "stvalor", "descrp");
+
+            ckbeliminar.Visible = false;
+
+
+            iactbtn = 1;
+        }
+
+        private void btninsertar_Click(object sender, EventArgs e)
+        {
+            //guarda datos
+            if (iactbtn == 1)
+            {
+                //valida campos
+                Boolean bvalidacampos = fvalidacampos();
+
+                if (bvalidacampos == true)
+                {
+                    int ivali = JustInc.vuidjustinc(1, 0, Int32.Parse(cboincidencias.SelectedValue.ToString()), txtdesc.Text.Trim(), Int32.Parse(cbociclo.SelectedValue.ToString()),
+                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
+                        LoginInfo.IdTrab, this.Name);
+
+                    if (ivali == 1)
+                    {
+                        //llena grid
+                        fdgvsuid(4);
+                        pnlmenssuid.Visible = true;
+                        pnlmenssuid.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                        menssuid.Text = "Registro agregado correctamente";
+                        timer1.Start();
+                        flimpiaobj();
+                        iactbtn = 1;
+                        cboincidencias.Focus();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("No agrego su registro", "SIPAA", MessageBoxButtons.OK);
+                    }
+                }
+            }
+            else if (iactbtn == 2)
+            {
+                //valida campos
+                Boolean bvalidacampos = fvalidacampos();
+
+                if (bvalidacampos == true)
+                {
+                    int ivalu = JustInc.vuidjustinc(2, icvjustinc, icvincidencia, txtdesc.Text.Trim(), Int32.Parse(cbociclo.SelectedValue.ToString()),
+                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
+                        LoginInfo.IdTrab, this.Name);
+
+                    if (ivalu == 2)
+                    {
+                        //llena grid
+                        fdgvsuid(4);
+                        pnlmenssuid.Visible = true;
+                        pnlmenssuid.BackColor = ColorTranslator.FromHtml("#0277bd");
+                        menssuid.Text = "Registro modificado correctamente";
+                        timer1.Start();
+                        flimpiaobj();
+                        iactbtn = 0;
+                        cboincidencias.Focus();
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("No se modifico su registro", "SIPAA", MessageBoxButtons.OK);
+                    }
+                }
+            }
+            else if (iactbtn == 3)
+            {
+                //eliminar registro
+                DialogResult result = MessageBox.Show("Esta acción elimina el registro, ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    int ivald = JustInc.vuidjustinc(3, icvjustinc, icvincidencia, txtdesc.Text.Trim(), Int32.Parse(cbociclo.SelectedValue.ToString()),
+                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
+                        LoginInfo.IdTrab, this.Name);
+
+                    if (ivald == 3)
+                    {
+                        //llena grid
+                        fdgvsuid(4);
+                        pnlmenssuid.Visible = true;
+                        pnlmenssuid.BackColor = ColorTranslator.FromHtml("#f44336");
+                        menssuid.Text = "Registro eliminado correctamente";
+                        timer1.Start();
+                        flimpiaobj();
+                        ckbeliminar.Checked = false;
+                        Util.ChangeButton(btninsertar, 2, false);
+                        iactbtn = 0;
+                        cboincidencias.Focus();
+                    }
+                    else
+                    {
+                        DialogResult result1 = MessageBox.Show("No se elimmino su registro", "SIPAA", MessageBoxButtons.OK);
+                    }
+                }
+                else
+                {
+                    ckbeliminar.Checked = false;
+                    cboincidencias.Focus();
+                }
+            }
+            else
+            {
+                DialogResult result1 = MessageBox.Show("Seleccione una acción a realizar", "SIPAA", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            dgvjustinc.DataSource = null;
+
+            int inumcolumngrid = dgvjustinc.ColumnCount;
+
+            if (inumcolumngrid == 1)
+            {
+                dgvjustinc.Columns.RemoveAt(0);
+            }
+
+            //llena grid
+            fdgvsuid(4);
+        }
+
+        private void ckbeliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbeliminar.Checked == true)
+            {
+                Util.ChangeButton(btninsertar, 3, false);
+                //lbluid.Text = "     Elimina Incidencia de Nomina";
+                iactbtn = 3;
+            }
+            else
+            {
+                Util.ChangeButton(btninsertar, 2, false);
+                //lbluid.Text = "     Modifica Incidencia de Nomina";
+                iactbtn = 2;
+            }
         }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
@@ -132,6 +351,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             //llena grid
             fdgvsuid(4);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            pnlmenssuid.Visible = false;
+            timer1.Stop();
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -216,6 +441,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvjustinc.Columns[7].Width = 90;
             dgvjustinc.Columns[8].Width = 90;
             dgvjustinc.Columns[9].Visible = false;
+            dgvjustinc.Columns[10].Visible = false;
+            dgvjustinc.Columns[11].Visible = false;
             dgvjustinc.ClearSelection();
             lblModif.Visible = true;
         }
@@ -235,8 +462,138 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvjustinc.Columns[6].Width = 90;
             dgvjustinc.Columns[7].Width = 90;
             dgvjustinc.Columns[8].Visible = false;
+            dgvjustinc.Columns[9].Visible = false;
+            dgvjustinc.Columns[10].Visible = false;
             dgvjustinc.ClearSelection();
             lblModif.Visible = false;
+        }
+
+        private void factgrid()
+        {
+            if (iins == 1 && iact == 0 && ielim == 0)
+            {
+            }
+            else
+            {
+                for (int iContador = 0; iContador < dgvjustinc.Rows.Count; iContador++)
+                {
+                    dgvjustinc.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                }
+
+                if (dgvjustinc.SelectedRows.Count != 0)
+                {
+                    pnlsuid.Visible = true;
+                    DataGridViewRow row = this.dgvjustinc.SelectedRows[0];
+                    icvjustinc = Convert.ToInt32(row.Cells["cvjustinc"].Value.ToString());
+                    icvincidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
+
+                    //lbluid.Text = "     Modifica Incidencia de Nomina";
+
+                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+
+                    //cb incidencias
+                    cboincidencias.DataSource = null;
+                    DataTable dtinc = JustInc.dtdgvcb(7, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                    Utilerias.llenarComboxDataTable(cboincidencias, dtinc, "cvincidencia", "descrip");
+                    cboincidencias.SelectedValue = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
+
+                    txtdesc.Text = row.Cells["Justifica Incidencia"].Value.ToString();
+
+                    //cb tipociclo
+                    cbociclo.DataSource = null;
+                    DataTable dttipciclo = JustInc.dtdgvcb(8, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                    Utilerias.llenarComboxDataTable(cbociclo, dttipciclo, "cvciclo", "descrip");
+                    cbociclo.SelectedValue = Convert.ToInt32(row.Cells["cvtipociclo"].Value.ToString());
+
+                    txtnoeventos.Text = row.Cells["No de Enventos"].Value.ToString();
+
+                    //cb tipo evento
+                    cbotipevento.DataSource = null;
+                    DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                    Utilerias.llenarComboxDataTable(cbotipevento, dttipevent, "stvalor", "descrip");
+                    cbotipevento.SelectedValue = Convert.ToInt32(row.Cells["cvtipoevento"].Value.ToString());
+
+                    //cb tipo evaliacion
+                    cbotipeval.DataSource = null;
+                    DataTable dttipeval = JustInc.dtdgvcb(6, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                    Utilerias.llenarComboxDataTable(cbotipeval, dttipeval, "stvalor", "descrp");
+                    cbotipeval.SelectedValue = Convert.ToInt32(row.Cells["cvtipoeval"].Value.ToString());
+
+                    cboincidencias.Focus();
+                }
+            }
+        }
+
+        private void flimpiaobj()
+        {
+            //cb incidencias
+            cboincidencias.DataSource = null;
+            DataTable dtinc = JustInc.dtdgvcb(7, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            Utilerias.llenarComboxDataTable(cboincidencias, dtinc, "cvincidencia", "descrip");
+
+            txtdesc.Text = "";
+
+            //cb tipociclo
+            cbociclo.DataSource = null;
+            DataTable dttipciclo = JustInc.dtdgvcb(8, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            Utilerias.llenarComboxDataTable(cbociclo, dttipciclo, "cvciclo", "descrip");
+
+            txtnoeventos.Text = "";
+
+            //cb tipo evento
+            cbotipevento.DataSource = null;
+            DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            Utilerias.llenarComboxDataTable(cbotipevento, dttipevent, "stvalor", "descrip");
+
+            //cb tipo evaliacion
+            cbotipeval.DataSource = null;
+            DataTable dttipeval = JustInc.dtdgvcb(6, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            Utilerias.llenarComboxDataTable(cbotipeval, dttipeval, "stvalor", "descrp");
+        }
+
+        //validacion de campos
+        private Boolean fvalidacampos()
+        {
+            if (cboincidencias.Text.Trim() == "" || cboincidencias.SelectedIndex == -1 || cboincidencias.SelectedIndex == 0)
+            {
+                DialogResult result = MessageBox.Show("Selecciona una incidencias", "SIPAA", MessageBoxButtons.OK);
+                cboincidencias.Focus();
+                return false;
+            }
+            else if (txtdesc.Text.Trim() == "")
+            {
+                DialogResult result = MessageBox.Show("Captura una descripción", "SIPAA", MessageBoxButtons.OK);
+                cboincidencias.Focus();
+                return false;
+            }
+            else if (cbociclo.Text.Trim() == "" || cbociclo.SelectedIndex == -1 || cbociclo.SelectedIndex == 0)
+            {
+                DialogResult result = MessageBox.Show("Seleciona un ciclo", "SIPAA", MessageBoxButtons.OK);
+                cbociclo.Focus();
+                return false;
+            }
+            else if (txtnoeventos.Text.Trim() == "")
+            {
+                DialogResult result = MessageBox.Show("Captura el número de eventos", "SIPAA", MessageBoxButtons.OK);
+                txtnoeventos.Focus();
+                return false;
+            }
+            else if (cbotipevento.Text.Trim() == "" || cbotipevento.SelectedIndex == -1 || cbotipevento.SelectedIndex == 0)
+            {
+                DialogResult result = MessageBox.Show("Seleciona tipo de evento", "SIPAA", MessageBoxButtons.OK);
+                cbotipevento.Focus();
+                return false;
+            }
+            else if (cbotipeval.Text.Trim() == "" || cbotipeval.SelectedIndex == -1 || cbotipeval.SelectedIndex == 0)
+            {
+                DialogResult result = MessageBox.Show("Seleciona un método de evaluación", "SIPAA", MessageBoxButtons.OK);
+                cbotipeval.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
