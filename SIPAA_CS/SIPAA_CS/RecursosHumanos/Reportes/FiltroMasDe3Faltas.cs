@@ -18,14 +18,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
     public partial class FiltroMasDe3Faltas : Form
     {
         //Definición de Variables
-        public string sIdTrab;
-        public string sCompania;
-        public string sUbicacion;
+        public int sIdTrab;
+        public int sCompania;
+        public int sUbicacion;
         public DateTime dtFechaBase = DateTime.Today;
 
         //Instanciamos las clases
         SonaTrabajador oTrabajador = new SonaTrabajador();
-        SonaCompania2 oCompañia = new SonaCompania2();
+        SonaCompania oCompania = new SonaCompania();
         SonaUbicacion oUbicacion = new SonaUbicacion();
         Utilerias util = new Utilerias();
 
@@ -60,32 +60,32 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             if (txtIdTrab.Text == string.Empty)
             {
-                sIdTrab = "%";
+                sIdTrab = 0;
             }
             else
             {
-                sIdTrab = txtIdTrab.Text;
+                sIdTrab = Convert.ToInt32(txtIdTrab.Text.Trim());
             }
 
-            if (cbCompania.Text == string.Empty | cbCompania.Text == "Seleccionar Compañia...")
+            if (cbCompania.Text == string.Empty || cbCompania.Text == "Seleccionar Compañia...")
             {
-                sCompania = "%";
+                sCompania = 0;
             }
             else
             {
-                sCompania = cbCompania.SelectedValue.ToString();
+                sCompania = Convert.ToInt32(cbCompania.SelectedValue.ToString());
             }
 
-            if (cbUbicacion.Text == string.Empty | cbUbicacion.Text == "Seleccionar")
+            if (cbUbicacion.Text == string.Empty || cbUbicacion.Text == "Seleccionar")
             {
-                sUbicacion = "%";
+                sUbicacion = 0;
             }
             else
             {
-                sUbicacion = cbUbicacion.SelectedValue.ToString();
+                sUbicacion = Convert.ToInt32(cbUbicacion.SelectedValue.ToString());
             }
 
-            DataTable dtReporteRegistro = oTrabajador.MasDe3Faltas(sIdTrab, sCompania, sUbicacion, dtFechaBase);
+            DataTable dtReporteRegistro = oTrabajador.MasDe3Faltas(5, sIdTrab, sCompania, sUbicacion, dtFechaBase);
 
             switch (dtReporteRegistro.Rows.Count)
             {
@@ -96,10 +96,10 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 default:
                     //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
                     ViewerReporte form = new ViewerReporte();
-                    RegistroDetalle dtrpt = new RegistroDetalle();
+                    Mas3FaltasPeriodo dtrpt = new Mas3FaltasPeriodo();
                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistro, "RecursosHumanos", dtrpt.ResourceName);
 
-                    ReportDoc.SetParameterValue("FechaInicio", dpFechaBase.Value);
+                    //ReportDoc.SetParameterValue("FechaInicio", dpFechaBase.Value);
                     form.RptDoc = ReportDoc;
                     form.Show();
                     break;
@@ -140,6 +140,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+
+
+            //LLENA COMBOS
+            DataTable dtCompania = oCompania.obtcomp(5, "");
+            Utilerias.llenarComboxDataTable(cbCompania, dtCompania, "Clave", "Descripción");
+
+            DataTable dtUbicacion = oCompania.ObtenerUbicacionPlantel(5, "");
+            Utilerias.llenarComboxDataTable(cbUbicacion, dtUbicacion, "IdUbicacion", "Descripción");
         }
 
         private void btnRegresar_Click_1(object sender, EventArgs e)
@@ -166,6 +174,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             {
 
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Mas3FaltasPeriodo" targetNamespace="http://tempuri.org/Mas3FaltasPeriodo.xsd" xmlns:mstns="http://tempuri.org/Mas3FaltasPeriodo.xsd" xmlns="http://tempuri.org/Mas3FaltasPeriodo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Mas3FaltasPeriodo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Mas3FaltasPeriodo" msprop:Generator_UserDSName="Mas3FaltasPeriodo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Mas3FaltasPeriodo" msprop:Generator_TableClassName="Mas3FaltasPeriodoDataTable" msprop:Generator_TableVarName="tableMas3FaltasPeriodo" msprop:Generator_TablePropName="_Mas3FaltasPeriodo" msprop:Generator_RowDeletingName="Mas3FaltasPeriodoRowDeleting" msprop:Generator_RowChangingName="Mas3FaltasPeriodoRowChanging" msprop:Generator_RowEvHandlerName="Mas3FaltasPeriodoRowChangeEventHandler" msprop:Generator_RowDeletedName="Mas3FaltasPeriodoRowDeleted" msprop:Generator_UserTableName="Mas3FaltasPeriodo" msprop:Generator_RowChangedName="Mas3FaltasPeriodoRowChanged" msprop:Generator_RowEvArgName="Mas3FaltasPeriodoRowChangeEvent" msprop:Generator_RowClassName="Mas3FaltasPeriodoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idtrab" msprop:Generator_ColumnVarNameInTable="columnidtrab" msprop:Generator_ColumnPropNameInRow="idtrab" msprop:Generator_ColumnPropNameInTable="idtrabColumn" msprop:Generator_UserColumnName="idtrab" type="xs:string" minOccurs="0" />
+              <xs:element name="Trabajador" msprop:Generator_ColumnVarNameInTable="columnTrabajador" msprop:Generator_ColumnPropNameInRow="Trabajador" msprop:Generator_ColumnPropNameInTable="TrabajadorColumn" msprop:Generator_UserColumnName="Trabajador" type="xs:string" minOccurs="0" />
+              <xs:element name="fereget" msprop:Generator_ColumnVarNameInTable="columnfereget" msprop:Generator_ColumnPropNameInRow="fereget" msprop:Generator_ColumnPropNameInTable="feregetColumn" msprop:Generator_UserColumnName="fereget" type="xs:string" minOccurs="0" />
+              <xs:element name="incidencia" msprop:Generator_ColumnVarNameInTable="columnincidencia" msprop:Generator_ColumnPropNameInRow="incidencia" msprop:Generator_ColumnPropNameInTable="incidenciaColumn" msprop:Generator_UserColumnName="incidencia" type="xs:string" minOccurs="0" />
+              <xs:element name="representa" msprop:Generator_ColumnVarNameInTable="columnrepresenta" msprop:Generator_ColumnPropNameInRow="representa" msprop:Generator_ColumnPropNameInTable="representaColumn" msprop:Generator_UserColumnName="representa" type="xs:string" minOccurs="0" />
+              <xs:element name="idtrabdir" msprop:Generator_ColumnVarNameInTable="columnidtrabdir" msprop:Generator_ColumnPropNameInRow="idtrabdir" msprop:Generator_ColumnPropNameInTable="idtrabdirColumn" msprop:Generator_UserColumnName="idtrabdir" type="xs:string" minOccurs="0" />
+              <xs:element name="stdir" msprop:Generator_ColumnVarNameInTable="columnstdir" msprop:Generator_ColumnPropNameInRow="stdir" msprop:Generator_ColumnPropNameInTable="stdirColumn" msprop:Generator_UserColumnName="stdir" type="xs:string" minOccurs="0" />
+              <xs:element name="fhautdir" msprop:Generator_ColumnVarNameInTable="columnfhautdir" msprop:Generator_ColumnPropNameInRow="fhautdir" msprop:Generator_ColumnPropNameInTable="fhautdirColumn" msprop:Generator_UserColumnName="fhautdir" type="xs:string" minOccurs="0" />
+              <xs:element name="stinc" msprop:Generator_ColumnVarNameInTable="columnstinc" msprop:Generator_ColumnPropNameInRow="stinc" msprop:Generator_ColumnPropNameInTable="stincColumn" msprop:Generator_UserColumnName="stinc" type="xs:string" minOccurs="0" />
+              <xs:element name="Falta" msprop:Generator_ColumnVarNameInTable="columnFalta" msprop:Generator_ColumnPropNameInRow="Falta" msprop:Generator_ColumnPropNameInTable="FaltaColumn" msprop:Generator_UserColumnName="Falta" type="xs:string" minOccurs="0" />
+              <xs:element name="Aut" msprop:Generator_ColumnVarNameInTable="columnAut" msprop:Generator_ColumnPropNameInRow="Aut" msprop:Generator_ColumnPropNameInTable="AutColumn" msprop:Generator_UserColumnName="Aut" type="xs:string" minOccurs="0" />
+              <xs:element name="FalEfe" msprop:Generator_ColumnVarNameInTable="columnFalEfe" msprop:Generator_ColumnPropNameInRow="FalEfe" msprop:Generator_ColumnPropNameInTable="FalEfeColumn" msprop:Generator_UserColumnName="FalEfe" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
