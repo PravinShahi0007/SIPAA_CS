@@ -1,6 +1,7 @@
 ﻿using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
+using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
     public partial class AsignacionIncidenciasTrabajador2 : Form
     {
 
+        #region Variables
+
+        int iIdFormaPago;
+        bool bClickPrimeraVezFormaPago = true;
+
+        #endregion
+
+
         List<DateTime> ltFechasRegistro = new List<DateTime>();
         List<int> ltCvIncidencia = new List<int>();
         List<int> ltcvTipo = new List<int>();
@@ -26,12 +35,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         List<Captura2> ltTrab = new List<Captura2>();
 
         public int iOpcionAdmin;
+        AsignacionIncidenciaTrabajador2 oNombreEmpleado = new AsignacionIncidenciaTrabajador2();
+        Utilerias Util = new Utilerias();
 
         public AsignacionIncidenciasTrabajador2()
         {
             InitializeComponent();
         }
 
+
+        
         //***********************************************************************************************
         //Autor: Victor Jesús Iturburu Vergara
         //Fecha creación:17-05-04      Última Modificacion: 17-05-04    
@@ -55,6 +68,23 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 cbTipo.Enabled = false;
             }
         }
+
+        private void ObtieneEmpleado(object sender, EventArgs e)
+        {
+            // Obtiene Nombre del Empleado
+
+            DataTable dtNombreEmpleado = oNombreEmpleado.obtNombreEmpleado(TxtIdEmp.Text, 14/*, 0, 0, ""*/);
+
+         if (dtNombreEmpleado.Rows.Count > 0)
+           {
+               TxtNombreEmpleado.Text = dtNombreEmpleado.Rows[0][2].ToString();
+            }
+            else
+            {
+                TxtNombreEmpleado.Text = "Empleado No EXISTE";
+            }
+        }  
+
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
@@ -361,8 +391,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             //////////////////////////////////////////////////////////////////////////////////
 
-            lbNombre.Text = TrabajadorInfo.Nombre;
-            lbIdTrab.Text = TrabajadorInfo.IdTrab;
+            // lbNombre.Text = TrabajadorInfo.Nombre;
+            // lbIdTrab.Text = TrabajadorInfo.IdTrab;
             llenarComboIncidencia();
             //cbTipo.Enabled = false;
 
