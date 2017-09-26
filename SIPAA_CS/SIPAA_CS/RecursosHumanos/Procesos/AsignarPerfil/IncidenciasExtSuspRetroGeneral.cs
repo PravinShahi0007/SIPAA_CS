@@ -3,6 +3,7 @@ using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
+using SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +36,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         List<Captura2> ltTrab = new List<Captura2>();
 
         public int iOpcionAdmin;
-        AsignacionIncidenciaTrabajador2 oNombreEmpleado = new AsignacionIncidenciaTrabajador2();
+        AsignacionIncidenciasTrabajador2 oNombreEmpleado = new AsignacionIncidenciaTrabajador2();
         Utilerias Util = new Utilerias();
 
         public AsignacionIncidenciasTrabajador2()
