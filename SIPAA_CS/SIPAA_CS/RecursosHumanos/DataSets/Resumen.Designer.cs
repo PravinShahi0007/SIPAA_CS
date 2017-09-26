@@ -479,7 +479,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReporteResumenRow AddReporteResumenRow(string Idtrab, string Nombre, string Sin_Registros, string Omisión_Entrada, string Omisión_Salida, string Retardo, string Minutos_Retardo, string Salida_Anticipada, string Minutos_Salida_Anticipada, string Retardo_Comida, string Minutos_Retardo_Comida, string IdDirector, string Director) {
+            public ReporteResumenRow AddReporteResumenRow(string Idtrab, string Nombre, string Sin_Registros, string Omisión_Entrada, string Omisión_Salida, string Retardo, string Minutos_Retardo, string Salida_Anticipada, string Minutos_Salida_Anticipada, string Retardo_Comida, string Minutos_Retardo_Comida, int IdDirector, string Director) {
                 ReporteResumenRow rowReporteResumenRow = ((ReporteResumenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Idtrab,
@@ -557,7 +557,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnRetardo_Comida);
                 this.columnMinutos_Retardo_Comida = new global::System.Data.DataColumn("Minutos_Retardo_Comida", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMinutos_Retardo_Comida);
-                this.columnIdDirector = new global::System.Data.DataColumn("IdDirector", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnIdDirector = new global::System.Data.DataColumn("IdDirector", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIdDirector);
                 this.columnDirector = new global::System.Data.DataColumn("Director", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDirector);
@@ -882,10 +882,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string IdDirector {
+            public int IdDirector {
                 get {
                     try {
-                        return ((string)(this[this.tableReporteResumen.IdDirectorColumn]));
+                        return ((int)(this[this.tableReporteResumen.IdDirectorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'IdDirector\' de la tabla \'ReporteResumen\' es DBNull.", e);

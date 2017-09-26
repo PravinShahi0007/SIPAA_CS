@@ -13,8 +13,8 @@ namespace SIPAA_CS.Accesos.Catalogos
 
 
     //***********************************************************************************************
-    //Autor: Victor Jesús Iturburu Vergara
-    //Fecha creación:13-03-2017       Última Modificacion: 13-03-2017
+    //Autor: Victor Jesús Iturburu Vergara       modif: noe alvarez marquina   -------su quitan variables fijas, mensajes
+    //Fecha creación:13-03-2017       Última Modificacion: 25-09-2017
     //Descripción: Pantalla que permite la gestión de Perfiles de usuario
     //***********************************************************************************************
 
@@ -155,13 +155,13 @@ namespace SIPAA_CS.Accesos.Catalogos
             objPerfil.CVPerfil = IdPerfil;
             objPerfil.Descripcion = txtPerfil.Text.Trim();
             objPerfil.PrguMod = this.Name;
-            objPerfil.UsuuMod = "vjiturburuv";
+            objPerfil.UsuuMod = LoginInfo.IdTrab;
             string strMensaje = "";
 
             if (txtPerfil.Text.Trim() == String.Empty)
             {
-
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "El Campo Perfil no puede ir vacio.");
+                DialogResult result = MessageBox.Show("Captura una perfil", "SIPAA", MessageBoxButtons.OK);
+                //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Capture un perfil");
                 txtPerfil.Focus();
             }
             else
@@ -177,7 +177,7 @@ namespace SIPAA_CS.Accesos.Catalogos
                 }
                 else if (iOpcionAdmin == 3)
                 {
-                    strMensaje = "Cambio de Estatus hecho Correctamente";
+                    strMensaje = "Cambio de estatus realizado correctamente";
                 }
 
                 int iResponse = GestionarPefilesxOpcion(txtPerfil, objPerfil, strMensaje, iOpcionAdmin, sender, e);
@@ -408,13 +408,13 @@ namespace SIPAA_CS.Accesos.Catalogos
                     int iResponse = 0;
                     string Mensaje = "";
 
-                    if (strEstatus == "1")
+                    if (strEstatus == "Inactivo")
                     {
-                        Mensaje = "¿Seguro que desea dar de BAJA el Registro?";
+                        Mensaje = "¿Seguro que desea dar de ALTA el perfil?";
                     }
                     else
                     {
-                        Mensaje = "¿Seguro que desea dar de ALTA el Registro?";
+                        Mensaje = "¿Seguro que desea dar de BAJA el perfil?";
                     }
 
                     
@@ -447,21 +447,22 @@ namespace SIPAA_CS.Accesos.Catalogos
                     }
                     else if (iResponse == 0)
                     {
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El Perfil Ingresado ya se encuentra registrado.");
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El Perfil Ingresado ya existe, verificar");
                         timer1.Start();
                         return iResponse;
                     }
                 }
                 catch (Exception ex)
                 {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde");
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde" + ex);
+                    DialogResult result = MessageBox.Show(ex.ToString());
                     timer1.Start();
                     return 0;
                 }
             }
             else
             {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "El Campo Editar no puede ir Vacio");
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Capture un perfil");
                 timer1.Start();
                 return 0;
             }

@@ -345,14 +345,21 @@
     <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
+    <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.Designer.cs">
+      <DependentUpon>JustificaIncidencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\Mas3FaltasPeriodo.cs">
       <DependentUpon>Mas3FaltasPeriodo.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\DataSets\Mas3FaltasPeriodo.Designer.cs">
+      <DependentUpon>Mas3FaltasPeriodo.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Mas3FaltasPeriodo.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
@@ -796,12 +803,6 @@
       <DependentUpon>IncidenciasPasadasNomina.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RecursosHumanos\Reportes\Mas3FaltasPeriodo.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Mas3FaltasPeriodo.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="RecursosHumanos\Reportes\Observaciones.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -993,6 +994,9 @@
     <EmbeddedResource Include="Accesos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\JustificaIncidencias.resx">
+      <DependentUpon>JustificaIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp2.resx">
       <DependentUpon>VacIncPermHrEsp2.cs</DependentUpon>
     </EmbeddedResource>
@@ -1154,10 +1158,6 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>IncidenciasPasadasNomina.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecursosHumanos\Reportes\Mas3FaltasPeriodo.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Mas3FaltasPeriodo.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Observaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1342,9 +1342,9 @@
       <DependentUpon>Mas3FaltasPeriodo.xsd</DependentUpon>
     </None>
     <None Include="RecursosHumanos\DataSets\Mas3FaltasPeriodo.xsd">
-      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Mas3FaltasPeriodo.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="RecursosHumanos\DataSets\Mas3FaltasPeriodo.xss">
       <DependentUpon>Mas3FaltasPeriodo.xsd</DependentUpon>

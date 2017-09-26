@@ -27,6 +27,7 @@
               <xs:element name="Representa" msprop:Generator_ColumnVarNameInTable="columnRepresenta" msprop:Generator_ColumnPropNameInRow="Representa" msprop:Generator_ColumnPropNameInTable="RepresentaColumn" msprop:Generator_UserColumnName="Representa" type="xs:string" minOccurs="0" />
               <xs:element name="Tiempo_Empleado" msprop:Generator_ColumnVarNameInTable="columnTiempo_Empleado" msprop:Generator_ColumnPropNameInRow="Tiempo_Empleado" msprop:Generator_ColumnPropNameInTable="Tiempo_EmpleadoColumn" msprop:Generator_UserColumnName="Tiempo_Empleado" type="xs:string" minOccurs="0" />
               <xs:element name="Tiempo_Profesor" msprop:Generator_ColumnVarNameInTable="columnTiempo_Profesor" msprop:Generator_ColumnPropNameInRow="Tiempo_Profesor" msprop:Generator_ColumnPropNameInTable="Tiempo_ProfesorColumn" msprop:Generator_UserColumnName="Tiempo_Profesor" type="xs:string" minOccurs="0" />
+              <xs:element name="Hora_Salida" msprop:Generator_ColumnVarNameInTable="columnHora_Salida" msprop:Generator_ColumnPropNameInRow="Hora_Salida" msprop:Generator_ColumnPropNameInTable="Hora_SalidaColumn" msprop:Generator_UserColumnName="Hora_Salida" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
