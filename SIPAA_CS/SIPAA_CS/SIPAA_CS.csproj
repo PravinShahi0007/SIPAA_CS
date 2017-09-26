@@ -347,6 +347,7 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\AsignacionIncidenciaTrabajador2.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueaIncidencias.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
@@ -687,6 +688,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp.Designer.cs">
       <DependentUpon>VacIncPermHrEsp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DesbloquearIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DesbloquearIncidencias.Designer.cs">
+      <DependentUpon>DesbloquearIncidencias.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.cs">
       <SubType>Form</SubType>
@@ -1088,6 +1095,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp.resx">
       <DependentUpon>VacIncPermHrEsp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloquearIncidencias.resx">
+      <DependentUpon>DesbloquearIncidencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.resx">
       <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
