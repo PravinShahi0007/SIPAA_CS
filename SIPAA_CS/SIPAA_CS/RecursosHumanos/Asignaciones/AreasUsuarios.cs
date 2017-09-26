@@ -358,6 +358,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
                 }
             }
 
+
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
 
