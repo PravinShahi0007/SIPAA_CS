@@ -315,9 +315,9 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(413, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(268, 23);
+            this.label3.Size = new System.Drawing.Size(154, 23);
             this.label3.TabIndex = 138;
-            this.label3.Text = "      Filtros de Reporte Registro Detalle";
+            this.label3.Text = "         Registro Detalle";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ptbimgusuario

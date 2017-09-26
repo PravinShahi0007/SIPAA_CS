@@ -52,20 +52,21 @@ namespace SIPAA_CS.App_Code
             cmd.CommandText = @"usp_sonacompania_s";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
-            objConexion.asignarConexion(cmd);
-
+           
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = stextobuscar;
-
             objConexion.asignarConexions(cmd);
-
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
-
             objConexion.asignarConexion(cmd);
-
+            
             DataTable dtcomp = new DataTable();
             Adapter.Fill(dtcomp);
             return dtcomp;
+            ////////////////////////////
+          
+            ///////////////////////
+
+
 
         }
 
@@ -77,18 +78,13 @@ namespace SIPAA_CS.App_Code
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
-
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
             cmd.Parameters.Add("@P_idcompania", SqlDbType.VarChar).Value = idcompania;
             cmd.Parameters.Add("@p_DescripcionCia", SqlDbType.VarChar).Value = descripcion;
             cmd.Parameters.Add("@P_Planta", SqlDbType.VarChar).Value = planta;
-
             objConexion.asignarConexion(cmd);
-
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
-
             objConexion.cerrarConexion();
-
             DataTable dtPlanta = new DataTable();
             Adapter.Fill(dtPlanta);
             return dtPlanta;

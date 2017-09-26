@@ -34,6 +34,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         SonaUbicacion oUbicacion = new SonaUbicacion();
         Utilerias util = new Utilerias();
         SaveFileDialog saveFileDialogArchivo = new SaveFileDialog();
+        SonaTrabajador contenedorempleados = new SonaTrabajador();
 
         public ArchivoNomina4()
         {
@@ -82,30 +83,34 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dtpfechainicial.Focus();
             }
 
-            else if (txtidtrab.Text.Trim()=="" & (cbUbicacion.SelectedValue.ToString()=="" | cbUbicacion.Text == "Seleccionar Ubicación..."))
+            else if (cbEmpleados.Text =="" | cbEmpleados.Text == "Seleccionar" & (cbUbicacion.SelectedValue.ToString()=="" | Convert.ToInt32(cbUbicacion.SelectedValue.ToString()) == 0 
+                | cbUbicacion.Text == "Seleccionar Ubicación..."))
+            //else if (txtidtrab.Text.Trim() == "" & (cbUbicacion.SelectedValue.ToString() == "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
             {
                 fgridarchivonomina4(4, 0, Convert.ToInt32(cbCompania.SelectedValue.ToString()),
                 Convert.ToInt32(cbTiponomina.SelectedValue.ToString()), 0,
-                dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), "JLA", "ProcArchNom");
+                dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), LoginInfo.IdTrab, "ProcArchNom");
 
             }
-            else if (txtidtrab.Text.Trim()=="" & (cbUbicacion.SelectedValue.ToString() != "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
+            else if (cbEmpleados.Text == "" | cbEmpleados.Text == "Seleccionar" & (cbUbicacion.SelectedValue.ToString() != "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
+            //else if (txtidtrab.Text.Trim() == "" & (cbUbicacion.SelectedValue.ToString() != "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
             {
                 fgridarchivonomina4(5, 0, Convert.ToInt32(cbCompania.SelectedValue.ToString()),
                 Convert.ToInt32(cbTiponomina.SelectedValue.ToString()), Convert.ToInt32(cbUbicacion.SelectedValue.ToString()),
-                dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), "JLA", "ProcArchNom");
+                dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), LoginInfo.IdTrab, "ProcArchNom");
             }
-            else if (txtidtrab.Text.Trim() != "" & (cbUbicacion.SelectedValue.ToString() == "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
+            else if (cbEmpleados.Text != "" & (cbUbicacion.SelectedValue.ToString() == "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
+            //else if (txtidtrab.Text.Trim() != "" & (cbUbicacion.SelectedValue.ToString() == "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
             {
-                fgridarchivonomina4(6, Convert.ToInt32(txtidtrab.Text.Trim()), Convert.ToInt32(cbCompania.SelectedValue.ToString()),
+                fgridarchivonomina4(6, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), Convert.ToInt32(cbCompania.SelectedValue.ToString()),
                 Convert.ToInt32(cbTiponomina.SelectedValue.ToString()),0,
-                dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), "JLA", "ProcArchNom");
+                dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), LoginInfo.IdTrab, "ProcArchNom");
             }
             else
             {
-                fgridarchivonomina4(7, Convert.ToInt32(txtidtrab.Text.Trim()), Convert.ToInt32(cbCompania.SelectedValue.ToString()),
+                fgridarchivonomina4(7, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), Convert.ToInt32(cbCompania.SelectedValue.ToString()),
                 Convert.ToInt32(cbTiponomina.SelectedValue.ToString()), 0,
-                dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), "JLA", "ProcArchNom");
+                dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), LoginInfo.IdTrab, "ProcArchNom");
             }
         }
 
@@ -118,11 +123,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
             else
             {
+                /*
                 string idTrab = "%";
                 string cvCia = "%";
                 string cvUbicacion = "%";
                 string sNomina = "%";
-                if (txtidtrab.Text != String.Empty) { idTrab = txtidtrab.Text; }
+                if (cbEmpleados.Text != String.Empty) { idTrab = cbEmpleados.Text.ToString(); }
+                //if (txtidtrab.Text != String.Empty) { idTrab = txtidtrab.Text; }
 
                 if (cbCompania.SelectedIndex > 0) { cvCia = cbCompania.SelectedValue.ToString(); }
                 if (cbUbicacion.SelectedIndex > 0) { cvUbicacion = cbUbicacion.SelectedValue.ToString(); }
@@ -138,7 +145,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
                 form.RptDoc = ReportDoc;
                 form.Show();
-
+                */
+                creacsvcorto();
             }
         }
 
@@ -189,16 +197,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 //llenado de combo compañias
                 util.cargarcombo(cbCompania, oCompañia.obtCompania2(5, ""));
-                //DataTable dtCompañia = oCompañia.obtCompania2(5, "");
-                //cbCompania.DataSource = dtCompañia;
-                //cbCompania.DisplayMember = "Descripción";
-                //cbCompania.ValueMember = "Clave";
+
                 cbCompania.Text = "Seleccionar Compañia...";
 
                 //llenado de combo ubicaciones
                 //util.cargarcombo(cbUbicacion, oUbicacion.obtenerSonaUbicacion("",6));
-                Utilerias.llenarComboxDataTable(cbUbicacion, oUbicacion.obtenerSonaUbicacion("", 6), "Clave", "Descripcion");
+                Utilerias.llenarComboxDataTable(cbUbicacion, oUbicacion.obtenerSonaUbicacion("", 6), "Clave", "Descripción");
                 bprimeravez = false;
+
+                //llenado de combo Empleados
+                DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
+                Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
             }
         }
 
@@ -378,7 +387,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 else
                     MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
             }
-            Application.Restart();
+            Application.Exit();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)

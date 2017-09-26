@@ -303,7 +303,18 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
         private void Asignar_Perfil_Load(object sender, EventArgs e)
         {
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != this.Name)
+                {
+                    f.Hide();
+                }
+            }
 
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
 
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
@@ -426,6 +437,8 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
         private void btnRegresar_Click_1(object sender, EventArgs e)
         {
+            AcceDashboard accedb = new AcceDashboard();
+            accedb.Show();
             this.Close();
         }
 
@@ -441,6 +454,10 @@ namespace SIPAA_CS.Accesos.Asignaciones
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
             }
         }
     }
