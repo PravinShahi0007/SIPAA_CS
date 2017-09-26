@@ -224,17 +224,18 @@ namespace SIPAA_CS.App_Code
             return (dtRegistroDetalle);
         }
 
-        public DataTable MasDe3Faltas(string sIdTrab, string sCompania, string sUbicacion, DateTime dtFechaBase)
+        public DataTable MasDe3Faltas(int opcion, int sIdTrab, int sCompania, int sUbicacion, DateTime dtFechaBase)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechmasde3faltas_s";
+            cmd.CommandText = @"usp_rechmasde3faltas_S";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
 
-            cmd.Parameters.Add("@p_IdTrab", SqlDbType.VarChar).Value = sIdTrab;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
+            cmd.Parameters.Add("@p_IdTrab", SqlDbType.Int).Value = sIdTrab;
             cmd.Parameters.Add("@P_FechaBase", SqlDbType.DateTime).Value = dtFechaBase;
-            cmd.Parameters.Add("@P_Compania", SqlDbType.VarChar).Value = sCompania;
-            cmd.Parameters.Add("@P_Ubicacion", SqlDbType.VarChar).Value = sUbicacion;
+            cmd.Parameters.Add("@P_Compania", SqlDbType.Int).Value = sCompania;
+            cmd.Parameters.Add("@P_Ubicacion", SqlDbType.Int).Value = sUbicacion;
 
             objConexion.asignarConexion(cmd);
 
