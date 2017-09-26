@@ -159,7 +159,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             if (bprimeravez == true)
             {
                 //llenado de combo compañias
-                util.cargarcombo(cbCompania, oCompañia.obtCompania2(5, ""));
+                util.cargarcombo(cbCompania, oCompañia.obtCompania2(5, "%"));
                 //DataTable dtCompañia = oCompañia.obtCompania2(5, "");
                 //cbCompania.DataSource = dtCompañia;
                 //cbCompania.DisplayMember = "Descripción";

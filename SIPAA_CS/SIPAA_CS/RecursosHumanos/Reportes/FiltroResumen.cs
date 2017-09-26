@@ -26,7 +26,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         //***********************************************************************************************
         //Autor: Victor Jesús Iturburu Vergara
-        //Fecha creación:04-04-2017     Última Modificacion: 17-04-2017
+        //Fecha creación:04-04-2017     Última Modificacion: 22-09-2017 Rafael Lemus
         //Descripción: -------------------------------
         //***********************************************************************************************
 
@@ -59,12 +59,12 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 cbTipoNomina.Enabled = true;
                 SonaTipoNomina objTnom = new SonaTipoNomina();
                 DataTable dtTnom = objTnom.obtTipoNomina(5, cbCia.SelectedIndex, 0, "");
-                llenarCombo(cbTipoNomina, dtTnom, "Descripción");
+                llenarCombo(cbTipoNomina, dtTnom, "Descripción"); // quite el acento
 
                 cbArea.Enabled = true;
                 SonaCompania objCia = new SonaCompania();
                 DataTable dtPlanta = objCia.ObtenerPlantel(4, 0, cbCia.SelectedItem.ToString(), "");
-                llenarCombo(cbArea, dtPlanta, "Descripción");
+                llenarCombo(cbArea, dtPlanta, "Descripción"); // quite el acento
             }
             else
             {
@@ -189,14 +189,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             SonaCompania objCia = new SonaCompania();
-            DataTable dtCia = objCia.obtcomp(5, "");
+            DataTable dtCia = objCia.obtcomp(5, "%");
             llenarCombo(cbCia, dtCia, "Descripción");
 
             DataTable dtUbicaciones = objCia.ObtenerUbicacionPlantel(5, "%");
             llenarCombo(cbUbicacion, dtUbicaciones, "Descripción");
 
             SonaDepartamento objDepto = new SonaDepartamento();
-            DataTable dtDepto = objDepto.obtdepto(5, "");
+            DataTable dtDepto = objDepto.obtdepto(5, "%");
             llenarCombo(cbDepartamento, dtDepto, "Descripción");
 
             cbTipoNomina.Enabled = false;

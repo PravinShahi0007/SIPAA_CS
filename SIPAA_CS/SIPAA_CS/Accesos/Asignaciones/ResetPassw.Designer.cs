@@ -298,7 +298,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ResetPassw";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Reset Contraseña";
+            this.Text = "Restaurar Contraseña";
             this.Load += new System.EventHandler(this.ResetPassw_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.pnlBusqueda.ResumeLayout(false);
