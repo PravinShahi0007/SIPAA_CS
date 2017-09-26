@@ -180,12 +180,6 @@ namespace SIPAA_CS.App_Code
 
             DataTable dtForReg = new DataTable();
             Adapter.Fill(dtForReg);
-            //List<string> ltCVforma = new List<string>();
-            //foreach (DataRow row in dtForReg.Rows)
-            //{
-            //    ltCVforma.Add(row["cvreloj"].ToString());
-            //}
-
             return dtForReg;
 
         }

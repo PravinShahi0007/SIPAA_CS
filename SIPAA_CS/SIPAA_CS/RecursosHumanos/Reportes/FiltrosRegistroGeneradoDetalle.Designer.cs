@@ -208,9 +208,9 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(416, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(221, 23);
+            this.label3.Size = new System.Drawing.Size(231, 23);
             this.label3.TabIndex = 127;
-            this.label3.Text = "       Registro Generado Detalle";
+            this.label3.Text = "       Detalle Registro (Generado)";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlBusqueda
@@ -290,7 +290,7 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel7.Location = new System.Drawing.Point(38, 91);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 1);
+            this.panel7.Size = new System.Drawing.Size(250, 2);
             this.panel7.TabIndex = 43;
             // 
             // txtIdTrab

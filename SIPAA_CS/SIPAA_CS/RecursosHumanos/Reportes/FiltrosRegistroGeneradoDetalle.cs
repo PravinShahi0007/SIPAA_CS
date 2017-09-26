@@ -68,7 +68,6 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         {
 
 
-
             dtFechaInicio = dpFechaInicio.Value.AddDays(-1);
             dtFechaFin = dpFechaFin.Value.AddDays(-1);
 
