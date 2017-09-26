@@ -96,12 +96,12 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 default:
                     //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
                     ViewerReporte form = new ViewerReporte();
-                    Mas3FaltasPeriodo dtrpt = new Mas3FaltasPeriodo();
-                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistro, "RecursosHumanos", dtrpt.ResourceName);
+                    //Mas3FaltasPeriodo dtrpt = new Mas3FaltasPeriodo();
+                    //ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistro, "RecursosHumanos", dtrpt.ResourceName);
 
                     //ReportDoc.SetParameterValue("FechaInicio", dpFechaBase.Value);
-                    form.RptDoc = ReportDoc;
-                    form.Show();
+                    //form.RptDoc = ReportDoc;
+                    //form.Show();
                     break;
             }
         }

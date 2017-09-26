@@ -36,7 +36,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         List<Captura2> ltTrab = new List<Captura2>();
 
         public int iOpcionAdmin;
-        AsignacionIncidenciasTrabajador2 oNombreEmpleado = new AsignacionIncidenciaTrabajador2();
+        AsignacionIncidenciaTrabajador2 oNombreEmpleado = new AsignacionIncidenciaTrabajador2();
         Utilerias Util = new Utilerias();
 
         public AsignacionIncidenciasTrabajador2()
@@ -74,7 +74,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             // Obtiene Nombre del Empleado
 
-            DataTable dtNombreEmpleado = oNombreEmpleado.obtNombreEmpleado(TxtIdEmp.Text, 14/*, 0, 0, ""*/);
+            DataTable dtNombreEmpleado = oNombreEmpleado.obtNombreEmpleado(TxtIdEmp.Text, 14);
 
          if (dtNombreEmpleado.Rows.Count > 0)
            {

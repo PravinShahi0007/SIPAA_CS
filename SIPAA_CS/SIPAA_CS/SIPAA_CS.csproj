@@ -346,6 +346,7 @@
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidencia.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\AsignacionIncidenciaTrabajador2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
