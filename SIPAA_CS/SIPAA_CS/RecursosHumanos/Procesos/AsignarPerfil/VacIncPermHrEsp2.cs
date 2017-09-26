@@ -122,14 +122,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         //boton buscar empleados
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //if (txtEmpleado.Text !="" & cbCompania.SelectedValue.ToString() != "" & cbAreas.SelectedValue.ToString() != "" & cbPuestos.SelectedValue.ToString() != "" & 
-            //    cbDepartamentos.SelectedValue.ToString() != "" & cbUbicacion.SelectedValue.ToString() != "" & cbTiponomina.SelectedValue.ToString() != "")
-            //{
-            //    MessageBox.Show("Debe seleccionar por lo menos un filtro de busqueda", "SIPAA", MessageBoxButtons.OK);
-            //    txtEmpleado.Focus();
-            //}
-            //else
-            //{ 
+            if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbCompania.SelectedIndex.ToString()) <=0 & Convert.ToInt32(cbAreas.SelectedIndex.ToString()) <= 0 
+                & Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) <=0 
+                & Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) <= 0)
+            //if (cbEmpleados.Text.ToString() =="" & cbCompania.SelectedValue.ToString() == "" & Convert.ToInt32(cbAreas.SelectedIndex.ToString()) <= 0 & cbPuestos.SelectedValue.ToString() == "" & 
+            //    cbDepartamentos.SelectedValue.ToString() == "" & cbUbicacion.SelectedValue.ToString() == "" & Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) <= 0)
+            {
+                MessageBox.Show("Debe seleccionar por lo menos un filtro de busqueda", "SIPAA", MessageBoxButtons.OK);
+                cbEmpleados.Focus();
+            }
+            else
+            { 
                 //llena grid Con Filtros
                 string fIdTrab = "%";
                 string fIdCompania = "%";
@@ -150,9 +153,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     fIdCompania = cbCompania.SelectedValue.ToString();
                 }
                 //if (cbAreas.SelectedValue.ToString() != "" & cbAreas.SelectedValue.ToString() != "Seleccionar")
-                //{
-                //    fIdArea = cbAreas.SelectedValue.ToString();
-                //}
+                if (Convert.ToInt32(cbAreas.SelectedIndex.ToString()) > 0)
+                {
+                    fIdArea = cbAreas.SelectedValue.ToString();
+                }
                 //if (cbPuestos.SelectedValue.ToString() != "" & cbPuestos.SelectedValue.ToString() != "Seleccionar")
                 if (Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) > 0)
                 {
@@ -169,9 +173,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     fIdUbicacion = cbUbicacion.SelectedValue.ToString();
                 }
                 //if (cbTiponomina.SelectedValue.ToString() != "" & cbTiponomina.SelectedValue.ToString() != "Seleccionar")
-                //{
-                //    fIdTipoNomina = cbTiponomina.SelectedValue.ToString();
-                //}
+                if (Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) > 0)
+                {
+                    fIdTipoNomina = cbTiponomina.SelectedValue.ToString();
+                }
                 
                 //fgridEmpleados(3, txtEmpleado.Text.Trim()); //todos los activos x Num
                 fgridEmpleados(1,fIdTrab,fIdCompania,fIdArea,fIdPuesto,fIdDepartamento,fIdUbicacion,fIdTipoNomina);
@@ -184,7 +189,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
                 txtSubsidio.Text = "0";
                 txtDias.Text = "0";
-            //}
+            }
         }
 
         private void cbConcepto_DropDown(object sender, EventArgs e)
@@ -248,6 +253,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         MessageBox.Show(ex.ToString());
                     }
                 }
+                Application.Exit();
             }
         }
 
@@ -398,31 +404,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     lblMensaje.Text = "Problemas en la Asignación, avise a Sistemas.";
                     break;
             }
-            //txtmensajeiu.Text = "";
-            //txtMensaje.Focus();
 
-            /*
-            //agrega registro
-            if (ipactbtn == 1)
-            {
-                ip_rep = oPlantillas.fuid_sp_plantillas(ipopcion, ipcvplantilla, spdescripcion, spusuumod, spprgumod);
-                txtmensajeiu.Text = "";
-                txtMensaje.Focus();
-            }
-            //actualiza registro
-            else if (ipactbtn == 2)
-            {
-                ip_rep = oPlantillas.fuid_sp_plantillas(ipopcion, ipcvplantilla, spdescripcion, spusuumod, spprgumod);
-                txtmensajeiu.Text = "";
-                txtMensaje.Focus();
-            }
-            //elimina registro
-            else if (ipactbtn == 3)
-            {
-                ip_rep = oPlantillas.fuid_sp_plantillas(ipopcion, ipcvplantilla, spdescripcion, spusuumod, spprgumod);
-                txtmensajeiu.Text = "";
-                txtMensaje.Focus();
-            } */
         }
 
         //funcion validar campos
