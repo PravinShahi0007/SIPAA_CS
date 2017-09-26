@@ -415,7 +415,7 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel7.Location = new System.Drawing.Point(44, 87);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 1);
+            this.panel7.Size = new System.Drawing.Size(250, 2);
             this.panel7.TabIndex = 43;
             // 
             // txtIdTrab
@@ -424,6 +424,7 @@
             this.txtIdTrab.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtIdTrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdTrab.Location = new System.Drawing.Point(45, 70);
+            this.txtIdTrab.MaxLength = 16;
             this.txtIdTrab.Name = "txtIdTrab";
             this.txtIdTrab.Size = new System.Drawing.Size(250, 15);
             this.txtIdTrab.TabIndex = 1;
