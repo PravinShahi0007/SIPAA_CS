@@ -422,6 +422,15 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //funcion formto grid con modificación busqueda con permisos
         protected void fdgvsuid(int iopcion)
         {
+            dgvjustinc.DataSource = null;
+
+            int inumcolumngrid = dgvjustinc.ColumnCount;
+
+            if (inumcolumngrid == 1)
+            {
+                dgvjustinc.Columns.RemoveAt(0);
+            }
+
             DataTable dtdgvji = JustInc.dtdgvcb(iopcion, 0,0,txtconceptobusq.Text.Trim(),0,0,0,0,0,"","");
             dgvjustinc.DataSource = dtdgvji;
 

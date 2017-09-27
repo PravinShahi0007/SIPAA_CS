@@ -55,26 +55,14 @@ namespace SIPAA_CS.Accesos.Asignaciones
             dgvPerfil.DataSource = dtPerfiles;
             Utilerias.AgregarCheck(dgvPerfil, 2);
 
-
-
-
-
             dgvPerfil.Columns[1].Width = 160;
             dgvPerfil.Columns["usuumod"].Visible = false;
             dgvPerfil.Columns["fhumod"].Visible = false;
             dgvPerfil.Columns["prgumod"].Visible = false;
             dgvPerfil.Columns["Estatus"].Visible = false;
-            dgvPerfil.ClearSelection();
-
-
-            
+            dgvPerfil.ClearSelection();           
         }
-
-
-
         private void llenarGridModulos(Modulo objModulo) {
-
-
 
             if (dgvModulos.Columns.Count > 0)
             {
@@ -100,11 +88,6 @@ namespace SIPAA_CS.Accesos.Asignaciones
                 ckbheader = Utilerias.AgregarCheckboxHeader(dgvModulos, 0);
                 ckbheader.CheckedChanged += Ckbheader_CheckedChanged;
 
-            
-
-
-
-            dgvModulos.ClearSelection();
             dgvPerfil.Columns["CVPERFIL"].Visible = false;
             dgvModulos.Columns["IdModulo"].Visible = false;
             dgvModulos.Columns["Orden"].Visible = false;
@@ -114,6 +97,7 @@ namespace SIPAA_CS.Accesos.Asignaciones
             dgvModulos.Columns["rutaacceso"].Visible = false;
             dgvModulos.Columns["Estatus"].Visible = false;
             dgvModulos.Columns[0].Width = 150;
+            dgvModulos.ClearSelection();
 
             if (Permisos.dcPermisos["Crear"] != 1 && Permisos.dcPermisos["Eliminar"] != 1 && Permisos.dcPermisos["Actualizar"] != 1)
             {
@@ -121,6 +105,7 @@ namespace SIPAA_CS.Accesos.Asignaciones
                 dgvModulos.Columns[0].Width = 100;
                 dgvModulos.Columns[0].HeaderText = "Asignado";
             }
+            
 
         }
         private void dgvPerfil_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -385,12 +370,22 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-
+            AcceDashboard accedb = new AcceDashboard();
+            accedb.Show();
             this.Close();
         }
 
@@ -626,7 +621,19 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
         private void Asignar_Modulo_Load(object sender, EventArgs e)
         {
-            string idtrab = LoginInfo.IdTrab;
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != this.Name)
+                {
+                    f.Hide();
+                }
+            }
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
@@ -740,7 +747,7 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
-                    }
+        }
 
    
      

@@ -346,6 +346,8 @@
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidencia.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\AsignacionIncidenciaTrabajador2.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueaIncidencias.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.cs">
       <SubType>Form</SubType>
@@ -692,6 +694,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp.Designer.cs">
       <DependentUpon>VacIncPermHrEsp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DesbloquearIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DesbloquearIncidencias.Designer.cs">
+      <DependentUpon>DesbloquearIncidencias.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.cs">
       <SubType>Form</SubType>
@@ -1094,6 +1102,9 @@
     <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp.resx">
       <DependentUpon>VacIncPermHrEsp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloquearIncidencias.resx">
+      <DependentUpon>DesbloquearIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.resx">
       <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
     </EmbeddedResource>
@@ -1330,6 +1341,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RecursosHumanos\DataSets\Mas3FaltasPeriodo.xsc">
+      <DependentUpon>Mas3FaltasPeriodo.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Mas3FaltasPeriodo.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Mas3FaltasPeriodo.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Mas3FaltasPeriodo.xss">
+      <DependentUpon>Mas3FaltasPeriodo.xsd</DependentUpon>
+    </None>
     <None Include="SIPAA_CS_ClaveTemporal.pfx" />
   </ItemGroup>
   <ItemGroup>

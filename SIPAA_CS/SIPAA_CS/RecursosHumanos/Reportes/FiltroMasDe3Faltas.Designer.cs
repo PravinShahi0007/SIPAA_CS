@@ -73,24 +73,25 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Font = new System.Drawing.Font("Arial", 9.75F);
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label5.Location = new System.Drawing.Point(61, 160);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(54, 16);
+            label5.Size = new System.Drawing.Size(65, 16);
             label5.TabIndex = 60;
-            label5.Text = "Ubicaciòn";
+            label5.Text = "Ubicación";
+            label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Font = new System.Drawing.Font("Arial", 9.75F);
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label6.Location = new System.Drawing.Point(61, 105);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(56, 16);
+            label6.Size = new System.Drawing.Size(66, 16);
             label6.TabIndex = 58;
             label6.Text = "Compañia";
             // 
@@ -230,10 +231,6 @@
             this.cbUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbUbicacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUbicacion.FormattingEnabled = true;
-            this.cbUbicacion.Items.AddRange(new object[] {
-            "Seleccionar ",
-            "Activo",
-            "Inactivo"});
             this.cbUbicacion.Location = new System.Drawing.Point(64, 183);
             this.cbUbicacion.Name = "cbUbicacion";
             this.cbUbicacion.Size = new System.Drawing.Size(385, 25);
@@ -247,10 +244,6 @@
             this.cbCompania.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbCompania.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCompania.FormattingEnabled = true;
-            this.cbCompania.Items.AddRange(new object[] {
-            "Seleccionar ",
-            "Activo",
-            "Inactivo"});
             this.cbCompania.Location = new System.Drawing.Point(64, 125);
             this.cbCompania.Name = "cbCompania";
             this.cbCompania.Size = new System.Drawing.Size(385, 25);
@@ -271,7 +264,7 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel7.Location = new System.Drawing.Point(65, 75);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 1);
+            this.panel7.Size = new System.Drawing.Size(250, 2);
             this.panel7.TabIndex = 43;
             // 
             // txtIdTrab
@@ -305,6 +298,7 @@
             this.btnImprimir.TabIndex = 2;
             this.btnImprimir.Tag = "Buscar";
             this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // FiltroMasDe3Faltas
             // 

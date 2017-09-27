@@ -57,6 +57,7 @@
             this.btnpendientesaut = new System.Windows.Forms.Button();
             this.btnfechashrreg = new System.Windows.Forms.Button();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.cbEmpleados = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -135,7 +136,7 @@
             label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label6.Location = new System.Drawing.Point(776, 145);
+            label6.Location = new System.Drawing.Point(571, 143);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(92, 16);
             label6.TabIndex = 169;
@@ -296,7 +297,7 @@
             // txtidtrab
             // 
             this.txtidtrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtidtrab.Location = new System.Drawing.Point(874, 142);
+            this.txtidtrab.Location = new System.Drawing.Point(404, 141);
             this.txtidtrab.Name = "txtidtrab";
             this.txtidtrab.Size = new System.Drawing.Size(108, 20);
             this.txtidtrab.TabIndex = 166;
@@ -387,12 +388,24 @@
             this.ptbimgusuario.TabStop = false;
             this.ptbimgusuario.Visible = false;
             // 
+            // cbEmpleados
+            // 
+            this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleados.FormattingEnabled = true;
+            this.cbEmpleados.Location = new System.Drawing.Point(669, 142);
+            this.cbEmpleados.Name = "cbEmpleados";
+            this.cbEmpleados.Size = new System.Drawing.Size(313, 21);
+            this.cbEmpleados.TabIndex = 180;
+            // 
             // ArchivoNomina4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.cbEmpleados);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.btnfechashrreg);
             this.Controls.Add(this.btnpendientesaut);
@@ -453,5 +466,6 @@
         private System.Windows.Forms.Button btnpendientesaut;
         private System.Windows.Forms.Button btnfechashrreg;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.ComboBox cbEmpleados;
     }
 }
