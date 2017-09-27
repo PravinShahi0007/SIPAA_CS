@@ -256,9 +256,10 @@
             // dpFechaFin
             // 
             this.dpFechaFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaFin.Location = new System.Drawing.Point(64, 313);
             this.dpFechaFin.Name = "dpFechaFin";
-            this.dpFechaFin.Size = new System.Drawing.Size(290, 25);
+            this.dpFechaFin.Size = new System.Drawing.Size(121, 25);
             this.dpFechaFin.TabIndex = 62;
             this.dpFechaFin.ValueChanged += new System.EventHandler(this.dpFechaFin_ValueChanged);
             // 
@@ -282,9 +283,10 @@
             // dpFechaInicio
             // 
             this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaInicio.Location = new System.Drawing.Point(64, 259);
             this.dpFechaInicio.Name = "dpFechaInicio";
-            this.dpFechaInicio.Size = new System.Drawing.Size(290, 25);
+            this.dpFechaInicio.Size = new System.Drawing.Size(121, 25);
             this.dpFechaInicio.TabIndex = 61;
             // 
             // panel7
