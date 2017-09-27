@@ -349,6 +349,12 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\AsignacionIncidenciaTrabajador2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueaIncidencias.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
+    <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.Designer.cs">
+      <DependentUpon>JustificaIncidencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
     </Compile>

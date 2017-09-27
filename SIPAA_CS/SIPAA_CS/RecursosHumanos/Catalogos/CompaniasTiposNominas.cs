@@ -154,7 +154,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //llena combo
             iinicio = 0;
             DataTable dtCompania = oCompania.obtCompania2(5, "");
-            Utilerias.llenarComboxDataTable(cbCompania, dtCompania, "Clave", "Descripcion");
+            Utilerias.llenarComboxDataTable(cbCompania, dtCompania, "Clave", "Descripción");
 
             txtBuscarTipoNomina.Focus();
             iinicio = 1;
