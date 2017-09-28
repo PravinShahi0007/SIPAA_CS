@@ -355,6 +355,11 @@
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.Designer.cs">
       <DependentUpon>JustificaIncidencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\FaltasPeriodo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -761,6 +766,12 @@
       <DependentUpon>DetalleHr.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FaltasPeriodo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FaltasPeriodo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\FiltroConceptosNomina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1140,6 +1151,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DetalleHr.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FaltasPeriodo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FaltasPeriodo.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroConceptosNomina.resx">
       <DependentUpon>FiltroConceptosNomina.cs</DependentUpon>
     </EmbeddedResource>
@@ -1341,16 +1356,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="RecursosHumanos\DataSets\Mas3FaltasPeriodo.xsc">
-      <DependentUpon>Mas3FaltasPeriodo.xsd</DependentUpon>
+    <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xsc">
+      <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
     </None>
-    <None Include="RecursosHumanos\DataSets\Mas3FaltasPeriodo.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Mas3FaltasPeriodo.Designer.cs</LastGenOutput>
+    <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FaltasPeriodo.Designer.cs</LastGenOutput>
     </None>
-    <None Include="RecursosHumanos\DataSets\Mas3FaltasPeriodo.xss">
-      <DependentUpon>Mas3FaltasPeriodo.xsd</DependentUpon>
+    <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xss">
+      <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
     </None>
     <None Include="SIPAA_CS_ClaveTemporal.pfx" />
   </ItemGroup>

@@ -20,17 +20,17 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Mas3FaltasPeriodo")]
+    [global::System.Xml.Serialization.XmlRootAttribute("FaltasPeriodo")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Mas3FaltasPeriodo : global::System.Data.DataSet {
+    public partial class FaltasPeriodo : global::System.Data.DataSet {
         
-        private Mas3FaltasPeriodoDataTable tableMas3FaltasPeriodo;
+        private FaltasPeriodoDataTable tableFaltasPeriodo;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public Mas3FaltasPeriodo() {
+        public FaltasPeriodo() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected Mas3FaltasPeriodo(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected FaltasPeriodo(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Mas3FaltasPeriodo"] != null)) {
-                    base.Tables.Add(new Mas3FaltasPeriodoDataTable(ds.Tables["Mas3FaltasPeriodo"]));
+                if ((ds.Tables["FaltasPeriodo"] != null)) {
+                    base.Tables.Add(new FaltasPeriodoDataTable(ds.Tables["FaltasPeriodo"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Mas3FaltasPeriodoDataTable _Mas3FaltasPeriodo {
+        public FaltasPeriodoDataTable _FaltasPeriodo {
             get {
-                return this.tableMas3FaltasPeriodo;
+                return this.tableFaltasPeriodo;
             }
         }
         
@@ -127,7 +127,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Mas3FaltasPeriodo cln = ((Mas3FaltasPeriodo)(base.Clone()));
+            FaltasPeriodo cln = ((FaltasPeriodo)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Mas3FaltasPeriodo"] != null)) {
-                    base.Tables.Add(new Mas3FaltasPeriodoDataTable(ds.Tables["Mas3FaltasPeriodo"]));
+                if ((ds.Tables["FaltasPeriodo"] != null)) {
+                    base.Tables.Add(new FaltasPeriodoDataTable(ds.Tables["FaltasPeriodo"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableMas3FaltasPeriodo = ((Mas3FaltasPeriodoDataTable)(base.Tables["Mas3FaltasPeriodo"]));
+            this.tableFaltasPeriodo = ((FaltasPeriodoDataTable)(base.Tables["FaltasPeriodo"]));
             if ((initTable == true)) {
-                if ((this.tableMas3FaltasPeriodo != null)) {
-                    this.tableMas3FaltasPeriodo.InitVars();
+                if ((this.tableFaltasPeriodo != null)) {
+                    this.tableFaltasPeriodo.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Mas3FaltasPeriodo";
+            this.DataSetName = "FaltasPeriodo";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Mas3FaltasPeriodo.xsd";
+            this.Namespace = "http://tempuri.org/FaltasPeriodo.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableMas3FaltasPeriodo = new Mas3FaltasPeriodoDataTable();
-            base.Tables.Add(this.tableMas3FaltasPeriodo);
+            this.tableFaltasPeriodo = new FaltasPeriodoDataTable();
+            base.Tables.Add(this.tableFaltasPeriodo);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerialize_Mas3FaltasPeriodo() {
+        private bool ShouldSerialize_FaltasPeriodo() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Mas3FaltasPeriodo ds = new Mas3FaltasPeriodo();
+            FaltasPeriodo ds = new FaltasPeriodo();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void Mas3FaltasPeriodoRowChangeEventHandler(object sender, Mas3FaltasPeriodoRowChangeEvent e);
+        public delegate void FaltasPeriodoRowChangeEventHandler(object sender, FaltasPeriodoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Mas3FaltasPeriodoDataTable : global::System.Data.TypedTableBase<Mas3FaltasPeriodoRow> {
+        public partial class FaltasPeriodoDataTable : global::System.Data.TypedTableBase<FaltasPeriodoRow> {
             
             private global::System.Data.DataColumn columnidtrab;
             
@@ -305,8 +305,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Mas3FaltasPeriodoDataTable() {
-                this.TableName = "Mas3FaltasPeriodo";
+            public FaltasPeriodoDataTable() {
+                this.TableName = "FaltasPeriodo";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -314,7 +314,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Mas3FaltasPeriodoDataTable(global::System.Data.DataTable table) {
+            internal FaltasPeriodoDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -331,7 +331,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected Mas3FaltasPeriodoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected FaltasPeriodoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -443,34 +443,34 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Mas3FaltasPeriodoRow this[int index] {
+            public FaltasPeriodoRow this[int index] {
                 get {
-                    return ((Mas3FaltasPeriodoRow)(this.Rows[index]));
+                    return ((FaltasPeriodoRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Mas3FaltasPeriodoRowChangeEventHandler Mas3FaltasPeriodoRowChanging;
+            public event FaltasPeriodoRowChangeEventHandler FaltasPeriodoRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Mas3FaltasPeriodoRowChangeEventHandler Mas3FaltasPeriodoRowChanged;
+            public event FaltasPeriodoRowChangeEventHandler FaltasPeriodoRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Mas3FaltasPeriodoRowChangeEventHandler Mas3FaltasPeriodoRowDeleting;
+            public event FaltasPeriodoRowChangeEventHandler FaltasPeriodoRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event Mas3FaltasPeriodoRowChangeEventHandler Mas3FaltasPeriodoRowDeleted;
+            public event FaltasPeriodoRowChangeEventHandler FaltasPeriodoRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddMas3FaltasPeriodoRow(Mas3FaltasPeriodoRow row) {
+            public void AddFaltasPeriodoRow(FaltasPeriodoRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Mas3FaltasPeriodoRow AddMas3FaltasPeriodoRow(string idtrab, string Trabajador, string fereget, string incidencia, string representa, string idtrabdir, string stdir, string fhautdir, string stinc, string Falta, string Aut, string FalEfe) {
-                Mas3FaltasPeriodoRow rowMas3FaltasPeriodoRow = ((Mas3FaltasPeriodoRow)(this.NewRow()));
+            public FaltasPeriodoRow AddFaltasPeriodoRow(int idtrab, string Trabajador, System.DateTime fereget, string incidencia, string representa, string idtrabdir, string stdir, string fhautdir, string stinc, short Falta, short Aut, short FalEfe) {
+                FaltasPeriodoRow rowFaltasPeriodoRow = ((FaltasPeriodoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idtrab,
                         Trabajador,
@@ -484,15 +484,15 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         Falta,
                         Aut,
                         FalEfe};
-                rowMas3FaltasPeriodoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowMas3FaltasPeriodoRow);
-                return rowMas3FaltasPeriodoRow;
+                rowFaltasPeriodoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowFaltasPeriodoRow);
+                return rowFaltasPeriodoRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Mas3FaltasPeriodoDataTable cln = ((Mas3FaltasPeriodoDataTable)(base.Clone()));
+                FaltasPeriodoDataTable cln = ((FaltasPeriodoDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -500,7 +500,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Mas3FaltasPeriodoDataTable();
+                return new FaltasPeriodoDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -523,11 +523,11 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnidtrab = new global::System.Data.DataColumn("idtrab", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnidtrab = new global::System.Data.DataColumn("idtrab", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidtrab);
                 this.columnTrabajador = new global::System.Data.DataColumn("Trabajador", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTrabajador);
-                this.columnfereget = new global::System.Data.DataColumn("fereget", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnfereget = new global::System.Data.DataColumn("fereget", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfereget);
                 this.columnincidencia = new global::System.Data.DataColumn("incidencia", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnincidencia);
@@ -541,40 +541,40 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnfhautdir);
                 this.columnstinc = new global::System.Data.DataColumn("stinc", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstinc);
-                this.columnFalta = new global::System.Data.DataColumn("Falta", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnFalta = new global::System.Data.DataColumn("Falta", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFalta);
-                this.columnAut = new global::System.Data.DataColumn("Aut", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnAut = new global::System.Data.DataColumn("Aut", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAut);
-                this.columnFalEfe = new global::System.Data.DataColumn("FalEfe", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnFalEfe = new global::System.Data.DataColumn("FalEfe", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFalEfe);
-                this.ExtendedProperties.Add("Generator_TablePropName", "_Mas3FaltasPeriodo");
-                this.ExtendedProperties.Add("Generator_UserTableName", "Mas3FaltasPeriodo");
+                this.ExtendedProperties.Add("Generator_TablePropName", "_FaltasPeriodo");
+                this.ExtendedProperties.Add("Generator_UserTableName", "FaltasPeriodo");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Mas3FaltasPeriodoRow NewMas3FaltasPeriodoRow() {
-                return ((Mas3FaltasPeriodoRow)(this.NewRow()));
+            public FaltasPeriodoRow NewFaltasPeriodoRow() {
+                return ((FaltasPeriodoRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Mas3FaltasPeriodoRow(builder);
+                return new FaltasPeriodoRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Mas3FaltasPeriodoRow);
+                return typeof(FaltasPeriodoRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Mas3FaltasPeriodoRowChanged != null)) {
-                    this.Mas3FaltasPeriodoRowChanged(this, new Mas3FaltasPeriodoRowChangeEvent(((Mas3FaltasPeriodoRow)(e.Row)), e.Action));
+                if ((this.FaltasPeriodoRowChanged != null)) {
+                    this.FaltasPeriodoRowChanged(this, new FaltasPeriodoRowChangeEvent(((FaltasPeriodoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -582,8 +582,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Mas3FaltasPeriodoRowChanging != null)) {
-                    this.Mas3FaltasPeriodoRowChanging(this, new Mas3FaltasPeriodoRowChangeEvent(((Mas3FaltasPeriodoRow)(e.Row)), e.Action));
+                if ((this.FaltasPeriodoRowChanging != null)) {
+                    this.FaltasPeriodoRowChanging(this, new FaltasPeriodoRowChangeEvent(((FaltasPeriodoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -591,8 +591,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Mas3FaltasPeriodoRowDeleted != null)) {
-                    this.Mas3FaltasPeriodoRowDeleted(this, new Mas3FaltasPeriodoRowChangeEvent(((Mas3FaltasPeriodoRow)(e.Row)), e.Action));
+                if ((this.FaltasPeriodoRowDeleted != null)) {
+                    this.FaltasPeriodoRowDeleted(this, new FaltasPeriodoRowChangeEvent(((FaltasPeriodoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -600,14 +600,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Mas3FaltasPeriodoRowDeleting != null)) {
-                    this.Mas3FaltasPeriodoRowDeleting(this, new Mas3FaltasPeriodoRowChangeEvent(((Mas3FaltasPeriodoRow)(e.Row)), e.Action));
+                if ((this.FaltasPeriodoRowDeleting != null)) {
+                    this.FaltasPeriodoRowDeleting(this, new FaltasPeriodoRowChangeEvent(((FaltasPeriodoRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveMas3FaltasPeriodoRow(Mas3FaltasPeriodoRow row) {
+            public void RemoveFaltasPeriodoRow(FaltasPeriodoRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -616,7 +616,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Mas3FaltasPeriodo ds = new Mas3FaltasPeriodo();
+                FaltasPeriodo ds = new FaltasPeriodo();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -634,7 +634,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Mas3FaltasPeriodoDataTable";
+                attribute2.FixedValue = "FaltasPeriodoDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -678,30 +678,30 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Mas3FaltasPeriodoRow : global::System.Data.DataRow {
+        public partial class FaltasPeriodoRow : global::System.Data.DataRow {
             
-            private Mas3FaltasPeriodoDataTable tableMas3FaltasPeriodo;
+            private FaltasPeriodoDataTable tableFaltasPeriodo;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal Mas3FaltasPeriodoRow(global::System.Data.DataRowBuilder rb) : 
+            internal FaltasPeriodoRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableMas3FaltasPeriodo = ((Mas3FaltasPeriodoDataTable)(this.Table));
+                this.tableFaltasPeriodo = ((FaltasPeriodoDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string idtrab {
+            public int idtrab {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.idtrabColumn]));
+                        return ((int)(this[this.tableFaltasPeriodo.idtrabColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idtrab\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idtrab\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.idtrabColumn] = value;
+                    this[this.tableFaltasPeriodo.idtrabColumn] = value;
                 }
             }
             
@@ -710,30 +710,30 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public string Trabajador {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.TrabajadorColumn]));
+                        return ((string)(this[this.tableFaltasPeriodo.TrabajadorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Trabajador\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Trabajador\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.TrabajadorColumn] = value;
+                    this[this.tableFaltasPeriodo.TrabajadorColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string fereget {
+            public System.DateTime fereget {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.feregetColumn]));
+                        return ((global::System.DateTime)(this[this.tableFaltasPeriodo.feregetColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fereget\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fereget\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.feregetColumn] = value;
+                    this[this.tableFaltasPeriodo.feregetColumn] = value;
                 }
             }
             
@@ -742,14 +742,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public string incidencia {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.incidenciaColumn]));
+                        return ((string)(this[this.tableFaltasPeriodo.incidenciaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'incidencia\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'incidencia\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.incidenciaColumn] = value;
+                    this[this.tableFaltasPeriodo.incidenciaColumn] = value;
                 }
             }
             
@@ -758,14 +758,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public string representa {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.representaColumn]));
+                        return ((string)(this[this.tableFaltasPeriodo.representaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'representa\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'representa\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.representaColumn] = value;
+                    this[this.tableFaltasPeriodo.representaColumn] = value;
                 }
             }
             
@@ -774,14 +774,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public string idtrabdir {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.idtrabdirColumn]));
+                        return ((string)(this[this.tableFaltasPeriodo.idtrabdirColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idtrabdir\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idtrabdir\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.idtrabdirColumn] = value;
+                    this[this.tableFaltasPeriodo.idtrabdirColumn] = value;
                 }
             }
             
@@ -790,14 +790,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public string stdir {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.stdirColumn]));
+                        return ((string)(this[this.tableFaltasPeriodo.stdirColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'stdir\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'stdir\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.stdirColumn] = value;
+                    this[this.tableFaltasPeriodo.stdirColumn] = value;
                 }
             }
             
@@ -806,14 +806,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public string fhautdir {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.fhautdirColumn]));
+                        return ((string)(this[this.tableFaltasPeriodo.fhautdirColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fhautdir\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fhautdir\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.fhautdirColumn] = value;
+                    this[this.tableFaltasPeriodo.fhautdirColumn] = value;
                 }
             }
             
@@ -822,207 +822,207 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public string stinc {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.stincColumn]));
+                        return ((string)(this[this.tableFaltasPeriodo.stincColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'stinc\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'stinc\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.stincColumn] = value;
+                    this[this.tableFaltasPeriodo.stincColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Falta {
+            public short Falta {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.FaltaColumn]));
+                        return ((short)(this[this.tableFaltasPeriodo.FaltaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Falta\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Falta\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.FaltaColumn] = value;
+                    this[this.tableFaltasPeriodo.FaltaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Aut {
+            public short Aut {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.AutColumn]));
+                        return ((short)(this[this.tableFaltasPeriodo.AutColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Aut\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Aut\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.AutColumn] = value;
+                    this[this.tableFaltasPeriodo.AutColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string FalEfe {
+            public short FalEfe {
                 get {
                     try {
-                        return ((string)(this[this.tableMas3FaltasPeriodo.FalEfeColumn]));
+                        return ((short)(this[this.tableFaltasPeriodo.FalEfeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FalEfe\' de la tabla \'Mas3FaltasPeriodo\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FalEfe\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMas3FaltasPeriodo.FalEfeColumn] = value;
+                    this[this.tableFaltasPeriodo.FalEfeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidtrabNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.idtrabColumn);
+                return this.IsNull(this.tableFaltasPeriodo.idtrabColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetidtrabNull() {
-                this[this.tableMas3FaltasPeriodo.idtrabColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.idtrabColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTrabajadorNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.TrabajadorColumn);
+                return this.IsNull(this.tableFaltasPeriodo.TrabajadorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTrabajadorNull() {
-                this[this.tableMas3FaltasPeriodo.TrabajadorColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.TrabajadorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsferegetNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.feregetColumn);
+                return this.IsNull(this.tableFaltasPeriodo.feregetColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetferegetNull() {
-                this[this.tableMas3FaltasPeriodo.feregetColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.feregetColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsincidenciaNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.incidenciaColumn);
+                return this.IsNull(this.tableFaltasPeriodo.incidenciaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetincidenciaNull() {
-                this[this.tableMas3FaltasPeriodo.incidenciaColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.incidenciaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsrepresentaNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.representaColumn);
+                return this.IsNull(this.tableFaltasPeriodo.representaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetrepresentaNull() {
-                this[this.tableMas3FaltasPeriodo.representaColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.representaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidtrabdirNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.idtrabdirColumn);
+                return this.IsNull(this.tableFaltasPeriodo.idtrabdirColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetidtrabdirNull() {
-                this[this.tableMas3FaltasPeriodo.idtrabdirColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.idtrabdirColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsstdirNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.stdirColumn);
+                return this.IsNull(this.tableFaltasPeriodo.stdirColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetstdirNull() {
-                this[this.tableMas3FaltasPeriodo.stdirColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.stdirColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsfhautdirNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.fhautdirColumn);
+                return this.IsNull(this.tableFaltasPeriodo.fhautdirColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetfhautdirNull() {
-                this[this.tableMas3FaltasPeriodo.fhautdirColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.fhautdirColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsstincNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.stincColumn);
+                return this.IsNull(this.tableFaltasPeriodo.stincColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetstincNull() {
-                this[this.tableMas3FaltasPeriodo.stincColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.stincColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFaltaNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.FaltaColumn);
+                return this.IsNull(this.tableFaltasPeriodo.FaltaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFaltaNull() {
-                this[this.tableMas3FaltasPeriodo.FaltaColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.FaltaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsAutNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.AutColumn);
+                return this.IsNull(this.tableFaltasPeriodo.AutColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAutNull() {
-                this[this.tableMas3FaltasPeriodo.AutColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.AutColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFalEfeNull() {
-                return this.IsNull(this.tableMas3FaltasPeriodo.FalEfeColumn);
+                return this.IsNull(this.tableFaltasPeriodo.FalEfeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFalEfeNull() {
-                this[this.tableMas3FaltasPeriodo.FalEfeColumn] = global::System.Convert.DBNull;
+                this[this.tableFaltasPeriodo.FalEfeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1030,22 +1030,22 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class Mas3FaltasPeriodoRowChangeEvent : global::System.EventArgs {
+        public class FaltasPeriodoRowChangeEvent : global::System.EventArgs {
             
-            private Mas3FaltasPeriodoRow eventRow;
+            private FaltasPeriodoRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Mas3FaltasPeriodoRowChangeEvent(Mas3FaltasPeriodoRow row, global::System.Data.DataRowAction action) {
+            public FaltasPeriodoRowChangeEvent(FaltasPeriodoRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Mas3FaltasPeriodoRow Row {
+            public FaltasPeriodoRow Row {
                 get {
                     return this.eventRow;
                 }
