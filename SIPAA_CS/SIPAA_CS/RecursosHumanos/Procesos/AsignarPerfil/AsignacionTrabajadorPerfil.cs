@@ -1468,7 +1468,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     string Nombre = lbNombre.Text;
                     objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, "", 0, true); //
                     objCZKEM.SetUserGroup(1,Convert.ToInt32( idtrab),Grupo);
-                }    
+                }
+              else
+                {
+                    Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                }
+              
+                    
             }
             
             Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Guardando asignaciones");

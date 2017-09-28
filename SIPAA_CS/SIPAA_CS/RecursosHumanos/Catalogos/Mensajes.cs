@@ -41,7 +41,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         Utilerias Util = new Utilerias();
         public string sUsuuMod = LoginInfo.IdTrab;
-
+        SonaTrabajador contenedorempleados = new SonaTrabajador();
         int tag = 253;
 
         public Mensajes()
@@ -116,7 +116,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //boton buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            txtidtrab.Text = "";
+            cbEmpleados.Text = ""; 
            // cbTrabajador.Text = "Seleccionar Empleado...";
 
             pnlmensajes.Visible = false;
@@ -141,7 +141,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             lbluid.Text = "     Agregar Mensaje";
             Util.ChangeButton(btnAgregar, 1, false);
             pactbtn = 1;
-            txtidtrab.Text = "";
+            //txtidtrab.Text = "";
+            cbEmpleados.Text = ""; 
             txtmensajeiu.Text = "";
             dtpfechainicial.Text = "";
             dtpfechafin.Text = "";
@@ -259,21 +260,21 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             if (rbPersonal.Checked==true)
             {
-               dt= objReloj.RelojesxTrabajador(txtidtrab.Text, 0, 15, "%", "%");
-               
-               //p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+               dt= objReloj.RelojesxTrabajador(cbEmpleados.SelectedValue.ToString(), 0, 15, "%", "%"); // (txtidtrab.Text, 0, 15, "%", "%");
+
+                //p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                 foreach (DataRow row in dt.Rows)
                 {
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
                     
                     if (bConexion != false)
                     {
-                        p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+                        p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                         EliminaMensajesReloj();
                         int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
                         if (objCZKEM.SetSMS(1, max, tag, Horas, dtpfechainicial.Value.Year + "-" + dtpfechainicial.Value.Month + "-" + dtpfechainicial.Value.Day + " 00:01:00", txtmensajeiu.Text))
                           // objCZKEM.SetUserSMS(1, 1, max);
-                        objCZKEM.SSR_SetUserSMS(1, txtidtrab.Text.Trim(), max);
+                        objCZKEM.SSR_SetUserSMS(1, cbEmpleados.SelectedValue.ToString(), max);
                      }
                     
                     objCZKEM.Disconnect();
@@ -314,7 +315,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 lblMensaje.Text = "Capture un dato a guardar";
             if (rbPersonal.Checked==true)
              {
-                if (string.IsNullOrEmpty(txtidtrab.Text))
+                if (string.IsNullOrEmpty(cbEmpleados.SelectedValue.ToString() ))
                     lblMensaje.Text = "Tiene que capturar el numero del empleado";
              }
            if (pactbtn == 1)//insertar
@@ -326,9 +327,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.DataSource = null;
                 dgvMensajes.Columns.RemoveAt(0);
                 panelTag.Visible = true;
-                txtidtrab.Text = "";
+                //txtidtrab.Text = "";
+                cbEmpleados.Text = ""; 
                 txtmensajeiu.Text = "";
-                txtidtrab.Focus();
+                // txtidtrab.Focus();
+                cbEmpleados.Focus(); 
                 //llena grid con datos existente
                 gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
                 ckbEliminar.Checked = false;
@@ -338,12 +341,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 2)//actualizar
             {
                 //Actualizar
-                fuidMensajes(2, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+                fuidMensajes(2, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                 dgvMensajes.DataSource = null;
                 dgvMensajes.Columns.RemoveAt(0);
                 panelTag.Visible = true;
                 txtmensajeiu.Text = "";
-                txtidtrab.Text = "";
+                //txtidtrab.Text = "";
+                cbEmpleados.Text = ""; 
                 txtmensajeiu.Focus();
                 //llena grid con datos existente
                 gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
@@ -358,12 +362,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     //Eliminar
-                    fuidMensajes(3, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+                    fuidMensajes(3, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                     dgvMensajes.DataSource = null;
                     dgvMensajes.Columns.RemoveAt(0);
                     panelTag.Visible = true;
                     txtmensajeiu.Text = "";
-                    txtidtrab.Text = "";
+                    //txtidtrab.Text = "";
+                    cbEmpleados.Text = ""; 
                     txtmensajeiu.Focus();
                     //llena grid con datos existente
                     gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
@@ -440,13 +445,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             gridMensajes(4,0,0,"","","","","");
 
-            //genero el listado
-            DataTable dtempleados = oTrabajador.obtenerempleados(7, "");
-            //lo vacio en el combo
-            //cbTrabajador.DataSource = dtempleados;
-            //cbTrabajador.DisplayMember = "Nombre";
-            //cbTrabajador.ValueMember = "Clave";
-            //cbTrabajador.Text = "Seleccionar Empleado...";
+           
+
+            //Combo Empleados
+            DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
+            Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
+            cbEmpleados.Focus();
         }
 
         private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
@@ -468,7 +472,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //Selección del combo
         private void cbTrabajador_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtidtrab.Text = cbTrabajador.SelectedValue.ToString();
+           // txtidtrab.Text = cbTrabajador.SelectedValue.ToString();
+            cbEmpleados.Text = cbTrabajador.SelectedValue.ToString();
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -509,7 +514,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvMensajes.Columns[0].HeaderText = "Selección";
 
                 dgvMensajes.Columns[0].Width = 80;
-                dgvMensajes.Columns[1].Width = 90;
+                dgvMensajes.Columns[1].Width = 100;
                 dgvMensajes.Columns[2].Width = 90;
                 //dgvMensajes.Columns[3].Width = 85;
                 dgvMensajes.Columns[4].Width = 300;
@@ -699,7 +704,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 
                 dtpfechainicial.Text= valor1;
                 dtpfechafin.Text = valor2;
-                txtidtrab.Text = valor3;
+                //txtidtrab.Text = valor3;
+                cbEmpleados.Text = valor3;
                 txtmensajeiu.Text = ValorRow;
                 //dejo solo el mensaje
 
@@ -728,9 +734,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 tag = 253;
                 chkCaduca.Checked = false;
                 chkCaduca.Visible = true;
-                dgvNombre.DataSource = new DataSet();
-                txtidtrab.Text = "";
-                txtidtrab.Enabled = false;
+                //dgvNombre.DataSource = new DataSet();
+                //txtidtrab.Text = "";
+                //txtidtrab.Enabled = false;
+                cbEmpleados.Text = "";
+                cbEmpleados.Enabled = false; 
                 txtmensajeiu.Text = "";
             }
             else
@@ -748,7 +756,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 tag = 254;
                 chkCaduca.Checked = false;
-                txtidtrab.Enabled = true;
+                //txtidtrab.Enabled = true;
+                cbEmpleados.Enabled = true; 
                 txtmensajeiu.Text = ""; 
             }
            
@@ -789,7 +798,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         }
 
         private void txtidtrab_TextChanged(object sender, EventArgs e)
-        {
+        {/*
             if (txtidtrab.Text!=string.Empty)
             {
                 SonaTrabajador objTrab = new SonaTrabajador();
@@ -801,7 +810,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvNombre.DataSource = dtTrab;
                 //Utilerias.AgregarCheck(dgv, 0);
 
-            }
-        }
+            }*/
+        } 
     }
 }

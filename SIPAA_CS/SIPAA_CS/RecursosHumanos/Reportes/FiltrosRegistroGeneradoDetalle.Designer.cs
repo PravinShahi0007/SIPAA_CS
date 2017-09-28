@@ -46,8 +46,6 @@
             this.dpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.cbCia = new System.Windows.Forms.ComboBox();
             this.dpFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.txtIdTrab = new System.Windows.Forms.TextBox();
             this.btnImprimirDetalle = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelTag = new System.Windows.Forms.Panel();
@@ -55,6 +53,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
+            this.cbEmpleados = new System.Windows.Forms.ComboBox();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -215,6 +214,7 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.cbEmpleados);
             this.pnlBusqueda.Controls.Add(label2);
             this.pnlBusqueda.Controls.Add(label1);
             this.pnlBusqueda.Controls.Add(label5);
@@ -224,8 +224,6 @@
             this.pnlBusqueda.Controls.Add(this.cbCia);
             this.pnlBusqueda.Controls.Add(this.dpFechaInicio);
             this.pnlBusqueda.Controls.Add(label8);
-            this.pnlBusqueda.Controls.Add(this.panel7);
-            this.pnlBusqueda.Controls.Add(this.txtIdTrab);
             this.pnlBusqueda.Controls.Add(label9);
             this.pnlBusqueda.Location = new System.Drawing.Point(56, 202);
             this.pnlBusqueda.Name = "pnlBusqueda";
@@ -286,24 +284,6 @@
             this.dpFechaInicio.Size = new System.Drawing.Size(113, 25);
             this.dpFechaInicio.TabIndex = 61;
             this.dpFechaInicio.ValueChanged += new System.EventHandler(this.dpFechaFin_ValueChanged);
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel7.Location = new System.Drawing.Point(38, 91);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 2);
-            this.panel7.TabIndex = 43;
-            // 
-            // txtIdTrab
-            // 
-            this.txtIdTrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtIdTrab.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIdTrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdTrab.Location = new System.Drawing.Point(39, 74);
-            this.txtIdTrab.Name = "txtIdTrab";
-            this.txtIdTrab.Size = new System.Drawing.Size(250, 15);
-            this.txtIdTrab.TabIndex = 1;
             // 
             // btnImprimirDetalle
             // 
@@ -384,6 +364,19 @@
             this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cbEmpleados
+            // 
+            this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleados.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.cbEmpleados.FormattingEnabled = true;
+            this.cbEmpleados.Location = new System.Drawing.Point(44, 85);
+            this.cbEmpleados.Name = "cbEmpleados";
+            this.cbEmpleados.Size = new System.Drawing.Size(291, 25);
+            this.cbEmpleados.TabIndex = 181;
+            this.cbEmpleados.Text = "Seleccionar";
+            // 
             // FiltrosRegistroGeneradoDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,8 +420,6 @@
         private System.Windows.Forms.Panel pnlBusqueda;
         private System.Windows.Forms.ComboBox cbUbicacion;
         private System.Windows.Forms.ComboBox cbCia;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtIdTrab;
         private System.Windows.Forms.Button btnImprimirDetalle;
         private System.Windows.Forms.DateTimePicker dpFechaInicio;
         private System.Windows.Forms.DateTimePicker dpFechaFin;
@@ -438,5 +429,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Label lblusuario;
+        private System.Windows.Forms.ComboBox cbEmpleados;
     }
 }

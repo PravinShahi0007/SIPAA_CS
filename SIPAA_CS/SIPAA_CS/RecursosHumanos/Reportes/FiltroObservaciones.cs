@@ -19,10 +19,13 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
     {
         int sysH = SystemInformation.PrimaryMonitorSize.Height;
         int sysW = SystemInformation.PrimaryMonitorSize.Width;
+        SonaTrabajador contenedorempleados = new SonaTrabajador();
         public FiltroObservaciones()
         {
             InitializeComponent();
+
         }
+        
 
 
         //***********************************************************************************************
@@ -121,14 +124,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             string sIncidencia = AsignarVariableCombo(cbIncidencia);
 
             string sIdtrab = "";
-            if (txtIdTrab.Text == String.Empty)
-            {
+            if (cbEmpleados.Text == String.Empty)
                 sIdtrab = "%";
-            }
             else
-            {
-                sIdtrab = txtIdTrab.Text;
-            }
+               sIdtrab =cbEmpleados.SelectedValue.ToString();
+            
 
 
             Incidencia objInc = new Incidencia();
@@ -203,10 +203,12 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             ConcepInc objInc = new ConcepInc();
             DataTable dtInc = objInc.ConcepInc_S(4, 0, "", 0, 0, 0, 0, "", "");
             llenarCombo(cbIncidencia, dtInc, "Descripción");
-
-
             cbTipoNomina.Enabled = false;
             cbArea.Enabled = false;
+            //Combo Empleados
+            DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
+            Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
+            cbEmpleados.Focus();
 
         }
 
@@ -228,6 +230,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             WindowState = FormWindowState.Minimized;
         }
 
+        
 
 
         //-----------------------------------------------------------------------------------------------

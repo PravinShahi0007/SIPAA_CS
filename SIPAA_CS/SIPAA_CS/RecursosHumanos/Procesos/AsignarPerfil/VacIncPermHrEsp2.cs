@@ -235,7 +235,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                 string usuumod = LoginInfo.IdTrab;
                 string prgumod = this.Name;
-
+               
                 foreach (DataGridViewRow row in dgvEmpleados.Rows)
                 {
                     try
@@ -334,7 +334,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //Combo Empleados
             DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
             Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
-
             cbEmpleados.Focus();
         }
 
