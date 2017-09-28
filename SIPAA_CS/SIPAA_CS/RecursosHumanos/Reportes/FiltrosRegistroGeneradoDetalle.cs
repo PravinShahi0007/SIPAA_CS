@@ -24,6 +24,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         public string sUbicacion;
         public int sysH = SystemInformation.PrimaryMonitorSize.Height;
         public int sysW = SystemInformation.PrimaryMonitorSize.Width;
+        SonaTrabajador contenedorempleados = new SonaTrabajador();
 
         public FiltrosRegistroGeneradoDetalle()
         {
@@ -71,13 +72,13 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             dtFechaInicio = dpFechaInicio.Value.AddDays(-1);
             dtFechaFin = dpFechaFin.Value.AddDays(-1);
 
-            if (txtIdTrab.Text == String.Empty)
+            if (cbEmpleados.Text == String.Empty)
             {
                 sIdTrab = "%";
             }
             else
             {
-                sIdTrab = txtIdTrab.Text;
+                sIdTrab = cbEmpleados.SelectedValue.ToString();
             }
 
 
@@ -164,6 +165,10 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             DataTable dtUbicacion = objCia.ObtenerUbicacionPlantel(5, "%");
             LlenarCombos(dtUbicacion, cbUbicacion);
+            //Combo Empleados
+            DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
+            Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
+            cbEmpleados.Focus();
         }
 
 
