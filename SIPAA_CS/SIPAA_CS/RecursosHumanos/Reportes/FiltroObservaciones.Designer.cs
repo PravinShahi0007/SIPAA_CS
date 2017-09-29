@@ -50,6 +50,7 @@
             this.btnImprimirObs = new System.Windows.Forms.Button();
             this.cbArea = new System.Windows.Forms.ComboBox();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.cbEmpleados = new System.Windows.Forms.ComboBox();
             this.cbIncidencia = new System.Windows.Forms.ComboBox();
             this.cbTipoNomina = new System.Windows.Forms.ComboBox();
             this.cbUbicacion = new System.Windows.Forms.ComboBox();
@@ -63,7 +64,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.cbEmpleados = new System.Windows.Forms.ComboBox();
             label7 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
@@ -343,6 +343,19 @@
             this.pnlBusqueda.TabIndex = 162;
             this.pnlBusqueda.TabStop = true;
             // 
+            // cbEmpleados
+            // 
+            this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleados.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.cbEmpleados.FormattingEnabled = true;
+            this.cbEmpleados.Location = new System.Drawing.Point(61, 68);
+            this.cbEmpleados.Name = "cbEmpleados";
+            this.cbEmpleados.Size = new System.Drawing.Size(291, 25);
+            this.cbEmpleados.TabIndex = 178;
+            this.cbEmpleados.Text = "Seleccionar";
+            // 
             // cbIncidencia
             // 
             this.cbIncidencia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -434,7 +447,7 @@
             this.dpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaFin.Location = new System.Drawing.Point(636, 310);
             this.dpFechaFin.Name = "dpFechaFin";
-            this.dpFechaFin.Size = new System.Drawing.Size(115, 25);
+            this.dpFechaFin.Size = new System.Drawing.Size(137, 25);
             this.dpFechaFin.TabIndex = 155;
             this.dpFechaFin.ValueChanged += new System.EventHandler(this.ValidarFechaDataPicker);
             // 
@@ -489,7 +502,7 @@
             this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaInicio.Location = new System.Drawing.Point(636, 238);
             this.dpFechaInicio.Name = "dpFechaInicio";
-            this.dpFechaInicio.Size = new System.Drawing.Size(115, 25);
+            this.dpFechaInicio.Size = new System.Drawing.Size(137, 25);
             this.dpFechaInicio.TabIndex = 154;
             this.dpFechaInicio.ValueChanged += new System.EventHandler(this.ValidarFechaDataPicker);
             // 
@@ -526,19 +539,6 @@
             this.lblusuario.TabIndex = 166;
             this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbEmpleados
-            // 
-            this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbEmpleados.Font = new System.Drawing.Font("Arial", 11.25F);
-            this.cbEmpleados.FormattingEnabled = true;
-            this.cbEmpleados.Location = new System.Drawing.Point(61, 68);
-            this.cbEmpleados.Name = "cbEmpleados";
-            this.cbEmpleados.Size = new System.Drawing.Size(291, 25);
-            this.cbEmpleados.TabIndex = 178;
-            this.cbEmpleados.Text = "Seleccionar";
             // 
             // FiltroObservaciones
             // 
