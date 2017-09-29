@@ -38,21 +38,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         public int iOpcionAdmin;
         AsignacionIncidenciaTrabajador2 oNombreEmpleado = new AsignacionIncidenciaTrabajador2();
         Utilerias Util = new Utilerias();
+        SonaTrabajador contenedorempleados = new SonaTrabajador();
 
         public AsignacionIncidenciasTrabajador2()
         {
             InitializeComponent();
         }
-
-
         
         //***********************************************************************************************
         //Autor: Victor Jesús Iturburu Vergara
         //Fecha creación:17-05-04      Última Modificacion: 17-05-04    
         //Descripción:
         //***********************************************************************************************
-
-
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -70,22 +67,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
         }
 
-        private void ObtieneEmpleado(object sender, EventArgs e)
-        {
-            // Obtiene Nombre del Empleado
-
-            DataTable dtNombreEmpleado = oNombreEmpleado.obtNombreEmpleado(TxtIdEmp.Text, 14);
-
-         if (dtNombreEmpleado.Rows.Count > 0)
-           {
-               TxtNombreEmpleado.Text = dtNombreEmpleado.Rows[0][2].ToString();
-            }
-            else
-            {
-                TxtNombreEmpleado.Text = "Empleado No EXISTE";
-            }
-        }  
-
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
@@ -97,6 +78,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             IncCalificacion objInc = new IncCalificacion();
             objInc.fFechaInicio = dpFechaInicio.Value;
             objInc.fFechaTermino = dpFechaFin.Value;
+            objInc.sIdtrab = cbEmpleados.SelectedValue.ToString();
 
             LlenarGrid(objInc);
 
@@ -107,8 +89,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            DatosTrabajadorPerfil dattrabperf = new DatosTrabajadorPerfil();
-            dattrabperf.Show();
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
 
@@ -130,19 +112,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void pnlBusqueda_Paint(object sender, PaintEventArgs e)
         {
             ///////////////////////////////////////////////
-
-
         }
-
-
-
       
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-           
-
                 switch (ValidarFecha(DateTime.Parse(dtimeFechaInicioAsig.Text), DateTime.Parse(dtimeFechaFinAsig.Text))){
-
 
                     case 0:
 
@@ -156,8 +130,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             bool bExists = false;
                             for (int iCont = 0; iCont < ltTrab.Count(); iCont++)
                             {
-
-
                                 Captura2 obj = ltTrab.ElementAt(iCont);
 
                                 int idTrabActual = Convert.ToInt32(TrabajadorInfo.IdTrab);
@@ -187,7 +159,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                                     LlenarGrid(objInc);
                                 }
-                                
                             }
 
                             ltCvIncidencia.Clear();
@@ -206,15 +177,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                 cbTipo.Enabled = false;
                                 cbIncidencia.SelectedIndex = 0;
                                 timer1.Start();
-
                             }
                             else
                             {
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Una o más asignaciones no se lograron guardar.");
                                 timer1.Start();
                             }
-
-
                         }
                     }
                     else
@@ -253,48 +221,33 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         }
                         else
                         {
-
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación. Favor de Repetir el proceso");
                             timer1.Start();
                         }
 
                     }
-                    
                         break;
-
-
                     case 1:
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "La Fecha de Inicio no puede ser Superior a la de Término");
                     timer1.Start();
                     break;
-
-
                 }
-
-
-            
-
         }
 
-        public int ValidarFecha(DateTime fFechaInicio, DateTime fFechaTermino) {
-
+        public int ValidarFecha(DateTime fFechaInicio, DateTime fFechaTermino)
+        {
             int iResponse = 0;
 
             if (fFechaInicio > fFechaTermino)
             {
-
                 iResponse = 1;
-
             }
             return iResponse;
-
-
         }
 
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
-
 
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
@@ -307,8 +260,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //    dgvInc.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             //}
 
-            if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
-            {
+            //if (Permisos.dcPermisos["Crear"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
+            //{
                 if (dgvInc.SelectedRows.Count != 0)
                 {
                     lbAsignacion.Text = "       Asignar Extrañamiento o Retroactivo";
@@ -319,7 +272,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     int icvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
                     DateTime fFechaReg = DateTime.Parse(row.Cells["Fecha Registro"].Value.ToString());
 
-
                     Captura2 objAsig = new Captura2();
                     objAsig.cvincidencia = icvIncidencia;
                     objAsig.cvtipo = icvTipo;
@@ -329,7 +281,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                     if (row.Cells[0].Tag.ToString() == "check")
                     {
-
                         row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
                         row.Cells[0].Tag = "uncheck";
                     }
@@ -339,34 +290,26 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         row.Cells[0].Tag = "check";
                     }
 
-
-
                     llenarComboIncidencia();
                     if (ltTrab.Count() == 0)
                     {
                         if (Permisos.dcPermisos["Crear"] == 1)
                         {
-
                             cbIncidencia.SelectedValue = 20;
                             cbIncidencia.Enabled = false;
                             lbAsignacion.Text = "       Asignar Suspensión";
-
                         }
                         else
                         {
-
                             pnlAsig.Visible = false;
-
                         }
                     }
+
                     //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                     //cbIncidencia.Enabled = true;
 
-                    //  DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
-                    // form.Show();
                 }
-            }
-         
+            //}         
         }
 
         private void AsignacionIncidenciasTrabajador2_Load(object sender, EventArgs e)
@@ -380,6 +323,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     f.Hide();
                 }
             }
+
+            ftooltip();
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
@@ -399,18 +344,19 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             // IncCalificacion objInc = new IncCalificacion();
             //LlenarGrid(objInc);
-
            
             llenarComboTipo(20);
             ltCvIncidencia.Clear();
             ltFechasRegistro.Clear();
 
+            //llenado de combo Empleados
+            DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
+            Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
 
-            if (Permisos.dcPermisos["Crear"] != 1) {
-
+            if (Permisos.dcPermisos["Crear"] != 1)
+            {
                 labelGrid.Text = "Incidencias Registradas";
                 pnlAsig.Visible = false;
-
             }
         }
 
@@ -420,12 +366,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void llenarComboTipo(int iCvIncidencia)
         {
-
             Incidencia objIncidencia = new Incidencia();
             objIncidencia.CVIncidencia = iCvIncidencia;
             DataTable dtIncidencia = objIncidencia.ObtenerIncidenciaxTipo(objIncidencia, 8);
             Utilerias.llenarComboxDataTable(cbTipo, dtIncidencia, "cvTipo", "Tipo");
-
         }
 
         public void ValidarExistencia(List<Captura2> ltTrab, Captura2 objtrab)
@@ -434,45 +378,35 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             int iCont = 0;
             if (ltTrab.Count != 0)
             {
-
                 while (iCont <= (ltTrab.Count - 1))
                 {
-
                     Captura2 objComp = ltTrab[iCont];
 
                     if (CompararObj(objComp, objtrab))
                     {
-
                         bBandera = true;
                         break;
                     }
                     else
                     {
                         iCont += 1;
-
                     }
-
                 }
 
                 if (bBandera == true)
                 {
-
                     ltTrab.Remove(ltTrab[iCont]);
                 }
                 else
                 {
-
                     ltTrab.Add(objtrab);
                 }
             }
             else
             {
                 ltTrab.Add(objtrab);
-
             }
-
         }
-
 
         public bool CompararObj(Captura2 obj1, Captura2 obj2)
         {
@@ -489,15 +423,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                    
                 }
             }
-           
-
             return bBandera;
-
         }
 
         private void llenarComboIncidencia()
         {
-
             ConcepInc objIncidencia = new ConcepInc();
             DataTable dtIncidencia = objIncidencia.ConcepInc_S(6, 0, "", 0, 0, 0, 0, "", "");
             if (ltTrab.Count != 0)
@@ -511,45 +441,38 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 cbIncidencia.SelectedValue = 20;
                 cbIncidencia.Enabled = false;
             }
-
-           
-
         }
-
 
         private void LlenarGrid(IncCalificacion objInc)
         {
 
             if (dgvInc.Columns.Count > 1)
             {
-
                 dgvInc.Columns.RemoveAt(0);
             }
 
             // IncCalificacion objInc = new IncCalificacion();
 
-            objInc.sIdtrab = TrabajadorInfo.IdTrab;
             DataTable dtInc = objInc.ObtenerCalificacionIncidenciaDetalle(objInc, 5);
-
             dgvInc.DataSource = dtInc;
-
             Utilerias.AgregarCheck(dgvInc, 0);
-           // Utilerias.AgregarCheckboxHeader(dgvInc, 0);
+
+            // Utilerias.AgregarCheckboxHeader(dgvInc, 0);
 
             dgvInc.Columns[1].Visible = false;
             dgvInc.Columns["cvincidencia"].Visible = false;
             dgvInc.Columns["cvtipo"].Visible = false;
-            dgvInc.Columns["Tiempo Prof"].Width = 40;
-            dgvInc.Columns["Tiempo Emp"].Width = 40;
+            /////dgvInc.Columns["Tiempo Prof"].Width = 40;
+            /////dgvInc.Columns["Tiempo Emp"].Width = 40;
             foreach (DataGridViewRow row in dgvInc.Rows)
             {
                 row.Cells[0].Tag = "uncheck";
             }
 
-
-            if (Permisos.dcPermisos["Crear"] != 1 && Permisos.dcPermisos["Actualizar"] != 1) {
-                dgvInc.Columns.RemoveAt(0);
-            }
+            //if (Permisos.dcPermisos["Crear"] != 1 && Permisos.dcPermisos["Actualizar"] != 1) 
+            //{
+            //    dgvInc.Columns.RemoveAt(0);
+            //}
             
         }
 
@@ -559,15 +482,23 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             timer1.Stop();
         }
 
-        private void label13_Click(object sender, EventArgs e)
+        private void ftooltip()
         {
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
 
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
+            toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
         }
-
-
-
-
-
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

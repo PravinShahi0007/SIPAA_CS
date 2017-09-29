@@ -1008,6 +1008,9 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\JustificaIncidencias.resx">
       <DependentUpon>JustificaIncidencias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.resx">
+      <DependentUpon>IncidenciasExtSuspRetroGeneral.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp2.resx">
       <DependentUpon>VacIncPermHrEsp2.cs</DependentUpon>
     </EmbeddedResource>

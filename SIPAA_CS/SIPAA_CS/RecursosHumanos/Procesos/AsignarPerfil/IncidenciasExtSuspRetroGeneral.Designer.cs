@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label23 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,11 +47,13 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.dpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dpFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvInc = new System.Windows.Forms.DataGridView();
             this.pnlAsig = new System.Windows.Forms.Panel();
@@ -65,21 +69,34 @@
             this.lbAsignacion = new System.Windows.Forms.Label();
             this.labelGrid = new System.Windows.Forms.Label();
             this.panelTrab = new System.Windows.Forms.Panel();
-            this.TxtNombreEmpleado = new System.Windows.Forms.TextBox();
-            this.TxtIdEmp = new System.Windows.Forms.TextBox();
+            this.cbEmpleados = new System.Windows.Forms.ComboBox();
             this.txtdtrab = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInc)).BeginInit();
             this.pnlAsig.SuspendLayout();
             this.panelTrab.SuspendLayout();
             this.panelTag.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label2.Location = new System.Drawing.Point(32, 56);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(92, 16);
+            label2.TabIndex = 214;
+            label2.Text = "No Trabajador:";
             // 
             // label23
             // 
@@ -104,7 +121,6 @@
             this.label13.Size = new System.Drawing.Size(230, 17);
             this.label13.TabIndex = 202;
             this.label13.Text = "      Introduzca clave del trabajador";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // label3
             // 
@@ -112,7 +128,7 @@
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(209, 36);
+            this.label3.Location = new System.Drawing.Point(210, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 16);
             this.label3.TabIndex = 207;
@@ -124,11 +140,11 @@
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(25, 34);
+            this.label4.Location = new System.Drawing.Point(40, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 16);
+            this.label4.Size = new System.Drawing.Size(78, 16);
             this.label4.TabIndex = 206;
-            this.label4.Text = "Fecha de Inicio";
+            this.label4.Text = "Fecha Inicio";
             // 
             // label8
             // 
@@ -253,17 +269,53 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.label23);
             this.panel2.Controls.Add(this.dpFechaFin);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.dpFechaInicio);
-            this.panel2.Location = new System.Drawing.Point(490, 110);
+            this.panel2.Location = new System.Drawing.Point(566, 115);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(482, 105);
+            this.panel2.Size = new System.Drawing.Size(432, 105);
             this.panel2.TabIndex = 203;
             this.panel2.TabStop = true;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel4.Controls.Add(this.panel6);
+            this.panel4.Location = new System.Drawing.Point(207, 86);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(117, 1);
+            this.panel4.TabIndex = 209;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel6.Location = new System.Drawing.Point(205, -1);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(117, 1);
+            this.panel6.TabIndex = 184;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Location = new System.Drawing.Point(39, 86);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(117, 1);
+            this.panel1.TabIndex = 208;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel3.Location = new System.Drawing.Point(205, -1);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(117, 1);
+            this.panel3.TabIndex = 184;
             // 
             // dpFechaFin
             // 
@@ -271,7 +323,7 @@
             this.dpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaFin.Location = new System.Drawing.Point(212, 55);
             this.dpFechaFin.Name = "dpFechaFin";
-            this.dpFechaFin.Size = new System.Drawing.Size(137, 25);
+            this.dpFechaFin.Size = new System.Drawing.Size(107, 25);
             this.dpFechaFin.TabIndex = 205;
             // 
             // btnBuscar
@@ -280,7 +332,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(414, 25);
+            this.btnBuscar.Location = new System.Drawing.Point(367, 39);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(55, 55);
             this.btnBuscar.TabIndex = 2;
@@ -292,30 +344,10 @@
             // 
             this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaInicio.Location = new System.Drawing.Point(28, 55);
+            this.dpFechaInicio.Location = new System.Drawing.Point(43, 55);
             this.dpFechaInicio.Name = "dpFechaInicio";
-            this.dpFechaInicio.Size = new System.Drawing.Size(139, 25);
+            this.dpFechaInicio.Size = new System.Drawing.Size(107, 25);
             this.dpFechaInicio.TabIndex = 204;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label5.Location = new System.Drawing.Point(16, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 199;
-            this.label5.Text = "IdTrab:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label2.Location = new System.Drawing.Point(10, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 198;
-            this.label2.Text = "Nombre:";
             // 
             // label12
             // 
@@ -334,22 +366,29 @@
             this.dgvInc.AllowUserToDeleteRows = false;
             this.dgvInc.AllowUserToResizeColumns = false;
             this.dgvInc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvInc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvInc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvInc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvInc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvInc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvInc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvInc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInc.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInc.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInc.Location = new System.Drawing.Point(10, 243);
             this.dgvInc.Name = "dgvInc";
             this.dgvInc.ReadOnly = true;
@@ -358,9 +397,10 @@
             this.dgvInc.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvInc.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvInc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInc.Size = new System.Drawing.Size(1010, 269);
+            this.dgvInc.Size = new System.Drawing.Size(988, 269);
             this.dgvInc.TabIndex = 204;
-            this.dgvInc.Tag = "Editar";
+            this.dgvInc.TabStop = false;
+            this.dgvInc.Tag = "";
             this.dgvInc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipoHr_CellContentClick);
             // 
             // pnlAsig
@@ -381,7 +421,7 @@
             this.pnlAsig.Controls.Add(this.lbAsignacion);
             this.pnlAsig.Location = new System.Drawing.Point(20, 558);
             this.pnlAsig.Name = "pnlAsig";
-            this.pnlAsig.Size = new System.Drawing.Size(976, 146);
+            this.pnlAsig.Size = new System.Drawing.Size(978, 146);
             this.pnlAsig.TabIndex = 206;
             this.pnlAsig.TabStop = true;
             this.pnlAsig.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBusqueda_Paint);
@@ -520,31 +560,25 @@
             // 
             // panelTrab
             // 
-            this.panelTrab.Controls.Add(this.TxtNombreEmpleado);
-            this.panelTrab.Controls.Add(this.TxtIdEmp);
+            this.panelTrab.Controls.Add(this.cbEmpleados);
+            this.panelTrab.Controls.Add(label2);
             this.panelTrab.Controls.Add(this.txtdtrab);
-            this.panelTrab.Controls.Add(this.button1);
             this.panelTrab.Controls.Add(this.label13);
-            this.panelTrab.Controls.Add(this.label2);
-            this.panelTrab.Controls.Add(this.label5);
             this.panelTrab.Location = new System.Drawing.Point(8, 115);
             this.panelTrab.Name = "panelTrab";
-            this.panelTrab.Size = new System.Drawing.Size(427, 106);
+            this.panelTrab.Size = new System.Drawing.Size(520, 106);
             this.panelTrab.TabIndex = 208;
             // 
-            // TxtNombreEmpleado
+            // cbEmpleados
             // 
-            this.TxtNombreEmpleado.Location = new System.Drawing.Point(63, 63);
-            this.TxtNombreEmpleado.Name = "TxtNombreEmpleado";
-            this.TxtNombreEmpleado.Size = new System.Drawing.Size(280, 20);
-            this.TxtNombreEmpleado.TabIndex = 216;
-            // 
-            // TxtIdEmp
-            // 
-            this.TxtIdEmp.Location = new System.Drawing.Point(63, 31);
-            this.TxtIdEmp.Name = "TxtIdEmp";
-            this.TxtIdEmp.Size = new System.Drawing.Size(79, 20);
-            this.TxtIdEmp.TabIndex = 215;
+            this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleados.FormattingEnabled = true;
+            this.cbEmpleados.Location = new System.Drawing.Point(130, 55);
+            this.cbEmpleados.Name = "cbEmpleados";
+            this.cbEmpleados.Size = new System.Drawing.Size(330, 21);
+            this.cbEmpleados.TabIndex = 215;
             // 
             // txtdtrab
             // 
@@ -556,19 +590,6 @@
             this.txtdtrab.Size = new System.Drawing.Size(130, 15);
             this.txtdtrab.TabIndex = 214;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.button1.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.button1.Location = new System.Drawing.Point(339, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 55);
-            this.button1.TabIndex = 214;
-            this.button1.Tag = "Buscar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // panelTag
             // 
             this.panelTag.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
@@ -576,7 +597,7 @@
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTag.Location = new System.Drawing.Point(404, 518);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(616, 27);
+            this.panelTag.Size = new System.Drawing.Size(594, 27);
             this.panelTag.TabIndex = 212;
             this.panelTag.Visible = false;
             // 
@@ -639,6 +660,8 @@
             this.Load += new System.EventHandler(this.AsignacionIncidenciasTrabajador2_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInc)).EndInit();
             this.pnlAsig.ResumeLayout(false);
             this.pnlAsig.PerformLayout();
@@ -661,8 +684,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dpFechaFin;
         private System.Windows.Forms.DateTimePicker dpFechaInicio;
         private System.Windows.Forms.Label label12;
@@ -684,7 +705,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox ptbimgusuario;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtdtrab;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label13;
@@ -694,7 +714,10 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox TxtIdEmp;
-        private System.Windows.Forms.TextBox TxtNombreEmpleado;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ComboBox cbEmpleados;
     }
 } 
