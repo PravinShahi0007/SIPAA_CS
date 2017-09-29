@@ -19,10 +19,13 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
     {
         int sysH = SystemInformation.PrimaryMonitorSize.Height;
         int sysW = SystemInformation.PrimaryMonitorSize.Width;
+        SonaTrabajador contenedorempleados = new SonaTrabajador();
         public FiltroObservaciones()
         {
             InitializeComponent();
+
         }
+        
 
 
         //***********************************************************************************************
@@ -121,14 +124,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             string sIncidencia = AsignarVariableCombo(cbIncidencia);
 
             string sIdtrab = "";
-            if (txtIdTrab.Text == String.Empty)
-            {
+            if (cbEmpleados.Text == String.Empty)
                 sIdtrab = "%";
-            }
             else
-            {
-                sIdtrab = txtIdTrab.Text;
-            }
+               sIdtrab =cbEmpleados.SelectedValue.ToString();
+            
 
 
             Incidencia objInc = new Incidencia();
@@ -146,14 +146,15 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     ViewerReporte form = new ViewerReporte();
                     Observaciones dtrpt = new Observaciones();
                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, "RecursosHumanos", dtrpt.ResourceName);
+                    
 
-                    //ReportDoc.SetParameterValue("TotalRegistros", dtRpt.Rows.Count.ToString());
-                    //ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
-                    //ReportDoc.SetParameterValue("FechaTermino", dpFechaFin.Value);
-                    //ReportDoc.SetParameterValue("Comp", sCia);
-                    //ReportDoc.SetParameterValue("Ubicacion", sUbicacion);
-                    //ReportDoc.SetParameterValue("Area", sArea);
-                    //ReportDoc.SetParameterValue("TipoNomina", sTipoNom);
+                    ReportDoc.SetParameterValue("TotalRegistros", dtRpt.Rows.Count.ToString());
+                    ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
+                    ReportDoc.SetParameterValue("FechaFin", dpFechaFin.Value);
+                    /*ReportDoc.SetParameterValue("Comp", sCia);
+                    ReportDoc.SetParameterValue("Ubicacion", sUbicacion);
+                    ReportDoc.SetParameterValue("Area", sArea);
+                    ReportDoc.SetParameterValue("TipoNomina", sTipoNom);*/
                     form.RptDoc = ReportDoc;
                     form.Show();
                     break;
@@ -203,10 +204,12 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             ConcepInc objInc = new ConcepInc();
             DataTable dtInc = objInc.ConcepInc_S(4, 0, "", 0, 0, 0, 0, "", "");
             llenarCombo(cbIncidencia, dtInc, "Descripción");
-
-
             cbTipoNomina.Enabled = false;
             cbArea.Enabled = false;
+            //Combo Empleados
+            DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
+            Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
+            cbEmpleados.Focus();
 
         }
 
@@ -228,6 +231,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             WindowState = FormWindowState.Minimized;
         }
 
+        
 
 
         //-----------------------------------------------------------------------------------------------

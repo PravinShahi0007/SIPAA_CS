@@ -670,7 +670,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                 string cvreloj = row[1].ToString();
                                 string Nombre = row["Nombre"].ToString();
                                 //string aux =row["administrador"].ToString();
-                                int Grupo = Convert.ToInt32( row["cvgruposreloj"].ToString()); 
+                                int Grupo = Convert.ToInt32( row["cvforma"].ToString()); 
                                 int Permiso = 0;
                                 string pass_desc = string.Empty;
                                // if (row["pass"].ToString() != String.Empty)

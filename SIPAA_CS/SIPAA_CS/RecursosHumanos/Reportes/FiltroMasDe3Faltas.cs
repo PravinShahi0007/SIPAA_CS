@@ -17,6 +17,9 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 {
     public partial class FiltroMasDe3Faltas : Form
     {
+
+        private static string TITULO_REPORTE = "SIPAA - Recursos Humanos";
+        private static string NOMBRE_REPORTE = "Mas de 3 faltas en un periodo de 30 dias";
         //Definición de Variables
         public int sIdTrab;
         public int sCompania;
@@ -56,52 +59,31 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            dtFechaBase = dpFechaBase.Value;
-
-            if (txtIdTrab.Text == string.Empty)
-            {
-                sIdTrab = 0;
-            }
-            else
-            {
-                sIdTrab = Convert.ToInt32(txtIdTrab.Text.Trim());
-            }
-
-            if (cbCompania.Text == string.Empty || cbCompania.Text == "Seleccionar Compañia...")
-            {
-                sCompania = 0;
-            }
-            else
-            {
-                sCompania = Convert.ToInt32(cbCompania.SelectedValue.ToString());
-            }
-
-            if (cbUbicacion.Text == string.Empty || cbUbicacion.Text == "Seleccionar")
-            {
-                sUbicacion = 0;
-            }
-            else
-            {
-                sUbicacion = Convert.ToInt32(cbUbicacion.SelectedValue.ToString());
-            }
+            sIdTrab = cboEmpleados.SelectedIndex > 0 ? Convert.ToInt32(cboEmpleados.SelectedValue) : 0;
+            sCompania = cbCompania.SelectedIndex > 0 ? Convert.ToInt32(cbCompania.SelectedValue) : 0;
+            sUbicacion = cbUbicacion.SelectedIndex > 0 ? Convert.ToInt32(cbUbicacion.SelectedValue) : 0;
+            dtFechaBase = new DateTime(dpFechaBase.Value.Year, dpFechaBase.Value.Month, dpFechaBase.Value.Day);              
 
             DataTable dtReporteRegistro = oTrabajador.MasDe3Faltas(5, sIdTrab, sCompania, sUbicacion, dtFechaBase);
 
             switch (dtReporteRegistro.Rows.Count)
             {
                 case 0:
-                    DialogResult result = MessageBox.Show("No se encontro información.", "SIPAA");
+                    DialogResult result = MessageBox.Show("Sin Resultados", "SIPAA");
                     break;
 
                 default:
                     //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
                     ViewerReporte form = new ViewerReporte();
-                    //Mas3FaltasPeriodo dtrpt = new Mas3FaltasPeriodo();
-                    //ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistro, "RecursosHumanos", dtrpt.ResourceName);
+                    FaltasPeriodo dtrpt = new FaltasPeriodo();
+                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistro, "RecursosHumanos", dtrpt.ResourceName);
 
-                    //ReportDoc.SetParameterValue("FechaInicio", dpFechaBase.Value);
-                    //form.RptDoc = ReportDoc;
-                    //form.Show();
+                    ReportDoc.SetParameterValue("titulo1", TITULO_REPORTE);
+                    ReportDoc.SetParameterValue("descripcion1", NOMBRE_REPORTE);
+                    ReportDoc.SetParameterValue("descripcion2", "Fecha base: " + dpFechaBase.Value.ToShortDateString());
+
+                    form.RptDoc = ReportDoc;
+                    form.Show();
                     break;
             }
         }
@@ -148,6 +130,9 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             DataTable dtUbicacion = oCompania.ObtenerUbicacionPlantel(5, "");
             Utilerias.llenarComboxDataTable(cbUbicacion, dtUbicacion, "IdUbicacion", "Descripción");
+
+            DataTable dtEmpleado = oTrabajador.ObtenerListaTrabajador(6, 2);
+            Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "Clave", "Descripción");
         }
 
         private void btnRegresar_Click_1(object sender, EventArgs e)

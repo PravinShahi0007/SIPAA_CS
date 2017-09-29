@@ -21,6 +21,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         public string sUbicacion;
         public DateTime dtFechaInicio = DateTime.Today;
         public DateTime dtFechaFin = DateTime.Today;
+        SonaTrabajador contenedorempleados = new SonaTrabajador();
         //public int sysH = SystemInformation.PrimaryMonitorSize.Height;
         //public int sysW = SystemInformation.PrimaryMonitorSize.Width;
 
@@ -59,34 +60,20 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             dtFechaInicio = dpFechaInicio.Value;
             dtFechaFin = dpFechaFin.Value;
 
-            if (txtIdTrab.Text==string.Empty)
-            {
-                sIdTrab = "%";
-            }
-            else
-            {
-                sIdTrab = txtIdTrab.Text;
-            }
-
+            if (cbEmpleados.Text==string.Empty)
+                  sIdTrab = "%";
+             else
+                 sIdTrab = cbEmpleados.SelectedValue.ToString();
+           
             if (cbCompania.Text==string.Empty | cbCompania.Text=="Seleccionar Compañia...")
-            {
                 sCompania = "%";
-            }
             else
-            {
                 sCompania = cbCompania.SelectedValue.ToString();
-            }
-
             if (cbUbicacion.Text==string.Empty | cbUbicacion.Text=="Seleccionar")
-            {
-                sUbicacion = "%";
-            }
+             sUbicacion = "%";
             else
-            {
-                sUbicacion = cbUbicacion.SelectedValue.ToString();
-            }
-
-            DataTable dtReporteRegistroDetalle = oTrabajador.ObtenerRegistroDetalle(sIdTrab, dtFechaInicio
+              sUbicacion = cbUbicacion.SelectedValue.ToString();
+           DataTable dtReporteRegistroDetalle = oTrabajador.ObtenerRegistroDetalle(sIdTrab, dtFechaInicio
                      ,dtFechaFin, sCompania, sUbicacion);
 
             switch (dtReporteRegistroDetalle.Rows.Count)
@@ -170,6 +157,10 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 Utilerias.llenarComboxDataTable(cbUbicacion, oUbicacion.obtenerSonaUbicacion("", 6), "Clave", "Descripción");
                 bprimeravez = false;
             }
+            //Combo Empleados
+            DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
+            Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
+            cbEmpleados.Focus();
         }
 
         private void dpFechaFin_ValueChanged(object sender, EventArgs e)

@@ -44,10 +44,9 @@
             this.cbUbicacion = new System.Windows.Forms.ComboBox();
             this.cbCompania = new System.Windows.Forms.ComboBox();
             this.dpFechaBase = new System.Windows.Forms.DateTimePicker();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.txtIdTrab = new System.Windows.Forms.TextBox();
             this.pnlImprimir = new System.Windows.Forms.Panel();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.cboEmpleados = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -64,7 +63,7 @@
             label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(61, 231);
+            label1.Location = new System.Drawing.Point(61, 207);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(78, 16);
             label1.TabIndex = 63;
@@ -76,11 +75,11 @@
             label5.Font = new System.Drawing.Font("Arial", 9.75F);
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(61, 160);
+            label5.Location = new System.Drawing.Point(61, 153);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(65, 16);
+            label5.Size = new System.Drawing.Size(125, 16);
             label5.TabIndex = 60;
-            label5.Text = "Ubicación";
+            label5.Text = "Ubicación (opcional)";
             label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
@@ -89,11 +88,11 @@
             label6.Font = new System.Drawing.Font("Arial", 9.75F);
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(61, 105);
+            label6.Location = new System.Drawing.Point(61, 89);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(66, 16);
+            label6.Size = new System.Drawing.Size(126, 16);
             label6.TabIndex = 58;
-            label6.Text = "Compañia";
+            label6.Text = "Compañia (opcional)";
             // 
             // label8
             // 
@@ -103,9 +102,9 @@
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label8.Location = new System.Drawing.Point(61, 33);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(166, 16);
+            label8.Size = new System.Drawing.Size(128, 16);
             label8.TabIndex = 44;
-            label8.Text = "No de Trabajador (opcional)";
+            label8.Text = "Trabajador (opcional)";
             // 
             // label9
             // 
@@ -208,6 +207,7 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.cboEmpleados);
             this.pnlBusqueda.Controls.Add(label1);
             this.pnlBusqueda.Controls.Add(label5);
             this.pnlBusqueda.Controls.Add(this.cbUbicacion);
@@ -215,8 +215,6 @@
             this.pnlBusqueda.Controls.Add(this.cbCompania);
             this.pnlBusqueda.Controls.Add(this.dpFechaBase);
             this.pnlBusqueda.Controls.Add(label8);
-            this.pnlBusqueda.Controls.Add(this.panel7);
-            this.pnlBusqueda.Controls.Add(this.txtIdTrab);
             this.pnlBusqueda.Controls.Add(label9);
             this.pnlBusqueda.Location = new System.Drawing.Point(34, 134);
             this.pnlBusqueda.Name = "pnlBusqueda";
@@ -231,7 +229,7 @@
             this.cbUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbUbicacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUbicacion.FormattingEnabled = true;
-            this.cbUbicacion.Location = new System.Drawing.Point(64, 183);
+            this.cbUbicacion.Location = new System.Drawing.Point(64, 172);
             this.cbUbicacion.Name = "cbUbicacion";
             this.cbUbicacion.Size = new System.Drawing.Size(385, 25);
             this.cbUbicacion.TabIndex = 59;
@@ -244,7 +242,7 @@
             this.cbCompania.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbCompania.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCompania.FormattingEnabled = true;
-            this.cbCompania.Location = new System.Drawing.Point(64, 125);
+            this.cbCompania.Location = new System.Drawing.Point(64, 108);
             this.cbCompania.Name = "cbCompania";
             this.cbCompania.Size = new System.Drawing.Size(385, 25);
             this.cbCompania.TabIndex = 57;
@@ -254,28 +252,10 @@
             // 
             this.dpFechaBase.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaBase.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaBase.Location = new System.Drawing.Point(64, 250);
+            this.dpFechaBase.Location = new System.Drawing.Point(64, 226);
             this.dpFechaBase.Name = "dpFechaBase";
             this.dpFechaBase.Size = new System.Drawing.Size(109, 25);
             this.dpFechaBase.TabIndex = 61;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel7.Location = new System.Drawing.Point(65, 75);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 2);
-            this.panel7.TabIndex = 43;
-            // 
-            // txtIdTrab
-            // 
-            this.txtIdTrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtIdTrab.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIdTrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdTrab.Location = new System.Drawing.Point(66, 59);
-            this.txtIdTrab.Name = "txtIdTrab";
-            this.txtIdTrab.Size = new System.Drawing.Size(250, 15);
-            this.txtIdTrab.TabIndex = 1;
             // 
             // pnlImprimir
             // 
@@ -299,6 +279,20 @@
             this.btnImprimir.Tag = "Buscar";
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // cboEmpleados
+            // 
+            this.cboEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboEmpleados.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboEmpleados.FormattingEnabled = true;
+            this.cboEmpleados.Items.AddRange(new object[] {
+            "-Seleccionar-"});
+            this.cboEmpleados.Location = new System.Drawing.Point(64, 52);
+            this.cboEmpleados.Name = "cboEmpleados";
+            this.cboEmpleados.Size = new System.Drawing.Size(385, 25);
+            this.cboEmpleados.TabIndex = 64;
             // 
             // FiltroMasDe3Faltas
             // 
@@ -339,9 +333,8 @@
         private System.Windows.Forms.ComboBox cbUbicacion;
         private System.Windows.Forms.ComboBox cbCompania;
         private System.Windows.Forms.DateTimePicker dpFechaBase;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtIdTrab;
         private System.Windows.Forms.Panel pnlImprimir;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.ComboBox cboEmpleados;
     }
 }

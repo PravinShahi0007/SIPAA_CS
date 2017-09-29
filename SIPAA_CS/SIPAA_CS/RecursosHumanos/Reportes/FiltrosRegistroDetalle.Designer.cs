@@ -42,12 +42,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnImprimirDetalle = new System.Windows.Forms.Button();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.cbEmpleados = new System.Windows.Forms.ComboBox();
             this.cbUbicacion = new System.Windows.Forms.ComboBox();
             this.dpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.cbCompania = new System.Windows.Forms.ComboBox();
             this.dpFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.txtIdTrab = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
@@ -218,6 +217,7 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.cbEmpleados);
             this.pnlBusqueda.Controls.Add(label2);
             this.pnlBusqueda.Controls.Add(label1);
             this.pnlBusqueda.Controls.Add(label5);
@@ -227,14 +227,25 @@
             this.pnlBusqueda.Controls.Add(this.cbCompania);
             this.pnlBusqueda.Controls.Add(this.dpFechaInicio);
             this.pnlBusqueda.Controls.Add(label8);
-            this.pnlBusqueda.Controls.Add(this.panel7);
-            this.pnlBusqueda.Controls.Add(this.txtIdTrab);
             this.pnlBusqueda.Controls.Add(label9);
             this.pnlBusqueda.Location = new System.Drawing.Point(34, 133);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(503, 375);
             this.pnlBusqueda.TabIndex = 136;
             this.pnlBusqueda.TabStop = true;
+            // 
+            // cbEmpleados
+            // 
+            this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleados.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.cbEmpleados.FormattingEnabled = true;
+            this.cbEmpleados.Location = new System.Drawing.Point(64, 66);
+            this.cbEmpleados.Name = "cbEmpleados";
+            this.cbEmpleados.Size = new System.Drawing.Size(385, 25);
+            this.cbEmpleados.TabIndex = 180;
+            this.cbEmpleados.Text = "Seleccionar";
             // 
             // cbUbicacion
             // 
@@ -256,9 +267,10 @@
             // dpFechaFin
             // 
             this.dpFechaFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaFin.Location = new System.Drawing.Point(64, 313);
             this.dpFechaFin.Name = "dpFechaFin";
-            this.dpFechaFin.Size = new System.Drawing.Size(290, 25);
+            this.dpFechaFin.Size = new System.Drawing.Size(138, 25);
             this.dpFechaFin.TabIndex = 62;
             this.dpFechaFin.ValueChanged += new System.EventHandler(this.dpFechaFin_ValueChanged);
             // 
@@ -282,28 +294,11 @@
             // dpFechaInicio
             // 
             this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaInicio.Location = new System.Drawing.Point(64, 259);
             this.dpFechaInicio.Name = "dpFechaInicio";
-            this.dpFechaInicio.Size = new System.Drawing.Size(290, 25);
+            this.dpFechaInicio.Size = new System.Drawing.Size(138, 25);
             this.dpFechaInicio.TabIndex = 61;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel7.Location = new System.Drawing.Point(65, 75);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 2);
-            this.panel7.TabIndex = 43;
-            // 
-            // txtIdTrab
-            // 
-            this.txtIdTrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtIdTrab.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtIdTrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdTrab.Location = new System.Drawing.Point(65, 55);
-            this.txtIdTrab.Name = "txtIdTrab";
-            this.txtIdTrab.Size = new System.Drawing.Size(250, 15);
-            this.txtIdTrab.TabIndex = 1;
             // 
             // label3
             // 
@@ -389,10 +384,9 @@
         private System.Windows.Forms.DateTimePicker dpFechaFin;
         private System.Windows.Forms.ComboBox cbCompania;
         private System.Windows.Forms.DateTimePicker dpFechaInicio;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtIdTrab;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Label lblusuario;
+        private System.Windows.Forms.ComboBox cbEmpleados;
     }
 }
