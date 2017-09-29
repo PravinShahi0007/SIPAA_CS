@@ -16,14 +16,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Observaciones : ReportClass {
+    public class Mas3FaltasPeriodo : ReportClass {
         
-        public Observaciones() {
+        public Mas3FaltasPeriodo() {
         }
         
         public override string ResourceName {
             get {
-                return "Observaciones.rpt";
+                return "Mas3FaltasPeriodo.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         
         public override string FullResourceName {
             get {
-                return "SIPAA_CS.RecursosHumanos.Reportes.Observaciones.rpt";
+                return "SIPAA_CS.RecursosHumanos.Reportes.Mas3FaltasPeriodo.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,41 +82,17 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_TotalRegistros {
-            get {
-                return this.DataDefinition.ParameterFields[0];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedObservaciones : Component, ICachedReport {
+    public class CachedMas3FaltasPeriodo : Component, ICachedReport {
         
-        public CachedObservaciones() {
+        public CachedMas3FaltasPeriodo() {
         }
         
         [Browsable(false)]
@@ -153,7 +129,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Observaciones rpt = new Observaciones();
+            Mas3FaltasPeriodo rpt = new Mas3FaltasPeriodo();
             rpt.Site = this.Site;
             return rpt;
         }

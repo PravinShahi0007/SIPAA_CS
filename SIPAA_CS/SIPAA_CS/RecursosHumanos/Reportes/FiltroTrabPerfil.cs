@@ -66,8 +66,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             {
                 if (cboEmpleados.SelectedIndex == 0)
                 {
-                    iIDT = 0;
-                    
+                    iIDT = 0;                    
                 }
                 else
                 {
@@ -199,7 +198,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             //LLENA COMBOS
             DataTable dtCompania = CComUbi.obtcomp(5, "");
-            Utilerias.llenarComboxDataTable(cboCia,dtCompania,"Clave","Descripción");
+            Utilerias.llenarComboxDataTable(cboCia,dtCompania,"Clave", "Descripción");
 
             DataTable dtUbicacion = CComUbi.ObtenerUbicacionPlantel(5, "");
             Utilerias.llenarComboxDataTable(cboUbicacion, dtUbicacion, "IdUbicacion", "Descripción");

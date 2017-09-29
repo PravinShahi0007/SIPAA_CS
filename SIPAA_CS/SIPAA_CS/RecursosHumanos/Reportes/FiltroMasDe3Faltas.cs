@@ -17,15 +17,18 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 {
     public partial class FiltroMasDe3Faltas : Form
     {
+
+        private static string TITULO_REPORTE = "SIPAA - Recursos Humanos";
+        private static string NOMBRE_REPORTE = "Mas de 3 faltas en un periodo de 30 dias";
         //Definición de Variables
-        public string sIdTrab;
-        public string sCompania;
-        public string sUbicacion;
+        public int sIdTrab;
+        public int sCompania;
+        public int sUbicacion;
         public DateTime dtFechaBase = DateTime.Today;
 
         //Instanciamos las clases
         SonaTrabajador oTrabajador = new SonaTrabajador();
-        SonaCompania2 oCompañia = new SonaCompania2();
+        SonaCompania oCompania = new SonaCompania();
         SonaUbicacion oUbicacion = new SonaUbicacion();
         Utilerias util = new Utilerias();
 
@@ -56,50 +59,29 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            sIdTrab = cboEmpleados.SelectedIndex > 0 ? Convert.ToInt32(cboEmpleados.SelectedValue) : 0;
+            sCompania = cbCompania.SelectedIndex > 0 ? Convert.ToInt32(cbCompania.SelectedValue) : 0;
+            sUbicacion = cbUbicacion.SelectedIndex > 0 ? Convert.ToInt32(cbUbicacion.SelectedValue) : 0;
             dtFechaBase = dpFechaBase.Value;
 
-            if (txtIdTrab.Text == string.Empty)
-            {
-                sIdTrab = "%";
-            }
-            else
-            {
-                sIdTrab = txtIdTrab.Text;
-            }
-
-            if (cbCompania.Text == string.Empty | cbCompania.Text == "Seleccionar Compañia...")
-            {
-                sCompania = "%";
-            }
-            else
-            {
-                sCompania = cbCompania.SelectedValue.ToString();
-            }
-
-            if (cbUbicacion.Text == string.Empty | cbUbicacion.Text == "Seleccionar")
-            {
-                sUbicacion = "%";
-            }
-            else
-            {
-                sUbicacion = cbUbicacion.SelectedValue.ToString();
-            }
-
-            DataTable dtReporteRegistro = oTrabajador.MasDe3Faltas(sIdTrab, sCompania, sUbicacion, dtFechaBase);
+            DataTable dtReporteRegistro = oTrabajador.MasDe3Faltas(5, sIdTrab, sCompania, sUbicacion, dtFechaBase);
 
             switch (dtReporteRegistro.Rows.Count)
             {
                 case 0:
-                    DialogResult result = MessageBox.Show("No se encontro información.", "SIPAA");
+                    DialogResult result = MessageBox.Show("Sin Resultados", "SIPAA");
                     break;
 
                 default:
                     //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
                     ViewerReporte form = new ViewerReporte();
-                    RegistroDetalle dtrpt = new RegistroDetalle();
+                    FaltasPeriodo dtrpt = new FaltasPeriodo();
                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistro, "RecursosHumanos", dtrpt.ResourceName);
 
-                    ReportDoc.SetParameterValue("FechaInicio", dpFechaBase.Value);
+                    ReportDoc.SetParameterValue("titulo1", TITULO_REPORTE);
+                    ReportDoc.SetParameterValue("descripcion1", NOMBRE_REPORTE);
+                    ReportDoc.SetParameterValue("descripcion2", "Fecha base: " + dpFechaBase.Value.ToShortDateString());
+
                     form.RptDoc = ReportDoc;
                     form.Show();
                     break;
@@ -140,6 +122,17 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+
+
+            //LLENA COMBOS
+            DataTable dtCompania = oCompania.obtcomp(5, "");
+            Utilerias.llenarComboxDataTable(cbCompania, dtCompania, "Clave", "Descripción");
+
+            DataTable dtUbicacion = oCompania.ObtenerUbicacionPlantel(5, "");
+            Utilerias.llenarComboxDataTable(cbUbicacion, dtUbicacion, "IdUbicacion", "Descripción");
+
+            DataTable dtEmpleado = oTrabajador.ObtenerListaTrabajador(6, 2);
+            Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "Clave", "Descripción");
         }
 
         private void btnRegresar_Click_1(object sender, EventArgs e)
@@ -166,6 +159,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             {
 
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------

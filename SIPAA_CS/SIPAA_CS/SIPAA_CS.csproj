@@ -346,12 +346,19 @@
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidencia.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\AsignacionIncidenciaTrabajador2.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueaIncidencias.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.Designer.cs">
       <DependentUpon>JustificaIncidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\FaltasPeriodo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
@@ -693,6 +700,12 @@
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp.Designer.cs">
       <DependentUpon>VacIncPermHrEsp.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DesbloquearIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\DesbloquearIncidencias.Designer.cs">
+      <DependentUpon>DesbloquearIncidencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -751,6 +764,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DetalleHr.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FaltasPeriodo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FaltasPeriodo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\FiltroConceptosNomina.cs">
@@ -1094,6 +1113,9 @@
     <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\VacIncPermHrEsp.resx">
       <DependentUpon>VacIncPermHrEsp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloquearIncidencias.resx">
+      <DependentUpon>DesbloquearIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.resx">
       <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
     </EmbeddedResource>
@@ -1128,6 +1150,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\DetalleHr.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DetalleHr.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FaltasPeriodo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FaltasPeriodo.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroConceptosNomina.resx">
       <DependentUpon>FiltroConceptosNomina.cs</DependentUpon>
@@ -1330,6 +1356,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xsc">
+      <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FaltasPeriodo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xss">
+      <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
+    </None>
     <None Include="SIPAA_CS_ClaveTemporal.pfx" />
   </ItemGroup>
   <ItemGroup>
