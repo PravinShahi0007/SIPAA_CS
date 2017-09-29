@@ -132,7 +132,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             {
                                 Captura2 obj = ltTrab.ElementAt(iCont);
 
-                                int idTrabActual = Convert.ToInt32(TrabajadorInfo.IdTrab);
+                                // ===== > int idTrabActual = Convert.ToInt32(TrabajadorInfo.IdTrab);
+                                int idTrabActual = Int32.Parse(cbEmpleados.SelectedValue.ToString());
                                 int cvincidenciaActual = obj.cvincidencia;
                                 int cvtipoActual = obj.cvtipo;
 
