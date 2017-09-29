@@ -595,7 +595,7 @@
             this.panelTag.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(404, 518);
+            this.panelTag.Location = new System.Drawing.Point(404, 710);
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(594, 27);
             this.panelTag.TabIndex = 212;
