@@ -26,7 +26,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 {
     public partial class ArchivoNomina4 : Form
     {
-
         //////instanciamos los objetos (segun san lucas)
         ArchNomina4 oArchivoNomina4 = new ArchNomina4();
         SonaCompania2 oCompañia = new SonaCompania2();
@@ -35,6 +34,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         Utilerias util = new Utilerias();
         SaveFileDialog saveFileDialogArchivo = new SaveFileDialog();
         SonaTrabajador contenedorempleados = new SonaTrabajador();
+        ProcesaIncidencia ProcesaIncidencias = new ProcesaIncidencia();
 
         public ArchivoNomina4()
         {
@@ -43,6 +43,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         //para validar inicio de combo
         bool bprimeravez = true;
+        bool bprimeracb = true;
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -65,27 +66,27 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 cbTiponomina.DataSource = dtTipoNomina;
                 cbTiponomina.DisplayMember = "Descripción";
                 cbTiponomina.ValueMember = "Clave";
+                bprimeracb = false;
             }
         }
 
-        private void btnEjecutar_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
             string ubica = cbUbicacion.SelectedValue.ToString();
-            if ((cbCompania.Text=="" | cbCompania.Text == "Seleccionar Compañia...") | (cbTiponomina.Text=="" | cbTiponomina.Text == "Seleccionar Tipo Nomina..."))
+            if ((cbCompania.Text == "" | cbCompania.Text == "Seleccionar Compañia...") | (cbTiponomina.Text == "" | cbTiponomina.Text == "Seleccionar Tipo Nomina..."))
             {
-                MessageBox.Show("Debe seleccionar la compañia y el tipo de nomina", "SIPPA");
+                MessageBox.Show("Debe seleccionar la compañia y el tipo de nomina", "SIPPA", MessageBoxButtons.OK);
                 cbCompania.Focus();
-                
+
             }
-            else if (dtpfechainicial.Text =="" | dtpfechafinal.Text == "")
+            else if (dtpfechainicial.Text == "" | dtpfechafinal.Text == "")
             {
-                MessageBox.Show("Proporcione un rango de fechas", "SIPPA");
+                MessageBox.Show("Proporcione un rango de fechas", "SIPPA", MessageBoxButtons.OK);
                 dtpfechainicial.Focus();
             }
 
-            else if (cbEmpleados.Text =="" | cbEmpleados.Text == "Seleccionar" & (cbUbicacion.SelectedValue.ToString()=="" | Convert.ToInt32(cbUbicacion.SelectedValue.ToString()) == 0 
+            else if (cbEmpleados.Text == "" | cbEmpleados.Text == "Seleccionar" & (cbUbicacion.SelectedValue.ToString() == "" | Convert.ToInt32(cbUbicacion.SelectedValue.ToString()) == 0
                 | cbUbicacion.Text == "Seleccionar Ubicación..."))
-            //else if (txtidtrab.Text.Trim() == "" & (cbUbicacion.SelectedValue.ToString() == "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
             {
                 fgridarchivonomina4(4, 0, Convert.ToInt32(cbCompania.SelectedValue.ToString()),
                 Convert.ToInt32(cbTiponomina.SelectedValue.ToString()), 0,
@@ -93,17 +94,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             }
             else if (cbEmpleados.Text == "" | cbEmpleados.Text == "Seleccionar" & (cbUbicacion.SelectedValue.ToString() != "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
-            //else if (txtidtrab.Text.Trim() == "" & (cbUbicacion.SelectedValue.ToString() != "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
             {
                 fgridarchivonomina4(5, 0, Convert.ToInt32(cbCompania.SelectedValue.ToString()),
                 Convert.ToInt32(cbTiponomina.SelectedValue.ToString()), Convert.ToInt32(cbUbicacion.SelectedValue.ToString()),
                 dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), LoginInfo.IdTrab, "ProcArchNom");
             }
             else if (cbEmpleados.Text != "" & (cbUbicacion.SelectedValue.ToString() == "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
-            //else if (txtidtrab.Text.Trim() != "" & (cbUbicacion.SelectedValue.ToString() == "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
             {
                 fgridarchivonomina4(6, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), Convert.ToInt32(cbCompania.SelectedValue.ToString()),
-                Convert.ToInt32(cbTiponomina.SelectedValue.ToString()),0,
+                Convert.ToInt32(cbTiponomina.SelectedValue.ToString()), 0,
                 dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), LoginInfo.IdTrab, "ProcArchNom");
             }
             else
@@ -123,6 +122,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
             else
             {
+                creacsvcorto();
+
                 /*
                 string idTrab = "%";
                 string cvCia = "%";
@@ -146,7 +147,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 form.RptDoc = ReportDoc;
                 form.Show();
                 */
-                creacsvcorto();
             }
         }
 
@@ -187,6 +187,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 }
             }
 
+            ftooltip();
+
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
 
@@ -201,7 +203,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 cbCompania.Text = "Seleccionar Compañia...";
 
                 //llenado de combo ubicaciones
-                //util.cargarcombo(cbUbicacion, oUbicacion.obtenerSonaUbicacion("",6));
                 Utilerias.llenarComboxDataTable(cbUbicacion, oUbicacion.obtenerSonaUbicacion("", 6), "Clave", "Descripción");
                 bprimeravez = false;
 
@@ -209,6 +210,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
                 Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panelTag.Visible = false;
+            timer1.Stop();
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -276,7 +283,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 else
                     MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
             }
-            Application.Restart();
         }
 
         private void creacsvcorto()
@@ -383,17 +389,78 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     creado = 1;
                 }
                 if (creado == 0)
-                    MessageBox.Show("El Archivo " + saveFileDialogArchivo.FileName + " ha sido creado");
+                {
+                    lblMensaje.Text = "El Archivo " + saveFileDialogArchivo.FileName + " ha sido creado";
+                    panelTag.Visible = true;
+                    timer1.Start();
+                    //MessageBox.Show("El Archivo " + saveFileDialogArchivo.FileName + " ha sido creado");
+                }
                 else
-                    MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
+                {
+                    lblMensaje.Text = "No se pudo crear el archivo. Intente de Nuevo";
+                    panelTag.Visible = true;
+                    timer1.Start();
+                    //MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
+                }
             }
-            Application.Exit();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             RechDashboard rechdb = new RechDashboard();
             rechdb.Show();
+            this.Close();
+        }
+
+        private void cbTiponomina_SelectedIndexChanged(object sender, EventArgs e)
+        { /* Este Codigo aun no va, porque se pusieron creativos y no saben bien que fechas capturan
+            try
+            {
+                if (bprimeracb == false)
+                {
+                    //valida se seleccione un periodo
+                    if (cbTiponomina.SelectedValue.ToString() == "")
+                    {
+
+            }
+                    else
+                    {
+                        //dt fechas
+                        DataTable dtfechas = ProcesaIncidencias.dttiponomina(9, Int32.Parse(cbTiponomina.SelectedValue.ToString()));
+                        dtpfechainicial.Text = dtfechas.Rows[0][2].ToString();
+                        dtpfechafinal.Text = dtfechas.Rows[0][3].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
+            }
+            */
+        }
+
+        private void ftooltip()
+        {
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
+
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
+            toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
+        }
+
+        private void frecargar()
+        {
+            ArchivoNomina4 recargar = new ArchivoNomina4();
+            recargar.Show();
             this.Close();
         }
 

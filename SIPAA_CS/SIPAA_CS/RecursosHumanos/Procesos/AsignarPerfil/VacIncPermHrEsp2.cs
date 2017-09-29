@@ -125,8 +125,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbCompania.SelectedIndex.ToString()) <=0 & Convert.ToInt32(cbAreas.SelectedIndex.ToString()) <= 0 
                 & Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) <=0 
                 & Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) <= 0)
-            //if (cbEmpleados.Text.ToString() =="" & cbCompania.SelectedValue.ToString() == "" & Convert.ToInt32(cbAreas.SelectedIndex.ToString()) <= 0 & cbPuestos.SelectedValue.ToString() == "" & 
-            //    cbDepartamentos.SelectedValue.ToString() == "" & cbUbicacion.SelectedValue.ToString() == "" & Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) <= 0)
             {
                 MessageBox.Show("Debe seleccionar por lo menos un filtro de busqueda", "SIPAA", MessageBoxButtons.OK);
                 cbEmpleados.Focus();
@@ -244,16 +242,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                        fInsDiasEsp(iIdTrab, 1, Convert.ToInt32(cbConcepto.SelectedValue.ToString()), Convert.ToInt32(cbTipo.SelectedValue.ToString()), dtpFechaInical.Text.Trim(),
                        dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), mtxtHoraEntrada.Text.Trim(), mtxtHoraSalida.Text.Trim(), txtReferencia.Text, 4,
                        Convert.ToInt32(txtSubsidio.Text), 0, usuumod, prgumod, 0, 0);
-                        panelTag.Visible = true;
-                        timer1.Start();
-                        //this.Close();
+                       panelTag.Visible = true;
+                       timer1.Start();
+                       frecargar();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.ToString());
                     }
                 }
-                Application.Exit();
             }
         }
 
@@ -425,6 +422,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             panelTag.Visible = false;
             timer1.Stop();
+        }
+
+        private void frecargar()
+        {
+            VacIncPermHrEsp2 recargar = new VacIncPermHrEsp2();
+            recargar.Show();
+            this.Close();
         }
 
         //-----------------------------------------------------------------------------------------------
