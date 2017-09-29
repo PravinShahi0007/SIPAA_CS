@@ -146,14 +146,15 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     ViewerReporte form = new ViewerReporte();
                     Observaciones dtrpt = new Observaciones();
                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, "RecursosHumanos", dtrpt.ResourceName);
+                    
 
-                    //ReportDoc.SetParameterValue("TotalRegistros", dtRpt.Rows.Count.ToString());
-                    //ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
-                    //ReportDoc.SetParameterValue("FechaTermino", dpFechaFin.Value);
-                    //ReportDoc.SetParameterValue("Comp", sCia);
-                    //ReportDoc.SetParameterValue("Ubicacion", sUbicacion);
-                    //ReportDoc.SetParameterValue("Area", sArea);
-                    //ReportDoc.SetParameterValue("TipoNomina", sTipoNom);
+                    ReportDoc.SetParameterValue("TotalRegistros", dtRpt.Rows.Count.ToString());
+                    ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
+                    ReportDoc.SetParameterValue("FechaFin", dpFechaFin.Value);
+                    /*ReportDoc.SetParameterValue("Comp", sCia);
+                    ReportDoc.SetParameterValue("Ubicacion", sUbicacion);
+                    ReportDoc.SetParameterValue("Area", sArea);
+                    ReportDoc.SetParameterValue("TipoNomina", sTipoNom);*/
                     form.RptDoc = ReportDoc;
                     form.Show();
                     break;

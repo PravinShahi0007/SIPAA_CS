@@ -11,11 +11,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.SonaCompania;
 using static SIPAA_CS.App_Code.Usuario;
+using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
+using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 
 namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
     public partial class TrabajadoresPerfil : Form
     {
+        #region
+        int iins, iact, ielim;
+        int iactbtn, istcheca;
+        string sestperf, iidtrabmodif, istchec;
+        #endregion
+
+        Perfil DatPerfil = new Perfil();
+        TrabajadorPerfil TrabPerf = new TrabajadorPerfil();
+        Utilerias Util = new Utilerias();
+
         int sysH = SystemInformation.PrimaryMonitorSize.Height;
         int sysW = SystemInformation.PrimaryMonitorSize.Width;
         public TrabajadoresPerfil()
@@ -24,8 +36,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         }
 
         //***********************************************************************************************
-        //Autor: Victor Jesús Iturburu Vergara
-        //Fecha creación:7-04-2017     Última Modificacion: 17-04-2017
+        //Autor: Victor Jesús Iturburu Vergara   modif: noe alvarez marquina  ****funcionalidad 
+        //Fecha creación:7-04-2017     Última Modificacion: 28/09/2017
         //Descripción: -------------------------------
         //***********************************************************************************************
 
@@ -38,80 +50,144 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void dgvIncidencia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            for (int iContador = 0; iContador < dgvTrab.Rows.Count; iContador++)
+            pnlsuid.Visible = false;
+            DataGridViewRow row = this.dgvTrab.SelectedRows[0];
+            sestperf = row.Cells["Perfil"].Value.ToString();
+
+            if (sestperf == "Si")
             {
-                dgvTrab.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                if (iins == 1 && iact == 1 && ielim == 1)
+                {
+                    factgrid();
+                    Util.ChangeButton(btninsertar, 2, false);
+                    iactbtn = 2;
+                }
+                else if (iins == 1 && iact == 1)
+                {
+                    factgrid();
+                    Util.ChangeButton(btninsertar, 2, false);
+                    iactbtn = 2;
+                }
+                else if (iins == 1 && ielim == 1)
+                {
+                    DialogResult result = MessageBox.Show("No tienes permisos de modificar el perfil", "SIPAA", MessageBoxButtons.OK);
+                    //factgrid();
+                    //Util.ChangeButton(btninsertar, 2, false);
+                    //iactbtn = 2;
+                }
+                else if (iact == 1 && ielim == 1)
+                {
+                    factgrid();
+                    Util.ChangeButton(btninsertar, 2, false);
+                    iactbtn = 2;
+                }
+                else if (iins == 1)
+                {
+                    DialogResult result = MessageBox.Show("NNo tienes permisos de modificar el perfil", "SIPAA", MessageBoxButtons.OK);
+                    //factgrid();
+                    //Util.ChangeButton(btninsertar, 2, false);
+                    //iactbtn = 2;
+                }
+                else if (iact == 1)
+                {
+                    factgrid();
+                    Util.ChangeButton(btninsertar, 2, false);
+                    iactbtn = 2;
+                }
+                else if (ielim == 1)
+                {
+                    factgrid();
+                    Util.ChangeButton(btninsertar, 3, false);
+                    iactbtn = 3;
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("No tienes permisos de modificar el perfil", "SIPAA", MessageBoxButtons.OK);
+                }
+            }
+            else if (sestperf == "No")
+            {
+                if (iins == 1 && iact == 1 && ielim == 1)
+                {
+                    factgrid();
+                    Util.ChangeButton(btninsertar, 1, false);
+                    iactbtn = 1;
+                }
+                else if (iins == 1 && iact == 1)
+                {
+                    factgrid();
+                    Util.ChangeButton(btninsertar, 1, false);
+                    iactbtn = 1;
+                }
+                else if (iins == 1 && ielim == 1)
+                {
+                    factgrid();
+                    Util.ChangeButton(btninsertar, 1, false);
+                    iactbtn = 1;
+                }
+                else if (iact == 1 && ielim == 1)
+                {
+                    DialogResult result = MessageBox.Show("No tienes permisos para crear el perfil", "SIPAA", MessageBoxButtons.OK);
+                    //factgrid();
+                    //Util.ChangeButton(btninsertar, 2, false);
+                    //iactbtn = 2;
+                }
+                else if (iins == 1)
+                {
+                    factgrid();
+                    Util.ChangeButton(btninsertar, 2, false);
+                    iactbtn = 2;
+                }
+                else if (iact == 1)
+                {
+                    DialogResult result = MessageBox.Show("No tienes permisos para crear el perfil", "SIPAA", MessageBoxButtons.OK);
+                    //factgrid();
+                    //Util.ChangeButton(btninsertar, 2, false);
+                    //iactbtn = 2;
+                }
+                else if (ielim == 1)
+                {
+                    DialogResult result = MessageBox.Show("No tienes permisos para crear el perfil", "SIPAA", MessageBoxButtons.OK);
+                    //factgrid();
+                    //Util.ChangeButton(btninsertar, 3, false);
+                    //iactbtn = 3;
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("No tienes permisos para crear el perfil", "SIPAA", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
             }
 
+            //for (int iContador = 0; iContador < dgvTrab.Rows.Count; iContador++)
+            //{
+            //    dgvTrab.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+            //}
 
-            if (dgvTrab.SelectedRows.Count != 0)
-            {
 
-                DataGridViewRow row = this.dgvTrab.SelectedRows[0];
+            //if (dgvTrab.SelectedRows.Count != 0)
+            //{
 
-                //CVPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
-                //string Desc = row.Cells["DESCRIPCION"].Value.ToString();
+            //    DataGridViewRow row = this.dgvTrab.SelectedRows[0];
 
-                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                TrabajadorInfo.IdTrab = row.Cells["idtrab"].Value.ToString();
-               
+            //    //CVPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
+            //    //string Desc = row.Cells["DESCRIPCION"].Value.ToString();
 
-                DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
-                form.Show();
-                this.Close(); 
+            //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+            //    TrabajadorInfo.IdTrab = row.Cells["idtrab"].Value.ToString();
+
+                //    DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
+                //    form.Show();
+                //    this.Close(); 
+                //}
             }
-        }
 
 
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            string sIdbusqueda = "";
-            if (txtdtrab.Text != String.Empty)
-            {
-                sIdbusqueda = txtdtrab.Text;
-            }
-            else
-            {
-                sIdbusqueda = "%";
-            }
-
-            string sCheca = "";
-            if (cbCheca.SelectedIndex == 0)
-            {
-                sCheca = "%";
-            }
-            else if (cbCheca.SelectedIndex == 2)
-            {
-
-                sCheca = "0";
-            }
-            else
-            {
-                sCheca = "1";
-            }
-            string sEstatus = "";
-            if (cbEstatus.SelectedIndex == 0)
-            {
-                sEstatus = "%";
-            }
-            else if (cbEstatus.SelectedIndex == 2)
-            {
-
-                sEstatus = "0";
-            }
-            else
-            {
-                sEstatus = "1";
-            }
-
-            SonaTrabajador objTrab = new SonaTrabajador();
-            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(sIdbusqueda, 6, sCheca, sEstatus, 0, LoginInfo.IdTrab, this.Name);
-            llenarGrid(dtTrab, dgvTrab);
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -135,11 +211,89 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
         }
 
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            pnlsuid.Visible = false;
+            //lena grid
+            fllenagridbusqueda(16, txtconceptobusq.Text.Trim());
+        }
+
+        private void btninsertar_Click(object sender, EventArgs e)
+        {
+            //valida campos
+            Boolean bvalidacampos = fvalidacampos();
+
+            //st checa
+            if (ckbcheca.Checked == true)
+            {
+                istchec = "1";
+            }
+            else if (ckbcheca.Checked == false)
+            {
+                istchec = "0";
+            }
+            else
+            {
+                istchec = "0";
+            }
+
+            if (iactbtn == 1)
+            {
+                if (bvalidacampos == true)//valida campos
+                {
+
+                    TrabPerf.vuidtrabperf(iidtrabmodif, 19, istchec, cbosup.SelectedValue.ToString(), Int32.Parse(cbodir.SelectedValue.ToString()), LoginInfo.IdTrab, this.Name);
+                    //lena grid
+                    fllenagridbusqueda(16, iidtrabmodif);
+                    pnlsuid.Visible = false;
+                    pnlmenssuid.Visible = true;
+                    pnlperf.Visible = false;
+                    pnlmenssuid.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                    menssuid.Text = "Registro agregado correctamente";
+                    timer1.Start();
+                    iidtrabmodif = "0";
+                }
+            }
+            else if (iactbtn == 2)
+            {
+
+                if (bvalidacampos == true)//valida campos
+                {
+
+                    TrabPerf.vuidtrabperf(iidtrabmodif, 18, istchec, cbosup.SelectedValue.ToString(), Int32.Parse(cbodir.SelectedValue.ToString()), LoginInfo.IdTrab, this.Name);
+                    //lena grid
+                    fllenagridbusqueda(16, iidtrabmodif);
+                    pnlsuid.Visible = false;
+                    pnlperf.Visible = false;
+                    pnlmenssuid.Visible = true;
+                    pnlmenssuid.BackColor = ColorTranslator.FromHtml("#0277bd");
+                    menssuid.Text = "Registro modificado correctamente";
+                    timer1.Start();
+                    iidtrabmodif = "0";
+                }
+
+            }
+            else if (iactbtn == 3)
+            {
+                DialogResult result = MessageBox.Show("Operación no valida", "SIPAA", MessageBoxButtons.OK);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Operación no valida", "SIPAA", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btopcperfil_Click(object sender, EventArgs e)
+        {
+            TrabajadorInfo.IdTrab = iidtrabmodif;
+
+            DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
+            form.Show();
+            this.Close();
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
-
-
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
@@ -150,95 +304,237 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "TrabajadoresPerfil.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
             }
 
-            //LoginInfo.IdTrab = "ADMIN";
-            // Diccionario Permisos x Pantalla
-            lblusuario.Text = LoginInfo.Nombre;
-            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
-            Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
-            //////////////////////////////////////////////////////
-            // resize 
+            //resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-            //////////////////////////////////////////////////////////////////////////////////
+
+            //inicializa tool tip
+            ftooltip();
+
+            //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
-            SonaTrabajador objTrab = new SonaTrabajador();
-            DataTable dtTrab = objTrab.ObtenerPerfilTrabajador("%", 6, "%", "%", 0,"", this.Name);
-            //   llenarListView(dtTrab, ltvTrabajador);
-            llenarGrid(dtTrab, dgvTrab);
-            txtdtrab.Focus();
 
+            //variables accesos
+            DataTable Permisos = DatPerfil.accpantalla(LoginInfo.IdTrab, this.Name);
+            iins = Int32.Parse(Permisos.Rows[0][3].ToString());
+            iact = Int32.Parse(Permisos.Rows[0][4].ToString());
+            ielim = Int32.Parse(Permisos.Rows[0][5].ToString());
 
+            //iins = 0;
+            //iact = 1;
+            //ielim = 0;
+
+            //lena grid
+            fllenagridbusqueda(15,"");
+
+            iidtrabmodif = "0";
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            pnlmenssuid.Visible = false;
+            timer1.Stop();
         }
 
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
 
-        public void llenarListView(DataTable dt, ListView lt)
+        //funcion para tool tip
+        private void ftooltip()
+        {
+            //crea tool tip
+            ToolTip toolTip1 = new ToolTip();
+
+            //configuracion
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            toolTip1.ShowAlways = true;
+
+            //configura texto del objeto
+            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btnMin, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnRegresar, "Regresar");
+        }
+
+        protected void fllenagridbusqueda(int iopc, string stxtb)
         {
 
-            string sIdActual = "";
-            foreach (DataRow row in dt.Rows)
+            if (iins == 1 && iact == 1 && ielim == 1)
             {
-                if (row["idtrab"].ToString() != sIdActual)
+                fdgvsuid(iopc, stxtb);
+                lblModif.Visible = true;
+            }
+            else if (iins == 1 && iact == 1)
+            {
+                fdgvsuid(iopc, stxtb);
+                lblModif.Visible = true;
+            }
+            else if (iins == 1 && ielim == 1)
+            {
+                fdgvsuid(iopc, stxtb);
+                lblModif.Visible = true;
+            }
+            else if (iact == 1 && ielim == 1)
+            {
+                fdgvsuid(iopc, stxtb);
+                lblModif.Visible = true;
+            }
+            else if (iins == 1)
+            {
+                fdgvsuid(iopc, stxtb);
+                lblModif.Visible = true;
+            }
+            else if (iact == 1)
+            {
+                fdgvsuid(iopc, stxtb);
+                lblModif.Visible = true;
+            }
+            else if (ielim == 1)
+            {
+                fdgvsuid(iopc, stxtb);
+                lblModif.Visible = true;
+            }
+            else
+            {
+                fdgvs(iopc);
+                lblModif.Visible = false;
+            }
+
+        }
+
+        //funcion formto grid con modificación busqueda con permisos
+        protected void fdgvsuid(int iopc, string stextbus)
+        {
+            dgvTrab.DataSource = null;
+
+            int inumcolumngrid = dgvTrab.ColumnCount;
+
+            if (inumcolumngrid == 1)
+            {
+                dgvTrab.Columns.RemoveAt(0);
+            }
+
+            DataTable dtdgvtrab = TrabPerf.dtdgvcb("", iopc, "", "", 0, LoginInfo.IdTrab, stextbus);
+            dgvTrab.DataSource = dtdgvtrab;
+
+            DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
+            imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
+            imgCheckUsuarios.Name = "img";
+            dgvTrab.Columns.Insert(0, imgCheckUsuarios);
+            dgvTrab.Columns[0].HeaderText = "Selección";
+
+            dgvTrab.Columns[0].Width = 75;
+            dgvTrab.Columns[1].Width = 90;
+            dgvTrab.Columns[2].Width = 290;
+            dgvTrab.Columns[3].Width = 80;
+            dgvTrab.Columns[4].Width = 50;
+            dgvTrab.Columns[5].Visible = false;
+            dgvTrab.Columns[6].Visible = false;
+            dgvTrab.Columns[7].Visible = false;
+            dgvTrab.ClearSelection();
+            lblModif.Visible = true;
+        }
+
+        //funcion formto grid sin modificación busqueda
+        protected void fdgvs(int iopc)
+        {
+            DataTable dtdgvtc = TrabPerf.dtdgvcb("", iopc, "", "", 0, LoginInfo.IdTrab, txtconceptobusq.Text.Trim());
+            dgvTrab.DataSource = dtdgvtc;
+
+            dgvTrab.Columns[0].Width = 75;
+            dgvTrab.Columns[1].Width = 370;
+            dgvTrab.Columns[2].Width = 90;
+            dgvTrab.Columns[3].Width = 50;
+            dgvTrab.Columns[4].Visible = false;
+            dgvTrab.Columns[5].Visible = false;
+            dgvTrab.Columns[6].Visible = false;
+            dgvTrab.ClearSelection();
+        }
+
+        private void factgrid()
+        {
+            for (int iContador = 0; iContador < dgvTrab.Rows.Count; iContador++)
+            {
+                dgvTrab.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+            }
+
+            if (dgvTrab.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dgvTrab.SelectedRows[0];
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+
+                pnlsuid.Visible = true;
+
+                if (sestperf == "Si")
                 {
-
-                    sIdActual = row["idtrab"].ToString();
-                    string[] row1 = { row["idtrab"].ToString(), row["Nombre"].ToString(), row["Compañia"].ToString(), row["Ubicación"].ToString()
-                                      ,row["Área"].ToString(),row["Estatus"].ToString()};
-
-                    ListViewItem ltitems = new ListViewItem(row1);
-                    // lt.Items.Add(ltitems);
-
-
-                    string[] row2 = { row["Depto"].ToString(), row["Puesto"].ToString(), row["Tipo_Nomina"].ToString(), row["Fecha_Ingreso"].ToString() };
-
-                    ListViewItem listitems2 = new ListViewItem(row2);
-                    lt.Items.Add(listitems2);
+                    pnlperf.Visible = true;
                 }
-            }
 
+                txttrabjador.Text = row.Cells["empleado"].Value.ToString();
+                txtst.Text = row.Cells["Estatus"].Value.ToString();
+                istcheca = Convert.ToInt32(row.Cells["estcheca"].Value.ToString());
+
+                if (istcheca == 0)
+                {
+                    ckbcheca.Checked = false;
+                }
+                else if (istcheca == 1)
+                {
+                    ckbcheca.Checked = true;
+                }
+                iidtrabmodif = row.Cells["Número Empleado"].Value.ToString();
+
+                //cb sup
+                cbosup.DataSource = null;
+                DataTable dtsup = TrabPerf.dtdgvcb("", 17, "", "", 0, LoginInfo.IdTrab, this.Name);
+                Utilerias.llenarComboxDataTable(cbosup, dtsup, "Idtrab", "empleado");
+                cbosup.SelectedValue = Convert.ToInt32(row.Cells["idsup"].Value.ToString());
+
+                //cb dir
+                cbodir.DataSource = null;
+                DataTable dtdir = TrabPerf.dtdgvcb("", 17, "", "", 0, LoginInfo.IdTrab, this.Name);
+                Utilerias.llenarComboxDataTable(cbodir, dtdir, "Idtrab", "empleado");
+                cbodir.SelectedValue = Convert.ToInt32(row.Cells["iddir"].Value.ToString());
+
+                cbosup.Focus();
+            }
         }
 
-        public void llenarGrid(DataTable dt, DataGridView dgv)
+        //validacion de campos
+        private Boolean fvalidacampos()
         {
-
-            if (dgv.Columns.Count > 0)
+            if (iidtrabmodif == "0")
             {
-                dgv.Columns.RemoveAt(0);
+                DialogResult result = MessageBox.Show("Selecciona un empleado a modificar", "SIPAA", MessageBoxButtons.OK);
+                txtconceptobusq.Focus();
+                return false;
             }
-
-
-
-            dgv.DataSource = dt;
-            Utilerias.AgregarCheck(dgv, 0);
-
-            //dgv.Columns["IdTrabSupervisor"].Visible = false;
-
-
+            else if (cbosup.Text.Trim() == "" || cbosup.SelectedIndex == -1 )
+            {
+                DialogResult result = MessageBox.Show("Supervisor no valido", "SIPAA", MessageBoxButtons.OK);
+                cbosup.Focus();
+                return false;
+            }
+            else if (cbodir.Text.Trim() == "" || cbodir.SelectedIndex == -1 || cbodir.SelectedIndex == 0)
+            {
+                DialogResult result = MessageBox.Show("Seleciona un director", "SIPAA", MessageBoxButtons.OK);
+                cbodir.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
-
-
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
-        //-----------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-        private void pnlBusqueda_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-    
+        //-----------------------------------------------------------------------------------------------    
     }
 }
