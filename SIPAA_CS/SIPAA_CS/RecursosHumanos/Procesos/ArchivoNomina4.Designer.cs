@@ -344,6 +344,7 @@
             this.btnpendientesaut.TabIndex = 177;
             this.btnpendientesaut.Text = "Pendientes de Autorizar";
             this.btnpendientesaut.UseVisualStyleBackColor = true;
+            this.btnpendientesaut.Click += new System.EventHandler(this.btnpendientesaut_Click);
             // 
             // btnfechashrreg
             // 

@@ -124,7 +124,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             {
                 creacsvcorto();
 
-                /*
+                
                 string idTrab = "%";
                 string cvCia = "%";
                 string cvUbicacion = "%";
@@ -138,15 +138,35 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 ////Prueba Reporte Incidencias pasadas a Nomina
                 Incidencia objIncidencia = new Incidencia();
                 DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina(idTrab, dtpfechainicial.Value, dtpfechainicial.Value,cvCia,sNomina, cvUbicacion);
-
-                ViewerReporte form = new ViewerReporte();
+                /*ViewerReporte form = new ViewerReporte();
                 IncidenciasPasadasNomina rptIncidencia = new IncidenciasPasadasNomina();
                 ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", "IncidenciasPasadasNomina");
-
                 ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
                 form.RptDoc = ReportDoc;
                 form.Show();
                 */
+                switch (dtIncidencia.Rows.Count)
+                {
+
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        //Observaciones dtrpt = new Observaciones();
+                        IncidenciasPasadasNomina dtrpt = new IncidenciasPasadasNomina();
+                        //ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos",  dtrpt.ResourceName);
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", " IncidenciasPasadasNomina.rpt");
+                        ReportDoc.SetParameterValue("TotalRegistros", dtIncidencia.Rows.Count.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+
+                }
+
+               
+
             }
         }
 
@@ -462,6 +482,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             ArchivoNomina4 recargar = new ArchivoNomina4();
             recargar.Show();
             this.Close();
+        }
+
+        private void btnpendientesaut_Click(object sender, EventArgs e)
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------
