@@ -75,7 +75,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             bd.DoWork += Bd_DoWork;
             bd.RunWorkerCompleted += Bd_RunWorkerCompleted;
             LlenarGrid(6, 0, "%", "%", "%", 0, "", "");
-
+            btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Reloj;
+            this.button1.Image = global::SIPAA_CS.Properties.Resources.Persona;
         }
 
         private void Ckheader_CheckedChanged(object sender, EventArgs e)
