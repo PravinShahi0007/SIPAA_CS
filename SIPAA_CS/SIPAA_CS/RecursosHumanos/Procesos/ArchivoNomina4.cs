@@ -137,14 +137,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 if (cbTiponomina.SelectedIndex > 0) { sNomina = cbTiponomina.SelectedValue.ToString(); }
                 ////Prueba Reporte Incidencias pasadas a Nomina
                 Incidencia objIncidencia = new Incidencia();
-                DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina(idTrab, dtpfechainicial.Value, dtpfechainicial.Value,cvCia,sNomina, cvUbicacion);
-                /*ViewerReporte form = new ViewerReporte();
-                IncidenciasPasadasNomina rptIncidencia = new IncidenciasPasadasNomina();
-                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", "IncidenciasPasadasNomina");
-                ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
-                form.RptDoc = ReportDoc;
-                form.Show();
-                */
+                DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina("%", dtpfechainicial.Value.Date, dtpfechainicial.Value.Date, "%", "%", "%");
                 switch (dtIncidencia.Rows.Count)
                 {
 
@@ -154,11 +147,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        //Observaciones dtrpt = new Observaciones();
-                        IncidenciasPasadasNomina dtrpt = new IncidenciasPasadasNomina();
-                        //ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos",  dtrpt.ResourceName);
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", " IncidenciasPasadasNomina.rpt");
+                        //IncidenciasPasadasNomina dtrpt = new IncidenciasPasadasNomina();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", "IncidenciasPasadasNomina.rpt");
                         ReportDoc.SetParameterValue("TotalRegistros", dtIncidencia.Rows.Count.ToString());
+                        ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
