@@ -38,9 +38,9 @@
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label8;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArchivoNomina4));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -160,7 +160,7 @@
             label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label7.Location = new System.Drawing.Point(368, 652);
+            label7.Location = new System.Drawing.Point(368, 651);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(101, 16);
             label7.TabIndex = 174;
@@ -257,7 +257,7 @@
             this.cbCompania.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCompania.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbCompania.FormattingEnabled = true;
-            this.cbCompania.Location = new System.Drawing.Point(127, 113);
+            this.cbCompania.Location = new System.Drawing.Point(133, 113);
             this.cbCompania.Name = "cbCompania";
             this.cbCompania.Size = new System.Drawing.Size(362, 21);
             this.cbCompania.TabIndex = 158;
@@ -270,7 +270,7 @@
             this.cbTiponomina.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbTiponomina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbTiponomina.FormattingEnabled = true;
-            this.cbTiponomina.Location = new System.Drawing.Point(127, 142);
+            this.cbTiponomina.Location = new System.Drawing.Point(133, 140);
             this.cbTiponomina.Name = "cbTiponomina";
             this.cbTiponomina.Size = new System.Drawing.Size(256, 21);
             this.cbTiponomina.TabIndex = 159;
@@ -283,7 +283,7 @@
             this.cbUbicacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbUbicacion.FormattingEnabled = true;
-            this.cbUbicacion.Location = new System.Drawing.Point(127, 172);
+            this.cbUbicacion.Location = new System.Drawing.Point(134, 173);
             this.cbUbicacion.Name = "cbUbicacion";
             this.cbUbicacion.Size = new System.Drawing.Size(255, 21);
             this.cbUbicacion.TabIndex = 162;
@@ -291,20 +291,22 @@
             // 
             // dtpfechainicial
             // 
+            this.dtpfechainicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpfechainicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpfechainicial.Location = new System.Drawing.Point(676, 110);
             this.dtpfechainicial.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpfechainicial.Name = "dtpfechainicial";
-            this.dtpfechainicial.Size = new System.Drawing.Size(107, 20);
+            this.dtpfechainicial.Size = new System.Drawing.Size(107, 21);
             this.dtpfechainicial.TabIndex = 164;
             // 
             // dtpfechafinal
             // 
+            this.dtpfechafinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpfechafinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpfechafinal.Location = new System.Drawing.Point(886, 110);
             this.dtpfechafinal.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpfechafinal.Name = "dtpfechafinal";
-            this.dtpfechafinal.Size = new System.Drawing.Size(108, 20);
+            this.dtpfechafinal.Size = new System.Drawing.Size(108, 21);
             this.dtpfechafinal.TabIndex = 165;
             // 
             // txtanonom
@@ -327,9 +329,9 @@
             // 
             this.btngenerararchivo.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btngenerararchivo.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.btngenerararchivo.Location = new System.Drawing.Point(866, 641);
+            this.btngenerararchivo.Location = new System.Drawing.Point(854, 641);
             this.btngenerararchivo.Name = "btngenerararchivo";
-            this.btngenerararchivo.Size = new System.Drawing.Size(113, 38);
+            this.btngenerararchivo.Size = new System.Drawing.Size(125, 30);
             this.btngenerararchivo.TabIndex = 176;
             this.btngenerararchivo.Text = "Generar Archivo";
             this.btngenerararchivo.UseVisualStyleBackColor = false;
@@ -338,9 +340,9 @@
             // btnpendientesaut
             // 
             this.btnpendientesaut.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnpendientesaut.Location = new System.Drawing.Point(670, 188);
+            this.btnpendientesaut.Location = new System.Drawing.Point(600, 188);
             this.btnpendientesaut.Name = "btnpendientesaut";
-            this.btnpendientesaut.Size = new System.Drawing.Size(121, 40);
+            this.btnpendientesaut.Size = new System.Drawing.Size(147, 45);
             this.btnpendientesaut.TabIndex = 177;
             this.btnpendientesaut.Text = "Pendientes de Autorizar";
             this.btnpendientesaut.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -350,9 +352,9 @@
             // btnfechashrreg
             // 
             this.btnfechashrreg.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.btnfechashrreg.Location = new System.Drawing.Point(802, 188);
+            this.btnfechashrreg.Location = new System.Drawing.Point(767, 188);
             this.btnfechashrreg.Name = "btnfechashrreg";
-            this.btnfechashrreg.Size = new System.Drawing.Size(121, 40);
+            this.btnfechashrreg.Size = new System.Drawing.Size(156, 45);
             this.btnfechashrreg.TabIndex = 178;
             this.btnfechashrreg.Text = "Fechas y Horas de Registro";
             this.btnfechashrreg.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -421,29 +423,29 @@
             this.dgvArchivoNomina4.AllowUserToDeleteRows = false;
             this.dgvArchivoNomina4.AllowUserToResizeColumns = false;
             this.dgvArchivoNomina4.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvArchivoNomina4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvArchivoNomina4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvArchivoNomina4.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvArchivoNomina4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvArchivoNomina4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvArchivoNomina4.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvArchivoNomina4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvArchivoNomina4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvArchivoNomina4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvArchivoNomina4.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvArchivoNomina4.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvArchivoNomina4.Location = new System.Drawing.Point(24, 245);
             this.dgvArchivoNomina4.Name = "dgvArchivoNomina4";
             this.dgvArchivoNomina4.ReadOnly = true;
