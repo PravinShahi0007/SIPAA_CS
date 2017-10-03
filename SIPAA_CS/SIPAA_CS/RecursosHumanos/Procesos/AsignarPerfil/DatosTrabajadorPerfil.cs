@@ -134,7 +134,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         lbCheca.ForeColor = ColorTranslator.FromHtml("#2e7d32");
                         panelAsignacionTrabajador.Visible = true;
                         lbSupervisor.Text = row["Supervisor"].ToString();
-                        lbDirector.Text = row["Director"].ToString();
+                        lbDirector.Text = row["IdTrabDirector"].ToString();
                         break;
                 }
 

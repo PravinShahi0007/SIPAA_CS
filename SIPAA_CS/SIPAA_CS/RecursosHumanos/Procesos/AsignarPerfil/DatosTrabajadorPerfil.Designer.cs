@@ -70,7 +70,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.PanelJefes = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnTipoHr = new System.Windows.Forms.Button();
             this.lbHorario = new System.Windows.Forms.Label();
@@ -118,13 +117,13 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.Font = new System.Drawing.Font("Arial", 11.25F);
             label7.ForeColor = System.Drawing.Color.Gray;
             label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(55, 181);
+            label7.Location = new System.Drawing.Point(9, 19);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(121, 18);
+            label7.Size = new System.Drawing.Size(110, 17);
             label7.TabIndex = 176;
             label7.Text = "      Tipo Horario";
             // 
@@ -168,13 +167,13 @@
             // label24
             // 
             label24.AutoSize = true;
-            label24.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label24.Font = new System.Drawing.Font("Arial", 11.25F);
             label24.ForeColor = System.Drawing.Color.DimGray;
             label24.Image = ((System.Drawing.Image)(resources.GetObject("label24.Image")));
             label24.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label24.Location = new System.Drawing.Point(5, 3);
             label24.Name = "label24";
-            label24.Size = new System.Drawing.Size(125, 18);
+            label24.Size = new System.Drawing.Size(118, 17);
             label24.TabIndex = 180;
             label24.Text = "      Asignaciones";
             // 
@@ -617,19 +616,12 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Nombre :";
             // 
-            // PanelJefes
-            // 
-            this.PanelJefes.Location = new System.Drawing.Point(12, 93);
-            this.PanelJefes.Name = "PanelJefes";
-            this.PanelJefes.Size = new System.Drawing.Size(378, 48);
-            this.PanelJefes.TabIndex = 169;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnTipoHr);
             this.panel3.Controls.Add(this.lbHorario);
             this.panel3.Controls.Add(this.label19);
-            this.panel3.Location = new System.Drawing.Point(12, 202);
+            this.panel3.Location = new System.Drawing.Point(14, 59);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(378, 65);
             this.panel3.TabIndex = 173;
@@ -652,19 +644,20 @@
             // 
             this.lbHorario.AutoSize = true;
             this.lbHorario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHorario.Location = new System.Drawing.Point(20, 33);
+            this.lbHorario.Location = new System.Drawing.Point(8, 33);
             this.lbHorario.Name = "lbHorario";
-            this.lbHorario.Size = new System.Drawing.Size(59, 16);
+            this.lbHorario.Size = new System.Drawing.Size(47, 16);
             this.lbHorario.TabIndex = 175;
-            this.lbHorario.Text = "lbHorario";
+            this.lbHorario.Text = "horario";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label19.Location = new System.Drawing.Point(3, 4);
+            this.label19.Location = new System.Drawing.Point(5, 5);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(88, 13);
+            this.label19.Size = new System.Drawing.Size(106, 16);
             this.label19.TabIndex = 10;
             this.label19.Text = "Tipos de Horario:";
             // 
@@ -676,9 +669,9 @@
             this.panelAsignaciones.Controls.Add(label24);
             this.panelAsignaciones.Controls.Add(label25);
             this.panelAsignaciones.Controls.Add(label26);
-            this.panelAsignaciones.Location = new System.Drawing.Point(12, 282);
+            this.panelAsignaciones.Location = new System.Drawing.Point(15, 176);
             this.panelAsignaciones.Name = "panelAsignaciones";
-            this.panelAsignaciones.Size = new System.Drawing.Size(378, 105);
+            this.panelAsignaciones.Size = new System.Drawing.Size(377, 105);
             this.panelAsignaciones.TabIndex = 183;
             // 
             // btnAsignaciones
@@ -757,7 +750,6 @@
             this.panelAsignacionTrabajador.Controls.Add(label7);
             this.panelAsignacionTrabajador.Controls.Add(this.panel3);
             this.panelAsignacionTrabajador.Controls.Add(this.panelAsignaciones);
-            this.panelAsignacionTrabajador.Controls.Add(this.PanelJefes);
             this.panelAsignacionTrabajador.Location = new System.Drawing.Point(591, 165);
             this.panelAsignacionTrabajador.Name = "panelAsignacionTrabajador";
             this.panelAsignacionTrabajador.Size = new System.Drawing.Size(403, 526);
@@ -809,20 +801,20 @@
             // lbDirector
             // 
             this.lbDirector.AutoSize = true;
-            this.lbDirector.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDirector.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDirector.Location = new System.Drawing.Point(112, 438);
             this.lbDirector.Name = "lbDirector";
-            this.lbDirector.Size = new System.Drawing.Size(51, 16);
+            this.lbDirector.Size = new System.Drawing.Size(57, 16);
             this.lbDirector.TabIndex = 180;
             this.lbDirector.Text = "director";
             // 
             // lbSupervisor
             // 
             this.lbSupervisor.AutoSize = true;
-            this.lbSupervisor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSupervisor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSupervisor.Location = new System.Drawing.Point(113, 409);
             this.lbSupervisor.Name = "lbSupervisor";
-            this.lbSupervisor.Size = new System.Drawing.Size(66, 16);
+            this.lbSupervisor.Size = new System.Drawing.Size(73, 16);
             this.lbSupervisor.TabIndex = 177;
             this.lbSupervisor.Text = "supervisor";
             // 
@@ -906,7 +898,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel PanelJefes;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label lbUbicacion;
