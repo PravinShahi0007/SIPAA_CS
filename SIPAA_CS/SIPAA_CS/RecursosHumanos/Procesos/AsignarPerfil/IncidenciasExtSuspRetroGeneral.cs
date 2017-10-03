@@ -316,6 +316,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void AsignacionIncidenciasTrabajador2_Load(object sender, EventArgs e)
         {
             //cierra formularios abiertos
+            int a = 0;
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
