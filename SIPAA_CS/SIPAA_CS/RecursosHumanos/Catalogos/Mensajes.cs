@@ -244,25 +244,31 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             bool bConexion = false;
             if (rbPublico.Checked==true)
             {
-                
-         // aqui debe de ir un store Procedure que me de las ip's a las que voy a guardar el mensaje, de momento solo lo voy a hacer con esa IP
-                bConexion = Connect_Net("192.168.9.94", 4370);
-                if (bConexion != false)
+
+             
+                dt = objReloj.RelojesxTrabajador(cbEmpleados.SelectedValue.ToString(), 0, 16, "%", "%");
+                foreach (DataRow row in dt.Rows)
                 {
-                    EliminaMensajesReloj();
-                    p_rep = pantallaMensajes.fudimensajes(1, 1, 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
-                    //EliminaMensajesReloj();
-                    int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
-                    objCZKEM.SetSMS(1, max, tag, Horas, dtpfechainicial.Value.Year + "-" + dtpfechainicial.Value.Month + "-" + dtpfechainicial.Value.Day + " 00:01:00", txtmensajeiu.Text);
-                    
+                    bConexion = Connect_Net(row["ip"].ToString(), 4370);
+                    if (bConexion != false)
+                    {
+                        EliminaMensajesReloj();
+                        p_rep = pantallaMensajes.fudimensajes(1, 1, 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+                        EliminaMensajesReloj();
+                        int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
+                        objCZKEM.SetSMS(1, max, tag, Horas, dtpfechainicial.Value.Year + "-" + dtpfechainicial.Value.Month + "-" + dtpfechainicial.Value.Day + " 00:01:00", txtmensajeiu.Text);
+
+                    }
                 }
+
+               
 
             }
             if (rbPersonal.Checked==true)
             {
-               dt= objReloj.RelojesxTrabajador(cbEmpleados.SelectedValue.ToString(), 0, 15, "%", "%"); // (txtidtrab.Text, 0, 15, "%", "%");
+               dt= objReloj.RelojesxTrabajador(cbEmpleados.SelectedValue.ToString(), 0, 15, "%", "%"); 
 
-                //p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+              
                 foreach (DataRow row in dt.Rows)
                 {
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
@@ -273,8 +279,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                         EliminaMensajesReloj();
                         int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
                         if (objCZKEM.SetSMS(1, max, tag, Horas, dtpfechainicial.Value.Year + "-" + dtpfechainicial.Value.Month + "-" + dtpfechainicial.Value.Day + " 00:01:00", txtmensajeiu.Text))
-                          // objCZKEM.SetUserSMS(1, 1, max);
-                        objCZKEM.SSR_SetUserSMS(1, cbEmpleados.SelectedValue.ToString(), max);
+                           objCZKEM.SSR_SetUserSMS(1, cbEmpleados.SelectedValue.ToString(), max);
                      }
                     
                     objCZKEM.Disconnect();
@@ -322,17 +327,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 //inserta registro nuevo 
                 GuardaMensajeReloj();            
-                //fuidMensajes(1, Convert.ToInt32(txtidtrab.Text.Trim()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(),sUsuuMod , Name);
-           
+               
                 dgvMensajes.DataSource = null;
                 dgvMensajes.Columns.RemoveAt(0);
                 panelTag.Visible = true;
-                //txtidtrab.Text = "";
                 cbEmpleados.Text = ""; 
                 txtmensajeiu.Text = "";
-                // txtidtrab.Focus();
+               
                 cbEmpleados.Focus(); 
-                //llena grid con datos existente
                 gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
