@@ -247,8 +247,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             if (Permisos.dcPermisos["Crear"] != 0 && Permisos.dcPermisos["Actualizar"] != 0)
             {
+               
+
                 if (dgvReloj.SelectedRows.Count != 0)
-                {
+                {                
                     iOpcionAdmin = 1;
                     Utilerias.MultiSeleccionGridView(dgvReloj, 1, ltReloj, PanelReloj);
                     DataGridViewRow row = dgvReloj.SelectedRows[0];
@@ -586,7 +588,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 3, sUsuuMod, Name);
                         if (this.chkAdmin.Checked==true)
                         objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 13, sUsuuMod, Name);
-                      
                         int iCont = 0;
                        // RelojChecador objReloj = new RelojChecador();
                         //objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 3, sUsuuMod, Name);//borra asignaciones de reloj                  
@@ -971,11 +972,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                 case 2:
                     llenarGridReloj("%");
-                    //llenarGridGrupos("%");
                     AsignarReloj(TrabajadorInfo.IdTrab);
-                   // AsignarGrupo();
                     PanelReloj.Enabled = false;
-                    //ltReloj2.Clear(); 
                     if (Permisos.dcPermisos["Crear"] == 0) { PanelReloj.Visible = false; label24.Text = "Relojes Asignados Actualmente"; }
                     break;
 
@@ -1422,14 +1420,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
             foreach (DataRow row in dt.Rows)
              {
-               
-                    if (Convert.ToBoolean(row["administrador"].ToString()))
+                 if (Convert.ToBoolean(row["administrador"].ToString()))
                     admin = 1;
-
-            }
+              }
             if (admin != 0)
                 chkAdmin.Checked = true;
-            ////////////////////
+           
           }
 
         private void AsignarFormas(string sIdtrab)
@@ -1890,7 +1886,32 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void chkAdmin_CheckedChanged(object sender, EventArgs e)
         {
-            PanelReloj.Enabled = true; 
+            if (chkAdmin.Checked==true)
+            {
+                relojseleccionados();
+                PanelReloj.Enabled = true;
+                if (ltReloj2.Count == ltRelojxUsuario.Count)
+                {
+                    RelojChecador objReloj = new RelojChecador();
+                    objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 13, sUsuuMod, Name);
+                }
+               
+            }
+            else
+            {
+                relojseleccionados();
+                PanelReloj.Enabled = true;
+                if (ltReloj2.Count == ltRelojxUsuario.Count)
+                {
+                    RelojChecador objReloj = new RelojChecador();
+                    objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 12, sUsuuMod, Name);
+                }
+            }
+
+            
+
+               
+
         }
     }
 }
