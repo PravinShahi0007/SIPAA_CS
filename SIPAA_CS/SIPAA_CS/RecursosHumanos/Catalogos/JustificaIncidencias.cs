@@ -163,9 +163,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             txtnoeventos.Text = "";
 
             //cb tipo evento
-            cbotipevento.DataSource = null;
-            DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
-            Utilerias.llenarComboxDataTable(cbotipevento, dttipevent, "stvalor", "descrip");
+            //cbotipevento.DataSource = null;
+            //DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            //Utilerias.llenarComboxDataTable(cbotipevento, dttipevent, "stvalor", "descrip");
 
             //cb tipo evaliacion
             cbotipeval.DataSource = null;
@@ -189,7 +189,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (bvalidacampos == true)
                 {
                     int ivali = JustInc.vuidjustinc(1, 0, Int32.Parse(cboincidencias.SelectedValue.ToString()), txtdesc.Text.Trim(), Int32.Parse(cbociclo.SelectedValue.ToString()),
-                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
+                        Int32.Parse(txtnoeventos.Text.Trim()), 0, Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
                         LoginInfo.IdTrab, this.Name);
 
                     if (ivali == 1)
@@ -218,7 +218,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (bvalidacampos == true)
                 {
                     int ivalu = JustInc.vuidjustinc(2, icvjustinc, icvincidencia, txtdesc.Text.Trim(), Int32.Parse(cbociclo.SelectedValue.ToString()),
-                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
+                        Int32.Parse(txtnoeventos.Text.Trim()), 0, Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
                         LoginInfo.IdTrab, this.Name);
 
                     if (ivalu == 2)
@@ -247,7 +247,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     int ivald = JustInc.vuidjustinc(3, icvjustinc, icvincidencia, txtdesc.Text.Trim(), Int32.Parse(cbociclo.SelectedValue.ToString()),
-                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
+                        Int32.Parse(txtnoeventos.Text.Trim()), 0, Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
                         LoginInfo.IdTrab, this.Name);
 
                     if (ivald == 3)
@@ -447,12 +447,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvjustinc.Columns[4].Width = 180;
             dgvjustinc.Columns[5].Width = 150;
             dgvjustinc.Columns[6].Width = 80;
-            dgvjustinc.Columns[7].Width = 80;
-            dgvjustinc.Columns[8].Width = 90;
+            //dgvjustinc.Columns[7].Width = 80;
+            dgvjustinc.Columns[7].Width = 90;
+            dgvjustinc.Columns[8].Visible = false;
             dgvjustinc.Columns[9].Visible = false;
             dgvjustinc.Columns[10].Visible = false;
             dgvjustinc.Columns[11].Visible = false;
-            dgvjustinc.Columns[12].Visible = false;
             dgvjustinc.ClearSelection();
             lblModif.Visible = true;
         }
@@ -469,11 +469,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvjustinc.Columns[3].Width = 180;
             dgvjustinc.Columns[4].Width = 75;
             dgvjustinc.Columns[5].Width = 180;
+            //dgvjustinc.Columns[6].Width = 90;
             dgvjustinc.Columns[6].Width = 90;
-            dgvjustinc.Columns[7].Width = 90;
+            dgvjustinc.Columns[7].Visible = false;
             dgvjustinc.Columns[8].Visible = false;
             dgvjustinc.Columns[9].Visible = false;
-            dgvjustinc.Columns[10].Visible = false;
             dgvjustinc.ClearSelection();
             lblModif.Visible = false;
         }
@@ -518,10 +518,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     txtnoeventos.Text = row.Cells["No de Enventos"].Value.ToString();
 
                     //cb tipo evento
-                    cbotipevento.DataSource = null;
-                    DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
-                    Utilerias.llenarComboxDataTable(cbotipevento, dttipevent, "stvalor", "descrip");
-                    cbotipevento.SelectedValue = Convert.ToInt32(row.Cells["cvtipoevento"].Value.ToString());
+                    //cbotipevento.DataSource = null;
+                    //DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                    //Utilerias.llenarComboxDataTable(cbotipevento, dttipevent, "stvalor", "descrip");
+                    //cbotipevento.SelectedValue = Convert.ToInt32(row.Cells["cvtipoevento"].Value.ToString());
 
                     //cb tipo evaliacion
                     cbotipeval.DataSource = null;
@@ -551,9 +551,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             txtnoeventos.Text = "";
 
             //cb tipo evento
-            cbotipevento.DataSource = null;
-            DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
-            Utilerias.llenarComboxDataTable(cbotipevento, dttipevent, "stvalor", "descrip");
+            //cbotipevento.DataSource = null;
+            //DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            //Utilerias.llenarComboxDataTable(cbotipevento, dttipevent, "stvalor", "descrip");
 
             //cb tipo evaliacion
             cbotipeval.DataSource = null;
@@ -588,12 +588,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 txtnoeventos.Focus();
                 return false;
             }
-            else if (cbotipevento.Text.Trim() == "" || cbotipevento.SelectedIndex == -1 || cbotipevento.SelectedIndex == 0)
-            {
-                DialogResult result = MessageBox.Show("Seleciona tipo de evento", "SIPAA", MessageBoxButtons.OK);
-                cbotipevento.Focus();
-                return false;
-            }
+            //else if (cbotipevento.Text.Trim() == "" || cbotipevento.SelectedIndex == -1 || cbotipevento.SelectedIndex == 0)
+            //{
+            //    DialogResult result = MessageBox.Show("Seleciona tipo de evento", "SIPAA", MessageBoxButtons.OK);
+            //    cbotipevento.Focus();
+            //    return false;
+            //}
             else if (cbotipeval.Text.Trim() == "" || cbotipeval.SelectedIndex == -1 || cbotipeval.SelectedIndex == 0)
             {
                 DialogResult result = MessageBox.Show("Seleciona un método de evaluación", "SIPAA", MessageBoxButtons.OK);

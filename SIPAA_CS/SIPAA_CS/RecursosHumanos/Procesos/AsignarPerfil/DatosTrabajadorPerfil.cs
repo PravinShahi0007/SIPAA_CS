@@ -118,16 +118,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 TrabajadorInfo.IdTrabSupervisor = row["IdTrabSupervisor"].ToString();
                 TrabajadorInfo.NombreSupervisor = row["Supervisor"].ToString();
                 lbFechaIngreso.Text = row["Fecha_Ingreso"].ToString();
-
-                if (!ltTnom.Contains(row["Tipo_Nomina"].ToString()))
-                {
-
-                    ltTnom.Add(row["Tipo_Nomina"].ToString());
-
-                    ltvTnom.Items.Add(row["Tipo_Nomina"].ToString());
-                    ltvTnom.View = View.List;
-                }
-
+                lbltiponom.Text = (row["Tipo_Nomina"].ToString());
                 lbHorario.Text = row["Tipo_Horario"].ToString();
 
                 switch (Convert.ToInt32(row["Checa"].ToString()))
@@ -135,15 +126,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                     case 0:
                         panelAsignacionTrabajador.Visible = false;
-                        lbCheca.Text = "NO";
+                        lbCheca.Text = "No";
                         lbCheca.ForeColor = ColorTranslator.FromHtml("#f44336");
                         break;
                     case 1:
-                        lbCheca.Text = "SI";
+                        lbCheca.Text = "Si";
                         lbCheca.ForeColor = ColorTranslator.FromHtml("#2e7d32");
                         panelAsignacionTrabajador.Visible = true;
                         lbSupervisor.Text = row["Supervisor"].ToString();
-                        lbDirector.Text = row["Director"].ToString();
+                        lbDirector.Text = row["IdTrabDirector"].ToString();
                         break;
                 }
 
