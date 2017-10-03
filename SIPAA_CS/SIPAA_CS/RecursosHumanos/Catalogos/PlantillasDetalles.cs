@@ -309,7 +309,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvrechcplantilla_d.Columns.Insert(0, imgCheckUsuarios);
             dgvrechcplantilla_d.Columns[0].HeaderText = "Selección";
 
-            dgvrechcplantilla_d.Columns[0].Width = 75;
+            dgvrechcplantilla_d.Columns[0].Width = 95;
             dgvrechcplantilla_d.Columns[1].Visible = false;
             dgvrechcplantilla_d.Columns[2].Visible = false;
             dgvrechcplantilla_d.Columns[3].Visible = false;

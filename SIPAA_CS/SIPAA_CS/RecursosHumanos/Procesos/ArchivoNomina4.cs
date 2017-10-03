@@ -129,22 +129,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 string cvCia = "%";
                 string cvUbicacion = "%";
                 string sNomina = "%";
-                if (cbEmpleados.Text != String.Empty) { idTrab = cbEmpleados.Text.ToString(); }
+                if (cbEmpleados.Text != String.Empty && cbEmpleados.Text!="Seleccionar") { idTrab = cbEmpleados.SelectedValue.ToString(); }
                 //if (txtidtrab.Text != String.Empty) { idTrab = txtidtrab.Text; }
 
                 if (cbCompania.SelectedIndex > 0) { cvCia = cbCompania.SelectedValue.ToString(); }
                 if (cbUbicacion.SelectedIndex > 0) { cvUbicacion = cbUbicacion.SelectedValue.ToString(); }
                 if (cbTiponomina.SelectedIndex > 0) { sNomina = cbTiponomina.SelectedValue.ToString(); }
-                ////Prueba Reporte Incidencias pasadas a Nomina
+               
                 Incidencia objIncidencia = new Incidencia();
-                DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina(idTrab, dtpfechainicial.Value, dtpfechainicial.Value,cvCia,sNomina, cvUbicacion);
-                /*ViewerReporte form = new ViewerReporte();
-                IncidenciasPasadasNomina rptIncidencia = new IncidenciasPasadasNomina();
-                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", "IncidenciasPasadasNomina");
-                ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
-                form.RptDoc = ReportDoc;
-                form.Show();
-                */
+                DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina(idTrab, dtpfechainicial.Value.Date,  dtpfechafinal.Value.Date, cvCia, sNomina, cvUbicacion);
                 switch (dtIncidencia.Rows.Count)
                 {
 
@@ -154,11 +147,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        //Observaciones dtrpt = new Observaciones();
-                        IncidenciasPasadasNomina dtrpt = new IncidenciasPasadasNomina();
-                        //ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos",  dtrpt.ResourceName);
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", " IncidenciasPasadasNomina.rpt");
+                        //IncidenciasPasadasNomina dtrpt = new IncidenciasPasadasNomina();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", "IncidenciasPasadasNomina.rpt");
                         ReportDoc.SetParameterValue("TotalRegistros", dtIncidencia.Rows.Count.ToString());
+                        ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
