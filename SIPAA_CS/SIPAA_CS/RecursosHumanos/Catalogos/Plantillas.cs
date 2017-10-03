@@ -273,7 +273,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //hay que llenar el grid de plantillas
             gridPlantillas(4, 0, "", "", "");
             dgvPlantillas.Columns[1].Visible = false;
-            dgvPlantillas.Columns[2].Width = 450;
+
+            dgvPlantillas.Columns[2].Width = 350;
         }
 
         //chekBox Eliminar

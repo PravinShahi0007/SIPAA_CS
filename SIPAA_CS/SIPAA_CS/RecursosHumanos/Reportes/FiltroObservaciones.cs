@@ -132,7 +132,6 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
 
             Incidencia objInc = new Incidencia();
-
             DataTable dtRpt = objInc.ReporteObservaciones(sIdtrab, dtFechaInicio, dtFechaFin, sDepto, sCia, sTipoNom, sUbicacion, sArea, sIncidencia);
 
             switch (dtRpt.Rows.Count)

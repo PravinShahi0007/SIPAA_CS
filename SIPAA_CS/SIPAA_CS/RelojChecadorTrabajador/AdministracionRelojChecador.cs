@@ -75,7 +75,9 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             bd.DoWork += Bd_DoWork;
             bd.RunWorkerCompleted += Bd_RunWorkerCompleted;
             LlenarGrid(6, 0, "%", "%", "%", 0, "", "");
-
+            btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Reloj;
+            button1.Image = global::SIPAA_CS.Properties.Resources.Persona;
+            btnReloj.Image = global::SIPAA_CS.Properties.Resources.RelojSync;
         }
 
         private void Ckheader_CheckedChanged(object sender, EventArgs e)
@@ -346,7 +348,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             iCont += 1;
                             pnlMensaje.Enabled = true;
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj.Count);
-                            panelTag.Update();
+                           
                             progressBar1.Value = 40;
                             pnlMensaje.Enabled = false;
                             bool bConexion = Connect_Net(obj.IpReloj, 4370);
@@ -370,6 +372,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                         // string sIdTrabCifrado = Utilerias.cifrarPass(sIdTrab, 1); AQUI DEBERIA DE IR EL CIFRADO DEL NUMERO DE EMPLEADO
                                         pnlMensaje.Enabled = false;
                                         bBandera = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, obj.cvReloj, iModoCheck);
+                                      
                                     }
                                 }
                                 objCZKEM.Disconnect();
@@ -416,6 +419,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 {
                     pnlMensaje.Enabled = true;
                     progressBar1.Visible = false;
+                    MessageBox.Show(ex.ToString());
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, ex.Message);
                     pnlMensaje.Enabled = false;
                 }
@@ -602,7 +606,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
             }
 
-            DataTable dt = objTrab.Relojchecador(sIdTrab, 5, DateTime.Parse(sFecha), iTipoCheck, tpHora, cvReloj, 2, LoginInfo.IdTrab, this.Name);
+            DataTable dt = objTrab.Relojchecador(sIdTrab, 5, DateTime.Parse(sFecha), iTipoCheck, tpHora, cvReloj, 2, LoginInfo.IdTrab, Name);
 
             if (dt != null)
             {

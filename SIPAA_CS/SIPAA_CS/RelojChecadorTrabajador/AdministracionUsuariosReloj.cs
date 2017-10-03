@@ -78,7 +78,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             llenarGrid(obj); // primer gridview 
             LlenarGrid(6, 0, "%", "%", "%", 0, "", ""); // segundo gridview
             panelAccion.Enabled = false;
-
+            this.btnTeclado.Image = global::SIPAA_CS.Properties.Resources.Pass;
         }
 
         public void LlenarGrid(int p_opcion, int p_cvreloj, string p_descripcion, string p_ip, string p_cvvnc, int p_stactualiza, string p_usuumod, string p_prgumodr)
@@ -435,10 +435,9 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             if (result == DialogResult.Yes)
             {
                 progressBar1.Value = 20;
-                Mensaje = "Analizando Registros...";
+                
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Espera por favor. Eliminando Registros...");
-                pnlMensaje.Enabled = false;
-                //bd.RunWorkerAsync();
+                //pnlMensaje.Enabled = false;
                 bool bBandera = false;
                 progressBar1.Value = 20;
                 foreach (UsuarioReloj obj in ltUsuario)
@@ -455,24 +454,28 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         pnlMensaje.Enabled = false;
                         if (Connect_Net(ip, 4370))
                         {
-                            if (objCZKEM.SSR_DeleteEnrollData(1, idtrab, 12))
-                            {
-                                RelojChecador objReloj = new RelojChecador();
-                                objReloj.RelojesxTrabajador(idtrab, Convert.ToInt32(cvreloj), 9, "", "");
-                                objCZKEM.Disconnect();
+                            RelojChecador objReloj = new RelojChecador();
+                            objReloj.RelojesxTrabajador(idtrab, Convert.ToInt32(cvreloj), 3, "", "");
+                            objCZKEM.SSR_DeleteEnrollData(1, idtrab, 12);
 
+                            //if (objCZKEM.SSR_DeleteEnrollData(1, idtrab, 12))
+                            //{
+                                
+                               // objReloj.RelojesxTrabajador(idtrab, Convert.ToInt32(cvreloj), 9, "", "");
+                                objCZKEM.Disconnect();
                                 objReloj.p_cvreloj = TrabajadorInfo.cvReloj;
                                 objReloj.p_ip = "%";
                                 objReloj.p_usuumod = "%";
                                 objReloj.p_prgumodr = "%";
                                 objReloj.p_cvvnc = "%";
                                 llenarGrid(objReloj);
-                            }
-                            else
-                            {
+                            //}
+                            //else
+                            //{
+
                                 bBandera = true;
 
-                            }
+                            //}
                         }
                         else
                         {
@@ -485,10 +488,10 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 }
                 objCZKEM.Disconnect();
                 progressBar1.Value = 80;
-                if (bBandera != true)
+                if (bBandera)
                 {
                     // progressBar1.Visible = true;
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Registros Borrados correctamente.");
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registros Borrados correctamente.");
                 }
                 else
                 {
