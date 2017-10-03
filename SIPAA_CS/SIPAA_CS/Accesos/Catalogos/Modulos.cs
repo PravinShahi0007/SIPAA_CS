@@ -645,6 +645,10 @@ namespace SIPAA_CS.Accesos.Catalogos
                     {
                         //Modulos_Load(sender, e);
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El Módulo esta Inactivo");
+
+                        dgvModulos.DataSource = null;
+                        LlenarGridModulos("%", "", "", "", "", "", "", "", "", "", "", 4, dgvModulos);
+
                         timer1.Start();
                     }
 
