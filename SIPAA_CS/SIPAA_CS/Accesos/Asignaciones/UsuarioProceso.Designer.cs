@@ -411,7 +411,6 @@
             // 
             this.dgvProceso.AllowUserToAddRows = false;
             this.dgvProceso.AllowUserToDeleteRows = false;
-            this.dgvProceso.AllowUserToResizeColumns = false;
             this.dgvProceso.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.dgvProceso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -449,12 +448,9 @@
             // 
             this.dgvUsuario.AllowUserToAddRows = false;
             this.dgvUsuario.AllowUserToDeleteRows = false;
-            this.dgvUsuario.AllowUserToResizeColumns = false;
             this.dgvUsuario.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.dgvUsuario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUsuario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvUsuario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsuario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -482,6 +478,7 @@
             this.dgvUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuario.Size = new System.Drawing.Size(420, 396);
             this.dgvUsuario.TabIndex = 123;
+            this.dgvUsuario.TabStop = false;
             this.dgvUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuario_CellContentClick);
             // 
             // label1
