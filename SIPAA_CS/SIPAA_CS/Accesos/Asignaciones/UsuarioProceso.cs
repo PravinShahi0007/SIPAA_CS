@@ -23,6 +23,7 @@ namespace SIPAA_CS.Accesos.Asignaciones
         public string buscar;
         public string descripcion;
         public string pass;
+        int a = 0; 
 
         public UsuarioProceso()
         {
