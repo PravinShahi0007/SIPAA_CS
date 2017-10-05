@@ -486,6 +486,7 @@
             this.dgvModulos.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.dgvModulos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvModulos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvModulos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvModulos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvModulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -518,6 +519,7 @@
             this.dgvModulos.TabIndex = 132;
             this.dgvModulos.TabStop = false;
             this.dgvModulos.Tag = "Editar";
+            this.dgvModulos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModulos_CellClick);
             this.dgvModulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModulos_CellContentClick);
             // 
             // pnlBusqueda

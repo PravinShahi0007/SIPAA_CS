@@ -277,79 +277,6 @@ namespace SIPAA_CS.Accesos.Catalogos
        
         private void dgvPerfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-
-
-           
-        //    Utilerias.ApagarControlxPermiso(ckbEliminar, "Eliminar", ltPermisos);
-            for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
-            {
-                dgvPerfiles.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            }
-
-
-            if (dgvPerfiles.SelectedRows.Count != 0)
-            {
-                lblAccion.Text = "       Perfil Seleccionado";
-                DataGridViewRow row = this.dgvPerfiles.SelectedRows[0];
-
-                IdPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
-                string ValorRow = row.Cells["DESCRIPCION"].Value.ToString();
-                strEstatus = row.Cells["Estatus"].Value.ToString();
-                txtPerfil.Text = ValorRow;
-                PanelEditar.Visible = true;
-                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-              
-
-                //Permisos
-                if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
-                {
-
-                    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
-                    iOpcionAdmin = 2;
-
-                    ckbEliminar.Visible = true;
-                    ckbEliminar.Checked = false;
-
-                    if (strEstatus == "Inactivo")
-                    {
-                        ckbEliminar.Text = "Alta";
-
-                    }
-                    else if (strEstatus == "Activo")
-                    {
-                        ckbEliminar.Text = "Baja";
-
-                    }
-
-                }
-                else if (Permisos.dcPermisos["Eliminar"] == 1)
-                {
-                  iOpcionAdmin = 3;
-                    if (strEstatus == "0")
-                    {
-                        Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Alta"); 
-
-                    } else if (strEstatus == "1"){
-                        Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Baja");
-                    }
-                }
-                else if (Permisos.dcPermisos["Actualizar"] == 1)
-                {
-                    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
-                    iOpcionAdmin = 2;              
-                }
-                
-
-
-
-              
-
-                //  Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
-
-
-
-            }
         }
 
         private void PanelEditar_Paint(object sender, PaintEventArgs e)
@@ -502,6 +429,86 @@ namespace SIPAA_CS.Accesos.Catalogos
             }
             else if (result == DialogResult.No)
             {
+
+            }
+        }
+
+        private void dgvPerfiles_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+
+
+
+            //    Utilerias.ApagarControlxPermiso(ckbEliminar, "Eliminar", ltPermisos);
+            for (int iContador = 0; iContador < dgvPerfiles.Rows.Count; iContador++)
+            {
+                dgvPerfiles.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+            }
+
+
+            if (dgvPerfiles.SelectedRows.Count != 0)
+            {
+                lblAccion.Text = "       Perfil Seleccionado";
+                DataGridViewRow row = this.dgvPerfiles.SelectedRows[0];
+
+                IdPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
+                string ValorRow = row.Cells["DESCRIPCION"].Value.ToString();
+                strEstatus = row.Cells["Estatus"].Value.ToString();
+                txtPerfil.Text = ValorRow;
+                PanelEditar.Visible = true;
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+
+
+                //Permisos
+                if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
+                {
+
+                    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
+                    iOpcionAdmin = 2;
+
+                    ckbEliminar.Visible = true;
+                    ckbEliminar.Checked = false;
+
+                    if (strEstatus == "Inactivo")
+                    {
+                        ckbEliminar.Text = "Alta";
+
+                    }
+                    else if (strEstatus == "Activo")
+                    {
+                        ckbEliminar.Text = "Baja";
+
+                    }
+
+                }
+                else if (Permisos.dcPermisos["Eliminar"] == 1)
+                {
+                    iOpcionAdmin = 3;
+                    if (strEstatus == "0")
+                    {
+                        Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Alta");
+
+                    }
+                    else if (strEstatus == "1")
+                    {
+                        Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Baja");
+                    }
+                }
+                else if (Permisos.dcPermisos["Actualizar"] == 1)
+                {
+                    Utilerias.AsignarBotonResize(btnGuardar, new Size(sysW, sysH), "Editar");
+                    iOpcionAdmin = 2;
+                }
+
+
+
+
+
+
+                //  Utilerias.ApagarControlxPermiso(btnGuardar, "Actualizar", ltPermisos);
+
+
 
             }
         }
