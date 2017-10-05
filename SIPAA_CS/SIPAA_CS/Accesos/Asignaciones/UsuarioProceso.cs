@@ -416,6 +416,7 @@ namespace SIPAA_CS.Accesos.Asignaciones
             cbAsignaPassword.Checked = false;
 
             pnlPassword.Visible = false;
+        
             
         }
         private void cbAsignaPassword_CheckedChanged(object sender, EventArgs e)
