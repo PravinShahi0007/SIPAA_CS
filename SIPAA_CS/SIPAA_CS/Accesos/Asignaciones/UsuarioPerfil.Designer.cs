@@ -259,7 +259,6 @@
             // 
             this.dgvUsuarios.AllowUserToAddRows = false;
             this.dgvUsuarios.AllowUserToDeleteRows = false;
-            this.dgvUsuarios.AllowUserToResizeColumns = false;
             this.dgvUsuarios.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.dgvUsuarios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -285,6 +284,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUsuarios.Location = new System.Drawing.Point(35, 316);
+            this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersVisible = false;
@@ -295,13 +295,13 @@
             this.dgvUsuarios.Size = new System.Drawing.Size(444, 391);
             this.dgvUsuarios.TabIndex = 139;
             this.dgvUsuarios.Tag = "Editar";
+            this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
             this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
             // dgvPerfiles
             // 
             this.dgvPerfiles.AllowUserToAddRows = false;
             this.dgvPerfiles.AllowUserToDeleteRows = false;
-            this.dgvPerfiles.AllowUserToResizeColumns = false;
             this.dgvPerfiles.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.dgvPerfiles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
@@ -337,6 +337,7 @@
             this.dgvPerfiles.Size = new System.Drawing.Size(444, 391);
             this.dgvPerfiles.TabIndex = 138;
             this.dgvPerfiles.Tag = "Editar";
+            this.dgvPerfiles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPerfiles_CellClick);
             this.dgvPerfiles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPerfiles_CellContentClick);
             // 
             // label1

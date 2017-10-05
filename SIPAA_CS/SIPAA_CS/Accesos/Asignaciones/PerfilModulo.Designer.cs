@@ -364,7 +364,6 @@
             // 
             this.dgvModulos.AllowUserToAddRows = false;
             this.dgvModulos.AllowUserToDeleteRows = false;
-            this.dgvModulos.AllowUserToResizeColumns = false;
             this.dgvModulos.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -392,8 +391,9 @@
             this.dgvModulos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvModulos.Location = new System.Drawing.Point(396, 306);
             this.dgvModulos.Name = "dgvModulos";
+            this.dgvModulos.ReadOnly = true;
             this.dgvModulos.RowHeadersVisible = false;
-            this.dgvModulos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            this.dgvModulos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvModulos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvModulos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvModulos.RowTemplate.Height = 35;
@@ -536,7 +536,6 @@
             this.dgvPerfil.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.dgvPerfil.AllowUserToAddRows = false;
             this.dgvPerfil.AllowUserToDeleteRows = false;
-            this.dgvPerfil.AllowUserToResizeColumns = false;
             this.dgvPerfil.AllowUserToResizeRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
@@ -567,6 +566,7 @@
             this.dgvPerfil.Location = new System.Drawing.Point(16, 306);
             this.dgvPerfil.MultiSelect = false;
             this.dgvPerfil.Name = "dgvPerfil";
+            this.dgvPerfil.ReadOnly = true;
             this.dgvPerfil.RowHeadersVisible = false;
             this.dgvPerfil.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvPerfil.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
@@ -574,6 +574,7 @@
             this.dgvPerfil.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPerfil.Size = new System.Drawing.Size(363, 404);
             this.dgvPerfil.TabIndex = 110;
+            this.dgvPerfil.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPerfil_CellClick);
             this.dgvPerfil.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPerfil_CellContentClick);
             // 
             // label1
