@@ -18,6 +18,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
     {
         int sysH = SystemInformation.PrimaryMonitorSize.Height;
         int sysW = SystemInformation.PrimaryMonitorSize.Width;
+        
         public DatosTrabajadorPerfil()
         {
             InitializeComponent();
@@ -103,7 +104,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             List<string> ltTnom = new List<string>();
             SonaTrabajador objTrab = new SonaTrabajador();
             DataTable dtTrab = objTrab.ObtenerPerfilTrabajador(sIdtrab, 5, "%", "%", 0, LoginInfo.IdTrab, this.Name);
-
+           
             foreach (DataRow row in dtTrab.Rows)
             {
 

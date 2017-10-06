@@ -705,7 +705,7 @@
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTag.Location = new System.Drawing.Point(0, 1);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(621, 44);
+            this.panelTag.Size = new System.Drawing.Size(618, 44);
             this.panelTag.TabIndex = 197;
             this.panelTag.Visible = false;
             this.panelTag.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTag_Paint);
