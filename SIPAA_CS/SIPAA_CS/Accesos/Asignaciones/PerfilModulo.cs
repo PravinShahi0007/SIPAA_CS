@@ -109,38 +109,7 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
         }
         private void dgvPerfil_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-            //ckbheader.Checked = true;
-            ckbActualizar.Checked = false;
-            ckbAgregar.Checked = false;
-            ckbEliminar.Checked = false;
-            ckbEliminarAsig.Checked = false;
-            ckbImprimir.Checked = false;
-            ckbLectura.Checked = true;
-            panelPermisos.Enabled = false;
-            for (int iContador = 0; iContador < dgvPerfil.Rows.Count; iContador++)
-            {
-                dgvPerfil.Rows[iContador].Cells[2].Value = Resources.ic_lens_blue_grey_600_18dp;
-            }
-
-
-            if (dgvPerfil.SelectedRows.Count != 0)
-            {
-
-                DataGridViewRow row = this.dgvPerfil.SelectedRows[0];
-
-                CVPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
-                string Desc = row.Cells["DESCRIPCION"].Value.ToString();
-
-                row.Cells[2].Value = Resources.ic_check_circle_green_400_18dp;
-
-                Modulo objModulo = new Modulo();
-                //List<string> ltPerfilesxUsuario = 
-                dtPermisos = objModulo.obtenerModulosxCvPerfil(CVPerfil);
-                AsignarPermisos();
-
-            }      
+        {    
         }
 
      
@@ -654,7 +623,7 @@ namespace SIPAA_CS.Accesos.Asignaciones
             objModulo.Descripcion = "%";
             objModulo.Ambiente = "%";
             objModulo.strModulo = "%";
-            objModulo.Estatus = 0;
+            objModulo.Estatus = 1;
             llenarGridModulos(objModulo);
 
 
@@ -749,7 +718,40 @@ namespace SIPAA_CS.Accesos.Asignaciones
         {
         }
 
-   
-     
+        private void dgvPerfil_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+            //ckbheader.Checked = true;
+            ckbActualizar.Checked = false;
+            ckbAgregar.Checked = false;
+            ckbEliminar.Checked = false;
+            ckbEliminarAsig.Checked = false;
+            ckbImprimir.Checked = false;
+            ckbLectura.Checked = true;
+            panelPermisos.Enabled = false;
+            for (int iContador = 0; iContador < dgvPerfil.Rows.Count; iContador++)
+            {
+                dgvPerfil.Rows[iContador].Cells[2].Value = Resources.ic_lens_blue_grey_600_18dp;
+            }
+
+
+            if (dgvPerfil.SelectedRows.Count != 0)
+            {
+
+                DataGridViewRow row = this.dgvPerfil.SelectedRows[0];
+
+                CVPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
+                string Desc = row.Cells["DESCRIPCION"].Value.ToString();
+
+                row.Cells[2].Value = Resources.ic_check_circle_green_400_18dp;
+
+                Modulo objModulo = new Modulo();
+                //List<string> ltPerfilesxUsuario = 
+                dtPermisos = objModulo.obtenerModulosxCvPerfil(CVPerfil);
+                AsignarPermisos();
+
+            }
+        }
     }
 }

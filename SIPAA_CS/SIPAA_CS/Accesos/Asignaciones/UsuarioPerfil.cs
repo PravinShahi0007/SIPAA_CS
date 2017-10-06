@@ -41,25 +41,6 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            for (int iContador = 0; iContador < dgvUsuarios.Rows.Count; iContador++)
-            {
-                dgvUsuarios.Rows[iContador].Cells[3].Value = Resources.ic_lens_blue_grey_600_18dp;
-            }
-
-
-            if (dgvUsuarios.SelectedRows.Count != 0)
-            {
-
-                DataGridViewRow row = this.dgvUsuarios.SelectedRows[0];
-
-                CVUsuario = row.Cells["CvUsuario"].Value.ToString();
-                int IdTrab = Convert.ToInt32(row.Cells["IdTrab"].Value.ToString());
-                string ValorRow = row.Cells["Nombre"].Value.ToString();
-
-                row.Cells[3].Value = Resources.ic_check_circle_green_400_18dp;
-                AsignarPerfiles();
-            }
         }
 
 
@@ -90,24 +71,6 @@ namespace SIPAA_CS.Accesos.Asignaciones
         }
         private void dgvPerfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (Permisos.dcPermisos["Actualizar"] == 1)
-            {
-                if (CVUsuario != null)
-                {
-                    if (dgvPerfiles.SelectedRows.Count != 0)
-                    {
-                        Utilerias.MultiSeleccionGridView(dgvPerfiles, 1, ltPerfiles, panelPermisos);
-                    }
-                }
-
-                else
-                {
-
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Usuario");
-                    timer1.Start();
-                }
-            }
         }
 
 
@@ -458,6 +421,52 @@ namespace SIPAA_CS.Accesos.Asignaciones
             else if (result == DialogResult.No)
             {
 
+            }
+        }
+
+        private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            for (int iContador = 0; iContador < dgvUsuarios.Rows.Count; iContador++)
+            {
+                dgvUsuarios.Rows[iContador].Cells[3].Value = Resources.ic_lens_blue_grey_600_18dp;
+            }
+
+
+            if (dgvUsuarios.SelectedRows.Count != 0)
+            {
+
+                DataGridViewRow row = this.dgvUsuarios.SelectedRows[0];
+
+                CVUsuario = row.Cells["CvUsuario"].Value.ToString();
+                int IdTrab = Convert.ToInt32(row.Cells["IdTrab"].Value.ToString());
+                string ValorRow = row.Cells["Nombre"].Value.ToString();
+
+                row.Cells[3].Value = Resources.ic_check_circle_green_400_18dp;
+                AsignarPerfiles();
+            }
+        }
+
+        private void dgvPerfiles_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+            if (Permisos.dcPermisos["Actualizar"] == 1)
+            {
+                if (CVUsuario != null)
+                {
+                    if (dgvPerfiles.SelectedRows.Count != 0)
+                    {
+                        Utilerias.MultiSeleccionGridView(dgvPerfiles, 1, ltPerfiles, panelPermisos);
+                    }
+                }
+
+                else
+                {
+
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "No se ha Seleccionado un Usuario");
+                    timer1.Start();
+                }
             }
         }
     }

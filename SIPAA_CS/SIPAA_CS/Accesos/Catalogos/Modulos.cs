@@ -78,120 +78,7 @@ namespace SIPAA_CS.Accesos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void dgvModulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            for (int iContador = 0; iContador < dgvModulos.Rows.Count; iContador++)
-            {
-                dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            }
-
-            if (dgvModulos.SelectedRows.Count != 0)
-            {
-                DataGridViewRow row = this.dgvModulos.SelectedRows[0];
-
-                idmodulo =  row.Cells["idmodulo"].Value.ToString();
-                cvmodulo = row.Cells["cvmodulo"].Value.ToString();
-                descripcion = row.Cells["descripcion"].Value.ToString();
-                cvindmodulo = row.Cells["cvtipomodulo1"].Value.ToString();
-                ambiente = row.Cells["ambiente"].Value.ToString();
-                cvmodulos = row.Cells["cvindmodulo"].Value.ToString();
-                if (cvmodulos != "")
-                {
-                    cbTipoMod.Text = "Submódulo";
-                    pnlModulo.Visible = true;
-                    
-                }
-                else
-                {
-                    cbTipoMod.Text = "Módulo";
-                    pnlModulo.Visible = false;
-                }
-                try
-                {
-                    orden = row.Cells["orden"].Value.ToString();
-                }
-                catch (Exception)
-                {
-                    orden = "0";
-                }
-                
-                ruta = row.Cells["rutaaaceso"].Value.ToString();
-                stmodulo = row.Cells["Estatus"].Value.ToString();
-
-                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-
-                if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
-                {
-                    variable = 2;
-                    lblAccion.Text = "      Editar Módulo";
-                    PanelEditar.Visible = true;
-                    ckbEliminar.Visible = true;
-                   
-                    txtCvModulo.Text = cvmodulo;
-                    txtDescripcion.Text = descripcion;
-                    txtRuta.Text = ruta;
-                    txtOrden.Text = Convert.ToString(orden);
-                    cbAmbiente.Text = ambiente;
-                    cbModuloTipo.Text = cvindmodulo;
-                    cbModulos.Text = cvmodulos;
-
-                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
-
-                    ckbEliminar.Checked = false;
-
-                    if (stmodulo == "Inactivo")
-                    {
-                        ckbEliminar.Text = "Alta";
-                    }
-                    else if (stmodulo == "Activo")
-                    {
-                        ckbEliminar.Text = "Baja";
-                    }
-                }
-                else if (Permisos.dcPermisos["Actualizar"] == 1)
-                {
-                    variable = 2;
-                    lblAccion.Text = "      Editar Módulo";
-                    PanelEditar.Visible = true;
-                    txtCvModulo.Enabled = false;
-
-                    txtCvModulo.Text = cvmodulo;
-                    txtDescripcion.Text = descripcion;
-                    txtRuta.Text = ruta;
-                    txtOrden.Text = Convert.ToString(orden);
-                    cbAmbiente.Text = ambiente;
-                    cbModuloTipo.Text = cvindmodulo;
-                    cbModulos.Text = cvmodulos;
-
-                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
-                }
-                else if (Permisos.dcPermisos["Eliminar"] == 1)
-                {
-                    variable = 3;
-                    PanelEditar.Visible = true;
-
-                    txtCvModulo.Text = cvmodulo;
-                    txtDescripcion.Text = descripcion;
-                    txtRuta.Text = ruta;
-                    txtOrden.Text = Convert.ToString(orden);
-                    cbAmbiente.Text = ambiente;
-                    cbModuloTipo.Text = cvindmodulo;
-                    cbModulos.Text = cvmodulos;
-
-                    txtCvModulo.Enabled = true;
-
-                    if (stmodulo == "Inactivo")
-                    {
-                        lblAccion.Text = "      Alta Módulo";
-                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Alta);
-                    }
-                    else if (stmodulo == "Activo")
-                    {
-                        lblAccion.Text = "      Baja Módulo";
-                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Baja);
-                    }
-
-                }
-
-            }
+            
         }
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
@@ -252,8 +139,6 @@ namespace SIPAA_CS.Accesos.Catalogos
             //agregar
             if (variable == 1)
             {
-                
-
                 if (cbTipoMod.SelectedItem.ToString() == "Módulo")
                 {
                     if (cbTipoMod.SelectedIndex != -1 && cbAmbiente.SelectedIndex != -1 && cbModuloTipo.SelectedIndex != -1 && txtCvModulo.Text != "" && txtDescripcion.Text != "")
@@ -636,17 +521,14 @@ namespace SIPAA_CS.Accesos.Catalogos
                     PanelEditar.Visible = false;
 
                     if (response == 1)
-                    {
-                        //Modulos_Load(sender, e);
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El Módulo esta Activado");
-                        timer1.Start();
-                    }
                     else if (response == 0)
-                    {
-                        //Modulos_Load(sender, e);
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "El Módulo esta Inactivo");
-                        timer1.Start();
-                    }
+
+                    
+                    //dgvModulos.DataSource = null;
+                    LlenarGridModulos("%", "", "", "", "", "", "", "", "", "", "", 4, dgvModulos);
+                    timer1.Start();
 
                 }
                 else
@@ -699,6 +581,7 @@ namespace SIPAA_CS.Accesos.Catalogos
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             ///////////////////////////////////////////////////////////////////////////////////////////////////
             pnlModulo.Visible = false;
+
             LlenarGridModulos("%","", "", "", "", "", "", "", "", "", "", 4,dgvModulos);
             
             DataTable dtModulo1 = objModulo.ObtenerModulo("1", "", "", "", "", "", "", "", "", "", "", 7);
@@ -776,7 +659,125 @@ namespace SIPAA_CS.Accesos.Catalogos
             cb.DisplayMember = sDescripcion;
             cb.ValueMember = sClave;
         }
-        
+
+        private void dgvModulos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            for (int iContador = 0; iContador < dgvModulos.Rows.Count; iContador++)
+            {
+                dgvModulos.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+            }
+
+            if (dgvModulos.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dgvModulos.SelectedRows[0];
+
+                idmodulo = row.Cells["idmodulo"].Value.ToString();
+                cvmodulo = row.Cells["cvmodulo"].Value.ToString();
+                descripcion = row.Cells["descripcion"].Value.ToString();
+                cvindmodulo = row.Cells["cvtipomodulo1"].Value.ToString();
+                ambiente = row.Cells["ambiente"].Value.ToString();
+                cvmodulos = row.Cells["cvindmodulo"].Value.ToString();
+                if (cvmodulos != "")
+                {
+                    cbTipoMod.Text = "Submódulo";
+                    pnlModulo.Visible = true;
+
+                }
+                else
+                {
+                    cbTipoMod.Text = "Módulo";
+                    pnlModulo.Visible = false;
+                }
+                try
+                {
+                    orden = row.Cells["orden"].Value.ToString();
+                }
+                catch (Exception)
+                {
+                    orden = "0";
+                }
+
+                ruta = row.Cells["rutaaaceso"].Value.ToString();
+                stmodulo = row.Cells["Estatus"].Value.ToString();
+
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+
+                if (Permisos.dcPermisos["Eliminar"] == 1 && Permisos.dcPermisos["Actualizar"] == 1)
+                {
+                    variable = 2;
+                    lblAccion.Text = "      Editar Módulo";
+                    PanelEditar.Visible = true;
+                    ckbEliminar.Visible = true;
+
+                    txtCvModulo.Text = cvmodulo;
+                    txtDescripcion.Text = descripcion;
+                    txtRuta.Text = ruta;
+                    txtOrden.Text = Convert.ToString(orden);
+                    cbAmbiente.Text = ambiente;
+                    cbModuloTipo.Text = cvindmodulo;
+                    cbModulos.Text = cvmodulos;
+
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
+
+                    ckbEliminar.Checked = false;
+
+                    if (stmodulo == "Inactivo")
+                    {
+                        ckbEliminar.Text = "Alta";
+                    }
+                    else if (stmodulo == "Activo")
+                    {
+                        ckbEliminar.Text = "Baja";
+                    }
+                }
+                else if (Permisos.dcPermisos["Actualizar"] == 1)
+                {
+                    variable = 2;
+                    lblAccion.Text = "      Editar Módulo";
+                    PanelEditar.Visible = true;
+                    txtCvModulo.Enabled = false;
+
+                    txtCvModulo.Text = cvmodulo;
+                    txtDescripcion.Text = descripcion;
+                    txtRuta.Text = ruta;
+                    txtOrden.Text = Convert.ToString(orden);
+                    cbAmbiente.Text = ambiente;
+                    cbModuloTipo.Text = cvindmodulo;
+                    cbModulos.Text = cvmodulos;
+
+                    Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), "Editar");
+                }
+                else if (Permisos.dcPermisos["Eliminar"] == 1)
+                {
+                    variable = 3;
+                    PanelEditar.Visible = true;
+
+                    txtCvModulo.Text = cvmodulo;
+                    txtDescripcion.Text = descripcion;
+                    txtRuta.Text = ruta;
+                    txtOrden.Text = Convert.ToString(orden);
+                    cbAmbiente.Text = ambiente;
+                    cbModuloTipo.Text = cvindmodulo;
+                    cbModulos.Text = cvmodulos;
+
+                    txtCvModulo.Enabled = true;
+
+                    if (stmodulo == "Inactivo")
+                    {
+                        lblAccion.Text = "      Alta Módulo";
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Alta);
+                    }
+                    else if (stmodulo == "Activo")
+                    {
+                        lblAccion.Text = "      Baja Módulo";
+                        Utilerias.AsignarBotonResize(btnGuardar, Utilerias.PantallaSistema(), Botones.Baja);
+                    }
+
+                }
+
+            }
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

@@ -52,7 +52,6 @@
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.cbEmpleados = new System.Windows.Forms.ComboBox();
             this.cbIncidencia = new System.Windows.Forms.ComboBox();
-            this.cbTipoNomina = new System.Windows.Forms.ComboBox();
             this.cbUbicacion = new System.Windows.Forms.ComboBox();
             this.cbCia = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,6 +63,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
+            this.cbTipoNomina = new System.Windows.Forms.ComboBox();
             label7 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
@@ -322,6 +322,7 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.cbTipoNomina);
             this.pnlBusqueda.Controls.Add(this.cbEmpleados);
             this.pnlBusqueda.Controls.Add(label13);
             this.pnlBusqueda.Controls.Add(this.cbIncidencia);
@@ -330,7 +331,6 @@
             this.pnlBusqueda.Controls.Add(label10);
             this.pnlBusqueda.Controls.Add(this.cbArea);
             this.pnlBusqueda.Controls.Add(label4);
-            this.pnlBusqueda.Controls.Add(this.cbTipoNomina);
             this.pnlBusqueda.Controls.Add(label5);
             this.pnlBusqueda.Controls.Add(this.cbUbicacion);
             this.pnlBusqueda.Controls.Add(label6);
@@ -372,24 +372,6 @@
             this.cbIncidencia.Size = new System.Drawing.Size(291, 25);
             this.cbIncidencia.TabIndex = 71;
             this.cbIncidencia.Text = "Seleccionar ";
-            // 
-            // cbTipoNomina
-            // 
-            this.cbTipoNomina.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbTipoNomina.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbTipoNomina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbTipoNomina.Enabled = false;
-            this.cbTipoNomina.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTipoNomina.FormattingEnabled = true;
-            this.cbTipoNomina.Items.AddRange(new object[] {
-            "Seleccionar ",
-            "Activo",
-            "Inactivo"});
-            this.cbTipoNomina.Location = new System.Drawing.Point(61, 194);
-            this.cbTipoNomina.Name = "cbTipoNomina";
-            this.cbTipoNomina.Size = new System.Drawing.Size(291, 25);
-            this.cbTipoNomina.TabIndex = 65;
-            this.cbTipoNomina.Text = "Seleccionar ";
             // 
             // cbUbicacion
             // 
@@ -540,6 +522,24 @@
             this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cbTipoNomina
+            // 
+            this.cbTipoNomina.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTipoNomina.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTipoNomina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbTipoNomina.Enabled = false;
+            this.cbTipoNomina.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipoNomina.FormattingEnabled = true;
+            this.cbTipoNomina.Items.AddRange(new object[] {
+            "Seleccionar ",
+            "Activo",
+            "Inactivo"});
+            this.cbTipoNomina.Location = new System.Drawing.Point(61, 193);
+            this.cbTipoNomina.Name = "cbTipoNomina";
+            this.cbTipoNomina.Size = new System.Drawing.Size(291, 25);
+            this.cbTipoNomina.TabIndex = 179;
+            this.cbTipoNomina.Text = "Seleccionar ";
+            // 
             // FiltroObservaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,7 +591,6 @@
         private System.Windows.Forms.Button btnImprimirObs;
         private System.Windows.Forms.ComboBox cbArea;
         private System.Windows.Forms.Panel pnlBusqueda;
-        private System.Windows.Forms.ComboBox cbTipoNomina;
         private System.Windows.Forms.ComboBox cbUbicacion;
         private System.Windows.Forms.ComboBox cbCia;
         private System.Windows.Forms.Label label3;
@@ -605,5 +604,6 @@
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.ComboBox cbEmpleados;
+        private System.Windows.Forms.ComboBox cbTipoNomina;
     }
 }

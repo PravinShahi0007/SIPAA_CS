@@ -47,6 +47,27 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 cbTipoNomina.Enabled = true;
                 SonaTipoNomina objTnom = new SonaTipoNomina();
                 DataTable dtTnom = objTnom.obtTipoNomina(5, cbCia.SelectedIndex, 0, "");
+                // llenarCombo(cbTipoNomina, dtTnom, "Descripción"); // quite el acento
+                Utilerias.llenarComboxDataTable(cbTipoNomina, dtTnom, "Clave", "Descripción");
+
+                cbArea.Enabled = true;
+                SonaCompania objCia = new SonaCompania();
+                DataTable dtPlanta = objCia.ObtenerPlantel(4, 0, cbCia.SelectedItem.ToString(), "");
+                llenarCombo(cbArea, dtPlanta, "Descripción"); // quite el acento
+            }
+            else
+            {
+                cbTipoNomina.Enabled = false;
+                cbArea.Enabled = false;
+            }
+
+
+            /*if (cbCia.SelectedIndex != 0)
+            {
+
+                cbTipoNomina.Enabled = true;
+                SonaTipoNomina objTnom = new SonaTipoNomina();
+                DataTable dtTnom = objTnom.obtTipoNomina(5, cbCia.SelectedIndex, 0, "");
                 llenarCombo(cbTipoNomina, dtTnom, "Descripción");
 
                 cbArea.Enabled = true;
@@ -58,7 +79,9 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             {
                 cbTipoNomina.Enabled = false;
                 cbArea.Enabled = false;
-            }
+            }*/
+
+
 
 
         }
