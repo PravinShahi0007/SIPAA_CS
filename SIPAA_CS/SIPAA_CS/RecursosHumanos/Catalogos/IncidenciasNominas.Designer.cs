@@ -41,7 +41,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             System.Windows.Forms.Label label9;
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label13;
-            System.Windows.Forms.Label label3;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -57,7 +56,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.cboincnombusq = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pnlincnom = new System.Windows.Forms.Panel();
-            this.cbformapago = new System.Windows.Forms.ComboBox();
             this.cbopasanom = new System.Windows.Forms.ComboBox();
             this.cboafect = new System.Windows.Forms.ComboBox();
             this.cbopremio = new System.Windows.Forms.ComboBox();
@@ -81,7 +79,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label9 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvincnomia)).BeginInit();
             this.panelTag.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
@@ -121,7 +118,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(9, 266);
+            label5.Location = new System.Drawing.Point(9, 239);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(49, 16);
             label5.TabIndex = 137;
@@ -145,7 +142,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(8, 230);
+            label7.Location = new System.Drawing.Point(8, 203);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(75, 16);
             label7.TabIndex = 140;
@@ -157,7 +154,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(9, 125);
+            label8.Location = new System.Drawing.Point(9, 98);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(49, 16);
             label8.TabIndex = 142;
@@ -169,7 +166,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(9, 161);
+            label9.Location = new System.Drawing.Point(9, 134);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(45, 16);
             label9.TabIndex = 144;
@@ -181,7 +178,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label10.Location = new System.Drawing.Point(9, 197);
+            label10.Location = new System.Drawing.Point(9, 170);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(95, 16);
             label10.TabIndex = 146;
@@ -198,18 +195,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label13.Size = new System.Drawing.Size(66, 16);
             label13.TabIndex = 46;
             label13.Text = "Incidencia";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(8, 91);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(97, 16);
-            label3.TabIndex = 148;
-            label3.Text = "Forma de Pago";
             // 
             // btnAgregar
             // 
@@ -394,8 +379,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             // pnlincnom
             // 
             this.pnlincnom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.pnlincnom.Controls.Add(this.cbformapago);
-            this.pnlincnom.Controls.Add(label3);
             this.pnlincnom.Controls.Add(this.cbopasanom);
             this.pnlincnom.Controls.Add(label10);
             this.pnlincnom.Controls.Add(this.cboafect);
@@ -419,19 +402,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.pnlincnom.TabStop = true;
             this.pnlincnom.Visible = false;
             // 
-            // cbformapago
-            // 
-            this.cbformapago.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbformapago.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbformapago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbformapago.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbformapago.FormattingEnabled = true;
-            this.cbformapago.Location = new System.Drawing.Point(107, 88);
-            this.cbformapago.Margin = new System.Windows.Forms.Padding(2);
-            this.cbformapago.Name = "cbformapago";
-            this.cbformapago.Size = new System.Drawing.Size(243, 24);
-            this.cbformapago.TabIndex = 6;
-            // 
             // cbopasanom
             // 
             this.cbopasanom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -439,7 +409,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.cbopasanom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbopasanom.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbopasanom.FormattingEnabled = true;
-            this.cbopasanom.Location = new System.Drawing.Point(106, 194);
+            this.cbopasanom.Location = new System.Drawing.Point(106, 167);
             this.cbopasanom.Margin = new System.Windows.Forms.Padding(2);
             this.cbopasanom.Name = "cbopasanom";
             this.cbopasanom.Size = new System.Drawing.Size(243, 24);
@@ -452,7 +422,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.cboafect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cboafect.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboafect.FormattingEnabled = true;
-            this.cboafect.Location = new System.Drawing.Point(106, 158);
+            this.cboafect.Location = new System.Drawing.Point(106, 131);
             this.cboafect.Margin = new System.Windows.Forms.Padding(2);
             this.cboafect.Name = "cboafect";
             this.cboafect.Size = new System.Drawing.Size(243, 24);
@@ -465,7 +435,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.cbopremio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbopremio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbopremio.FormattingEnabled = true;
-            this.cbopremio.Location = new System.Drawing.Point(106, 122);
+            this.cbopremio.Location = new System.Drawing.Point(106, 95);
             this.cbopremio.Margin = new System.Windows.Forms.Padding(2);
             this.cbopremio.Name = "cbopremio";
             this.cbopremio.Size = new System.Drawing.Size(243, 24);
@@ -478,7 +448,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.cbotipohr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbotipohr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbotipohr.FormattingEnabled = true;
-            this.cbotipohr.Location = new System.Drawing.Point(105, 227);
+            this.cbotipohr.Location = new System.Drawing.Point(105, 200);
             this.cbotipohr.Margin = new System.Windows.Forms.Padding(2);
             this.cbotipohr.Name = "cbotipohr";
             this.cbotipohr.Size = new System.Drawing.Size(243, 24);
@@ -501,7 +471,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             // 
             this.ckbEliminar.AutoSize = true;
             this.ckbEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbEliminar.Location = new System.Drawing.Point(110, 298);
+            this.ckbEliminar.Location = new System.Drawing.Point(110, 271);
             this.ckbEliminar.Name = "ckbEliminar";
             this.ckbEliminar.Size = new System.Drawing.Size(47, 17);
             this.ckbEliminar.TabIndex = 12;
@@ -517,7 +487,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btninsertar.Location = new System.Drawing.Point(298, 302);
+            this.btninsertar.Location = new System.Drawing.Point(298, 275);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(50, 50);
             this.btninsertar.TabIndex = 13;
@@ -527,7 +497,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(107, 283);
+            this.panel2.Location = new System.Drawing.Point(107, 256);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(243, 2);
             this.panel2.TabIndex = 43;
@@ -537,7 +507,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.txtcampo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtcampo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtcampo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcampo.Location = new System.Drawing.Point(108, 265);
+            this.txtcampo.Location = new System.Drawing.Point(108, 238);
             this.txtcampo.Name = "txtcampo";
             this.txtcampo.Size = new System.Drawing.Size(243, 15);
             this.txtcampo.TabIndex = 11;
@@ -665,7 +635,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private System.Windows.Forms.ComboBox cboincnombusq;
         private System.Windows.Forms.Label lblModif;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ComboBox cbformapago;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Label lblusuario;
     }

@@ -25,7 +25,6 @@ namespace SIPAA_CS.Conexiones
                 //cn = new SqlConnection("Data Source=192.168.30.7;Initial Catalog=sipaa;User ID=sipaa;Password=sipaapru");
                 cn = new SqlConnection("Data Source=192.168.9.77;Initial Catalog=sipaa;User ID=Desarrollo;Password=Desa17");
                 cn.Open();
-                // MessageBox.Show("Conectado");
             }
             catch (Exception ex)
             {
@@ -39,7 +38,6 @@ namespace SIPAA_CS.Conexiones
             {
                 cns = new SqlConnection("Data Source=192.168.9.5;Initial Catalog=SonarhNet;User ID=webdesarrollo;Password=webdesarrollo");
                 cns.Open();
-                // MessageBox.Show("Conectado");
             }
             catch (Exception ex)
             {
@@ -75,38 +73,6 @@ namespace SIPAA_CS.Conexiones
 
             cn.Close();
         }
-
-
-        //public int usuarioEncontrado(string nombre, string pwd)
-        //{
-        //    int resultado = 0;
-
-        //    try
-        //    {
-        //        cmd = new SqlCommand("select count(1) from ACCECUSUARIO where NOMBRE ='" + nombre + "' AND PASSW = '" + pwd + "'", cn);
-        //        dr = cmd.ExecuteReader();
-
-        //        if (dr.Read())
-        //        {
-        //            resultado = 1;
-        //            Console.WriteLine("Si");
-        //        }
-        //        else
-        //        {
-        //            resultado = 0;
-        //            Console.WriteLine("No");
-        //        }
-        //        dr.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("No se encontro usuario: " + ex);
-        //    }
-
-        //    return resultado;
-
-        //}
-
 
         //funcion para crear Acceso Usuario
         public void crearAccesoUsuario(string cvusuario, int idtrab, string nombre, string passw, int stusuario, string usumod, DateTime fhumod, string prgumod)
