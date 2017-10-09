@@ -28,8 +28,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         TrabajadorPerfil TrabPerf = new TrabajadorPerfil();
         Utilerias Util = new Utilerias();
 
-        int sysH = SystemInformation.PrimaryMonitorSize.Height;
-        int sysW = SystemInformation.PrimaryMonitorSize.Width;
+       // int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        //int sysW = SystemInformation.PrimaryMonitorSize.Width;
         public TrabajadoresPerfil()
         {
             InitializeComponent();
@@ -496,7 +496,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 DataTable dtsup = TrabPerf.dtdgvcb("", 17, "", "", 0, LoginInfo.IdTrab, this.Name);
                 Utilerias.llenarComboxDataTable(cbosup, dtsup, "Idtrab", "empleado");
                 cbosup.SelectedValue = Convert.ToInt32(row.Cells["idsup"].Value.ToString());
-
+                
                 //cb dir
                 cbodir.DataSource = null;
                 DataTable dtdir = TrabPerf.dtdgvcb("", 17, "", "", 0, LoginInfo.IdTrab, this.Name);

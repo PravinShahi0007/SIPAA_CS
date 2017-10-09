@@ -361,6 +361,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\FechasHorasRegistro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FechasHorasRegistro.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\IncidenciasPendientesAutorizar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncidenciasPendientesAutorizar.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -773,6 +783,12 @@
       <DependentUpon>FaltasPeriodo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FechasHorasRegistro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FechasHorasRegistro.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\FiltroConceptosNomina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -813,6 +829,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>IncidenciasPasadasNomina.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\IncidenciasPendientesAutorizar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncidenciasPendientesAutorizar.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\Observaciones.cs">
@@ -1159,6 +1181,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FaltasPeriodo.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FechasHorasRegistro.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FechasHorasRegistro.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroConceptosNomina.resx">
       <DependentUpon>FiltroConceptosNomina.cs</DependentUpon>
     </EmbeddedResource>
@@ -1180,6 +1206,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>IncidenciasPasadasNomina.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\IncidenciasPendientesAutorizar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>IncidenciasPendientesAutorizar.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Observaciones.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1370,6 +1400,28 @@
     </None>
     <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xss">
       <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\FechasHorasRegistro.xsc">
+      <DependentUpon>FechasHorasRegistro.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\FechasHorasRegistro.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FechasHorasRegistro.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\FechasHorasRegistro.xss">
+      <DependentUpon>FechasHorasRegistro.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\IncidenciasPendientesAutorizar.xsc">
+      <DependentUpon>IncidenciasPendientesAutorizar.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\IncidenciasPendientesAutorizar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IncidenciasPendientesAutorizar.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\IncidenciasPendientesAutorizar.xss">
+      <DependentUpon>IncidenciasPendientesAutorizar.xsd</DependentUpon>
     </None>
     <None Include="SIPAA_CS_ClaveTemporal.pfx" />
   </ItemGroup>

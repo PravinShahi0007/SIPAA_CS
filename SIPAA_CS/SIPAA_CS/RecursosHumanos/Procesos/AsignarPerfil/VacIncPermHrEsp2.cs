@@ -94,24 +94,35 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             if (dgvEmpleados.SelectedRows.Count != 0)
             {
                 DataGridViewRow row = this.dgvEmpleados.SelectedRows[0];
-
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-
                 NoTrabajador = row.Cells["NoEmpleado"].Value.ToString();
 
                 llenarGridDiasEsp(NoTrabajador);
+                dgvInc.Columns[0].Width = 80;
+                dgvInc.Columns[1].Width = 155;
+                dgvInc.Columns[2].Width = 155;
+                dgvInc.Columns[3].Width = 85;
+                dgvInc.Columns[4].Width = 85;
+                dgvInc.Columns[5].Width = 85;
+                dgvInc.Columns[6].Width = 85;
+                dgvInc.Columns[7].Width = 40;
+                dgvInc.Columns[8].Width = 135;
+                dgvInc.Columns[9].Width = 68;
+            }
+        }
 
-                dgvInc.Columns[0].Width = 190;
-                dgvInc.Columns[1].Width = 190;
-                dgvInc.Columns[2].Width = 95;
-                dgvInc.Columns[3].Width = 95;
-                dgvInc.Columns[4].Width = 95;
-                dgvInc.Columns[5].Width = 95;
-                dgvInc.Columns[6].Width = 35;
-                dgvInc.Columns[7].Width = 110;
-                dgvInc.Columns[8].Width = 68;
-                ////Guajolocombo Conceptos Incidencia
-                //CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
+        private void dgvInc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            for (int iContador = 0; iContador < dgvInc.Rows.Count; iContador++)
+            {
+                dgvInc.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+            }
+            if (dgvInc.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dgvInc.SelectedRows[0];
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                //NoTrabajador = row.Cells["NoEmpleado"].Value.ToString();
+                //llenar el espacio para aventar el Update
             }
         }
 
@@ -375,6 +386,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             objDia.sIdTrab = NoTrabajador;
             DataTable dtdias = objDia.ObtenerDiasEspecialesxTrabajador(objDia, 4);
             dgvInc.DataSource = dtdias;
+
+            Utilerias.AgregarCheck(dgvInc, 0);
+            dgvInc.ClearSelection();
         }
 
         private void CbConceptoIncidencia(int p_opcion, int p_cvIncidencia, string p_descripcion, int p_orden, int p_stgenera, int p_strepresenta, int p_stincidencia, string p_usuumod, string p_prgumodr)

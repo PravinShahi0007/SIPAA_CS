@@ -59,6 +59,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
                 cbTipoNomina.Enabled = true;
                 SonaTipoNomina objTnom = new SonaTipoNomina();
+              
                 DataTable dtTnom = objTnom.obtTipoNomina(5, cbCia.SelectedIndex, 0, "");
                 llenarCombo(cbTipoNomina, dtTnom, "Descripción"); // quite el acento
 

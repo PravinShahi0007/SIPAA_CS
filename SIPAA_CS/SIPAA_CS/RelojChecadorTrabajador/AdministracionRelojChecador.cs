@@ -660,31 +660,26 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         if (bConexion != false)
                         {
                             objCZKEM.ClearData(1, 5);
-                           // bool bBandera = true;
-                         
                             int iContReg = 0;
-                            
                             progressBar1.Value = 40;
                             foreach (DataRow row in dt.Rows)
                             {
-
-
                                 
                                 string idtrab = row["idtrab"].ToString();
                                 string cvreloj = row[1].ToString();
                                 string Nombre = row["Nombre"].ToString();
-                                //string aux =row["administrador"].ToString();
-                                int Grupo = Convert.ToInt32( row["cvforma"].ToString()); 
+
+                                int Grupo = Convert.ToInt32(row["cvforma"].ToString());
                                 int Permiso = 0;
                                 string pass_desc = string.Empty;
-                               // if (row["pass"].ToString() != String.Empty)
-                                 if (!string.IsNullOrEmpty(row["pass"].ToString()))
-                                        pass_desc = Utilerias.descifrar(row["pass"].ToString());
+
+                                if (!string.IsNullOrEmpty(row["pass"].ToString()))
+                                    pass_desc = Utilerias.descifrar(row["pass"].ToString());
                                 if (Convert.ToBoolean(row["administrador"].ToString()))
-                                    Permiso = 3; 
-                               
+                                    Permiso = 3;
+
                                 SonaTrabajador objTrab = new SonaTrabajador();
-                                //objTrab.GestionIdentidad(idtrab, "", "", "0", LoginInfo.IdTrab, this.Name, 1);
+
 
                                 iContReg += 1;
                                 pnlMensaje.Enabled = true;
@@ -692,15 +687,15 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                 progressBar1.Value = progressBar1.Value + (10 / dt.Rows.Count);
                                 pnlMensaje.Enabled = false;
 
-                                ///panelTag.Enabled = false;
+
 
                                 if (obj.Teclado)
                                 {
                                     try
                                     {
-                                      if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true)) //tenia !
-                                           bBanderaPass = true;
-                                       
+                                        if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true)) //tenia !
+                                            bBanderaPass = true;
+
                                         objCZKEM.SetUserGroup(1, Convert.ToInt32(idtrab), Grupo);
                                     }
                                     catch
@@ -723,8 +718,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                                 {
                                                     string tmpHuella = row["huellaTmp"].ToString();
                                                     if (objCZKEM.SetUserTmpExStr(1, idtrab, ifinger, 1, tmpHuella)) //tenia !
-                                                    bBanderaHuella = true;
-                                                  
+                                                        bBanderaHuella = true;
+
                                                 }
                                             }
                                             catch
@@ -735,21 +730,21 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     }
                                     else
                                     {
- //****************************** LOS DEDOS SE CUENTAN DESDE EL MEÑIQUE IZQUIERDO HASTA EL DERECHO DE 0 A 9*************
+                                        //****************************** LOS DEDOS SE CUENTAN DESDE EL MEÑIQUE IZQUIERDO HASTA EL DERECHO DE 0 A 9*************
                                         int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
                                         string tmpHuella = "";
-                                        if (ifinger>=0 && ifinger<=9)
+                                        if (ifinger >= 0 && ifinger <= 9)
                                         {
                                             tmpHuella = row["huellaTmp"].ToString();
                                             objCZKEM.SetUserTmpExStr(1, idtrab, ifinger, 1, tmpHuella);
                                             bBanderaHuella = true;
 
                                         }
-                                        
-                                       
+
+
                                     }
 
-                                    
+
                                 }
                                 if (obj.Rostro)
                                 {
@@ -760,8 +755,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                             string RostroTmp = row["rostroTmp"].ToString();
                                             int rostrolong = Convert.ToInt32(row["rostrolong"].ToString());
                                             if (objCZKEM.SetUserFaceStr(1, idtrab, 50, RostroTmp, rostrolong))
-                                              bBanderaRostro = true;
-                                            
+                                                bBanderaRostro = true;
+
                                         }
                                         catch
                                         {
@@ -770,7 +765,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     }
                                 }
 
-                                if (bBanderaHuella || bBanderaPass|| bBanderaRostro)
+                                if (bBanderaHuella || bBanderaPass || bBanderaRostro)
                                 {
                                     objReloj.RelojesxTrabajador(idtrab, 0, 7, "", "");
                                     bBandera = true;   // estaba con false pero lo voy a cambiar para que muestre el mensaje de exito al guardar                                
@@ -778,7 +773,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     progressBar1.Value = 90;
                                     progressBar1.Enabled = false;
                                 }
-                            }  
+                            }
 
                             if (bBandera) // es true
                             {
@@ -832,7 +827,9 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            panelAccion.Enabled = true;
+            // panelAccion.Enabled = true;
+            pnlMensaje.Visible = progressBar1.Visible = panelTag.Visible = false;
+            pnlMensaje.Enabled = progressBar1.Enabled = panelTag.Enabled = false;
             progressBar1.Visible = false;
             pnlMensaje.Visible = false;
             timer1.Stop();
@@ -1175,9 +1172,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         private void btnFace_Click(object sender, EventArgs e)
         {
-            ProcesoReloj("Face");
-            //RegistrarHuella Nueva = new RegistrarHuella();
-            //Nueva.Show(); 
+            //ProcesoReloj("Face");
             ltReloj.Clear(); 
             
         }
@@ -1185,115 +1180,128 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         private void btnHuella_Click(object sender, EventArgs e)
         {
           
-
-
-
-
-
-
-
-            ProcesoReloj("Huella");
-            ProcesoReloj("Face");
-            ProcesoReloj("Pass");
+            ProcesoReloj();
+           // ProcesoReloj("Face");
+            //ProcesoReloj("Pass");
             ltReloj.Clear();
+            LlenarGrid(6, 0, "%", "%", "%", 0, "", "");
 
         }
         private void btnKey_Click(object sender, EventArgs e)
         {
-            ProcesoReloj("Pass");
+            //ProcesoReloj("Pass");
             ltReloj.Clear();
         }
 
 
-        public void ProcesoReloj(string Opcion) {
+        public void ProcesoReloj() {
 
             if (ltReloj.Count > 0)
             {
                 progressBar1.Visible = true;
                 progressBar1.Value = 20;
-                panelAccion.Enabled = false;
-                pnlMensaje.Enabled = false;
                 objCZKEM = new CZKEMClass();
-
                 int iCont = 0;
+                pnlMensaje.Visible  = progressBar1.Visible = panelTag.Visible = true;
+                pnlMensaje.Enabled  = progressBar1.Enabled = panelTag.Enabled = true; 
+
                 foreach (Reloj obj in ltReloj)
                 {
-
+                    
                     RelojChecador objReloj = new RelojChecador();
                     DataTable dt = objReloj.RelojesxTrabajador("%", obj.cvReloj, 6, "%", "%");
                     if (dt.Rows.Count < 1)
                     {
-                        panelAccion.Enabled = true;
-                        pnlMensaje.Enabled = true;
+                      
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Este Reloj no tiene Personal Asignado.");
-                        panelTag.Update();
-                        //timer1.Start();
+                       
                         break;
                     }
                     iCont += 1;
-                    pnlMensaje.Enabled = true;
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj.Count);
-                    panelTag.Update();
                     progressBar1.Value = 40;
-                    pnlMensaje.Enabled = false;
-
                     bool bConexion = Connect_Net(obj.IpReloj, 4370);
                     if (bConexion != false)
                     {
                         objCZKEM.ReadAllUserID(1);
                         objCZKEM.ReadAllTemplate(1);
-                        bool bBandera = false;
-                        int iContTrab = 0;
+                        bool bBanderaPass, bBanderaHuella, bBanderaFace; 
+                        bBanderaPass= bBanderaHuella= bBanderaFace= false;
+                        int iContTrab  = 0;
                         foreach (DataRow row in dt.Rows)
                         {
                             iContTrab += 1;
                             string idTrab = row["idTrab"].ToString();
                             string cvreloj = row[1].ToString();
-                            bBandera = ConsultaReloj(Opcion, idTrab, iContTrab, dt.Rows.Count);
+                            bBanderaPass= ConsultaReloj("Pass", idTrab, iContTrab, dt.Rows.Count);
+                            progressBar1.Value = progressBar1.Value + (10 / dt.Rows.Count);
+                        }
+                        iContTrab = 0; 
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            iContTrab += 1;
+                            string idTrab = row["idTrab"].ToString();
+                            string cvreloj = row[1].ToString();
+                            bBanderaHuella= ConsultaReloj("Huella", idTrab, iContTrab, dt.Rows.Count);
+                            progressBar1.Value = progressBar1.Value + (10 / dt.Rows.Count);
+                        }
+                        iContTrab = 0;
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            iContTrab += 1;
+                            string idTrab = row["idTrab"].ToString();
+                            string cvreloj = row[1].ToString();
+                            bBanderaFace= ConsultaReloj("Face", idTrab, iContTrab, dt.Rows.Count);
                             progressBar1.Value = progressBar1.Value + (10 / dt.Rows.Count);
                         }
                         objCZKEM.Disconnect();
                         progressBar1.Value = 90;
-                        if (bBandera != true)
+                        if (bBanderaHuella)
                         {
-                            pnlMensaje.Enabled = true;
+                            
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Huellas guardadas correctamente");
+                            System.Threading.Thread.Sleep(500);
                             objReloj.obtrelojeschecadores(8, obj.cvReloj, "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registros Guardados correctamente.");
-                            panelTag.Update();
-                            pnlMensaje.Enabled = false;
-                            timer1.Start();
-
                         }
                         else
                         {
-                            pnlMensaje.Enabled = true;
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Uno o más registro no se insertaron correctamente en el dispositivo. Favor de repetir el proceso.");
-                            panelTag.Update();
-                            pnlMensaje.Enabled = false;
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Uno o más registro no se insertaron correctamente en el dispositivo. Favor de repetir el proceso.");
                             timer1.Start();
                         }
-
-
+                        if (bBanderaFace)
+                        {
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Rostros guardados correctamente");
+                            System.Threading.Thread.Sleep(500);
+                            objReloj.obtrelojeschecadores(8, obj.cvReloj, "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
+                        }
+                        else
+                        {
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Uno o más registro no se insertaron correctamente en el dispositivo. Favor de repetir el proceso.");
+                            timer1.Start();
+                        }
+                        if (bBanderaPass)
+                        {
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Contraseñas guardadas correctamente");
+                            System.Threading.Thread.Sleep(500);
+                            objReloj.obtrelojeschecadores(8, obj.cvReloj, "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
+                        }
+                        else
+                        {
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Uno o más registro no se insertaron correctamente en el dispositivo. Favor de repetir el proceso.");
+                            timer1.Start();
+                        }
+                    
                     }
                     else
                     {
-                        pnlMensaje.Enabled = true;
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
-                        panelTag.Update();
-                        pnlMensaje.Enabled = false;
-                        timer1.Start();
-                        progressBar1.Visible = false;
-                        //  break;
+                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse al reloj: " + obj.Descripcion);
+                     timer1.Start();
                     }
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Termino el proceso para el reloj: " + obj.Descripcion);
+                    System.Threading.Thread.Sleep(500);//1000
                 }
-               
-                pnlMensaje.Enabled = true;
-                panelAccion.Enabled = true;
-                //ltReloj.Clear();
-                progressBar1.Value = 100;
-            
-                LlenarGrid(6, 0, "%", "%", "%", 0, "", "");
-                timer1.Start();
+              progressBar1.Value = 100;
+              timer1.Start();
             }
             else
             {
@@ -1303,41 +1311,35 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         }
 
-        public bool ConsultaReloj(string Opcion, string idtrab, int iContTrab, int iTotal) {
+        public bool ConsultaReloj(string Opcion, string idtrab, int iContTrab, int iTotal)
+        {
 
-            
             string sFaceTmp = "";
-           // byte tmp = new byte();
             int iFaceLong = 0;
-            bool bBandera = false;
+
+            bool bBandera= false;
          
             switch (Opcion)
             {
 
                 case "Face":
-                   
-                    pnlMensaje.Enabled = true;
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Obteniendo Imagen de Trabajador " + iContTrab + " de " + iTotal);
-                    pnlMensaje.Enabled = false;
-                    if (!objCZKEM.GetUserFaceStr(1, idtrab, 50, ref sFaceTmp, ref iFaceLong)) { bBandera = true; }
-                    else
+                   Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Obteniendo Rostro de Trabajador " + iContTrab + " de " + iTotal);
+                    if (objCZKEM.GetUserFaceStr(1, idtrab, 50, ref sFaceTmp, ref iFaceLong))
                     {
                         SonaTrabajador objTrab = new SonaTrabajador();
                         try
                         {
                             objTrab.GestionIdentidad(idtrab, "", sFaceTmp, iFaceLong.ToString(), LoginInfo.IdTrab, Name, 7);
+                            bBandera = true;
                         }
-                        catch
-                        {
+                        catch{}
 
-                        }
+                       
                     }
+                    
                     break;
 
                 case "Huella":
-
-                    pnlMensaje.Enabled = true;
-                   // int iDedo = 0;
                     int flag = 0;
                     string huellatmp = "";
                     int tpmlong = 0;
@@ -1346,9 +1348,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     string sPass = "";
                     int iPrivilegio = 0;
                     bool bActivo = false;
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Obteniendo Template de Trabajador " + iContTrab + " de " + iTotal);
-                    pnlMensaje.Enabled = false;
-
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Obteniendo Huella de Trabajador " + iContTrab + " de " + iTotal);
                     
                     if (objCZKEM.SSR_GetAllUserInfo(1, out sIdTrab, out sNombre, out sPass, out iPrivilegio, out bActivo))
                     {
@@ -1359,72 +1359,41 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                 SonaTrabajador objTrab = new SonaTrabajador();
                                 try
                                 {
-                                    objTrab.GestionHuella(sIdTrab, huellatmp, iFinger, LoginInfo.IdTrab, this.Name, 5);
+                                    objTrab.GestionHuella(sIdTrab, huellatmp, iFinger, LoginInfo.IdTrab, Name, 5);
                                     bBandera = true;
                                 }
-                                catch
-                                {
-                                }
+                                catch{}
                             }
                         }
                     }
-                    // while (objCZKEM.SSR_GetAllUserInfo(1, out sIdTrab, out sNombre, out sPass, out iPrivilegio, out bActivo))
-                     //{
-
-                     //for (int iFinger = 0; iFinger < 10; iFinger++)
-                     //   {
-                     //    if (objCZKEM.GetUserTmpExStr(1, sIdTrab, iFinger, out flag, out huellatmp, out tpmlong))
-                     //    {
-                     //    SonaTrabajador objTrab = new SonaTrabajador();
-                     //     try
-                     //     {
-                     //      objTrab.GestionHuella(sIdTrab, huellatmp, 6, LoginInfo.IdTrab, this.Name, 5);
-                     //      bBandera = true;
-                     //     }
-                     //    catch
-                     //    {
-                     //    }
-                     //   }
-                     //  }
-                    
-                    //}
-
-
-
                     break;
 
 
                 case "Pass":
 
-                     string Nombre = "";
+                    string Nombre = "";
                     string Pass = "";
-                     iPrivilegio = 0;
-                     bActivo = false;
-                    pnlMensaje.Enabled = true;
+                    iPrivilegio = 0;
+                    bActivo = false;
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Obteniendo Contraseña de Trabajador " + iContTrab + " de " + iTotal);
-                    pnlMensaje.Enabled = false;
+                  
                     string Cifrado = "";
-                    if(!objCZKEM.SSR_GetUserInfo(1,idtrab, out Nombre, out Pass, out iPrivilegio, out bActivo))
-                    { bBandera = true; }
-                    else
+                    if(objCZKEM.SSR_GetUserInfo(1,idtrab, out Nombre, out Pass, out iPrivilegio, out bActivo))
                     {
-                        if (Pass != String.Empty) { 
-                         Cifrado = Utilerias.cifrarPass(Pass, 1);
-                         }
+                        if (Pass != String.Empty)
+                            Cifrado = Utilerias.cifrarPass(Pass, 1);
                         SonaTrabajador objTrab = new SonaTrabajador();
                         try
                         {
                             objTrab.GestionIdentidad(idtrab, Cifrado, "", "0", LoginInfo.IdTrab, this.Name, 6);
+                            bBandera = true;
                         }
-                        catch(Exception ex) {
-
-                        }
+                        catch {}
+                        
                     }
                     break;
-
-
             }
-
+            
             return bBandera;
         }
 
