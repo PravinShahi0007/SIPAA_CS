@@ -141,8 +141,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             cbopremio.Text = "";
             cbopasanom.Text = "";
             cboafect.Text = "";
-            cbformapago.Text = "";
-            cbformapago.Enabled = true;
             txtcampo.Text = "";
             ckbEliminar.Checked = false;
             cbostdir.Focus();
@@ -170,7 +168,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                     //verifica llave primaria
                     iverifpk = IncNom.rechincnominapk(6, Int32.Parse(cboincnombusq.SelectedValue.ToString()),
-                                                     Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
+                                                     Int32.Parse(cbostdir.SelectedValue.ToString()), 0,
                                                      Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
                                                      Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
                                                      txtcampo.Text.Trim(), "null", 1, LoginInfo.IdTrab, this.Name);
@@ -184,7 +182,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                         //inserta registro nuevo
                         iresp = IncNom.rechincnominasuid(1, Int32.Parse(cboincnombusq.SelectedValue.ToString()),
-                                                         Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
+                                                         Int32.Parse(cbostdir.SelectedValue.ToString()), 0,
                                                          Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
                                                          Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
                                                          txtcampo.Text.Trim(), "null", 1, LoginInfo.IdTrab, this.Name);
@@ -213,7 +211,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 //actualizar registro nuevo
                 iresp = IncNom.rechincnominasuid(2, Int32.Parse(cboincnombusq.SelectedValue.ToString()),
-                                                Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
+                                                Int32.Parse(cbostdir.SelectedValue.ToString()), 0,
                                                 Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
                                                 Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
                                                 txtcampo.Text.Trim(), "null", 1, LoginInfo.IdTrab, this.Name);
@@ -242,7 +240,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     iresp = IncNom.rechincnominasuid(3, Int32.Parse(cboincnombusq.SelectedValue.ToString()),
-                                                     Int32.Parse(cbostdir.SelectedValue.ToString()), Int32.Parse(cbformapago.SelectedValue.ToString()),
+                                                     Int32.Parse(cbostdir.SelectedValue.ToString()), 0,
                                                      Int32.Parse(cbopremio.SelectedValue.ToString()), Int32.Parse(cboafect.SelectedValue.ToString()),
                                                      Int32.Parse(cbopasanom.SelectedValue.ToString()), Int32.Parse(cbotipohr.SelectedValue.ToString()),
                                                      txtcampo.Text.Trim(), "null", 1, LoginInfo.IdTrab, this.Name);
@@ -361,7 +359,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             iins = Int32.Parse(Permisos.Rows[0][3].ToString());
             iact = Int32.Parse(Permisos.Rows[0][4].ToString());
             ielim = Int32.Parse(Permisos.Rows[0][5].ToString());
-
 
             iactbtn = 0;
             iresp = 0;
@@ -486,16 +483,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvincnomia.Columns[3].Visible = false;
             dgvincnomia.Columns[4].Visible = false;
             dgvincnomia.Columns[5].Visible = false;
-            dgvincnomia.Columns[6].Visible = false;
-            dgvincnomia.Columns[7].Width = 65;
-            dgvincnomia.Columns[8].Width = 110;
-            dgvincnomia.Columns[9].Width = 75;
-            dgvincnomia.Columns[10].Width = 180;
+            dgvincnomia.Columns[6].Width = 65;
+            dgvincnomia.Columns[7].Width = 75;
+            dgvincnomia.Columns[8].Width = 180;
+            dgvincnomia.Columns[9].Width = 90;
+            dgvincnomia.Columns[10].Width = 90;
             dgvincnomia.Columns[11].Width = 90;
-            dgvincnomia.Columns[12].Width = 90;
-            dgvincnomia.Columns[13].Width = 90;
-            dgvincnomia.Columns[14].Visible = false;
-            dgvincnomia.Columns[15].Visible = false;
+            dgvincnomia.Columns[12].Visible = false;
+            dgvincnomia.Columns[13].Visible = false;
             dgvincnomia.ClearSelection();
             lblModif.Visible = true;
         }
@@ -511,17 +506,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvincnomia.Columns[2].Visible = false;
             dgvincnomia.Columns[3].Visible = false;
             dgvincnomia.Columns[4].Visible = false;
-            dgvincnomia.Columns[5].Visible = false;
-            dgvincnomia.Columns[6].Visible = false;
-            dgvincnomia.Columns[7].Width = 65;
-            dgvincnomia.Columns[8].Width = 110;
-            dgvincnomia.Columns[9].Width = 75;
-            dgvincnomia.Columns[10].Width = 180;
-            dgvincnomia.Columns[11].Width = 90;
-            dgvincnomia.Columns[12].Width = 90;
-            dgvincnomia.Columns[13].Width = 90;
-            dgvincnomia.Columns[14].Visible = false;
-            dgvincnomia.Columns[15].Visible = false;
+            dgvincnomia.Columns[5].Width = 65;
+            dgvincnomia.Columns[6].Width = 65;
+            dgvincnomia.Columns[7].Width = 180;
+            dgvincnomia.Columns[8].Width = 90;
+            dgvincnomia.Columns[9].Width = 90;
+            dgvincnomia.Columns[10].Width = 120;
+            dgvincnomia.Columns[11].Visible = false;
+            dgvincnomia.Columns[12].Visible = false;
             dgvincnomia.ClearSelection();
             lblModif.Visible = false;
         }
@@ -529,7 +521,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void fcargarcbo()
         {
             Util.cargarcombo(cbostdir, IncNom.cboEsNoPr(5));
-            Util.cargarcombo(cbformapago, IncNom.cboPeriodoTipo(4));
             Util.cargarcombo(cbopremio, IncNom.cboEsNoPr(5));
             Util.cargarcombo(cboafect, IncNom.cboAfec(6));
             Util.cargarcombo(cbopasanom, IncNom.cboEsNoPr(5));
@@ -565,15 +556,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     cbostdir.Text = row.Cells["AutDir"].Value.ToString();
                     cbostdir.Enabled = false;
 
-                    Util.cargarcombo(cbformapago, IncNom.cboPeriodoTipo(4));
-                    cbformapago.Text = row.Cells["FormaPago"].Value.ToString();
-                    cbformapago.Enabled = false;
-
                     Util.cargarcombo(cbopremio, IncNom.cboEsNoPr(5));
                     cbopremio.Text = row.Cells["Premio"].Value.ToString();
                     cbopremio.Enabled = false;
 
-                    Util.cargarcombo(cboafect, IncNom.cboAfec(4));
+                    Util.cargarcombo(cboafect, IncNom.cboAfec(6));
                     cboafect.Text = row.Cells["ConceptoNomina"].Value.ToString();
 
                     Util.cargarcombo(cbopasanom, IncNom.cboEsNoPr(5));
@@ -598,9 +585,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             else if (cbostdir.Text == "") { svalidacampos = "Selecione si autoriza Director"; cbostdir.Focus(); }
             else if (cbostdir.SelectedIndex == -1) { svalidacampos = "Selecione si autoriza Director"; cbostdir.Focus(); }
-
-            else if (cbformapago.Text == "") { svalidacampos = "Selecione un periodo"; cbformapago.Focus(); }
-            else if (cbformapago.SelectedIndex == -1) { svalidacampos = "Selecione un periodo"; cbformapago.Focus(); }
 
             else if (cbopremio.Text == "") { svalidacampos = "Selecione si afecta premio"; cbopremio.Focus(); }
             else if (cbopremio.SelectedIndex == -1) { svalidacampos = "Selecione si afecta premio"; cbopremio.Focus(); }

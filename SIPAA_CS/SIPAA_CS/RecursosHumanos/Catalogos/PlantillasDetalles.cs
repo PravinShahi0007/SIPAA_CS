@@ -55,12 +55,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         Utilerias Util = new Utilerias();
         PlantillaDetalle PlantDet = new PlantillaDetalle();
+        Perfil DatPerfil = new Perfil();
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
 
-         //combo plantilla
+        //combo plantilla
         private void cbplantilla_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvrechcplantilla_d.DataSource = null;
@@ -95,19 +96,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 PlantDet.rechcplantilla_d_suid(1, icvplantilla, icvdia, mtbhrinijor.Text.Trim(), Int32.Parse(cbdiasalida.SelectedValue.ToString()),
                                               mtbhterminojornada.Text.Trim(), Int32.Parse(mtbmincomida.Text.Trim()), icvdia, mtbhrsalcomerd.Text.Trim(),
-                                              icvdia, mtbhrsalcomerh.Text.Trim(), Int32.Parse(mtbhrjornada.Text.Trim()), "nam", "PlantillasDEtalles");
+                                              icvdia, mtbhrsalcomerh.Text.Trim(), Int32.Parse(mtbhrjornada.Text.Trim()), LoginInfo.IdTrab, this.Name);
             }
             else if (iactbtn == 2)
             {
                 PlantDet.rechcplantilla_d_suid(2, icvplantilla, icvdia, mtbhrinijor.Text.Trim(), Int32.Parse(cbdiasalida.SelectedValue.ToString()),
                                               mtbhterminojornada.Text.Trim(), Int32.Parse(mtbmincomida.Text.Trim()), icvdia, mtbhrsalcomerd.Text.Trim(),
-                                              icvdia, mtbhrsalcomerh.Text.Trim(), Int32.Parse(mtbhrjornada.Text.Trim()), "nam", "PlantillasDEtalles");
+                                              icvdia, mtbhrsalcomerh.Text.Trim(), Int32.Parse(mtbhrjornada.Text.Trim()), LoginInfo.IdTrab, this.Name);
             }
             else if (iactbtn == 3)
             {
                 PlantDet.rechcplantilla_d_suid(3, icvplantilla, icvdia, mtbhrinijor.Text.Trim(), Int32.Parse(cbdiasalida.SelectedValue.ToString()),
                                               mtbhterminojornada.Text.Trim(), Int32.Parse(mtbmincomida.Text.Trim()), icvdia, mtbhrsalcomerd.Text.Trim(),
-                                              icvdia, mtbhrsalcomerh.Text.Trim(), Int32.Parse(mtbhrjornada.Text.Trim()), "nam", "PlantillasDEtalles");
+                                              icvdia, mtbhrsalcomerh.Text.Trim(), Int32.Parse(mtbhrjornada.Text.Trim()), LoginInfo.IdTrab, this.Name);
             }
             else
             {
@@ -201,10 +202,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //función para tool tip
             ftooltip();
 
-            //se cargan permisos de usuario
-            iins = 1;
-            iact = 1;
-            ielim = 1;
+            //variables accesos
+            DataTable Permisos = DatPerfil.accpantalla(LoginInfo.IdTrab, this.Name);
+            iins = Int32.Parse(Permisos.Rows[0][3].ToString());
+            iact = Int32.Parse(Permisos.Rows[0][4].ToString());
+            ielim = Int32.Parse(Permisos.Rows[0][5].ToString());
 
             //llena combo plantilla
             Util.cargarcombo(cbplantilla,PlantDet.cbplantilla(5));
