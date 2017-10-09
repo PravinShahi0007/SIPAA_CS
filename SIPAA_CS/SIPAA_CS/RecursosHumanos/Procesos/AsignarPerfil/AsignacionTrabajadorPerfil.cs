@@ -584,13 +584,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     {
                         
                         RelojChecador objReloj = new RelojChecador();
-                       // objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
-                        objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 3, sUsuuMod, Name);
+                                           objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 3, sUsuuMod, Name);
                         if (this.chkAdmin.Checked==true)
                         objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 13, sUsuuMod, Name);
                         int iCont = 0;
-                       // RelojChecador objReloj = new RelojChecador();
-                        //objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 3, sUsuuMod, Name);//borra asignaciones de reloj                  
+                                  
                         bool bConexion = false;
                         foreach (Reloj obj in ltReloj2)
                         {
