@@ -23,7 +23,7 @@
               <xs:element name="IdTrab" msprop:Generator_ColumnVarNameInTable="columnIdTrab" msprop:Generator_ColumnPropNameInRow="IdTrab" msprop:Generator_ColumnPropNameInTable="IdTrabColumn" msprop:Generator_UserColumnName="IdTrab" type="xs:string" minOccurs="0" />
               <xs:element name="Empleado" msprop:Generator_ColumnVarNameInTable="columnEmpleado" msprop:Generator_ColumnPropNameInRow="Empleado" msprop:Generator_ColumnPropNameInTable="EmpleadoColumn" msprop:Generator_UserColumnName="Empleado" type="xs:string" minOccurs="0" />
               <xs:element name="FRegistro" msprop:Generator_ColumnVarNameInTable="columnFRegistro" msprop:Generator_ColumnPropNameInRow="FRegistro" msprop:Generator_ColumnPropNameInTable="FRegistroColumn" msprop:Generator_UserColumnName="FRegistro" type="xs:string" minOccurs="0" />
-              <xs:element name="StatusDir" msprop:Generator_ColumnVarNameInTable="columnStatusDir" msprop:Generator_ColumnPropNameInRow="StatusDir" msprop:Generator_ColumnPropNameInTable="StatusDirColumn" msprop:Generator_UserColumnName="StatusDir" type="xs:string" minOccurs="0" />
+              <xs:element name="StatusInc" msprop:Generator_ColumnVarNameInTable="columnStatusInc" msprop:Generator_ColumnPropNameInRow="StatusInc" msprop:Generator_ColumnPropNameInTable="StatusIncColumn" msprop:Generator_UserColumnName="StatusInc" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
