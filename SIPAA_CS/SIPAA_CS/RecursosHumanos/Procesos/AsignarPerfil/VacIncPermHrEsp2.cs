@@ -211,6 +211,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         //boton buscar empleados
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            btnAsignar.Text = "Asignar Datos";
+            btnAsignar.BackColor = Color.CornflowerBlue;
+
             if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbCompania.SelectedIndex.ToString()) <=0 & Convert.ToInt32(cbAreas.SelectedIndex.ToString()) <= 0 
                 & Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) <=0 
                 & Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) <= 0)
