@@ -89,8 +89,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@P_Orden", SqlDbType.Int).Value = iOrden;
             cmd.Parameters.Add("@P_Subsidio", SqlDbType.Int).Value = iSubsidio;
             cmd.Parameters.Add("@P_idtrabrys", SqlDbType.Int).Value = iIdtrabrys;
-            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = sUsuumod;
-            cmd.Parameters.Add("@P_prgumon", SqlDbType.VarChar).Value = sPrgumod;
+            cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = spusuumod;
+            cmd.Parameters.Add("@P_prgumon", SqlDbType.VarChar).Value = spprgumod;
             cmd.Parameters.Add("@P_IdCompania", SqlDbType.Int).Value = iIdCompania;
             cmd.Parameters.Add("@P_IdPlanta", SqlDbType.Int).Value = iIPlanta;
             objConexion.asignarConexion(cmd);
