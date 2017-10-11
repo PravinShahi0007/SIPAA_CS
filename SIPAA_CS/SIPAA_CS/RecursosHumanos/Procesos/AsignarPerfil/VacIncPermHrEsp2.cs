@@ -123,7 +123,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             mtxtHoraSalida.Text = "";
             cbConcepto.Enabled = true;
             cbTipo.Enabled = true;
-            dtpFechaInical.Enabled = false;
+            dtpFechaInical.Enabled = true;
+            btnAsignar.Visible = false;
 
             for (int iContador = 0; iContador < dgvEmpleados.Rows.Count; iContador++)
             {
@@ -165,6 +166,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 dgvInc.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
 
+            btnAsignar.Visible = true;
             btnAsignar.Text = "Actualizar Datos";
             btnAsignar.BackColor = Color.Red;
 
@@ -179,6 +181,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 cbTipo.Text = row.Cells["Tipo"].Value.ToString();
                 cbTipo.Enabled = false;
                 dtpFechaInical.Text = row.Cells["Fecha Inicial"].Value.ToString();
+                dtpFechaInical.Enabled = false;
                 dtpFechaFinal.Text = row.Cells["Fecha Final"].Value.ToString();
 
                 if (row.Cells["Hora Entrada"].Value.ToString()=="")
@@ -213,6 +216,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             btnAsignar.Text = "Asignar Datos";
             btnAsignar.BackColor = Color.CornflowerBlue;
+            cbConcepto.Enabled = true;
+            cbTipo.Enabled = true;
+            dtpFechaInical.Enabled = true;
 
             if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbCompania.SelectedIndex.ToString()) <=0 & Convert.ToInt32(cbAreas.SelectedIndex.ToString()) <= 0 
                 & Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) <=0 
@@ -475,7 +481,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             Utilerias.AgregarCheck(dgvInc, 0);
             dgvInc.ClearSelection();
-
+                
         }
 
         private void CbConceptoIncidencia(int p_opcion, int p_cvIncidencia, string p_descripcion, int p_orden, int p_stgenera, int p_strepresenta, int p_stincidencia, string p_usuumod, string p_prgumodr)
@@ -504,7 +510,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     lblMensaje.Text = "Problemas al realizar la Operación, avise a Sistemas.";
                     break;
             }
-
         }
 
         //funcion validar campos
