@@ -320,7 +320,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "IncidenciasExtSuspRetroGeneral.cs")
+                if (f.Name != "IncidenciasExtSuspRetroGeneral")
                 {
                     f.Hide();
                 }
@@ -332,7 +332,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             lblusuario.Text = LoginInfo.Nombre;
 
             // Diccionario Permisos x Pantalla
-            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
+            DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, "IncidenciasExtSuspRetroGeneral");
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);
             //////////////////////////////////////////////////////
             // resize 

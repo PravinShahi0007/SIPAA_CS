@@ -65,6 +65,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 if (Int32.Parse(cbtiponomina.SelectedValue.ToString()) == 0)
                 {
                     DialogResult result = MessageBox.Show("Seleccione un tipo de nomina", "SIPAA");
+                    cbtiponomina.Focus();
                 }
                 else
                 {
@@ -124,7 +125,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 FormCollection formulariosApp = Application.OpenForms;
                 foreach (Form f in formulariosApp)
                 {
-                    if (f.Name != "ProcesaIncidencias.cs")
+                    if (f.Name != this.Name)
                     {
                         f.Hide();
                     }
@@ -216,16 +217,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void fgregistros(int iopc, int iformapago, int iidtrab)
         {
-
             DataTable dtcompania = ProcesaInc.dgvregistros(iopc, iformapago, iidtrab);
             dgvregistros.DataSource = dtcompania;
 
-            dgvregistros.Columns[0].Width = 300;//empleado
-            dgvregistros.Columns[1].Width = 90;//forma de pago
-            dgvregistros.Columns[2].Width = 90;//horario
-            dgvregistros.Columns[3].Width = 80;//reloj
-            dgvregistros.Columns[4].Width = 90;//fecha
-            dgvregistros.Columns[5].Width = 130;//registro
+            dgvregistros.Columns[0].Width = 400;//empleado
+            dgvregistros.Columns[1].Width = 140;//forma de pago
+            dgvregistros.Columns[2].Width = 95;//horario
+            dgvregistros.Columns[3].Width = 130;//reloj
+            dgvregistros.Columns[4].Width = 100;//fecha
+            dgvregistros.Columns[5].Width = 90;//registro
 
             dgvregistros.ClearSelection();
         }
