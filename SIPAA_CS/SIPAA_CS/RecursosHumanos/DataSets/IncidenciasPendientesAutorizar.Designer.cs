@@ -295,7 +295,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnFRegistro;
             
-            private global::System.Data.DataColumn columnStatusDir;
+            private global::System.Data.DataColumn columnStatusInc;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -396,9 +396,9 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn StatusDirColumn {
+            public global::System.Data.DataColumn StatusIncColumn {
                 get {
-                    return this.columnStatusDir;
+                    return this.columnStatusInc;
                 }
             }
             
@@ -439,7 +439,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public IncidenciasPendientesAutorizarRow AddIncidenciasPendientesAutorizarRow(string Compania, string Ubicacion, string TipoNomina, string IdTrabDir, string Director, string IdTrab, string Empleado, string FRegistro, string StatusDir) {
+            public IncidenciasPendientesAutorizarRow AddIncidenciasPendientesAutorizarRow(string Compania, string Ubicacion, string TipoNomina, string IdTrabDir, string Director, string IdTrab, string Empleado, string FRegistro, string StatusInc) {
                 IncidenciasPendientesAutorizarRow rowIncidenciasPendientesAutorizarRow = ((IncidenciasPendientesAutorizarRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Compania,
@@ -450,7 +450,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         IdTrab,
                         Empleado,
                         FRegistro,
-                        StatusDir};
+                        StatusInc};
                 rowIncidenciasPendientesAutorizarRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowIncidenciasPendientesAutorizarRow);
                 return rowIncidenciasPendientesAutorizarRow;
@@ -481,7 +481,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.columnIdTrab = base.Columns["IdTrab"];
                 this.columnEmpleado = base.Columns["Empleado"];
                 this.columnFRegistro = base.Columns["FRegistro"];
-                this.columnStatusDir = base.Columns["StatusDir"];
+                this.columnStatusInc = base.Columns["StatusInc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -503,8 +503,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnEmpleado);
                 this.columnFRegistro = new global::System.Data.DataColumn("FRegistro", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFRegistro);
-                this.columnStatusDir = new global::System.Data.DataColumn("StatusDir", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStatusDir);
+                this.columnStatusInc = new global::System.Data.DataColumn("StatusInc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatusInc);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_IncidenciasPendientesAutorizar");
                 this.ExtendedProperties.Add("Generator_UserTableName", "IncidenciasPendientesAutorizar");
             }
@@ -785,18 +785,18 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string StatusDir {
+            public string StatusInc {
                 get {
                     try {
-                        return ((string)(this[this.tableIncidenciasPendientesAutorizar.StatusDirColumn]));
+                        return ((string)(this[this.tableIncidenciasPendientesAutorizar.StatusIncColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'StatusDir\' de la tabla \'IncidenciasPendientesAutorizar\' e" +
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'StatusInc\' de la tabla \'IncidenciasPendientesAutorizar\' e" +
                                 "s DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableIncidenciasPendientesAutorizar.StatusDirColumn] = value;
+                    this[this.tableIncidenciasPendientesAutorizar.StatusIncColumn] = value;
                 }
             }
             
@@ -898,14 +898,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsStatusDirNull() {
-                return this.IsNull(this.tableIncidenciasPendientesAutorizar.StatusDirColumn);
+            public bool IsStatusIncNull() {
+                return this.IsNull(this.tableIncidenciasPendientesAutorizar.StatusIncColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetStatusDirNull() {
-                this[this.tableIncidenciasPendientesAutorizar.StatusDirColumn] = global::System.Convert.DBNull;
+            public void SetStatusIncNull() {
+                this[this.tableIncidenciasPendientesAutorizar.StatusIncColumn] = global::System.Convert.DBNull;
             }
         }
         

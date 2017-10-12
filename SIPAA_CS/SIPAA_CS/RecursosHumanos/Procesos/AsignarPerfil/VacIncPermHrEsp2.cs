@@ -64,135 +64,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
         }
 
-        private void cbAreas_DropDown(object sender, EventArgs e)
-        {
-            if (cbCompania.SelectedValue.ToString() != "" | cbCompania.SelectedValue.ToString() != "Seleccionar")
-            {
-                //llenado de combo Areas
-                DataTable dtPlantel = objCia.ObtenerPlantelxCompania(9, cbCompania.SelectedValue.ToString(), "", "");
-                cbAreas.DataSource = dtPlantel;
-                cbAreas.DisplayMember = "Descripción";
-                cbAreas.ValueMember = "Clave";
-            }
-            else
-            {
-                MessageBox.Show("Debes elejir la Compañia", "SIPAA", MessageBoxButtons.OK);
-            }
-        }
-
-        //-----------------------------------------------------------------------------------------------
-        //                                      G R I D // S
-        //-----------------------------------------------------------------------------------------------
-
-        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            for (int iContador = 0; iContador < dgvEmpleados.Rows.Count; iContador++)
-            {
-                dgvEmpleados.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            }
-
-            if (dgvEmpleados.SelectedRows.Count != 0)
-            {
-                DataGridViewRow row = this.dgvEmpleados.SelectedRows[0];
-
-                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-
-                NoTrabajador = row.Cells["NoEmpleado"].Value.ToString();
-
-                llenarGridDiasEsp(NoTrabajador);
-
-                dgvInc.Columns[0].Width = 190;
-                dgvInc.Columns[1].Width = 190;
-                dgvInc.Columns[2].Width = 95;
-                dgvInc.Columns[3].Width = 95;
-                dgvInc.Columns[4].Width = 95;
-                dgvInc.Columns[5].Width = 95;
-                dgvInc.Columns[6].Width = 35;
-                dgvInc.Columns[7].Width = 110;
-                dgvInc.Columns[8].Width = 68;
-                ////Guajolocombo Conceptos Incidencia
-                //CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
-            }
-        }
-
-        //-----------------------------------------------------------------------------------------------
-        //                                     B O T O N E S
-        //-----------------------------------------------------------------------------------------------
-
-        //boton buscar empleados
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbCompania.SelectedIndex.ToString()) <=0 & Convert.ToInt32(cbAreas.SelectedIndex.ToString()) <= 0 
-                & Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) <=0 
-                & Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) <= 0)
-            {
-                MessageBox.Show("Debe seleccionar por lo menos un filtro de busqueda", "SIPAA", MessageBoxButtons.OK);
-                cbEmpleados.Focus();
-            }
-            else
-            { 
-                //llena grid Con Filtros
-                string fIdTrab = "%";
-                string fIdCompania = "%";
-                string fIdArea = "%";
-                string fIdPuesto = "%";
-                string fIdDepartamento = "%";
-                string fIdUbicacion = "%";
-                string fIdTipoNomina = "%";
-
-                if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) > 0)
-                {
-                    fIdTrab = cbEmpleados.SelectedValue.ToString();
-                }
-                
-                //if (cbCompania.SelectedValue.ToString() != "" & cbCompania.SelectedValue.ToString() != "Seleccionar")
-                if (Convert.ToInt32(cbCompania.SelectedIndex.ToString()) > 0)
-                {
-                    fIdCompania = cbCompania.SelectedValue.ToString();
-                }
-                //if (cbAreas.SelectedValue.ToString() != "" & cbAreas.SelectedValue.ToString() != "Seleccionar")
-                if (Convert.ToInt32(cbAreas.SelectedIndex.ToString()) > 0)
-                {
-                    fIdArea = cbAreas.SelectedValue.ToString();
-                }
-                //if (cbPuestos.SelectedValue.ToString() != "" & cbPuestos.SelectedValue.ToString() != "Seleccionar")
-                if (Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) > 0)
-                {
-                    fIdPuesto = cbPuestos.SelectedValue.ToString();
-                }
-                //if (cbDepartamentos.SelectedValue.ToString() != "")
-                if (Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) > 0)
-                {
-                    fIdDepartamento = cbDepartamentos.SelectedValue.ToString();
-                }
-                //if (cbUbicacion.SelectedValue.ToString() != "")
-                if (Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) > 0)
-                {
-                    fIdUbicacion = cbUbicacion.SelectedValue.ToString();
-                }
-                //if (cbTiponomina.SelectedValue.ToString() != "" & cbTiponomina.SelectedValue.ToString() != "Seleccionar")
-                if (Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) > 0)
-                {
-                    fIdTipoNomina = cbTiponomina.SelectedValue.ToString();
-                }
-                
-                //fgridEmpleados(3, txtEmpleado.Text.Trim()); //todos los activos x Num
-                fgridEmpleados(1,fIdTrab,fIdCompania,fIdArea,fIdPuesto,fIdDepartamento,fIdUbicacion,fIdTipoNomina);
-                dgvEmpleados.Columns[0].Width =85;
-                dgvEmpleados.Columns[1].Width =100;
-                dgvEmpleados.Columns[2].Width =300;
-                dgvEmpleados.Columns[3].Visible = false;
-                dgvEmpleados.Columns[4].Visible = false;
-                //Guajolocombo Conceptos Incidencia
-                CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
-                txtSubsidio.Text = "0";
-                txtDias.Text = "0";
-            }
-        }
-
         private void cbConcepto_DropDown(object sender, EventArgs e)
         {
-            cbTipo.Text=string.Empty;
+            cbTipo.Text = string.Empty;
         }
 
         private void cbTipo_DropDown(object sender, EventArgs e)
@@ -217,6 +91,202 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
         }
 
+        private void cbAreas_DropDown(object sender, EventArgs e)
+        {
+            if (cbCompania.SelectedValue.ToString() != "" | cbCompania.SelectedValue.ToString() != "Seleccionar")
+            {
+                //llenado de combo Areas
+                DataTable dtPlantel = objCia.ObtenerPlantelxCompania(9, cbCompania.SelectedValue.ToString(), "", "");
+                cbAreas.DataSource = dtPlantel;
+                cbAreas.DisplayMember = "Descripción";
+                cbAreas.ValueMember = "Clave";
+            }
+            else
+            {
+                MessageBox.Show("Debes elejir la Compañia", "SIPAA", MessageBoxButtons.OK);
+            }
+        }
+
+        //-----------------------------------------------------------------------------------------------
+        //                                      G R I D // S
+        //-----------------------------------------------------------------------------------------------
+
+        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            cbConcepto.Text = "";
+            cbTipo.Text = "";
+            txtReferencia.Text = "";
+            txtSubsidio.Text = "0";
+            dtpFechaInical.Text = "";
+            dtpFechaFinal.Text = "";
+            mtxtHoraEntrada.Text = "";
+            mtxtHoraSalida.Text = "";
+            cbConcepto.Enabled = true;
+            cbTipo.Enabled = true;
+            dtpFechaInical.Enabled = true;
+            btnAsignar.Visible = false;
+
+            for (int iContador = 0; iContador < dgvEmpleados.Rows.Count; iContador++)
+            {
+                dgvEmpleados.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+            }
+
+            if (dgvEmpleados.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dgvEmpleados.SelectedRows[0];
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                NoTrabajador = row.Cells["NoEmpleado"].Value.ToString();
+
+                int icolumnas = dgvInc.ColumnCount;
+                if (icolumnas > 9)
+                {
+                    dgvInc.Columns.RemoveAt(0);
+                }
+
+                llenarGridDiasEsp(NoTrabajador);
+                dgvInc.Columns[0].Width = 80;
+                dgvInc.Columns[1].Visible=false; //cvinc
+                dgvInc.Columns[2].Width = 155;
+                dgvInc.Columns[3].Visible=false; //cvtipo
+                dgvInc.Columns[4].Width = 155;
+                dgvInc.Columns[5].Width = 85;
+                dgvInc.Columns[6].Width = 85;
+                dgvInc.Columns[7].Width = 85;
+                dgvInc.Columns[8].Width = 85;
+                dgvInc.Columns[9].Width = 40;
+                dgvInc.Columns[10].Width = 135;
+                dgvInc.Columns[11].Width = 68;
+            }
+        }
+
+        private void dgvInc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            for (int iContador = 0; iContador < dgvInc.Rows.Count; iContador++)
+            {
+                dgvInc.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+            }
+
+            btnAsignar.Visible = true;
+            btnAsignar.Text = "Actualizar Datos";
+            btnAsignar.BackColor = Color.Red;
+
+            if (dgvInc.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dgvInc.SelectedRows[0];
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                txtCvInc.Text = row.Cells["CvInc"].Value.ToString();
+                cbConcepto.Text = row.Cells["Incidencia"].Value.ToString();
+                cbConcepto.Enabled = false;          
+                txtCvTipo.Text = row.Cells["CvTipo"].Value.ToString();
+                cbTipo.Text = row.Cells["Tipo"].Value.ToString();
+                cbTipo.Enabled = false;
+                dtpFechaInical.Text = row.Cells["Fecha Inicial"].Value.ToString();
+                dtpFechaInical.Enabled = false;
+                dtpFechaFinal.Text = row.Cells["Fecha Final"].Value.ToString();
+
+                if (row.Cells["Hora Entrada"].Value.ToString()=="")
+                {
+                    mtxtHoraEntrada.Text = "00:00";
+                }
+                else
+                {
+                    mtxtHoraEntrada.Text = row.Cells["Hora Entrada"].Value.ToString();
+                }
+
+                if (row.Cells["Hora Salida"].Value.ToString()=="")
+                {
+                    mtxtHoraSalida.Text = "00:00";
+                }
+                else
+                {
+                    mtxtHoraSalida.Text = row.Cells["Hora Salida"].Value.ToString();
+                }                                
+                txtDias.Text = row.Cells["Días"].Value.ToString();
+                txtReferencia.Text = row.Cells["Referencia"].Value.ToString();
+                txtSubsidio.Text = row.Cells["Subsidio %"].Value.ToString();
+            }
+        }
+
+        //-----------------------------------------------------------------------------------------------
+        //                                     B O T O N E S
+        //-----------------------------------------------------------------------------------------------
+
+        //boton buscar empleados
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            btnAsignar.Text = "Asignar Datos";
+            btnAsignar.BackColor = Color.CornflowerBlue;
+            cbConcepto.Enabled = true;
+            cbTipo.Enabled = true;
+            dtpFechaInical.Enabled = true;
+
+            if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbCompania.SelectedIndex.ToString()) <=0 & Convert.ToInt32(cbAreas.SelectedIndex.ToString()) <= 0 
+                & Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) <=0 
+                & Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) <= 0)
+            {
+                MessageBox.Show("Debe seleccionar por lo menos un filtro de busqueda", "SIPAA", MessageBoxButtons.OK);
+                cbEmpleados.Focus();
+            }
+            else
+            {
+                dgvInc.Columns.Clear();
+                //llena grid Con Filtros
+                string fIdTrab = "%";
+                string fIdCompania = "%";
+                string fIdArea = "%";
+                string fIdPuesto = "%";
+                string fIdDepartamento = "%";
+                string fIdUbicacion = "%";
+                string fIdTipoNomina = "%";
+
+                if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) > 0)
+                {
+                    fIdTrab = cbEmpleados.SelectedValue.ToString();
+                }
+                if (Convert.ToInt32(cbCompania.SelectedIndex.ToString()) > 0)
+                {
+                    fIdCompania = cbCompania.SelectedValue.ToString();
+                }
+                if (Convert.ToInt32(cbAreas.SelectedIndex.ToString()) > 0)
+                {
+                    fIdArea = cbAreas.SelectedValue.ToString();
+                }
+                if (Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) > 0)
+                {
+                    fIdPuesto = cbPuestos.SelectedValue.ToString();
+                }
+                if (Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) > 0)
+                {
+                    fIdDepartamento = cbDepartamentos.SelectedValue.ToString();
+                }
+                if (Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) > 0)
+                {
+                    fIdUbicacion = cbUbicacion.SelectedValue.ToString();
+                }
+                if (Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) > 0)
+                {
+                    fIdTipoNomina = cbTiponomina.SelectedValue.ToString();
+                }
+
+                int icolumnas =dgvEmpleados.ColumnCount;
+                if (icolumnas > 2)
+                {
+                    dgvEmpleados.Columns.RemoveAt(0);
+                }
+                fgridEmpleados(1,fIdTrab,fIdCompania,fIdArea,fIdPuesto,fIdDepartamento,fIdUbicacion,fIdTipoNomina);
+                dgvEmpleados.Columns[0].Width =85;
+                dgvEmpleados.Columns[1].Width =100;
+                dgvEmpleados.Columns[2].Width =300;
+                dgvEmpleados.Columns[3].Visible = false;
+                dgvEmpleados.Columns[4].Visible = false;
+
+                //Guajolocombo Conceptos Incidencia
+                CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
+                txtSubsidio.Text = "0";
+                txtDias.Text = "0";
+            }
+        }
+
         private void btnAsignar_Click(object sender, EventArgs e)
         {
             ///Aqui hay que asignar los valores en la tabla
@@ -230,26 +300,59 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
             else
             {
-
                 string usuumod = LoginInfo.IdTrab;
                 string prgumod = this.Name;
-               
-                foreach (DataGridViewRow row in dgvEmpleados.Rows)
+
+                if (btnAsignar.Text!="Asignar Datos")
                 {
-                    try
+                    foreach (DataGridViewRow row in dgvEmpleados.Rows)
                     {
-                       int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
-                       fInsDiasEsp(iIdTrab, 1, Convert.ToInt32(cbConcepto.SelectedValue.ToString()), Convert.ToInt32(cbTipo.SelectedValue.ToString()), dtpFechaInical.Text.Trim(),
-                       dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), mtxtHoraEntrada.Text.Trim(), mtxtHoraSalida.Text.Trim(), txtReferencia.Text, 4,
-                       Convert.ToInt32(txtSubsidio.Text), 0, usuumod, prgumod, 0, 0);
-                       panelTag.Visible = true;
-                       timer1.Start();
-                       frecargar();
+                        try
+                        {
+                            if (row.Selected)
+                            {
+                                int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
+
+                                fInsDiasEsp(iIdTrab, 2, Convert.ToInt32(txtCvInc.Text.ToString()), Convert.ToInt32(txtCvTipo.Text.ToString()), dtpFechaInical.Text.Trim(),
+                                dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), mtxtHoraEntrada.Text.Trim(), mtxtHoraSalida.Text.Trim(), txtReferencia.Text, 4,
+                                Convert.ToInt32(txtSubsidio.Text), 0, usuumod.ToString(), prgumod.ToString(), 0, 0);
+
+                                panelTag.Visible = true;
+                                timer1.Start();
+
+                                int icolumnas = dgvInc.ColumnCount;
+                                if (icolumnas > 9)
+                                {
+                                    dgvInc.Columns.RemoveAt(0);
+                                }
+                                llenarGridDiasEsp(NoTrabajador);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
                     }
-                    catch (Exception ex)
+                }
+                else
+                {
+                    foreach (DataGridViewRow row in dgvEmpleados.Rows)
                     {
-                        MessageBox.Show(ex.ToString());
+                        try
+                        {
+                            int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
+                            fInsDiasEsp(iIdTrab, 1, Convert.ToInt32(cbConcepto.SelectedValue.ToString()), Convert.ToInt32(cbTipo.SelectedValue.ToString()), dtpFechaInical.Text.Trim(),
+                            dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), mtxtHoraEntrada.Text.Trim(), mtxtHoraSalida.Text.Trim(), txtReferencia.Text, 4,
+                            Convert.ToInt32(txtSubsidio.Text), 0, usuumod.ToString(), prgumod.ToString(), 0, 0);
+                            panelTag.Visible = true;
+                            timer1.Start();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
                     }
+                    frecargar();
                 }
             }
         }
@@ -375,6 +478,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             objDia.sIdTrab = NoTrabajador;
             DataTable dtdias = objDia.ObtenerDiasEspecialesxTrabajador(objDia, 4);
             dgvInc.DataSource = dtdias;
+
+            Utilerias.AgregarCheck(dgvInc, 0);
+            dgvInc.ClearSelection();
+                
         }
 
         private void CbConceptoIncidencia(int p_opcion, int p_cvIncidencia, string p_descripcion, int p_orden, int p_stgenera, int p_strepresenta, int p_stincidencia, string p_usuumod, string p_prgumodr)
@@ -396,11 +503,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 case "1":
                     lblMensaje.Text = "La Asignación se llevo a cabo correctamente";
                     break;
+                case "2":
+                    lblMensaje.Text = "La Actualización se llevo a cabo correctamente";
+                    break;
                 case "":
-                    lblMensaje.Text = "Problemas en la Asignación, avise a Sistemas.";
+                    lblMensaje.Text = "Problemas al realizar la Operación, avise a Sistemas.";
                     break;
             }
-
         }
 
         //funcion validar campos
