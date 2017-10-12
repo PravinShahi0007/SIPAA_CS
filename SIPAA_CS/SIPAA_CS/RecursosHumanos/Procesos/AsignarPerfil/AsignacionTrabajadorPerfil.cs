@@ -1343,6 +1343,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
 
             Utilerias.ImprimirAsignacionesGrid(dgvReloj, 0, 1, ltRelojxUsuario);
+            int admin = 0;
+            DataTable dt2 = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
+            foreach (DataRow row in dt2.Rows)
+            {
+                if (Convert.ToBoolean(row["administrador"].ToString()))
+                    admin = 1;
+            }
+            if (admin != 0)
+                chkAdmin.Checked = true;
         }
 
 
@@ -1414,15 +1423,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvReloj.Columns[9].Visible = false;*/
             dgvReloj.ClearSelection();
             
-            int admin = 0;
-            DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
-            foreach (DataRow row in dt.Rows)
-             {
-                 if (Convert.ToBoolean(row["administrador"].ToString()))
-                    admin = 1;
-              }
-            if (admin != 0)
-                chkAdmin.Checked = true;
+           // int admin = 0;
+           // DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
+           // foreach (DataRow row in dt.Rows)
+           //  {
+           //      if (Convert.ToBoolean(row["administrador"].ToString()))
+           //         admin = 1;
+           //   }
+           //if (admin != 0)
+           //   chkAdmin.Checked = true;
            
           }
 
@@ -1887,7 +1896,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             if (chkAdmin.Checked==true)
             {
                 relojseleccionados();
-                PanelReloj.Enabled = true;
+                //PanelReloj.Enabled = true;
                 if (ltReloj2.Count == ltRelojxUsuario.Count)
                 {
                     RelojChecador objReloj = new RelojChecador();
@@ -1898,7 +1907,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             else
             {
                 relojseleccionados();
-                PanelReloj.Enabled = true;
+               // PanelReloj.Enabled = true;
                 if (ltReloj2.Count == ltRelojxUsuario.Count)
                 {
                     RelojChecador objReloj = new RelojChecador();
