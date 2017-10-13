@@ -395,16 +395,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     horasTrabajo = tsEntrada - tsSalida;
                 TimeSpan tsComidaInicio = TimeSpan.Parse(objHorario.sHoraComidaInicio);
                 TimeSpan tsComidaFin = TimeSpan.Parse(objHorario.sHoraComidaFin);
-                TimeSpan MinComida = tsComidaFin - tsComidaInicio;
-                string MinutosComida = (60 * MinComida.Hours).ToString();
+                int MinComida = tsComidaFin.Minutes - tsComidaInicio.Minutes; 
+                //string MinutosComida = (60 * MinComida.Hours).ToString();
 
                 if (horasTrabajo.Hours.ToString() != mtxtTiempoTrabajo.Text)
                 {
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El número total de horas no concuerda con la hora de Entrada y Salida.");
                     timer1.Start();
                 }
-                else if (tsComidaInicio < tsEntrada || tsComidaFin < tsEntrada
-                   || tsComidaInicio > tsSalida || tsComidaFin > tsSalida)
+                else if ((MinComida > 0) && (tsComidaInicio < tsEntrada || tsComidaFin < tsEntrada
+                   || tsComidaInicio > tsSalida || tsComidaFin > tsSalida))
                 {
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El horario de Comida debe ser entre la hora de Entrada y Salida.");
                     timer1.Start();
@@ -737,7 +737,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             TimeSpan ts = new TimeSpan();
             TimeSpan tsComidaInicio = new TimeSpan();
             TimeSpan tsComidaFin = new TimeSpan();
-            TimeSpan tsMinutos = new TimeSpan();
+            int tsMinutos = 0;
             if (TimeSpan.TryParse(mtxtComidaInicio.Text, out ts) && TimeSpan.TryParse(mtxtComidaFin.Text, out ts))
             {
                 tsComidaInicio = TimeSpan.Parse(mtxtComidaInicio.Text);
@@ -756,10 +756,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             }
 
-            tsMinutos = tsComidaFin - tsComidaInicio;
+            tsMinutos = tsComidaFin.Minutes - tsComidaInicio.Minutes;
 
 
-            mtxtTiempoComida.Text = (60 * (tsMinutos.Hours)).ToString();
+            mtxtTiempoComida.Text = tsMinutos.ToString();
         }
 
         private void mtxtSalida_Leave(object sender, EventArgs e)
