@@ -421,7 +421,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "Mensajes.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -813,6 +813,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 //Utilerias.AgregarCheck(dgv, 0);
 
             }*/
-        } 
+        }
     }
 }
