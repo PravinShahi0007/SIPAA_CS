@@ -252,8 +252,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
                     if (bConexion != false)
                     {
-                       // EliminaMensajesReloj();
-                        p_rep = pantallaMensajes.fudimensajes(1, 1, 0, txtmensajeiu.Text, dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+                        EliminaMensajesReloj();
+                        p_rep = pantallaMensajes.fudimensajes(1, 1, 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                         EliminaMensajesReloj();
                         int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
                         objCZKEM.SetSMS(1, max, tag, Horas, dtpfechainicial.Value.Year + "-" + dtpfechainicial.Value.Month + "-" + dtpfechainicial.Value.Day + " 00:01:00", txtmensajeiu.Text);
@@ -275,7 +275,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     
                     if (bConexion != false)
                     {
-                        p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), 0, txtmensajeiu.Text, dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+                        p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                         EliminaMensajesReloj();
                         int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
                         if (objCZKEM.SetSMS(1, max, tag, Horas, dtpfechainicial.Value.Year + "-" + dtpfechainicial.Value.Month + "-" + dtpfechainicial.Value.Day + " 00:01:00", txtmensajeiu.Text))
@@ -333,6 +333,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 panelTag.Visible = true;
                 cbEmpleados.Text = ""; 
                 txtmensajeiu.Text = "";
+               
                 cbEmpleados.Focus(); 
                 gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
                 ckbEliminar.Checked = false;
@@ -382,7 +383,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 }
             }
-            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
         }
         //boton minimizar
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -421,7 +421,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "Mensajes.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
@@ -813,6 +813,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 //Utilerias.AgregarCheck(dgv, 0);
 
             }*/
-        } 
+        }
     }
 }
