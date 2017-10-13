@@ -1275,7 +1275,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             objHorario.sHoraComidaInicio = row.Cells[8].Value.ToString();
             objHorario.sHoraComidaFin = row.Cells[10].Value.ToString();
             objHorario.iHorasTotalTrabajo = Convert.ToInt32(row.Cells[11].Value.ToString());
-            objHorario.iTiempoComida = Convert.ToInt32(row.Cells[6].Value.ToString());
+            string tmpcom = row.Cells[6].Value.ToString();
+            objHorario.iTiempoComida = Convert.ToInt32(tmpcom.Equals(string.Empty)? "0" : tmpcom);
 
             objHorario.iCvDia = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[2].Value.ToString()));
             objHorario.iCvdiaSalidaTurno = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[4].Value.ToString()));
