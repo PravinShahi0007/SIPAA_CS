@@ -286,7 +286,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void btopcperfil_Click(object sender, EventArgs e)
         {
             TrabajadorInfo.IdTrab = iidtrabmodif;
-
             DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
             form.Show();
             this.Close();
@@ -508,6 +507,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 {
                     ckbcheca.Checked = true;
                 }
+
                 iidtrabmodif = row.Cells["Número Empleado"].Value.ToString();
 
                 //cb sup
