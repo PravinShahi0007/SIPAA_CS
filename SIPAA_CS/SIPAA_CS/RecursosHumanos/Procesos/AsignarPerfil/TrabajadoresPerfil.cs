@@ -363,6 +363,25 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
         }
 
+        private void txtconceptobusq_Enter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtconceptobusq_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtconceptobusq_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                btnbuscar_Click(sender, e);
+            }
+        }
+
         protected void fllenagridbusqueda(int iopc, string stxtb)
         {
 
