@@ -894,8 +894,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                             }
                             break;
-
-
+                            
                     }
                     
                 }
@@ -947,12 +946,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         {
             //  throw new NotImplementedException();
         }
-
-
-
-
-
-
+        
         public void BuscarTrabajador(string sIdTrab)
         {
 
@@ -1011,21 +1005,14 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             string sPass = "";
             int iPrivilegio = 0;
             bool bActivo = false;
-
             IZKEM obj = objCZKEM;
-
-
             if (obj.SSR_GetUserInfo(1, EnrollNumber, out sName, out sPass, out iPrivilegio, out bActivo))
             {
-
                 //lbMensaje.Text = EnrollNumber.ToString();
                 //label3.Text = sName;
-
                 string sDia = Utilerias.ObtenerNombreDiaSemana(DateTime.Now.Date.DayOfWeek.ToString());
                 //label5.Text = sDia;
-
                 //label4.Text = DateTime.Now.ToString("HH:mm:ss");
-
             }
 
         }
@@ -1045,16 +1032,12 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             //    string sPass = String.Empty;
             //    int iPrivilegio = 0;
             //    bool bActivo = false;
-
             //    int iFinger = 0;
             //    int iFlag = 0;
             //    string sTemplate = String.Empty;
             //    int iTemplatelength = 0;
-
             //    objCZKEM.ReadAllUserID(1);
             //    objCZKEM.ReadAllTemplate(1);
-
-
             //    DataTable dt = new DataTable();
             //    dt.Clear();
             //    dt.Columns.Add("IdTrab");
@@ -1063,9 +1046,6 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             //    dt.Columns.Add("Flag");
             //    dt.Columns.Add("Template");
             //    dt.Columns.Add("Tamaño");
-
-
-
             //    while (objCZKEM.SSR_GetAllUserInfo(1, out sIdTrab, out sNombre, out sPass, out iPrivilegio, out bActivo))
             //    {
             //        for (iFinger = 0; iFinger < 10; iFinger++)

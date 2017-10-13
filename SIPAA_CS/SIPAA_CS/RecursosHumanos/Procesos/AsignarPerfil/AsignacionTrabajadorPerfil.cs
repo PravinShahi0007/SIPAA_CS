@@ -395,16 +395,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     horasTrabajo = tsEntrada - tsSalida;
                 TimeSpan tsComidaInicio = TimeSpan.Parse(objHorario.sHoraComidaInicio);
                 TimeSpan tsComidaFin = TimeSpan.Parse(objHorario.sHoraComidaFin);
-                TimeSpan MinComida = tsComidaFin - tsComidaInicio;
-                string MinutosComida = (60 * MinComida.Hours).ToString();
+                int MinComida = tsComidaFin.Minutes - tsComidaInicio.Minutes; 
+                //string MinutosComida = (60 * MinComida.Hours).ToString();
 
                 if (horasTrabajo.Hours.ToString() != mtxtTiempoTrabajo.Text)
                 {
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El número total de horas no concuerda con la hora de Entrada y Salida.");
                     timer1.Start();
                 }
-                else if (tsComidaInicio < tsEntrada || tsComidaFin < tsEntrada
-                   || tsComidaInicio > tsSalida || tsComidaFin > tsSalida)
+                else if ((MinComida > 0) && (tsComidaInicio < tsEntrada || tsComidaFin < tsEntrada
+                   || tsComidaInicio > tsSalida || tsComidaFin > tsSalida))
                 {
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El horario de Comida debe ser entre la hora de Entrada y Salida.");
                     timer1.Start();
@@ -737,7 +737,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             TimeSpan ts = new TimeSpan();
             TimeSpan tsComidaInicio = new TimeSpan();
             TimeSpan tsComidaFin = new TimeSpan();
-            TimeSpan tsMinutos = new TimeSpan();
+            int tsMinutos = 0;
             if (TimeSpan.TryParse(mtxtComidaInicio.Text, out ts) && TimeSpan.TryParse(mtxtComidaFin.Text, out ts))
             {
                 tsComidaInicio = TimeSpan.Parse(mtxtComidaInicio.Text);
@@ -756,10 +756,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             }
 
-            tsMinutos = tsComidaFin - tsComidaInicio;
+            tsMinutos = tsComidaFin.Minutes - tsComidaInicio.Minutes;
 
 
-            mtxtTiempoComida.Text = (60 * (tsMinutos.Hours)).ToString();
+            mtxtTiempoComida.Text = tsMinutos.ToString();
         }
 
         private void mtxtSalida_Leave(object sender, EventArgs e)
@@ -1275,7 +1275,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             objHorario.sHoraComidaInicio = row.Cells[8].Value.ToString();
             objHorario.sHoraComidaFin = row.Cells[10].Value.ToString();
             objHorario.iHorasTotalTrabajo = Convert.ToInt32(row.Cells[11].Value.ToString());
-            objHorario.iTiempoComida = Convert.ToInt32(row.Cells[6].Value.ToString());
+            string tmpcom = row.Cells[6].Value.ToString();
+            objHorario.iTiempoComida = Convert.ToInt32(tmpcom.Equals(string.Empty)? "0" : tmpcom);
 
             objHorario.iCvDia = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[2].Value.ToString()));
             objHorario.iCvdiaSalidaTurno = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[4].Value.ToString()));
@@ -1343,6 +1344,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
 
             Utilerias.ImprimirAsignacionesGrid(dgvReloj, 0, 1, ltRelojxUsuario);
+            int admin = 0;
+            DataTable dt2 = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
+            foreach (DataRow row in dt2.Rows)
+            {
+                if (Convert.ToBoolean(row["administrador"].ToString()))
+                    admin = 1;
+            }
+            if (admin != 0)
+                chkAdmin.Checked = true;
         }
 
 
@@ -1414,15 +1424,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvReloj.Columns[9].Visible = false;*/
             dgvReloj.ClearSelection();
             
-            int admin = 0;
-            DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
-            foreach (DataRow row in dt.Rows)
-             {
-                 if (Convert.ToBoolean(row["administrador"].ToString()))
-                    admin = 1;
-              }
-            if (admin != 0)
-                chkAdmin.Checked = true;
+           // int admin = 0;
+           // DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
+           // foreach (DataRow row in dt.Rows)
+           //  {
+           //      if (Convert.ToBoolean(row["administrador"].ToString()))
+           //         admin = 1;
+           //   }
+           //if (admin != 0)
+           //   chkAdmin.Checked = true;
            
           }
 
@@ -1887,7 +1897,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             if (chkAdmin.Checked==true)
             {
                 relojseleccionados();
-                PanelReloj.Enabled = true;
+                //PanelReloj.Enabled = true;
                 if (ltReloj2.Count == ltRelojxUsuario.Count)
                 {
                     RelojChecador objReloj = new RelojChecador();
@@ -1898,7 +1908,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             else
             {
                 relojseleccionados();
-                PanelReloj.Enabled = true;
+               // PanelReloj.Enabled = true;
                 if (ltReloj2.Count == ltRelojxUsuario.Count)
                 {
                     RelojChecador objReloj = new RelojChecador();

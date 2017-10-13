@@ -286,7 +286,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void btopcperfil_Click(object sender, EventArgs e)
         {
             TrabajadorInfo.IdTrab = iidtrabmodif;
-
             DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
             form.Show();
             this.Close();
@@ -361,6 +360,25 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
             toolTip1.SetToolTip(this.btnMin, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
+        }
+
+        private void txtconceptobusq_Enter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtconceptobusq_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtconceptobusq_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                btnbuscar_Click(sender, e);
+            }
         }
 
         protected void fllenagridbusqueda(int iopc, string stxtb)
@@ -489,6 +507,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 {
                     ckbcheca.Checked = true;
                 }
+
                 iidtrabmodif = row.Cells["Número Empleado"].Value.ToString();
 
                 //cb sup
