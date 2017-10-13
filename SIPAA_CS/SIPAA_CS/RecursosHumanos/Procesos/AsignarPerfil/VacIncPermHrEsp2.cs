@@ -117,10 +117,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             cbTipo.Text = "";
             txtReferencia.Text = "";
             txtSubsidio.Text = "0";
-            dtpFechaInical.Text = "";
-            dtpFechaFinal.Text = "";
-            mtxtHoraEntrada.Text = "";
-            mtxtHoraSalida.Text = "";
+            //dtpFechaInical.Text = "";
+            //dtpFechaFinal.Text = "";
+            mtxtHoraEntrada.Text = "00:00:00";
+            mtxtHoraSalida.Text = "00:00:00";
             cbConcepto.Enabled = true;
             cbTipo.Enabled = true;
             dtpFechaInical.Enabled = true;
