@@ -270,6 +270,7 @@
             label17.Size = new System.Drawing.Size(73, 20);
             label17.TabIndex = 214;
             label17.Text = "Asistencia";
+            label17.Visible = false;
             // 
             // label4
             // 
@@ -614,6 +615,7 @@
             this.btnGuardar.TabIndex = 211;
             this.btnGuardar.Tag = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Visible = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnSync
