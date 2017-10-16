@@ -421,27 +421,31 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         {
                             case "EXISTE":
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ese día ya se encuentra Asignado al Trabajador.");
-                                timer1.Start();
+                                timer1.Start();                                
                                 break;
                             case "INSERTAR_NUEVO":
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Guardado con Exito.");
                                 timer1.Start();
                                 LimpiarFormulario();
+                                panelEditar.Visible = false;
                                 break;
                             case "ACTUALIZAR":
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Cambio Guardado con Exito.");
                                 timer1.Start();
                                 LimpiarFormulario();
+                                panelEditar.Visible = false;
                                 break;
                             case "ACTUALIZA_NUEVO":
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Guardado con Exito.");
                                 timer1.Start();
                                 LimpiarFormulario();
+                                panelEditar.Visible = false;
                                 break;
                             case "ELIMINAR":
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Eliminado con Exito.");
                                 timer1.Start();
                                 LimpiarFormulario();
+                                panelEditar.Visible = false;
                                 break;
                         }
                     }
@@ -737,7 +741,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             TimeSpan ts = new TimeSpan();
             TimeSpan tsComidaInicio = new TimeSpan();
             TimeSpan tsComidaFin = new TimeSpan();
-            int tsMinutos = 0;
+            TimeSpan tsMinutos = new TimeSpan();
             if (TimeSpan.TryParse(mtxtComidaInicio.Text, out ts) && TimeSpan.TryParse(mtxtComidaFin.Text, out ts))
             {
                 tsComidaInicio = TimeSpan.Parse(mtxtComidaInicio.Text);
@@ -756,7 +760,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             }
 
-            tsMinutos = tsComidaFin.Minutes - tsComidaInicio.Minutes;
+            tsMinutos = tsComidaFin - tsComidaInicio;
 
 
             mtxtTiempoComida.Text = tsMinutos.ToString();
@@ -1275,8 +1279,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             objHorario.sHoraComidaInicio = row.Cells[8].Value.ToString();
             objHorario.sHoraComidaFin = row.Cells[10].Value.ToString();
             objHorario.iHorasTotalTrabajo = Convert.ToInt32(row.Cells[11].Value.ToString());
-            string tmpcom = row.Cells[6].Value.ToString();
-            objHorario.iTiempoComida = Convert.ToInt32(tmpcom.Equals(string.Empty)? "0" : tmpcom);
+            objHorario.iTiempoComida = Convert.ToInt32(row.Cells[6].Value.ToString());
 
             objHorario.iCvDia = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[2].Value.ToString()));
             objHorario.iCvdiaSalidaTurno = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[4].Value.ToString()));
@@ -1304,7 +1307,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //    mtxtTiempoComida.SelectionLength = 3;
             mtxtTiempoTrabajo.Text = "00:00";
             //    mtxtTiempoTrabajo.SelectionLength = 3;
-
+            
 
         }
 
@@ -1919,6 +1922,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             
 
                
+
+        }
+
+        private void mtxtComidaInicio_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
 
         }
     }
