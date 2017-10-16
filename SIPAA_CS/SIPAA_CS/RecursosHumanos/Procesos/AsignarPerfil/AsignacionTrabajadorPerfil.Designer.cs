@@ -308,9 +308,9 @@
             label16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label16.Location = new System.Drawing.Point(247, 187);
             label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(117, 16);
+            label16.Size = new System.Drawing.Size(105, 16);
             label16.TabIndex = 75;
-            label16.Text = "Hora Comida Inicio";
+            label16.Text = "Hora Comida Fin";
             // 
             // label18
             // 
@@ -320,9 +320,9 @@
             label18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label18.Location = new System.Drawing.Point(19, 272);
             label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(129, 16);
+            label18.Size = new System.Drawing.Size(102, 16);
             label18.TabIndex = 80;
-            label18.Text = "Tiempo Total Comida";
+            label18.Text = "Minutos Comida";
             // 
             // label19
             // 
@@ -823,6 +823,7 @@
             this.mtxtComidaInicio.Size = new System.Drawing.Size(100, 19);
             this.mtxtComidaInicio.TabIndex = 73;
             this.mtxtComidaInicio.ValidatingType = typeof(System.DateTime);
+            this.mtxtComidaInicio.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxtComidaInicio_MaskInputRejected);
             this.mtxtComidaInicio.Click += new System.EventHandler(this.mtxt);
             this.mtxtComidaInicio.Leave += new System.EventHandler(this.mtxtComidaInicio_Leave);
             // 

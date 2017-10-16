@@ -395,16 +395,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     horasTrabajo = tsEntrada - tsSalida;
                 TimeSpan tsComidaInicio = TimeSpan.Parse(objHorario.sHoraComidaInicio);
                 TimeSpan tsComidaFin = TimeSpan.Parse(objHorario.sHoraComidaFin);
-                TimeSpan MinComida = tsComidaFin - tsComidaInicio;
-                string MinutosComida = (60 * MinComida.Hours).ToString();
+                int MinComida = tsComidaFin.Minutes - tsComidaInicio.Minutes; 
+                //string MinutosComida = (60 * MinComida.Hours).ToString();
 
                 if (horasTrabajo.Hours.ToString() != mtxtTiempoTrabajo.Text)
                 {
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El número total de horas no concuerda con la hora de Entrada y Salida.");
                     timer1.Start();
                 }
-                else if (tsComidaInicio < tsEntrada || tsComidaFin < tsEntrada
-                   || tsComidaInicio > tsSalida || tsComidaFin > tsSalida)
+                else if ((MinComida > 0) && (tsComidaInicio < tsEntrada || tsComidaFin < tsEntrada
+                   || tsComidaInicio > tsSalida || tsComidaFin > tsSalida))
                 {
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El horario de Comida debe ser entre la hora de Entrada y Salida.");
                     timer1.Start();
@@ -421,27 +421,31 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         {
                             case "EXISTE":
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Ese día ya se encuentra Asignado al Trabajador.");
-                                timer1.Start();
+                                timer1.Start();                                
                                 break;
                             case "INSERTAR_NUEVO":
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Guardado con Exito.");
                                 timer1.Start();
                                 LimpiarFormulario();
+                                panelEditar.Visible = false;
                                 break;
                             case "ACTUALIZAR":
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Cambio Guardado con Exito.");
                                 timer1.Start();
                                 LimpiarFormulario();
+                                panelEditar.Visible = false;
                                 break;
                             case "ACTUALIZA_NUEVO":
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Guardado con Exito.");
                                 timer1.Start();
                                 LimpiarFormulario();
+                                panelEditar.Visible = false;
                                 break;
                             case "ELIMINAR":
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registro Eliminado con Exito.");
                                 timer1.Start();
                                 LimpiarFormulario();
+                                panelEditar.Visible = false;
                                 break;
                         }
                     }
@@ -759,7 +763,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             tsMinutos = tsComidaFin - tsComidaInicio;
 
 
-            mtxtTiempoComida.Text = (60 * (tsMinutos.Hours)).ToString();
+            mtxtTiempoComida.Text = tsMinutos.ToString();
         }
 
         private void mtxtSalida_Leave(object sender, EventArgs e)
@@ -1303,7 +1307,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //    mtxtTiempoComida.SelectionLength = 3;
             mtxtTiempoTrabajo.Text = "00:00";
             //    mtxtTiempoTrabajo.SelectionLength = 3;
-
+            
 
         }
 
@@ -1918,6 +1922,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             
 
                
+
+        }
+
+        private void mtxtComidaInicio_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
 
         }
     }
