@@ -369,10 +369,12 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                         // string sIdTrabCifrado = Utilerias.cifrarPass(sIdTrab, 1); AQUI DEBERIA DE IR EL CIFRADO DEL NUMERO DE EMPLEADO
                                         pnlMensaje.Enabled = false;
                                         bBandera = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, obj.cvReloj, iModoCheck);
-                                        int a = 0; 
+                                        
                                     }
                                 }
-                                objCZKEM.ClearData(1, 1); // elimina los registros de asistencia de forma autómatica en el reloj
+                              //ELimina automaticamente los registros de la asistencia en el reloj checador 
+                                objCZKEM.ClearData(1, 1);
+                                
                                 objCZKEM.Disconnect();
                                 progressBar1.Value = 90;
                                 if (bBandera)
