@@ -50,6 +50,7 @@
             this.btnImprimirObs = new System.Windows.Forms.Button();
             this.cbArea = new System.Windows.Forms.ComboBox();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.cbTipoNomina = new System.Windows.Forms.ComboBox();
             this.cbEmpleados = new System.Windows.Forms.ComboBox();
             this.cbIncidencia = new System.Windows.Forms.ComboBox();
             this.cbUbicacion = new System.Windows.Forms.ComboBox();
@@ -63,7 +64,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.cbTipoNomina = new System.Windows.Forms.ComboBox();
             label7 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
@@ -166,9 +166,9 @@
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label8.Location = new System.Drawing.Point(58, 49);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(106, 16);
+            label8.Size = new System.Drawing.Size(135, 16);
             label8.TabIndex = 44;
-            label8.Text = "No de Trabajador";
+            label8.Text = "Nombre de Trabajador";
             // 
             // label9
             // 
@@ -342,6 +342,24 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(477, 567);
             this.pnlBusqueda.TabIndex = 162;
             this.pnlBusqueda.TabStop = true;
+            // 
+            // cbTipoNomina
+            // 
+            this.cbTipoNomina.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbTipoNomina.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTipoNomina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbTipoNomina.Enabled = false;
+            this.cbTipoNomina.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipoNomina.FormattingEnabled = true;
+            this.cbTipoNomina.Items.AddRange(new object[] {
+            "Seleccionar ",
+            "Activo",
+            "Inactivo"});
+            this.cbTipoNomina.Location = new System.Drawing.Point(61, 193);
+            this.cbTipoNomina.Name = "cbTipoNomina";
+            this.cbTipoNomina.Size = new System.Drawing.Size(291, 25);
+            this.cbTipoNomina.TabIndex = 179;
+            this.cbTipoNomina.Text = "Seleccionar ";
             // 
             // cbEmpleados
             // 
@@ -521,24 +539,6 @@
             this.lblusuario.TabIndex = 166;
             this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbTipoNomina
-            // 
-            this.cbTipoNomina.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbTipoNomina.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbTipoNomina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbTipoNomina.Enabled = false;
-            this.cbTipoNomina.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTipoNomina.FormattingEnabled = true;
-            this.cbTipoNomina.Items.AddRange(new object[] {
-            "Seleccionar ",
-            "Activo",
-            "Inactivo"});
-            this.cbTipoNomina.Location = new System.Drawing.Point(61, 193);
-            this.cbTipoNomina.Name = "cbTipoNomina";
-            this.cbTipoNomina.Size = new System.Drawing.Size(291, 25);
-            this.cbTipoNomina.TabIndex = 179;
-            this.cbTipoNomina.Text = "Seleccionar ";
             // 
             // FiltroObservaciones
             // 
