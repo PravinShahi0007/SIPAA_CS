@@ -99,9 +99,9 @@
             lblidtrab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lblidtrab.Location = new System.Drawing.Point(41, 92);
             lblidtrab.Name = "lblidtrab";
-            lblidtrab.Size = new System.Drawing.Size(106, 16);
+            lblidtrab.Size = new System.Drawing.Size(68, 16);
             lblidtrab.TabIndex = 44;
-            lblidtrab.Text = "No de Trabajador";
+            lblidtrab.Text = "Trabajador";
             // 
             // label9
             // 
