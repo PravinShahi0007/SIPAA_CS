@@ -66,6 +66,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
             cmd.Parameters.Add("@p_idformapago", SqlDbType.Int).Value = iiformapago;
             cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idtrab;
+            cmd.Parameters.Add("@p_fechainicial", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_fechafinal", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
 

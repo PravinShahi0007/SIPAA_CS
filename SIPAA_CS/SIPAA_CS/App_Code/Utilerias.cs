@@ -384,18 +384,17 @@ namespace SIPAA_CS.App_Code
         }
 
         //carga imagen
-        public void cargaimagen(PictureBox pbusuario)
+        public static void cargaimagen(PictureBox pbusuario)
         {
             try
             {
-                string PBA = LoginInfo.IdTrab;
 
-                pbusuario.Image = Image.FromFile(@"\\192.168.30.238\Sistemasjs\Noe Alvarez\" + LoginInfo.IdTrab + ".jpg", true);
+                pbusuario.Image = Image.FromFile(@"\\172.165.1.10\sipaa_web\img\Fotos\" + LoginInfo.IdTrab + ".jpg", true);
                 pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                pbusuario.Image = Image.FromFile(@"\\192.168.30.238\Sistemasjs\Noe Alvarez\USER1.jpg", true);
+                pbusuario.Image = Resources.ic_group_white_48dp;
                 pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }

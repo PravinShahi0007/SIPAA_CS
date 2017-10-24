@@ -21,6 +21,7 @@ namespace SIPAA_CS
         public Point formPosition;
         public Boolean mouseAction;
         public List<string> ltModulosxUsuario = new List<string>();
+        Utilerias util = new Utilerias();
        
         public Dashboard()
         {
@@ -110,6 +111,7 @@ namespace SIPAA_CS
             lblusuario.Text = LoginInfo.Nombre;
             string NomUsu = LoginInfo.Nombre;
             lblusuario.Text = NomUsu;
+            Utilerias.cargaimagen(ptbimgusuario);
         }
 
         private void PanelMetro_Paint(object sender, PaintEventArgs e)
