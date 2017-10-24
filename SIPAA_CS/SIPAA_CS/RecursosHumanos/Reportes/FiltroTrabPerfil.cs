@@ -202,9 +202,9 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             DataTable dtUbicacion = CComUbi.ObtenerUbicacionPlantel(5, "");
             Utilerias.llenarComboxDataTable(cboUbicacion, dtUbicacion, "IdUbicacion", "Descripción");
-
-            DataTable dtEmpleado = CSonaTrab.ObtenerListaTrabajador(6, 2);
-            Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "Clave", "Descripción");
+            
+            DataTable dtEmpleado = CSonaTrab.obtenerempleados(7, "");
+            Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "NoEmpleado", "Nombre");
 
             cboStatus.SelectedIndex = 2;
             CbCheca.SelectedIndex = 2;
