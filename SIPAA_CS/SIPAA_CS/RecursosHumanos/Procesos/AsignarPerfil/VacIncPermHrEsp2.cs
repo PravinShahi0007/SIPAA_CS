@@ -294,6 +294,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             fvalidacampos();
 
+            if (DateTime.Parse(dtpFechaInical.Text) > DateTime.Parse(dtpFechaFinal.Text))
+            {
+                MessageBox.Show("Error en las Fechas, Verifique.", "SIPPA", MessageBoxButtons.OK);
+                dtpFechaInical.Focus();
+            }
+
             if (svalidacampos != "0")
             {
                 DialogResult result = MessageBox.Show(svalidacampos, "SIPAA", MessageBoxButtons.OK);
