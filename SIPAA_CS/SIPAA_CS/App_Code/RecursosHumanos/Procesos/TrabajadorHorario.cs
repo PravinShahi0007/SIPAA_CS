@@ -41,13 +41,31 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@P_idplantilla", SqlDbType.Int).Value = this.iCvPlantilla;
             cmd.Parameters.Add("@P_cvdia", SqlDbType.Int).Value = this.iCvDia;
             cmd.Parameters.Add("@P_hrentrada", SqlDbType.Time).Value = this.sHoraEntrada;
-            cmd.Parameters.Add("@P_cvdiaSalidaTurno", SqlDbType.Int).Value = this.iCvdiaSalidaTurno;
-            cmd.Parameters.Add("@P_hrSalidaTurno", SqlDbType.Time).Value = this.sHoraSalidaTurno;
+
+            if (this.iCvdiaSalidaTurno > 0)
+                cmd.Parameters.Add("@P_cvdiaSalidaTurno", SqlDbType.Int).Value = this.iCvdiaSalidaTurno;
+            else
+                cmd.Parameters.Add("@P_cvdiaSalidaTurno", SqlDbType.Int).Value = DBNull.Value;
+
+            if (this.sHoraSalidaTurno.Trim().Equals(":"))
+                cmd.Parameters.Add("@P_hrSalidaTurno", SqlDbType.Time).Value = DBNull.Value;
+            else
+                cmd.Parameters.Add("@P_hrSalidaTurno", SqlDbType.Time).Value = this.sHoraSalidaTurno;
             cmd.Parameters.Add("@P_tiempocomida", SqlDbType.Int).Value = this.iTiempoComida;
             cmd.Parameters.Add("@P_cvdiaComidaInicio", SqlDbType.Int).Value = this.iCvdiaComidaInicio;
-            cmd.Parameters.Add("@P_hrComidaInicio", SqlDbType.Time).Value = this.sHoraComidaInicio;
+            
+            if (this.sHoraComidaInicio.Trim().Equals(":"))
+                cmd.Parameters.Add("@P_hrComidaInicio", SqlDbType.Time).Value = DBNull.Value;
+            else
+                cmd.Parameters.Add("@P_hrComidaInicio", SqlDbType.Time).Value = this.sHoraComidaInicio;
+
             cmd.Parameters.Add("@P_cvdiaComidaFin", SqlDbType.Int).Value = this.iCvdiaComidaFin;
-            cmd.Parameters.Add("@P_hrComidaFin", SqlDbType.Time).Value = this.sHoraComidaFin;
+            
+            if (this.sHoraComidaFin.Trim().Equals(":"))
+                cmd.Parameters.Add("@P_hrComidaFin", SqlDbType.Time).Value = DBNull.Value;
+            else
+                cmd.Parameters.Add("@P_hrComidaFin", SqlDbType.Time).Value = this.sHoraComidaFin;
+
             cmd.Parameters.Add("@P_noTotalhoras", SqlDbType.VarChar).Value = this.iHorasTotalTrabajo;
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = this.sUsuumod;
             cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = this.sPrgumod;

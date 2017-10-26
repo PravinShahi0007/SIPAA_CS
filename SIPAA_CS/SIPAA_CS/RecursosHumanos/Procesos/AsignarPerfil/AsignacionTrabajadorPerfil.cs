@@ -128,11 +128,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void cbDiaEntrada_SelectedIndexChanged(object sender, EventArgs e)
         {
+            validaHorarioJornada();
             cbDiaSalida.SelectedIndex = cbDiaEntrada.SelectedIndex;
         }
 
         private void cbDiaSalida_SelectedIndexChanged(object sender, EventArgs e)
         {
+            validaHorarioJornada();
+
             if (cbDiaEntrada.SelectedIndex > cbDiaSalida.SelectedIndex && cbDiaSalida.SelectedIndex > 0)
             {
 
@@ -183,8 +186,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 mtxtTiempoTrabajo.Text = objHorario.iHorasTotalTrabajo.ToString();
                 cbDiaEntrada.SelectedValue = objHorario.iCvDia;
                 cbDiaSalida.SelectedValue = objHorario.iCvdiaSalidaTurno;
-                cbDiaEntrada.SelectedValue = objHorario.iCvdiaComidaInicio;
-                cbDiaEntrada.SelectedValue = objHorario.iCvdiaComidaFin;
+
+                //cbDiaEntrada.SelectedValue = objHorario.iCvdiaComidaInicio;
+                //cbDiaEntrada.SelectedValue = objHorario.iCvdiaComidaFin;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                
                
@@ -366,55 +370,50 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            bool bBandera = CamposVacios(panelEditar);
+            //bool bBandera = CamposVacios(panelEditar);
 
-            if (bBandera != true)
+            if (validaHorarioJornada())
             {
                 cbDiaEntrada.Enabled = true;
-                TrabajadorHorario objHorario = new TrabajadorHorario();
-                objHorario.sIdTrab = TrabajadorInfo.IdTrab;
-                objHorario.sHoraEntrada = mtxtEntradaTurno.Text;
-                objHorario.sHoraSalidaTurno = mtxtSalida.Text;
-                objHorario.sHoraComidaInicio = mtxtComidaInicio.Text;
-                objHorario.sHoraComidaFin = mtxtComidaFin.Text;
-                objHorario.iHorasTotalTrabajo = Convert.ToInt32(mtxtTiempoTrabajo.Text);
-                objHorario.iTiempoComida = Convert.ToInt32(mtxtTiempoComida.Text);
-                objHorario.iCvDia = Convert.ToInt32(cbDiaEntrada.SelectedValue);
-                objHorario.iCvdiaSalidaTurno = Convert.ToInt32(cbDiaSalida.SelectedValue);
-                objHorario.iCvdiaComidaInicio = Convert.ToInt32(cbDiaEntrada.SelectedValue);
-                objHorario.iCvdiaComidaFin = Convert.ToInt32(cbDiaEntrada.SelectedValue);
-                objHorario.sUsuumod = LoginInfo.IdTrab; //LoginInfo.IdTrab;
-                objHorario.sPrgumod = this.Name;
 
-                TimeSpan tsEntrada = TimeSpan.Parse(objHorario.sHoraEntrada);
-                TimeSpan tsSalida = TimeSpan.Parse(objHorario.sHoraSalidaTurno);
-                TimeSpan horasTrabajo = new TimeSpan();
-                if (tsSalida > tsEntrada)
-                    horasTrabajo = tsSalida - tsEntrada;
-                 else
-                    horasTrabajo = tsEntrada - tsSalida;
-                TimeSpan tsComidaInicio = TimeSpan.Parse(objHorario.sHoraComidaInicio);
-                TimeSpan tsComidaFin = TimeSpan.Parse(objHorario.sHoraComidaFin);
-                int MinComida = tsComidaFin.Minutes - tsComidaInicio.Minutes; 
-                //string MinutosComida = (60 * MinComida.Hours).ToString();
-
-                if (horasTrabajo.Hours.ToString() != mtxtTiempoTrabajo.Text)
+                if (validarHorarioComida() && cbDiaEntrada.SelectedIndex == cbDiaSalida.SelectedIndex)
                 {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El número total de horas no concuerda con la hora de Entrada y Salida.");
-                    timer1.Start();
+                    TimeSpan inicio, fin, comidaIni, comidaFin;
+                    horaCampo(mtxtEntradaTurno, out inicio);
+                    horaCampo(mtxtSalida, out fin);
+                    horaCampo(mtxtComidaInicio, out comidaIni);
+                    horaCampo(mtxtComidaFin, out comidaFin);
+
+                    if (!(inicio < comidaIni && fin > comidaFin))
+                    {
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El horario de comida debe ser entre la hora de Entrada y Salida.");
+                        timer1.Start();
+                        return;
+                    }
+                } else
+                {
+                    mtxtComidaInicio.Text = "";
+                    mtxtComidaFin.Text = "";
                 }
-                else if ((MinComida > 0) && (tsComidaInicio < tsEntrada || tsComidaFin < tsEntrada
-                   || tsComidaInicio > tsSalida || tsComidaFin > tsSalida))
-                {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El horario de Comida debe ser entre la hora de Entrada y Salida.");
-                    timer1.Start();
 
-                }
-               
-                else
-                {
+                    TrabajadorHorario objHorario = new TrabajadorHorario();
+                    objHorario.sIdTrab = TrabajadorInfo.IdTrab;
+                    objHorario.sHoraEntrada = mtxtEntradaTurno.Text;
+                    objHorario.sHoraSalidaTurno = mtxtSalida.Text;
+                    objHorario.sHoraComidaInicio = mtxtComidaInicio.Text;
+                    objHorario.sHoraComidaFin = mtxtComidaFin.Text;
+                    objHorario.iHorasTotalTrabajo = Convert.ToInt32(mtxtTiempoTrabajo.Text);
+                    objHorario.iTiempoComida = Convert.ToInt32(mtxtTiempoComida.Text);
+                    objHorario.iCvDia = Convert.ToInt32(cbDiaEntrada.SelectedValue);
+                    objHorario.iCvdiaSalidaTurno = Convert.ToInt32(cbDiaSalida.SelectedValue);
+                    objHorario.iCvdiaComidaInicio = Convert.ToInt32(cbDiaEntrada.SelectedValue);
+                    objHorario.iCvdiaComidaFin = Convert.ToInt32(cbDiaEntrada.SelectedValue);
+                    objHorario.sUsuumod = LoginInfo.IdTrab; //LoginInfo.IdTrab;
+                    objHorario.sPrgumod = this.Name;
+
                     try
                     {
+
                         DataTable dtresponse = objHorario.GestionHorario(iOpcionAdmin);
 
                         switch (dtresponse.Columns[0].ToString())
@@ -455,11 +454,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         timer1.Start();
                     }
                     llenarGridHorario(objHorario);
-                }
             }
             else
             {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Todos los Campos son Obligatorios. No pueden quedar vacios");
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Horario de entrada y salida incorrecto");
                 timer1.Start();
             }
 
@@ -471,7 +469,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private bool CamposVacios(Panel pnl)
         {
-            bool bBandera = false;
+            /*bool bBandera = false;
             foreach (Control ctrl in pnl.Controls)
             {
                 string sTipoCtrl = ctrl.AccessibilityObject.ToString();
@@ -484,14 +482,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 else if (sTipoCtrl.Contains("ComboBox"))
                 {
                     ComboBox cb = (ComboBox)ctrl;
-
+                    MessageBox.Show(cb.Name);
                     if (cb.SelectedIndex == 0)
                      bBandera = true;
                 }
-
+                
             }
 
-            return bBandera;
+            return bBandera;*/
+            return cbDiaEntrada.SelectedIndex > 0 && (mtxtEntradaTurno.Text.Trim().Equals(string.Empty) || mtxtEntradaTurno.Text.Trim().Equals(":"));
 
         }
 
@@ -732,148 +731,66 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
+        private bool horaCampo(MaskedTextBox mtxtb, out TimeSpan ts)
+        {
+            return TimeSpan.TryParse(mtxtb.Text, out ts);
+        }
+
+        private bool validarHorarioComida()
+        {
+            TimeSpan comidaIni, comidaFin;
+
+            if (horaCampo(mtxtComidaInicio, out comidaIni) && horaCampo(mtxtComidaFin, out comidaFin) && comidaFin > comidaIni)
+            {
+                mtxtTiempoComida.Text = Convert.ToString(comidaFin.TotalMinutes - comidaIni.TotalMinutes);
+                return true;
+            }
+
+            mtxtTiempoComida.Text = "0";
+
+            return false;
+        }
 
         private void mtxtComidaFin_Leave(object sender, EventArgs e)
         {
-            string s1 = mtxtComidaInicio.Text + "00";
-            string s2 = mtxtComidaFin.Text + "00";
+            validarHorarioComida();
+        }
 
-            TimeSpan ts = new TimeSpan();
-            TimeSpan tsComidaInicio = new TimeSpan();
-            TimeSpan tsComidaFin = new TimeSpan();
-            TimeSpan tsMinutos = new TimeSpan();
-            if (TimeSpan.TryParse(mtxtComidaInicio.Text, out ts) && TimeSpan.TryParse(mtxtComidaFin.Text, out ts))
+        private bool validaHorarioJornada()
+        {
+            TimeSpan entrada, salida;
+
+            if (horaCampo(mtxtEntradaTurno, out entrada) && horaCampo(mtxtSalida, out salida) &&
+                cbDiaSalida.SelectedIndex > 0 && cbDiaEntrada.SelectedIndex > 0 &&
+                !(cbDiaSalida.SelectedIndex == cbDiaEntrada.SelectedIndex && entrada > salida))
             {
-                tsComidaInicio = TimeSpan.Parse(mtxtComidaInicio.Text);
-                tsComidaFin = TimeSpan.Parse(mtxtComidaFin.Text);
-            }
-            else
-            {
-                string sComidaInicio = Utilerias.ValidarHoras(s1);
-                string sComidaFin = Utilerias.ValidarHoras(s2);
 
-                mtxtComidaInicio.Text = sComidaInicio;
-                mtxtComidaFin.Text = sComidaFin;
+                int diasdif = (cbDiaSalida.SelectedIndex - cbDiaEntrada.SelectedIndex) * 24;
+                int hours = 0;
 
-                tsComidaInicio = TimeSpan.Parse(sComidaInicio);
-                tsComidaFin = TimeSpan.Parse(sComidaFin);
+                if (diasdif > 0)
+                    hours = entrada.Hours - salida.Hours + diasdif;
+                else
+                    hours = salida.Hours - entrada.Hours;
 
+                mtxtTiempoTrabajo.Text = Convert.ToString(hours);
+                return true;
             }
 
-            tsMinutos = tsComidaFin - tsComidaInicio;
-
-
-            mtxtTiempoComida.Text = tsMinutos.ToString();
+            return false;
         }
 
         private void mtxtSalida_Leave(object sender, EventArgs e)
         {
-
-            string s1 = mtxtSalida.Text + "00";
-            string s2 = mtxtEntradaTurno.Text + "00";
-
-
-            TimeSpan ts = new TimeSpan();
-            TimeSpan tsEntrada = new TimeSpan();
-            TimeSpan tsSalida = new TimeSpan();
-            if (TimeSpan.TryParse(mtxtSalida.Text, out ts) && TimeSpan.TryParse(mtxtEntradaTurno.Text, out ts))
-            {
-                tsEntrada = TimeSpan.Parse(mtxtEntradaTurno.Text);
-                tsSalida = TimeSpan.Parse(mtxtSalida.Text);
-
-            }
-            else
-            {
-                string sEntrada = Utilerias.ValidarHoras(mtxtEntradaTurno.Text);
-                string sSalida = Utilerias.ValidarHoras(mtxtSalida.Text);
-
-                mtxtEntradaTurno.Text = sEntrada;
-                mtxtSalida.Text = sSalida;
-
-                tsEntrada = TimeSpan.Parse(sEntrada);
-                tsSalida = TimeSpan.Parse(sSalida);
-
-            }
-
-            if (tsEntrada.ToString() != "00:00" && tsSalida.ToString() != "00:00")
-            {
-
-                if (tsEntrada > tsSalida)
-                {
-                    int diasdif = (cbDiaEntrada.SelectedIndex + 1) - (cbDiaSalida.SelectedIndex);
-                    TimeSpan horasTrabajo = tsEntrada - tsSalida;
-                    mtxtTiempoTrabajo.Text = ((12 * diasdif) + horasTrabajo.Hours).ToString();
-                    //  cbDiaSalida.SelectedValue = Convert.ToInt32(cbDiaEntrada.SelectedValue) + 1;
-                }
-                else
-                {
-                    TimeSpan horasTrabajo = tsSalida - tsEntrada;
-                    mtxtTiempoTrabajo.Text = horasTrabajo.Hours.ToString();
-                    cbDiaSalida.SelectedValue = cbDiaEntrada.SelectedValue;
-                }
-
-            }
-
+            validaHorarioJornada();
         }
 
         private void mtxtComidaInicio_Leave(object sender, EventArgs e)
         {
-            string s1 = mtxtComidaInicio.Text + "00";
-            string s2 = mtxtComidaFin.Text + "00";
+            TimeSpan comidaIni;
 
-            TimeSpan ts = new TimeSpan();
-            TimeSpan tsComidaInicio = new TimeSpan();
-            TimeSpan tsComidaFin = new TimeSpan();
-            TimeSpan tsMinutos = new TimeSpan();
-            if (TimeSpan.TryParse(mtxtComidaInicio.Text, out ts) && TimeSpan.TryParse(mtxtComidaFin.Text, out ts))
-            {
-                tsComidaInicio = TimeSpan.Parse(mtxtComidaInicio.Text);
-                tsComidaFin = TimeSpan.Parse(mtxtComidaFin.Text);
-
-
-            }
-            else
-            {
-                string sComidaInicio = Utilerias.ValidarHoras(s1);
-                string sComidaFin = Utilerias.ValidarHoras(s2);
-
-                mtxtComidaInicio.Text = sComidaInicio;
-                mtxtComidaFin.Text = sComidaFin;
-
-                tsComidaInicio = TimeSpan.Parse(sComidaInicio);
-                tsComidaFin = TimeSpan.Parse(sComidaFin);
-
-            }
-
-            // Utilerias.ControlNotificaciones(panelTagForReg,lbMensajeForReg,2,"La fecha de Comida Inicio no puede ser Mayor a la de Fin");
-
-            string[] horaInicio = mtxtComidaInicio.Text.Split(':');
-            string sHoraInicio;
-            string sDecenas = horaInicio[0].ElementAt(0).ToString();
-            string sUnidad = horaInicio[0].ElementAt(1).ToString();
-
-            if (Int32.Parse(sDecenas) < 2)
-            {
-                sHoraInicio = sDecenas + (Convert.ToInt32(sUnidad) + 1).ToString();
-            }
-            else
-            {
-                if (Int32.Parse(sUnidad) == 3)
-                {
-                    sHoraInicio = "00";
-                }
-                else
-                {
-                    sHoraInicio = sDecenas + (Convert.ToInt32(sUnidad + 1)).ToString();
-                }
-            }
-
-
-            mtxtComidaFin.Text = sHoraInicio + ":" + horaInicio[1];
-            tsComidaFin = TimeSpan.Parse(mtxtComidaFin.Text);
-            //mtxtComidaInicio.Text = tsComidaFin.Hours.ToString() + ":" + (tsComidaFin.Minutes + 60).ToString();
-            tsMinutos = tsComidaFin - tsComidaInicio;
-            mtxtTiempoComida.Text = (60 * (tsMinutos.Hours)).ToString();
+            if (!horaCampo(mtxtComidaInicio, out comidaIni))
+                mtxtComidaInicio.Text = "";
         }
 
 
@@ -1282,9 +1199,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             objHorario.iTiempoComida = Convert.ToInt32(row.Cells[6].Value.ToString());
 
             objHorario.iCvDia = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[2].Value.ToString()));
-            objHorario.iCvdiaSalidaTurno = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[4].Value.ToString()));
-            objHorario.iCvdiaComidaInicio = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[7].Value.ToString()));
-            objHorario.iCvdiaComidaFin = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[9].Value.ToString()));
+
+            string aux = row.Cells[4].Value.ToString();
+            objHorario.iCvdiaSalidaTurno = aux.Equals(string.Empty) ? 0 : Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), aux));
+
+            aux = row.Cells[7].Value.ToString();
+            objHorario.iCvdiaComidaInicio = aux.Equals(string.Empty) ? 0 : Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), aux));
+
+            aux = row.Cells[9].Value.ToString();
+            objHorario.iCvdiaComidaFin = aux.Equals(string.Empty) ? 0 : Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), aux));
 
             return objHorario;
         }
@@ -1295,17 +1218,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             cbDiaEntrada.SelectedIndex = 0;
             cbDiaSalida.SelectedIndex = 0;
 
-            mtxtEntradaTurno.Text = "00:00";
+            mtxtEntradaTurno.Text = "";
             //  mtxtEntradaTurno.SelectionLength = 5;
-            mtxtSalida.Text = "00:00";
+            mtxtSalida.Text = "";
             //   mtxtSalida.SelectionLength = 5;
-            mtxtComidaInicio.Text = "00:00";
+            mtxtComidaInicio.Text = "";
             //    mtxtComidaInicio.SelectionLength = 5;
-            mtxtComidaFin.Text = "00:00";
+            mtxtComidaFin.Text = "";
             //   mtxtComidaFin.SelectionLength = 5;
-            mtxtTiempoComida.Text = "00:00";
+            mtxtTiempoComida.Text = "";
             //    mtxtTiempoComida.SelectionLength = 3;
-            mtxtTiempoTrabajo.Text = "00:00";
+            mtxtTiempoTrabajo.Text = "";
             //    mtxtTiempoTrabajo.SelectionLength = 3;
             
 
@@ -1928,6 +1851,38 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void mtxtComidaInicio_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void mtxtEntradaTurno_Leave(object sender, EventArgs e)
+        {
+            TimeSpan entrada;
+
+            if (!horaCampo(mtxtEntradaTurno, out entrada))
+                mtxtEntradaTurno.Text = "";
+        }
+
+        private void mtxtEntradaTurno_Enter(object sender, EventArgs e)
+        {
+            MaskedTextBox textBox = (MaskedTextBox)sender;
+            textBox.SelectAll();
+        }
+
+        private void mtxtSalida_Enter(object sender, EventArgs e)
+        {
+            MaskedTextBox textBox = (MaskedTextBox)sender;
+            textBox.SelectAll();
+        }
+
+        private void mtxtComidaInicio_Enter(object sender, EventArgs e)
+        {
+            MaskedTextBox textBox = (MaskedTextBox)sender;
+            textBox.SelectAll();
+        }
+
+        private void mtxtComidaFin_Enter(object sender, EventArgs e)
+        {
+            MaskedTextBox textBox = (MaskedTextBox)sender;
+            textBox.SelectAll();
         }
     }
 }
