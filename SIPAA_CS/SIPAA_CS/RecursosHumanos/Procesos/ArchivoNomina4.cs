@@ -167,6 +167,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 MessageBox.Show("Proporcione un rango de fechas", "SIPPA", MessageBoxButtons.OK);
                 dtpfechainicial.Focus();
             }
+            else if (DateTime.Parse(dtpfechainicial.Text) > DateTime.Parse(dtpfechafinal.Text))
+            {
+                MessageBox.Show("Error en las Fechas, Verifique.", "SIPPA", MessageBoxButtons.OK);
+                dtpfechainicial.Focus();
+            }
             else
             {
                 string idTrab = "%";
@@ -209,6 +214,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             else if (dtpfechainicial.Text == "" | dtpfechafinal.Text == "")
             {
                 MessageBox.Show("Proporcione un rango de fechas", "SIPPA", MessageBoxButtons.OK);
+                dtpfechainicial.Focus();
+            }
+            else if (DateTime.Parse(dtpfechainicial.Text) > DateTime.Parse(dtpfechafinal.Text))
+            {
+                MessageBox.Show("Error en las Fechas, Verifique.", "SIPPA", MessageBoxButtons.OK);
                 dtpfechainicial.Focus();
             }
             else
@@ -393,8 +403,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     //variable entera que llevara el control del numero de renglones que contiene el DataGridView//
                     //Es un ciclo con un numero de iteraciones que variara dependiendo del numero de columnas del Grid
                     //Encabezados
-                    string cadenaRegEnc = "AnoNomina,NoNomina,NoEmpleado,ClaveAfecta,Tiempo,FechaReg,Constante,Conteo";
-                    Texto.WriteLine(cadenaRegEnc);
+                    //string cadenaRegEnc = "AnoNomina,NoNomina,NoEmpleado,ClaveAfecta,Tiempo,FechaReg,Constante,Conteo";
+                    //Texto.WriteLine(cadenaRegEnc);
 
                     int ren = 0;
                     string anonomina="", fechareg="";

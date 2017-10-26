@@ -44,6 +44,8 @@ namespace SIPAA_CS.RecursosHumanos
             // cargaMenu(0, null, MsMenu);
 
             CrearMenu();
+
+            Utilerias.cargaimagen(ptbimgusuario);
         }
 
 

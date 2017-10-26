@@ -384,12 +384,25 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     horaCampo(mtxtComidaInicio, out comidaIni);
                     horaCampo(mtxtComidaFin, out comidaFin);
 
-                    if (!(inicio < comidaIni && fin > comidaFin))
+                    if (inicio < comidaIni && fin > comidaFin)
+                    {
+                        double mins = fin.TotalMinutes - comidaFin.TotalMinutes;
+
+                        if (mins < 60)
+                        {
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "La hora de regreso de comida debe ser una hora antes de la salida");
+                            timer1.Start();
+                            return;
+                        }
+                        
+                    }
+                    else
                     {
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "El horario de comida debe ser entre la hora de Entrada y Salida.");
                         timer1.Start();
                         return;
                     }
+
                 } else
                 {
                     mtxtComidaInicio.Text = "";
