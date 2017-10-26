@@ -566,12 +566,20 @@ namespace SIPAA_CS.App_Code
 
         public static ReportDocument ObtenerObjetoReporte(DataTable dtRpt, string strModulo, string NombreReporte)
         {
+            //ReportDocument ReportDoc = new ReportDocument();
+            //string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            //string file = Application.StartupPath + "\\" + "ConceptosNomina.rpt";
+            //ReportDoc.Load(file);
+            //ReportDoc.SetDataSource(dtRpt);
+            //return ReportDoc;
+
             ReportDocument ReportDoc = new ReportDocument();
             string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             string file = path + "\\" + strModulo + "\\Reportes\\" + NombreReporte;
             ReportDoc.Load(file);
             ReportDoc.SetDataSource(dtRpt);
             return ReportDoc;
+
         }
 
         public static void llenarComboxDataTable(ComboBox cb, DataTable dt, string sClave, string sDescripcion)

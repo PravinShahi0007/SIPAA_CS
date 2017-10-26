@@ -115,6 +115,10 @@ namespace SIPAA_CS.Accesos
 
             //cargaMenu(0, null, MenuAccesos);
             CrearMenu();
+
+            Utilerias.cargaimagen(ptbimgusuario);
+
+            if (LoginInfo.iconexion == 1) { lblconexion.Visible = true; } else { lblconexion.Visible = false; }
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 

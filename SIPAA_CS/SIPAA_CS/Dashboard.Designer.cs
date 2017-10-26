@@ -46,6 +46,7 @@
             this.lblusuario = new System.Windows.Forms.Label();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.btnPower = new System.Windows.Forms.Button();
+            this.lblconexion = new System.Windows.Forms.Label();
             this.PanelMetro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
@@ -316,6 +317,20 @@
             this.btnPower.UseVisualStyleBackColor = false;
             this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
             // 
+            // lblconexion
+            // 
+            this.lblconexion.AutoSize = true;
+            this.lblconexion.BackColor = System.Drawing.Color.Red;
+            this.lblconexion.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblconexion.ForeColor = System.Drawing.Color.White;
+            this.lblconexion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblconexion.Location = new System.Drawing.Point(12, 4);
+            this.lblconexion.Name = "lblconexion";
+            this.lblconexion.Size = new System.Drawing.Size(198, 19);
+            this.lblconexion.TabIndex = 152;
+            this.lblconexion.Text = "Conexion BD Desarrollo";
+            this.lblconexion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,6 +338,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.lblconexion);
             this.Controls.Add(this.btnPower);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
@@ -364,5 +380,6 @@
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Button btnPower;
+        private System.Windows.Forms.Label lblconexion;
     }
 }

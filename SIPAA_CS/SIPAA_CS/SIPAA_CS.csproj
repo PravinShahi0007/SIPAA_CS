@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\192.168.30.171\Instalador_sipaa\Instalador SIPAA CS\</PublishUrl>
+    <PublishUrl>\\192.168.30.238\Sistemasjs\Desarrollo\SIPAA CS SETUP\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -914,6 +914,12 @@
     </Compile>
     <Compile Include="RelojChecadorTrabajador\AdministracionRelojChecador.Designer.cs">
       <DependentUpon>AdministracionRelojChecador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\SistDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistemas\SistDashboard.Designer.cs">
+      <DependentUpon>SistDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
