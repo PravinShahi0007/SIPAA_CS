@@ -384,18 +384,17 @@ namespace SIPAA_CS.App_Code
         }
 
         //carga imagen
-        public void cargaimagen(PictureBox pbusuario)
+        public static void cargaimagen(PictureBox pbusuario)
         {
             try
             {
-                string PBA = LoginInfo.IdTrab;
 
-                pbusuario.Image = Image.FromFile(@"\\192.168.30.238\Sistemasjs\Noe Alvarez\" + LoginInfo.IdTrab + ".jpg", true);
+                pbusuario.Image = Image.FromFile(@"\\172.165.1.10\sipaa_web\img\Fotos\" + LoginInfo.IdTrab + ".jpg", true);
                 pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                pbusuario.Image = Image.FromFile(@"\\192.168.30.238\Sistemasjs\Noe Alvarez\USER1.jpg", true);
+                pbusuario.Image = Resources.ic_group_white_48dp;
                 pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
@@ -567,12 +566,20 @@ namespace SIPAA_CS.App_Code
 
         public static ReportDocument ObtenerObjetoReporte(DataTable dtRpt, string strModulo, string NombreReporte)
         {
+            //ReportDocument ReportDoc = new ReportDocument();
+            //string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            //string file = Application.StartupPath + "\\" + "ConceptosNomina.rpt";
+            //ReportDoc.Load(file);
+            //ReportDoc.SetDataSource(dtRpt);
+            //return ReportDoc;
+
             ReportDocument ReportDoc = new ReportDocument();
             string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             string file = path + "\\" + strModulo + "\\Reportes\\" + NombreReporte;
             ReportDoc.Load(file);
             ReportDoc.SetDataSource(dtRpt);
             return ReportDoc;
+
         }
 
         public static void llenarComboxDataTable(ComboBox cb, DataTable dt, string sClave, string sDescripcion)

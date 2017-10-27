@@ -130,12 +130,11 @@
             label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label10.Location = new System.Drawing.Point(9, 396);
+            label10.Location = new System.Drawing.Point(6, 221);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(93, 16);
             label10.TabIndex = 146;
             label10.Text = "Tipo de Evento";
-            label10.Visible = false;
             // 
             // label9
             // 
@@ -167,7 +166,7 @@
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(8, 227);
+            label7.Location = new System.Drawing.Point(8, 259);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(70, 16);
             label7.TabIndex = 140;
@@ -437,12 +436,11 @@
             this.cbotipevento.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbotipevento.FormattingEnabled = true;
             this.cbotipevento.ItemHeight = 16;
-            this.cbotipevento.Location = new System.Drawing.Point(106, 393);
+            this.cbotipevento.Location = new System.Drawing.Point(107, 218);
             this.cbotipevento.Margin = new System.Windows.Forms.Padding(2);
             this.cbotipevento.Name = "cbotipevento";
             this.cbotipevento.Size = new System.Drawing.Size(199, 24);
             this.cbotipevento.TabIndex = 9;
-            this.cbotipevento.Visible = false;
             // 
             // cbociclo
             // 
@@ -464,7 +462,7 @@
             this.cbotipeval.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbotipeval.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbotipeval.FormattingEnabled = true;
-            this.cbotipeval.Location = new System.Drawing.Point(105, 224);
+            this.cbotipeval.Location = new System.Drawing.Point(105, 256);
             this.cbotipeval.Margin = new System.Windows.Forms.Padding(2);
             this.cbotipeval.Name = "cbotipeval";
             this.cbotipeval.Size = new System.Drawing.Size(199, 24);
@@ -487,7 +485,7 @@
             // 
             this.ckbeliminar.AutoSize = true;
             this.ckbeliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbeliminar.Location = new System.Drawing.Point(13, 265);
+            this.ckbeliminar.Location = new System.Drawing.Point(13, 297);
             this.ckbeliminar.Name = "ckbeliminar";
             this.ckbeliminar.Size = new System.Drawing.Size(47, 17);
             this.ckbeliminar.TabIndex = 11;
@@ -502,7 +500,7 @@
             this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btninsertar.Location = new System.Drawing.Point(254, 265);
+            this.btninsertar.Location = new System.Drawing.Point(254, 297);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(50, 50);
             this.btninsertar.TabIndex = 12;

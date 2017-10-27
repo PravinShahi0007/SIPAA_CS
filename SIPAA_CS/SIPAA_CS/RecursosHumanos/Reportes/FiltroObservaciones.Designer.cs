@@ -166,9 +166,9 @@
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label8.Location = new System.Drawing.Point(58, 49);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(106, 16);
+            label8.Size = new System.Drawing.Size(135, 16);
             label8.TabIndex = 44;
-            label8.Text = "No de Trabajador";
+            label8.Text = "Nombre de Trabajador";
             // 
             // label9
             // 

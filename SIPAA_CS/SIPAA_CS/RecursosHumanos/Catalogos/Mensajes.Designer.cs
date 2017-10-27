@@ -50,17 +50,17 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.pnlmensajes = new System.Windows.Forms.Panel();
-            this.chkCaduca = new System.Windows.Forms.CheckBox();
-            this.rbPersonal = new System.Windows.Forms.RadioButton();
-            this.rbPublico = new System.Windows.Forms.RadioButton();
             this.pnldatos = new System.Windows.Forms.Panel();
+            this.chkCaduca = new System.Windows.Forms.CheckBox();
+            this.btnInsertar = new System.Windows.Forms.Button();
             this.cbEmpleados = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rbPersonal = new System.Windows.Forms.RadioButton();
+            this.txtmensajeiu = new System.Windows.Forms.TextBox();
             this.dtpfechafin = new System.Windows.Forms.DateTimePicker();
+            this.rbPublico = new System.Windows.Forms.RadioButton();
             this.dtpfechainicial = new System.Windows.Forms.DateTimePicker();
             this.ckbEliminar = new System.Windows.Forms.CheckBox();
-            this.btnInsertar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtmensajeiu = new System.Windows.Forms.TextBox();
             this.lbluid = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panelTag = new System.Windows.Forms.Panel();
@@ -137,11 +137,11 @@
             lblne.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblne.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblne.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblne.Location = new System.Drawing.Point(8, 77);
+            lblne.Location = new System.Drawing.Point(10, 77);
             lblne.Name = "lblne";
-            lblne.Size = new System.Drawing.Size(66, 16);
+            lblne.Size = new System.Drawing.Size(53, 16);
             lblne.TabIndex = 140;
-            lblne.Text = "Empleado";
+            lblne.Text = "Nombre";
             // 
             // lblfi
             // 
@@ -344,47 +344,6 @@
             this.pnlmensajes.TabStop = true;
             this.pnlmensajes.Visible = false;
             // 
-            // chkCaduca
-            // 
-            this.chkCaduca.AutoSize = true;
-            this.chkCaduca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkCaduca.Location = new System.Drawing.Point(154, 17);
-            this.chkCaduca.Name = "chkCaduca";
-            this.chkCaduca.Size = new System.Drawing.Size(98, 17);
-            this.chkCaduca.TabIndex = 148;
-            this.chkCaduca.Text = "Nunca Caduca";
-            this.chkCaduca.UseVisualStyleBackColor = true;
-            this.chkCaduca.Visible = false;
-            this.chkCaduca.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // rbPersonal
-            // 
-            this.rbPersonal.AutoSize = true;
-            this.rbPersonal.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.rbPersonal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.rbPersonal.Location = new System.Drawing.Point(12, 40);
-            this.rbPersonal.Name = "rbPersonal";
-            this.rbPersonal.Size = new System.Drawing.Size(130, 20);
-            this.rbPersonal.TabIndex = 147;
-            this.rbPersonal.TabStop = true;
-            this.rbPersonal.Text = "Mensaje Personal";
-            this.rbPersonal.UseVisualStyleBackColor = true;
-            this.rbPersonal.CheckedChanged += new System.EventHandler(this.rbPersonal_CheckedChanged);
-            // 
-            // rbPublico
-            // 
-            this.rbPublico.AutoSize = true;
-            this.rbPublico.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.rbPublico.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.rbPublico.Location = new System.Drawing.Point(13, 14);
-            this.rbPublico.Name = "rbPublico";
-            this.rbPublico.Size = new System.Drawing.Size(122, 20);
-            this.rbPublico.TabIndex = 146;
-            this.rbPublico.TabStop = true;
-            this.rbPublico.Text = "Mensaje Público";
-            this.rbPublico.UseVisualStyleBackColor = true;
-            this.rbPublico.CheckedChanged += new System.EventHandler(this.rbPublico_CheckedChanged);
-            // 
             // pnldatos
             // 
             this.pnldatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
@@ -407,6 +366,33 @@
             this.pnldatos.Size = new System.Drawing.Size(355, 278);
             this.pnldatos.TabIndex = 145;
             // 
+            // chkCaduca
+            // 
+            this.chkCaduca.AutoSize = true;
+            this.chkCaduca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chkCaduca.Location = new System.Drawing.Point(154, 17);
+            this.chkCaduca.Name = "chkCaduca";
+            this.chkCaduca.Size = new System.Drawing.Size(98, 17);
+            this.chkCaduca.TabIndex = 148;
+            this.chkCaduca.Text = "Nunca Caduca";
+            this.chkCaduca.UseVisualStyleBackColor = true;
+            this.chkCaduca.Visible = false;
+            this.chkCaduca.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // btnInsertar
+            // 
+            this.btnInsertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.btnInsertar.Location = new System.Drawing.Point(297, 208);
+            this.btnInsertar.Name = "btnInsertar";
+            this.btnInsertar.Size = new System.Drawing.Size(55, 55);
+            this.btnInsertar.TabIndex = 134;
+            this.btnInsertar.Tag = "Guardar";
+            this.btnInsertar.UseVisualStyleBackColor = false;
+            this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
+            // 
             // cbEmpleados
             // 
             this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -420,6 +406,40 @@
             this.cbEmpleados.TabIndex = 179;
             this.cbEmpleados.Text = "Seleccionar";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel2.Location = new System.Drawing.Point(13, 203);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(322, 2);
+            this.panel2.TabIndex = 43;
+            // 
+            // rbPersonal
+            // 
+            this.rbPersonal.AutoSize = true;
+            this.rbPersonal.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.rbPersonal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.rbPersonal.Location = new System.Drawing.Point(12, 40);
+            this.rbPersonal.Name = "rbPersonal";
+            this.rbPersonal.Size = new System.Drawing.Size(130, 20);
+            this.rbPersonal.TabIndex = 147;
+            this.rbPersonal.TabStop = true;
+            this.rbPersonal.Text = "Mensaje Personal";
+            this.rbPersonal.UseVisualStyleBackColor = true;
+            this.rbPersonal.CheckedChanged += new System.EventHandler(this.rbPersonal_CheckedChanged);
+            // 
+            // txtmensajeiu
+            // 
+            this.txtmensajeiu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtmensajeiu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtmensajeiu.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtmensajeiu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmensajeiu.Location = new System.Drawing.Point(16, 187);
+            this.txtmensajeiu.MaxLength = 113;
+            this.txtmensajeiu.Name = "txtmensajeiu";
+            this.txtmensajeiu.Size = new System.Drawing.Size(315, 15);
+            this.txtmensajeiu.TabIndex = 1;
+            // 
             // dtpfechafin
             // 
             this.dtpfechafin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -431,6 +451,20 @@
             this.dtpfechafin.Value = new System.DateTime(2017, 9, 7, 14, 23, 29, 0);
             this.dtpfechafin.ValueChanged += new System.EventHandler(this.dtpfechafin_ValueChanged);
             this.dtpfechafin.Leave += new System.EventHandler(this.dtpfechafin_Leave);
+            // 
+            // rbPublico
+            // 
+            this.rbPublico.AutoSize = true;
+            this.rbPublico.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.rbPublico.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.rbPublico.Location = new System.Drawing.Point(13, 14);
+            this.rbPublico.Name = "rbPublico";
+            this.rbPublico.Size = new System.Drawing.Size(122, 20);
+            this.rbPublico.TabIndex = 146;
+            this.rbPublico.TabStop = true;
+            this.rbPublico.Text = "Mensaje Público";
+            this.rbPublico.UseVisualStyleBackColor = true;
+            this.rbPublico.CheckedChanged += new System.EventHandler(this.rbPublico_CheckedChanged);
             // 
             // dtpfechainicial
             // 
@@ -457,40 +491,6 @@
             this.ckbEliminar.UseVisualStyleBackColor = true;
             this.ckbEliminar.Visible = false;
             this.ckbEliminar.CheckedChanged += new System.EventHandler(this.ckbEliminar_CheckedChanged);
-            // 
-            // btnInsertar
-            // 
-            this.btnInsertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnInsertar.Location = new System.Drawing.Point(297, 208);
-            this.btnInsertar.Name = "btnInsertar";
-            this.btnInsertar.Size = new System.Drawing.Size(55, 55);
-            this.btnInsertar.TabIndex = 134;
-            this.btnInsertar.Tag = "Guardar";
-            this.btnInsertar.UseVisualStyleBackColor = false;
-            this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(13, 203);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(322, 2);
-            this.panel2.TabIndex = 43;
-            // 
-            // txtmensajeiu
-            // 
-            this.txtmensajeiu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtmensajeiu.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtmensajeiu.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtmensajeiu.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmensajeiu.Location = new System.Drawing.Point(16, 187);
-            this.txtmensajeiu.MaxLength = 113;
-            this.txtmensajeiu.Name = "txtmensajeiu";
-            this.txtmensajeiu.Size = new System.Drawing.Size(315, 15);
-            this.txtmensajeiu.TabIndex = 1;
             // 
             // lbluid
             // 

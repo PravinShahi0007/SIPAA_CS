@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.Accesos;
+using SIPAA_CS.Conexiones;
 
 namespace SIPAA_CS
 {
@@ -20,6 +21,8 @@ namespace SIPAA_CS
 
         Usuario usuario = new Usuario();
         Utilerias utilerias = new Utilerias();
+        Conexion conex = new Conexion();
+        
 
         public string user;
         public string pwd;
@@ -107,6 +110,7 @@ namespace SIPAA_CS
                                         usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
                                         string NomUsu = usuario.Nombre;
                                         LoginInfo.Nombre = NomUsu;
+                                        LoginInfo.iconexion = conex.iconexsvr;
 
                                         if (ltModulosxUsuario.Count != 0)
                                         {
@@ -196,6 +200,7 @@ namespace SIPAA_CS
                                 usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
                                 string NomUsu = usuario.Nombre;
                                 LoginInfo.Nombre = NomUsu;
+                                LoginInfo.iconexion = conex.iconexsvr;
 
                                 //valida usuario
                                 if (usuariov == passworwv)

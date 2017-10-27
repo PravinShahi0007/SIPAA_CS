@@ -42,6 +42,7 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.cbEmpleados = new System.Windows.Forms.ComboBox();
             this.cbUbicacion = new System.Windows.Forms.ComboBox();
             this.dpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.cbCia = new System.Windows.Forms.ComboBox();
@@ -53,7 +54,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.cbEmpleados = new System.Windows.Forms.ComboBox();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -99,9 +99,9 @@
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label8.Location = new System.Drawing.Point(41, 49);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(106, 16);
+            label8.Size = new System.Drawing.Size(135, 16);
             label8.TabIndex = 44;
-            label8.Text = "No de Trabajador";
+            label8.Text = "Nombre de Trabajador";
             // 
             // label9
             // 
@@ -230,6 +230,19 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(477, 513);
             this.pnlBusqueda.TabIndex = 128;
             this.pnlBusqueda.TabStop = true;
+            // 
+            // cbEmpleados
+            // 
+            this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleados.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.cbEmpleados.FormattingEnabled = true;
+            this.cbEmpleados.Location = new System.Drawing.Point(44, 85);
+            this.cbEmpleados.Name = "cbEmpleados";
+            this.cbEmpleados.Size = new System.Drawing.Size(291, 25);
+            this.cbEmpleados.TabIndex = 181;
+            this.cbEmpleados.Text = "Seleccionar";
             // 
             // cbUbicacion
             // 
@@ -363,19 +376,6 @@
             this.lblusuario.TabIndex = 150;
             this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbEmpleados
-            // 
-            this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbEmpleados.Font = new System.Drawing.Font("Arial", 11.25F);
-            this.cbEmpleados.FormattingEnabled = true;
-            this.cbEmpleados.Location = new System.Drawing.Point(44, 85);
-            this.cbEmpleados.Name = "cbEmpleados";
-            this.cbEmpleados.Size = new System.Drawing.Size(291, 25);
-            this.cbEmpleados.TabIndex = 181;
-            this.cbEmpleados.Text = "Seleccionar";
             // 
             // FiltrosRegistroGeneradoDetalle
             // 

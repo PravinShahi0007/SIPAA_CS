@@ -44,6 +44,10 @@ namespace SIPAA_CS.RecursosHumanos
             // cargaMenu(0, null, MsMenu);
 
             CrearMenu();
+
+            Utilerias.cargaimagen(ptbimgusuario);
+
+            if (LoginInfo.iconexion == 1) { lblconexion.Visible = true; } else { lblconexion.Visible = false; }
         }
 
 
