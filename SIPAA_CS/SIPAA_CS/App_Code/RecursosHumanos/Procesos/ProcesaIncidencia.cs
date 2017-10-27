@@ -110,5 +110,29 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             Adapter.Fill(dttiponom);
             return dttiponom;
         }
+
+        //procesa incidencias
+        public int vuidprocesainc(int iopcion, int iformapago, int iidtrab, string sfecini, string sfecfin, string susuumod, string sprgumod)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechinccalif_p";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            cmd.Parameters.Add("@p_idformapago", SqlDbType.Int).Value = iformapago;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = iidtrab;
+            cmd.Parameters.Add("@p_fechainicial", SqlDbType.VarChar).Value = sfecini;
+            cmd.Parameters.Add("@p_fechafinal", SqlDbType.VarChar).Value = sfecfin;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sprgumod;
+            objConexion.asignarConexion(cmd);
+            cmd.CommandTimeout = 120;
+            cmd.ExecuteScalar();
+            
+            objConexion.cerrarConexion();
+            return 1;
+        }
     }
 }

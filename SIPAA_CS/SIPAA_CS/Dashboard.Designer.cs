@@ -102,6 +102,7 @@
             this.btnSistemas.Text = "Sistemas";
             this.btnSistemas.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnSistemas.UseVisualStyleBackColor = false;
+            this.btnSistemas.Click += new System.EventHandler(this.btnSistemas_Click);
             // 
             // btnEscolar
             // 

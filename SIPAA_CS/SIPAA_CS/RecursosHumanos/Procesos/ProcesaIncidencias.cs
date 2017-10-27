@@ -81,6 +81,38 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
         }
 
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                btnguardar.Enabled = false;
+
+                //valida se seleccione un periodo
+                if (Int32.Parse(cbtiponomina.SelectedValue.ToString()) == 0)
+                {
+                    DialogResult result = MessageBox.Show("Seleccione un tipo de nomina", "SIPAA");
+                    cbtiponomina.Focus();
+                    pnlmenssuid.Visible = false;
+                }
+                else
+                {
+                    int ival = ProcesaInc.vuidprocesainc(5, Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0, txtfecini.Text, txtfecfin.Text, LoginInfo.IdTrab, this.Name);
+
+                    pnlmenssuid.Visible = true;
+                    pnlmenssuid.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                    menssuid.Text = "Registro agregado correctamente";
+                    timer1.Start();
+                }
+                btnguardar.Enabled = true;
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
+            }
+        }
+
         //boton minimizar
         private void btnminimizar_Click(object sender, EventArgs e)
         {
@@ -191,7 +223,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         }
 
-
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            pnlmenssuid.Visible = false;
+            timer1.Stop();
+        }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
