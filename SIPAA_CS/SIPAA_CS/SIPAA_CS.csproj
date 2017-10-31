@@ -356,6 +356,11 @@
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.Designer.cs">
       <DependentUpon>JustificaIncidencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\CartaExtrañamiento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CartaExtrañamiento.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\FaltasPeriodo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1409,6 +1414,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RecursosHumanos\DataSets\CartaExtrañamiento.xsc">
+      <DependentUpon>CartaExtrañamiento.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\CartaExtrañamiento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CartaExtrañamiento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\CartaExtrañamiento.xss">
+      <DependentUpon>CartaExtrañamiento.xsd</DependentUpon>
+    </None>
     <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xsc">
       <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
     </None>

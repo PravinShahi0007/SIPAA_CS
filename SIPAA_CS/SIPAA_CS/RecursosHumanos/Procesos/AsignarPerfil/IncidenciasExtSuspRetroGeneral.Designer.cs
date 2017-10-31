@@ -57,7 +57,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dgvInc = new System.Windows.Forms.DataGridView();
             this.pnlAsig = new System.Windows.Forms.Panel();
-            this.btnPrueba = new System.Windows.Forms.Button();
             this.dtimeFechaFinAsig = new System.Windows.Forms.DateTimePicker();
             this.dtimeFechaInicioAsig = new System.Windows.Forms.DateTimePicker();
             this.cbTipo = new System.Windows.Forms.ComboBox();
@@ -92,11 +91,11 @@
             label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label2.Location = new System.Drawing.Point(21, 66);
+            label2.Location = new System.Drawing.Point(9, 68);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(57, 16);
+            label2.Size = new System.Drawing.Size(70, 16);
             label2.TabIndex = 214;
-            label2.Text = "Nombre:";
+            label2.Text = "Empleado:";
             // 
             // label23
             // 
@@ -116,7 +115,7 @@
             this.label13.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Gray;
             this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label13.Location = new System.Drawing.Point(9, 37);
+            this.label13.Location = new System.Drawing.Point(9, 31);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(154, 17);
             this.label13.TabIndex = 202;
@@ -407,7 +406,6 @@
             // pnlAsig
             // 
             this.pnlAsig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlAsig.Controls.Add(this.btnPrueba);
             this.pnlAsig.Controls.Add(this.dtimeFechaFinAsig);
             this.pnlAsig.Controls.Add(this.label10);
             this.pnlAsig.Controls.Add(this.label11);
@@ -426,17 +424,6 @@
             this.pnlAsig.Size = new System.Drawing.Size(988, 140);
             this.pnlAsig.TabIndex = 206;
             this.pnlAsig.TabStop = true;
-            this.pnlAsig.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBusqueda_Paint);
-            // 
-            // btnPrueba
-            // 
-            this.btnPrueba.Location = new System.Drawing.Point(773, 95);
-            this.btnPrueba.Name = "btnPrueba";
-            this.btnPrueba.Size = new System.Drawing.Size(83, 23);
-            this.btnPrueba.TabIndex = 212;
-            this.btnPrueba.Text = "Extrañamiento";
-            this.btnPrueba.UseVisualStyleBackColor = true;
-            this.btnPrueba.Click += new System.EventHandler(this.btnPrueba_Click);
             // 
             // dtimeFechaFinAsig
             // 
@@ -719,6 +706,5 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox cbEmpleados;
-        private System.Windows.Forms.Button btnPrueba;
     }
 } 
