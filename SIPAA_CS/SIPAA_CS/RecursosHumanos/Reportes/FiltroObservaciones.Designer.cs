@@ -268,6 +268,7 @@
             this.cbDepartamento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbDepartamento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbDepartamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbDepartamento.DropDownWidth = 500;
             this.cbDepartamento.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDepartamento.FormattingEnabled = true;
             this.cbDepartamento.Items.AddRange(new object[] {
@@ -276,7 +277,7 @@
             "Inactivo"});
             this.cbDepartamento.Location = new System.Drawing.Point(61, 382);
             this.cbDepartamento.Name = "cbDepartamento";
-            this.cbDepartamento.Size = new System.Drawing.Size(291, 25);
+            this.cbDepartamento.Size = new System.Drawing.Size(368, 25);
             this.cbDepartamento.TabIndex = 69;
             this.cbDepartamento.Text = "Seleccionar ";
             // 
@@ -308,6 +309,7 @@
             this.cbArea.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbArea.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbArea.DropDownWidth = 500;
             this.cbArea.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbArea.FormattingEnabled = true;
             this.cbArea.Items.AddRange(new object[] {
@@ -316,7 +318,7 @@
             "Inactivo"});
             this.cbArea.Location = new System.Drawing.Point(61, 255);
             this.cbArea.Name = "cbArea";
-            this.cbArea.Size = new System.Drawing.Size(291, 25);
+            this.cbArea.Size = new System.Drawing.Size(368, 25);
             this.cbArea.TabIndex = 67;
             this.cbArea.Text = "Seleccionar ";
             // 
@@ -357,7 +359,7 @@
             "Inactivo"});
             this.cbTipoNomina.Location = new System.Drawing.Point(61, 193);
             this.cbTipoNomina.Name = "cbTipoNomina";
-            this.cbTipoNomina.Size = new System.Drawing.Size(291, 25);
+            this.cbTipoNomina.Size = new System.Drawing.Size(368, 25);
             this.cbTipoNomina.TabIndex = 179;
             this.cbTipoNomina.Text = "Seleccionar ";
             // 
@@ -366,11 +368,12 @@
             this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleados.DropDownWidth = 500;
             this.cbEmpleados.Font = new System.Drawing.Font("Arial", 11.25F);
             this.cbEmpleados.FormattingEnabled = true;
             this.cbEmpleados.Location = new System.Drawing.Point(61, 68);
             this.cbEmpleados.Name = "cbEmpleados";
-            this.cbEmpleados.Size = new System.Drawing.Size(291, 25);
+            this.cbEmpleados.Size = new System.Drawing.Size(368, 25);
             this.cbEmpleados.TabIndex = 178;
             this.cbEmpleados.Text = "Seleccionar";
             // 
@@ -379,6 +382,7 @@
             this.cbIncidencia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbIncidencia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbIncidencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbIncidencia.DropDownWidth = 500;
             this.cbIncidencia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbIncidencia.FormattingEnabled = true;
             this.cbIncidencia.Items.AddRange(new object[] {
@@ -387,7 +391,7 @@
             "Inactivo"});
             this.cbIncidencia.Location = new System.Drawing.Point(61, 449);
             this.cbIncidencia.Name = "cbIncidencia";
-            this.cbIncidencia.Size = new System.Drawing.Size(291, 25);
+            this.cbIncidencia.Size = new System.Drawing.Size(368, 25);
             this.cbIncidencia.TabIndex = 71;
             this.cbIncidencia.Text = "Seleccionar ";
             // 
@@ -396,6 +400,7 @@
             this.cbUbicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbUbicacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbUbicacion.DropDownWidth = 500;
             this.cbUbicacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUbicacion.FormattingEnabled = true;
             this.cbUbicacion.Items.AddRange(new object[] {
@@ -404,7 +409,7 @@
             "Inactivo"});
             this.cbUbicacion.Location = new System.Drawing.Point(61, 314);
             this.cbUbicacion.Name = "cbUbicacion";
-            this.cbUbicacion.Size = new System.Drawing.Size(291, 25);
+            this.cbUbicacion.Size = new System.Drawing.Size(368, 25);
             this.cbUbicacion.TabIndex = 59;
             this.cbUbicacion.Text = "Seleccionar ";
             // 
@@ -413,6 +418,7 @@
             this.cbCia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbCia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbCia.DropDownWidth = 500;
             this.cbCia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCia.FormattingEnabled = true;
             this.cbCia.Items.AddRange(new object[] {
@@ -421,7 +427,7 @@
             "Inactivo"});
             this.cbCia.Location = new System.Drawing.Point(61, 137);
             this.cbCia.Name = "cbCia";
-            this.cbCia.Size = new System.Drawing.Size(291, 25);
+            this.cbCia.Size = new System.Drawing.Size(368, 25);
             this.cbCia.TabIndex = 57;
             this.cbCia.Text = "Seleccionar ";
             this.cbCia.SelectedIndexChanged += new System.EventHandler(this.cbCia_SelectedIndexChanged);
