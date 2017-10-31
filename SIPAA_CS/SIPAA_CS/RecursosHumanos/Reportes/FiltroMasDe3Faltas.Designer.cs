@@ -41,12 +41,12 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.cboEmpleados = new System.Windows.Forms.ComboBox();
             this.cbUbicacion = new System.Windows.Forms.ComboBox();
             this.cbCompania = new System.Windows.Forms.ComboBox();
             this.dpFechaBase = new System.Windows.Forms.DateTimePicker();
             this.pnlImprimir = new System.Windows.Forms.Panel();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.cboEmpleados = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -102,9 +102,9 @@
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label8.Location = new System.Drawing.Point(61, 33);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(128, 16);
+            label8.Size = new System.Drawing.Size(195, 16);
             label8.TabIndex = 44;
-            label8.Text = "Trabajador (opcional)";
+            label8.Text = "Nombre de Trabajador (opcional)";
             // 
             // label9
             // 
@@ -222,11 +222,27 @@
             this.pnlBusqueda.TabIndex = 139;
             this.pnlBusqueda.TabStop = true;
             // 
+            // cboEmpleados
+            // 
+            this.cboEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboEmpleados.DropDownWidth = 500;
+            this.cboEmpleados.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboEmpleados.FormattingEnabled = true;
+            this.cboEmpleados.Items.AddRange(new object[] {
+            "-Seleccionar-"});
+            this.cboEmpleados.Location = new System.Drawing.Point(64, 52);
+            this.cboEmpleados.Name = "cboEmpleados";
+            this.cboEmpleados.Size = new System.Drawing.Size(385, 25);
+            this.cboEmpleados.TabIndex = 64;
+            // 
             // cbUbicacion
             // 
             this.cbUbicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbUbicacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbUbicacion.DropDownWidth = 500;
             this.cbUbicacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUbicacion.FormattingEnabled = true;
             this.cbUbicacion.Location = new System.Drawing.Point(64, 172);
@@ -240,6 +256,7 @@
             this.cbCompania.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbCompania.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCompania.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbCompania.DropDownWidth = 500;
             this.cbCompania.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCompania.FormattingEnabled = true;
             this.cbCompania.Location = new System.Drawing.Point(64, 108);
@@ -279,20 +296,6 @@
             this.btnImprimir.Tag = "Buscar";
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // cboEmpleados
-            // 
-            this.cboEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cboEmpleados.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboEmpleados.FormattingEnabled = true;
-            this.cboEmpleados.Items.AddRange(new object[] {
-            "-Seleccionar-"});
-            this.cboEmpleados.Location = new System.Drawing.Point(64, 52);
-            this.cboEmpleados.Name = "cboEmpleados";
-            this.cboEmpleados.Size = new System.Drawing.Size(385, 25);
-            this.cboEmpleados.TabIndex = 64;
             // 
             // FiltroMasDe3Faltas
             // 

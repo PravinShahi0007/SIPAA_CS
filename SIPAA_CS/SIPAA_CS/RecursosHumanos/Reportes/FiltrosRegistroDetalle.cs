@@ -86,7 +86,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     ViewerReporte form = new ViewerReporte();
                     RegistroDetalle dtrpt = new RegistroDetalle();
                     //metodo del vic para ejecutar un reporte (segun yo)
-                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistroDetalle, "RecursosHumanos", dtrpt.ResourceName);
+                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistroDetalle, this.CompanyName, dtrpt.ResourceName);
 
                     ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
                     ReportDoc.SetParameterValue("FechaFin", dpFechaFin.Value);
