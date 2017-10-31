@@ -457,14 +457,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod,  sFechaInicioProcInc,  sFechaFinProcInc,  sFechaInicioConsInc, 
                 sFechaFinConsInc,  sFechaInicioCalifSup,  sFechaFinCalifSup,  sFechaInicioCalifDir,  sFechaFinCalifDir,  sFechaInicioUpdate,  sFechaFinUpdate);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
+
+               
+
+                if (dgvPeriodosProcesoIncidencias.Columns.Count > 6)
+                {
+                   dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
+                }
+
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
                 imgCheckUsuarios.Name = "img";
-                if(dgvPeriodosProcesoIncidencias.Columns.Count > 6)
-                {
-                    dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
-                }
-               // dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
+                dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
                 dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
@@ -485,9 +489,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 imgCheckUsuarios.Name = "img";
                 if (dgvPeriodosProcesoIncidencias.Columns.Count > 6)
                 {
-                    dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
+                  dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
                 }
-                //dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
+
+                dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
                 dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
@@ -510,9 +515,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 imgCheckUsuarios.Name = "img";
                 if (dgvPeriodosProcesoIncidencias.Columns.Count > 6)
                 {
-                    dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
+                   dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
                 }
-                //dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
+
+                dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
                 dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
@@ -536,7 +542,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 {
                     dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
                 }
-                //dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
+
+                dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
                 dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
@@ -572,9 +579,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 imgCheckUsuarios.Name = "img";
                 if (dgvPeriodosProcesoIncidencias.Columns.Count > 6)
                 {
-                    dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
+                   dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
                 }
-                //dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
+
+                dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
                 dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
@@ -596,9 +604,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 imgCheckUsuarios.Name = "img";
                 if (dgvPeriodosProcesoIncidencias.Columns.Count > 6)
                 {
-                    dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
+                  dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
                 }
-                //dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
+                dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
                 dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
                 dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
                 dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
@@ -615,7 +623,22 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod, sFechaInicioProcInc, sFechaFinProcInc, sFechaInicioConsInc,
                 sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
-                dgvPeriodosProcesoIncidencias.Columns[0].Visible = false;
+
+
+                DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
+                imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
+                imgCheckUsuarios.Name = "img";
+                if (dgvPeriodosProcesoIncidencias.Columns.Count > 6)
+                {
+                     dgvPeriodosProcesoIncidencias.Columns.RemoveAt(0);
+                }
+                dgvPeriodosProcesoIncidencias.Columns.Insert(0, imgCheckUsuarios);
+                dgvPeriodosProcesoIncidencias.Columns[0].HeaderText = "Selección";
+                dgvPeriodosProcesoIncidencias.Columns[0].Width = 75;
+
+
+
+               // dgvPeriodosProcesoIncidencias.Columns[0].Visible = false;
                 dgvPeriodosProcesoIncidencias.Columns[1].Width = 80;
                 dgvPeriodosProcesoIncidencias.Columns[2].Width = 80;
                 dgvPeriodosProcesoIncidencias.Columns[3].Width = 80;
@@ -689,15 +712,22 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         private void factgrid()
         {
             string sStPeriodoIncidencia = "";
-            /*for (int iContador = 0; iContador < dgvPeriodosProcesoIncidencias.Rows.Count; iContador++)
+            for (int iContador = 0; iContador < dgvPeriodosProcesoIncidencias.Rows.Count; iContador++)
             {
                   dgvPeriodosProcesoIncidencias.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
-            */
+            
+
+
             if (dgvPeriodosProcesoIncidencias.SelectedRows.Count != 0)
             {
 
+
+
                 DataGridViewRow row = this.dgvPeriodosProcesoIncidencias.SelectedRows[0];
+
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+
 
                 sFechaInicioPeriodoIncidencia = row.Cells["Inicio"].Value.ToString();
                 sFechaFinPeriodoIncidencia = row.Cells["Fin"].Value.ToString();
@@ -742,7 +772,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dtpFechaInicioCalificarIncidenciaDir.Text = sFechaInicioCalifDir;
                 dtpFechaFinCalificarIncidenciaDir.Text =  sFechaFinCalifDir;
                 cbStatusPeriodo.Text = sStPeriodoIncidencia;
-              // row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
         }
 
@@ -824,12 +854,105 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             bool resultadoValida = true;
 
+            /* if (dtpFechaFinPeriodoIncidencia.Value.Date < dtpFechaInicioPeriodoIncidencia.Value.Date)
+             {
+                 MessageBox.Show("No puede elegir una Fecha de Fin de Periodo de Incidencia menor a la de Inicio de Periodo de Incidencia", "SIPPA - Periodo Incidencia", MessageBoxButtons.OK);
+                 //Poner el foco en dtpFechaFinPeriodoIncidencia
+                 dtpFechaFinPeriodoIncidencia.Focus();
+
+                 resultadoValida = false;
+             }
+             else
+             {
+                 if (dtpFechaInicioProcesarIncidencia.Value.Date <= dtpFechaFinPeriodoIncidencia.Value.Date)
+                 {
+                     MessageBox.Show("No puede elegir una Fecha de Inicio de Procesar Incidencia menor o igual a la de Fin de Periodo de Incidencia", "SIPPA - Procesar Incidencia", MessageBoxButtons.OK);
+                     // poner el foco en dtpFechaInicioProcesarIncidencia
+                     dtpFechaInicioProcesarIncidencia.Focus();
+                     resultadoValida = false;
+                 }
+                 else
+                 {
+                     if (dtpFechaFinProcesarIncidencia.Value.Date < dtpFechaInicioProcesarIncidencia.Value.Date)
+                     {
+                         MessageBox.Show("No puede elegir una Fecha de Fin de Procesar Incidencia menor a la de Inicio de Procesar Incidencia", "SIPPA - Procesar Incidencia", MessageBoxButtons.OK);
+                         //Poner el foco en dtpFechaFinProcesarIncidencia
+                         dtpFechaFinProcesarIncidencia.Focus();
+                         resultadoValida = false;
+                     }
+                     else
+                     { 
+                         if (dtpFechaInicioConsultarIncidencia.Value.Date<=dtpFechaFinProcesarIncidencia.Value.Date)
+                         {
+                             MessageBox.Show("No puede elegir una Fecha de Inicio de Consultar Incidencia menor o igual a la de Fin de Procesar Incidencia", "SIPPA - Consultar Incidencia", MessageBoxButtons.OK);
+                             // Poner el foco en dtpFechaInicioConsultarIncidencia
+                             dtpFechaInicioConsultarIncidencia.Focus();
+                             resultadoValida = false;
+                         }
+                         else
+                         {
+                             if (dtpFechaFinConsultarIncidencia.Value.Date < dtpFechaInicioConsultarIncidencia.Value.Date)
+                             {
+                                 MessageBox.Show("No puede elegir una Fecha de Fin de Consultar Incidencia menor a la de Inicio de Consultar Incidencia", "SIPPA - Consultar Incidencia", MessageBoxButtons.OK);
+                                 // POner el foco en dtpFechaFinConsultarIncidencia.Value.Date
+                                 dtpFechaFinConsultarIncidencia.Focus();
+                                 resultadoValida = false;
+                             }
+                             else
+                             {
+                                 if (dtpFechaInicioCalificarIncidenciaSup.Value.Date<=dtpFechaFinConsultarIncidencia.Value.Date)
+                                 {
+                                     MessageBox.Show("No puede elegir una Fecha de Inicio de Calificar Incidencia Supervisor menor o igual a la de Fin de Consultar Incidencia", "SIPPA - Calificar Incidencia Supervisor", MessageBoxButtons.OK);
+                                     // poner el foco en dtpFechaInicioCalificarIncidenciaSup
+                                     dtpFechaInicioCalificarIncidenciaSup.Focus();
+                                     resultadoValida = false;
+                                 }
+                                 else
+                                 {
+                                     if (dtpFechaFinCalificarIncidenciaSup.Value.Date <dtpFechaInicioCalificarIncidenciaSup.Value.Date)
+                                     {
+                                         MessageBox.Show("No puede elegir una Fecha de Fin de Calificar Incidencia Supervisor menor o a la de Inicio de Calificar Incidencia Supervisor", "SIPPA - Calificar Incidencia Supervisor", MessageBoxButtons.OK);
+                                         // poner el foco en dtpFechaFinCalificarIncidenciaSup
+                                         dtpFechaFinCalificarIncidenciaSup.Focus();
+                                         resultadoValida = false;
+                                     }
+                                     else
+                                     {
+                                         if (dtpFechaInicioCalificarIncidenciaDir.Value.Date<=dtpFechaFinCalificarIncidenciaSup.Value.Date)
+                                         {
+                                             MessageBox.Show("No puede elegir una Fecha de Inicio de Calificar Incidencia Director menor o igual a la de Fin de Calificar de Incidencia Supervisor", "SIPPA - Calificar Incidencia Director", MessageBoxButtons.OK);
+                                             // poner el foco en dtpFechaInicioCalificarIncidenciaDir
+                                             dtpFechaInicioCalificarIncidenciaDir.Focus();
+                                             resultadoValida = false;
+                                         }
+                                         else
+                                         {
+                                             if (dtpFechaFinCalificarIncidenciaDir.Value.Date < dtpFechaInicioCalificarIncidenciaDir.Value.Date)
+                                             {
+                                                 MessageBox.Show("No puede elegir una Fecha de Fin de Calificar Incidencia Director menor  a la de Fin de Calificar de Incidencia Director", "SIPPA - Calificar Incidencia Director", MessageBoxButtons.OK);
+                                                 // poner el foco en dtpFechaFinCalificarIncidenciaDir
+                                                 dtpFechaFinCalificarIncidenciaDir.Focus();
+                                                 resultadoValida = false;
+                                             }
+
+                                         }
+                                     }
+                                 }
+                             }
+                         }
+
+                     }
+
+                 }
+             }*/
+
+
             if (dtpFechaFinPeriodoIncidencia.Value.Date < dtpFechaInicioPeriodoIncidencia.Value.Date)
             {
                 MessageBox.Show("No puede elegir una Fecha de Fin de Periodo de Incidencia menor a la de Inicio de Periodo de Incidencia", "SIPPA - Periodo Incidencia", MessageBoxButtons.OK);
                 //Poner el foco en dtpFechaFinPeriodoIncidencia
                 dtpFechaFinPeriodoIncidencia.Focus();
-               
+
                 resultadoValida = false;
             }
             else
@@ -851,10 +974,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         resultadoValida = false;
                     }
                     else
-                    { 
-                        if (dtpFechaInicioConsultarIncidencia.Value.Date<=dtpFechaFinProcesarIncidencia.Value.Date)
+                    {
+                        if (dtpFechaInicioConsultarIncidencia.Value.Date < dtpFechaFinProcesarIncidencia.Value.Date)
                         {
-                            MessageBox.Show("No puede elegir una Fecha de Inicio de Consultar Incidencia menor o igual a la de Fin de Procesar Incidencia", "SIPPA - Consultar Incidencia", MessageBoxButtons.OK);
+                            MessageBox.Show("No puede elegir una Fecha de Inicio de Consultar Incidencia menor a la de Fin de Procesar Incidencia", "SIPPA - Consultar Incidencia", MessageBoxButtons.OK);
                             // Poner el foco en dtpFechaInicioConsultarIncidencia
                             dtpFechaInicioConsultarIncidencia.Focus();
                             resultadoValida = false;
@@ -870,16 +993,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                             }
                             else
                             {
-                                if (dtpFechaInicioCalificarIncidenciaSup.Value.Date<=dtpFechaFinConsultarIncidencia.Value.Date)
+                                if (dtpFechaInicioCalificarIncidenciaSup.Value.Date < dtpFechaFinConsultarIncidencia.Value.Date)
                                 {
-                                    MessageBox.Show("No puede elegir una Fecha de Inicio de Calificar Incidencia Supervisor menor o igual a la de Fin de Consultar Incidencia", "SIPPA - Calificar Incidencia Supervisor", MessageBoxButtons.OK);
+                                    MessageBox.Show("No puede elegir una Fecha de Inicio de Calificar Incidencia Supervisor menor a la de Fin de Consultar Incidencia", "SIPPA - Calificar Incidencia Supervisor", MessageBoxButtons.OK);
                                     // poner el foco en dtpFechaInicioCalificarIncidenciaSup
                                     dtpFechaInicioCalificarIncidenciaSup.Focus();
                                     resultadoValida = false;
                                 }
                                 else
                                 {
-                                    if (dtpFechaFinCalificarIncidenciaSup.Value.Date <dtpFechaInicioCalificarIncidenciaSup.Value.Date)
+                                    if (dtpFechaFinCalificarIncidenciaSup.Value.Date < dtpFechaInicioCalificarIncidenciaSup.Value.Date)
                                     {
                                         MessageBox.Show("No puede elegir una Fecha de Fin de Calificar Incidencia Supervisor menor o a la de Inicio de Calificar Incidencia Supervisor", "SIPPA - Calificar Incidencia Supervisor", MessageBoxButtons.OK);
                                         // poner el foco en dtpFechaFinCalificarIncidenciaSup
@@ -888,9 +1011,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                     }
                                     else
                                     {
-                                        if (dtpFechaInicioCalificarIncidenciaDir.Value.Date<=dtpFechaFinCalificarIncidenciaSup.Value.Date)
+                                        if (dtpFechaInicioCalificarIncidenciaDir.Value.Date < dtpFechaFinCalificarIncidenciaSup.Value.Date)
                                         {
-                                            MessageBox.Show("No puede elegir una Fecha de Inicio de Calificar Incidencia Director menor o igual a la de Fin de Calificar de Incidencia Supervisor", "SIPPA - Calificar Incidencia Director", MessageBoxButtons.OK);
+                                            MessageBox.Show("No puede elegir una Fecha de Inicio de Calificar Incidencia Director menor  a la de Fin de Calificar de Incidencia Supervisor", "SIPPA - Calificar Incidencia Director", MessageBoxButtons.OK);
                                             // poner el foco en dtpFechaInicioCalificarIncidenciaDir
                                             dtpFechaInicioCalificarIncidenciaDir.Focus();
                                             resultadoValida = false;
