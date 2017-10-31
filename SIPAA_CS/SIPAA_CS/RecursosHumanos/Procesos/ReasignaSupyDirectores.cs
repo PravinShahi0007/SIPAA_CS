@@ -20,8 +20,8 @@ using SIPAA_CS.Accesos;
 
 
 //***********************************************************************************************
-//Autor: Jaime Avendaño Vargas        noe alvarez marquina
-//Fecha creación: 04-Abril-2017       Última Modificacion: 20/09/2017
+//Autor: Jaime Avendaño Vargas        noe alvarez marquina              Jose Luis Alvarez D
+//Fecha creación: 04-Abril-2017       Última Modificacion: 20/09/2017   30/10/2017
 //Descripción: Reasignación de Supervisor y Director
 //***********************************************************************************************
 
@@ -89,8 +89,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 fllenagrid(10, TxtFeIni.Text.Trim(), TxtFeFin.Text.Trim(), Int32.Parse(cbempleado.SelectedValue.ToString()));
             }
-
         }
+
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
@@ -167,6 +167,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     lblMensaje.Text = "Registro Actualizado Correctamente";
                     timer1.Start();
                     Util.p_inicbo = 0;
+                    frecargar();
                 }
                 else
                 {
@@ -239,6 +240,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             panelTag.Visible = false;
             timer1.Stop();
         }
+
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
@@ -258,6 +260,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             toolTip1.SetToolTip(this.btnCerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
+            toolTip1.SetToolTip(this.btnInsertar, "Insertar Registros");
         }
 
         // Llena Combo Box de Forma Pago de la tabla de SONARH
@@ -284,8 +287,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             dgvdatos.Columns[0].Visible = false;//empleado
             dgvdatos.Columns[1].Width = 130;//fecha registro
-            dgvdatos.Columns[2].Width = 100;//hr registro
-            dgvdatos.Columns[3].Width = 100;//hr salida
+            dgvdatos.Columns[2].Width = 110;//hr registro
+            dgvdatos.Columns[3].Width = 110;//hr salida
             dgvdatos.Columns[4].Width = 100;//dif tiempo
             dgvdatos.ClearSelection();
         }
@@ -316,11 +319,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 return true;
             }
         }
+
+        private void frecargar()
+        {
+            ReasignaSupyDirectores recargar = new ReasignaSupyDirectores();
+            recargar.Show();
+            this.Close();
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
-        //-----------------------------------------------------------------------------------------------
-        //-----------------------------------------------------------------------------------------------
-        //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
     }
 }

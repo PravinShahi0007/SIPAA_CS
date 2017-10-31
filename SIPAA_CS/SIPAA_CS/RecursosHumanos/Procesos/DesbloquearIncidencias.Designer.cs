@@ -30,10 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label lblFormaPago;
+            System.Windows.Forms.Label label3;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DesbloquearIncidencias));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbFormaPago = new System.Windows.Forms.ComboBox();
             this.panelTag = new System.Windows.Forms.Panel();
             this.lblMensaje = new System.Windows.Forms.Label();
@@ -58,28 +59,43 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cbdirector = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cbsupervnuevo = new System.Windows.Forms.ComboBox();
-            this.cbdirecnuevo = new System.Windows.Forms.ComboBox();
             this.btndesbloqueo = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cbdirecnuevo = new System.Windows.Forms.ComboBox();
+            this.cbsupervnuevo = new System.Windows.Forms.ComboBox();
             lblFormaPago = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             this.panelTag.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdatos)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblFormaPago
             // 
             lblFormaPago.AutoSize = true;
             lblFormaPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            lblFormaPago.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblFormaPago.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblFormaPago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblFormaPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblFormaPago.Location = new System.Drawing.Point(42, 114);
+            lblFormaPago.Location = new System.Drawing.Point(38, 31);
             lblFormaPago.Name = "lblFormaPago";
-            lblFormaPago.Size = new System.Drawing.Size(56, 16);
+            lblFormaPago.Size = new System.Drawing.Size(62, 17);
             lblFormaPago.TabIndex = 152;
             lblFormaPago.Text = "Periodo:";
-            lblFormaPago.Click += new System.EventHandler(this.lblFormaPago_Click);
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label3.Location = new System.Drawing.Point(31, 150);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(168, 18);
+            label3.TabIndex = 189;
+            label3.Text = "Listado de Incidencias.";
             // 
             // cbFormaPago
             // 
@@ -88,9 +104,9 @@
             this.cbFormaPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbFormaPago.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFormaPago.FormattingEnabled = true;
-            this.cbFormaPago.Location = new System.Drawing.Point(115, 114);
+            this.cbFormaPago.Location = new System.Drawing.Point(101, 27);
             this.cbFormaPago.Name = "cbFormaPago";
-            this.cbFormaPago.Size = new System.Drawing.Size(309, 24);
+            this.cbFormaPago.Size = new System.Drawing.Size(248, 24);
             this.cbFormaPago.TabIndex = 151;
             this.cbFormaPago.SelectedIndexChanged += new System.EventHandler(this.cbFormaPago_SelectedIndexChanged);
             // 
@@ -99,7 +115,7 @@
             this.panelTag.BackColor = System.Drawing.Color.Transparent;
             this.panelTag.Controls.Add(this.lblMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(436, 679);
+            this.panelTag.Location = new System.Drawing.Point(472, 665);
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(527, 25);
             this.panelTag.TabIndex = 150;
@@ -201,63 +217,64 @@
             this.TxtFeIni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.TxtFeIni.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtFeIni.Enabled = false;
-            this.TxtFeIni.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtFeIni.Location = new System.Drawing.Point(163, 168);
+            this.TxtFeIni.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFeIni.Location = new System.Drawing.Point(109, 82);
             this.TxtFeIni.Name = "TxtFeIni";
             this.TxtFeIni.ReadOnly = true;
-            this.TxtFeIni.Size = new System.Drawing.Size(100, 15);
+            this.TxtFeIni.Size = new System.Drawing.Size(120, 18);
             this.TxtFeIni.TabIndex = 153;
             this.TxtFeIni.TabStop = false;
+            this.TxtFeIni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TxtFeFin
             // 
             this.TxtFeFin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.TxtFeFin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtFeFin.Enabled = false;
-            this.TxtFeFin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtFeFin.Location = new System.Drawing.Point(313, 166);
+            this.TxtFeFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFeFin.Location = new System.Drawing.Point(109, 124);
             this.TxtFeFin.Name = "TxtFeFin";
             this.TxtFeFin.ReadOnly = true;
-            this.TxtFeFin.Size = new System.Drawing.Size(100, 15);
+            this.TxtFeFin.Size = new System.Drawing.Size(120, 18);
             this.TxtFeFin.TabIndex = 154;
             this.TxtFeFin.TabStop = false;
+            this.TxtFeFin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label1.Location = new System.Drawing.Point(42, 166);
+            this.label1.Location = new System.Drawing.Point(8, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 16);
+            this.label1.Size = new System.Drawing.Size(93, 17);
             this.label1.TabIndex = 155;
-            this.label1.Text = "Fechas:     Inicial";
+            this.label1.Text = "Fecha Inicial:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label2.Location = new System.Drawing.Point(271, 166);
+            this.label2.Location = new System.Drawing.Point(13, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 16);
+            this.label2.Size = new System.Drawing.Size(88, 17);
             this.label2.TabIndex = 156;
-            this.label2.Text = "Final";
+            this.label2.Text = "Fecha Final:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label4.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label4.Location = new System.Drawing.Point(8, 219);
+            this.label4.Location = new System.Drawing.Point(19, 188);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 16);
+            this.label4.Size = new System.Drawing.Size(78, 17);
             this.label4.TabIndex = 159;
-            this.label4.Text = "No. Empleado:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.label4.Text = "Empleado:";
             // 
             // btnInsertar
             // 
@@ -277,17 +294,17 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(161, 186);
+            this.panel1.Location = new System.Drawing.Point(108, 103);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(100, 2);
+            this.panel1.Size = new System.Drawing.Size(122, 2);
             this.panel1.TabIndex = 173;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(311, 184);
+            this.panel2.Location = new System.Drawing.Point(108, 145);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(100, 2);
+            this.panel2.Size = new System.Drawing.Size(122, 2);
             this.panel2.TabIndex = 174;
             // 
             // ptbimgusuario
@@ -309,9 +326,9 @@
             this.cbempleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbempleado.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbempleado.FormattingEnabled = true;
-            this.cbempleado.Location = new System.Drawing.Point(115, 216);
+            this.cbempleado.Location = new System.Drawing.Point(101, 185);
             this.cbempleado.Name = "cbempleado";
-            this.cbempleado.Size = new System.Drawing.Size(371, 24);
+            this.cbempleado.Size = new System.Drawing.Size(370, 24);
             this.cbempleado.TabIndex = 179;
             this.cbempleado.SelectedIndexChanged += new System.EventHandler(this.cbempleado_SelectedIndexChanged);
             // 
@@ -320,30 +337,30 @@
             this.dgvdatos.AllowUserToAddRows = false;
             this.dgvdatos.AllowUserToDeleteRows = false;
             this.dgvdatos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvdatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvdatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvdatos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvdatos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvdatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvdatos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvdatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvdatos.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvdatos.Location = new System.Drawing.Point(45, 280);
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvdatos.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dgvdatos.Location = new System.Drawing.Point(34, 186);
             this.dgvdatos.Name = "dgvdatos";
             this.dgvdatos.ReadOnly = true;
             this.dgvdatos.RowHeadersVisible = false;
@@ -351,7 +368,7 @@
             this.dgvdatos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvdatos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvdatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvdatos.Size = new System.Drawing.Size(672, 380);
+            this.dgvdatos.Size = new System.Drawing.Size(457, 430);
             this.dgvdatos.TabIndex = 180;
             this.dgvdatos.TabStop = false;
             // 
@@ -361,23 +378,22 @@
             this.cbsupervisor.Enabled = false;
             this.cbsupervisor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbsupervisor.FormattingEnabled = true;
-            this.cbsupervisor.Location = new System.Drawing.Point(636, 219);
+            this.cbsupervisor.Location = new System.Drawing.Point(101, 248);
             this.cbsupervisor.Name = "cbsupervisor";
-            this.cbsupervisor.Size = new System.Drawing.Size(272, 24);
+            this.cbsupervisor.Size = new System.Drawing.Size(370, 24);
             this.cbsupervisor.TabIndex = 182;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label6.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label6.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label6.Location = new System.Drawing.Point(558, 219);
+            this.label6.Location = new System.Drawing.Point(18, 251);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 16);
+            this.label6.Size = new System.Drawing.Size(82, 17);
             this.label6.TabIndex = 181;
             this.label6.Text = "Supervisor:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // cbdirector
             // 
@@ -385,36 +401,58 @@
             this.cbdirector.Enabled = false;
             this.cbdirector.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbdirector.FormattingEnabled = true;
-            this.cbdirector.Location = new System.Drawing.Point(636, 238);
+            this.cbdirector.Location = new System.Drawing.Point(101, 288);
             this.cbdirector.Name = "cbdirector";
-            this.cbdirector.Size = new System.Drawing.Size(272, 24);
+            this.cbdirector.Size = new System.Drawing.Size(370, 24);
             this.cbdirector.TabIndex = 184;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label7.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label7.Location = new System.Drawing.Point(573, 241);
+            this.label7.Location = new System.Drawing.Point(33, 291);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 16);
+            this.label7.Size = new System.Drawing.Size(64, 17);
             this.label7.TabIndex = 183;
             this.label7.Text = "Director:";
             // 
-            // cbsupervnuevo
+            // btndesbloqueo
             // 
-            this.cbsupervnuevo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbsupervnuevo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbsupervnuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbsupervnuevo.Enabled = false;
-            this.cbsupervnuevo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbsupervnuevo.FormattingEnabled = true;
-            this.cbsupervnuevo.Location = new System.Drawing.Point(34, 735);
-            this.cbsupervnuevo.Name = "cbsupervnuevo";
-            this.cbsupervnuevo.Size = new System.Drawing.Size(19, 24);
-            this.cbsupervnuevo.TabIndex = 186;
-            this.cbsupervnuevo.Visible = false;
+            this.btndesbloqueo.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btndesbloqueo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndesbloqueo.Location = new System.Drawing.Point(179, 353);
+            this.btndesbloqueo.Name = "btndesbloqueo";
+            this.btndesbloqueo.Size = new System.Drawing.Size(170, 56);
+            this.btndesbloqueo.TabIndex = 188;
+            this.btndesbloqueo.Text = "Desbloquear Incidencias";
+            this.btndesbloqueo.UseVisualStyleBackColor = false;
+            this.btndesbloqueo.Click += new System.EventHandler(this.btndesbloqueo_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.cbFormaPago);
+            this.panel3.Controls.Add(lblFormaPago);
+            this.panel3.Controls.Add(this.btndesbloqueo);
+            this.panel3.Controls.Add(this.TxtFeIni);
+            this.panel3.Controls.Add(this.TxtFeFin);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.cbdirector);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.panel1);
+            this.panel3.Controls.Add(this.cbsupervisor);
+            this.panel3.Controls.Add(this.panel2);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.cbempleado);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Location = new System.Drawing.Point(506, 186);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(488, 430);
+            this.panel3.TabIndex = 190;
             // 
             // cbdirecnuevo
             // 
@@ -425,16 +463,14 @@
             this.cbdirecnuevo.TabIndex = 187;
             this.cbdirecnuevo.Visible = false;
             // 
-            // btndesbloqueo
+            // cbsupervnuevo
             // 
-            this.btndesbloqueo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndesbloqueo.Location = new System.Drawing.Point(738, 296);
-            this.btndesbloqueo.Name = "btndesbloqueo";
-            this.btndesbloqueo.Size = new System.Drawing.Size(170, 56);
-            this.btndesbloqueo.TabIndex = 188;
-            this.btndesbloqueo.Text = "Desbloquear Incidencias";
-            this.btndesbloqueo.UseVisualStyleBackColor = true;
-            this.btndesbloqueo.Click += new System.EventHandler(this.btndesbloqueo_Click);
+            this.cbsupervnuevo.FormattingEnabled = true;
+            this.cbsupervnuevo.Location = new System.Drawing.Point(34, 735);
+            this.cbsupervnuevo.Name = "cbsupervnuevo";
+            this.cbsupervnuevo.Size = new System.Drawing.Size(17, 21);
+            this.cbsupervnuevo.TabIndex = 191;
+            this.cbsupervnuevo.Visible = false;
             // 
             // DesbloquearIncidencias
             // 
@@ -442,26 +478,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.btndesbloqueo);
-            this.Controls.Add(this.cbdirecnuevo);
             this.Controls.Add(this.cbsupervnuevo);
-            this.Controls.Add(this.cbdirector);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.cbsupervisor);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(label3);
+            this.Controls.Add(this.cbdirecnuevo);
             this.Controls.Add(this.dgvdatos);
-            this.Controls.Add(this.cbempleado);
             this.Controls.Add(this.ptbimgusuario);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnInsertar);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.TxtFeFin);
-            this.Controls.Add(this.TxtFeIni);
-            this.Controls.Add(lblFormaPago);
-            this.Controls.Add(this.cbFormaPago);
             this.Controls.Add(this.panelTag);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnMinimizar);
@@ -478,6 +501,8 @@
             this.panelTag.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdatos)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,8 +534,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbdirector;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbsupervnuevo;
-        private System.Windows.Forms.ComboBox cbdirecnuevo;
         private System.Windows.Forms.Button btndesbloqueo;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ComboBox cbdirecnuevo;
+        private System.Windows.Forms.ComboBox cbsupervnuevo;
     }
 }
