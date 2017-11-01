@@ -169,7 +169,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                 {
                                     //Se lanza la carta
                                     ViewerReporte form = new ViewerReporte();
-                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "RecursosHumanos", "CartaExtrañamiento.rpt");
+                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, "CartaExtrañamiento.rpt");
                                     ReportDoc.SetParameterValue("NombreEmpleado", cbEmpleados.Text);
                                     ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Text);
                                     ReportDoc.SetParameterValue("FechaFin", dpFechaFin.Text);

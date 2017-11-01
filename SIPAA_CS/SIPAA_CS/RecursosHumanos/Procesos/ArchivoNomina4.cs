@@ -144,7 +144,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", "IncidenciasPasadasNomina.rpt");
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, this.CompanyName, "IncidenciasPasadasNomina.rpt");
                         ReportDoc.SetParameterValue("TotalRegistros", dtIncidencia.Rows.Count.ToString());
                         ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
                         form.RptDoc = ReportDoc;
@@ -192,7 +192,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", "IncidenciasPendientesAutorizar.rpt");
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, this.CompanyName, "IncidenciasPendientesAutorizar.rpt");
                         ReportDoc.SetParameterValue("FechaInicial", dtpfechainicial.Value.Date);
                         ReportDoc.SetParameterValue("FechaFinal", dtpfechafinal.Value.Date);
                         ReportDoc.SetParameterValue("NomCompania", cbCompania.SelectedValue.ToString());
@@ -241,7 +241,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "RecursosHumanos", "FechasHorasRegistro.rpt");
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, this.CompanyName, "FechasHorasRegistro.rpt");
                         ReportDoc.SetParameterValue("FechaInicial", dtpfechainicial.Value.Date);
                         ReportDoc.SetParameterValue("FechaFinal", dtpfechafinal.Value.Date);
                         ReportDoc.SetParameterValue("NomCompania", cbCompania.SelectedValue.ToString());
