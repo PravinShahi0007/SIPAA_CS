@@ -41,9 +41,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             System.Windows.Forms.Label label9;
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label13;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvincnomia = new System.Windows.Forms.DataGridView();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -93,7 +93,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(373, 137);
+            label2.Location = new System.Drawing.Point(402, 137);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(139, 16);
             label2.TabIndex = 143;
@@ -118,7 +118,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(9, 239);
+            label5.Location = new System.Drawing.Point(5, 239);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(49, 16);
             label5.TabIndex = 137;
@@ -130,7 +130,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(10, 57);
+            label6.Location = new System.Drawing.Point(6, 57);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(55, 16);
             label6.TabIndex = 138;
@@ -142,7 +142,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(8, 203);
+            label7.Location = new System.Drawing.Point(4, 203);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(75, 16);
             label7.TabIndex = 140;
@@ -154,7 +154,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(9, 98);
+            label8.Location = new System.Drawing.Point(5, 98);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(49, 16);
             label8.TabIndex = 142;
@@ -166,7 +166,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(9, 134);
+            label9.Location = new System.Drawing.Point(5, 134);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(45, 16);
             label9.TabIndex = 144;
@@ -178,7 +178,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label10.Location = new System.Drawing.Point(9, 170);
+            label10.Location = new System.Drawing.Point(5, 170);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(95, 16);
             label10.TabIndex = 146;
@@ -190,7 +190,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label13.Location = new System.Drawing.Point(6, 46);
+            label13.Location = new System.Drawing.Point(13, 24);
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(66, 16);
             label13.TabIndex = 46;
@@ -202,7 +202,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
-            this.btnAgregar.Location = new System.Drawing.Point(960, 102);
+            this.btnAgregar.Location = new System.Drawing.Point(965, 102);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(50, 50);
             this.btnAgregar.TabIndex = 3;
@@ -215,30 +215,30 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.dgvincnomia.AllowUserToAddRows = false;
             this.dgvincnomia.AllowUserToDeleteRows = false;
             this.dgvincnomia.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvincnomia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvincnomia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvincnomia.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvincnomia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvincnomia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvincnomia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvincnomia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvincnomia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvincnomia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvincnomia.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvincnomia.Location = new System.Drawing.Point(369, 158);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvincnomia.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvincnomia.Location = new System.Drawing.Point(398, 158);
             this.dgvincnomia.Name = "dgvincnomia";
             this.dgvincnomia.ReadOnly = true;
             this.dgvincnomia.RowHeadersVisible = false;
@@ -246,7 +246,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.dgvincnomia.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvincnomia.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvincnomia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvincnomia.Size = new System.Drawing.Size(650, 514);
+            this.dgvincnomia.Size = new System.Drawing.Size(621, 514);
             this.dgvincnomia.TabIndex = 142;
             this.dgvincnomia.TabStop = false;
             this.dgvincnomia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvincnomia_CellContentClick);
@@ -300,7 +300,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.panelTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(372, 696);
+            this.panelTag.Location = new System.Drawing.Point(397, 696);
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(456, 25);
             this.panelTag.TabIndex = 145;
@@ -343,7 +343,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.pnlBusqueda.Controls.Add(label1);
             this.pnlBusqueda.Location = new System.Drawing.Point(4, 159);
             this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(358, 87);
+            this.pnlBusqueda.Size = new System.Drawing.Size(388, 87);
             this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
             // 
@@ -352,13 +352,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.cboincnombusq.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboincnombusq.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboincnombusq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboincnombusq.DropDownWidth = 320;
             this.cboincnombusq.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboincnombusq.FormattingEnabled = true;
             this.cboincnombusq.ItemHeight = 16;
-            this.cboincnombusq.Location = new System.Drawing.Point(77, 42);
+            this.cboincnombusq.Location = new System.Drawing.Point(16, 51);
             this.cboincnombusq.Margin = new System.Windows.Forms.Padding(2);
             this.cboincnombusq.Name = "cboincnombusq";
-            this.cboincnombusq.Size = new System.Drawing.Size(220, 24);
+            this.cboincnombusq.Size = new System.Drawing.Size(303, 24);
             this.cboincnombusq.TabIndex = 1;
             this.cboincnombusq.SelectedIndexChanged += new System.EventHandler(this.cboincnombusq_SelectedIndexChanged);
             // 
@@ -368,7 +369,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(302, 27);
+            this.btnBuscar.Location = new System.Drawing.Point(330, 25);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(50, 50);
             this.btnBuscar.TabIndex = 3;
@@ -397,7 +398,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.pnlincnom.Controls.Add(this.lbluid);
             this.pnlincnom.Location = new System.Drawing.Point(4, 276);
             this.pnlincnom.Name = "pnlincnom";
-            this.pnlincnom.Size = new System.Drawing.Size(358, 396);
+            this.pnlincnom.Size = new System.Drawing.Size(388, 396);
             this.pnlincnom.TabIndex = 4;
             this.pnlincnom.TabStop = true;
             this.pnlincnom.Visible = false;
@@ -412,7 +413,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.cbopasanom.Location = new System.Drawing.Point(106, 167);
             this.cbopasanom.Margin = new System.Windows.Forms.Padding(2);
             this.cbopasanom.Name = "cbopasanom";
-            this.cbopasanom.Size = new System.Drawing.Size(243, 24);
+            this.cbopasanom.Size = new System.Drawing.Size(274, 24);
             this.cbopasanom.TabIndex = 9;
             // 
             // cboafect
@@ -420,12 +421,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.cboafect.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboafect.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboafect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboafect.DropDownWidth = 285;
             this.cboafect.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboafect.FormattingEnabled = true;
             this.cboafect.Location = new System.Drawing.Point(106, 131);
             this.cboafect.Margin = new System.Windows.Forms.Padding(2);
             this.cboafect.Name = "cboafect";
-            this.cboafect.Size = new System.Drawing.Size(243, 24);
+            this.cboafect.Size = new System.Drawing.Size(274, 24);
             this.cboafect.TabIndex = 8;
             // 
             // cbopremio
@@ -438,7 +440,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.cbopremio.Location = new System.Drawing.Point(106, 95);
             this.cbopremio.Margin = new System.Windows.Forms.Padding(2);
             this.cbopremio.Name = "cbopremio";
-            this.cbopremio.Size = new System.Drawing.Size(243, 24);
+            this.cbopremio.Size = new System.Drawing.Size(274, 24);
             this.cbopremio.TabIndex = 7;
             // 
             // cbotipohr
@@ -451,7 +453,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.cbotipohr.Location = new System.Drawing.Point(105, 200);
             this.cbotipohr.Margin = new System.Windows.Forms.Padding(2);
             this.cbotipohr.Name = "cbotipohr";
-            this.cbotipohr.Size = new System.Drawing.Size(243, 24);
+            this.cbotipohr.Size = new System.Drawing.Size(274, 24);
             this.cbotipohr.TabIndex = 10;
             // 
             // cbostdir
@@ -464,7 +466,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.cbostdir.Location = new System.Drawing.Point(107, 54);
             this.cbostdir.Margin = new System.Windows.Forms.Padding(2);
             this.cbostdir.Name = "cbostdir";
-            this.cbostdir.Size = new System.Drawing.Size(243, 24);
+            this.cbostdir.Size = new System.Drawing.Size(274, 24);
             this.cbostdir.TabIndex = 5;
             // 
             // ckbEliminar
@@ -499,7 +501,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel2.Location = new System.Drawing.Point(107, 256);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(243, 2);
+            this.panel2.Size = new System.Drawing.Size(274, 2);
             this.panel2.TabIndex = 43;
             // 
             // txtcampo
@@ -509,7 +511,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.txtcampo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcampo.Location = new System.Drawing.Point(108, 238);
             this.txtcampo.Name = "txtcampo";
-            this.txtcampo.Size = new System.Drawing.Size(243, 15);
+            this.txtcampo.Size = new System.Drawing.Size(274, 15);
             this.txtcampo.TabIndex = 11;
             // 
             // lbluid
@@ -532,7 +534,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.lblModif.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModif.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.lblModif.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblModif.Location = new System.Drawing.Point(371, 677);
+            this.lblModif.Location = new System.Drawing.Point(396, 677);
             this.lblModif.Name = "lblModif";
             this.lblModif.Size = new System.Drawing.Size(268, 16);
             this.lblModif.TabIndex = 146;

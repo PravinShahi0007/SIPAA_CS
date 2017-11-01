@@ -13,10 +13,10 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\192.168.30.171\Instalador_sipaa\Instalador SIPAA CS\</PublishUrl>
+    <PublishUrl>C:\Users\nalvarezm\Documents\instalador sipaa\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -67,7 +67,7 @@
     <ManifestKeyFile>SIPAA_CS_ClaveTemporal.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -350,6 +350,7 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueaIncidencias.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorPerfil.cs" />
+    <Compile Include="App_Code\Sistemas\Procesos\MonitoreoProceso.cs" />
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -915,6 +916,12 @@
     <Compile Include="RelojChecadorTrabajador\AdministracionRelojChecador.Designer.cs">
       <DependentUpon>AdministracionRelojChecador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sistemas\Procesos\MonitoreosProcesos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistemas\Procesos\MonitoreosProcesos.Designer.cs">
+      <DependentUpon>MonitoreosProcesos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistemas\SistDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1261,6 +1268,9 @@
     <EmbeddedResource Include="RelojChecadorTrabajador\AdministracionRelojChecador.resx">
       <DependentUpon>AdministracionRelojChecador.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistemas\Procesos\MonitoreosProcesos.resx">
+      <DependentUpon>MonitoreosProcesos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistemas\SistDashboard.resx">
       <DependentUpon>SistDashboard.cs</DependentUpon>
@@ -2115,6 +2125,12 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_devices_white_18dp_1x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
