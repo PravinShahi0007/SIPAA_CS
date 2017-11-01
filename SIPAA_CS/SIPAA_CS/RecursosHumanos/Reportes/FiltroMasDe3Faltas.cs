@@ -76,7 +76,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
                     ViewerReporte form = new ViewerReporte();
                     FaltasPeriodo dtrpt = new FaltasPeriodo();
-                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistro, "RecursosHumanos", dtrpt.ResourceName);
+                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistro, this.CompanyName, dtrpt.ResourceName);
 
                     ReportDoc.SetParameterValue("titulo1", TITULO_REPORTE);
                     ReportDoc.SetParameterValue("descripcion1", NOMBRE_REPORTE);
@@ -131,8 +131,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             DataTable dtUbicacion = oCompania.ObtenerUbicacionPlantel(5, "");
             Utilerias.llenarComboxDataTable(cbUbicacion, dtUbicacion, "IdUbicacion", "Descripción");
 
-            DataTable dtEmpleado = oTrabajador.ObtenerListaTrabajador(6, 2);
-            Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "Clave", "Descripción");
+            DataTable dtempleados = oTrabajador.obtenerempleados(7, "");
+            Utilerias.llenarComboxDataTable(cboEmpleados, dtempleados, "NoEmpleado", "Nombre");
         }
 
         private void btnRegresar_Click_1(object sender, EventArgs e)

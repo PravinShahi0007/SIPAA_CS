@@ -81,7 +81,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
                 ViewerReporte form = new ViewerReporte();
                 RTrabPerfil dtsRep = new RTrabPerfil();
-                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, "RecursosHumanos", dtsRep.ResourceName);
+                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, this.CompanyName, dtsRep.ResourceName);
 
                 form.RptDoc = ReportDoc;
                 form.Show();
@@ -130,7 +130,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
                 ViewerReporte form = new ViewerReporte();
                 DetalleHr RepDetHr = new DetalleHr();
-                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtrepdethr, "RecursosHumanos", RepDetHr.ResourceName);
+                ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtrepdethr, this.CompanyName, RepDetHr.ResourceName);
 
                 form.RptDoc = ReportDoc;
                 form.Show();
@@ -250,8 +250,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         private void cboStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             IACT = Int32.Parse(cboStatus.SelectedIndex.ToString());
-            DataTable dtEmpleado = CSonaTrab.ObtenerListaTrabajador(6, IACT);
-            Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "Clave", "Descripción");
+            DataTable dtEmpleado = CSonaTrab.obtenerempleados(7, "");
+            Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "NoEmpleado", "Nombre");
 
         }
 

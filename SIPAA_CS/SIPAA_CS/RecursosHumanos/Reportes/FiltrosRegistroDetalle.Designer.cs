@@ -102,24 +102,24 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Font = new System.Drawing.Font("Arial", 9.75F);
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label5.Location = new System.Drawing.Point(61, 160);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(54, 16);
+            label5.Size = new System.Drawing.Size(65, 16);
             label5.TabIndex = 60;
-            label5.Text = "Ubicaciòn";
+            label5.Text = "Ubicación";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Font = new System.Drawing.Font("Arial", 9.75F);
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label6.Location = new System.Drawing.Point(61, 105);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(56, 16);
+            label6.Size = new System.Drawing.Size(66, 16);
             label6.TabIndex = 58;
             label6.Text = "Compañia";
             // 
@@ -239,6 +239,7 @@
             this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleados.DropDownWidth = 500;
             this.cbEmpleados.Font = new System.Drawing.Font("Arial", 11.25F);
             this.cbEmpleados.FormattingEnabled = true;
             this.cbEmpleados.Location = new System.Drawing.Point(64, 66);
@@ -252,6 +253,7 @@
             this.cbUbicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbUbicacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbUbicacion.DropDownWidth = 500;
             this.cbUbicacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUbicacion.FormattingEnabled = true;
             this.cbUbicacion.Items.AddRange(new object[] {
@@ -279,6 +281,7 @@
             this.cbCompania.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbCompania.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCompania.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbCompania.DropDownWidth = 500;
             this.cbCompania.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCompania.FormattingEnabled = true;
             this.cbCompania.Items.AddRange(new object[] {

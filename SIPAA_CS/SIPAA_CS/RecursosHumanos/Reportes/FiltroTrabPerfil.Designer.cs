@@ -99,9 +99,9 @@
             lblidtrab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lblidtrab.Location = new System.Drawing.Point(41, 92);
             lblidtrab.Name = "lblidtrab";
-            lblidtrab.Size = new System.Drawing.Size(68, 16);
+            lblidtrab.Size = new System.Drawing.Size(135, 16);
             lblidtrab.TabIndex = 44;
-            lblidtrab.Text = "Trabajador";
+            lblidtrab.Text = "Nombre de Trabajador";
             // 
             // label9
             // 
@@ -302,13 +302,14 @@
             this.cboEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboEmpleados.DropDownWidth = 500;
             this.cboEmpleados.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEmpleados.FormattingEnabled = true;
             this.cboEmpleados.Items.AddRange(new object[] {
             "-Seleccionar-"});
             this.cboEmpleados.Location = new System.Drawing.Point(44, 111);
             this.cboEmpleados.Name = "cboEmpleados";
-            this.cboEmpleados.Size = new System.Drawing.Size(291, 25);
+            this.cboEmpleados.Size = new System.Drawing.Size(364, 25);
             this.cboEmpleados.TabIndex = 2;
             // 
             // cboUbicacion
@@ -316,11 +317,12 @@
             this.cboUbicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboUbicacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboUbicacion.DropDownWidth = 500;
             this.cboUbicacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboUbicacion.FormattingEnabled = true;
             this.cboUbicacion.Location = new System.Drawing.Point(44, 223);
             this.cboUbicacion.Name = "cboUbicacion";
-            this.cboUbicacion.Size = new System.Drawing.Size(291, 25);
+            this.cboUbicacion.Size = new System.Drawing.Size(364, 25);
             this.cboUbicacion.TabIndex = 4;
             this.cboUbicacion.Text = "Seleccionar ";
             // 
@@ -329,13 +331,14 @@
             this.cboCia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboCia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboCia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboCia.DropDownWidth = 500;
             this.cboCia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCia.FormattingEnabled = true;
             this.cboCia.Items.AddRange(new object[] {
             "-Seleccionar-"});
             this.cboCia.Location = new System.Drawing.Point(44, 162);
             this.cboCia.Name = "cboCia";
-            this.cboCia.Size = new System.Drawing.Size(291, 25);
+            this.cboCia.Size = new System.Drawing.Size(364, 25);
             this.cboCia.TabIndex = 3;
             // 
             // panel1

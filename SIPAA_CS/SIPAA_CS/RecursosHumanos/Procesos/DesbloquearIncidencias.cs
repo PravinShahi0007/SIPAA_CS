@@ -20,9 +20,9 @@ using SIPAA_CS.Accesos;
 
 
 //***********************************************************************************************
-//Autor: Jaime Avendaño Vargas        noe alvarez marquina
-//Fecha creación: 04-Abril-2017       Última Modificacion: 20/09/2017
-//Descripción: Reasignación de Supervisor y Director
+//Autor: Jaime Avendaño Vargas        noe alvarez marquina              Jose Luis Alvarez D
+//Fecha creación: 04-Abril-2017       Última Modificacion: 20/09/2017   Última Modificacion: 28/10/2017
+//Descripción: Desbloquear Incidencias
 //***********************************************************************************************
 
 namespace SIPAA_CS.RecursosHumanos.Procesos
@@ -40,8 +40,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             InitializeComponent();
         }
-
-
+        
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
@@ -89,8 +88,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 fllenagrid(10, TxtFeIni.Text.Trim(), TxtFeFin.Text.Trim(), Int32.Parse(cbempleado.SelectedValue.ToString()));
             }
-
         }
+
+        public void cbtrab()
+        {
+            Util.p_inicbo = 1;
+            DataTable dttrab = Resupdir.dttrabsupdir(5, TxtFeIni.Text, TxtFeFin.Text, 0, LoginInfo.IdTrab, this.Name, Int32.Parse(cbFormaPago.SelectedValue.ToString()));
+            Utilerias.llenarComboxDataTable(cbempleado, dttrab, "idtrab", "trab");
+            Util.p_inicbo = 0;
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
@@ -128,6 +135,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
+            /*
             //valida campos
             Boolean bvalidacampos = fvalidacampos();
 
@@ -175,6 +183,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             else
             {
             }
+            */
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -269,14 +278,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             Util.p_inicbo = 0;
         }
 
-        public void cbtrab()
-        {
-            Util.p_inicbo = 1;
-            DataTable dttrab = Resupdir.dttrabsupdir(5, TxtFeIni.Text, TxtFeFin.Text, 0, LoginInfo.IdTrab, this.Name, Int32.Parse(cbFormaPago.SelectedValue.ToString()));
-            Utilerias.llenarComboxDataTable(cbempleado, dttrab, "idtrab", "trab");
-            Util.p_inicbo = 0;
-        }
-
         public void fllenagrid(int iopc, string sfecini, string sfecfin, int iintrab)
         {
             DataTable dttrab = Resupdir.dttrabsupdir(10, sfecini, sfecfin, iintrab, LoginInfo.IdTrab, this.Name, 0);
@@ -284,8 +285,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             dgvdatos.Columns[0].Visible = false;//empleado
             dgvdatos.Columns[1].Width = 130;//fecha registro
-            dgvdatos.Columns[2].Width = 100;//hr registro
-            dgvdatos.Columns[3].Width = 100;//hr salida
+            dgvdatos.Columns[2].Width = 110;//hr registro
+            dgvdatos.Columns[3].Width = 120;//hr salida
             dgvdatos.Columns[4].Width = 100;//dif tiempo
             dgvdatos.ClearSelection();
         }
@@ -317,36 +318,24 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
         }
 
-        private void lblFormaPago_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btndesbloqueo_Click(object sender, EventArgs e)
-        {
-            
+        {            
             MessageBox.Show("Este proceso limpiará las incidencias ya procesadas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            // DataTable dtActIncidencias = oIncidencias.obtActualizaIncidencias(11, Convert.ToInt32(TxtIdEmp.Text), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10));
-            //DataTable dtActIncidencias = oIncidencias.obtActualizaIncidencias(11, Int32.Parse(cbempleado.SelectedValue.ToString()), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10));
-            DataTable dtActIncidencias = oIncidencias.obtActualizaIncidencias(11, Int32.Parse(cbempleado.SelectedValue.ToString()), TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), lblusuario.Text);
+            DataTable dtActIncidencias = oIncidencias.obtActualizaIncidencias(11, Int32.Parse(cbempleado.SelectedValue.ToString()), 
+                TxtFeIni.Text.Substring(0, 10), TxtFeFin.Text.Substring(0, 10), lblusuario.Text);
             MessageBox.Show("Proceso efectuado. Se pueden volver a calificar las incidencias", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            
+            frecargar();
         }
+
+        private void frecargar()
+        {
+            DesbloquearIncidencias recargar = new DesbloquearIncidencias();
+            recargar.Show();
+            this.Close();
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
-        //-----------------------------------------------------------------------------------------------
-        //-----------------------------------------------------------------------------------------------
-        //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
     }
 }

@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
 using SIPAA_CS.RecursosHumanos;
+using System.Reflection;
 
 namespace SIPAA_CS.App_Code
 {
@@ -573,11 +574,34 @@ namespace SIPAA_CS.App_Code
             //ReportDoc.SetDataSource(dtRpt);
             //return ReportDoc;
 
+            /**
+             * Codigo original
             ReportDocument ReportDoc = new ReportDocument();
             string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             string file = path + "\\" + strModulo + "\\Reportes\\" + NombreReporte;
             ReportDoc.Load(file);
             ReportDoc.SetDataSource(dtRpt);
+            return ReportDoc;
+            */
+
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            Stream iStream = assembly.GetManifestResourceStream(strModulo + "." + NombreReporte);
+
+            string file = Application.StartupPath + "\\" + NombreReporte;
+            //Crea el archivo rpt
+            if (File.Exists(file))
+                File.Delete(file);
+
+            FileStream fileStream = File.Create(file, (int)iStream.Length);
+            byte[] bytesInStream = new byte[iStream.Length];
+            iStream.Read(bytesInStream, 0, bytesInStream.Length);
+            fileStream.Write(bytesInStream, 0, bytesInStream.Length);
+            fileStream.Close();
+
+            ReportDocument ReportDoc = new ReportDocument();
+            ReportDoc.Load(file);
+            ReportDoc.SetDataSource(dtRpt);
+
             return ReportDoc;
 
         }
