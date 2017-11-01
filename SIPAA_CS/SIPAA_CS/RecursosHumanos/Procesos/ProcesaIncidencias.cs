@@ -35,7 +35,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         #region
 
         int iins, iact, ielim;// variables permisos de insertar, actualizar, eliminar
-        int iactbtn;// actión de realizar botón
+        int iactbtn, istprocesaper;// actión de realizar botón
 
         int iresp;// variable de respuesta-acción realizada
 
@@ -93,18 +93,26 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 {
                     DialogResult result = MessageBox.Show("Seleccione un tipo de nomina", "SIPAA");
                     cbtiponomina.Focus();
-                    pnlmenssuid.Visible = false;
+                    
                 }
                 else
                 {
                     int ival = ProcesaInc.vuidprocesainc(5, Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0, txtfecini.Text, txtfecfin.Text, LoginInfo.IdTrab, this.Name);
+                    txtfecini.Text = "";
+                    txtfecfin.Text = "";
+                    dgvregistros.DataSource = null;
+                    btnguardar.Enabled = false;
 
-                    pnlmenssuid.Visible = true;
-                    pnlmenssuid.BackColor = ColorTranslator.FromHtml("#2e7d32");
-                    menssuid.Text = "Registro agregado correctamente";
-                    timer1.Start();
+                    //llena combo tipo de nomina
+                    Util.p_inicbo = 0;
+                    DataTable dtcbtipnom = ProcesaInc.cbtiponomina(8);
+                    Utilerias.llenarComboxDataTable(cbtiponomina, dtcbtipnom, "Clave", "Descripción");
+                    Util.p_inicbo = 1;
+
+                    DialogResult result = MessageBox.Show("Incidencias generadas con exito", "SIPAA", MessageBoxButtons.OK);
+                    cbtiponomina.Focus();
                 }
-                btnguardar.Enabled = true;
+                //btnguardar.Enabled = true;
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
@@ -212,6 +220,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         DataTable dtfechas = ProcesaInc.dttiponomina(9, Int32.Parse(cbtiponomina.SelectedValue.ToString()));
                         txtfecini.Text = dtfechas.Rows[0][2].ToString();
                         txtfecfin.Text = dtfechas.Rows[0][3].ToString();
+                        istprocesaper = Int32.Parse(dtfechas.Rows[0][4].ToString());
+                        if (istprocesaper == 0)
+                        {
+                            btnguardar.Enabled = true;
+                        }
+                        else
+                        {
+                            btnguardar.Enabled = false;
+                            DialogResult result = MessageBox.Show("Este periodo ya fue procesado, solo puede consultar los registros de checadas", "SIPAA", MessageBoxButtons.OK);
+                        }
                     }
                     dgvregistros.DataSource = null;
                 }
@@ -225,8 +243,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            pnlmenssuid.Visible = false;
-            timer1.Stop();
+
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
