@@ -128,13 +128,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void cbDiaEntrada_SelectedIndexChanged(object sender, EventArgs e)
         {
-            validaHorarioJornada();
+            //validaHorarioJornada();
             cbDiaSalida.SelectedIndex = cbDiaEntrada.SelectedIndex;
         }
 
         private void cbDiaSalida_SelectedIndexChanged(object sender, EventArgs e)
         {
-            validaHorarioJornada();
+            //validaHorarioJornada();
 
             if (cbDiaEntrada.SelectedIndex > cbDiaSalida.SelectedIndex && cbDiaSalida.SelectedIndex > 0)
             {
