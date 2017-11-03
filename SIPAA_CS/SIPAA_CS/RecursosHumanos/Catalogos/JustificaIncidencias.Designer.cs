@@ -93,7 +93,7 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(336, 133);
+            label2.Location = new System.Drawing.Point(365, 133);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(150, 16);
             label2.TabIndex = 157;
@@ -130,7 +130,7 @@
             label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label10.Location = new System.Drawing.Point(6, 221);
+            label10.Location = new System.Drawing.Point(6, 233);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(93, 16);
             label10.TabIndex = 146;
@@ -142,7 +142,7 @@
             label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(9, 185);
+            label9.Location = new System.Drawing.Point(9, 197);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(78, 16);
             label9.TabIndex = 144;
@@ -154,7 +154,7 @@
             label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(9, 149);
+            label8.Location = new System.Drawing.Point(9, 161);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(37, 16);
             label8.TabIndex = 142;
@@ -166,7 +166,7 @@
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(8, 259);
+            label7.Location = new System.Drawing.Point(8, 271);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(70, 16);
             label7.TabIndex = 140;
@@ -178,7 +178,7 @@
             label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(10, 57);
+            label6.Location = new System.Drawing.Point(10, 42);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(73, 16);
             label6.TabIndex = 138;
@@ -190,7 +190,7 @@
             label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(10, 91);
+            label3.Location = new System.Drawing.Point(10, 103);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(76, 16);
             label3.TabIndex = 147;
@@ -310,7 +310,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvjustinc.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvjustinc.Location = new System.Drawing.Point(338, 154);
+            this.dgvjustinc.Location = new System.Drawing.Point(362, 154);
             this.dgvjustinc.Name = "dgvjustinc";
             this.dgvjustinc.ReadOnly = true;
             this.dgvjustinc.RowHeadersVisible = false;
@@ -318,7 +318,7 @@
             this.dgvjustinc.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvjustinc.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvjustinc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvjustinc.Size = new System.Drawing.Size(674, 541);
+            this.dgvjustinc.Size = new System.Drawing.Size(654, 541);
             this.dgvjustinc.TabIndex = 156;
             this.dgvjustinc.TabStop = false;
             this.dgvjustinc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvjustinc_CellContentClick);
@@ -333,7 +333,7 @@
             this.pnlbusqueda.Controls.Add(label1);
             this.pnlbusqueda.Location = new System.Drawing.Point(7, 154);
             this.pnlbusqueda.Name = "pnlbusqueda";
-            this.pnlbusqueda.Size = new System.Drawing.Size(325, 87);
+            this.pnlbusqueda.Size = new System.Drawing.Size(349, 87);
             this.pnlbusqueda.TabIndex = 158;
             this.pnlbusqueda.TabStop = true;
             // 
@@ -343,7 +343,7 @@
             this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnbuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnbuscar.Location = new System.Drawing.Point(256, 20);
+            this.btnbuscar.Location = new System.Drawing.Point(287, 20);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(50, 50);
             this.btnbuscar.TabIndex = 2;
@@ -356,7 +356,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel5.Location = new System.Drawing.Point(28, 68);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 2);
+            this.panel5.Size = new System.Drawing.Size(250, 2);
             this.panel5.TabIndex = 43;
             // 
             // txtconceptobusq
@@ -366,7 +366,7 @@
             this.txtconceptobusq.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtconceptobusq.Location = new System.Drawing.Point(30, 50);
             this.txtconceptobusq.Name = "txtconceptobusq";
-            this.txtconceptobusq.Size = new System.Drawing.Size(200, 15);
+            this.txtconceptobusq.Size = new System.Drawing.Size(250, 15);
             this.txtconceptobusq.TabIndex = 1;
             // 
             // btnAgregar
@@ -405,7 +405,7 @@
             this.pnlsuid.Controls.Add(this.lbluid);
             this.pnlsuid.Location = new System.Drawing.Point(7, 278);
             this.pnlsuid.Name = "pnlsuid";
-            this.pnlsuid.Size = new System.Drawing.Size(325, 469);
+            this.pnlsuid.Size = new System.Drawing.Size(349, 469);
             this.pnlsuid.TabIndex = 160;
             this.pnlsuid.TabStop = true;
             this.pnlsuid.Visible = false;
@@ -413,9 +413,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(104, 201);
+            this.panel1.Location = new System.Drawing.Point(104, 213);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 2);
+            this.panel1.Size = new System.Drawing.Size(230, 2);
             this.panel1.TabIndex = 149;
             // 
             // txtnoeventos
@@ -423,9 +423,9 @@
             this.txtnoeventos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtnoeventos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtnoeventos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnoeventos.Location = new System.Drawing.Point(106, 183);
+            this.txtnoeventos.Location = new System.Drawing.Point(106, 195);
             this.txtnoeventos.Name = "txtnoeventos";
-            this.txtnoeventos.Size = new System.Drawing.Size(200, 15);
+            this.txtnoeventos.Size = new System.Drawing.Size(230, 15);
             this.txtnoeventos.TabIndex = 8;
             // 
             // cbotipevento
@@ -436,10 +436,10 @@
             this.cbotipevento.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbotipevento.FormattingEnabled = true;
             this.cbotipevento.ItemHeight = 16;
-            this.cbotipevento.Location = new System.Drawing.Point(107, 218);
+            this.cbotipevento.Location = new System.Drawing.Point(107, 230);
             this.cbotipevento.Margin = new System.Windows.Forms.Padding(2);
             this.cbotipevento.Name = "cbotipevento";
-            this.cbotipevento.Size = new System.Drawing.Size(199, 24);
+            this.cbotipevento.Size = new System.Drawing.Size(230, 24);
             this.cbotipevento.TabIndex = 9;
             // 
             // cbociclo
@@ -449,10 +449,10 @@
             this.cbociclo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbociclo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbociclo.FormattingEnabled = true;
-            this.cbociclo.Location = new System.Drawing.Point(106, 146);
+            this.cbociclo.Location = new System.Drawing.Point(106, 158);
             this.cbociclo.Margin = new System.Windows.Forms.Padding(2);
             this.cbociclo.Name = "cbociclo";
-            this.cbociclo.Size = new System.Drawing.Size(199, 24);
+            this.cbociclo.Size = new System.Drawing.Size(231, 24);
             this.cbociclo.TabIndex = 7;
             // 
             // cbotipeval
@@ -462,10 +462,10 @@
             this.cbotipeval.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbotipeval.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbotipeval.FormattingEnabled = true;
-            this.cbotipeval.Location = new System.Drawing.Point(105, 256);
+            this.cbotipeval.Location = new System.Drawing.Point(105, 268);
             this.cbotipeval.Margin = new System.Windows.Forms.Padding(2);
             this.cbotipeval.Name = "cbotipeval";
-            this.cbotipeval.Size = new System.Drawing.Size(199, 24);
+            this.cbotipeval.Size = new System.Drawing.Size(232, 24);
             this.cbotipeval.TabIndex = 10;
             // 
             // cboincidencias
@@ -473,19 +473,20 @@
             this.cboincidencias.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboincidencias.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboincidencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboincidencias.DropDownWidth = 345;
             this.cboincidencias.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboincidencias.FormattingEnabled = true;
-            this.cboincidencias.Location = new System.Drawing.Point(107, 54);
+            this.cboincidencias.Location = new System.Drawing.Point(11, 66);
             this.cboincidencias.Margin = new System.Windows.Forms.Padding(2);
             this.cboincidencias.Name = "cboincidencias";
-            this.cboincidencias.Size = new System.Drawing.Size(199, 24);
+            this.cboincidencias.Size = new System.Drawing.Size(330, 24);
             this.cboincidencias.TabIndex = 5;
             // 
             // ckbeliminar
             // 
             this.ckbeliminar.AutoSize = true;
             this.ckbeliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbeliminar.Location = new System.Drawing.Point(13, 297);
+            this.ckbeliminar.Location = new System.Drawing.Point(13, 309);
             this.ckbeliminar.Name = "ckbeliminar";
             this.ckbeliminar.Size = new System.Drawing.Size(47, 17);
             this.ckbeliminar.TabIndex = 11;
@@ -500,7 +501,7 @@
             this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btninsertar.Location = new System.Drawing.Point(254, 297);
+            this.btninsertar.Location = new System.Drawing.Point(254, 309);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(50, 50);
             this.btninsertar.TabIndex = 12;
@@ -510,9 +511,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(12, 130);
+            this.panel2.Location = new System.Drawing.Point(12, 142);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(295, 2);
+            this.panel2.Size = new System.Drawing.Size(324, 2);
             this.panel2.TabIndex = 43;
             // 
             // txtdesc
@@ -520,9 +521,9 @@
             this.txtdesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtdesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtdesc.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdesc.Location = new System.Drawing.Point(13, 112);
+            this.txtdesc.Location = new System.Drawing.Point(13, 124);
             this.txtdesc.Name = "txtdesc";
-            this.txtdesc.Size = new System.Drawing.Size(295, 15);
+            this.txtdesc.Size = new System.Drawing.Size(324, 15);
             this.txtdesc.TabIndex = 6;
             // 
             // lbluid
@@ -545,7 +546,7 @@
             this.lblModif.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModif.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.lblModif.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblModif.Location = new System.Drawing.Point(335, 700);
+            this.lblModif.Location = new System.Drawing.Point(366, 700);
             this.lblModif.Name = "lblModif";
             this.lblModif.Size = new System.Drawing.Size(268, 16);
             this.lblModif.TabIndex = 161;
@@ -557,9 +558,9 @@
             this.pnlmenssuid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.pnlmenssuid.Controls.Add(this.menssuid);
             this.pnlmenssuid.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlmenssuid.Location = new System.Drawing.Point(339, 724);
+            this.pnlmenssuid.Location = new System.Drawing.Point(362, 724);
             this.pnlmenssuid.Name = "pnlmenssuid";
-            this.pnlmenssuid.Size = new System.Drawing.Size(673, 25);
+            this.pnlmenssuid.Size = new System.Drawing.Size(650, 25);
             this.pnlmenssuid.TabIndex = 162;
             this.pnlmenssuid.Visible = false;
             // 
