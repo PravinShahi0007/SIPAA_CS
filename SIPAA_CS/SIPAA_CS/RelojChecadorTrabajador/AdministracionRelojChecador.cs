@@ -659,6 +659,11 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         if (bConexion != false)
                         {
                             objCZKEM.ClearData(1, 5);
+                            bool BeginBatchUpdate = false;
+
+                            int iUpdateFlag = 1;
+                            BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, iUpdateFlag);
+
                             int iContReg = 0;
                             progressBar1.Value = 40;
                             foreach (DataRow row in dt.Rows)
@@ -790,7 +795,11 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                 panelTag.Update();
                                 pnlMensaje.Enabled = false;
                             }
+                            bool BatchUpdate = false;
+                            bool RefreshData = false;
 
+                            BatchUpdate = objCZKEM.BatchUpdate(1);//upload all the information in the memory
+                            RefreshData = objCZKEM.RefreshData(1);//the data in the device should be refreshed
                             objCZKEM.Disconnect();
                         }
                         else

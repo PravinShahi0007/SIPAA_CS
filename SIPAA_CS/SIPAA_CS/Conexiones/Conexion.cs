@@ -17,13 +17,14 @@ namespace SIPAA_CS.Conexiones
         //SqlDataReader dr;
         SqlDataAdapter da;
         DataTable dt;
+        public int iconexsvr;
 
         public Conexion()
         {
             try
             {
-                //cn = new SqlConnection("Data Source=192.168.30.7;Initial Catalog=sipaa;User ID=sipaa;Password=sipaapru");
                 cn = new SqlConnection("Data Source=192.168.9.77;Initial Catalog=sipaa;User ID=Desarrollo;Password=Desa17");
+                iconexsvr = 1;
                 cn.Open();
             }
             catch (Exception ex)

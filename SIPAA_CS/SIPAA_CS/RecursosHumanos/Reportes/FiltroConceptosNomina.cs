@@ -71,7 +71,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
                     ViewerReporte form = new ViewerReporte();
                     ConceptosNomina dtrpt = new ConceptosNomina();
-                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistro, "RecursosHumanos", dtrpt.ResourceName);
+                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistro, this.CompanyName, dtrpt.ResourceName);
 
                     ReportDoc.SetParameterValue("Titulo1", "SIPAA - Recursos Humanos");
                     ReportDoc.SetParameterValue("Titulo2", "Catálogo de Conceptos de Nómina");

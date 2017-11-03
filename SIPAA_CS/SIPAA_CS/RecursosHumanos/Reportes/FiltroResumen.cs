@@ -137,7 +137,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 default:
                     ViewerReporte form = new ViewerReporte();
                     Resumen dtrpt = new Resumen();
-                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, "RecursosHumanos", dtrpt.ResourceName);
+                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, this.CompanyName, dtrpt.ResourceName);
 
                     ReportDoc.SetParameterValue("TotalRegistros", dtRpt.Rows.Count.ToString());
                     ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);

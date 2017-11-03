@@ -42,7 +42,6 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
 
-
             cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = objIncidencia.sIdtrab;
             cmd.Parameters.Add("@P_FechaReg", SqlDbType.DateTime).Value = objIncidencia.fFechaRegistro;
             cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = iOpcion;
@@ -63,8 +62,6 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             cmd.Parameters.Add("@P_FechaFin", SqlDbType.DateTime).Value = objIncidencia.fFechaTermino;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = objIncidencia.sUsuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = objIncidencia.sPrgumod;
-            //'473',5,0,0,0,0,0,'2017-05-02',0,0,0,0,0,'','2016-09-05','2016-09-05','2017-05-02','',''
-
 
             objConexion.asignarConexion(cmd);
 

@@ -326,11 +326,12 @@
             this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleados.DropDownWidth = 500;
             this.cbEmpleados.Font = new System.Drawing.Font("Arial", 11.25F);
             this.cbEmpleados.FormattingEnabled = true;
             this.cbEmpleados.Location = new System.Drawing.Point(44, 79);
             this.cbEmpleados.Name = "cbEmpleados";
-            this.cbEmpleados.Size = new System.Drawing.Size(291, 25);
+            this.cbEmpleados.Size = new System.Drawing.Size(384, 25);
             this.cbEmpleados.TabIndex = 179;
             this.cbEmpleados.Text = "Seleccionar";
             // 
@@ -408,6 +409,7 @@
             this.cbCia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbCia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbCia.DropDownWidth = 500;
             this.cbCia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCia.FormattingEnabled = true;
             this.cbCia.Items.AddRange(new object[] {
@@ -416,7 +418,7 @@
             "Inactivo"});
             this.cbCia.Location = new System.Drawing.Point(44, 137);
             this.cbCia.Name = "cbCia";
-            this.cbCia.Size = new System.Drawing.Size(291, 25);
+            this.cbCia.Size = new System.Drawing.Size(384, 25);
             this.cbCia.TabIndex = 57;
             this.cbCia.Text = "Seleccionar ";
             this.cbCia.SelectedIndexChanged += new System.EventHandler(this.cbCia_SelectedIndexChanged);

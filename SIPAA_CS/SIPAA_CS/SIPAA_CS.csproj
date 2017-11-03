@@ -13,10 +13,10 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\192.168.30.171\Instalador_sipaa\Instalador SIPAA CS\</PublishUrl>
+    <PublishUrl>C:\Users\nalvarezm\Documents\instalador sipaa\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -67,7 +67,7 @@
     <ManifestKeyFile>SIPAA_CS_ClaveTemporal.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -350,11 +350,17 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueaIncidencias.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorPerfil.cs" />
+    <Compile Include="App_Code\Sistemas\Procesos\MonitoreoProceso.cs" />
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.Designer.cs">
       <DependentUpon>JustificaIncidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\CartaExtrañamiento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CartaExtrañamiento.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\DataSets\FaltasPeriodo.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -765,6 +771,12 @@
     <Compile Include="RecursosHumanos\Catalogos\Ubicaciones.Designer.cs">
       <DependentUpon>Ubicaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\CartaExtrañamiento.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CartaExtrañamiento.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\ConceptosNomina.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -914,6 +926,18 @@
     </Compile>
     <Compile Include="RelojChecadorTrabajador\AdministracionRelojChecador.Designer.cs">
       <DependentUpon>AdministracionRelojChecador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\Procesos\MonitoreosProcesos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistemas\Procesos\MonitoreosProcesos.Designer.cs">
+      <DependentUpon>MonitoreosProcesos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistemas\SistDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistemas\SistDashboard.Designer.cs">
+      <DependentUpon>SistDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
@@ -1169,6 +1193,10 @@
     <EmbeddedResource Include="RecursosHumanos\Catalogos\TiposHorarios.resx">
       <DependentUpon>TiposHorarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\CartaExtrañamiento.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CartaExtrañamiento.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\ConceptosNomina.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ConceptosNomina.cs</LastGenOutput>
@@ -1255,6 +1283,12 @@
     <EmbeddedResource Include="RelojChecadorTrabajador\AdministracionRelojChecador.resx">
       <DependentUpon>AdministracionRelojChecador.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistemas\Procesos\MonitoreosProcesos.resx">
+      <DependentUpon>MonitoreosProcesos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistemas\SistDashboard.resx">
+      <DependentUpon>SistDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
@@ -1390,6 +1424,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RecursosHumanos\DataSets\CartaExtrañamiento.xsc">
+      <DependentUpon>CartaExtrañamiento.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\CartaExtrañamiento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CartaExtrañamiento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\CartaExtrañamiento.xss">
+      <DependentUpon>CartaExtrañamiento.xsd</DependentUpon>
+    </None>
     <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xsc">
       <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
     </None>
@@ -2106,6 +2151,12 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_devices_white_18dp_1x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

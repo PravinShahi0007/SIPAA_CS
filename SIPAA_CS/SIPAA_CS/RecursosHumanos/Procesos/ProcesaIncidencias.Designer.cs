@@ -53,6 +53,7 @@
             this.btnguardar = new System.Windows.Forms.Button();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -85,9 +86,9 @@
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label1.Location = new System.Drawing.Point(4, 4);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(200, 17);
+            label1.Size = new System.Drawing.Size(180, 17);
             label1.TabIndex = 41;
-            label1.Text = "     Calificación de Incidencias";
+            label1.Text = "     Proceso de Incidencias";
             // 
             // label3
             // 
@@ -326,6 +327,7 @@
             // btnguardar
             // 
             this.btnguardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnguardar.Enabled = false;
             this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnguardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnguardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
@@ -334,6 +336,7 @@
             this.btnguardar.Size = new System.Drawing.Size(55, 55);
             this.btnguardar.TabIndex = 42;
             this.btnguardar.UseVisualStyleBackColor = false;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // ptbimgusuario
             // 
@@ -361,6 +364,16 @@
             this.lblusuario.Text = "usuario";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(390, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 206;
+            this.label5.Text = "label5";
+            this.label5.Visible = false;
+            // 
             // ProcesaIncidencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -368,6 +381,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.pnlprocesoinc);
@@ -412,5 +426,6 @@
         private System.Windows.Forms.TextBox txtfecfin;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Label lblusuario;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CartaExtrañamiento" targetNamespace="http://tempuri.org/CartaExtrañamiento.xsd" xmlns:mstns="http://tempuri.org/CartaExtrañamiento.xsd" xmlns="http://tempuri.org/CartaExtrañamiento.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CartaExtrañamiento" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CartaExtrañamiento" msprop:Generator_UserDSName="CartaExtrañamiento">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CartaExtrañamiento" msprop:Generator_TableClassName="CartaExtrañamientoDataTable" msprop:Generator_TableVarName="tableCartaExtrañamiento" msprop:Generator_TablePropName="_CartaExtrañamiento" msprop:Generator_RowDeletingName="CartaExtrañamientoRowDeleting" msprop:Generator_RowChangingName="CartaExtrañamientoRowChanging" msprop:Generator_RowEvHandlerName="CartaExtrañamientoRowChangeEventHandler" msprop:Generator_RowDeletedName="CartaExtrañamientoRowDeleted" msprop:Generator_UserTableName="CartaExtrañamiento" msprop:Generator_RowChangedName="CartaExtrañamientoRowChanged" msprop:Generator_RowEvArgName="CartaExtrañamientoRowChangeEvent" msprop:Generator_RowClassName="CartaExtrañamientoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FechaInc" msprop:Generator_ColumnVarNameInTable="columnFechaInc" msprop:Generator_ColumnPropNameInRow="FechaInc" msprop:Generator_ColumnPropNameInTable="FechaIncColumn" msprop:Generator_UserColumnName="FechaInc" type="xs:string" minOccurs="0" />
+              <xs:element name="Incidencia" msprop:Generator_ColumnVarNameInTable="columnIncidencia" msprop:Generator_ColumnPropNameInRow="Incidencia" msprop:Generator_ColumnPropNameInTable="IncidenciaColumn" msprop:Generator_UserColumnName="Incidencia" type="xs:string" minOccurs="0" />
+              <xs:element name="TiempoEmp" msprop:Generator_ColumnVarNameInTable="columnTiempoEmp" msprop:Generator_ColumnPropNameInRow="TiempoEmp" msprop:Generator_ColumnPropNameInTable="TiempoEmpColumn" msprop:Generator_UserColumnName="TiempoEmp" type="xs:string" minOccurs="0" />
+              <xs:element name="TiempoProf" msprop:Generator_ColumnVarNameInTable="columnTiempoProf" msprop:Generator_ColumnPropNameInRow="TiempoProf" msprop:Generator_ColumnPropNameInTable="TiempoProfColumn" msprop:Generator_UserColumnName="TiempoProf" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

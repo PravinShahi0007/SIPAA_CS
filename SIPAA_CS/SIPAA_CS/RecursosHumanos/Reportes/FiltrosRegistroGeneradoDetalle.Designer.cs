@@ -70,24 +70,24 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Font = new System.Drawing.Font("Arial", 9.75F);
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(41, 215);
+            label5.Location = new System.Drawing.Point(41, 183);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(54, 16);
+            label5.Size = new System.Drawing.Size(65, 16);
             label5.TabIndex = 60;
-            label5.Text = "Ubicaciòn";
+            label5.Text = "Ubicación";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Font = new System.Drawing.Font("Arial", 9.75F);
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(41, 148);
+            label6.Location = new System.Drawing.Point(41, 117);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(56, 16);
+            label6.Size = new System.Drawing.Size(66, 16);
             label6.TabIndex = 58;
             label6.Text = "Compañia";
             // 
@@ -122,7 +122,7 @@
             label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(41, 323);
+            label1.Location = new System.Drawing.Point(41, 291);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(96, 16);
             label1.TabIndex = 63;
@@ -236,11 +236,12 @@
             this.cbEmpleados.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbEmpleados.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleados.DropDownWidth = 500;
             this.cbEmpleados.Font = new System.Drawing.Font("Arial", 11.25F);
             this.cbEmpleados.FormattingEnabled = true;
-            this.cbEmpleados.Location = new System.Drawing.Point(44, 85);
+            this.cbEmpleados.Location = new System.Drawing.Point(44, 68);
             this.cbEmpleados.Name = "cbEmpleados";
-            this.cbEmpleados.Size = new System.Drawing.Size(291, 25);
+            this.cbEmpleados.Size = new System.Drawing.Size(396, 25);
             this.cbEmpleados.TabIndex = 181;
             this.cbEmpleados.Text = "Seleccionar";
             // 
@@ -249,15 +250,16 @@
             this.cbUbicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbUbicacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbUbicacion.DropDownWidth = 500;
             this.cbUbicacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUbicacion.FormattingEnabled = true;
             this.cbUbicacion.Items.AddRange(new object[] {
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbUbicacion.Location = new System.Drawing.Point(44, 238);
+            this.cbUbicacion.Location = new System.Drawing.Point(44, 206);
             this.cbUbicacion.Name = "cbUbicacion";
-            this.cbUbicacion.Size = new System.Drawing.Size(291, 25);
+            this.cbUbicacion.Size = new System.Drawing.Size(396, 25);
             this.cbUbicacion.TabIndex = 59;
             this.cbUbicacion.Text = "Seleccionar ";
             // 
@@ -276,15 +278,16 @@
             this.cbCia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbCia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbCia.DropDownWidth = 500;
             this.cbCia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCia.FormattingEnabled = true;
             this.cbCia.Items.AddRange(new object[] {
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbCia.Location = new System.Drawing.Point(44, 168);
+            this.cbCia.Location = new System.Drawing.Point(44, 136);
             this.cbCia.Name = "cbCia";
-            this.cbCia.Size = new System.Drawing.Size(291, 25);
+            this.cbCia.Size = new System.Drawing.Size(396, 25);
             this.cbCia.TabIndex = 57;
             this.cbCia.Text = "Seleccionar ";
             // 
@@ -292,7 +295,7 @@
             // 
             this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaInicio.Location = new System.Drawing.Point(44, 342);
+            this.dpFechaInicio.Location = new System.Drawing.Point(44, 310);
             this.dpFechaInicio.Name = "dpFechaInicio";
             this.dpFechaInicio.Size = new System.Drawing.Size(113, 25);
             this.dpFechaInicio.TabIndex = 61;

@@ -7,6 +7,7 @@ using SIPAA_CS.App_Code;
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.Accesos;
 using System.Data;
+using SIPAA_CS.Sistemas;
 
 //***********************************************************************************************
 //Autor: ------------------       modifico: noe alvarez marquina (se agrega estandar)
@@ -112,6 +113,8 @@ namespace SIPAA_CS
             string NomUsu = LoginInfo.Nombre;
             lblusuario.Text = NomUsu;
             Utilerias.cargaimagen(ptbimgusuario);
+
+            if (LoginInfo.iconexion==1) { lblconexion.Visible = true; } else { lblconexion.Visible = false; }
         }
 
         private void PanelMetro_Paint(object sender, PaintEventArgs e)
@@ -175,6 +178,13 @@ namespace SIPAA_CS
             toolTip1.SetToolTip(this.btnCerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnPower, "Cerara Sesión");
+        }
+
+        private void btnSistemas_Click(object sender, EventArgs e)
+        {
+            SistDashboard form = new SistDashboard();
+            form.Show();
+            this.Close();
         }
     }
 }
