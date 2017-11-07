@@ -669,6 +669,7 @@ namespace SIPAA_CS.Accesos.Catalogos
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             panel1.Visible = false;
             panel10.Visible = false;

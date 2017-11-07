@@ -87,6 +87,7 @@ namespace SIPAA_CS.Accesos
         private void CambioContrasena_Load(object sender, EventArgs e)
         {
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
