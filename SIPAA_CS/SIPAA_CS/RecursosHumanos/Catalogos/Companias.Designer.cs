@@ -264,7 +264,6 @@
             this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbimgusuario.TabIndex = 149;
             this.ptbimgusuario.TabStop = false;
-            this.ptbimgusuario.Visible = false;
             // 
             // Companias
             // 

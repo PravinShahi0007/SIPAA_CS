@@ -406,7 +406,6 @@
             this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbimgusuario.TabIndex = 151;
             this.ptbimgusuario.TabStop = false;
-            this.ptbimgusuario.Visible = false;
             // 
             // lblusuario
             // 

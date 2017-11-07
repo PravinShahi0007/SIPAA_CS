@@ -84,6 +84,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             //Rezise de la Forma
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+            Utilerias.cargaimagen(ptbimgusuario);
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;

@@ -289,7 +289,6 @@
             this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbimgusuario.TabIndex = 178;
             this.ptbimgusuario.TabStop = false;
-            this.ptbimgusuario.Visible = false;
             // 
             // CompaniasTiposNominas
             // 
