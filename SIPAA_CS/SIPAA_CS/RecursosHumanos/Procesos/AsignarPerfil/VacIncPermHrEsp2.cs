@@ -56,7 +56,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 DataTable dtTipoNomina = oTiponomina.obtTipoNomina(5, Convert.ToInt32(cbCompania.SelectedValue.ToString()), 0, "");
                 cbTiponomina.DataSource = dtTipoNomina;
                 cbTiponomina.DisplayMember = "Descripción";
-                cbTipo.ValueMember = "Clave";
+                cbTiponomina.ValueMember = "Clave";
+                /////////////08112017
+                cbTiponomina.Text = "Seleccionar";
             }
             else
             {
@@ -88,6 +90,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 cbTipo.DataSource = dtIncidencia;
                 cbTipo.DisplayMember = "Tipo";
                 cbTipo.ValueMember = "cvtipo";
+                /////////////08112017
+                cbTipo.Text = "Seleccionar";
             }
         }
 
@@ -100,6 +104,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 cbAreas.DataSource = dtPlantel;
                 cbAreas.DisplayMember = "Descripción";
                 cbAreas.ValueMember = "Clave";
+                /////////////08112017
+                cbAreas.Text = "Seleccionar";
             }
             else
             {
@@ -247,9 +253,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 {
                     fIdCompania = cbCompania.SelectedValue.ToString();
                 }
+                if (Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) > 0)
+                {
+                    fIdUbicacion = cbUbicacion.SelectedValue.ToString();
+                }
                 if (Convert.ToInt32(cbAreas.SelectedIndex.ToString()) > 0)
                 {
                     fIdArea = cbAreas.SelectedValue.ToString();
+                }
+                if (cbTiponomina.SelectedIndex > 0 || cbTiponomina.Text != "" || cbTiponomina.SelectedIndex != 0)
+                //if (cbTiponomina.Text != "" || cbTiponomina.Text != "Seleccionar")
+                {
+                    fIdTipoNomina = cbTiponomina.SelectedValue.ToString();
                 }
                 if (Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) > 0)
                 {
@@ -258,14 +273,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 if (Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) > 0)
                 {
                     fIdDepartamento = cbDepartamentos.SelectedValue.ToString();
-                }
-                if (Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) > 0)
-                {
-                    fIdUbicacion = cbUbicacion.SelectedValue.ToString();
-                }
-                if (Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) > 0)
-                {
-                    fIdTipoNomina = cbTiponomina.SelectedValue.ToString();
                 }
 
                 int icolumnas =dgvEmpleados.ColumnCount;
@@ -545,7 +552,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             recargar.Show();
             this.Close();
         }
-
+        
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
