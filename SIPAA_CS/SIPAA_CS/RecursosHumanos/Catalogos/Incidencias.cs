@@ -260,6 +260,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             //Configuracion de la pantalla
             int sysH = SystemInformation.PrimaryMonitorSize.Height;

@@ -429,7 +429,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
-
+            Utilerias.cargaimagen(ptbimgusuario);
 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 

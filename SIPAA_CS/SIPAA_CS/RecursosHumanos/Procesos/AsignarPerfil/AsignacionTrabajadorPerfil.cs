@@ -128,13 +128,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void cbDiaEntrada_SelectedIndexChanged(object sender, EventArgs e)
         {
-            validaHorarioJornada();
+            //validaHorarioJornada();
             cbDiaSalida.SelectedIndex = cbDiaEntrada.SelectedIndex;
         }
 
         private void cbDiaSalida_SelectedIndexChanged(object sender, EventArgs e)
         {
-            validaHorarioJornada();
+            //validaHorarioJornada();
 
             if (cbDiaEntrada.SelectedIndex > cbDiaSalida.SelectedIndex && cbDiaSalida.SelectedIndex > 0)
             {
@@ -587,7 +587,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void btnGuardarReloj_Click(object sender, EventArgs e)
         {
           
-            Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Comienza proceso");
+            ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Comienza proceso");
             System.Threading.Thread.Sleep(1000);
             try
             {
@@ -600,41 +600,37 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     {
                         
                         RelojChecador objReloj = new RelojChecador();
-                                           objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 3, sUsuuMod, Name);
+                        objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 3, sUsuuMod, Name);
                         if (this.chkAdmin.Checked==true)
                         objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 25, 13, sUsuuMod, Name);
                         int iCont = 0;
                                   
-                        bool bConexion = false;
+                    
                         foreach (Reloj obj in ltReloj2)
                         {
                             iCont += 1;
-                            Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj2.Count);
-                            bConexion = Connect_Net(obj.IpReloj, 4370);
-                            if (bConexion != false)
-                            {
-                                objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 1, sUsuuMod, Name);
-                                objCZKEM.Disconnect();
-                            }
+                            ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Guardando en registro de reloj " + iCont + " de " + ltReloj2.Count);
+                            objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 1, sUsuuMod, Name);
                         }
-                        SincronizaBiometricos(ltReloj2, objReloj, bConexion);
+                       // SincronizaBiometricos(ltReloj2, objReloj);
                     }
                     else
                     {
+                        
                      CrearAsignaciones_Reloj(LoginInfo.IdTrab, Name, iOpcionAdmin);
                     }
                    
                 }
                 else
                 {
-                    Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No se ha Seleccionado algún Registro.");
+                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No se ha Seleccionado algún Registro.");
                     panelTagRelojCheck.Update();
                 }
              }
-            catch (Exception ex)
+            catch 
             {
              
-                Utilerias.ControlNotificaciones(panelTagForReg, lbMensajeForReg, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
+                ControlNotificaciones(panelTagForReg, lbMensajeForReg, 3, "Error de Comunicación con el servidor. Favor de Intentarlo más tarde.");
                 timer1.Start();
                 AsignarReloj(TrabajadorInfo.IdTrab);
                 PanelReloj.Enabled = false;
@@ -1398,7 +1394,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             foreach (Reloj obj in ltReloj2)
             {
                 iCont += 1;
-                Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj2.Count);
+                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj2.Count);
                 bConexion = Connect_Net(obj.IpReloj, 4370);
               if (bConexion != false)
                 {
@@ -1409,25 +1405,59 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, sPrguMod, 8);
                     string idtrab = lbIdTrab.Text;
                     string Nombre = lbNombre.Text;
-                    objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, "", 0, true); //
-                    objCZKEM.SetUserGroup(1,Convert.ToInt32( idtrab),Grupo);
+                    bool BeginBatchUpdate = false;
+                    int iUpdateFlag = 1;
+                    BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, iUpdateFlag);
+                    objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, "", 0, true); 
+                    bool BatchUpdate = objCZKEM.BatchUpdate(1);
+                    bool RefreshData = objCZKEM.RefreshData(1);
+                    objCZKEM.Disconnect();
+
+                     if (!BatchUpdate)
+                        ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "Error en el BatchUpdate del reloj " + obj.IpReloj);
+
                 }
-              else
+                else
                 {
-                    Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                    break;
                 }
-              
-                    
+
+
+
+                bConexion = Connect_Net(obj.IpReloj, 4370);
+                if (bConexion != false)
+                {
+
+                  
+                    string idtrab = lbIdTrab.Text;
+                    bool BeginBatchUpdate = false;
+                    int iUpdateFlag = 1;
+                    BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, iUpdateFlag);
+                    objCZKEM.SetUserGroup(1, Convert.ToInt32(idtrab), Grupo);  
+                    bool BatchUpdate = objCZKEM.BatchUpdate(1);
+                    bool RefreshData = objCZKEM.RefreshData(1);
+                    objCZKEM.Disconnect();
+                    if (!BatchUpdate)
+                        ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "Error en el BatchUpdate del reloj " + obj.IpReloj);
+
+                }
+                 else
+                {
+                   ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                    break;
+                }
+   
             }
             
-            Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Guardando asignaciones");
+            ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Datos guardados en el servidor");
             DialogResult Resultado = MessageBox.Show("Por favor capture los biométricos del empleado, AL TERMINAR \npresione ACEPTAR para que los datos se sincronicen\nen caso de no poder tomar los biometricos, presione CANCELAR", "SIPAA", MessageBoxButtons.OKCancel);
             if (Resultado == DialogResult.OK)
             {
                 foreach (Reloj obj in ltReloj2)
                 {
                     
-                    Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Obteniendo los biométricos.");
+                        ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Obteniendo los biométricos.");
                         ProcesoReloj("Face",obj);
                         ProcesoReloj("Huella", obj);
                         ProcesoReloj("Pass", obj);
@@ -1435,10 +1465,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     break;
                       
                 }
-                //************
-                Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Comenzando la sincronizacion.");
-                
-                SincronizaBiometricos(ltReloj2, objReloj, bConexion);
+             
+               ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Comenzando la sincronizacion.");
+            //   SincronizaBiometricos(ltReloj2, objReloj);
               
                  
             }
@@ -1451,110 +1480,291 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         }
 
-        public void SincronizaBiometricos(List<Reloj> ltReloj2, RelojChecador objReloj, bool bConexion)
+        public void SincronizaBiometricos(List<Reloj> ltReloj2, RelojChecador objReloj)
         {
-            int iCont2 = 0;
+            int iCont = 0;
+            bool bConexion = false;
+            SonaTrabajador objTrab = new SonaTrabajador();
             foreach (Reloj obj in ltReloj2)
             {
-         
-                DataTable dt = objReloj.RelojesxTrabajador("%", obj.cvReloj, 6, "%", "%");
-                string IP = obj.IpReloj;
-                bool tiene = obj.Huella;
-                iCont2 += 1;
-                Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + iCont2 + " de " + ltReloj2.Count);
+
+                //******************************************************************************************************************//
+
+                iCont += 1;
+                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj2.Count);
+                //***  UserInfo ***//
                 bConexion = Connect_Net(obj.IpReloj, 4370);
                 if (bConexion != false)
                 {
-                    Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "sincronizando. ");
-                    
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "sincronizando. . ");
-                        
-                        string idtrab = row["idtrab"].ToString();
-                        string cvreloj = row[1].ToString();
-                        string Nombre = row["Nombre"].ToString();
-                        string pass_desc = "";
-                        int Permiso = 0;
-                        if (Convert.ToBoolean(row["administrador"].ToString()))
-                            Permiso = 3;
-                        // Convert.ToInt32(row["administrador"].ToString()); 
-                        // int GruposReloj = Convert.ToInt32( row["cvgruposreloj"].ToString()); 
-                        //SonaTrabajador objTrab = new SonaTrabajador();
-                         FormaReg objfr = new FormaReg();
-                        ltFormasxUsuario = objfr.FormasxUsuario(idtrab, 0, 4, "", "");
-                        foreach (string grupo in ltFormasxUsuario)
-                        {
-                            Grupo = Convert.ToInt32(grupo);
 
-                        }
-                        if (obj.Teclado)
+                    objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 2, sUsuuMod, Name); // 2
+                    objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
+                    if (chkAdmin.Checked == true)
+                        objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, Name, 8);
+                    //string idtrab = lbIdTrab.Text;
+                    //string Nombre = lbNombre.Text;
+                    bool BeginBatchUpdate = false;
+                    int iUpdateFlag = 1;
+                    BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, iUpdateFlag);
+                    objCZKEM.SSR_SetUserInfo(1, lbIdTrab.Text, lbNombre.Text, "", 0, true);
+                    bool BatchUpdate = objCZKEM.BatchUpdate(1);
+                    bool RefreshData = objCZKEM.RefreshData(1);
+                    objCZKEM.Disconnect();
+
+                    if (!BatchUpdate)
+                        ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "Error en el BatchUpdate del reloj " + obj.IpReloj);
+
+                }
+                else
+                {
+                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                    break;
+                }
+
+
+                //***  grupo ***//
+                bConexion = Connect_Net(obj.IpReloj, 4370);
+                if (bConexion != false)
+                {
+
+                    
+                    bool BeginBatchUpdate = false;
+                    int iUpdateFlag = 1;
+                    BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, iUpdateFlag);
+                    objCZKEM.SetUserGroup(1, Convert.ToInt32(lbIdTrab.Text), Grupo);
+                    bool BatchUpdate = objCZKEM.BatchUpdate(1);
+                    bool RefreshData = objCZKEM.RefreshData(1);
+                    objCZKEM.Disconnect();
+                    if (!BatchUpdate)
+                        ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "Error en el BatchUpdate del reloj " + obj.IpReloj);
+
+                }
+                else
+                {
+                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                    break;
+                }
+
+
+                //***  Cara ***//
+               DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 6, "%", "%");
+               foreach (DataRow row in dt.Rows)
+                    {
+                        bConexion = Connect_Net(obj.IpReloj, 4370);
+                        if (bConexion != false)
                         {
-                            try
-                            {
-                                if (row["pass"].ToString() != String.Empty)
-                                    pass_desc = Utilerias.descifrar(row["pass"].ToString());
-                                objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc,Permiso, true); 
-                                objCZKEM.SetUserGroup(1, Convert.ToInt32(idtrab),Grupo );
-                            }
-                            catch
-                            { }
-                        }
-                        if (obj.Huella)
-                        {
-                            if (obj.MultipleHuella)
-                            {
-                                if (row["huellaTmp"].ToString() != String.Empty)
-                                {
-                                    try
-                                    {
-                                      int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
-                                      if (ifinger != 0 && ifinger != 10)
-                                        {
-                                        string tmpHuella = row["huellaTmp"].ToString();
-                                        objCZKEM.SetUserTmpExStr(1, idtrab, ifinger, 1, tmpHuella);
-                                        }
-                                    }
-                                    catch { }
-                                }
-                            }
-                            else
-                            {
-                                int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
-                                string tmpHuella = "";
-                                if (ifinger >= 0 && ifinger <= 9)
-                                {
-                                 tmpHuella = row["huellaTmp"].ToString();
-                                 objCZKEM.SetUserTmpExStr(1, idtrab, ifinger, 1, tmpHuella);
-                                }
-                            }
-                        }
-                        if (obj.Rostro)
-                        {
+                            bool BeginBatchUpdate = false;
+                            int iUpdateFlag = 1;
+                            BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, iUpdateFlag);
+
                             if (row["rostroTmp"].ToString() != String.Empty)
                             {
                                 try
                                 {
-                                 string RostroTmp = row["rostroTmp"].ToString();
-                                 int rostrolong = Convert.ToInt32(row["rostrolong"].ToString());
-                                 objCZKEM.SetUserFaceStr(1, idtrab, 50, RostroTmp, rostrolong);
+                                    string RostroTmp = row["rostroTmp"].ToString();
+                                    int rostrolong = Convert.ToInt32(row["rostrolong"].ToString());
+                               if ( objCZKEM.SSR_SetUserInfo(1, lbIdTrab.Text, lbNombre.Text, "", 0, true))
+                                {
+                                    if (objCZKEM.SetUserFaceStr(1, lbIdTrab.Text, 50, RostroTmp, rostrolong))
+                                        MessageBox.Show("Inserto cara");
+                                }
+                                
                                 }
                                 catch { }
                             }
+                            bool BatchUpdate = objCZKEM.BatchUpdate(1);
+                            bool RefreshData = objCZKEM.RefreshData(1);
+                            objCZKEM.Disconnect();
+                            if (!BatchUpdate)
+                                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "Error en el BatchUpdate del reloj " + obj.IpReloj);
                         }
-                        Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "sincronizando. . . ");
-                       
+                        else
+                        {
+                            ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                            break;
+                        }
+                        
                     }
-                    objCZKEM.Disconnect();
+
                     
-                }
-                else
-                {
-                    Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
-                   
-                }
+
+                
+                
+
+
+                //***********************************************************************************************************************************************//
+                // DataTable dt = objReloj.RelojesxTrabajador("%", obj.cvReloj, 6, "%", "%");
+                // string IP = obj.IpReloj;
+                // bool tiene = obj.Huella;
+                // iCont2 += 1;
+                // Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + iCont2 + " de " + ltReloj2.Count);
+                //// bConexion = Connect_Net(obj.IpReloj, 4370);
+                //// if (!bConexion)
+                // //{
+
+
+                //     foreach (DataRow row in dt.Rows)
+                //     {
+
+                //         string idtrab = row["idtrab"].ToString();
+                //         string cvreloj = row[1].ToString();
+                //         string Nombre = row["Nombre"].ToString();
+                //         string pass_desc = "";
+                //         int Permiso = 0;
+                //         if (Convert.ToBoolean(row["administrador"].ToString()))
+                //             Permiso = 3;
+                //         int iUpdateFlag = 1;
+                //         bool BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, iUpdateFlag);
+
+                //         if (obj.Teclado)
+                //         {
+                //             try
+                //             {
+                //                 bConexion = Connect_Net(obj.IpReloj, 4370);
+                //                 if (bConexion)
+                //                 {
+                //                 ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "sincronizando biométricos. . ");
+
+
+                //                 if (row["pass"].ToString() != String.Empty)
+                //                         pass_desc = Utilerias.descifrar(row["pass"].ToString());
+                //                     if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
+                //                     {
+                //                         if (obj.MultipleHuella)
+                //                         {
+                //                             if (row["huellaTmp"].ToString() != String.Empty)
+                //                             {
+                //                                 try
+                //                             {
+                //                                 ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "sincronizando biométricos. . . . ");
+                //                                 int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
+                //                                     if (ifinger != 0 && ifinger != 10)
+                //                                     {
+                //                                         string tmpHuella = row["huellaTmp"].ToString();
+                //                                         objCZKEM.SetUserTmpExStr(1, idtrab, ifinger, 1, tmpHuella);
+                //                                     }
+                //                                 }
+                //                                 catch { }
+                //                             }
+                //                         }
+                //                     }
+                //                     bool BatchUpdate = objCZKEM.BatchUpdate(1);
+                //                     bool RefreshData = objCZKEM.RefreshData(1);
+                //                     if (!BatchUpdate)
+                //                         ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "Error en el BatchUpdate del reloj " + obj.IpReloj);
+                //                     objCZKEM.Disconnect();
+
+                //                 }
+
+
+                //             }
+                //             catch
+                //             { }
+                //         }
+
+                //         //if (obj.Huella)
+                //         //{
+                //         //    if (obj.MultipleHuella)
+                //         //    {
+                //         //        if (row["huellaTmp"].ToString() != String.Empty)
+                //         //        {
+                //         //            try
+                //         //            {
+                //         //              int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
+                //         //              if (ifinger != 0 && ifinger != 10)
+                //         //                {
+                //         //                   string tmpHuella = row["huellaTmp"].ToString();
+                //         //                   objCZKEM.SetUserTmpExStr(1, idtrab, ifinger, 1, tmpHuella);
+                //         //                 }
+                //         //            }
+                //         //            catch { }
+                //         //        }
+                //         //    }
+                //         //    else
+                //         //    {
+                //         //        int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
+                //         //        string tmpHuella = "";
+                //         //        if (ifinger >= 0 && ifinger <= 9)
+                //         //        {
+                //         //         tmpHuella = row["huellaTmp"].ToString();
+                //         //         objCZKEM.SetUserTmpExStr(1, idtrab, ifinger, 1, tmpHuella);
+                //         //        }
+                //         //    }
+                //         //}
+
+                //         ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "sincronizando. . . . . . . ");
+
+                //     }
+
+
+                // //}
+                // //else
+                //// {
+                //  //   Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                //   //  break;
+
+                //// }
+
+                // ///***********Segunda conexion ****************************************
+
+                // //bConexion = Connect_Net(obj.IpReloj, 4370);
+                //// if (!bConexion)
+                //// {
+
+                //     foreach (DataRow row in dt.Rows)
+                //     {
+
+                //         bConexion = Connect_Net(obj.IpReloj, 4370);
+                //         if (!bConexion)
+                //         {
+                //         string idtrab = row["idtrab"].ToString();
+                //         string cvreloj = row[1].ToString();
+                //         string Nombre = row["Nombre"].ToString();
+                //         string pass_desc = "";
+                //         int Permiso = 0;
+                //         if (Convert.ToBoolean(row["administrador"].ToString()))
+                //             Permiso = 3;
+                //         int Grupo = Convert.ToInt32(row["cvforma"].ToString());
+                //         if (obj.Rostro)
+                //         {
+                //             if (row["rostroTmp"].ToString() != String.Empty)
+                //             {
+                //                 try
+                //                 {
+                //                     if (row["pass"].ToString() != String.Empty)
+                //                         pass_desc = Utilerias.descifrar(row["pass"].ToString());
+                //                     if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
+                //                     {
+                //                         string RostroTmp = row["rostroTmp"].ToString();
+                //                         int rostrolong = Convert.ToInt32(row["rostrolong"].ToString());
+                //                         if (objCZKEM.SetUserFaceStr(1, idtrab, 50, RostroTmp, rostrolong))
+                //                         {
+                //                             if (objCZKEM.SetUserGroup(1, Convert.ToInt32(idtrab), Grupo))
+                //                                 MessageBox.Show("No esta guardando el grupo");
+                //                         }
+
+                //                     }
+
+                //                 }
+                //                 catch { }
+                //             }
+                //         }
+                //         }
+
+                //     }
+                // //}
+
+
+                // ///**************************************
+
+                // //else
+                // //{
+                // //    Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                // //    break;
+
+                // //}
             }
-           Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Asignaciones Guardadas Correctamente");
+           ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Asignaciones Guardadas Correctamente");
             
         }
         
@@ -1616,8 +1826,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
 
                 case "Face":
-                    
-                    
+
+
                     if (objCZKEM.GetUserFaceStr(1, idtrab, 50, ref sFaceTmp, ref iFaceLong))// true
                     {
                         SonaTrabajador objTrab = new SonaTrabajador();
@@ -1628,9 +1838,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         }
                         catch
                         {
-                            bBandera = false; 
+                            bBandera = false;
                         }
                     }
+                    
                     break;
                     /*
                 case "Foto":

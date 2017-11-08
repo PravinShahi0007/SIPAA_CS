@@ -266,6 +266,7 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);

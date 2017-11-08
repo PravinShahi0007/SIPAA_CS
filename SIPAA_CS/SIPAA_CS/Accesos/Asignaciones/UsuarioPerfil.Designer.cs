@@ -68,6 +68,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.panelTag = new System.Windows.Forms.Panel();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             label8 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -82,6 +83,7 @@
             this.PanelBuscar.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panelTag.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -531,6 +533,17 @@
             this.panelTag.TabIndex = 134;
             this.panelTag.Visible = false;
             // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(12, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 178;
+            this.ptbimgusuario.TabStop = false;
+            // 
             // UsuarioPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -538,6 +551,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lblusuario);
@@ -570,6 +584,7 @@
             this.panel4.PerformLayout();
             this.panelTag.ResumeLayout(false);
             this.panelTag.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -601,5 +616,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lbMensaje;
         private System.Windows.Forms.Panel panelTag;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }

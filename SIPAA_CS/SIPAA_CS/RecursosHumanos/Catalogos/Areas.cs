@@ -93,6 +93,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             txtBuscarPerfil.Focus();
 
+            Utilerias.cargaimagen(ptbimgusuario);
+
         }
 
         private void PanelPlantilla_Paint_1(object sender, PaintEventArgs e)
