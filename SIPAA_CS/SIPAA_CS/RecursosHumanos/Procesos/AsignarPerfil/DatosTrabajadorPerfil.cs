@@ -99,6 +99,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             //////////////////////////////////////////////////////////////////////////////////
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             string sIdtrab = TrabajadorInfo.IdTrab;
             List<string> ltTnom = new List<string>();

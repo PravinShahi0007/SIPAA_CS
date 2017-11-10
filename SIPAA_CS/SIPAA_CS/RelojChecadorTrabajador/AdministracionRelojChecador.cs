@@ -74,6 +74,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             //////////////////////////////////////////////////////////////////////////////////
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             bd.DoWork += Bd_DoWork;
             bd.RunWorkerCompleted += Bd_RunWorkerCompleted;

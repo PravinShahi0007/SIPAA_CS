@@ -51,6 +51,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbDirector = new System.Windows.Forms.Label();
+            this.lbSupervisor = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbCheca = new System.Windows.Forms.Label();
+            this.lbltiponom = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.lbFechaIngreso = new System.Windows.Forms.Label();
             this.lbPuesto = new System.Windows.Forms.Label();
             this.lbDepto = new System.Windows.Forms.Label();
@@ -82,13 +89,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panelAsignacionTrabajador = new System.Windows.Forms.Panel();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lbltiponom = new System.Windows.Forms.Label();
-            this.lbCheca = new System.Windows.Forms.Label();
-            this.lbDirector = new System.Windows.Forms.Label();
-            this.lbSupervisor = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
@@ -376,7 +376,7 @@
             this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblusuario.Location = new System.Drawing.Point(7, 73);
+            this.lblusuario.Location = new System.Drawing.Point(7, 74);
             this.lblusuario.Name = "lblusuario";
             this.lblusuario.Size = new System.Drawing.Size(52, 20);
             this.lblusuario.TabIndex = 121;
@@ -415,6 +415,79 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(518, 526);
             this.panel1.TabIndex = 122;
+            // 
+            // lbDirector
+            // 
+            this.lbDirector.AutoSize = true;
+            this.lbDirector.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDirector.Location = new System.Drawing.Point(112, 438);
+            this.lbDirector.Name = "lbDirector";
+            this.lbDirector.Size = new System.Drawing.Size(57, 16);
+            this.lbDirector.TabIndex = 180;
+            this.lbDirector.Text = "director";
+            // 
+            // lbSupervisor
+            // 
+            this.lbSupervisor.AutoSize = true;
+            this.lbSupervisor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSupervisor.Location = new System.Drawing.Point(113, 409);
+            this.lbSupervisor.Name = "lbSupervisor";
+            this.lbSupervisor.Size = new System.Drawing.Size(73, 16);
+            this.lbSupervisor.TabIndex = 177;
+            this.lbSupervisor.Text = "supervisor";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label16.Location = new System.Drawing.Point(54, 438);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(61, 16);
+            this.label16.TabIndex = 179;
+            this.label16.Text = "Director :";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label15.Location = new System.Drawing.Point(40, 409);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(76, 16);
+            this.label15.TabIndex = 178;
+            this.label15.Text = "Supervisor :";
+            // 
+            // lbCheca
+            // 
+            this.lbCheca.AutoSize = true;
+            this.lbCheca.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCheca.Location = new System.Drawing.Point(113, 358);
+            this.lbCheca.Name = "lbCheca";
+            this.lbCheca.Size = new System.Drawing.Size(50, 18);
+            this.lbCheca.TabIndex = 176;
+            this.lbCheca.Text = "checa";
+            // 
+            // lbltiponom
+            // 
+            this.lbltiponom.AutoSize = true;
+            this.lbltiponom.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltiponom.Location = new System.Drawing.Point(112, 296);
+            this.lbltiponom.Name = "lbltiponom";
+            this.lbltiponom.Size = new System.Drawing.Size(93, 16);
+            this.lbltiponom.TabIndex = 175;
+            this.lbltiponom.Text = "tipo de nomina";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label14.Location = new System.Drawing.Point(66, 358);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(49, 16);
+            this.label14.TabIndex = 174;
+            this.label14.Text = "Checa:";
             // 
             // lbFechaIngreso
             // 
@@ -765,80 +838,6 @@
             this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbimgusuario.TabIndex = 187;
             this.ptbimgusuario.TabStop = false;
-            this.ptbimgusuario.Visible = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label14.Location = new System.Drawing.Point(66, 358);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 16);
-            this.label14.TabIndex = 174;
-            this.label14.Text = "Checa:";
-            // 
-            // lbltiponom
-            // 
-            this.lbltiponom.AutoSize = true;
-            this.lbltiponom.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltiponom.Location = new System.Drawing.Point(112, 296);
-            this.lbltiponom.Name = "lbltiponom";
-            this.lbltiponom.Size = new System.Drawing.Size(93, 16);
-            this.lbltiponom.TabIndex = 175;
-            this.lbltiponom.Text = "tipo de nomina";
-            // 
-            // lbCheca
-            // 
-            this.lbCheca.AutoSize = true;
-            this.lbCheca.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheca.Location = new System.Drawing.Point(113, 358);
-            this.lbCheca.Name = "lbCheca";
-            this.lbCheca.Size = new System.Drawing.Size(50, 18);
-            this.lbCheca.TabIndex = 176;
-            this.lbCheca.Text = "checa";
-            // 
-            // lbDirector
-            // 
-            this.lbDirector.AutoSize = true;
-            this.lbDirector.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDirector.Location = new System.Drawing.Point(112, 438);
-            this.lbDirector.Name = "lbDirector";
-            this.lbDirector.Size = new System.Drawing.Size(57, 16);
-            this.lbDirector.TabIndex = 180;
-            this.lbDirector.Text = "director";
-            // 
-            // lbSupervisor
-            // 
-            this.lbSupervisor.AutoSize = true;
-            this.lbSupervisor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSupervisor.Location = new System.Drawing.Point(113, 409);
-            this.lbSupervisor.Name = "lbSupervisor";
-            this.lbSupervisor.Size = new System.Drawing.Size(73, 16);
-            this.lbSupervisor.TabIndex = 177;
-            this.lbSupervisor.Text = "supervisor";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label16.Location = new System.Drawing.Point(54, 438);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(61, 16);
-            this.label16.TabIndex = 179;
-            this.label16.Text = "Director :";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label15.Location = new System.Drawing.Point(40, 409);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(76, 16);
-            this.label15.TabIndex = 178;
-            this.label15.Text = "Supervisor :";
             // 
             // DatosTrabajadorPerfil
             // 

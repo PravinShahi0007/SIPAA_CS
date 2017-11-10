@@ -824,6 +824,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             //////////////////////////////////////////////////////////////////////////////////
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
+
             lbIdTrab.Text = TrabajadorInfo.IdTrab;
             lbNombre.Text = TrabajadorInfo.Nombre;
             PlantillaDetalle objPlantilla = new PlantillaDetalle();
