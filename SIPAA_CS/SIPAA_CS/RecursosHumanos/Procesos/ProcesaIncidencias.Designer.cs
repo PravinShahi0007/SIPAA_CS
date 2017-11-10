@@ -53,7 +53,6 @@
             this.btnguardar = new System.Windows.Forms.Button();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -73,9 +72,9 @@
             label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label13.Location = new System.Drawing.Point(6, 31);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(98, 16);
+            label13.Size = new System.Drawing.Size(97, 16);
             label13.TabIndex = 46;
-            label13.Text = "Tipo de Nomina";
+            label13.Text = "Forma de Pago";
             // 
             // label1
             // 
@@ -348,7 +347,6 @@
             this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbimgusuario.TabIndex = 204;
             this.ptbimgusuario.TabStop = false;
-            this.ptbimgusuario.Visible = false;
             // 
             // lblusuario
             // 
@@ -364,16 +362,6 @@
             this.lblusuario.Text = "usuario";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(390, 64);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 206;
-            this.label5.Text = "label5";
-            this.label5.Visible = false;
-            // 
             // ProcesaIncidencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,7 +369,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.pnlprocesoinc);
@@ -426,6 +413,5 @@
         private System.Windows.Forms.TextBox txtfecfin;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Label lblusuario;
-        private System.Windows.Forms.Label label5;
     }
 }
