@@ -210,6 +210,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             SonaCompania objCia = new SonaCompania();

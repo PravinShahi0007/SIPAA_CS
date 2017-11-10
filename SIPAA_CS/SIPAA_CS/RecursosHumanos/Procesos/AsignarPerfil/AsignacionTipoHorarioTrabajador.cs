@@ -218,6 +218,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
          
             lbNombre.Text = TrabajadorInfo.Nombre;
             lbIdTrab.Text = TrabajadorInfo.IdTrab;
+            lblusuario.Text = TrabajadorInfo.Nombre;
             Utilerias.cargaimagen(ptbimgusuario);
 
             // Diccionario Permisos x Pantalla

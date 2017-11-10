@@ -491,7 +491,6 @@
             this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbimgusuario.TabIndex = 155;
             this.ptbimgusuario.TabStop = false;
-            this.ptbimgusuario.Visible = false;
             // 
             // lblusuario
             // 
@@ -500,7 +499,7 @@
             this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblusuario.Location = new System.Drawing.Point(6, 73);
+            this.lblusuario.Location = new System.Drawing.Point(6, 75);
             this.lblusuario.Name = "lblusuario";
             this.lblusuario.Size = new System.Drawing.Size(56, 20);
             this.lblusuario.TabIndex = 154;

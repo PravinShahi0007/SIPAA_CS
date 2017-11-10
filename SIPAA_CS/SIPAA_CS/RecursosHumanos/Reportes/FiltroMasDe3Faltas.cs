@@ -122,6 +122,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
 
             //LLENA COMBOS
