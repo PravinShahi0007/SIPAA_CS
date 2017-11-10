@@ -326,6 +326,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             //LLAMA TOOL TIP
             fTooltip();

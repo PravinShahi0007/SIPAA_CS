@@ -20,7 +20,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
         }
 
         //llena dgv,cb
-        public DataTable dtdgvcb(int iopcion, int icvjustinc, int icvincidencia, string sdescripcion, int icvtipociclo,
+        public DataTable dtdgvcb(int iopcion, int icvjustinc, int icvincidencia, string sdescripcion,
                                  int inoeventos, int icvtipoevento, int icvtipoeval, int istjustinc, string susuumod,
                                  string sprgumod)
         {
@@ -34,7 +34,6 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             cmd.Parameters.Add("@p_cvjustinc", SqlDbType.Int).Value = icvjustinc;
             cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = icvincidencia;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = sdescripcion;
-            cmd.Parameters.Add("@p_cvtipociclo", SqlDbType.Int).Value = icvtipociclo;
             cmd.Parameters.Add("@p_noeventos", SqlDbType.Int).Value = inoeventos;
             cmd.Parameters.Add("@p_cvtipoevento", SqlDbType.Int).Value = icvtipoevento;
             cmd.Parameters.Add("@p_cvtipoeval", SqlDbType.Int).Value = icvtipoeval;
@@ -52,7 +51,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
         }
 
         //vuid justifica incidencias
-        public int vuidjustinc(int iopcion, int icvjustinc, int icvincidencia, string sdescripcion, int icvtipociclo,
+        public int vuidjustinc(int iopcion, int icvjustinc, int icvincidencia, string sdescripcion,
                                  int inoeventos, int icvtipoevento, int icvtipoeval, int istjustinc, string susuumod,
                                  string sprgumod)
         {
@@ -66,7 +65,6 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             cmd.Parameters.Add("@p_cvjustinc", SqlDbType.Int).Value = icvjustinc;
             cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = icvincidencia;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = sdescripcion;
-            cmd.Parameters.Add("@p_cvtipociclo", SqlDbType.Int).Value = icvtipociclo;
             cmd.Parameters.Add("@p_noeventos", SqlDbType.Int).Value = inoeventos;
             cmd.Parameters.Add("@p_cvtipoevento", SqlDbType.Int).Value = icvtipoevento;
             cmd.Parameters.Add("@p_cvtipoeval", SqlDbType.Int).Value = icvtipoeval;

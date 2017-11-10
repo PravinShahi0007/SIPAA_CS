@@ -39,6 +39,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -161,6 +163,17 @@
             this.label3.Text = "Mínimo 4 caracteres, máximo 16 caracteres.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(17, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 181;
+            this.ptbimgusuario.TabStop = false;
+            // 
             // CambioContrasena
             // 
             this.AcceptButton = this.btguardar;
@@ -168,6 +181,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.log2;
             this.ClientSize = new System.Drawing.Size(840, 495);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label4);
@@ -184,6 +198,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contraseña";
             this.Load += new System.EventHandler(this.CambioContrasena_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +216,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }

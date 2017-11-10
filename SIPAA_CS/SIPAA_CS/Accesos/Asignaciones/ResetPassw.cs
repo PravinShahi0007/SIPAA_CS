@@ -161,6 +161,7 @@ namespace SIPAA_CS.Accesos.Asignaciones
             ftooltip();
 
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
         }
         //-----------------------------------------------------------------------------------------------

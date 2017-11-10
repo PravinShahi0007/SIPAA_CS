@@ -150,26 +150,20 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             //cb incidencias
             cboincidencias.DataSource = null;
-            DataTable dtinc = JustInc.dtdgvcb(7, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dtinc = JustInc.dtdgvcb(7, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cboincidencias, dtinc, "cvincidencia", "descrip");
 
             txtdesc.Text = "";
-
-            //cb tipociclo
-            cbociclo.DataSource = null;
-            DataTable dttipciclo = JustInc.dtdgvcb(8, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
-            Utilerias.llenarComboxDataTable(cbociclo, dttipciclo, "cvciclo", "descrip");
-
             txtnoeventos.Text = "";
 
             //cb tipo evento
             cbotipevento.DataSource = null;
-            DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbotipevento, dttipevent, "stvalor", "descrip");
 
             //cb tipo evaliacion
             cbotipeval.DataSource = null;
-            DataTable dttipeval = JustInc.dtdgvcb(6, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dttipeval = JustInc.dtdgvcb(6, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbotipeval, dttipeval, "stvalor", "descrp");
 
             ckbeliminar.Visible = false;
@@ -188,7 +182,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 if (bvalidacampos == true)
                 {
-                    int ivali = JustInc.vuidjustinc(1, 0, Int32.Parse(cboincidencias.SelectedValue.ToString()), txtdesc.Text.Trim(), Int32.Parse(cbociclo.SelectedValue.ToString()),
+                    int ivali = JustInc.vuidjustinc(1, 0, Int32.Parse(cboincidencias.SelectedValue.ToString()), txtdesc.Text.Trim(),
                         Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
                         LoginInfo.IdTrab, this.Name);
 
@@ -218,7 +212,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 if (bvalidacampos == true)
                 {
-                    int ivalu = JustInc.vuidjustinc(2, icvjustinc, icvincidencia, txtdesc.Text.Trim(), Int32.Parse(cbociclo.SelectedValue.ToString()),
+                    int ivalu = JustInc.vuidjustinc(2, icvjustinc, icvincidencia, txtdesc.Text.Trim(),
                         Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
                         LoginInfo.IdTrab, this.Name);
 
@@ -248,7 +242,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 if (result == DialogResult.Yes)
                 {
-                    int ivald = JustInc.vuidjustinc(3, icvjustinc, icvincidencia, txtdesc.Text.Trim(), Int32.Parse(cbociclo.SelectedValue.ToString()),
+                    int ivald = JustInc.vuidjustinc(3, icvjustinc, icvincidencia, txtdesc.Text.Trim(),
                         Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
                         LoginInfo.IdTrab, this.Name);
 
@@ -340,6 +334,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             //variables accesos
             DataTable Permisos = DatPerfil.accpantalla(LoginInfo.IdTrab, this.Name);
@@ -434,7 +429,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dgvjustinc.Columns.RemoveAt(0);
             }
 
-            DataTable dtdgvji = JustInc.dtdgvcb(iopcion, 0,0,txtconceptobusq.Text.Trim(),0,0,0,0,0,"","");
+            DataTable dtdgvji = JustInc.dtdgvcb(iopcion, 0,0,txtconceptobusq.Text.Trim(),0,0,0,0,"","");
             dgvjustinc.DataSource = dtdgvji;
 
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
@@ -448,14 +443,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvjustinc.Columns[2].Visible = false;
             dgvjustinc.Columns[3].Width = 150;
             dgvjustinc.Columns[4].Width = 180;
-            dgvjustinc.Columns[5].Width = 150;
+            dgvjustinc.Columns[5].Visible = false;
             dgvjustinc.Columns[6].Width = 80;
             dgvjustinc.Columns[7].Width = 80;
             dgvjustinc.Columns[8].Width = 90;
             dgvjustinc.Columns[9].Visible = false;
             dgvjustinc.Columns[10].Visible = false;
             dgvjustinc.Columns[11].Visible = false;
-            dgvjustinc.Columns[12].Visible = false;
             dgvjustinc.ClearSelection();
             lblModif.Visible = true;
         }
@@ -463,7 +457,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //funcion formto grid sin modificación busqueda
         protected void fdgvs(int iopcion)
         {
-            DataTable dtdgvji = JustInc.dtdgvcb(iopcion, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, "", "");
+            DataTable dtdgvji = JustInc.dtdgvcb(iopcion, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, "", "");
             dgvjustinc.DataSource = dtdgvji;
 
             dgvjustinc.Columns[0].Visible = false;
@@ -476,7 +470,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvjustinc.Columns[7].Width = 90;
             dgvjustinc.Columns[8].Visible = false;
             dgvjustinc.Columns[9].Visible = false;
-            dgvjustinc.Columns[10].Visible = false;
             dgvjustinc.ClearSelection();
             lblModif.Visible = false;
         }
@@ -506,29 +499,22 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                     //cb incidencias
                     cboincidencias.DataSource = null;
-                    DataTable dtinc = JustInc.dtdgvcb(7, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                    DataTable dtinc = JustInc.dtdgvcb(7, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
                     Utilerias.llenarComboxDataTable(cboincidencias, dtinc, "cvincidencia", "descrip");
                     cboincidencias.SelectedValue = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
 
                     txtdesc.Text = row.Cells["Justifica Incidencia"].Value.ToString();
-
-                    //cb tipociclo
-                    cbociclo.DataSource = null;
-                    DataTable dttipciclo = JustInc.dtdgvcb(8, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
-                    Utilerias.llenarComboxDataTable(cbociclo, dttipciclo, "cvciclo", "descrip");
-                    cbociclo.SelectedValue = Convert.ToInt32(row.Cells["cvtipociclo"].Value.ToString());
-
                     txtnoeventos.Text = row.Cells["No de Enventos"].Value.ToString();
 
                     //cb tipo evento
                     cbotipevento.DataSource = null;
-                    DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                    DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
                     Utilerias.llenarComboxDataTable(cbotipevento, dttipevent, "stvalor", "descrip");
                     cbotipevento.SelectedValue = Convert.ToInt32(row.Cells["cvtipoevento"].Value.ToString());
 
                     //cb tipo evaliacion
                     cbotipeval.DataSource = null;
-                    DataTable dttipeval = JustInc.dtdgvcb(6, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                    DataTable dttipeval = JustInc.dtdgvcb(6, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
                     Utilerias.llenarComboxDataTable(cbotipeval, dttipeval, "stvalor", "descrp");
                     cbotipeval.SelectedValue = Convert.ToInt32(row.Cells["cvtipoeval"].Value.ToString());
 
@@ -541,26 +527,26 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             //cb incidencias
             cboincidencias.DataSource = null;
-            DataTable dtinc = JustInc.dtdgvcb(7, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dtinc = JustInc.dtdgvcb(7, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cboincidencias, dtinc, "cvincidencia", "descrip");
 
             txtdesc.Text = "";
 
             //cb tipociclo
             cbociclo.DataSource = null;
-            DataTable dttipciclo = JustInc.dtdgvcb(8, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dttipciclo = JustInc.dtdgvcb(8, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbociclo, dttipciclo, "cvciclo", "descrip");
 
             txtnoeventos.Text = "";
 
             //cb tipo evento
             cbotipevento.DataSource = null;
-            DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dttipevent = JustInc.dtdgvcb(5, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbotipevento, dttipevent, "stvalor", "descrip");
 
             //cb tipo evaliacion
             cbotipeval.DataSource = null;
-            DataTable dttipeval = JustInc.dtdgvcb(6, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dttipeval = JustInc.dtdgvcb(6, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbotipeval, dttipeval, "stvalor", "descrp");
         }
 
@@ -577,12 +563,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 DialogResult result = MessageBox.Show("Captura una descripción", "SIPAA", MessageBoxButtons.OK);
                 cboincidencias.Focus();
-                return false;
-            }
-            else if (cbociclo.Text.Trim() == "" || cbociclo.SelectedIndex == -1 || cbociclo.SelectedIndex == 0)
-            {
-                DialogResult result = MessageBox.Show("Seleciona un ciclo", "SIPAA", MessageBoxButtons.OK);
-                cbociclo.Focus();
                 return false;
             }
             else if (txtnoeventos.Text.Trim() == "")
