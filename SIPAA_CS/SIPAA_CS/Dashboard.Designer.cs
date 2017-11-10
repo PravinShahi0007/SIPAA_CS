@@ -344,7 +344,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 20);
             this.label1.TabIndex = 153;
-            this.label1.Text = "Ver. 1.0.0.6";
+            this.label1.Text = "Ver. 1.0.0.7";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Dashboard
