@@ -737,6 +737,7 @@
             this.progressBar1.Location = new System.Drawing.Point(1, 46);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(620, 10);
+            this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 200;
             // 
             // timer2
