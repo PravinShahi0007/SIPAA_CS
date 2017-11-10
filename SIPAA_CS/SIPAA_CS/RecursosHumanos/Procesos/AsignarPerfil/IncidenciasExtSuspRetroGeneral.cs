@@ -335,6 +335,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
             lbAsignacion.Text = "Asignar Suspensión, Extrañamiento o Retroactivo";
 
             // Diccionario Permisos x Pantalla

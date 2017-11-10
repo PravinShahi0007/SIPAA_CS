@@ -352,11 +352,25 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //-----------------------------------------------------------------------------------------------
         private void PeriodosProcesoIncidencia_Load(object sender, EventArgs e)
         {
-            //Rezise de la Forma
+            // resize 
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
+            //cierra formularios abiertos
+            FormCollection formulariosApp = Application.OpenForms;
+            foreach (Form f in formulariosApp)
+            {
+                if (f.Name != this.Name)
+                {
+                    f.Hide();
+                }
+            }
 
             //LLAMA TOOL TIP
             fTooltip();
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             //
             // Los valores deben venir de los permisos con los que cuente el PERFIL de USUARIO
@@ -778,6 +792,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            RechDashboard rechdb = new RechDashboard();
+            rechdb.Show();
             this.Close();
         }
 

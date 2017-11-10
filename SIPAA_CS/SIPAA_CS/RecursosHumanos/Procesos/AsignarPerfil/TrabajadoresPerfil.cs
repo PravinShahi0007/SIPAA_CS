@@ -317,6 +317,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             //variables accesos
             DataTable Permisos = DatPerfil.accpantalla(LoginInfo.IdTrab, this.Name);

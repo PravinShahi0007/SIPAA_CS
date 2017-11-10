@@ -211,6 +211,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             if (iins == 1 || iact == 1 || ielim == 1)
             {
