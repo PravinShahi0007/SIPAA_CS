@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.App_Code.Sistemas.Procesos;
+using SIPAA_CS.App_Code;
 
 //***********************************************************************************************
 //Autor: noe alvarez marquina
@@ -88,6 +89,7 @@ namespace SIPAA_CS.Sistemas.Procesos
             ftooltip();
             //usuario
             lblusuario.Text = LoginInfo.Nombre;
+            Utilerias.cargaimagen(ptbimgusuario);
 
             facttrab();
             timer1.Start();
