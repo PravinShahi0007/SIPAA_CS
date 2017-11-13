@@ -372,7 +372,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             //bool bBandera = CamposVacios(panelEditar);
 
-            if (validaHorarioJornada())
+            if (validaHorarioJornada(false))
             {
                 cbDiaEntrada.Enabled = true;
 
@@ -765,7 +765,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             validarHorarioComida();
         }
 
-        private bool validaHorarioJornada()
+        private bool validaHorarioJornada(bool isLeave)
         {
             TimeSpan entrada, salida;
 
@@ -782,7 +782,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 else
                     hours = salida.Hours - entrada.Hours;
 
-                mtxtTiempoTrabajo.Text = Convert.ToString(hours);
+                if (isLeave)
+                    mtxtTiempoTrabajo.Text = Convert.ToString(hours);
+
                 return true;
             }
 
@@ -791,7 +793,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void mtxtSalida_Leave(object sender, EventArgs e)
         {
-            validaHorarioJornada();
+            validaHorarioJornada(true);
         }
 
         private void mtxtComidaInicio_Leave(object sender, EventArgs e)

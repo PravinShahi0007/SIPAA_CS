@@ -399,6 +399,7 @@
             // 
             // dgvReloj
             // 
+            this.dgvReloj.AccessibleDescription = "7";
             this.dgvReloj.AllowUserToAddRows = false;
             this.dgvReloj.AllowUserToDeleteRows = false;
             this.dgvReloj.AllowUserToResizeRows = false;
