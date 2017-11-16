@@ -349,6 +349,7 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\AsignacionIncidenciaTrabajador2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueaIncidencias.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\SincRegistrosica.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorPerfil.cs" />
     <Compile Include="App_Code\Sistemas\Procesos\MonitoreoProceso.cs" />
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.cs">
@@ -758,6 +759,18 @@
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.Designer.cs">
       <DependentUpon>PeriodosProcesoIncidencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ReProcesaIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\ReProcesaIncidencias.Designer.cs">
+      <DependentUpon>ReProcesaIncidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\SincRegistrossica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\SincRegistrossica.Designer.cs">
+      <DependentUpon>SincRegistrossica.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\RechDashboard.cs">
       <SubType>Form</SubType>
@@ -1183,6 +1196,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\PeriodosProcesoIncidencia.resx">
       <DependentUpon>PeriodosProcesoIncidencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\ReProcesaIncidencias.resx">
+      <DependentUpon>ReProcesaIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\SincRegistrossica.resx">
+      <DependentUpon>SincRegistrossica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\RechDashboard.resx">
       <DependentUpon>RechDashboard.cs</DependentUpon>

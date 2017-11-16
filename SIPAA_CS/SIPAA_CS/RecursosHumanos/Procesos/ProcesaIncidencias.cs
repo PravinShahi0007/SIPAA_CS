@@ -43,6 +43,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         Utilerias Util = new Utilerias();
         ProcesaIncidencia ProcesaInc = new ProcesaIncidencia();
+        Perfil DatPerfil = new Perfil();
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -178,8 +179,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 //función para tool tip
                 ftooltip();
 
-                //actualiza accesos
-                iins = 1;
+                //variables accesos
+                DataTable Permisos = DatPerfil.accpantalla(LoginInfo.IdTrab, this.Name);
+                iins = Int32.Parse(Permisos.Rows[0][3].ToString()); ;
 
                 //llena combo tipo de nomina
                 Util.p_inicbo = 0;

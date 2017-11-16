@@ -115,7 +115,7 @@ namespace SIPAA_CS.Accesos.Asignaciones
         {
 
             //restaura contraseña
-            DialogResult result = MessageBox.Show( LoginInfo.Nombre +": esta acción restaura la contraseña del usuario " + susu + ", ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show( LoginInfo.Nombre +": esta acción restaura la contraseña del usuario;" + "\r\n" + "\r\n" + susu + "\r\n" + "\r\n" + "¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {

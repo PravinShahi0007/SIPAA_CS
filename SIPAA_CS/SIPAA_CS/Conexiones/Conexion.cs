@@ -19,6 +19,8 @@ namespace SIPAA_CS.Conexiones
         DataTable dt;
         public int iconexsvr;
 
+        SqlConnection cnsica;
+
         public Conexion()
         {
             try
@@ -32,6 +34,38 @@ namespace SIPAA_CS.Conexiones
                 MessageBox.Show("No se conecto con la BD SIPAA: " + ex.ToString());
             }
         }
+
+        //conexion sica sincronizar registros de checaror*************************
+        public SqlConnection conexsica()
+        {
+            try
+            {
+                cnsica = new SqlConnection("Data Source=192.168.30.2;Initial Catalog=ERPDatos;User ID=webuser;Password=webuser");
+                cnsica.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se conecto con la BD SIPAA: " + ex.ToString());
+            }
+            return cnsica;
+        }
+        //Asigna conexion
+        public void asignarconexsica(SqlCommand cmd)
+        { 
+
+            cmd.Connection = cnsica;
+        }
+
+        //Cierra Conexion
+        public void cerrarconexsica()
+        {
+
+            cnsica.Close();
+        }
+        //conexion sica sincronizar registros de checaror*************************
+
+
+
 
         public SqlConnection conexionSonarh()
         {

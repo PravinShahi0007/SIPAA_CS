@@ -91,10 +91,11 @@
             // btnSistemas
             // 
             this.btnSistemas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnSistemas.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_devices_white_48dp;
+            this.btnSistemas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSistemas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSistemas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSistemas.ForeColor = System.Drawing.Color.White;
-            this.btnSistemas.Image = global::SIPAA_CS.Properties.Resources.ic_devices_white_48dp;
             this.btnSistemas.Location = new System.Drawing.Point(316, 316);
             this.btnSistemas.Name = "btnSistemas";
             this.btnSistemas.Size = new System.Drawing.Size(270, 132);
