@@ -31,9 +31,6 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
         public string sUsuumod = "";
         public string sPrgumod = "";
 
-
-       
-
         public DataTable ObtenerCalificacionIncidenciaDetalle(IncCalificacion objIncidencia , int iOpcion) {
 
 
@@ -74,12 +71,42 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             return (dt);
         }
 
+        public int ActualizaStatusInc(string sIdtrab, DateTime fFechaRegistro, int iOpcion, int iCvincidencia, double dTiempoEmp, double dTiempoPro,
+            int iIdTrabSupervisor, int iStSupervisor, DateTime fFhautSupervisor, int iIdTrabDirector, int iStDirector, DateTime fFhautDirector,
+            int iPremioPuntualidad, int iPremioAsistencia, int iStinc, string sArchivo, DateTime fFechaInicio, DateTime fFechaTermino, string sUsuumod, string sPrgumod)
+        {
+            int iprespuesta = 0;
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechtinccalif_d_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
 
+            cmd.Parameters.Add("@P_idtrab", SqlDbType.VarChar).Value = sIdtrab;
+            cmd.Parameters.Add("@P_FechaReg", SqlDbType.DateTime).Value = fFechaRegistro;
+            cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@P_cvincidencia", SqlDbType.Int).Value = iCvincidencia;
+            cmd.Parameters.Add("@P_tiempoemp", SqlDbType.Int).Value = dTiempoEmp;
+            cmd.Parameters.Add("@P_tiempoprof", SqlDbType.Int).Value = dTiempoPro;
+            cmd.Parameters.Add("@P_idtrabsup", SqlDbType.VarChar).Value = iIdTrabSupervisor;
+            cmd.Parameters.Add("@P_stsup", SqlDbType.Int).Value = iStSupervisor;
+            cmd.Parameters.Add("@P_fhautsup", SqlDbType.DateTime).Value = fFhautSupervisor;
+            cmd.Parameters.Add("@P_idtrabdir", SqlDbType.VarChar).Value = iIdTrabDirector;
+            cmd.Parameters.Add("@P_stdir", SqlDbType.Int).Value = iStDirector;
+            cmd.Parameters.Add("@P_premiopunt", SqlDbType.Int).Value = iPremioAsistencia;
+            cmd.Parameters.Add("@P_premioasis", SqlDbType.Int).Value = iPremioAsistencia;
+            cmd.Parameters.Add("@P_stinc", SqlDbType.VarChar).Value = iStinc;
+            cmd.Parameters.Add("@P_archivo", SqlDbType.VarChar).Value = sArchivo;
+            cmd.Parameters.Add("@P_fhautdir", SqlDbType.DateTime).Value = fFhautDirector;
+            cmd.Parameters.Add("@P_FechaInicio", SqlDbType.DateTime).Value = fFechaInicio;
+            cmd.Parameters.Add("@P_FechaFin", SqlDbType.DateTime).Value = fFechaTermino;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = sUsuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sPrgumod;
 
-      
-    }
+            objConexion.asignarConexion(cmd);
+            iprespuesta = Convert.ToInt32(cmd.ExecuteScalar());
+            objConexion.cerrarConexion();
 
-    
-
-  
+            return (iprespuesta);
+        }
+    }  
 }

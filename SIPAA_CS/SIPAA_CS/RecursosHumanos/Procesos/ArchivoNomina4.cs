@@ -36,6 +36,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         SonaTrabajador contenedorempleados = new SonaTrabajador();
         ProcesaIncidencia ProcesaIncidencias = new ProcesaIncidencia();
         Incidencia objIncidencia = new Incidencia();
+        IncCalificacion objActualizaIncidencia = new IncCalificacion();
 
         public ArchivoNomina4()
         {
@@ -45,6 +46,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //para validar inicio de combo
         bool bprimeravez = true;
         bool bprimeracb = true;
+        int iprespuesta;
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -144,12 +146,41 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, this.CompanyName, "IncidenciasPasadasNomina.rpt");
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "SIPAA_CS.RecursosHumanos.Reportes", "IncidenciasPasadasNomina.rpt");
                         ReportDoc.SetParameterValue("TotalRegistros", dtIncidencia.Rows.Count.ToString());
                         ReportDoc.SetParameterValue("FechaActual", DateTime.Now.ToString("dd/MM/yyyy"));
                         form.RptDoc = ReportDoc;
                         form.Show();
                         break;
+                }
+
+                //Marcar archivo como Generado=2 JLA 13/11/2017
+                foreach (DataGridViewRow renglon in dgvArchivoNomina4.Rows)
+                {
+                    try
+                    {
+                        string sClave = renglon.Cells["Clave"].Value.ToString();
+                        DateTime dtFechaReg = DateTime.Parse(renglon.Cells["FechaReg"].Value.ToString());
+                        int iCvInc = Convert.ToInt32(renglon.Cells["CvInc"].Value.ToString());
+                        string sUsuUmod = LoginInfo.IdTrab;
+                        string sPrgUmod = this.Name;
+
+                        iprespuesta=objActualizaIncidencia.ActualizaStatusInc(sClave, dtFechaReg, 9, iCvInc,0,0,0,0,DateTime.Now,0,0,DateTime.Now,0,0,2,"",
+                            DateTime.Now,DateTime.Now,sUsuUmod,sPrgUmod);
+                        switch (iprespuesta.ToString())
+                        {
+                            case "9":
+                                lblMensaje.Text = "La Actualización se llevo a cabo correctamente";
+                                break;
+                            case "":
+                                lblMensaje.Text = "Problemas al realizar la Operación, avise a Sistemas.";
+                                break;
+                        }
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.ToString());
+                    }
                 }
             }
         }
@@ -420,8 +451,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                             anonomina = txtanonom.Text;
                             nonomina = Convert.ToInt32(txtnumnom.Text);
                             noempleado = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[0].Value.ToString());
-                            claveafecta = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
-                            if (dgvArchivoNomina4.Rows[ren].Cells[9].Value.ToString()=="1") //cvrepresenta es Falta
+                            claveafecta = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[17].Value.ToString()); //15 mas 2
+                            if (dgvArchivoNomina4.Rows[ren].Cells[10].Value.ToString()=="1") //cvrepresenta es Falta 9 mas 1
                             {
                                 if (dgvArchivoNomina4.Rows[ren].Cells[5].Value.ToString()=="1") //y es turno por dia
                                 {
@@ -430,7 +461,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                             }
                             else
                             {
-                                tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[13].Value.ToString());
+                                tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString()); //13 mas 2
                             }
                             fechareg = dgvArchivoNomina4.Rows[ren].Cells[7].Value.ToString();
                             duro = 0;
@@ -439,10 +470,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         else
                         {
                             if (noempleado == Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[0].Value.ToString()) & 
-                                claveafecta == Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString()))
+                                claveafecta == Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[17].Value.ToString()))
                             {
                                 conteo = conteo + 1;
-                                if (dgvArchivoNomina4.Rows[ren].Cells[9].Value.ToString() == "1") //cvrepresenta es Falta
+                                if (dgvArchivoNomina4.Rows[ren].Cells[10].Value.ToString() == "1") //cvrepresenta es Falta
                                 {
                                     if (dgvArchivoNomina4.Rows[ren].Cells[5].Value.ToString() == "1") //y es turno por dia
                                     {
@@ -451,7 +482,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                 }
                                 else
                                 {
-                                    tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[13].Value.ToString());
+                                    tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
                                 }
                             }
                             else
@@ -462,8 +493,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                 anonomina = txtanonom.Text;
                                 nonomina = Convert.ToInt32(txtnumnom.Text);
                                 noempleado = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[0].Value.ToString());
-                                claveafecta = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
-                                if (dgvArchivoNomina4.Rows[ren].Cells[9].Value.ToString() == "1") //cvrepresenta es Falta
+                                claveafecta = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[17].Value.ToString());
+                                if (dgvArchivoNomina4.Rows[ren].Cells[10].Value.ToString() == "1") //cvrepresenta es Falta
                                 {
                                     if (dgvArchivoNomina4.Rows[ren].Cells[5].Value.ToString() == "1") //y es turno por dia
                                     {
@@ -472,7 +503,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                 }
                                 else
                                 {
-                                    tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[13].Value.ToString());
+                                    tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
                                 }
                                 fechareg = dgvArchivoNomina4.Rows[ren].Cells[7].Value.ToString();
                                 duro = 0;
@@ -488,6 +519,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show(ex.ToString());
                     creado = 1;
                 }
                 if (creado == 0)
@@ -502,7 +534,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     lblMensaje.Text = "No se pudo crear el archivo. Intente de Nuevo";
                     panelTag.Visible = true;
                     timer1.Start();
-                    //MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
+                    //MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");                    
                 }
             }
         }
