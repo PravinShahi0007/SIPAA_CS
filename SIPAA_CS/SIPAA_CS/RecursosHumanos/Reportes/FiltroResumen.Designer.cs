@@ -38,7 +38,6 @@
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
             System.Windows.Forms.Label label4;
-            System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label12;
             this.label3 = new System.Windows.Forms.Label();
@@ -50,7 +49,6 @@
             this.pnlBusqueda = new System.Windows.Forms.Panel();
             this.cbEmpleados = new System.Windows.Forms.ComboBox();
             this.cbDepartamento = new System.Windows.Forms.ComboBox();
-            this.cbArea = new System.Windows.Forms.ComboBox();
             this.cbTipoNomina = new System.Windows.Forms.ComboBox();
             this.cbUbicacion = new System.Windows.Forms.ComboBox();
             this.cbCia = new System.Windows.Forms.ComboBox();
@@ -62,6 +60,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             label7 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -70,7 +69,6 @@
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
-            label10 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -123,7 +121,7 @@
             label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(41, 389);
+            label5.Location = new System.Drawing.Point(41, 278);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(54, 16);
             label5.TabIndex = 60;
@@ -178,26 +176,13 @@
             label4.TabIndex = 66;
             label4.Text = "Tipo Nomina";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label10.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            label10.Location = new System.Drawing.Point(41, 286);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(31, 16);
-            label10.TabIndex = 68;
-            label10.Text = "Área";
-            label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label11.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            label11.Location = new System.Drawing.Point(41, 473);
+            label11.Location = new System.Drawing.Point(41, 357);
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(74, 16);
             label11.TabIndex = 70;
@@ -305,8 +290,6 @@
             this.pnlBusqueda.Controls.Add(this.cbEmpleados);
             this.pnlBusqueda.Controls.Add(label11);
             this.pnlBusqueda.Controls.Add(this.cbDepartamento);
-            this.pnlBusqueda.Controls.Add(label10);
-            this.pnlBusqueda.Controls.Add(this.cbArea);
             this.pnlBusqueda.Controls.Add(label4);
             this.pnlBusqueda.Controls.Add(this.cbTipoNomina);
             this.pnlBusqueda.Controls.Add(label5);
@@ -340,34 +323,18 @@
             this.cbDepartamento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbDepartamento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbDepartamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbDepartamento.DropDownWidth = 330;
             this.cbDepartamento.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDepartamento.FormattingEnabled = true;
             this.cbDepartamento.Items.AddRange(new object[] {
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbDepartamento.Location = new System.Drawing.Point(44, 496);
+            this.cbDepartamento.Location = new System.Drawing.Point(44, 380);
             this.cbDepartamento.Name = "cbDepartamento";
             this.cbDepartamento.Size = new System.Drawing.Size(291, 25);
             this.cbDepartamento.TabIndex = 69;
             this.cbDepartamento.Text = "Seleccionar ";
-            // 
-            // cbArea
-            // 
-            this.cbArea.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbArea.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbArea.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbArea.FormattingEnabled = true;
-            this.cbArea.Items.AddRange(new object[] {
-            "Seleccionar ",
-            "Activo",
-            "Inactivo"});
-            this.cbArea.Location = new System.Drawing.Point(44, 309);
-            this.cbArea.Name = "cbArea";
-            this.cbArea.Size = new System.Drawing.Size(291, 25);
-            this.cbArea.TabIndex = 67;
-            this.cbArea.Text = "Seleccionar ";
             // 
             // cbTipoNomina
             // 
@@ -392,13 +359,14 @@
             this.cbUbicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbUbicacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbUbicacion.DropDownWidth = 330;
             this.cbUbicacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUbicacion.FormattingEnabled = true;
             this.cbUbicacion.Items.AddRange(new object[] {
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbUbicacion.Location = new System.Drawing.Point(44, 412);
+            this.cbUbicacion.Location = new System.Drawing.Point(44, 301);
             this.cbUbicacion.Name = "cbUbicacion";
             this.cbUbicacion.Size = new System.Drawing.Size(291, 25);
             this.cbUbicacion.TabIndex = 59;
@@ -491,7 +459,6 @@
             this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbimgusuario.TabIndex = 155;
             this.ptbimgusuario.TabStop = false;
-            this.ptbimgusuario.Visible = false;
             // 
             // lblusuario
             // 
@@ -500,7 +467,7 @@
             this.lblusuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblusuario.ForeColor = System.Drawing.Color.White;
             this.lblusuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblusuario.Location = new System.Drawing.Point(6, 73);
+            this.lblusuario.Location = new System.Drawing.Point(6, 75);
             this.lblusuario.Name = "lblusuario";
             this.lblusuario.Size = new System.Drawing.Size(56, 20);
             this.lblusuario.TabIndex = 154;
@@ -561,7 +528,6 @@
         private System.Windows.Forms.DateTimePicker dpFechaFin;
         private System.Windows.Forms.ComboBox cbCia;
         private System.Windows.Forms.DateTimePicker dpFechaInicio;
-        private System.Windows.Forms.ComboBox cbArea;
         private System.Windows.Forms.ComboBox cbTipoNomina;
         private System.Windows.Forms.ComboBox cbDepartamento;
         private System.Windows.Forms.Panel panel2;
@@ -571,5 +537,6 @@
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.ComboBox cbEmpleados;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

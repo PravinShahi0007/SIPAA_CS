@@ -47,6 +47,7 @@
             this.dpFechaBase = new System.Windows.Forms.DateTimePicker();
             this.pnlImprimir = new System.Windows.Forms.Panel();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             label4 = new System.Windows.Forms.Label();
             this.pnlBusqueda.SuspendLayout();
             this.pnlImprimir.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -297,6 +299,17 @@
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // ptbimgusuario
+            // 
+            this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
+            this.ptbimgusuario.InitialImage = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.InitialImage")));
+            this.ptbimgusuario.Location = new System.Drawing.Point(13, 29);
+            this.ptbimgusuario.Name = "ptbimgusuario";
+            this.ptbimgusuario.Size = new System.Drawing.Size(43, 41);
+            this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbimgusuario.TabIndex = 151;
+            this.ptbimgusuario.TabStop = false;
+            // 
             // FiltroMasDe3Faltas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,6 +317,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.pnlImprimir);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.btnRegresar);
@@ -321,6 +335,7 @@
             this.pnlBusqueda.PerformLayout();
             this.pnlImprimir.ResumeLayout(false);
             this.pnlImprimir.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,5 +354,6 @@
         private System.Windows.Forms.Panel pnlImprimir;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.ComboBox cboEmpleados;
+        private System.Windows.Forms.PictureBox ptbimgusuario;
     }
 }
