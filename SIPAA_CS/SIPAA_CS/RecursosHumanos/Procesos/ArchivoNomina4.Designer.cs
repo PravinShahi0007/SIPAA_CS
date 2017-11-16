@@ -162,7 +162,7 @@
             label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label7.Location = new System.Drawing.Point(368, 684);
+            label7.Location = new System.Drawing.Point(368, 702);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(101, 16);
             label7.TabIndex = 174;
@@ -174,7 +174,7 @@
             label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label8.Location = new System.Drawing.Point(581, 684);
+            label8.Location = new System.Drawing.Point(581, 702);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(123, 16);
             label8.TabIndex = 175;
@@ -326,7 +326,7 @@
             // txtanonom
             // 
             this.txtanonom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtanonom.Location = new System.Drawing.Point(475, 683);
+            this.txtanonom.Location = new System.Drawing.Point(475, 701);
             this.txtanonom.Name = "txtanonom";
             this.txtanonom.Size = new System.Drawing.Size(100, 20);
             this.txtanonom.TabIndex = 172;
@@ -334,7 +334,7 @@
             // txtnumnom
             // 
             this.txtnumnom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtnumnom.Location = new System.Drawing.Point(710, 683);
+            this.txtnumnom.Location = new System.Drawing.Point(710, 701);
             this.txtnumnom.Name = "txtnumnom";
             this.txtnumnom.Size = new System.Drawing.Size(99, 20);
             this.txtnumnom.TabIndex = 173;
@@ -343,7 +343,7 @@
             // 
             this.btngenerararchivo.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btngenerararchivo.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.btngenerararchivo.Location = new System.Drawing.Point(854, 677);
+            this.btngenerararchivo.Location = new System.Drawing.Point(854, 695);
             this.btngenerararchivo.Name = "btngenerararchivo";
             this.btngenerararchivo.Size = new System.Drawing.Size(125, 30);
             this.btngenerararchivo.TabIndex = 176;
@@ -435,7 +435,6 @@
             // 
             this.dgvArchivoNomina4.AllowUserToAddRows = false;
             this.dgvArchivoNomina4.AllowUserToDeleteRows = false;
-            this.dgvArchivoNomina4.AllowUserToResizeColumns = false;
             this.dgvArchivoNomina4.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.dgvArchivoNomina4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -468,7 +467,7 @@
             this.dgvArchivoNomina4.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvArchivoNomina4.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvArchivoNomina4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArchivoNomina4.Size = new System.Drawing.Size(975, 436);
+            this.dgvArchivoNomina4.Size = new System.Drawing.Size(975, 453);
             this.dgvArchivoNomina4.TabIndex = 209;
             this.dgvArchivoNomina4.TabStop = false;
             // 
@@ -493,7 +492,7 @@
             this.panelTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.panelTag.Controls.Add(this.lblMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(491, 723);
+            this.panelTag.Location = new System.Drawing.Point(489, 731);
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(510, 25);
             this.panelTag.TabIndex = 233;
