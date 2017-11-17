@@ -289,7 +289,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     cadenaReg = "Reporte General del periodo "+dpFechaInicio.Value.ToString("dd/MM/yy")+" al "+dpFechaFin.Value.ToString("dd/MM/yy");
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
-                    cadenaReg = "IdTrab, Nombre, Sin_Registros, Omisión_Entrada, Omisión_Salida, Retardo, Minutos_Retardo, Salida_Anticipada,"+
+                    cadenaReg = "IdTrab, Nombre, Falta,Minutos_Falta, Omisión_Entrada,Minutos_Omision_Entrada, Omisión_Salida, Minutos_Omision_Salida, Retardo, Minutos_Retardo, Salida_Anticipada,"+
                         "Minutos_Salida_Anticipada, Retardo_Comida, Minutos_Retardo_Comida, Id_Supervisor, Supervisor, IdDirector, Director, Departamento, Tipo_Nómina, Ubicación, Compañia";
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
@@ -299,7 +299,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                         cadenaReg = row[0].ToString() + "," + row[1].ToString() + ","+row[2].ToString()+","+row[3].ToString()+","+row[4].ToString()+
                             ","+row[5].ToString()+","+row[6].ToString()+","+row[7].ToString()+","+row[8].ToString()+","+row[9].ToString()+
                             ","+row[10].ToString()+","+row[11].ToString()+","+row[12].ToString()+","+row[13].ToString()+","+row[14].ToString()+
-                            ","+row[15].ToString()+","+row[16].ToString()+","+row[17].ToString()+","+row[18].ToString();
+                            ","+row[15].ToString()+","+row[16].ToString()+","+row[17].ToString()+","+row[18].ToString()+","+row[19].ToString()+","+
+                            row[20].ToString()+","+row[21].ToString();
                         Texto.WriteLine(cadenaReg);
                     }
                     
