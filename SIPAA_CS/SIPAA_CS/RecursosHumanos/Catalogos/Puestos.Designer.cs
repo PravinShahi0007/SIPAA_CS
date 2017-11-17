@@ -204,7 +204,7 @@
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(190, 23);
             this.lbltitulo.TabIndex = 117;
-            this.lbltitulo.Text = "       Cátalogo de Puestos  ";
+            this.lbltitulo.Text = "       Catálogo de Puestos  ";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnregresar

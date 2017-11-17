@@ -202,7 +202,7 @@
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(249, 23);
             this.lbltitulo.TabIndex = 123;
-            this.lbltitulo.Text = "       Cátalogo de Tipos de Horario  ";
+            this.lbltitulo.Text = "       Catálogo de Tipos de Horario  ";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvtiphr

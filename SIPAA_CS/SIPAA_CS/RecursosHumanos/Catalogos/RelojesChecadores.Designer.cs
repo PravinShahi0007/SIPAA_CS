@@ -260,7 +260,7 @@
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(238, 23);
             this.lbltitulo.TabIndex = 117;
-            this.lbltitulo.Text = "        Cátalogo de Reloj Checador";
+            this.lbltitulo.Text = "        Catálogo de Reloj Checador";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegresar

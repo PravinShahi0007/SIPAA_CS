@@ -42,6 +42,52 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+        private void btnregresar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RechDashboard rechdb = new RechDashboard();
+                rechdb.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
+            }
+        }
+
+        private void btnminimizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                WindowState = FormWindowState.Minimized;
+            }
+            catch (Exception ex)
+            {
+                DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
+            }
+        }
+
+        private void btncerrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+                else if (result == DialogResult.No)
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
+            }
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -52,6 +98,24 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             try
             {
+                //cierra formularios abiertos
+                FormCollection formulariosApp = Application.OpenForms;
+                foreach (Form f in formulariosApp)
+                {
+                    if (f.Name != this.Name)
+                    {
+                        f.Hide();
+                    }
+                }
+                //tool tip
+                ftooltip();
+
+                //usuario
+                lblusuario.Text = LoginInfo.Nombre;
+                Utilerias.cargaimagen(ptbimgusuario);
+
+
+
                 DataTable dtregsica = SincReg.sincregsica();
                 dgvregistros.DataSource = dtregsica;
 
@@ -79,10 +143,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             toolTip1.ShowAlways = true;
 
             //configura texto del objeto
-            //toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
-            //toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
-            //toolTip1.SetToolTip(this.btnRegresar, "Regresar");
-            //toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
+            toolTip1.SetToolTip(this.btncerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
+            toolTip1.SetToolTip(this.btnregresar, "Regresar");
+
         }
 
         private void fsicasincreg()
@@ -128,6 +192,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             fsicasincreg();
         }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------

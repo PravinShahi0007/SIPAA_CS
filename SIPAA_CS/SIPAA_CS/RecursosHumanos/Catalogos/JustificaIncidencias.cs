@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
+using SIPAA_CS.RecursosHumanos.Reportes;
 using SIPAA_CS.Properties;
 using static SIPAA_CS.App_Code.Usuario;
+
+using CrystalDecisions.CrystalReports.Engine;
 
 //***********************************************************************************************
 //Autor: Noe Alvarez Marquina
@@ -183,7 +186,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (bvalidacampos == true)
                 {
                     int ivali = JustInc.vuidjustinc(1, 0, Int32.Parse(cboincidencias.SelectedValue.ToString()), txtdesc.Text.Trim(),
-                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
+                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()),
+                        Int32.Parse(cbotipeval.SelectedValue.ToString()), Int32.Parse(txtrepevento.Text.Trim()), 1,
                         LoginInfo.IdTrab, this.Name);
 
                     if (ivali == 1)
@@ -213,7 +217,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (bvalidacampos == true)
                 {
                     int ivalu = JustInc.vuidjustinc(2, icvjustinc, icvincidencia, txtdesc.Text.Trim(),
-                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
+                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()),
+                        Int32.Parse(cbotipeval.SelectedValue.ToString()), Int32.Parse(txtrepevento.Text.Trim()), 1,
                         LoginInfo.IdTrab, this.Name);
 
                     if (ivalu == 2)
@@ -243,7 +248,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     int ivald = JustInc.vuidjustinc(3, icvjustinc, icvincidencia, txtdesc.Text.Trim(),
-                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), 1,
+                        Int32.Parse(txtnoeventos.Text.Trim()), Int32.Parse(cbotipevento.SelectedValue.ToString()),
+                        Int32.Parse(cbotipeval.SelectedValue.ToString()), Int32.Parse(txtrepevento.Text.Trim()), 1,
                         LoginInfo.IdTrab, this.Name);
 
                     if (ivald == 3)
@@ -291,6 +297,26 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             //llena grid
             fdgvsuid(4);
+        }
+
+        //imprime reporte
+        private void btnImprimirDetalle_Click(object sender, EventArgs e)
+        {
+            DataTable dtReporteRegistro = new DataTable();
+
+            dtReporteRegistro = JustInc.dtdgvcb(11, 0, 0, "", 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+
+            //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
+            ViewerReporte form = new ViewerReporte();
+            RepCatalogoJustInc dtrpt = new RepCatalogoJustInc();
+            ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteRegistro, "SIPAA_CS.RecursosHumanos.Reportes", dtrpt.ResourceName);
+
+            //ReportDoc.SetParameterValue("Titulo1", "SIPAA - Recursos Humanos");
+            //ReportDoc.SetParameterValue("Titulo2", "Catálogo de Conceptos de Nómina");
+            //ReportDoc.SetParameterValue("Titulo3", "");
+
+            form.RptDoc = ReportDoc;
+            form.Show();
         }
 
         private void ckbeliminar_CheckedChanged(object sender, EventArgs e)
@@ -450,6 +476,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvjustinc.Columns[9].Visible = false;
             dgvjustinc.Columns[10].Visible = false;
             dgvjustinc.Columns[11].Visible = false;
+            dgvjustinc.Columns[12].Width = 80;
             dgvjustinc.ClearSelection();
             lblModif.Visible = true;
         }
@@ -470,6 +497,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             dgvjustinc.Columns[7].Width = 90;
             dgvjustinc.Columns[8].Visible = false;
             dgvjustinc.Columns[9].Visible = false;
+            dgvjustinc.Columns[10].Width = 80;
             dgvjustinc.ClearSelection();
             lblModif.Visible = false;
         }
@@ -518,6 +546,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     Utilerias.llenarComboxDataTable(cbotipeval, dttipeval, "stvalor", "descrp");
                     cbotipeval.SelectedValue = Convert.ToInt32(row.Cells["cvtipoeval"].Value.ToString());
 
+                    txtrepevento.Text = row.Cells["Repeticiones"].Value.ToString();
+
                     cboincidencias.Focus();
                 }
             }
@@ -548,6 +578,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             cbotipeval.DataSource = null;
             DataTable dttipeval = JustInc.dtdgvcb(6, 0, 0, txtconceptobusq.Text.Trim(), 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbotipeval, dttipeval, "stvalor", "descrp");
+
+            txtrepevento.Text = "";
         }
 
         //validacion de campos
@@ -562,7 +594,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (txtdesc.Text.Trim() == "")
             {
                 DialogResult result = MessageBox.Show("Captura una descripción", "SIPAA", MessageBoxButtons.OK);
-                cboincidencias.Focus();
+                txtdesc.Focus();
                 return false;
             }
             else if (txtnoeventos.Text.Trim() == "")
@@ -581,6 +613,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 DialogResult result = MessageBox.Show("Seleciona un método de evaluación", "SIPAA", MessageBoxButtons.OK);
                 cbotipeval.Focus();
+                return false;
+            }
+            else if (txtrepevento.Text.Trim() == "")
+            {
+                DialogResult result = MessageBox.Show("Captura el número repeticiones del evento", "SIPAA", MessageBoxButtons.OK);
+                txtrepevento.Focus();
                 return false;
             }
             else

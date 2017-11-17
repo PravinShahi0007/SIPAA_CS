@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RepCatJustInc" targetNamespace="http://tempuri.org/RepCatJustInc.xsd" xmlns:mstns="http://tempuri.org/RepCatJustInc.xsd" xmlns="http://tempuri.org/RepCatJustInc.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RepCatJustInc" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RepCatJustInc" msprop:Generator_UserDSName="RepCatJustInc">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="justint" msprop:Generator_TableClassName="justintDataTable" msprop:Generator_TableVarName="tablejustint" msprop:Generator_RowChangedName="justintRowChanged" msprop:Generator_TablePropName="justint" msprop:Generator_RowDeletingName="justintRowDeleting" msprop:Generator_RowChangingName="justintRowChanging" msprop:Generator_RowEvHandlerName="justintRowChangeEventHandler" msprop:Generator_RowDeletedName="justintRowDeleted" msprop:Generator_RowClassName="justintRow" msprop:Generator_UserTableName="justint" msprop:Generator_RowEvArgName="justintRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cvjustinc" msprop:Generator_ColumnVarNameInTable="columncvjustinc" msprop:Generator_ColumnPropNameInRow="cvjustinc" msprop:Generator_ColumnPropNameInTable="cvjustincColumn" msprop:Generator_UserColumnName="cvjustinc" type="xs:string" minOccurs="0" />
+              <xs:element name="cvincidencia" msprop:Generator_ColumnVarNameInTable="columncvincidencia" msprop:Generator_ColumnPropNameInRow="cvincidencia" msprop:Generator_ColumnPropNameInTable="cvincidenciaColumn" msprop:Generator_UserColumnName="cvincidencia" type="xs:string" minOccurs="0" />
+              <xs:element name="Incidencia" msprop:Generator_ColumnVarNameInTable="columnIncidencia" msprop:Generator_ColumnPropNameInRow="Incidencia" msprop:Generator_ColumnPropNameInTable="IncidenciaColumn" msprop:Generator_UserColumnName="Incidencia" type="xs:string" minOccurs="0" />
+              <xs:element name="JustificaIncidencia" msprop:Generator_ColumnVarNameInTable="columnJustificaIncidencia" msprop:Generator_ColumnPropNameInRow="JustificaIncidencia" msprop:Generator_ColumnPropNameInTable="JustificaIncidenciaColumn" msprop:Generator_UserColumnName="JustificaIncidencia" type="xs:string" minOccurs="0" />
+              <xs:element name="TipoCiclo" msprop:Generator_ColumnVarNameInTable="columnTipoCiclo" msprop:Generator_ColumnPropNameInRow="TipoCiclo" msprop:Generator_ColumnPropNameInTable="TipoCicloColumn" msprop:Generator_UserColumnName="TipoCiclo" type="xs:string" minOccurs="0" />
+              <xs:element name="NodeEnventos" msprop:Generator_ColumnVarNameInTable="columnNodeEnventos" msprop:Generator_ColumnPropNameInRow="NodeEnventos" msprop:Generator_ColumnPropNameInTable="NodeEnventosColumn" msprop:Generator_UserColumnName="NodeEnventos" type="xs:string" minOccurs="0" />
+              <xs:element name="TipodeEvento" msprop:Generator_ColumnVarNameInTable="columnTipodeEvento" msprop:Generator_ColumnPropNameInRow="TipodeEvento" msprop:Generator_ColumnPropNameInTable="TipodeEventoColumn" msprop:Generator_UserColumnName="TipodeEvento" type="xs:string" minOccurs="0" />
+              <xs:element name="TipoEvaluación" msprop:Generator_ColumnVarNameInTable="columnTipoEvaluación" msprop:Generator_ColumnPropNameInRow="TipoEvaluación" msprop:Generator_ColumnPropNameInTable="TipoEvaluaciónColumn" msprop:Generator_UserColumnName="TipoEvaluación" type="xs:string" minOccurs="0" />
+              <xs:element name="stjustinc" msprop:Generator_ColumnVarNameInTable="columnstjustinc" msprop:Generator_ColumnPropNameInRow="stjustinc" msprop:Generator_ColumnPropNameInTable="stjustincColumn" msprop:Generator_UserColumnName="stjustinc" type="xs:string" minOccurs="0" />
+              <xs:element name="cvtipoevento" msprop:Generator_ColumnVarNameInTable="columncvtipoevento" msprop:Generator_ColumnPropNameInRow="cvtipoevento" msprop:Generator_ColumnPropNameInTable="cvtipoeventoColumn" msprop:Generator_UserColumnName="cvtipoevento" type="xs:string" minOccurs="0" />
+              <xs:element name="cvtipoeval" msprop:Generator_ColumnVarNameInTable="columncvtipoeval" msprop:Generator_ColumnPropNameInRow="cvtipoeval" msprop:Generator_ColumnPropNameInTable="cvtipoevalColumn" msprop:Generator_UserColumnName="cvtipoeval" type="xs:string" minOccurs="0" />
+              <xs:element name="Repeticiones" msprop:Generator_ColumnVarNameInTable="columnRepeticiones" msprop:Generator_ColumnPropNameInRow="Repeticiones" msprop:Generator_ColumnPropNameInTable="RepeticionesColumn" msprop:Generator_UserColumnName="Repeticiones" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

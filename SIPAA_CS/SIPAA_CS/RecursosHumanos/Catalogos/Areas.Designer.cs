@@ -264,7 +264,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(175, 23);
             this.label3.TabIndex = 107;
-            this.label3.Text = "       Cátalogo de Áreas  ";
+            this.label3.Text = "       Catálogo de Áreas  ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblusuario

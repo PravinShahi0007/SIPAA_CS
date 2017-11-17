@@ -331,7 +331,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(258, 23);
             this.lbltitulo.TabIndex = 136;
-            this.lbltitulo.Text = "      Cátalogo Incidencias de Nomina";
+            this.lbltitulo.Text = "      Catálogo Incidencias de Nomina";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlBusqueda

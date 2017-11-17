@@ -30,11 +30,11 @@
         {
             System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReProcesaIncidencias));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label lbltrab;
             System.Windows.Forms.Label label13;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnregresar = new System.Windows.Forms.Button();
@@ -42,22 +42,22 @@
             this.btncerrar = new System.Windows.Forms.Button();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.pnlbusqueda = new System.Windows.Forms.Panel();
+            this.pnlformapago = new System.Windows.Forms.Panel();
+            this.cbtiponomina = new System.Windows.Forms.ComboBox();
+            this.pnlempleado = new System.Windows.Forms.Panel();
+            this.cbotrab = new System.Windows.Forms.ComboBox();
             this.opcempleado = new System.Windows.Forms.RadioButton();
             this.opcperiodo = new System.Windows.Forms.RadioButton();
             this.btnguardar = new System.Windows.Forms.Button();
             this.dgvregistros = new System.Windows.Forms.DataGridView();
-            this.pnlempleado = new System.Windows.Forms.Panel();
-            this.cbotrab = new System.Windows.Forms.ComboBox();
-            this.pnlformapago = new System.Windows.Forms.Panel();
-            this.cbtiponomina = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
             lbltrab = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.pnlbusqueda.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvregistros)).BeginInit();
-            this.pnlempleado.SuspendLayout();
             this.pnlformapago.SuspendLayout();
+            this.pnlempleado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvregistros)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -73,6 +73,30 @@
             label1.TabIndex = 41;
             label1.Text = "     Re-Procesa Incidencias";
             // 
+            // lbltrab
+            // 
+            lbltrab.AutoSize = true;
+            lbltrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lbltrab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            lbltrab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lbltrab.Location = new System.Drawing.Point(7, 11);
+            lbltrab.Name = "lbltrab";
+            lbltrab.Size = new System.Drawing.Size(66, 16);
+            lbltrab.TabIndex = 60;
+            lbltrab.Text = "Empleado";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label13.Location = new System.Drawing.Point(7, 12);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(97, 16);
+            label13.TabIndex = 48;
+            label13.Text = "Forma de Pago";
+            // 
             // ptbimgusuario
             // 
             this.ptbimgusuario.Image = ((System.Drawing.Image)(resources.GetObject("ptbimgusuario.Image")));
@@ -83,6 +107,7 @@
             this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbimgusuario.TabIndex = 210;
             this.ptbimgusuario.TabStop = false;
+            this.ptbimgusuario.Click += new System.EventHandler(this.ptbimgusuario_Click);
             // 
             // lblusuario
             // 
@@ -97,6 +122,7 @@
             this.lblusuario.TabIndex = 209;
             this.lblusuario.Text = "usuario";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblusuario.Click += new System.EventHandler(this.lblusuario_Click);
             // 
             // btnregresar
             // 
@@ -156,6 +182,7 @@
             this.lbltitulo.TabIndex = 205;
             this.lbltitulo.Text = "      Re-Procesa Incidencias";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbltitulo.Click += new System.EventHandler(this.lbltitulo_Click);
             // 
             // pnlbusqueda
             // 
@@ -171,6 +198,57 @@
             this.pnlbusqueda.Size = new System.Drawing.Size(1008, 99);
             this.pnlbusqueda.TabIndex = 211;
             this.pnlbusqueda.TabStop = true;
+            // 
+            // pnlformapago
+            // 
+            this.pnlformapago.Controls.Add(label13);
+            this.pnlformapago.Controls.Add(this.cbtiponomina);
+            this.pnlformapago.Location = new System.Drawing.Point(2, 55);
+            this.pnlformapago.Name = "pnlformapago";
+            this.pnlformapago.Size = new System.Drawing.Size(465, 40);
+            this.pnlformapago.TabIndex = 0;
+            this.pnlformapago.Visible = false;
+            // 
+            // cbtiponomina
+            // 
+            this.cbtiponomina.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbtiponomina.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbtiponomina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbtiponomina.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtiponomina.FormattingEnabled = true;
+            this.cbtiponomina.ItemHeight = 16;
+            this.cbtiponomina.Location = new System.Drawing.Point(109, 8);
+            this.cbtiponomina.Margin = new System.Windows.Forms.Padding(2);
+            this.cbtiponomina.Name = "cbtiponomina";
+            this.cbtiponomina.Size = new System.Drawing.Size(348, 24);
+            this.cbtiponomina.TabIndex = 1;
+            this.cbtiponomina.SelectedIndexChanged += new System.EventHandler(this.cbtiponomina_SelectedIndexChanged);
+            // 
+            // pnlempleado
+            // 
+            this.pnlempleado.Controls.Add(lbltrab);
+            this.pnlempleado.Controls.Add(this.cbotrab);
+            this.pnlempleado.Location = new System.Drawing.Point(472, 55);
+            this.pnlempleado.Name = "pnlempleado";
+            this.pnlempleado.Size = new System.Drawing.Size(469, 40);
+            this.pnlempleado.TabIndex = 2;
+            this.pnlempleado.Visible = false;
+            // 
+            // cbotrab
+            // 
+            this.cbotrab.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbotrab.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbotrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbotrab.DropDownWidth = 390;
+            this.cbotrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbotrab.FormattingEnabled = true;
+            this.cbotrab.ItemHeight = 16;
+            this.cbotrab.Location = new System.Drawing.Point(78, 8);
+            this.cbotrab.Margin = new System.Windows.Forms.Padding(2);
+            this.cbotrab.Name = "cbotrab";
+            this.cbotrab.Size = new System.Drawing.Size(376, 24);
+            this.cbotrab.TabIndex = 3;
+            this.cbotrab.SelectedIndexChanged += new System.EventHandler(this.cbotrab_SelectedIndexChanged);
             // 
             // opcempleado
             // 
@@ -225,29 +303,29 @@
             this.dgvregistros.AllowUserToAddRows = false;
             this.dgvregistros.AllowUserToDeleteRows = false;
             this.dgvregistros.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvregistros.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvregistros.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvregistros.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvregistros.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvregistros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvregistros.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvregistros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvregistros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvregistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvregistros.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvregistros.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvregistros.Location = new System.Drawing.Point(7, 203);
             this.dgvregistros.Name = "dgvregistros";
             this.dgvregistros.ReadOnly = true;
@@ -259,81 +337,6 @@
             this.dgvregistros.Size = new System.Drawing.Size(1008, 518);
             this.dgvregistros.TabIndex = 212;
             this.dgvregistros.TabStop = false;
-            // 
-            // pnlempleado
-            // 
-            this.pnlempleado.Controls.Add(lbltrab);
-            this.pnlempleado.Controls.Add(this.cbotrab);
-            this.pnlempleado.Location = new System.Drawing.Point(472, 55);
-            this.pnlempleado.Name = "pnlempleado";
-            this.pnlempleado.Size = new System.Drawing.Size(469, 40);
-            this.pnlempleado.TabIndex = 2;
-            this.pnlempleado.Visible = false;
-            // 
-            // lbltrab
-            // 
-            lbltrab.AutoSize = true;
-            lbltrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lbltrab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            lbltrab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lbltrab.Location = new System.Drawing.Point(7, 11);
-            lbltrab.Name = "lbltrab";
-            lbltrab.Size = new System.Drawing.Size(66, 16);
-            lbltrab.TabIndex = 60;
-            lbltrab.Text = "Empleado";
-            // 
-            // cbotrab
-            // 
-            this.cbotrab.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbotrab.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbotrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbotrab.DropDownWidth = 390;
-            this.cbotrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbotrab.FormattingEnabled = true;
-            this.cbotrab.ItemHeight = 16;
-            this.cbotrab.Location = new System.Drawing.Point(78, 8);
-            this.cbotrab.Margin = new System.Windows.Forms.Padding(2);
-            this.cbotrab.Name = "cbotrab";
-            this.cbotrab.Size = new System.Drawing.Size(376, 24);
-            this.cbotrab.TabIndex = 3;
-            this.cbotrab.SelectedIndexChanged += new System.EventHandler(this.cbotrab_SelectedIndexChanged);
-            // 
-            // pnlformapago
-            // 
-            this.pnlformapago.Controls.Add(label13);
-            this.pnlformapago.Controls.Add(this.cbtiponomina);
-            this.pnlformapago.Location = new System.Drawing.Point(2, 55);
-            this.pnlformapago.Name = "pnlformapago";
-            this.pnlformapago.Size = new System.Drawing.Size(465, 40);
-            this.pnlformapago.TabIndex = 0;
-            this.pnlformapago.Visible = false;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label13.Location = new System.Drawing.Point(7, 12);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(97, 16);
-            label13.TabIndex = 48;
-            label13.Text = "Forma de Pago";
-            // 
-            // cbtiponomina
-            // 
-            this.cbtiponomina.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbtiponomina.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbtiponomina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbtiponomina.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbtiponomina.FormattingEnabled = true;
-            this.cbtiponomina.ItemHeight = 16;
-            this.cbtiponomina.Location = new System.Drawing.Point(109, 8);
-            this.cbtiponomina.Margin = new System.Windows.Forms.Padding(2);
-            this.cbtiponomina.Name = "cbtiponomina";
-            this.cbtiponomina.Size = new System.Drawing.Size(348, 24);
-            this.cbtiponomina.TabIndex = 1;
-            this.cbtiponomina.SelectedIndexChanged += new System.EventHandler(this.cbtiponomina_SelectedIndexChanged);
             // 
             // ReProcesaIncidencias
             // 
@@ -358,11 +361,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.pnlbusqueda.ResumeLayout(false);
             this.pnlbusqueda.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvregistros)).EndInit();
-            this.pnlempleado.ResumeLayout(false);
-            this.pnlempleado.PerformLayout();
             this.pnlformapago.ResumeLayout(false);
             this.pnlformapago.PerformLayout();
+            this.pnlempleado.ResumeLayout(false);
+            this.pnlempleado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvregistros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

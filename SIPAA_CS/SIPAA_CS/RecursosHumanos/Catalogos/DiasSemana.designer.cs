@@ -364,7 +364,7 @@
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(258, 23);
             this.lbltitulo.TabIndex = 139;
-            this.lbltitulo.Text = "       Cátalogo de Días de la Semana";
+            this.lbltitulo.Text = "       Catálogo de Días de la Semana";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelTag

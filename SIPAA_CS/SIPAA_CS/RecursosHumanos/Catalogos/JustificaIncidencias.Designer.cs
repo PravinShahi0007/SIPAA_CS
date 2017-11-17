@@ -39,9 +39,11 @@
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label3;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label5;
+            System.Windows.Forms.Label label11;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnregresar = new System.Windows.Forms.Button();
@@ -50,11 +52,14 @@
             this.lbltitulo = new System.Windows.Forms.Label();
             this.dgvjustinc = new System.Windows.Forms.DataGridView();
             this.pnlbusqueda = new System.Windows.Forms.Panel();
+            this.btnImprimirDetalle = new System.Windows.Forms.Button();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtconceptobusq = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.pnlsuid = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtrepevento = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtnoeventos = new System.Windows.Forms.TextBox();
             this.cbotipevento = new System.Windows.Forms.ComboBox();
@@ -79,6 +84,8 @@
             label7 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvjustinc)).BeginInit();
             this.pnlbusqueda.SuspendLayout();
@@ -93,7 +100,7 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(365, 133);
+            label2.Location = new System.Drawing.Point(357, 138);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(150, 16);
             label2.TabIndex = 157;
@@ -154,7 +161,7 @@
             label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(10, 406);
+            label8.Location = new System.Drawing.Point(10, 375);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(37, 16);
             label8.TabIndex = 142;
@@ -196,6 +203,31 @@
             label3.Size = new System.Drawing.Size(76, 16);
             label3.TabIndex = 147;
             label3.Text = "Descripción";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label5.Location = new System.Drawing.Point(6, 274);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(83, 16);
+            label5.TabIndex = 151;
+            label5.Text = "Repeticiones";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.ForeColor = System.Drawing.Color.Gray;
+            label11.Image = ((System.Drawing.Image)(resources.GetObject("label11.Image")));
+            label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label11.Location = new System.Drawing.Point(3, 116);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(151, 17);
+            label11.TabIndex = 165;
+            label11.Text = "      Imprimir Catálogo ";
             // 
             // ptbimgusuario
             // 
@@ -279,7 +311,7 @@
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(309, 23);
             this.lbltitulo.TabIndex = 152;
-            this.lbltitulo.Text = "      Cátalogo de Justificación de Incidencias";
+            this.lbltitulo.Text = "      Catálogo de Justificación de Incidencias";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvjustinc
@@ -287,30 +319,30 @@
             this.dgvjustinc.AllowUserToAddRows = false;
             this.dgvjustinc.AllowUserToDeleteRows = false;
             this.dgvjustinc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvjustinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvjustinc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvjustinc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvjustinc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvjustinc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvjustinc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvjustinc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvjustinc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvjustinc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvjustinc.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvjustinc.Location = new System.Drawing.Point(362, 154);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvjustinc.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvjustinc.Location = new System.Drawing.Point(362, 159);
             this.dgvjustinc.Name = "dgvjustinc";
             this.dgvjustinc.ReadOnly = true;
             this.dgvjustinc.RowHeadersVisible = false;
@@ -326,16 +358,32 @@
             // pnlbusqueda
             // 
             this.pnlbusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlbusqueda.Controls.Add(label11);
+            this.pnlbusqueda.Controls.Add(this.btnImprimirDetalle);
             this.pnlbusqueda.Controls.Add(label4);
             this.pnlbusqueda.Controls.Add(this.btnbuscar);
             this.pnlbusqueda.Controls.Add(this.panel5);
             this.pnlbusqueda.Controls.Add(this.txtconceptobusq);
             this.pnlbusqueda.Controls.Add(label1);
-            this.pnlbusqueda.Location = new System.Drawing.Point(7, 154);
+            this.pnlbusqueda.Location = new System.Drawing.Point(7, 159);
             this.pnlbusqueda.Name = "pnlbusqueda";
-            this.pnlbusqueda.Size = new System.Drawing.Size(349, 87);
+            this.pnlbusqueda.Size = new System.Drawing.Size(349, 164);
             this.pnlbusqueda.TabIndex = 158;
             this.pnlbusqueda.TabStop = true;
+            // 
+            // btnImprimirDetalle
+            // 
+            this.btnImprimirDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnImprimirDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirDetalle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnImprimirDetalle.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
+            this.btnImprimirDetalle.Location = new System.Drawing.Point(286, 96);
+            this.btnImprimirDetalle.Name = "btnImprimirDetalle";
+            this.btnImprimirDetalle.Size = new System.Drawing.Size(55, 55);
+            this.btnImprimirDetalle.TabIndex = 164;
+            this.btnImprimirDetalle.Tag = "Buscar";
+            this.btnImprimirDetalle.UseVisualStyleBackColor = false;
+            this.btnImprimirDetalle.Click += new System.EventHandler(this.btnImprimirDetalle_Click);
             // 
             // btnbuscar
             // 
@@ -343,9 +391,9 @@
             this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnbuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnbuscar.Location = new System.Drawing.Point(287, 20);
+            this.btnbuscar.Location = new System.Drawing.Point(286, 13);
             this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(50, 50);
+            this.btnbuscar.Size = new System.Drawing.Size(55, 55);
             this.btnbuscar.TabIndex = 2;
             this.btnbuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnbuscar.UseVisualStyleBackColor = false;
@@ -375,9 +423,9 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
-            this.btnAgregar.Location = new System.Drawing.Point(962, 99);
+            this.btnAgregar.Location = new System.Drawing.Point(962, 101);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(50, 50);
+            this.btnAgregar.Size = new System.Drawing.Size(55, 55);
             this.btnAgregar.TabIndex = 159;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
@@ -386,6 +434,9 @@
             // pnlsuid
             // 
             this.pnlsuid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlsuid.Controls.Add(this.panel3);
+            this.pnlsuid.Controls.Add(this.txtrepevento);
+            this.pnlsuid.Controls.Add(label5);
             this.pnlsuid.Controls.Add(this.panel1);
             this.pnlsuid.Controls.Add(this.txtnoeventos);
             this.pnlsuid.Controls.Add(label3);
@@ -403,12 +454,30 @@
             this.pnlsuid.Controls.Add(this.panel2);
             this.pnlsuid.Controls.Add(this.txtdesc);
             this.pnlsuid.Controls.Add(this.lbluid);
-            this.pnlsuid.Location = new System.Drawing.Point(7, 278);
+            this.pnlsuid.Location = new System.Drawing.Point(7, 329);
             this.pnlsuid.Name = "pnlsuid";
-            this.pnlsuid.Size = new System.Drawing.Size(349, 469);
+            this.pnlsuid.Size = new System.Drawing.Size(349, 422);
             this.pnlsuid.TabIndex = 160;
             this.pnlsuid.TabStop = true;
             this.pnlsuid.Visible = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel3.Location = new System.Drawing.Point(105, 290);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(230, 2);
+            this.panel3.TabIndex = 152;
+            // 
+            // txtrepevento
+            // 
+            this.txtrepevento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtrepevento.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtrepevento.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrepevento.Location = new System.Drawing.Point(107, 272);
+            this.txtrepevento.Name = "txtrepevento";
+            this.txtrepevento.Size = new System.Drawing.Size(230, 15);
+            this.txtrepevento.TabIndex = 11;
             // 
             // panel1
             // 
@@ -449,7 +518,7 @@
             this.cbociclo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbociclo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbociclo.FormattingEnabled = true;
-            this.cbociclo.Location = new System.Drawing.Point(107, 403);
+            this.cbociclo.Location = new System.Drawing.Point(107, 372);
             this.cbociclo.Margin = new System.Windows.Forms.Padding(2);
             this.cbociclo.Name = "cbociclo";
             this.cbociclo.Size = new System.Drawing.Size(231, 24);
@@ -487,10 +556,10 @@
             // 
             this.ckbeliminar.AutoSize = true;
             this.ckbeliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbeliminar.Location = new System.Drawing.Point(13, 276);
+            this.ckbeliminar.Location = new System.Drawing.Point(13, 313);
             this.ckbeliminar.Name = "ckbeliminar";
             this.ckbeliminar.Size = new System.Drawing.Size(47, 17);
-            this.ckbeliminar.TabIndex = 11;
+            this.ckbeliminar.TabIndex = 12;
             this.ckbeliminar.Text = "Baja";
             this.ckbeliminar.UseVisualStyleBackColor = true;
             this.ckbeliminar.Visible = false;
@@ -502,10 +571,10 @@
             this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btninsertar.Location = new System.Drawing.Point(284, 276);
+            this.btninsertar.Location = new System.Drawing.Point(278, 313);
             this.btninsertar.Name = "btninsertar";
-            this.btninsertar.Size = new System.Drawing.Size(50, 50);
-            this.btninsertar.TabIndex = 12;
+            this.btninsertar.Size = new System.Drawing.Size(55, 55);
+            this.btninsertar.TabIndex = 13;
             this.btninsertar.UseVisualStyleBackColor = false;
             this.btninsertar.Click += new System.EventHandler(this.btninsertar_Click);
             // 
@@ -547,7 +616,7 @@
             this.lblModif.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModif.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.lblModif.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblModif.Location = new System.Drawing.Point(366, 700);
+            this.lblModif.Location = new System.Drawing.Point(359, 704);
             this.lblModif.Name = "lblModif";
             this.lblModif.Size = new System.Drawing.Size(268, 16);
             this.lblModif.TabIndex = 161;
@@ -559,7 +628,7 @@
             this.pnlmenssuid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.pnlmenssuid.Controls.Add(this.menssuid);
             this.pnlmenssuid.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlmenssuid.Location = new System.Drawing.Point(362, 724);
+            this.pnlmenssuid.Location = new System.Drawing.Point(361, 726);
             this.pnlmenssuid.Name = "pnlmenssuid";
             this.pnlmenssuid.Size = new System.Drawing.Size(650, 25);
             this.pnlmenssuid.TabIndex = 162;
@@ -651,5 +720,8 @@
         private System.Windows.Forms.Panel pnlmenssuid;
         private System.Windows.Forms.Label menssuid;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox txtrepevento;
+        private System.Windows.Forms.Button btnImprimirDetalle;
     }
 }

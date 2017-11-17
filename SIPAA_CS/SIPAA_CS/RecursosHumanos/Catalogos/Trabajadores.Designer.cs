@@ -351,7 +351,7 @@
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(201, 23);
             this.lbltitulo.TabIndex = 126;
-            this.lbltitulo.Text = "      Cátalogo de Empleados";
+            this.lbltitulo.Text = "      Catálogo de Empleados";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ptbimgusuario

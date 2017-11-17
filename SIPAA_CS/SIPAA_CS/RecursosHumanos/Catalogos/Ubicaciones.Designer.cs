@@ -235,7 +235,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(212, 23);
             this.label3.TabIndex = 173;
-            this.label3.Text = "       Cátalogo de Ubicaciones";
+            this.label3.Text = "       Catálogo de Ubicaciones";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblusuario

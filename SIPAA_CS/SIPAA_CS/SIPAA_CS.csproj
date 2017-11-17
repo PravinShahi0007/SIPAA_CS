@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -377,6 +377,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>IncidenciasPendientesAutorizar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RepCatJustInc.cs">
+      <DependentUpon>RepCatJustInc.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RepCatJustInc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepCatJustInc.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
@@ -886,6 +894,12 @@
     <Compile Include="RecursosHumanos\Reportes\FiltroResumen.Designer.cs">
       <DependentUpon>FiltroResumen.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RepCatalogoJustInc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepCatalogoJustInc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\Resumen.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1273,6 +1287,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroResumen.resx">
       <DependentUpon>FiltroResumen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RepCatalogoJustInc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RepCatalogoJustInc.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Resumen.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Resumen.cs</LastGenOutput>
@@ -1486,6 +1504,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\IncidenciasPendientesAutorizar.xss">
       <DependentUpon>IncidenciasPendientesAutorizar.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepCatJustInc.xsc">
+      <DependentUpon>RepCatJustInc.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepCatJustInc.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RepCatJustInc.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepCatJustInc.xss">
+      <DependentUpon>RepCatJustInc.xsd</DependentUpon>
     </None>
     <None Include="SIPAA_CS_ClaveTemporal.pfx" />
   </ItemGroup>
