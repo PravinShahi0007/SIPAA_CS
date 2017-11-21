@@ -359,21 +359,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             dgvregistros.ClearSelection();
         }
 
-        private void ptbimgusuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbltitulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblusuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------

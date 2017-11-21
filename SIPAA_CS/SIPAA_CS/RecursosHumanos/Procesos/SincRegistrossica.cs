@@ -12,6 +12,7 @@ using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
 using static SIPAA_CS.App_Code.Usuario;
 
+
 //***********************************************************************************************
 //Autor: noe alvarez marquina
 //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
@@ -25,6 +26,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         SincRegistrosica SincReg = new SincRegistrosica();
         SonaTrabajador InsReg = new SonaTrabajador();
+        Utilerias Util = new Utilerias();
+        ProcesaIncidencia ProcesaInc = new ProcesaIncidencia();
 
         int inum;
 
@@ -36,6 +39,33 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
+        private void cbtiponomina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Util.p_inicbo == 1)
+            {
+
+                DataTable dtemplsinc = SincReg.cbsincsica(16, Int32.Parse(cbtiponomina.SelectedValue.ToString()));
+                string sdatos = dtemplsinc.Rows[0][0].ToString();
+
+                string icaracttotal = (sdatos.Length.ToString());
+                int ivalor = Int32.Parse(icaracttotal) - 1;
+
+                string sdatosbusq = sdatos.Substring(0,ivalor);
+
+
+                DataTable dtfechas = ProcesaInc.dttiponomina(14, Int32.Parse(cbtiponomina.SelectedValue.ToString()));
+                string sfecini = dtfechas.Rows[0][2].ToString();
+                string sfecfin = dtfechas.Rows[0][3].ToString();
+
+                DataTable dtregsica = SincReg.sincregsica(sfecini, sfecfin, sdatosbusq);
+                dgvregistros.DataSource = dtregsica;
+
+                dgvregistros.Columns[0].Width = 400;//empleado
+                dgvregistros.Columns[1].Width = 140;//fecha
+                dgvregistros.Columns[2].Width = 130;//reloj
+
+            }
+        }
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
@@ -88,6 +118,82 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
             }
         }
+
+        private void btnsinc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //valida campos
+                Boolean bvalidacampos = fvalidacampos();
+
+                if (bvalidacampos == true)
+                {
+
+                    //re-procesa incidencias periodo
+                    DialogResult resultp = MessageBox.Show("Esta acción sincroniza SICA -- SIPAA ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+
+                    int contador = 1;
+
+                    if (resultp == DialogResult.Yes)
+                    {
+                        Cursor.Current = Cursors.WaitCursor;
+                        btnsinc.Enabled = false;
+
+                        Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, descargando registros...");
+
+                        DataTable dtemplsinc = SincReg.cbsincsica(16, Int32.Parse(cbtiponomina.SelectedValue.ToString()));
+                        string sdatos = dtemplsinc.Rows[0][0].ToString();
+
+                        string icaracttotal = (sdatos.Length.ToString());
+                        int ivalor = Int32.Parse(icaracttotal) - 1;
+
+                        string sdatosbusq = sdatos.Substring(0, ivalor);
+
+                        DataTable dtfechas = ProcesaInc.dttiponomina(14, Int32.Parse(cbtiponomina.SelectedValue.ToString()));
+                        string sfecini = dtfechas.Rows[0][2].ToString();
+                        string sfecfin = dtfechas.Rows[0][3].ToString();
+
+                        DataTable dtsipaasicasinc = SincReg.dtsincsicasipa(sfecini, sfecfin, sdatosbusq);
+                        int num = dtsipaasicasinc.Rows.Count + 1;
+                        string nrorows = num.ToString();
+                        //System.Threading.Thread.Sleep(30);
+
+                        foreach (DataRow row in dtsipaasicasinc.Rows)
+                        {
+                            string sidtrab = row["idtrab"].ToString();
+                            string sferegistro = row["fecha"].ToString();
+                            string shrregistro = row["registro"].ToString();
+
+                            InsReg.Relojchecador(sidtrab, 5, DateTime.Parse(sferegistro), 0, TimeSpan.Parse(shrregistro), 100, 0, "nam", this.Name);
+                            contador = contador + 1;
+                            Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Sincronizando registros... " + contador + "  de  " + nrorows);
+                        }
+
+                        //llena combo tipo de nomina
+                        Util.p_inicbo = 0;
+                        DataTable dtcbtipnom = SincReg.cbsincsica(15, 0);
+                        Utilerias.llenarComboxDataTable(cbtiponomina, dtcbtipnom, "cvperiodo", "descripcion");
+                        Util.p_inicbo = 1;
+
+                        dgvregistros.DataSource = null;
+
+                        btnsinc.Enabled = true;
+                        Cursor.Current = Cursors.Default;
+                        pnlmenssuid.Visible = false;
+
+                        DialogResult result = MessageBox.Show("Registros importados con exito", "SIPAA", MessageBoxButtons.OK);
+
+                        cbtiponomina.Focus();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
+            }
+
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -114,13 +220,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 lblusuario.Text = LoginInfo.Nombre;
                 Utilerias.cargaimagen(ptbimgusuario);
 
+                //llena combo tipo de nomina
+                Util.p_inicbo = 0;
+                DataTable dtcbtipnom = SincReg.cbsincsica(15, 0);
+                Utilerias.llenarComboxDataTable(cbtiponomina, dtcbtipnom, "cvperiodo", "descripcion");
+                Util.p_inicbo = 1;
 
-
-                DataTable dtregsica = SincReg.sincregsica();
-                dgvregistros.DataSource = dtregsica;
-
-                
-
+                cbtiponomina.Focus();
             }
             catch (Exception ex)
             {
@@ -149,48 +255,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         }
 
-        private void fsicasincreg()
+        private Boolean fvalidacampos()
         {
-            try
+            if (cbtiponomina.Text.Trim() == "" || cbtiponomina.SelectedIndex == -1 || cbtiponomina.SelectedIndex == 0)
             {
-
-                textBox1.Text = "1";
-
-                DataTable dtsincregsica = SincReg.sincregsica();
-
-                //textBox1.Text = dtsincregsica.Rows.Count.ToString();
-                //inum = 1;
-                foreach (DataRow row in dtsincregsica.Rows)
-                {
-
-                    //int inum = Int32.Parse(row["idtrab"].ToString());
-                    string sidtrab = row["idtrab"].ToString();
-                    string sferegistro = row["fec"].ToString();
-                    string shrregistro = row["hrregistro"].ToString();
-
-                    //textBox1.Text = inum.ToString();
-
-                    //System.Threading.Thread.Sleep(20);
-
-
-                    //inum = inum + 1;
-
-                    InsReg.Relojchecador(sidtrab, 5, DateTime.Parse(sferegistro), 0, TimeSpan.Parse(shrregistro), 100, 0, "nam", this.Name);
-
-                }
-
-                DialogResult result = MessageBox.Show("Registros importados con exito", "SIPAA", MessageBoxButtons.OK);
-
+                DialogResult result = MessageBox.Show("Selecciona una forma de pago", "SIPAA", MessageBoxButtons.OK);
+                cbtiponomina.Focus();
+                return false;
             }
-            catch (Exception ex)
+            else
             {
-                DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
+                return true;
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            fsicasincreg();
         }
 
         //-----------------------------------------------------------------------------------------------
