@@ -84,6 +84,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Reloj;
             button1.Image = global::SIPAA_CS.Properties.Resources.Persona;
             btnReloj.Image = global::SIPAA_CS.Properties.Resources.RelojSync;
+            button2.Image = global::SIPAA_CS.Properties.Resources.RelojSync;
+            button2.Enabled = true; 
         }
 
         private void Ckheader_CheckedChanged(object sender, EventArgs e)
@@ -103,7 +105,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     objR.IpReloj = row.Cells["IP"].Value.ToString();
                     ltReloj.Add(objR);
 
-                    panelAccion.Enabled = true;
+                    //panelAccion.Enabled = true;
+                    Deshabilita_Botones(true);
                     btnAdmin.Enabled = false;
                 }
 
@@ -116,7 +119,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
                     row.Cells[0].Tag = "uncheck";
                 }
-                panelAccion.Enabled = false;
+               // panelAccion.Enabled = false;
+                Deshabilita_Botones(false);
 
             }
         }
@@ -248,7 +252,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                 if (ltReloj.Count > 0)
                 {
-                    panelAccion.Enabled = true;
+                    //panelAccion.Enabled = true;
+                    Deshabilita_Botones(true);
                     Reloj obj1 = ltReloj.ElementAt(0);
                     TrabajadorInfo.cvReloj = obj1.cvReloj;
 
@@ -267,7 +272,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 }
                 else {
 
-                    panelAccion.Enabled = false;
+                   // panelAccion.Enabled = false;
+                    Deshabilita_Botones(false); 
                 }
 
 
@@ -286,6 +292,21 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 }
             }
         }
+
+        private void Deshabilita_Botones(bool Bandera)
+        {
+            if (Bandera)
+            
+                btnHuella.Enabled = btnDescarga.Enabled = btnSync.Enabled = btnAdmin.Enabled = button1.Enabled= true; 
+            
+            else
+            
+                btnHuella.Enabled = btnDescarga.Enabled = btnSync.Enabled = btnAdmin.Enabled = button1.Enabled = false;
+            
+        }
+
+
+
 
         public void ValidarBotones(bool bBandera, string Opcion) {
 
@@ -331,7 +352,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         private void btnDescarga_Click(object sender, EventArgs e)
         {
-            panelAccion.Enabled = false;
+           // panelAccion.Enabled = false;
+            Deshabilita_Botones(false); 
             pnlMensaje.Visible = true;
             progressBar1.Visible = true;
             panelTag.Visible = false;
@@ -663,7 +685,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     }                        
                     
                     Cursor = Cursors.WaitCursor;
-                    panelAccion.Enabled = false;
+                   // panelAccion.Enabled = false;
+                    Deshabilita_Botones(false);
                     pnlMensaje.Visible = true;
                     pnlMensaje.Enabled = true;
                     progressBar1.Visible = true;
@@ -892,7 +915,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
             pnlMensaje.Visible = true;
             int iCont = 0;
-            panelAccion.Enabled = false;
+            //panelAccion.Enabled = false;
+            Deshabilita_Botones(false);
             progressBar1.Visible = true;
             progressBar1.Value = 20;
             bool bBandera = false;
@@ -968,7 +992,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             progressBar1.Value = 100;
             pnlMensaje.Enabled = true;
             timer1.Start();
-            panelAccion.Enabled = true;
+           // panelAccion.Enabled = true;
+            Deshabilita_Botones(true);
         }
 
         private void zkemClient_OnAttTransactionEx(string EnrollNumber, int IsInValid, int AttState, int VerifyMethod, int Year, int Month, int Day, int Hour, int Minute, int Second, int WorkCode)
@@ -1469,7 +1494,108 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         {
 
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+           // DateTime now = DateTime.Now;
+            DialogResult Resultado = MessageBox.Show("Este proceso sincronizara todos los dispositivos con la misma hora ¿Desea continuar? ", "SIPAA", MessageBoxButtons.YesNo);
+            if (Resultado == DialogResult.Yes)
+                SincronizaHora(); 
+        }
+
+        private void SincronizaHora()
+        {
+            RelojChecador objReloj = new RelojChecador();
+            DataTable dt = objReloj.obtrelojeschecadores(6, 0, "%", "%", "%", 0, "%", "%", LoginInfo.IdTrab, LoginInfo.IdTrab);
+
+
+            if (ltReloj.Count > 0)
+            {
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Conectando con Dispositivo  "+row[1].ToString());
+                    progressBar1.Value = 40;
+                    bool bBandera = false; 
+                    bool bConect = objCZKEM.Connect_Net(row[2].ToString(), 4370);
+                    if (bConect)
+                    {
+                        
+                        DataTable dt2 = objReloj.obtrelojeschecadores(13, 0, "%", "%", "%", 0, "%", "%", LoginInfo.IdTrab, LoginInfo.IdTrab);
+                        string HoraServidor = string.Empty;
+                        string FechaServidor = string.Empty; 
+                        foreach (DataRow Row in dt2.Rows)
+                        {
+                            FechaServidor = Row[0].ToString(); 
+                            HoraServidor = Row[1].ToString(); 
+                        }
+
+                        progressBar1.Value = progressBar1.Value + (10 / dt.Columns.Count );
+                        int Año, Mes, Dia, Hora, Minuto, Segundo;
+                        Año = Mes = Dia = Hora = Minuto = Segundo = 0;
+                        Año = Convert.ToInt32( FechaServidor.Substring(6, 2));
+                        Mes = Convert.ToInt32(FechaServidor.Substring(3, 2));
+                        Dia = Convert.ToInt32(FechaServidor.Substring(0,2));
+                        Hora = Convert.ToInt32(HoraServidor.Substring(0,2));
+                        Minuto = Convert.ToInt32(HoraServidor.Substring(3, 2));
+                        Segundo = Convert.ToInt32(HoraServidor.Substring(6,2)); 
+                        if (!objCZKEM.SetDeviceTime2(1, Año, Mes, Dia, Hora, Minuto, Segundo))
+                            bBandera = true; 
+                        if(bBandera)
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error al sincronizar la hora con el dispositivo: " + row[1].ToString());
+                        else
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Hora sincronizada correctamente en el dispositivo: " + row[1].ToString());
+                        objCZKEM.Disconnect(); 
+                    }
+                }
+                   
+                    
+
+            }
+            else
+            {
+                
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No existen relojes para sincronizar.");
+                
+            }
+
+
+            //foreach (Reloj obj in ltReloj)
+            //{
+            //    iCont += 1;
+            //    panelMensaje.Enabled = true;
+            //    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj.Count);
+            //    prgb1.Value = 40;
+            //    panelMensaje.Enabled = false;
+            //    bool bConect = objCZKEM.Connect_Net(obj.IpReloj, 4370);
+
+            //    if (bConect != false)
+            //    {
+            //        prgb1.Value = prgb1.Value + (10 / ltReloj.Count);
+            //        switch (iOpcionAdmin)
+            //        {
+
+            //            case 0:
+            //                int iAnio = Convert.ToInt32(cbAnio.SelectedItem.ToString());
+            //                int iMes = cbMes.SelectedIndex + 1;
+            //                int iDia = cbdia.SelectedIndex + 1;
+            //                int iHora = cbHora.SelectedIndex;
+            //                int iMinuto = cbMinutos.SelectedIndex;
+            //                if (!objCZKEM.SetDeviceTime2(1, iAnio, iMes, iDia, iHora, iMinuto, 0)) { bBandera = true; }
+            //                break;
+
+            //            case 1:
+            //                if (!objCZKEM.SetDeviceTime(1)) { bBandera = true; }
+            //                break;
+            //        }
+
+            //        prgb1.Value = 90;
+            //    }
+            //}
+        }
     }
+
+    
 
 
 
