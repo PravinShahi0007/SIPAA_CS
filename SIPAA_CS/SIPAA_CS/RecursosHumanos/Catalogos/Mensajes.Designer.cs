@@ -329,7 +329,7 @@
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(190, 23);
             this.lbltitulo.TabIndex = 135;
-            this.lbltitulo.Text = "      Cátalogo de Mensajes";
+            this.lbltitulo.Text = "      Catálogo de Mensajes";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlmensajes

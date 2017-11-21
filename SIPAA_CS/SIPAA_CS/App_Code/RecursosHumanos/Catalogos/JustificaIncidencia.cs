@@ -37,6 +37,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             cmd.Parameters.Add("@p_noeventos", SqlDbType.Int).Value = inoeventos;
             cmd.Parameters.Add("@p_cvtipoevento", SqlDbType.Int).Value = icvtipoevento;
             cmd.Parameters.Add("@p_cvtipoeval", SqlDbType.Int).Value = icvtipoeval;
+            cmd.Parameters.Add("@p_repevento", SqlDbType.Int).Value = 0;
             cmd.Parameters.Add("@p_stjustinc", SqlDbType.Int).Value = istjustinc;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sprgumod;
@@ -52,7 +53,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
 
         //vuid justifica incidencias
         public int vuidjustinc(int iopcion, int icvjustinc, int icvincidencia, string sdescripcion,
-                                 int inoeventos, int icvtipoevento, int icvtipoeval, int istjustinc, string susuumod,
+                                 int inoeventos, int icvtipoevento, int icvtipoeval, int irepevento, int istjustinc, string susuumod,
                                  string sprgumod)
         {
             SqlCommand cmd = new SqlCommand();
@@ -68,6 +69,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             cmd.Parameters.Add("@p_noeventos", SqlDbType.Int).Value = inoeventos;
             cmd.Parameters.Add("@p_cvtipoevento", SqlDbType.Int).Value = icvtipoevento;
             cmd.Parameters.Add("@p_cvtipoeval", SqlDbType.Int).Value = icvtipoeval;
+            cmd.Parameters.Add("@p_repevento", SqlDbType.Int).Value = irepevento;
             cmd.Parameters.Add("@p_stjustinc", SqlDbType.Int).Value = istjustinc;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sprgumod;

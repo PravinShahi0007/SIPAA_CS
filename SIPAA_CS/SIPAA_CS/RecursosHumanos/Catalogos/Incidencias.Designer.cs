@@ -465,7 +465,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(200, 23);
             this.label3.TabIndex = 157;
-            this.label3.Text = "      Cátalogo de Incidencias";
+            this.label3.Text = "      Catálogo de Incidencias";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegresar

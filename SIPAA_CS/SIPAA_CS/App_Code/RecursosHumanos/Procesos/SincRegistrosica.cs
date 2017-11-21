@@ -30,7 +30,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         public DataTable sincregsica()
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "select idtrab, convert(varchar(10), fechareg, 103) as fec, convert(varchar, horareg, 108) as hrregistro, 0 " +
+            cmd.CommandText = "select top 10 idtrab, convert(varchar(10), fechareg, 103) as fec, convert(varchar, horareg, 108) as hrregistro, 0 " +
                               "from dbo.rhregistro " +
                               "where fechareg between '01/09/2017' and '15/09/2017'";
             SqlConnection sqlcn = conex.conexsica();

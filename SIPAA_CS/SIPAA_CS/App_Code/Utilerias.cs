@@ -639,10 +639,6 @@ namespace SIPAA_CS.App_Code
             dgv.Columns[iPosicion].Width = 100;
         }
 
-       
-     
-     
-
         public static void MultiSeleccionGridView(DataGridView dgv, int iPositionClave, List<int> ltCv, Control ctrl) 
         {
             DataGridViewRow row = dgv.SelectedRows[0];

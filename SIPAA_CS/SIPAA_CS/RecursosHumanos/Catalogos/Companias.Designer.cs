@@ -237,7 +237,7 @@
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(214, 23);
             this.lbltitulo.TabIndex = 108;
-            this.lbltitulo.Text = "      Cátalogo de Compañias   ";
+            this.lbltitulo.Text = "      Catálogo de Compañias   ";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblusuario

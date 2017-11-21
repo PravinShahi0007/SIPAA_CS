@@ -35,7 +35,7 @@ namespace SIPAA_CS.Conexiones
             }
         }
 
-        //conexion sica sincronizar registros de checaror*************************
+        //conexion sica sincronizar registros de checador*************************
         public SqlConnection conexsica()
         {
             try

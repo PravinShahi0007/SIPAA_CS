@@ -77,7 +77,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(221, 23);
             this.label3.TabIndex = 160;
-            this.label3.Text = "       Cátalogo Formas de Pago";
+            this.label3.Text = "       Catálogo Formas de Pago";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegresar
