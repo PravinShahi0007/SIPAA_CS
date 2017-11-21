@@ -46,9 +46,10 @@
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label18;
             System.Windows.Forms.Label label19;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label12;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,6 +64,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.panelAccion = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnHuella = new System.Windows.Forms.Button();
             this.btnReloj = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -98,6 +100,7 @@
             label4 = new System.Windows.Forms.Label();
             label18 = new System.Windows.Forms.Label();
             label19 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReloj)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
             this.panelAccion.SuspendLayout();
@@ -178,7 +181,7 @@
             label5.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(38, 224);
+            label5.Location = new System.Drawing.Point(22, 222);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(77, 20);
             label5.TabIndex = 45;
@@ -190,7 +193,7 @@
             label10.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label10.Location = new System.Drawing.Point(121, 224);
+            label10.Location = new System.Drawing.Point(105, 222);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(107, 20);
             label10.TabIndex = 201;
@@ -253,7 +256,7 @@
             label16.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             label16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label16.Location = new System.Drawing.Point(115, 332);
+            label16.Location = new System.Drawing.Point(115, 409);
             label16.Name = "label16";
             label16.Size = new System.Drawing.Size(115, 20);
             label16.TabIndex = 215;
@@ -265,7 +268,7 @@
             label17.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             label17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label17.Location = new System.Drawing.Point(19, 332);
+            label17.Location = new System.Drawing.Point(19, 409);
             label17.Name = "label17";
             label17.Size = new System.Drawing.Size(73, 20);
             label17.TabIndex = 214;
@@ -305,11 +308,24 @@
             label19.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             label19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label19.Location = new System.Drawing.Point(241, 224);
+            label19.Location = new System.Drawing.Point(124, 298);
             label19.Name = "label19";
             label19.Size = new System.Drawing.Size(73, 20);
             label19.TabIndex = 221;
             label19.Text = "Hora Reloj";
+            label19.Visible = false;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            label12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label12.Location = new System.Drawing.Point(218, 222);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(111, 20);
+            label12.TabIndex = 223;
+            label12.Text = "Sincronizar Hora";
             // 
             // label7
             // 
@@ -403,30 +419,30 @@
             this.dgvReloj.AllowUserToAddRows = false;
             this.dgvReloj.AllowUserToDeleteRows = false;
             this.dgvReloj.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvReloj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvReloj.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvReloj.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvReloj.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvReloj.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReloj.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReloj.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvReloj.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvReloj.Location = new System.Drawing.Point(375, 128);
             this.dgvReloj.Name = "dgvReloj";
             this.dgvReloj.ReadOnly = true;
@@ -512,6 +528,8 @@
             // panelAccion
             // 
             this.panelAccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panelAccion.Controls.Add(label12);
+            this.panelAccion.Controls.Add(this.button2);
             this.panelAccion.Controls.Add(label13);
             this.panelAccion.Controls.Add(this.btnHuella);
             this.panelAccion.Controls.Add(label19);
@@ -534,16 +552,31 @@
             this.panelAccion.Controls.Add(this.btnDescarga);
             this.panelAccion.Controls.Add(label6);
             this.panelAccion.Controls.Add(this.panel2);
-            this.panelAccion.Enabled = false;
             this.panelAccion.Location = new System.Drawing.Point(6, 268);
             this.panelAccion.Name = "panelAccion";
             this.panelAccion.Size = new System.Drawing.Size(363, 497);
             this.panelAccion.TabIndex = 175;
             this.panelAccion.TabStop = true;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button2.Image = global::SIPAA_CS.Properties.Resources.RelojSync;
+            this.button2.Location = new System.Drawing.Point(248, 169);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(50, 50);
+            this.button2.TabIndex = 222;
+            this.button2.Tag = "Admin";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // btnHuella
             // 
             this.btnHuella.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnHuella.Enabled = false;
             this.btnHuella.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHuella.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnHuella.Image = global::SIPAA_CS.Properties.Resources.HuellaSync;
@@ -561,13 +594,14 @@
             this.btnReloj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReloj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnReloj.Image = global::SIPAA_CS.Properties.Resources.RelojSync;
-            this.btnReloj.Location = new System.Drawing.Point(254, 171);
+            this.btnReloj.Location = new System.Drawing.Point(137, 245);
             this.btnReloj.Name = "btnReloj";
             this.btnReloj.Size = new System.Drawing.Size(50, 50);
             this.btnReloj.TabIndex = 220;
             this.btnReloj.Tag = "Admin";
             this.btnReloj.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnReloj.UseVisualStyleBackColor = false;
+            this.btnReloj.Visible = false;
             this.btnReloj.Click += new System.EventHandler(this.btnReloj_Click);
             // 
             // panel4
@@ -591,11 +625,12 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button1.Enabled = false;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.button1.Image = global::SIPAA_CS.Properties.Resources.Persona;
-            this.button1.Location = new System.Drawing.Point(149, 283);
+            this.button1.Location = new System.Drawing.Point(149, 360);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 50);
             this.button1.TabIndex = 212;
@@ -610,7 +645,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Reloj;
-            this.btnGuardar.Location = new System.Drawing.Point(31, 283);
+            this.btnGuardar.Location = new System.Drawing.Point(31, 360);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 211;
@@ -622,10 +657,11 @@
             // btnSync
             // 
             this.btnSync.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnSync.Enabled = false;
             this.btnSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSync.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnSync.Image = global::SIPAA_CS.Properties.Resources.Sync;
-            this.btnSync.Location = new System.Drawing.Point(54, 171);
+            this.btnSync.Location = new System.Drawing.Point(38, 169);
             this.btnSync.Name = "btnSync";
             this.btnSync.Size = new System.Drawing.Size(50, 50);
             this.btnSync.TabIndex = 42;
@@ -668,10 +704,11 @@
             // btnAdmin
             // 
             this.btnAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnAdmin.Enabled = false;
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAdmin.Image = global::SIPAA_CS.Properties.Resources.Admin;
-            this.btnAdmin.Location = new System.Drawing.Point(153, 171);
+            this.btnAdmin.Location = new System.Drawing.Point(137, 169);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(50, 50);
             this.btnAdmin.TabIndex = 200;
@@ -682,6 +719,7 @@
             // btnDescarga
             // 
             this.btnDescarga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnDescarga.Enabled = false;
             this.btnDescarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDescarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnDescarga.Image = global::SIPAA_CS.Properties.Resources.Descargar;
@@ -697,7 +735,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(0, 254);
+            this.panel2.Location = new System.Drawing.Point(0, 331);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(363, 20);
             this.panel2.TabIndex = 202;
@@ -846,5 +884,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnReloj;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.Button button2;
     }
 }
