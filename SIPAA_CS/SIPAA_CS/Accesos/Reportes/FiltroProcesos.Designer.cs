@@ -70,6 +70,8 @@
             label7.Size = new System.Drawing.Size(157, 17);
             label7.TabIndex = 66;
             label7.Text = "       Imprimir Resumen";
+            label7.Visible = false;
+            label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label4
             // 
@@ -158,6 +160,8 @@
             this.btnImprimirResumen.TabIndex = 3;
             this.btnImprimirResumen.Tag = "Buscar";
             this.btnImprimirResumen.UseVisualStyleBackColor = false;
+            this.btnImprimirResumen.Visible = false;
+            this.btnImprimirResumen.Click += new System.EventHandler(this.btnImprimirResumen_Click);
             // 
             // btnImprimirDetalle
             // 

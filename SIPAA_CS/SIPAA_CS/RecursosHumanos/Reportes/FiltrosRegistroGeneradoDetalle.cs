@@ -67,7 +67,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void btnImprimirDetalle_Click(object sender, EventArgs e)
         {
-
+         
 
             dtFechaInicio = dpFechaInicio.Value.AddDays(-1);
             dtFechaFin = dpFechaFin.Value.AddDays(-1);
@@ -170,6 +170,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
             Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
             cbEmpleados.Focus();
+            btnImprimirDetalle.Image = Properties.Resources.Imprimir;
         }
 
 
