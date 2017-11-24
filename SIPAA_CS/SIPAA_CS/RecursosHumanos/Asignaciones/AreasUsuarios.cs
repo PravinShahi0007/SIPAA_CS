@@ -390,10 +390,8 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
         {
             SonaCompania objCia = new SonaCompania();
             DataTable dtCia = objCia.obtcomp(5, "");
-
-
+            
             List<string> ltCia = new List<string>();
-
             ltCia.Insert(0, "Selecciona una Compañia");
             foreach (DataRow row in dtCia.Rows)
             {
@@ -426,13 +424,15 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
 
         public void LlenarGridPlanteles(string idcompania, string descripcion, string planta, DataGridView dgvPlantel)
         {
+            if (descripcion == string.Empty)
+                descripcion = "0";
 
             if (dgvPlantel.Columns.Count >1)
             {
                 dgvPlantel.Columns.RemoveAt(0);
             }
             SonaCompania objCia = new SonaCompania();
-            DataTable dtPlantel = objCia.ObtenerPlantelxCompania(6,"", descripcion,planta);
+            DataTable dtPlantel = objCia.ObtenerPlantelxCompania(6," ", descripcion, "");
 
             dgvPlantel.DataSource = dtPlantel;
 
@@ -441,7 +441,6 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             imgCheckProcesos.Name = "Seleccionar";
             dgvPlantel.Columns.Insert(0, imgCheckProcesos);
             dgvPlantel.Columns[0].HeaderText = "Seleccionar";
-
             dgvPlantel.Columns[1].Visible = false;
             dgvPlantel.Columns[2].Visible = false;
             dgvPlantel.Columns[3].Visible = false;
@@ -506,6 +505,11 @@ namespace SIPAA_CS.RecursosHumanos.Asignaciones
             RechDashboard rechdb = new RechDashboard();
             rechdb.Show();
             this.Close();
+        }
+
+        private void PanelBuscar_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------

@@ -162,6 +162,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
             Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
             cbEmpleados.Focus();
+            this.btnImprimirDetalle.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
         }
 
         private void dpFechaFin_ValueChanged(object sender, EventArgs e)

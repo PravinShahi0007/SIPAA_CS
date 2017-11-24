@@ -89,7 +89,7 @@ namespace SIPAA_CS.Accesos.Reportes
                     default:
                         ViewerReporte form = new ViewerReporte();
                         ReporteProcesos dtrpt = new ReporteProcesos();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -121,7 +121,7 @@ namespace SIPAA_CS.Accesos.Reportes
                     default:
                         ViewerReporte form = new ViewerReporte();
                         ReporteProcesos dtrpt = new ReporteProcesos();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -153,7 +153,7 @@ namespace SIPAA_CS.Accesos.Reportes
                     default:
                         ViewerReporte form = new ViewerReporte();
                         ReporteProcesos dtrpt = new ReporteProcesos();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -202,14 +202,24 @@ namespace SIPAA_CS.Accesos.Reportes
             panelTag.Visible = false;
             timer1.Stop();
         }
-        
+
+        private void btnImprimirResumen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
-        
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
-        
+
     }
 }

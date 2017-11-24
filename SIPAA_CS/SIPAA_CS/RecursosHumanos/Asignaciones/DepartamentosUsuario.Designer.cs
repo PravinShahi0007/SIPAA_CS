@@ -226,9 +226,9 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(322, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(346, 22);
+            this.label1.Size = new System.Drawing.Size(336, 22);
             this.label1.TabIndex = 161;
-            this.label1.Text = "      Asiganación Departamentos Usuario";
+            this.label1.Text = "      Asignación Departamentos Usuario";
             // 
             // dgvUsuarios
             // 
@@ -305,7 +305,7 @@
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel8.Location = new System.Drawing.Point(59, 78);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(176, 1);
+            this.panel8.Size = new System.Drawing.Size(176, 2);
             this.panel8.TabIndex = 43;
             // 
             // txtCvUsuario
@@ -443,7 +443,7 @@
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel6.Location = new System.Drawing.Point(65, 78);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(152, 1);
+            this.panel6.Size = new System.Drawing.Size(152, 2);
             this.panel6.TabIndex = 43;
             // 
             // txtDepartamento
