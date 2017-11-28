@@ -173,7 +173,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel5.Location = new System.Drawing.Point(29, 63);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(350, 1);
+            this.panel5.Size = new System.Drawing.Size(350, 2);
             this.panel5.TabIndex = 43;
             // 
             // txtBuscarDF
@@ -345,7 +345,7 @@
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Location = new System.Drawing.Point(29, 121);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(307, 1);
+            this.panel3.Size = new System.Drawing.Size(307, 2);
             this.panel3.TabIndex = 43;
             // 
             // panel2

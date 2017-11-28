@@ -166,6 +166,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(55, 55);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Visible = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // pnlBusqueda

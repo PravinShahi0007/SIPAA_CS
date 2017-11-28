@@ -89,7 +89,7 @@ namespace SIPAA_CS.Accesos.Reportes
                     default:
                         ViewerReporte form = new ViewerReporte();
                         ReporteUbicacionesUsuarios dtrpt = new ReporteUbicacionesUsuarios();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -119,7 +119,7 @@ namespace SIPAA_CS.Accesos.Reportes
                     default:
                         ViewerReporte form = new ViewerReporte();
                         ReporteUbicacionesUsuarios dtrpt = new ReporteUbicacionesUsuarios();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -150,7 +150,7 @@ namespace SIPAA_CS.Accesos.Reportes
                     default:
                         ViewerReporte form = new ViewerReporte();
                         ReporteUbicacionesUsuarios dtrpt = new ReporteUbicacionesUsuarios();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -181,7 +181,7 @@ namespace SIPAA_CS.Accesos.Reportes
                     default:
                         ViewerReporte form = new ViewerReporte();
                         ReporteUbicacionesUsuarios dtrpt = new ReporteUbicacionesUsuarios();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -252,6 +252,11 @@ namespace SIPAA_CS.Accesos.Reportes
         {
             panelTag.Visible = false;
             timer1.Stop();
+        }
+
+        private void btnImprimirResumen_Click(object sender, EventArgs e)
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------

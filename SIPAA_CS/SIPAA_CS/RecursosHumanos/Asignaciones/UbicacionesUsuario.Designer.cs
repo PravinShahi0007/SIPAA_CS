@@ -261,7 +261,7 @@
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel8.Location = new System.Drawing.Point(59, 78);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(176, 1);
+            this.panel8.Size = new System.Drawing.Size(176, 2);
             this.panel8.TabIndex = 43;
             // 
             // txtCvUsuario
@@ -399,7 +399,7 @@
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel6.Location = new System.Drawing.Point(65, 78);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(152, 1);
+            this.panel6.Size = new System.Drawing.Size(152, 2);
             this.panel6.TabIndex = 43;
             // 
             // txtUbicacion

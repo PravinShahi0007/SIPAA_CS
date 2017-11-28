@@ -261,8 +261,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 {
                     fIdArea = cbAreas.SelectedValue.ToString();
                 }
-                if (cbTiponomina.SelectedIndex > 0 || cbTiponomina.Text != "" || cbTiponomina.SelectedIndex != 0)
+                //if (cbTiponomina.SelectedIndex > 0 || cbTiponomina.Text != "" || cbTiponomina.SelectedIndex != 0)
                 //if (cbTiponomina.Text != "" || cbTiponomina.Text != "Seleccionar")
+                if (Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) > 0)
                 {
                     fIdTipoNomina = cbTiponomina.SelectedValue.ToString();
                 }

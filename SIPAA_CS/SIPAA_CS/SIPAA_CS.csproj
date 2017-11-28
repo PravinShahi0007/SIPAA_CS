@@ -804,6 +804,12 @@
       <DependentUpon>ConceptosNomina.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\CredencialEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\CredencialEmpleado.Designer.cs">
+      <DependentUpon>CredencialEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\DetalleHr.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1233,6 +1239,9 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\ConceptosNomina.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ConceptosNomina.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\CredencialEmpleado.resx">
+      <DependentUpon>CredencialEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\DetalleHr.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

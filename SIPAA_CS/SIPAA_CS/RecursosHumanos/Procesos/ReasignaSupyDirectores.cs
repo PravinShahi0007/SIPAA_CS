@@ -54,7 +54,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DataTable dtfechas = Resupdir.dtfecperiodo(4, Int32.Parse(cbFormaPago.SelectedValue.ToString()), LoginInfo.IdTrab, this.Name);
                 TxtFeIni.Text = dtfechas.Rows[0][2].ToString();
                 TxtFeFin.Text = dtfechas.Rows[0][3].ToString();
-
+              
                 if (cbFormaPago.SelectedValue.ToString() == "0" || cbFormaPago.Text == "" || TxtFeIni.Text.Trim() == "" || TxtFeFin.Text.Trim() == "")
                 {
                     DialogResult result = MessageBox.Show("Selecciona un periodo", "SIPAA", MessageBoxButtons.OK);

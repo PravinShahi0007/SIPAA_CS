@@ -103,7 +103,7 @@ namespace SIPAA_CS.Accesos.Reportes
                             llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                             ViewerReporte form = new ViewerReporte();
                             ReporteModulos dtrpt = new ReporteModulos();
-                            ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                            ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                             ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                             form.RptDoc = ReportDoc;
@@ -153,7 +153,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -196,7 +196,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -239,7 +239,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -282,7 +282,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -325,7 +325,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -368,7 +368,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -411,7 +411,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -460,7 +460,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -503,7 +503,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -546,7 +546,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -589,7 +589,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -632,7 +632,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -675,7 +675,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -718,7 +718,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -767,7 +767,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -810,7 +810,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -853,7 +853,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -896,7 +896,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -939,7 +939,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -982,7 +982,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -1025,7 +1025,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                         llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                         ViewerReporte form = new ViewerReporte();
                                         ReporteModulos dtrpt = new ReporteModulos();
-                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                         ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                         //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -1078,7 +1078,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
-                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                     ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                     //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -1172,7 +1172,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
-                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                     ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                     //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -1209,7 +1209,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                 default:
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
-                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                     ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                     //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -1253,7 +1253,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
-                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                     ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                     //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -1305,7 +1305,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
-                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                     ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                     //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -1349,7 +1349,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
-                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                     ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                     //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -1399,7 +1399,7 @@ namespace SIPAA_CS.Accesos.Reportes
                                     llenaCombo(cbModulo, dtModulo1a, "cvtipomodulo", "descripcion");
                                     ViewerReporte form = new ViewerReporte();
                                     ReporteModulos dtrpt = new ReporteModulos();
-                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "Accesos", dtrpt.ResourceName);
+                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, dtrpt.ResourceName);
 
                                     ReportDoc.SetParameterValue("TotalRegistros", dtReporte.Rows.Count.ToString());
                                     //ReportDoc.SetParameterValue("Filtro", cbEstatus.SelectedItem.ToString());
@@ -1511,6 +1511,11 @@ namespace SIPAA_CS.Accesos.Reportes
             AcceDashboard accedb = new AcceDashboard();
             accedb.Show();
             this.Close();
+        }
+
+        private void btnImprimirResumen_Click(object sender, EventArgs e)
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------
