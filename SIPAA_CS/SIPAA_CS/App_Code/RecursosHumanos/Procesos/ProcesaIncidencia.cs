@@ -55,7 +55,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         }
 
         //grid muestra registros de checado
-        public DataTable dgvregistros(int iopcion, int iiformapago, int idtrab)
+        public DataTable dgvregistros(int iopcion, int iiformapago, int idtrab, string sfechainicial, string sfechafinal, 
+                                      int cveperiodo, int iidtrabrp, int iidproceso, string susuumod, string prgumod)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechinccalif_p";
@@ -66,12 +67,13 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
             cmd.Parameters.Add("@p_idformapago", SqlDbType.Int).Value = iiformapago;
             cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idtrab;
-            cmd.Parameters.Add("@p_fechainicial", SqlDbType.VarChar).Value = "";  
-            cmd.Parameters.Add("@p_cveperiodo", SqlDbType.Int).Value = 0;
-            cmd.Parameters.Add("@p_idtrabrp", SqlDbType.Int).Value = 0;
-            cmd.Parameters.Add("@p_fechafinal", SqlDbType.VarChar).Value = "";
-            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = "";
-            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_fechainicial", SqlDbType.VarChar).Value = sfechainicial;
+            cmd.Parameters.Add("@p_fechafinal", SqlDbType.VarChar).Value = sfechafinal;
+            cmd.Parameters.Add("@p_cveperiodo", SqlDbType.Int).Value = cveperiodo;
+            cmd.Parameters.Add("@p_idtrabrp", SqlDbType.Int).Value = iidtrabrp;
+            cmd.Parameters.Add("@p_idproceso", SqlDbType.Int).Value = iidproceso;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = prgumod;
 
             objConexion.asignarConexion(cmd);
 
@@ -114,7 +116,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         }
 
         //procesa incidencias
-        public int vuidprocesainc(int iopcion, int iformapago, int iidtrab, string sfecini, string sfecfin, string susuumod, string sprgumod)
+        public int vuidprocesainc(int iopcion, int iiformapago, int idtrab, string sfechainicial, string sfechafinal,
+                                      int cveperiodo, int iidtrabrp, int iidproceso, string susuumod, string sprgumod)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechinccalif_p";
@@ -123,12 +126,13 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
-            cmd.Parameters.Add("@p_idformapago", SqlDbType.Int).Value = iformapago;
-            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = iidtrab;
-            cmd.Parameters.Add("@p_fechainicial", SqlDbType.VarChar).Value = sfecini;
-            cmd.Parameters.Add("@p_fechafinal", SqlDbType.VarChar).Value = sfecfin;
-            cmd.Parameters.Add("@p_cveperiodo", SqlDbType.Int).Value = 0;
-            cmd.Parameters.Add("@p_idtrabrp", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_idformapago", SqlDbType.Int).Value = iiformapago;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = idtrab;
+            cmd.Parameters.Add("@p_fechainicial", SqlDbType.VarChar).Value = sfechainicial;
+            cmd.Parameters.Add("@p_fechafinal", SqlDbType.VarChar).Value = sfechafinal;
+            cmd.Parameters.Add("@p_cveperiodo", SqlDbType.Int).Value = cveperiodo;
+            cmd.Parameters.Add("@p_idtrabrp", SqlDbType.Int).Value = iidtrabrp;
+            cmd.Parameters.Add("@p_idproceso", SqlDbType.Int).Value = iidproceso;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sprgumod;
             objConexion.asignarConexion(cmd);
@@ -169,7 +173,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         }
 
         //re-procesa incidencias
-        public int vuidreprocesainc(int iopcion, int iformapago, int iidtrab, string sfecini, string sfecfin, int icveperiodo, int iidtradrpinc, string susuumod, string sprgumod)
+        public int vuidreprocesainc(int iopcion, int iformapago, int iidtrab, string sfecini, string sfecfin, int icveperiodo, int iidtradrpinc, int idproceso, string susuumod, string sprgumod)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechinccalif_p";
@@ -184,6 +188,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@p_fechafinal", SqlDbType.VarChar).Value = sfecfin;
             cmd.Parameters.Add("@p_cveperiodo", SqlDbType.Int).Value = icveperiodo;
             cmd.Parameters.Add("@p_idtrabrp", SqlDbType.Int).Value = iidtradrpinc;
+            cmd.Parameters.Add("@p_idproceso", SqlDbType.Int).Value = idproceso;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sprgumod;
             objConexion.asignarConexion(cmd);

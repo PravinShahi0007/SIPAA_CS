@@ -64,6 +64,9 @@ namespace SIPAA_CS.Sistemas
         //-----------------------------------------------------------------------------------------------
         private void SistDashboard_Load(object sender, EventArgs e)
         {
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //tool tip
             ftooltip();
             //usuario

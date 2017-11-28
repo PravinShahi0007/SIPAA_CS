@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReProcesaIncidencias));
             System.Windows.Forms.Label lbltrab;
             System.Windows.Forms.Label label13;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnregresar = new System.Windows.Forms.Button();
@@ -50,6 +50,8 @@
             this.opcperiodo = new System.Windows.Forms.RadioButton();
             this.btnguardar = new System.Windows.Forms.Button();
             this.dgvregistros = new System.Windows.Forms.DataGridView();
+            this.pnlmenssuid = new System.Windows.Forms.Panel();
+            this.menssuid = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             lbltrab = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
@@ -58,6 +60,7 @@
             this.pnlformapago.SuspendLayout();
             this.pnlempleado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvregistros)).BeginInit();
+            this.pnlmenssuid.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -300,29 +303,29 @@
             this.dgvregistros.AllowUserToAddRows = false;
             this.dgvregistros.AllowUserToDeleteRows = false;
             this.dgvregistros.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvregistros.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvregistros.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvregistros.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvregistros.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvregistros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvregistros.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvregistros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvregistros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvregistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvregistros.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvregistros.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvregistros.Location = new System.Drawing.Point(7, 203);
             this.dgvregistros.Name = "dgvregistros";
             this.dgvregistros.ReadOnly = true;
@@ -335,12 +338,37 @@
             this.dgvregistros.TabIndex = 212;
             this.dgvregistros.TabStop = false;
             // 
+            // pnlmenssuid
+            // 
+            this.pnlmenssuid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.pnlmenssuid.Controls.Add(this.menssuid);
+            this.pnlmenssuid.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlmenssuid.Location = new System.Drawing.Point(7, 731);
+            this.pnlmenssuid.Name = "pnlmenssuid";
+            this.pnlmenssuid.Size = new System.Drawing.Size(1008, 25);
+            this.pnlmenssuid.TabIndex = 223;
+            this.pnlmenssuid.Visible = false;
+            // 
+            // menssuid
+            // 
+            this.menssuid.AutoSize = true;
+            this.menssuid.BackColor = System.Drawing.Color.Transparent;
+            this.menssuid.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menssuid.ForeColor = System.Drawing.Color.White;
+            this.menssuid.Location = new System.Drawing.Point(3, 3);
+            this.menssuid.Name = "menssuid";
+            this.menssuid.Size = new System.Drawing.Size(73, 20);
+            this.menssuid.TabIndex = 26;
+            this.menssuid.Text = "----------------";
+            this.menssuid.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // ReProcesaIncidencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.pnlmenssuid);
             this.Controls.Add(this.dgvregistros);
             this.Controls.Add(this.pnlbusqueda);
             this.Controls.Add(this.ptbimgusuario);
@@ -363,6 +391,8 @@
             this.pnlempleado.ResumeLayout(false);
             this.pnlempleado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvregistros)).EndInit();
+            this.pnlmenssuid.ResumeLayout(false);
+            this.pnlmenssuid.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,5 +415,7 @@
         private System.Windows.Forms.ComboBox cbtiponomina;
         private System.Windows.Forms.Panel pnlempleado;
         private System.Windows.Forms.ComboBox cbotrab;
+        private System.Windows.Forms.Panel pnlmenssuid;
+        private System.Windows.Forms.Label menssuid;
     }
 }
