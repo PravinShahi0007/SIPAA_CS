@@ -70,11 +70,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 }
                 else
                 {
+                    Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, buscando registros...");
+
                     //llena grid
                     fgregistros(4, Int32.Parse(cbtiponomina.SelectedValue.ToString()),0);
+
+
                 }
                 btnbuscar.Enabled = true;
                 Cursor.Current = Cursors.Default;
+
+                pnlmenssuid.Visible = false;
             }
             catch (Exception ex)
             {
@@ -98,20 +104,31 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 }
                 else
                 {
-                    int ival = ProcesaInc.vuidprocesainc(5, Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0, txtfecini.Text, txtfecfin.Text, LoginInfo.IdTrab, this.Name);
-                    txtfecini.Text = "";
-                    txtfecfin.Text = "";
-                    dgvregistros.DataSource = null;
-                    btnguardar.Enabled = false;
+                    DialogResult resultms = MessageBox.Show("Esta acción proceasa las incidencias del periodo: " + "\r\n" + "\r\n" + cbtiponomina.Text + "\r\n" + "\r\n" + " ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
 
-                    //llena combo tipo de nomina
-                    Util.p_inicbo = 0;
-                    DataTable dtcbtipnom = ProcesaInc.cbtiponomina(8);
-                    Utilerias.llenarComboxDataTable(cbtiponomina, dtcbtipnom, "Clave", "Descripción");
-                    Util.p_inicbo = 1;
+                    if (resultms == DialogResult.Yes)
+                    {
+                        Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, generando incidencias...");
 
-                    DialogResult result = MessageBox.Show("Incidencias generadas con exito", "SIPAA", MessageBoxButtons.OK);
-                    cbtiponomina.Focus();
+                        int ival = ProcesaInc.vuidprocesainc(5, 0, 0, txtfecini.Text, txtfecfin.Text, Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0, 0, LoginInfo.IdTrab, this.Name);
+                        txtfecini.Text = "";
+                        txtfecfin.Text = "";
+                        dgvregistros.DataSource = null;
+                        btnguardar.Enabled = false;
+
+                        //llena combo tipo de nomina
+                        Util.p_inicbo = 0;
+                        DataTable dtcbtipnom = ProcesaInc.cbtiponomina(8);
+                        Utilerias.llenarComboxDataTable(cbtiponomina, dtcbtipnom, "Clave", "Descripción");
+                        Util.p_inicbo = 1;
+
+                        Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 1, "Incidencias generadas con exito");
+
+                        DialogResult result = MessageBox.Show("Incidencias generadas con exito", "SIPAA", MessageBoxButtons.OK);
+
+                        pnlmenssuid.Visible = false;
+                        cbtiponomina.Focus();
+                    }
                 }
                 //btnguardar.Enabled = true;
                 Cursor.Current = Cursors.Default;
@@ -171,6 +188,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         f.Hide();
                     }
                 }
+
+                //Rezise de la Forma
+                Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
                 //llena etiqueta de usuario
                 lblusuario.Text = LoginInfo.Nombre;
@@ -271,9 +291,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 toolTip1.SetToolTip(this.btnbuscar, "Busca Registro");
         }
 
-        private void fgregistros(int iopc, int iformapago, int iidtrab)
+        private void fgregistros(int iopc, int icveperiodo, int iidtrab)
         {
-            DataTable dtcompania = ProcesaInc.dgvregistros(iopc, iformapago, iidtrab);
+            DataTable dtcompania = ProcesaInc.dgvregistros(iopc, 0, 0, "", "", icveperiodo, 0, 0, LoginInfo.IdTrab, this.Name);
             dgvregistros.DataSource = dtcompania;
 
             dgvregistros.Columns[0].Width = 400;//empleado

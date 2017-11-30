@@ -85,6 +85,9 @@ namespace SIPAA_CS.Sistemas.Procesos
                     f.Hide();
                 }
             }
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //tool tip
             ftooltip();
             //usuario

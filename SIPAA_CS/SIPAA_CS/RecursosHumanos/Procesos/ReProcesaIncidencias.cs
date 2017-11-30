@@ -53,9 +53,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 {
                     if (Util.p_inicbo == 1)
                     {
+                        dgvregistros.DataSource = null;
                         Cursor.Current = Cursors.WaitCursor;
+                        Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, buscando registros...");
                         fgregistros(6, Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0);
                         Cursor.Current = Cursors.Default;
+                        pnlmenssuid.Visible = false;
+
                     }
                 }
                 else if (opcempleado.Checked == true)
@@ -175,12 +179,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 if (opcperiodo.Checked == true)
                 {
                     //re-procesa incidencias periodo
-                    DialogResult resultp = MessageBox.Show("Esta acción re-proceasa las incidencias del periodo:" + "\r\n" + "\r\n" + cbtiponomina.Text + "\r\n" + "\r\n" + "¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+                    DialogResult resultp = MessageBox.Show("Esta acción re-procesa las incidencias del periodo:" + "\r\n" + "\r\n" + cbtiponomina.Text + "\r\n" + "\r\n" + "¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
 
                     if (resultp == DialogResult.Yes)
                     {
 
                         Cursor.Current = Cursors.WaitCursor;
+                        Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, generando incidencias...");
                         btnguardar.Enabled = false;
 
                         //dt fechas
@@ -189,10 +194,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         string sfecfin = dtfechas.Rows[0][3].ToString();
                         int iformapago = Int32.Parse(dtfechas.Rows[0][0].ToString());
 
-                        int ival = ProcesaInc.vuidreprocesainc(5, iformapago, 0, sfecini, sfecfin,
-                                                               Int32.Parse(cbtiponomina.SelectedValue.ToString()),0, LoginInfo.IdTrab, this.Name);
+                        int ival = ProcesaInc.vuidreprocesainc(5, 0, 0, sfecini, sfecfin,
+                                                               Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0, 1, LoginInfo.IdTrab, this.Name);
 
+                        Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 1, "Incidencias generadas con exito");
                         DialogResult result = MessageBox.Show("Incidencias re-procesadas con exito", "SIPAA", MessageBoxButtons.OK);
+                        pnlmenssuid.Visible = false;
 
                         //llena combo tipo de nomina
                         Util.p_inicbo = 0;
@@ -222,6 +229,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     {
 
                         Cursor.Current = Cursors.WaitCursor;
+                        Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, generando incidencias...");
                         btnguardar.Enabled = false;
 
                         //dt fechas
@@ -230,10 +238,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         string sfecfin = dtfechas.Rows[0][3].ToString();
                         int iformapago = Int32.Parse(dtfechas.Rows[0][0].ToString());
 
-                        int ival = ProcesaInc.vuidreprocesainc(5, iformapago, Int32.Parse(cbotrab.SelectedValue.ToString()), sfecini, sfecfin,
-                                                               Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0, LoginInfo.IdTrab, this.Name);
+                        int ival = ProcesaInc.vuidreprocesainc(5, 0, Int32.Parse(cbotrab.SelectedValue.ToString()), sfecini, sfecfin,
+                                                               Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0, 1, LoginInfo.IdTrab, this.Name);
 
+                        Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 1, "Incidencias generadas con exito");
                         DialogResult result2 = MessageBox.Show("Incidencias re-procesadas con exito", "SIPAA", MessageBoxButtons.OK);
+                        pnlmenssuid.Visible = false;
 
                         //llena combo tipo de nomina
                         Util.p_inicbo = 0;
@@ -279,6 +289,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     f.Hide();
                 }
             }
+
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
+
             //tool tip
             ftooltip();
 
@@ -344,9 +358,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             toolTip1.SetToolTip(this.btnregresar, "Regresar");
         }
 
-        private void fgregistros(int iopc, int iformapago, int iidtrab)
+        private void fgregistros(int iopc, int icveperiodo, int iidtrab)
         {
-            DataTable dtcompania = ProcesaInc.dgvregistros(iopc, iformapago, iidtrab);
+            DataTable dtcompania = ProcesaInc.dgvregistros(iopc, 0, iidtrab, "", "", icveperiodo, 0, 1, LoginInfo.IdTrab, this.Name);
             dgvregistros.DataSource = dtcompania;
 
             dgvregistros.Columns[0].Width = 400;//empleado

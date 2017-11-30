@@ -342,9 +342,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         private void JustificaIncidencias_Load(object sender, EventArgs e)
         {
-            //Rezise de la Forma
-            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
-
             //cierra formularios abiertos
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
@@ -354,6 +351,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     f.Hide();
                 }
             }
+
+            //Rezise de la Forma
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
             //inicializa tool tip
             ftooltip();
