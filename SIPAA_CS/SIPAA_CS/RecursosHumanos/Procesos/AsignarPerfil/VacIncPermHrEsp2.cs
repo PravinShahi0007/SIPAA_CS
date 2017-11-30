@@ -173,10 +173,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             util.ChangeButton(btnInsertar, 2, false);
             btnInsertar.Visible = true;
             ckbEliminar.Visible = true;
-            //btnAsignar.Visible = true;
             btnInsertar.Text = "u";
-            //btnAsignar.Text = "Actualizar Datos";
-            
 
             if (dgvInc.SelectedRows.Count != 0)
             {
@@ -322,10 +319,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
                 string usuumod = LoginInfo.IdTrab;
                 string prgumod = this.Name;
+                int iop = 0;
 
-                if (btnInsertar.Text != "a")
+                 if (btnInsertar.Text != "a")
                     //if (btnAsignar.Text != "Asignar Datos")
                     {
+                    if (btnInsertar.Text == "u") {iop = 2; }
+                    if (btnInsertar.Text == "d") {iop = 3; }
+
                     foreach (DataGridViewRow row in dgvEmpleados.Rows)
                     {
                         try
@@ -334,7 +335,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             {
                                 int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
 
-                                fInsDiasEsp(iIdTrab, 2, Convert.ToInt32(txtCvInc.Text.ToString()), Convert.ToInt32(txtCvTipo.Text.ToString()), dtpFechaInical.Text.Trim(),
+                                fInsDiasEsp(iIdTrab, iop, Convert.ToInt32(txtCvInc.Text.ToString()), Convert.ToInt32(txtCvTipo.Text.ToString()), dtpFechaInical.Text.Trim(),
                                 dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), mtxtHoraEntrada.Text.Trim(), mtxtHoraSalida.Text.Trim(), txtReferencia.Text, 4,
                                 Convert.ToInt32(txtSubsidio.Text), 0, usuumod.ToString(), prgumod.ToString(), 0, 0);
 
@@ -529,6 +530,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 case "2":
                     lblMensaje.Text = "La Actualización se llevo a cabo correctamente";
                     break;
+                case "3":
+                    lblMensaje.Text = "Se Elimino el registro correctamente";
+                    break;
                 case "":
                     lblMensaje.Text = "Problemas al realizar la Operación, avise a Sistemas.";
                     break;
@@ -565,10 +569,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void txtDias_Leave(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtDias.Text) >= 1)
+            if (Convert.ToInt32(txtDias.Text) > 1)
             {
                 DateTime resultado=Convert.ToDateTime(dtpFechaInical.Text);
                 dtpFechaFinal.Text =Convert.ToString(resultado.AddDays(Convert.ToInt32(txtDias.Text)));                
+            }
+            else if (Convert.ToInt32(txtDias.Text) == 1)
+            {
+                dtpFechaFinal.Text = dtpFechaInical.Text;
             }
         }
 
@@ -577,15 +585,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             if (ckbEliminar.Checked == true)
             {
                 util.ChangeButton(btnInsertar, 3, false);
+                btnInsertar.Text = "d";
                 //iActbtn = 3;
             }
             else
             {
                 util.ChangeButton(btnInsertar, 2, false);
+                btnInsertar.Text = "u";
                 //iActbtn = 2;
             }
         }
-
+        
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
