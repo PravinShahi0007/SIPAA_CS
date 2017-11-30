@@ -123,14 +123,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             cbTipo.Text = "";
             txtReferencia.Text = "";
             txtSubsidio.Text = "0";
-            //dtpFechaInical.Text = "";
-            //dtpFechaFinal.Text = "";
             mtxtHoraEntrada.Text = "00:00:00";
             mtxtHoraSalida.Text = "00:00:00";
             cbConcepto.Enabled = true;
             cbTipo.Enabled = true;
             dtpFechaInical.Enabled = true;
-            btnAsignar.Visible = false;
+            btnInsertar.Visible = false;
 
             for (int iContador = 0; iContador < dgvEmpleados.Rows.Count; iContador++)
             {
@@ -171,10 +169,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
                 dgvInc.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
             }
-
-            btnAsignar.Visible = true;
-            btnAsignar.Text = "Actualizar Datos";
-            btnAsignar.BackColor = Color.Red;
+            // Debe cambiar de Icono
+            util.ChangeButton(btnInsertar, 2, false);
+            btnInsertar.Visible = true;
+            ckbEliminar.Visible = true;
+            ckbEliminar.Checked = false;
+            btnInsertar.Text = "u";
 
             if (dgvInc.SelectedRows.Count != 0)
             {
@@ -220,8 +220,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         //boton buscar empleados
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            btnAsignar.Text = "Asignar Datos";
-            btnAsignar.BackColor = Color.CornflowerBlue;
+            //btnAsignar.Text = "Asignar Datos";
+            btnInsertar.Text = "a";
+            btnInsertar.Visible = true;
+            ckbEliminar.Visible = false;
+            util.ChangeButton(btnInsertar, 1, false);
             cbConcepto.Enabled = true;
             cbTipo.Enabled = true;
             dtpFechaInical.Enabled = true;
@@ -281,6 +284,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 {
                     dgvEmpleados.Columns.RemoveAt(0);
                 }
+
                 fgridEmpleados(1,fIdTrab,fIdCompania,fIdArea,fIdPuesto,fIdDepartamento,fIdUbicacion,fIdTipoNomina);
                 dgvEmpleados.Columns[0].Width =85;
                 dgvEmpleados.Columns[1].Width =100;
@@ -291,11 +295,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 //Guajolocombo Conceptos Incidencia
                 CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
                 txtSubsidio.Text = "0";
-                txtDias.Text = "0";
+                txtDias.Text = "1";
             }
         }
 
-        private void btnAsignar_Click(object sender, EventArgs e)
+        private void btnInsertar_Click(object sender, EventArgs e)
         {
             ///Aqui hay que asignar los valores en la tabla
             //para insertar registro nuevo 
@@ -316,9 +320,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
                 string usuumod = LoginInfo.IdTrab;
                 string prgumod = this.Name;
+                int iop = 0;
 
-                if (btnAsignar.Text!="Asignar Datos")
-                {
+                 if (btnInsertar.Text != "a")
+                    //if (btnAsignar.Text != "Asignar Datos")
+                    {
+                    if (btnInsertar.Text == "u") {iop = 2; }
+                    if (btnInsertar.Text == "d") {iop = 3; }
+
                     foreach (DataGridViewRow row in dgvEmpleados.Rows)
                     {
                         try
@@ -327,7 +336,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             {
                                 int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
 
-                                fInsDiasEsp(iIdTrab, 2, Convert.ToInt32(txtCvInc.Text.ToString()), Convert.ToInt32(txtCvTipo.Text.ToString()), dtpFechaInical.Text.Trim(),
+                                fInsDiasEsp(iIdTrab, iop, Convert.ToInt32(txtCvInc.Text.ToString()), Convert.ToInt32(txtCvTipo.Text.ToString()), dtpFechaInical.Text.Trim(),
                                 dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), mtxtHoraEntrada.Text.Trim(), mtxtHoraSalida.Text.Trim(), txtReferencia.Text, 4,
                                 Convert.ToInt32(txtSubsidio.Text), 0, usuumod.ToString(), prgumod.ToString(), 0, 0);
 
@@ -366,7 +375,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             MessageBox.Show(ex.ToString());
                         }
                     }
-                    frecargar();
+                    //frecargar();
                 }
             }
         }
@@ -472,6 +481,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
             toolTip1.SetToolTip(this.btnBuscar, "Buscar Registros");
+            toolTip1.SetToolTip(this.btnInsertar, "Asignar/Modificar/Eliminar Datos");
         }
 
         //FUNCION que Llena el Grid de Empleados
@@ -521,6 +531,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 case "2":
                     lblMensaje.Text = "La Actualización se llevo a cabo correctamente";
                     break;
+                case "3":
+                    lblMensaje.Text = "Se Elimino el registro correctamente";
+                    break;
                 case "":
                     lblMensaje.Text = "Problemas al realizar la Operación, avise a Sistemas.";
                     break;
@@ -534,7 +547,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             else if (cbTipo.Text == "") { svalidacampos = "Selecione Tipo"; cbTipo.Focus(); }
 
-            else if (txtReferencia.Text == "") { svalidacampos = "Capture Referencia"; txtReferencia.Focus(); }
+            //else if (txtReferencia.Text == "") { svalidacampos = "Capture Referencia"; txtReferencia.Focus(); }
 
             else if (dtpFechaInical.Text == "") { svalidacampos = "Selecione Fecha Inicial"; dtpFechaInical.Focus(); }
 
@@ -553,6 +566,35 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             VacIncPermHrEsp2 recargar = new VacIncPermHrEsp2();
             recargar.Show();
             this.Close();
+        }
+
+        private void txtDias_Leave(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(txtDias.Text) > 1)
+            {
+                DateTime resultado=Convert.ToDateTime(dtpFechaInical.Text);
+                dtpFechaFinal.Text =Convert.ToString(resultado.AddDays(Convert.ToInt32(txtDias.Text)));                
+            }
+            else if (Convert.ToInt32(txtDias.Text) == 1)
+            {
+                dtpFechaFinal.Text = dtpFechaInical.Text;
+            }
+        }
+
+        private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbEliminar.Checked == true)
+            {
+                util.ChangeButton(btnInsertar, 3, false);
+                btnInsertar.Text = "d";
+                //iActbtn = 3;
+            }
+            else
+            {
+                util.ChangeButton(btnInsertar, 2, false);
+                btnInsertar.Text = "u";
+                //iActbtn = 2;
+            }
         }
         
         //-----------------------------------------------------------------------------------------------
