@@ -173,6 +173,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             util.ChangeButton(btnInsertar, 2, false);
             btnInsertar.Visible = true;
             ckbEliminar.Visible = true;
+            ckbEliminar.Checked = false;
             btnInsertar.Text = "u";
 
             if (dgvInc.SelectedRows.Count != 0)
@@ -374,7 +375,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             MessageBox.Show(ex.ToString());
                         }
                     }
-                    frecargar();
+                    //frecargar();
                 }
             }
         }
