@@ -73,6 +73,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _default {
+            get {
+                object obj = ResourceManager.GetObject("_default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AcceDashboard20x20 {
             get {
                 object obj = ResourceManager.GetObject("AcceDashboard20x20", resourceCulture);
@@ -253,6 +263,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BTJS {
+            get {
+                object obj = ResourceManager.GetObject("BTJS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnAdd {
             get {
                 object obj = ResourceManager.GetObject("btnAdd", resourceCulture);
@@ -373,6 +393,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CCUJS {
+            get {
+                object obj = ResourceManager.GetObject("CCUJS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Descargar {
             get {
                 object obj = ResourceManager.GetObject("Descargar", resourceCulture);
@@ -433,6 +463,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ESYPJS {
+            get {
+                object obj = ResourceManager.GetObject("ESYPJS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap f8 {
             get {
                 object obj = ResourceManager.GetObject("f8", resourceCulture);
@@ -476,6 +516,16 @@ namespace SIPAA_CS.Properties {
         internal static System.Drawing.Bitmap Face30x30 {
             get {
                 object obj = ResourceManager.GetObject("Face30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GMX {
+            get {
+                object obj = ResourceManager.GetObject("GMX", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1197,6 +1247,16 @@ namespace SIPAA_CS.Properties {
             get {
                 object obj = ResourceManager.GetObject("LogoIcono64x64", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NEJS {
+            get {
+                object obj = ResourceManager.GetObject("NEJS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
