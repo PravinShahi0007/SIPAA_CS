@@ -293,9 +293,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 dgvEmpleados.Columns[4].Visible = false;
 
                 //Guajolocombo Conceptos Incidencia
-                CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
+                /////////CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
                 txtSubsidio.Text = "0";
-                txtDias.Text = "1";
+                //txtDias.Text = "1";
+                if (Convert.ToInt32(txtDias.Text) < 1)
+                {
+                    txtDias.Text = "1";
+                }
             }
         }
 
@@ -322,9 +326,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 string prgumod = this.Name;
                 int iop = 0;
 
-                 if (btnInsertar.Text != "a")
-                    //if (btnAsignar.Text != "Asignar Datos")
-                    {
+                if (btnInsertar.Text != "a") //"Asignar Datos"
+                {
                     if (btnInsertar.Text == "u") {iop = 2; }
                     if (btnInsertar.Text == "d") {iop = 3; }
 
@@ -459,6 +462,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
             Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
             cbEmpleados.Focus();
+
+            //Guajolocombo Conceptos Incidencia
+            CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
+            txtDias.Text = "1";
+
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -573,7 +581,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             if (Convert.ToInt32(txtDias.Text) > 1)
             {
                 DateTime resultado=Convert.ToDateTime(dtpFechaInical.Text);
-                dtpFechaFinal.Text =Convert.ToString(resultado.AddDays(Convert.ToInt32(txtDias.Text)));                
+                dtpFechaFinal.Text =Convert.ToString(resultado.AddDays(Convert.ToInt32(txtDias.Text) - 1));                
             }
             else if (Convert.ToInt32(txtDias.Text) == 1)
             {
