@@ -57,7 +57,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
                               "convert(varchar(10), fechareg, 103) as fecha, convert(varchar, horareg, 108) as registro " +
                               "from dbo.rhregistro " +
                               "where fechareg between '" + sfecini + "' and '" + sfecfin + "' " +
-                              "and idreloj not in (14, 22) " +
+                              "and idreloj not in (5, 14, 22, 25) " +
                               "and idtrab in (" + sidtrab + ") ";
             SqlConnection sqlcn = conex.conexsica();
             conex.asignarconexsica(cmd);

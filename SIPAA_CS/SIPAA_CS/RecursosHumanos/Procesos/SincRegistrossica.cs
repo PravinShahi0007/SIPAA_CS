@@ -164,7 +164,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                             string sferegistro = row["fecha"].ToString();
                             string shrregistro = row["registro"].ToString();
 
-                            InsReg.Relojchecador(sidtrab, 5, DateTime.Parse(sferegistro), 0, TimeSpan.Parse(shrregistro), 100, 0, "nam", this.Name);
+                            InsReg.Relojchecador(sidtrab, 5, DateTime.Parse(sferegistro), 0, TimeSpan.Parse(shrregistro), 4, 0, LoginInfo.IdTrab, this.Name);
                             contador = contador + 1;
                             Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Sincronizando registros... " + contador + "  de  " + nrorows);
                         }

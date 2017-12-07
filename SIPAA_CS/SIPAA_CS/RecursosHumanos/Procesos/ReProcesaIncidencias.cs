@@ -212,6 +212,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         btnguardar.Enabled = true;
                         Cursor.Current = Cursors.Default;
 
+                        
+
                     }
                     else
                     {
@@ -249,13 +251,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         Util.p_inicbo = 0;
                         DataTable dtcbtipnom = ProcesaInc.cbincrp(12, 0);
                         Utilerias.llenarComboxDataTable(cbtiponomina, dtcbtipnom, "cvperiodo", "descripcion");
-                        Util.p_inicbo = 1;
                         
                         dgvregistros.DataSource = null;
                         cbtiponomina.Focus();
+                        cbotrab.DataSource = null;
                         btnguardar.Enabled = true;
+                        Util.p_inicbo = 1;
                         Cursor.Current = Cursors.Default;
-
                     }
                     else
                     {
