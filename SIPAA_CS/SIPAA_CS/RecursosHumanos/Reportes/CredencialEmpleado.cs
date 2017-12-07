@@ -38,7 +38,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             FormCollection formulariosApp = Application.OpenForms;
             foreach (Form f in formulariosApp)
             {
-                if (f.Name != "CredencialEmpleado.cs")
+                if (f.Name != this.Name)
                 {
                     f.Hide();
                 }
