@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RepCatJustIncExt" targetNamespace="http://tempuri.org/RepCatJustIncExt.xsd" xmlns:mstns="http://tempuri.org/RepCatJustIncExt.xsd" xmlns="http://tempuri.org/RepCatJustIncExt.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RepCatJustIncExt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RepCatJustIncExt" msprop:Generator_UserDSName="RepCatJustIncExt">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="JustIncExt" msprop:Generator_TableClassName="JustIncExtDataTable" msprop:Generator_TableVarName="tableJustIncExt" msprop:Generator_TablePropName="JustIncExt" msprop:Generator_RowDeletingName="JustIncExtRowDeleting" msprop:Generator_RowChangingName="JustIncExtRowChanging" msprop:Generator_RowEvHandlerName="JustIncExtRowChangeEventHandler" msprop:Generator_RowDeletedName="JustIncExtRowDeleted" msprop:Generator_UserTableName="JustIncExt" msprop:Generator_RowChangedName="JustIncExtRowChanged" msprop:Generator_RowEvArgName="JustIncExtRowChangeEvent" msprop:Generator_RowClassName="JustIncExtRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cvjustinc" msprop:Generator_ColumnVarNameInTable="columncvjustinc" msprop:Generator_ColumnPropNameInRow="cvjustinc" msprop:Generator_ColumnPropNameInTable="cvjustincColumn" msprop:Generator_UserColumnName="cvjustinc" type="xs:string" minOccurs="0" />
+              <xs:element name="cvincidencia" msprop:Generator_ColumnVarNameInTable="columncvincidencia" msprop:Generator_ColumnPropNameInRow="cvincidencia" msprop:Generator_ColumnPropNameInTable="cvincidenciaColumn" msprop:Generator_UserColumnName="cvincidencia" type="xs:string" minOccurs="0" />
+              <xs:element name="cvjustab" msprop:Generator_ColumnVarNameInTable="columncvjustab" msprop:Generator_ColumnPropNameInRow="cvjustab" msprop:Generator_ColumnPropNameInTable="cvjustabColumn" msprop:Generator_UserColumnName="cvjustab" type="xs:string" minOccurs="0" />
+              <xs:element name="Descripción" msprop:Generator_ColumnVarNameInTable="columnDescripción" msprop:Generator_ColumnPropNameInRow="Descripción" msprop:Generator_ColumnPropNameInTable="DescripciónColumn" msprop:Generator_UserColumnName="Descripción" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

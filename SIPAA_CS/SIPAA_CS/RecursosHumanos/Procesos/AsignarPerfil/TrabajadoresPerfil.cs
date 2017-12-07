@@ -358,7 +358,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             toolTip1.ShowAlways = true;
 
             //configura texto del objeto
-            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btnCerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnMin, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
         }

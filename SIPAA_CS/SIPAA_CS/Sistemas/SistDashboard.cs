@@ -92,7 +92,7 @@ namespace SIPAA_CS.Sistemas
             toolTip1.ShowAlways = true;
 
             //configura texto del objeto
-            toolTip1.SetToolTip(this.btncerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btncerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnregresar, "Regresar");
         }

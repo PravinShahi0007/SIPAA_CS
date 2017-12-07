@@ -453,7 +453,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             toolTip1.ShowAlways = true;
 
             // CONFIGURA EL TEXTO POR OBJETO
-            toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btnCerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
             toolTip1.SetToolTip(this.btnAgregar, "Agrega Registro");

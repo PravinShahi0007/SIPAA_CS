@@ -18,30 +18,29 @@ using CrystalDecisions.CrystalReports.Engine;
 
 //***********************************************************************************************
 //Autor: noe alvarez marquina
-//Fecha creación: 06-dic-2017       Última Modificacion: dd-mm-aaaa
-//Descripción: catalogo de correos para alertas de correos
+//Fecha creación: 07-dic-2017       Última Modificacion: dd-mm-aaaa
+//Descripción: catalogo de incidencia extras
 //***********************************************************************************************
 
 namespace SIPAA_CS.RecursosHumanos.Catalogos
 {
-    public partial class CorreosAvisosIncidencias : Form
+    public partial class Justificaincidenciasd : Form
     {
 
         #region
         int iins, iact, ielim, iimp;
 
-        int iactbtn, icvcorreomodif;
+        int iactbtn, icvedatomoficar;
         #endregion
 
         Perfil DatPerfil = new Perfil();
         Utilerias Util = new Utilerias();
-        CorreoAvisoIncidencia correoinc = new CorreoAvisoIncidencia();
+        JustificaIncidenciad justincd = new JustificaIncidenciad();
 
-        public CorreosAvisosIncidencias()
+        public Justificaincidenciasd()
         {
             InitializeComponent();
         }
-
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -50,8 +49,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
 
-        //accion al tocar grid conforme a permisos del usuario
-        private void dgvcatce_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvdatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (iins == 1 && iact == 1 && ielim == 1)
             {
@@ -108,10 +106,10 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             }
         }
-
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
+
         private void btnregresar_Click(object sender, EventArgs e)
         {
             RechDashboard rechdb = new RechDashboard();
@@ -134,43 +132,46 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnbuscar_Click(object sender, EventArgs e)
         {
-            dgvcatce.DataSource = null;
+            dgvdatos.DataSource = null;
 
-            int inumcolumngrid = dgvcatce.ColumnCount;
+            int inumcolumngrid = dgvdatos.ColumnCount;
 
             if (inumcolumngrid == 1)
             {
-                dgvcatce.Columns.RemoveAt(0);
+                dgvdatos.Columns.RemoveAt(0);
             }
 
             //llena grid
-            fllenagridbusqueda(4, 0, "", 0, 0, "", LoginInfo.IdTrab, this.Name);
+            fllenagridbusqueda(4, 0, 0, 0, "", 0, LoginInfo.IdTrab, this.Name);
+        }
 
-            pnlcrudcorreo.Visible = true;
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            dgvdatos.DataSource = null;
 
-            txtnombre.Text = "";
+            int inumcolumngrid = dgvdatos.ColumnCount;
+
+            if (inumcolumngrid == 1)
+            {
+                dgvdatos.Columns.RemoveAt(0);
+            }
+
+            //llena grid
+            fllenagridbusqueda(4, 0, 0, 0, "", 0, LoginInfo.IdTrab, this.Name);
+
+            pnlcrud.Visible = true;
+
+            txtdescripcion.Text = "";
 
             Util.ChangeButton(btninsertar, 1, false);
-
-            //cb rol
-            cborol.DataSource = null;
-            DataTable dtrol = correoinc.dtdgvcbcorreo(5, 0, "", 0, 0, "", LoginInfo.IdTrab, this.Name);
-            Utilerias.llenarComboxDataTable(cborol, dtrol, "clave", "descrip");
-
-            //cb rol
-            cboformapago.DataSource = null;
-            DataTable dtformapago = correoinc.dtdgvcbcorreo(6, 0, "", 0, 0, "", LoginInfo.IdTrab, this.Name);
-            Utilerias.llenarComboxDataTable(cboformapago, dtformapago, "clave", "descrip");
-
-            txtcorreo.Text = "";
 
             ckbeliminar.Visible = false;
 
             iactbtn = 1;
 
-            txtnombre.Focus();
+            txtdescripcion.Focus();
         }
 
         private void btninsertar_Click(object sender, EventArgs e)
@@ -183,24 +184,23 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 if (bvalidacampos == true)
                 {
-                    int ivali = correoinc.crudcorreo(1, 0, txtnombre.Text.Trim(), Int32.Parse(cborol.SelectedValue.ToString()), Int32.Parse(cboformapago.SelectedValue.ToString()), txtcorreo.Text.Trim(),
-                        LoginInfo.IdTrab, this.Name);
+                    int ivali = justincd.cruddatos(1, 22, 0, 0, txtdescripcion.Text.Trim(), 1, LoginInfo.IdTrab, this.Name);
 
                     if (ivali == 1)
                     {
                         //llena grid
-                        fllenagridbusqueda(4, 0, "", 0, 0, "", LoginInfo.IdTrab, this.Name);
+                        fllenagridbusqueda(4, 0, 0, 0, "", 0, LoginInfo.IdTrab, this.Name);
                         pnlmenssuid.Visible = true;
                         pnlmenssuid.BackColor = ColorTranslator.FromHtml("#2e7d32");
                         menssuid.Text = "Registro agregado correctamente";
                         timer1.Start();
                         flimpiaobj();
                         iactbtn = 1;
-                        txtnombre.Focus();
+                        txtdescripcion.Focus();
                     }
                     else
                     {
-                        DialogResult result = MessageBox.Show("No agrego su registro", "SIPAA", MessageBoxButtons.OK);
+                        DialogResult result = MessageBox.Show("No se agrego su registro", "SIPAA", MessageBoxButtons.OK);
                     }
                 }
             }
@@ -211,21 +211,20 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 if (bvalidacampos == true)
                 {
-                    int ivalu = correoinc.crudcorreo(2, icvcorreomodif, txtnombre.Text.Trim(), Int32.Parse(cborol.SelectedValue.ToString()), Int32.Parse(cboformapago.SelectedValue.ToString()), txtcorreo.Text.Trim(),
-                        LoginInfo.IdTrab, this.Name);
+                    int ivalu = justincd.cruddatos(2, 22, 0, icvedatomoficar, txtdescripcion.Text.Trim(), 1, LoginInfo.IdTrab, this.Name);
 
                     if (ivalu == 2)
                     {
                         //llena grid
-                        fllenagridbusqueda(4, 0, "", 0, 0, "", LoginInfo.IdTrab, this.Name);
+                        fllenagridbusqueda(4, 0, 0, 0, "", 0, LoginInfo.IdTrab, this.Name);
                         pnlmenssuid.Visible = true;
                         pnlmenssuid.BackColor = ColorTranslator.FromHtml("#0277bd");
                         menssuid.Text = "Registro modificado correctamente";
                         timer1.Start();
                         flimpiaobj();
                         iactbtn = 0;
-                        pnlcrudcorreo.Visible = false;
-                        txtnombre.Focus();
+                        pnlcrud.Visible = false;
+                        txtdescripcion.Focus();
                     }
                     else
                     {
@@ -240,13 +239,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 if (result == DialogResult.Yes)
                 {
-                    int ivald = correoinc.crudcorreo(3, icvcorreomodif, txtnombre.Text.Trim(), Int32.Parse(cborol.SelectedValue.ToString()), Int32.Parse(cboformapago.SelectedValue.ToString()), txtcorreo.Text.Trim(),
-                        LoginInfo.IdTrab, this.Name);
+                    int ivald = justincd.cruddatos(3, 22, 0, icvedatomoficar, txtdescripcion.Text.Trim(), 0, LoginInfo.IdTrab, this.Name);
 
                     if (ivald == 3)
                     {
                         //llena grid
-                        fllenagridbusqueda(4, 0, "", 0, 0, "", LoginInfo.IdTrab, this.Name);
+                        fllenagridbusqueda(4, 0, 0, 0, "", 0, LoginInfo.IdTrab, this.Name);
                         pnlmenssuid.Visible = true;
                         pnlmenssuid.BackColor = ColorTranslator.FromHtml("#f44336");
                         menssuid.Text = "Registro eliminado correctamente";
@@ -255,8 +253,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                         ckbeliminar.Checked = false;
                         Util.ChangeButton(btninsertar, 2, false);
                         iactbtn = 0;
-                        pnlcrudcorreo.Visible = false;
-                        txtnombre.Focus();
+                        pnlcrud.Visible = false;
+                        txtdescripcion.Focus();
                     }
                     else
                     {
@@ -266,7 +264,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 else
                 {
                     ckbeliminar.Checked = false;
-                    txtnombre.Focus();
+                    txtdescripcion.Focus();
                 }
             }
             else
@@ -275,30 +273,15 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
         }
 
-        private void btnbuscar_Click(object sender, EventArgs e)
+        private void btnImprimir_Click(object sender, EventArgs e)
         {
-            dgvcatce.DataSource = null;
-
-            int inumcolumngrid = dgvcatce.ColumnCount;
-
-            if (inumcolumngrid == 1)
-            {
-                dgvcatce.Columns.RemoveAt(0);
-            }
-
-            //llena grid
-            fllenagridbusqueda(4, 0, txtcorreobusq.Text.Trim(), 0, 0, "", "", "");
-        }
-
-        private void btnImprimircat_Click(object sender, EventArgs e)
-        {
-            DataTable dtReporteCorreo = new DataTable();
-            dtReporteCorreo = correoinc.dtdgvcbcorreo(4, 0, "", 0, 0, "", "", "");
+            DataTable dtreporte = new DataTable();
+            dtreporte = justincd.dtdatos(4, 0, 0, 0, "", 0, LoginInfo.IdTrab, this.Name);
 
             //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
             ViewerReporte form = new ViewerReporte();
-            RepCatalogoCorreo dtrpt = new RepCatalogoCorreo();
-            ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporteCorreo, "SIPAA_CS.RecursosHumanos.Reportes", dtrpt.ResourceName);
+            RepCatalogoJustIncExt dtrpt = new RepCatalogoJustIncExt();
+            ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtreporte, "SIPAA_CS.RecursosHumanos.Reportes", dtrpt.ResourceName);
 
             form.RptDoc = ReportDoc;
             form.Show();
@@ -309,7 +292,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-        private void CorreosAvisosIncidencias_Load(object sender, EventArgs e)
+
+        private void Justificaincidenciasd_Load(object sender, EventArgs e)
         {
             //cierra formularios abiertos
             FormCollection formulariosApp = Application.OpenForms;
@@ -343,14 +327,14 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 btnAgregar.Visible = true;
             }
 
-            if(iimp == 1)
+            if (iimp == 1)
             {
                 label3.Visible = true;
-                btnImprimircat.Visible = true;
+                btnImprimir.Visible = true;
             }
 
             //llena grid
-            fllenagridbusqueda(4, 0, "", 0, 0, "", "", "");
+            fllenagridbusqueda(4, 0, 0, 0, "", 0, LoginInfo.IdTrab, this.Name);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -391,123 +375,100 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.SetToolTip(this.btncerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnregresar, "Regresar");
-            toolTip1.SetToolTip(this.btnbuscar, "Busca Registro");
-            toolTip1.SetToolTip(this.btnbuscar, "Imprimir Catálogo");
+            toolTip1.SetToolTip(this.btnbuscar, "Buscar Registros");
+            toolTip1.SetToolTip(this.btnAgregar, "Agregar Registro");
+            toolTip1.SetToolTip(this.btnImprimir, "Imprimir Catalogo");
         }
 
-        protected void fllenagridbusqueda(int iopcion, int icvcorreo, string snombre, int itipo, int iformapago, string scorreo, string susuumod, string sprgumod)
+        protected void fllenagridbusqueda(int iopcion, int icvjustinc, int icvincidencia, int icvjustab, string sdescjustab, int istjustab, string susuumod, string sprgumod)
         {
 
             if (iins == 1 && iact == 1 && ielim == 1)
             {
-                fdgvsuid(iopcion, icvcorreo, snombre, itipo, iformapago, scorreo, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvjustinc, icvincidencia, icvjustab, sdescjustab, istjustab, susuumod, sprgumod);
             }
             else if (iins == 1 && iact == 1)
             {
-                fdgvsuid(iopcion, icvcorreo, snombre, itipo, iformapago, scorreo, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvjustinc, icvincidencia, icvjustab, sdescjustab, istjustab, susuumod, sprgumod);
             }
             else if (iins == 1 && ielim == 1)
             {
-                fdgvsuid(iopcion, icvcorreo, snombre, itipo, iformapago, scorreo, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvjustinc, icvincidencia, icvjustab, sdescjustab, istjustab, susuumod, sprgumod);
             }
             else if (iact == 1 && ielim == 1)
             {
-                fdgvsuid(iopcion, icvcorreo, snombre, itipo, iformapago, scorreo, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvjustinc, icvincidencia, icvjustab, sdescjustab, istjustab, susuumod, sprgumod);
             }
             else if (iins == 1)
             {
-                fdgvsuid(iopcion, icvcorreo, snombre, itipo, iformapago, scorreo, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvjustinc, icvincidencia, icvjustab, sdescjustab, istjustab, susuumod, sprgumod);
             }
             else if (iact == 1)
             {
-                fdgvsuid(iopcion, icvcorreo, snombre, itipo, iformapago, scorreo, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvjustinc, icvincidencia, icvjustab, sdescjustab, istjustab, susuumod, sprgumod);
             }
             else if (ielim == 1)
             {
-                fdgvsuid(iopcion, icvcorreo, snombre, itipo, iformapago, scorreo, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvjustinc, icvincidencia, icvjustab, sdescjustab, istjustab, susuumod, sprgumod);
             }
             else
             {
-                fdgvs(iopcion, icvcorreo, snombre, itipo, iformapago, scorreo, susuumod, sprgumod);
+                fdgvs(iopcion, icvjustinc, icvincidencia, icvjustab, sdescjustab, istjustab, susuumod, sprgumod);
             }
 
         }
 
         //funcion formto grid con modificación busqueda con permisos
-        protected void fdgvsuid(int iopcion, int icvcorreo, string snombre, int itipo, int iformapago, string scorreo, string susuumod, string sprgumod)
+        protected void fdgvsuid(int iopcion, int icvjustinc, int icvincidencia, int icvjustab, string sdescjustab, int istjustab, string susuumod, string sprgumod)
         {
-            dgvcatce.DataSource = null;
+            dgvdatos.DataSource = null;
 
-            int inumcolumngrid = dgvcatce.ColumnCount;
+            int inumcolumngrid = dgvdatos.ColumnCount;
 
             if (inumcolumngrid == 1)
             {
-                dgvcatce.Columns.RemoveAt(0);
+                dgvdatos.Columns.RemoveAt(0);
             }
 
-            DataTable dtdgvcapn = correoinc.dtdgvcbcorreo(iopcion, icvcorreo, snombre, itipo, iformapago, scorreo, susuumod, sprgumod);
-            dgvcatce.DataSource = dtdgvcapn;
+            DataTable dtdatos = justincd.dtdatos(iopcion, icvjustinc, icvincidencia, icvjustab, sdescjustab, istjustab, susuumod, sprgumod);
+            dgvdatos.DataSource = dtdatos;
 
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
             imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
             imgCheckUsuarios.Name = "img";
-            dgvcatce.Columns.Insert(0, imgCheckUsuarios);
-            dgvcatce.Columns[0].HeaderText = "Selección";
+            dgvdatos.Columns.Insert(0, imgCheckUsuarios);
+            dgvdatos.Columns[0].HeaderText = "Selección";
 
-            dgvcatce.Columns[0].Width = 75;
-            dgvcatce.Columns[1].Visible = false;
-            dgvcatce.Columns[2].Width = 205;
-            dgvcatce.Columns[3].Width = 80;
-            dgvcatce.Columns[4].Width = 80;
-            dgvcatce.Columns[5].Width = 205;
-            dgvcatce.Columns[6].Visible = false;
-            dgvcatce.Columns[7].Visible = false;
-            dgvcatce.ClearSelection();
+            dgvdatos.Columns[0].Width = 75;
+            dgvdatos.Columns[1].Visible = false;
+            dgvdatos.Columns[2].Visible = false;
+            dgvdatos.Columns[3].Visible = false;
+            dgvdatos.Columns[4].Width = 500;
+            dgvdatos.ClearSelection();
             lblModif.Visible = true;
         }
 
         //funcion formto grid sin modificación busqueda
-        protected void fdgvs(int iopcion, int icvcorreo, string snombre, int itipo, int iformapago, string scorreo, string susuumod, string sprgumod)
+        protected void fdgvs(int iopcion, int icvjustinc, int icvincidencia, int icvjustab, string sdescjustab, int istjustab, string susuumod, string sprgumod)
         {
-            DataTable dtdgvji = correoinc.dtdgvcbcorreo(iopcion, icvcorreo, snombre, itipo, iformapago, scorreo, susuumod, sprgumod);
-            dgvcatce.DataSource = dtdgvji;
+            DataTable dtdgvji = justincd.dtdatos(iopcion, icvjustinc, icvincidencia, icvjustab, sdescjustab, istjustab, susuumod, sprgumod);
+            dgvdatos.DataSource = dtdgvji;
 
-            dgvcatce.Columns[0].Visible = false;
-            dgvcatce.Columns[1].Width = 220;
-            dgvcatce.Columns[2].Width = 80;
-            dgvcatce.Columns[3].Width = 80;
-            dgvcatce.Columns[4].Width = 220;
-            dgvcatce.Columns[5].Visible = false;
-            dgvcatce.Columns[6].Visible = false;
-            dgvcatce.ClearSelection();
+            dgvdatos.Columns[0].Visible = false;
+            dgvdatos.Columns[1].Visible = false;
+            dgvdatos.Columns[2].Visible = false;
+            dgvdatos.Columns[3].Width = 600;
+            dgvdatos.ClearSelection();
             lblModif.Visible = false;
         }
 
         //validacion de campos
         private Boolean fvalidacampos()
         {
-            if (txtnombre.Text.Trim() == "")
+            if (txtdescripcion.Text.Trim() == "")
             {
-                DialogResult result = MessageBox.Show("Capture un nombre", "SIPAA", MessageBoxButtons.OK);
-                txtnombre.Focus();
-                return false;
-            }
-            else if (cborol.Text.Trim() == "" || cborol.SelectedIndex == -1 || cborol.SelectedIndex == 0)
-            {
-                DialogResult result = MessageBox.Show("Seleccione un rol", "SIPAA", MessageBoxButtons.OK);
-                cborol.Focus();
-                return false;
-            }
-            else if (cboformapago.Text.Trim() == "" || cboformapago.SelectedIndex == -1 || cboformapago.SelectedIndex == 0)
-            {
-                DialogResult result = MessageBox.Show("Seleccione una forma de pago", "SIPAA", MessageBoxButtons.OK);
-                cboformapago.Focus();
-                return false;
-            }
-            else if (txtcorreo.Text.Trim() == "")
-            {
-                DialogResult result = MessageBox.Show("Capture un correo", "SIPAA", MessageBoxButtons.OK);
-                txtcorreo.Focus();
+                DialogResult result = MessageBox.Show("Capture una descripción", "SIPAA", MessageBoxButtons.OK);
+                txtdescripcion.Focus();
                 return false;
             }
             else
@@ -518,21 +479,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void flimpiaobj()
         {
-
-            txtnombre.Text = "";
-
-            //cb rol
-            cborol.DataSource = null;
-            DataTable dtrol = correoinc.dtdgvcbcorreo(5, 0, "", 0, 0, "", LoginInfo.IdTrab, this.Name);
-            Utilerias.llenarComboxDataTable(cborol, dtrol, "clave", "descrip");
-
-            //cb rol
-            cboformapago.DataSource = null;
-            DataTable dtformapago = correoinc.dtdgvcbcorreo(6, 0, "", 0, 0, "", LoginInfo.IdTrab, this.Name);
-            Utilerias.llenarComboxDataTable(cboformapago, dtformapago, "clave", "descrip");
-
-            txtcorreo.Text = "";
-
+            txtdescripcion.Text = "";
         }
 
         private void factgrid()
@@ -542,36 +489,22 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             }
             else
             {
-                for (int iContador = 0; iContador < dgvcatce.Rows.Count; iContador++)
+                for (int iContador = 0; iContador < dgvdatos.Rows.Count; iContador++)
                 {
-                    dgvcatce.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                    dgvdatos.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
                 }
 
-                if (dgvcatce.SelectedRows.Count != 0)
+                if (dgvdatos.SelectedRows.Count != 0)
                 {
-                    pnlcrudcorreo.Visible = true;
-                    DataGridViewRow row = this.dgvcatce.SelectedRows[0];
-                    icvcorreomodif = Convert.ToInt32(row.Cells["cvcorreo"].Value.ToString());
+                    pnlcrud.Visible = true;
+                    DataGridViewRow row = this.dgvdatos.SelectedRows[0];
+                    icvedatomoficar = Convert.ToInt32(row.Cells["cvjustab"].Value.ToString());
 
                     row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
 
-                    txtnombre.Text = row.Cells["Nombre"].Value.ToString();
+                    txtdescripcion.Text = row.Cells["Descripción"].Value.ToString();
 
-                    //cb rol
-                    cborol.DataSource = null;
-                    DataTable dtrol = correoinc.dtdgvcbcorreo(5, 0, "", 0, 0, "", LoginInfo.IdTrab, this.Name);
-                    Utilerias.llenarComboxDataTable(cborol, dtrol, "clave", "descrip");
-                    cborol.SelectedValue = Convert.ToInt32(row.Cells["tipo"].Value.ToString());
-
-                    //cb rol
-                    cboformapago.DataSource = null;
-                    DataTable dtformapago = correoinc.dtdgvcbcorreo(6, 0, "", 0, 0, "", LoginInfo.IdTrab, this.Name);
-                    Utilerias.llenarComboxDataTable(cboformapago, dtformapago, "clave", "descrip");
-                    cboformapago.SelectedValue = Convert.ToInt32(row.Cells["formapago"].Value.ToString());
-
-                    txtcorreo.Text = row.Cells["Correo"].Value.ToString();
-
-                    txtnombre.Focus();
+                    txtdescripcion.Focus();
                 }
             }
         }

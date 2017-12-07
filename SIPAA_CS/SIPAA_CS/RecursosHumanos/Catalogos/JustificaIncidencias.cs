@@ -398,7 +398,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             toolTip1.ShowAlways = true;
 
             //configura texto del objeto
-            toolTip1.SetToolTip(this.btncerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btncerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnregresar, "Regresar");
             toolTip1.SetToolTip(this.btnbuscar, "Buscar Registros");

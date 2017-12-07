@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -350,6 +350,7 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\CorreoAvisoIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidencia.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidenciad.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\AsignacionIncidenciaTrabajador2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueaIncidencias.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
@@ -367,6 +368,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.Designer.cs">
       <DependentUpon>JustificaIncidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\Justificaincidenciasd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\Justificaincidenciasd.Designer.cs">
+      <DependentUpon>Justificaincidenciasd.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\DataSets\CartaExtrañamiento.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -403,6 +410,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RepCatJustInc.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RepCatJustIncExt.cs">
+      <DependentUpon>RepCatJustIncExt.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RepCatJustIncExt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepCatJustIncExt.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
@@ -930,6 +945,12 @@
       <DependentUpon>RepCatalogoJustInc.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RepCatalogoJustIncExt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepCatalogoJustIncExt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\Resumen.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1114,6 +1135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\JustificaIncidencias.resx">
       <DependentUpon>JustificaIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\Justificaincidenciasd.resx">
+      <DependentUpon>Justificaincidenciasd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.resx">
       <DependentUpon>IncidenciasExtSuspRetroGeneral.cs</DependentUpon>
@@ -1330,6 +1354,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\RepCatalogoJustInc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RepCatalogoJustInc.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RepCatalogoJustIncExt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RepCatalogoJustIncExt.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Resumen.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1566,6 +1594,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\RepCatJustInc.xss">
       <DependentUpon>RepCatJustInc.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepCatJustIncExt.xsc">
+      <DependentUpon>RepCatJustIncExt.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepCatJustIncExt.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RepCatJustIncExt.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepCatJustIncExt.xss">
+      <DependentUpon>RepCatJustIncExt.xsd</DependentUpon>
     </None>
     <None Include="SIPAA_CS_ClaveTemporal.pfx" />
   </ItemGroup>
@@ -2171,92 +2210,92 @@
   <ItemGroup>
     <PublishFile Include="DPFPCtlXTypeLibNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPCtlXWrapperNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPDevNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPEngNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPGuiNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPShrNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPShrXTypeLibNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPVerNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="log4net">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
