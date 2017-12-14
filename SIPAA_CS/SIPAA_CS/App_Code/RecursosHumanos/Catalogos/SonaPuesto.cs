@@ -43,7 +43,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = stextobuscar;
 
-            objConexion.asignarConexions(cmd);
+            objConexion.asignarConexion(cmd);
 
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
 

@@ -64,37 +64,6 @@ namespace SIPAA_CS.Conexiones
         }
         //conexion sica sincronizar registros de checaror*************************
 
-
-
-
-        public SqlConnection conexionSonarh()
-        {
-            try
-            {
-                cns = new SqlConnection("Data Source=192.168.9.5;Initial Catalog=SonarhNet;User ID=webdesarrollo;Password=webdesarrollo");
-                cns.Open();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se conecto con la BD sonarh: " + ex.ToString());
-            }
-            return cns;
-        }
-
-        //Asigna conexion sonarh
-        public void asignarConexions(SqlCommand cmd)
-        {
-
-            cmd.Connection = cns;
-        }
-
-        //Cierra Conexion
-        public void cerrarConexions()
-        {
-
-            cns.Close();
-        }
-
         //Asigna conexion
         public void asignarConexion(SqlCommand cmd)
         {

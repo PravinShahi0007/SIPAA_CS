@@ -43,7 +43,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value = sTextoBuscar;
 
-            objConexion.asignarConexions(cmd);
+            objConexion.asignarConexion(cmd);
 
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
 

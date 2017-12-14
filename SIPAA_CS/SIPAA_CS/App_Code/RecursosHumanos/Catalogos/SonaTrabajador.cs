@@ -34,7 +34,8 @@ namespace SIPAA_CS.App_Code
             cmd.CommandText = @"usp_trabajador_s"; 
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
-            SqlConnection sqlcn = objConexion.conexionSonarh();
+            //SqlConnection sqlcn = objConexion.coconexion();
+            objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
             cmd.Parameters.Add("@p_descripcion", SqlDbType.VarChar).Value=ptextoabuscar;
@@ -43,7 +44,7 @@ namespace SIPAA_CS.App_Code
 
             SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
 
-            objConexion.cerrarConexions();
+            objConexion.cerrarConexion();
 
             DataTable dtEmpleados = new DataTable();
             dadapter.Fill(dtEmpleados);
@@ -59,7 +60,8 @@ namespace SIPAA_CS.App_Code
             cmd.CommandText = @"usp_trabajador_fm";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
-            SqlConnection sqlcn = objConexion.conexionSonarh();
+            //SqlConnection sqlcn = objConexion.conexionSonarh();
+            objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
             cmd.Parameters.Add("@p_IdTrab", SqlDbType.VarChar).Value = pidtrab;
@@ -72,7 +74,7 @@ namespace SIPAA_CS.App_Code
 
             objConexion.asignarConexion(cmd);
             SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
-            objConexion.cerrarConexions();
+            objConexion.cerrarConexion();
 
             DataTable dtEmpleados = new DataTable();
             dadapter.Fill(dtEmpleados);
