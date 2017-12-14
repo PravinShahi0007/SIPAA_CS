@@ -112,6 +112,7 @@ namespace SIPAA_CS
             lblusuario.Text = LoginInfo.Nombre;
             string NomUsu = LoginInfo.Nombre;
             lblusuario.Text = NomUsu;
+
             Utilerias.cargaimagen(ptbimgusuario);
 
             if (LoginInfo.iconexion==1) { lblconexion.Visible = true; } else { lblconexion.Visible = false; }

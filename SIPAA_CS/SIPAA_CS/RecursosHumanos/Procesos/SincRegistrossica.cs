@@ -43,7 +43,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             if (Util.p_inicbo == 1)
             {
-
+                Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, buscando registros...");
+                Cursor.Current = Cursors.WaitCursor;
+                
                 DataTable dtemplsinc = SincReg.cbsincsica(16, Int32.Parse(cbtiponomina.SelectedValue.ToString()));
                 string sdatos = dtemplsinc.Rows[0][0].ToString();
 
@@ -63,6 +65,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dgvregistros.Columns[0].Width = 400;//empleado
                 dgvregistros.Columns[1].Width = 140;//fecha
                 dgvregistros.Columns[2].Width = 130;//reloj
+
+                pnlmenssuid.Visible = false;
+                Cursor.Current = Cursors.Default;
 
             }
         }
@@ -132,8 +137,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     //re-procesa incidencias periodo
                     DialogResult resultp = MessageBox.Show("Esta acción sincroniza SICA -- SIPAA ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
 
-                    int contador = 1;
-
                     if (resultp == DialogResult.Yes)
                     {
                         Cursor.Current = Cursors.WaitCursor;
@@ -141,32 +144,36 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                         Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, descargando registros...");
 
-                        DataTable dtemplsinc = SincReg.cbsincsica(16, Int32.Parse(cbtiponomina.SelectedValue.ToString()));
-                        string sdatos = dtemplsinc.Rows[0][0].ToString();
-
-                        string icaracttotal = (sdatos.Length.ToString());
-                        int ivalor = Int32.Parse(icaracttotal) - 1;
-
-                        string sdatosbusq = sdatos.Substring(0, ivalor);
+                        DataTable dtempleados = SincReg.cbsincsica(17, Int32.Parse(cbtiponomina.SelectedValue.ToString()));
 
                         DataTable dtfechas = ProcesaInc.dttiponomina(14, Int32.Parse(cbtiponomina.SelectedValue.ToString()));
                         string sfecini = dtfechas.Rows[0][2].ToString();
                         string sfecfin = dtfechas.Rows[0][3].ToString();
 
-                        DataTable dtsipaasicasinc = SincReg.dtsincsicasipa(sfecini, sfecfin, sdatosbusq);
-                        int num = dtsipaasicasinc.Rows.Count + 1;
-                        string nrorows = num.ToString();
-                        //System.Threading.Thread.Sleep(30);
+                        int contador = 1;
+                        int inumeroempleado = dtempleados.Rows.Count + 1;
 
-                        foreach (DataRow row in dtsipaasicasinc.Rows)
+                        foreach (DataRow row in dtempleados.Rows)
                         {
-                            string sidtrab = row["idtrab"].ToString();
-                            string sferegistro = row["fecha"].ToString();
-                            string shrregistro = row["registro"].ToString();
+                            int iporcentajeavance = (contador * 100) / inumeroempleado;
 
-                            InsReg.Relojchecador(sidtrab, 5, DateTime.Parse(sferegistro), 0, TimeSpan.Parse(shrregistro), 4, 0, LoginInfo.IdTrab, this.Name);
+                            string iidempleado = row["idtrab"].ToString();
+                            string sempleado = row["empleado"].ToString();
+
+                            Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Sincronizando registros, Empleado: " + sempleado + ", " + contador + "  de  " + inumeroempleado + " Avance: " + iporcentajeavance + " %");
+
+
+                            DataTable dtsipaasicasinc = SincReg.dtsincsicasipa(sfecini, sfecfin, iidempleado);
+
+                            foreach (DataRow row1 in dtsipaasicasinc.Rows)
+                            {
+                                string sidtrab = row1["idtrab"].ToString();
+                                string sferegistro = row1["fecha"].ToString();
+                                string shrregistro = row1["registro"].ToString();
+
+                                InsReg.Relojchecador(sidtrab, 5, DateTime.Parse(sferegistro), 0, TimeSpan.Parse(shrregistro), 6, 0, LoginInfo.IdTrab, this.Name);
+                            }
                             contador = contador + 1;
-                            Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Sincronizando registros... " + contador + "  de  " + nrorows);
                         }
 
                         //llena combo tipo de nomina
@@ -179,12 +186,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                         btnsinc.Enabled = true;
                         Cursor.Current = Cursors.Default;
-                        pnlmenssuid.Visible = false;
 
+                        Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 1, "Registros importados con exito");
                         DialogResult result = MessageBox.Show("Registros importados con exito", "SIPAA", MessageBoxButtons.OK);
 
+                        pnlmenssuid.Visible = false;
                         cbtiponomina.Focus();
-
+                        
                     }
                 }
             }
@@ -249,7 +257,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             toolTip1.ShowAlways = true;
 
             //configura texto del objeto
-            toolTip1.SetToolTip(this.btncerrar, "Cierrar Sistema");
+            toolTip1.SetToolTip(this.btncerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnminimizar, "Minimizar Sistema");
             toolTip1.SetToolTip(this.btnregresar, "Regresar");
 

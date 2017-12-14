@@ -198,7 +198,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
-            this.btnCerrar.Location = new System.Drawing.Point(986, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(1000, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
             this.btnCerrar.TabIndex = 144;
@@ -213,7 +213,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnMinimizar.Location = new System.Drawing.Point(960, 0);
+            this.btnMinimizar.Location = new System.Drawing.Point(974, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
             this.btnMinimizar.TabIndex = 145;
@@ -228,7 +228,7 @@
             this.btnRegresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.btnRegresar.Location = new System.Drawing.Point(914, 0);
+            this.btnRegresar.Location = new System.Drawing.Point(928, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 146;
@@ -243,7 +243,7 @@
             this.lbltitulo.ForeColor = System.Drawing.Color.White;
             this.lbltitulo.Image = global::SIPAA_CS.Properties.Resources.ic_assignment_white_24dp;
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbltitulo.Location = new System.Drawing.Point(328, 1);
+            this.lbltitulo.Location = new System.Drawing.Point(357, 1);
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(242, 23);
             this.lbltitulo.TabIndex = 147;
@@ -724,7 +724,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.pnlMensaje);
             this.Controls.Add(label3);
             this.Controls.Add(lblimprimir);
