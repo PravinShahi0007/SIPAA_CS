@@ -184,7 +184,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 if (bvalidacampos == true)
                 {
-                    int ivali = justincd.cruddatos(1, 22, 0, 0, txtdescripcion.Text.Trim(), 1, LoginInfo.IdTrab, this.Name);
+                    int ivali = justincd.cruddatos(1, 20, 0, 0, txtdescripcion.Text.Trim(), 1, LoginInfo.IdTrab, this.Name);
 
                     if (ivali == 1)
                     {
@@ -211,7 +211,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 if (bvalidacampos == true)
                 {
-                    int ivalu = justincd.cruddatos(2, 22, 0, icvedatomoficar, txtdescripcion.Text.Trim(), 1, LoginInfo.IdTrab, this.Name);
+                    int ivalu = justincd.cruddatos(2, 20, 0, icvedatomoficar, txtdescripcion.Text.Trim(), 1, LoginInfo.IdTrab, this.Name);
 
                     if (ivalu == 2)
                     {
@@ -239,7 +239,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 if (result == DialogResult.Yes)
                 {
-                    int ivald = justincd.cruddatos(3, 22, 0, icvedatomoficar, txtdescripcion.Text.Trim(), 0, LoginInfo.IdTrab, this.Name);
+                    int ivald = justincd.cruddatos(3, 20, 0, icvedatomoficar, txtdescripcion.Text.Trim(), 0, LoginInfo.IdTrab, this.Name);
 
                     if (ivald == 3)
                     {
@@ -310,7 +310,6 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
             //inicializa tool tip
             ftooltip();
-
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;

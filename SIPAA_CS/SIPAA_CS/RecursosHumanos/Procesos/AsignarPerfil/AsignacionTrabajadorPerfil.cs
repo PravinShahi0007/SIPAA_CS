@@ -1430,7 +1430,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 if (bConexion != false)
                 {
 
-                    //objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, iOpcion, sUsuuMod, sPrguMod);
+                    objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, iOpcion, sUsuuMod, sPrguMod);
                     //objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
                     if (chkAdmin.Checked == true)
                         objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, sPrguMod, 8);
