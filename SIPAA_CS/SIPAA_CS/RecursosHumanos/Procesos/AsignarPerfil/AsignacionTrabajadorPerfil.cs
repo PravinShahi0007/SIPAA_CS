@@ -1429,8 +1429,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 bConexion = Connect_Net(obj.IpReloj, 4370);
                 if (bConexion != false)
                 {
-
-                    //objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, iOpcion, sUsuuMod, sPrguMod);
+                    //descomenta RL 08/01/2017
+                    objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, iOpcion, sUsuuMod, sPrguMod);
                     //objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
                     if (chkAdmin.Checked == true)
                         objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, sPrguMod, 8);
