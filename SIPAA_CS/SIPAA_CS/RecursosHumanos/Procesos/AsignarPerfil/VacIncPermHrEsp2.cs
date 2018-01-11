@@ -356,7 +356,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.ToString());
+                            // MessageBox.Show(ex.ToString());
+                            MessageBox.Show("Problemas con el Empleado  "+ Convert.ToInt32(row.Cells[1].Value.ToString())+ "  " + row.Cells[2].Value.ToString() + "  Verifique su Perfil.", "SIPAA");
                         }
                     }
                 }
@@ -375,7 +376,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.ToString());
+                            //MessageBox.Show(ex.ToString());
+                            MessageBox.Show("Problemas con el Empleado  " + Convert.ToInt32(row.Cells[1].Value.ToString())+"  "+ row.Cells[2].Value.ToString()+ "  Verifique su Perfil.", "SIPAA");
                         }
                     }
                     //frecargar();
