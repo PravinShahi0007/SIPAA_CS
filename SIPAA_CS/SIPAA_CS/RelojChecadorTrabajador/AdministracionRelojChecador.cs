@@ -156,7 +156,11 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             dgvReloj.Columns["Usuario Sincronizó Asistencias"].Visible = false;
             dgvReloj.Columns["Usuario Sincronizó Usuarios"].Visible = false;
             dgvReloj.Columns[0].Width = 90;
-           
+            dgvReloj.Columns[2].Width = 220;
+            dgvReloj.Columns[10].Width = 150;
+            dgvReloj.Columns[11].Width = 150;
+            dgvReloj.ClearSelection();
+
 
             foreach (DataGridViewRow row in dgvReloj.Rows)
             {
@@ -242,10 +246,10 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 objR.Huella = Convert.ToBoolean(row.Cells["Huella"].Value);
                 objR.Rostro = Convert.ToBoolean(row.Cells["Rostro"].Value);
                 objR.MultipleHuella = Convert.ToBoolean(row.Cells["multiplehuella"].Value);
-                objR.UltimaDescargaAsistencia = row.Cells["Ultima Descarga Asistencias"].Value.ToString();
+                objR.UltimaDescargaAsistencia = row.Cells["Última Descarga Asistencias"].Value.ToString();
                 objR.Descripcion = row.Cells["Descripción"].Value.ToString();
                 objR.UsuDescargaAsistencia = row.Cells["Usuario Sincronizó Asistencias"].Value.ToString();
-                objR.UltimaSincronizacion = row.Cells["Ultima Sincronización Usuarios"].Value.ToString();
+                objR.UltimaSincronizacion = row.Cells["Última Sincronización Usuarios"].Value.ToString();
                 objR.UltimoUsuarioSinc = row.Cells["Usuario Sincronizó Usuarios"].Value.ToString();
 
                 ValidarExistencia(ltReloj, objR);
