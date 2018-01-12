@@ -12,7 +12,7 @@ namespace SIPAA_CS.Conexiones
     public class Conexion
     {
         SqlConnection cn;
-        SqlConnection cns;
+        //SqlConnection cns;
         SqlCommand cmd;
         //SqlDataReader dr;
         SqlDataAdapter da;
