@@ -238,7 +238,6 @@ namespace SIPAA_CS.App_Code
         public DataTable ObtenerPerfiles(string sCvPerfil, string sDescripcion, string sEstatus, int opcion)
         {
 
-
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_acceperfil_suid";
             cmd.CommandType = CommandType.StoredProcedure;
@@ -249,8 +248,6 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_usuarioumod", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@p_programaumod", SqlDbType.VarChar).Value = "";
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = opcion;
-
-
 
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
