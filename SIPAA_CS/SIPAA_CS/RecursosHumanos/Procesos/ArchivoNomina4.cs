@@ -223,7 +223,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, this.CompanyName, "IncidenciasPendientesAutorizar.rpt");
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "SIPAA_CS.RecursosHumanos.Reportes", "IncidenciasPendientesAutorizar.rpt");
                         ReportDoc.SetParameterValue("FechaInicial", dtpfechainicial.Value.Date);
                         ReportDoc.SetParameterValue("FechaFinal", dtpfechafinal.Value.Date);
                         ReportDoc.SetParameterValue("NomCompania", cbCompania.SelectedValue.ToString());
@@ -272,7 +272,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     default:
                         ViewerReporte form = new ViewerReporte();
-                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, this.CompanyName, "FechasHorasRegistro.rpt");
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "SIPAA_CS.RecursosHumanos.Reportes", "FechasHorasRegistro.rpt");
                         ReportDoc.SetParameterValue("FechaInicial", dtpfechainicial.Value.Date);
                         ReportDoc.SetParameterValue("FechaFinal", dtpfechafinal.Value.Date);
                         ReportDoc.SetParameterValue("NomCompania", cbCompania.SelectedValue.ToString());
