@@ -110,7 +110,7 @@
             label9.ForeColor = System.Drawing.Color.Gray;
             label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
             label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(5, 0);
+            label9.Location = new System.Drawing.Point(4, 3);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(152, 17);
             label9.TabIndex = 41;
@@ -164,6 +164,7 @@
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 24);
             this.btnRegresar.TabIndex = 132;
+            this.btnRegresar.TabStop = false;
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
@@ -228,7 +229,7 @@
             this.pnlBusqueda.Location = new System.Drawing.Point(56, 202);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(477, 513);
-            this.pnlBusqueda.TabIndex = 128;
+            this.pnlBusqueda.TabIndex = 200;
             this.pnlBusqueda.TabStop = true;
             // 
             // cbEmpleados
@@ -242,7 +243,7 @@
             this.cbEmpleados.Location = new System.Drawing.Point(44, 68);
             this.cbEmpleados.Name = "cbEmpleados";
             this.cbEmpleados.Size = new System.Drawing.Size(396, 25);
-            this.cbEmpleados.TabIndex = 181;
+            this.cbEmpleados.TabIndex = 1;
             this.cbEmpleados.Text = "Seleccionar";
             // 
             // cbUbicacion
@@ -260,7 +261,7 @@
             this.cbUbicacion.Location = new System.Drawing.Point(44, 206);
             this.cbUbicacion.Name = "cbUbicacion";
             this.cbUbicacion.Size = new System.Drawing.Size(396, 25);
-            this.cbUbicacion.TabIndex = 59;
+            this.cbUbicacion.TabIndex = 3;
             this.cbUbicacion.Text = "Seleccionar ";
             // 
             // dpFechaFin
@@ -270,7 +271,7 @@
             this.dpFechaFin.Location = new System.Drawing.Point(44, 414);
             this.dpFechaFin.Name = "dpFechaFin";
             this.dpFechaFin.Size = new System.Drawing.Size(113, 25);
-            this.dpFechaFin.TabIndex = 62;
+            this.dpFechaFin.TabIndex = 5;
             this.dpFechaFin.ValueChanged += new System.EventHandler(this.dpFechaFin_ValueChanged);
             // 
             // cbCia
@@ -288,7 +289,7 @@
             this.cbCia.Location = new System.Drawing.Point(44, 136);
             this.cbCia.Name = "cbCia";
             this.cbCia.Size = new System.Drawing.Size(396, 25);
-            this.cbCia.TabIndex = 57;
+            this.cbCia.TabIndex = 2;
             this.cbCia.Text = "Seleccionar ";
             // 
             // dpFechaInicio
@@ -298,7 +299,7 @@
             this.dpFechaInicio.Location = new System.Drawing.Point(44, 310);
             this.dpFechaInicio.Name = "dpFechaInicio";
             this.dpFechaInicio.Size = new System.Drawing.Size(113, 25);
-            this.dpFechaInicio.TabIndex = 61;
+            this.dpFechaInicio.TabIndex = 4;
             this.dpFechaInicio.ValueChanged += new System.EventHandler(this.dpFechaFin_ValueChanged);
             // 
             // btnImprimirDetalle
@@ -310,7 +311,7 @@
             this.btnImprimirDetalle.Location = new System.Drawing.Point(281, 32);
             this.btnImprimirDetalle.Name = "btnImprimirDetalle";
             this.btnImprimirDetalle.Size = new System.Drawing.Size(55, 55);
-            this.btnImprimirDetalle.TabIndex = 2;
+            this.btnImprimirDetalle.TabIndex = 5;
             this.btnImprimirDetalle.Tag = "Buscar";
             this.btnImprimirDetalle.UseVisualStyleBackColor = false;
             this.btnImprimirDetalle.Click += new System.EventHandler(this.btnImprimirDetalle_Click);
@@ -332,7 +333,8 @@
             this.panelTag.Location = new System.Drawing.Point(596, 619);
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(399, 30);
-            this.panelTag.TabIndex = 137;
+            this.panelTag.TabIndex = 201;
+            this.panelTag.TabStop = true;
             this.panelTag.Visible = false;
             // 
             // lbMensaje

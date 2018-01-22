@@ -171,6 +171,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
             cbEmpleados.Focus();
             btnImprimirDetalle.Image = Properties.Resources.Imprimir;
+
+            cbEmpleados.Focus();
         }
 
 
