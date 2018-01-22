@@ -1421,22 +1421,34 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void CrearAsignaciones_Reloj(string sUsuuMod, string sPrguMod, int iOpcion)
         {
-           RelojChecador objReloj = new RelojChecador();
+            RelojChecador objReloj = new RelojChecador();
             SonaTrabajador objTrab = new SonaTrabajador();
             bool bConexion = false;
             int iCont = 0;
             foreach (Reloj obj in ltReloj2)
             {
+
+
+
+                objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, iOpcion, sUsuuMod, sPrguMod);
+                if (chkAdmin.Checked == true)
+                    objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, sPrguMod, 8);
+
                 iCont += 1;
                 ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj2.Count);
                 bConexion = Connect_Net(obj.IpReloj, 4370);
+
+
                 if (bConexion != false)
                 {
-                    //descomenta RL 08/01/2017
-                    objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, iOpcion, sUsuuMod, sPrguMod);
-                    //objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
-                    if (chkAdmin.Checked == true)
-                        objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, sPrguMod, 8);
+                    ////descomenta RL 08/01/2017
+                    //objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, iOpcion, sUsuuMod, sPrguMod);
+                    ////objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, Grupo, 12, sUsuuMod, Name);
+                    //if (chkAdmin.Checked == true)
+                    //    objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, sPrguMod, 8);
+
+
+
                     string idtrab = lbIdTrab.Text;
                     string Nombre = lbNombre.Text;
                     bool BeginBatchUpdate = false;
@@ -1454,7 +1466,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 else
                 {
                     ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.Descripcion);
-                    break;
+                    // break;
                 }
 
 
@@ -1479,10 +1491,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 else
                 {
                     ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.Descripcion);
-                    break;
+                    // break;
                 }
 
             }
+
+
 
             ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Datos guardados en el servidor");
             DialogResult Resultado = MessageBox.Show("Por favor capture los biométricos del empleado, AL TERMINAR \npresione ACEPTAR para que los datos se sincronicen\nen caso de no poder tomar los biometricos, presione CANCELAR", "SIPAA", MessageBoxButtons.OKCancel);
@@ -1501,7 +1515,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 }
 
                 ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Comenzando la sincronizacion.");
-                  SincronizaBiometricos(ltReloj2, objReloj);
+                SincronizaBiometricos(ltReloj2, objReloj);
 
 
             }
@@ -1513,6 +1527,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             ltReloj.Clear();
 
         }
+
 
         public void SincronizaBiometricos(List<Reloj> ltReloj2, RelojChecador objReloj)
         {

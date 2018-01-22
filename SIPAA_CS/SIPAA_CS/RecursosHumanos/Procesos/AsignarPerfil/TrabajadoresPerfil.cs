@@ -22,6 +22,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         int iins, iact, ielim;
         int iactbtn, istcheca;
         string sestperf, iidtrabmodif, istchec;
+        int iuserexiste, iuserperfexiste;
         #endregion
 
         Perfil DatPerfil = new Perfil();
@@ -252,6 +253,25 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     menssuid.Text = "Registro agregado correctamente";
                     timer1.Start();
                     iidtrabmodif = "0";
+
+                    //if (istchec == "1")
+                    //{
+                    //    //variables usuario existe
+                    //    DataTable user = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 21);
+                    //    iuserexiste = Int32.Parse(user.Rows[0][0].ToString());
+
+                    //    DataTable userperfil = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 22);
+                    //    iuserperfexiste = Int32.Parse(userperfil.Rows[0][0].ToString());
+                    //}
+
+                    //if (iuserexiste == 0 && iuserperfexiste == 0)
+                    //{
+
+                    //    //eliminar registro
+                    //    DialogResult result = MessageBox.Show("El empleado no tiene los accesos para consultar sus incidencias, ¿Desea Crearlos?", "SIPAA", MessageBoxButtons.YesNo);
+
+                    //}
+
                 }
             }
             else if (iactbtn == 2)
