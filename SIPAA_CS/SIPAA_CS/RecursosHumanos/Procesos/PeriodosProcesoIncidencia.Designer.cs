@@ -38,9 +38,14 @@
             System.Windows.Forms.Label lblFormaPago;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label5;
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label8;
+            System.Windows.Forms.Label label9;
             this.lblusuario = new System.Windows.Forms.Label();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -65,11 +70,7 @@
             this.lblFechaFinProcesarIncidencia = new System.Windows.Forms.Label();
             this.lblFechaInicioProcesarIncidencia = new System.Windows.Forms.Label();
             this.cbStatusPeriodo = new System.Windows.Forms.ComboBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.dtpFechaFinPeriodoIncidencia = new System.Windows.Forms.DateTimePicker();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.dtpFechaInicioPeriodoIncidencia = new System.Windows.Forms.DateTimePicker();
             this.ckbEliminar = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -88,6 +89,7 @@
             this.txtBuscarDF = new System.Windows.Forms.TextBox();
             this.cbFormaPago = new System.Windows.Forms.ComboBox();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             lblGridDiasFestivos = new System.Windows.Forms.Label();
             lblFechaInicioPeriodoIncidencia = new System.Windows.Forms.Label();
             lblFechaFinPeriodoIncidencia = new System.Windows.Forms.Label();
@@ -96,10 +98,13 @@
             lblFormaPago = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeriodosProcesoIncidencias)).BeginInit();
             this.pnlActPeriodoIncidencia.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelTag.SuspendLayout();
@@ -114,7 +119,7 @@
             lblGridDiasFestivos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblGridDiasFestivos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblGridDiasFestivos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblGridDiasFestivos.Location = new System.Drawing.Point(464, 213);
+            lblGridDiasFestivos.Location = new System.Drawing.Point(265, 155);
             lblGridDiasFestivos.Name = "lblGridDiasFestivos";
             lblGridDiasFestivos.Size = new System.Drawing.Size(128, 16);
             lblGridDiasFestivos.TabIndex = 137;
@@ -126,11 +131,11 @@
             lblFechaInicioPeriodoIncidencia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblFechaInicioPeriodoIncidencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblFechaInicioPeriodoIncidencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblFechaInicioPeriodoIncidencia.Location = new System.Drawing.Point(30, 38);
+            lblFechaInicioPeriodoIncidencia.Location = new System.Drawing.Point(5, 46);
             lblFechaInicioPeriodoIncidencia.Name = "lblFechaInicioPeriodoIncidencia";
-            lblFechaInicioPeriodoIncidencia.Size = new System.Drawing.Size(126, 16);
+            lblFechaInicioPeriodoIncidencia.Size = new System.Drawing.Size(86, 16);
             lblFechaInicioPeriodoIncidencia.TabIndex = 57;
-            lblFechaInicioPeriodoIncidencia.Text = "Fecha Inicio Periodo";
+            lblFechaInicioPeriodoIncidencia.Text = "Inicio Periodo";
             // 
             // lblFechaFinPeriodoIncidencia
             // 
@@ -138,11 +143,11 @@
             lblFechaFinPeriodoIncidencia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblFechaFinPeriodoIncidencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblFechaFinPeriodoIncidencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblFechaFinPeriodoIncidencia.Location = new System.Drawing.Point(244, 38);
+            lblFechaFinPeriodoIncidencia.Location = new System.Drawing.Point(120, 44);
             lblFechaFinPeriodoIncidencia.Name = "lblFechaFinPeriodoIncidencia";
-            lblFechaFinPeriodoIncidencia.Size = new System.Drawing.Size(114, 16);
+            lblFechaFinPeriodoIncidencia.Size = new System.Drawing.Size(74, 16);
             lblFechaFinPeriodoIncidencia.TabIndex = 61;
-            lblFechaFinPeriodoIncidencia.Text = "Fecha Fin Periodo";
+            lblFechaFinPeriodoIncidencia.Text = "Fín Periodo";
             // 
             // label4
             // 
@@ -150,7 +155,7 @@
             label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(25, 22);
+            label4.Location = new System.Drawing.Point(25, 23);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(76, 16);
             label4.TabIndex = 44;
@@ -176,7 +181,7 @@
             lblFormaPago.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lblFormaPago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblFormaPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblFormaPago.Location = new System.Drawing.Point(464, 145);
+            lblFormaPago.Location = new System.Drawing.Point(266, 118);
             lblFormaPago.Name = "lblFormaPago";
             lblFormaPago.Size = new System.Drawing.Size(97, 16);
             lblFormaPago.TabIndex = 143;
@@ -189,11 +194,11 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(31, 459);
+            label2.Location = new System.Drawing.Point(5, 454);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(94, 16);
+            label2.Size = new System.Drawing.Size(101, 16);
             label2.TabIndex = 144;
-            label2.Text = "Status Periodo";
+            label2.Text = "Estatus Periodo";
             // 
             // label3
             // 
@@ -201,7 +206,7 @@
             label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(35, 395);
+            label3.Location = new System.Drawing.Point(4, 390);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(76, 16);
             label3.TabIndex = 44;
@@ -286,30 +291,30 @@
             this.dgvPeriodosProcesoIncidencias.AllowUserToAddRows = false;
             this.dgvPeriodosProcesoIncidencias.AllowUserToDeleteRows = false;
             this.dgvPeriodosProcesoIncidencias.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvPeriodosProcesoIncidencias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvPeriodosProcesoIncidencias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvPeriodosProcesoIncidencias.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPeriodosProcesoIncidencias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvPeriodosProcesoIncidencias.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPeriodosProcesoIncidencias.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPeriodosProcesoIncidencias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPeriodosProcesoIncidencias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvPeriodosProcesoIncidencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPeriodosProcesoIncidencias.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvPeriodosProcesoIncidencias.Location = new System.Drawing.Point(467, 232);
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPeriodosProcesoIncidencias.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvPeriodosProcesoIncidencias.Location = new System.Drawing.Point(266, 175);
             this.dgvPeriodosProcesoIncidencias.Name = "dgvPeriodosProcesoIncidencias";
             this.dgvPeriodosProcesoIncidencias.ReadOnly = true;
             this.dgvPeriodosProcesoIncidencias.RowHeadersVisible = false;
@@ -317,7 +322,7 @@
             this.dgvPeriodosProcesoIncidencias.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvPeriodosProcesoIncidencias.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvPeriodosProcesoIncidencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPeriodosProcesoIncidencias.Size = new System.Drawing.Size(531, 475);
+            this.dgvPeriodosProcesoIncidencias.Size = new System.Drawing.Size(746, 549);
             this.dgvPeriodosProcesoIncidencias.TabIndex = 129;
             this.dgvPeriodosProcesoIncidencias.TabStop = false;
             this.dgvPeriodosProcesoIncidencias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPeriodosProcesoIncidencias_CellContentClick);
@@ -325,6 +330,11 @@
             // pnlActPeriodoIncidencia
             // 
             this.pnlActPeriodoIncidencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlActPeriodoIncidencia.Controls.Add(label9);
+            this.pnlActPeriodoIncidencia.Controls.Add(label8);
+            this.pnlActPeriodoIncidencia.Controls.Add(label7);
+            this.pnlActPeriodoIncidencia.Controls.Add(label6);
+            this.pnlActPeriodoIncidencia.Controls.Add(label5);
             this.pnlActPeriodoIncidencia.Controls.Add(this.dtpFechaFinCalificarIncidenciaDir);
             this.pnlActPeriodoIncidencia.Controls.Add(this.dtpFechaInicioCalificarIncidenciaDir);
             this.pnlActPeriodoIncidencia.Controls.Add(this.dtpFechaFinCalificarIncidenciaSup);
@@ -343,10 +353,8 @@
             this.pnlActPeriodoIncidencia.Controls.Add(this.lblFechaInicioProcesarIncidencia);
             this.pnlActPeriodoIncidencia.Controls.Add(this.cbStatusPeriodo);
             this.pnlActPeriodoIncidencia.Controls.Add(label2);
-            this.pnlActPeriodoIncidencia.Controls.Add(this.panel8);
             this.pnlActPeriodoIncidencia.Controls.Add(this.dtpFechaFinPeriodoIncidencia);
             this.pnlActPeriodoIncidencia.Controls.Add(lblFechaFinPeriodoIncidencia);
-            this.pnlActPeriodoIncidencia.Controls.Add(this.panel1);
             this.pnlActPeriodoIncidencia.Controls.Add(this.dtpFechaInicioPeriodoIncidencia);
             this.pnlActPeriodoIncidencia.Controls.Add(lblFechaInicioPeriodoIncidencia);
             this.pnlActPeriodoIncidencia.Controls.Add(this.ckbEliminar);
@@ -357,9 +365,9 @@
             this.pnlActPeriodoIncidencia.Controls.Add(this.btnInsertar);
             this.pnlActPeriodoIncidencia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlActPeriodoIncidencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.pnlActPeriodoIncidencia.Location = new System.Drawing.Point(12, 232);
+            this.pnlActPeriodoIncidencia.Location = new System.Drawing.Point(11, 175);
             this.pnlActPeriodoIncidencia.Name = "pnlActPeriodoIncidencia";
-            this.pnlActPeriodoIncidencia.Size = new System.Drawing.Size(434, 524);
+            this.pnlActPeriodoIncidencia.Size = new System.Drawing.Size(239, 581);
             this.pnlActPeriodoIncidencia.TabIndex = 138;
             this.pnlActPeriodoIncidencia.TabStop = true;
             this.pnlActPeriodoIncidencia.Visible = false;
@@ -368,7 +376,7 @@
             // dtpFechaFinCalificarIncidenciaDir
             // 
             this.dtpFechaFinCalificarIncidenciaDir.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaFinCalificarIncidenciaDir.Location = new System.Drawing.Point(247, 317);
+            this.dtpFechaFinCalificarIncidenciaDir.Location = new System.Drawing.Point(123, 365);
             this.dtpFechaFinCalificarIncidenciaDir.Name = "dtpFechaFinCalificarIncidenciaDir";
             this.dtpFechaFinCalificarIncidenciaDir.Size = new System.Drawing.Size(92, 22);
             this.dtpFechaFinCalificarIncidenciaDir.TabIndex = 13;
@@ -376,7 +384,7 @@
             // dtpFechaInicioCalificarIncidenciaDir
             // 
             this.dtpFechaInicioCalificarIncidenciaDir.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaInicioCalificarIncidenciaDir.Location = new System.Drawing.Point(37, 317);
+            this.dtpFechaInicioCalificarIncidenciaDir.Location = new System.Drawing.Point(9, 365);
             this.dtpFechaInicioCalificarIncidenciaDir.Name = "dtpFechaInicioCalificarIncidenciaDir";
             this.dtpFechaInicioCalificarIncidenciaDir.Size = new System.Drawing.Size(92, 22);
             this.dtpFechaInicioCalificarIncidenciaDir.TabIndex = 12;
@@ -385,7 +393,7 @@
             // dtpFechaFinCalificarIncidenciaSup
             // 
             this.dtpFechaFinCalificarIncidenciaSup.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaFinCalificarIncidenciaSup.Location = new System.Drawing.Point(248, 260);
+            this.dtpFechaFinCalificarIncidenciaSup.Location = new System.Drawing.Point(123, 290);
             this.dtpFechaFinCalificarIncidenciaSup.Name = "dtpFechaFinCalificarIncidenciaSup";
             this.dtpFechaFinCalificarIncidenciaSup.Size = new System.Drawing.Size(92, 22);
             this.dtpFechaFinCalificarIncidenciaSup.TabIndex = 11;
@@ -393,7 +401,7 @@
             // dtpFechaInicioCalificarIncidenciaSup
             // 
             this.dtpFechaInicioCalificarIncidenciaSup.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaInicioCalificarIncidenciaSup.Location = new System.Drawing.Point(37, 260);
+            this.dtpFechaInicioCalificarIncidenciaSup.Location = new System.Drawing.Point(9, 290);
             this.dtpFechaInicioCalificarIncidenciaSup.Name = "dtpFechaInicioCalificarIncidenciaSup";
             this.dtpFechaInicioCalificarIncidenciaSup.Size = new System.Drawing.Size(92, 22);
             this.dtpFechaInicioCalificarIncidenciaSup.TabIndex = 10;
@@ -404,50 +412,50 @@
             this.lblFechaFinCalificaIncidenciaDir.AutoSize = true;
             this.lblFechaFinCalificaIncidenciaDir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaFinCalificaIncidenciaDir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblFechaFinCalificaIncidenciaDir.Location = new System.Drawing.Point(245, 298);
+            this.lblFechaFinCalificaIncidenciaDir.Location = new System.Drawing.Point(121, 345);
             this.lblFechaFinCalificaIncidenciaDir.Name = "lblFechaFinCalificaIncidenciaDir";
-            this.lblFechaFinCalificaIncidenciaDir.Size = new System.Drawing.Size(132, 16);
+            this.lblFechaFinCalificaIncidenciaDir.Size = new System.Drawing.Size(92, 16);
             this.lblFechaFinCalificaIncidenciaDir.TabIndex = 161;
-            this.lblFechaFinCalificaIncidenciaDir.Text = "Fecha Fin Califica Dir";
+            this.lblFechaFinCalificaIncidenciaDir.Text = "Fín Califica Dir";
             // 
             // lblFechaInicioCalificaIncidenciaDir
             // 
             this.lblFechaInicioCalificaIncidenciaDir.AutoSize = true;
             this.lblFechaInicioCalificaIncidenciaDir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaInicioCalificaIncidenciaDir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblFechaInicioCalificaIncidenciaDir.Location = new System.Drawing.Point(35, 298);
+            this.lblFechaInicioCalificaIncidenciaDir.Location = new System.Drawing.Point(7, 345);
             this.lblFechaInicioCalificaIncidenciaDir.Name = "lblFechaInicioCalificaIncidenciaDir";
-            this.lblFechaInicioCalificaIncidenciaDir.Size = new System.Drawing.Size(144, 16);
+            this.lblFechaInicioCalificaIncidenciaDir.Size = new System.Drawing.Size(104, 16);
             this.lblFechaInicioCalificaIncidenciaDir.TabIndex = 160;
-            this.lblFechaInicioCalificaIncidenciaDir.Text = "Fecha Inicio Califica Dir";
+            this.lblFechaInicioCalificaIncidenciaDir.Text = "Inicio Califica Dir";
             // 
             // lblFechaFinCalificaIncidenciaSup
             // 
             this.lblFechaFinCalificaIncidenciaSup.AutoSize = true;
             this.lblFechaFinCalificaIncidenciaSup.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaFinCalificaIncidenciaSup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblFechaFinCalificaIncidenciaSup.Location = new System.Drawing.Point(245, 241);
+            this.lblFechaFinCalificaIncidenciaSup.Location = new System.Drawing.Point(120, 270);
             this.lblFechaFinCalificaIncidenciaSup.Name = "lblFechaFinCalificaIncidenciaSup";
-            this.lblFechaFinCalificaIncidenciaSup.Size = new System.Drawing.Size(139, 16);
+            this.lblFechaFinCalificaIncidenciaSup.Size = new System.Drawing.Size(99, 16);
             this.lblFechaFinCalificaIncidenciaSup.TabIndex = 158;
-            this.lblFechaFinCalificaIncidenciaSup.Text = "Fecha Fin Califica Sup";
+            this.lblFechaFinCalificaIncidenciaSup.Text = "Fin Califica Sup";
             // 
             // lblFechaInicioCalificaIncidenciaSup
             // 
             this.lblFechaInicioCalificaIncidenciaSup.AutoSize = true;
             this.lblFechaInicioCalificaIncidenciaSup.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaInicioCalificaIncidenciaSup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblFechaInicioCalificaIncidenciaSup.Location = new System.Drawing.Point(33, 241);
+            this.lblFechaInicioCalificaIncidenciaSup.Location = new System.Drawing.Point(5, 270);
             this.lblFechaInicioCalificaIncidenciaSup.Name = "lblFechaInicioCalificaIncidenciaSup";
-            this.lblFechaInicioCalificaIncidenciaSup.Size = new System.Drawing.Size(151, 16);
+            this.lblFechaInicioCalificaIncidenciaSup.Size = new System.Drawing.Size(111, 16);
             this.lblFechaInicioCalificaIncidenciaSup.TabIndex = 157;
-            this.lblFechaInicioCalificaIncidenciaSup.Text = "Fecha Inicio Califica Sup";
+            this.lblFechaInicioCalificaIncidenciaSup.Text = "Inicio Califica Sup";
             this.lblFechaInicioCalificaIncidenciaSup.Click += new System.EventHandler(this.lblFechaInicioCalificaIncidenciaSup_Click);
             // 
             // dtpFechaFinConsultarIncidencia
             // 
             this.dtpFechaFinConsultarIncidencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaFinConsultarIncidencia.Location = new System.Drawing.Point(245, 194);
+            this.dtpFechaFinConsultarIncidencia.Location = new System.Drawing.Point(121, 216);
             this.dtpFechaFinConsultarIncidencia.Name = "dtpFechaFinConsultarIncidencia";
             this.dtpFechaFinConsultarIncidencia.Size = new System.Drawing.Size(92, 22);
             this.dtpFechaFinConsultarIncidencia.TabIndex = 9;
@@ -455,7 +463,7 @@
             // dtpFechaInicioConsultarIncidencia
             // 
             this.dtpFechaInicioConsultarIncidencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaInicioConsultarIncidencia.Location = new System.Drawing.Point(36, 194);
+            this.dtpFechaInicioConsultarIncidencia.Location = new System.Drawing.Point(7, 216);
             this.dtpFechaInicioConsultarIncidencia.Name = "dtpFechaInicioConsultarIncidencia";
             this.dtpFechaInicioConsultarIncidencia.Size = new System.Drawing.Size(92, 22);
             this.dtpFechaInicioConsultarIncidencia.TabIndex = 8;
@@ -466,27 +474,27 @@
             this.lblFechaFinConsultarIncidencia.AutoSize = true;
             this.lblFechaFinConsultarIncidencia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaFinConsultarIncidencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblFechaFinConsultarIncidencia.Location = new System.Drawing.Point(247, 177);
+            this.lblFechaFinConsultarIncidencia.Location = new System.Drawing.Point(120, 196);
             this.lblFechaFinConsultarIncidencia.Name = "lblFechaFinConsultarIncidencia";
-            this.lblFechaFinConsultarIncidencia.Size = new System.Drawing.Size(125, 16);
+            this.lblFechaFinConsultarIncidencia.Size = new System.Drawing.Size(85, 16);
             this.lblFechaFinConsultarIncidencia.TabIndex = 153;
-            this.lblFechaFinConsultarIncidencia.Text = "Fecha Fin Consultar";
+            this.lblFechaFinConsultarIncidencia.Text = "Fín Consultar";
             // 
             // lblFechaInicioConsultarIncidencia
             // 
             this.lblFechaInicioConsultarIncidencia.AutoSize = true;
             this.lblFechaInicioConsultarIncidencia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaInicioConsultarIncidencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblFechaInicioConsultarIncidencia.Location = new System.Drawing.Point(33, 178);
+            this.lblFechaInicioConsultarIncidencia.Location = new System.Drawing.Point(4, 196);
             this.lblFechaInicioConsultarIncidencia.Name = "lblFechaInicioConsultarIncidencia";
-            this.lblFechaInicioConsultarIncidencia.Size = new System.Drawing.Size(137, 16);
+            this.lblFechaInicioConsultarIncidencia.Size = new System.Drawing.Size(97, 16);
             this.lblFechaInicioConsultarIncidencia.TabIndex = 152;
-            this.lblFechaInicioConsultarIncidencia.Text = "Fecha Inicio Consultar";
+            this.lblFechaInicioConsultarIncidencia.Text = "Inicio Consultar";
             // 
             // dtpFechaFinProcesarIncidencia
             // 
             this.dtpFechaFinProcesarIncidencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaFinProcesarIncidencia.Location = new System.Drawing.Point(247, 134);
+            this.dtpFechaFinProcesarIncidencia.Location = new System.Drawing.Point(121, 141);
             this.dtpFechaFinProcesarIncidencia.Name = "dtpFechaFinProcesarIncidencia";
             this.dtpFechaFinProcesarIncidencia.Size = new System.Drawing.Size(92, 22);
             this.dtpFechaFinProcesarIncidencia.TabIndex = 7;
@@ -494,7 +502,7 @@
             // dtpFechaInicioProcesarIncidencia
             // 
             this.dtpFechaInicioProcesarIncidencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaInicioProcesarIncidencia.Location = new System.Drawing.Point(36, 134);
+            this.dtpFechaInicioProcesarIncidencia.Location = new System.Drawing.Point(8, 141);
             this.dtpFechaInicioProcesarIncidencia.Name = "dtpFechaInicioProcesarIncidencia";
             this.dtpFechaInicioProcesarIncidencia.Size = new System.Drawing.Size(92, 22);
             this.dtpFechaInicioProcesarIncidencia.TabIndex = 6;
@@ -505,82 +513,50 @@
             this.lblFechaFinProcesarIncidencia.AutoSize = true;
             this.lblFechaFinProcesarIncidencia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaFinProcesarIncidencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblFechaFinProcesarIncidencia.Location = new System.Drawing.Point(242, 112);
+            this.lblFechaFinProcesarIncidencia.Location = new System.Drawing.Point(116, 121);
             this.lblFechaFinProcesarIncidencia.Name = "lblFechaFinProcesarIncidencia";
-            this.lblFechaFinProcesarIncidencia.Size = new System.Drawing.Size(122, 16);
+            this.lblFechaFinProcesarIncidencia.Size = new System.Drawing.Size(76, 16);
             this.lblFechaFinProcesarIncidencia.TabIndex = 148;
-            this.lblFechaFinProcesarIncidencia.Text = "Fecha Fin Procesar";
+            this.lblFechaFinProcesarIncidencia.Text = "Fín Generar";
             // 
             // lblFechaInicioProcesarIncidencia
             // 
             this.lblFechaInicioProcesarIncidencia.AutoSize = true;
             this.lblFechaInicioProcesarIncidencia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaInicioProcesarIncidencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblFechaInicioProcesarIncidencia.Location = new System.Drawing.Point(30, 112);
+            this.lblFechaInicioProcesarIncidencia.Location = new System.Drawing.Point(5, 121);
             this.lblFechaInicioProcesarIncidencia.Name = "lblFechaInicioProcesarIncidencia";
-            this.lblFechaInicioProcesarIncidencia.Size = new System.Drawing.Size(134, 16);
+            this.lblFechaInicioProcesarIncidencia.Size = new System.Drawing.Size(88, 16);
             this.lblFechaInicioProcesarIncidencia.TabIndex = 147;
-            this.lblFechaInicioProcesarIncidencia.Text = "Fecha Inicio Procesar";
+            this.lblFechaInicioProcesarIncidencia.Text = "Inicio Generar";
             // 
             // cbStatusPeriodo
             // 
+            this.cbStatusPeriodo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbStatusPeriodo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbStatusPeriodo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbStatusPeriodo.FormattingEnabled = true;
-            this.cbStatusPeriodo.Location = new System.Drawing.Point(182, 459);
+            this.cbStatusPeriodo.Location = new System.Drawing.Point(112, 451);
             this.cbStatusPeriodo.Name = "cbStatusPeriodo";
-            this.cbStatusPeriodo.Size = new System.Drawing.Size(128, 24);
+            this.cbStatusPeriodo.Size = new System.Drawing.Size(103, 24);
             this.cbStatusPeriodo.TabIndex = 14;
             this.cbStatusPeriodo.Text = "Seleccionar...";
             this.cbStatusPeriodo.SelectedIndexChanged += new System.EventHandler(this.cbStatusPeriodo_SelectedIndexChanged_1);
             this.cbStatusPeriodo.SelectedValueChanged += new System.EventHandler(this.cbStatusPeriodo_SelectedValueChanged);
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Location = new System.Drawing.Point(247, 91);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(90, 2);
-            this.panel8.TabIndex = 63;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Location = new System.Drawing.Point(0, -64);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(96, 1);
-            this.panel9.TabIndex = 45;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel10.Location = new System.Drawing.Point(0, -68);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(250, 2);
-            this.panel10.TabIndex = 44;
-            // 
             // dtpFechaFinPeriodoIncidencia
             // 
             this.dtpFechaFinPeriodoIncidencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaFinPeriodoIncidencia.Location = new System.Drawing.Point(245, 60);
+            this.dtpFechaFinPeriodoIncidencia.Location = new System.Drawing.Point(121, 64);
             this.dtpFechaFinPeriodoIncidencia.Name = "dtpFechaFinPeriodoIncidencia";
             this.dtpFechaFinPeriodoIncidencia.Size = new System.Drawing.Size(92, 22);
             this.dtpFechaFinPeriodoIncidencia.TabIndex = 5;
             this.dtpFechaFinPeriodoIncidencia.ValueChanged += new System.EventHandler(this.dtpFechaFinPeriodoIncidencia_ValueChanged);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(30, 91);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(94, 2);
-            this.panel1.TabIndex = 60;
-            // 
             // dtpFechaInicioPeriodoIncidencia
             // 
             this.dtpFechaInicioPeriodoIncidencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaInicioPeriodoIncidencia.Location = new System.Drawing.Point(32, 60);
+            this.dtpFechaInicioPeriodoIncidencia.Location = new System.Drawing.Point(7, 66);
             this.dtpFechaInicioPeriodoIncidencia.Name = "dtpFechaInicioPeriodoIncidencia";
             this.dtpFechaInicioPeriodoIncidencia.Size = new System.Drawing.Size(92, 22);
             this.dtpFechaInicioPeriodoIncidencia.TabIndex = 4;
@@ -590,7 +566,7 @@
             // 
             this.ckbEliminar.AutoSize = true;
             this.ckbEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbEliminar.Location = new System.Drawing.Point(377, 68);
+            this.ckbEliminar.Location = new System.Drawing.Point(7, 494);
             this.ckbEliminar.Name = "ckbEliminar";
             this.ckbEliminar.Size = new System.Drawing.Size(53, 20);
             this.ckbEliminar.TabIndex = 55;
@@ -603,9 +579,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel3.Controls.Add(this.panel2);
-            this.panel3.Location = new System.Drawing.Point(37, 445);
+            this.panel3.Location = new System.Drawing.Point(6, 440);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(347, 2);
+            this.panel3.Size = new System.Drawing.Size(209, 2);
             this.panel3.TabIndex = 43;
             // 
             // panel2
@@ -631,9 +607,9 @@
             this.txtDescripcionPeriodoIncidencia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescripcionPeriodoIncidencia.Enabled = false;
             this.txtDescripcionPeriodoIncidencia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionPeriodoIncidencia.Location = new System.Drawing.Point(37, 423);
+            this.txtDescripcionPeriodoIncidencia.Location = new System.Drawing.Point(8, 422);
             this.txtDescripcionPeriodoIncidencia.Name = "txtDescripcionPeriodoIncidencia";
-            this.txtDescripcionPeriodoIncidencia.Size = new System.Drawing.Size(344, 15);
+            this.txtDescripcionPeriodoIncidencia.Size = new System.Drawing.Size(209, 15);
             this.txtDescripcionPeriodoIncidencia.TabIndex = 4;
             // 
             // lblActPeriodoIncidencia
@@ -655,7 +631,7 @@
             this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnInsertar.Location = new System.Drawing.Point(375, 4);
+            this.btnInsertar.Location = new System.Drawing.Point(160, 494);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(55, 55);
             this.btnInsertar.TabIndex = 3;
@@ -668,8 +644,8 @@
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.btnAdd;
-            this.btnAgregar.Location = new System.Drawing.Point(948, 176);
+            this.btnAgregar.Image = global::SIPAA_CS.Properties.Resources.Agregar;
+            this.btnAgregar.Location = new System.Drawing.Point(954, 105);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(55, 55);
             this.btnAgregar.TabIndex = 2;
@@ -687,9 +663,9 @@
             // 
             this.panelTag.Controls.Add(this.lblMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(467, 713);
+            this.panelTag.Location = new System.Drawing.Point(467, 730);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(531, 25);
+            this.panelTag.Size = new System.Drawing.Size(545, 25);
             this.panelTag.TabIndex = 140;
             this.panelTag.Visible = false;
             // 
@@ -715,9 +691,9 @@
             this.pnlBusqueda.Controls.Add(this.txtBuscarDF);
             this.pnlBusqueda.Controls.Add(label1);
             this.pnlBusqueda.Enabled = false;
-            this.pnlBusqueda.Location = new System.Drawing.Point(12, 125);
+            this.pnlBusqueda.Location = new System.Drawing.Point(11, 101);
             this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(360, 87);
+            this.pnlBusqueda.Size = new System.Drawing.Size(239, 68);
             this.pnlBusqueda.TabIndex = 141;
             this.pnlBusqueda.TabStop = true;
             this.pnlBusqueda.Visible = false;
@@ -728,9 +704,9 @@
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.btnSearch;
+            this.btnBuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnBuscar.Location = new System.Drawing.Point(296, 14);
+            this.btnBuscar.Location = new System.Drawing.Point(227, 5);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(55, 55);
             this.btnBuscar.TabIndex = 2;
@@ -744,7 +720,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel5.Location = new System.Drawing.Point(29, 63);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(250, 2);
+            this.panel5.Size = new System.Drawing.Size(150, 2);
             this.panel5.TabIndex = 43;
             // 
             // txtBuscarDF
@@ -752,18 +728,21 @@
             this.txtBuscarDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtBuscarDF.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBuscarDF.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarDF.Location = new System.Drawing.Point(30, 46);
+            this.txtBuscarDF.Location = new System.Drawing.Point(30, 45);
             this.txtBuscarDF.Name = "txtBuscarDF";
-            this.txtBuscarDF.Size = new System.Drawing.Size(250, 15);
+            this.txtBuscarDF.Size = new System.Drawing.Size(150, 15);
             this.txtBuscarDF.TabIndex = 1;
             // 
             // cbFormaPago
             // 
+            this.cbFormaPago.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbFormaPago.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbFormaPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbFormaPago.Font = new System.Drawing.Font("Arial", 9.75F);
             this.cbFormaPago.FormattingEnabled = true;
-            this.cbFormaPago.Location = new System.Drawing.Point(467, 164);
+            this.cbFormaPago.Location = new System.Drawing.Point(368, 114);
             this.cbFormaPago.Name = "cbFormaPago";
-            this.cbFormaPago.Size = new System.Drawing.Size(114, 21);
+            this.cbFormaPago.Size = new System.Drawing.Size(165, 24);
             this.cbFormaPago.TabIndex = 1;
             this.cbFormaPago.SelectedIndexChanged += new System.EventHandler(this.cbFormaPago_SelectedIndexChanged);
             this.cbFormaPago.Click += new System.EventHandler(this.cbFormaPago_Click);
@@ -779,12 +758,87 @@
             this.ptbimgusuario.TabIndex = 179;
             this.ptbimgusuario.TabStop = false;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label5.Location = new System.Drawing.Point(4, 28);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(123, 16);
+            label5.TabIndex = 162;
+            label5.Text = "FECHAS PERIODO";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label6.Location = new System.Drawing.Point(3, 102);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(213, 16);
+            label6.TabIndex = 163;
+            label6.Text = "FECHAS GENERAR INCIDENCIAS";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label7.Location = new System.Drawing.Point(3, 176);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(209, 16);
+            label7.TabIndex = 164;
+            label7.Text = "FECHAS CONSULTA EMPLEADO";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label8.Location = new System.Drawing.Point(3, 252);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(222, 16);
+            label8.TabIndex = 165;
+            label8.Text = "FECHAS CALIFICAR SUPERVISOR";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label9.Location = new System.Drawing.Point(3, 325);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(203, 16);
+            label9.TabIndex = 166;
+            label9.Text = "FECHAS CALIFICAR DIRECTOR";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnImprimir.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
+            this.btnImprimir.Location = new System.Drawing.Point(583, 105);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(55, 55);
+            this.btnImprimir.TabIndex = 180;
+            this.btnImprimir.Tag = "Buscar";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // PeriodosProcesoIncidencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(lblFormaPago);
             this.Controls.Add(this.cbFormaPago);
@@ -808,8 +862,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeriodosProcesoIncidencias)).EndInit();
             this.pnlActPeriodoIncidencia.ResumeLayout(false);
             this.pnlActPeriodoIncidencia.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panelTag.ResumeLayout(false);
@@ -830,7 +882,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView dgvPeriodosProcesoIncidencias;
         private System.Windows.Forms.Panel pnlActPeriodoIncidencia;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker dtpFechaInicioPeriodoIncidencia;
         private System.Windows.Forms.CheckBox ckbEliminar;
         private System.Windows.Forms.Panel panel3;
@@ -849,19 +900,14 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtBuscarDF;
         private System.Windows.Forms.ComboBox cbFormaPago;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.ComboBox cbStatusPeriodo;
         private System.Windows.Forms.Label lblFechaFinProcesarIncidencia;
         private System.Windows.Forms.Label lblFechaInicioProcesarIncidencia;
         private System.Windows.Forms.DateTimePicker dtpFechaInicioProcesarIncidencia;
         private System.Windows.Forms.DateTimePicker dtpFechaFinProcesarIncidencia;
-        private System.Windows.Forms.Label lblFechaInicioConsultarIncidencia;
         private System.Windows.Forms.Label lblFechaFinCalificaIncidenciaSup;
         private System.Windows.Forms.Label lblFechaInicioCalificaIncidenciaSup;
         private System.Windows.Forms.DateTimePicker dtpFechaFinConsultarIncidencia;
-        private System.Windows.Forms.DateTimePicker dtpFechaInicioConsultarIncidencia;
         private System.Windows.Forms.Label lblFechaFinConsultarIncidencia;
         private System.Windows.Forms.DateTimePicker dtpFechaFinCalificarIncidenciaDir;
         private System.Windows.Forms.DateTimePicker dtpFechaInicioCalificarIncidenciaDir;
@@ -870,5 +916,8 @@
         private System.Windows.Forms.Label lblFechaFinCalificaIncidenciaDir;
         private System.Windows.Forms.Label lblFechaInicioCalificaIncidenciaDir;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        protected System.Windows.Forms.Label lblFechaInicioConsultarIncidencia;
+        protected System.Windows.Forms.DateTimePicker dtpFechaInicioConsultarIncidencia;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }
