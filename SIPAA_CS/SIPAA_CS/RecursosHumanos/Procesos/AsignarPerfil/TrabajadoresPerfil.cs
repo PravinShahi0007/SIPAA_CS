@@ -22,14 +22,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         int iins, iact, ielim;
         int iactbtn, istcheca;
         string sestperf, iidtrabmodif, istchec;
-        int iuserexiste, iuserperfexiste;
+        int iuserexiste, iuserperfexiste, response;
         #endregion
 
         Perfil DatPerfil = new Perfil();
         TrabajadorPerfil TrabPerf = new TrabajadorPerfil();
         Utilerias Util = new Utilerias();
+        Usuario usuario = new Usuario();
 
-       // int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        // int sysH = SystemInformation.PrimaryMonitorSize.Height;
         //int sysW = SystemInformation.PrimaryMonitorSize.Width;
         public TrabajadoresPerfil()
         {
@@ -162,27 +163,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
             }
 
-            //for (int iContador = 0; iContador < dgvTrab.Rows.Count; iContador++)
-            //{
-            //    dgvTrab.Rows[iContador].Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-            //}
-
-
-            //if (dgvTrab.SelectedRows.Count != 0)
-            //{
-
-            //    DataGridViewRow row = this.dgvTrab.SelectedRows[0];
-
-            //    //CVPerfil = Convert.ToInt32(row.Cells["CVPERFIL"].Value.ToString());
-            //    //string Desc = row.Cells["DESCRIPCION"].Value.ToString();
-
-            //    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-            //    TrabajadorInfo.IdTrab = row.Cells["idtrab"].Value.ToString();
-
-                //    DatosTrabajadorPerfil form = new DatosTrabajadorPerfil();
-                //    form.Show();
-                //    this.Close(); 
-                //}
             }
 
 
@@ -244,6 +224,28 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 {
 
                     TrabPerf.vuidtrabperf(iidtrabmodif, 19, istchec, cbosup.SelectedValue.ToString(), Int32.Parse(cbodir.SelectedValue.ToString()), LoginInfo.IdTrab, this.Name);
+
+                        //variables usuario existe
+                        DataTable user = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 21);
+                        iuserexiste = Int32.Parse(user.Rows[0][0].ToString());
+                        //variable perfil existe
+                        DataTable userperfil = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 22);
+                        iuserperfexiste = Int32.Parse(userperfil.Rows[0][0].ToString());
+
+                    if (iuserexiste == 0 && iuserperfexiste == 0 && istchec == "1")
+                    {
+                        //inserta usuario
+                        response = usuario.AsignarAccesoUsuario(iidtrabmodif, Int32.Parse(iidtrabmodif), txttrabjador.Text, Util.cifradoMd5(iidtrabmodif), 0, LoginInfo.IdTrab, this.Name, 1);
+
+                        //inserta perfil
+                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    }
+                    else if (iuserexiste == 1 && iuserperfexiste == 0 && istchec == "1")
+                    {
+                        //inserta perfil
+                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    }
+
                     //lena grid
                     fllenagridbusqueda(16, iidtrabmodif);
                     pnlsuid.Visible = false;
@@ -254,24 +256,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     timer1.Start();
                     iidtrabmodif = "0";
 
-                    //if (istchec == "1")
-                    //{
-                    //    //variables usuario existe
-                    //    DataTable user = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 21);
-                    //    iuserexiste = Int32.Parse(user.Rows[0][0].ToString());
-
-                    //    DataTable userperfil = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 22);
-                    //    iuserperfexiste = Int32.Parse(userperfil.Rows[0][0].ToString());
-                    //}
-
-                    //if (iuserexiste == 0 && iuserperfexiste == 0)
-                    //{
-
-                    //    //eliminar registro
-                    //    DialogResult result = MessageBox.Show("El empleado no tiene los accesos para consultar sus incidencias, ¿Desea Crearlos?", "SIPAA", MessageBoxButtons.YesNo);
-
-                    //}
-
                 }
             }
             else if (iactbtn == 2)
@@ -281,6 +265,46 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 {
 
                     TrabPerf.vuidtrabperf(iidtrabmodif, 18, istchec, cbosup.SelectedValue.ToString(), Int32.Parse(cbodir.SelectedValue.ToString()), LoginInfo.IdTrab, this.Name);
+
+                    //variables usuario existe
+                    DataTable user = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 21);
+                    iuserexiste = Int32.Parse(user.Rows[0][0].ToString());
+                    //variable perfil existe
+                    DataTable userperfil = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 23);
+                    iuserperfexiste = Int32.Parse(userperfil.Rows[0][0].ToString());
+
+                    if (iuserexiste == 0 && iuserperfexiste == 0 && istchec == "1")
+                    {
+                        //inserta usuario
+                        response = usuario.AsignarAccesoUsuario(iidtrabmodif, Int32.Parse(iidtrabmodif), txttrabjador.Text, Util.cifradoMd5(iidtrabmodif), 0, LoginInfo.IdTrab, this.Name, 1);
+
+                        //inserta perfil
+                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    }
+                    else if (iuserexiste == 1 && iuserperfexiste == 0 && istchec == "1")
+                    {
+                        //inserta perfil
+                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    }
+                    else if (iuserexiste == 1 && iuserperfexiste > 1 && istchec == "1")
+                    {
+                        //inserta perfil
+                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    }
+                    else if (iuserexiste == 1 && iuserperfexiste == 1 && istchec == "0")
+                    {
+                        //inserta usuario
+                        response = usuario.AsignarAccesoUsuario(iidtrabmodif, Int32.Parse(iidtrabmodif), txttrabjador.Text, Util.cifradoMd5(iidtrabmodif), 0, LoginInfo.IdTrab, this.Name, 3);
+
+                        //inserta perfil
+                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    }
+                    else if (iuserexiste == 1 && iuserperfexiste > 1 && istchec == "0")
+                    {
+                        //inserta perfil
+                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    }
+
                     //lena grid
                     fllenagridbusqueda(16, iidtrabmodif);
                     pnlsuid.Visible = false;
@@ -344,10 +368,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             iins = Int32.Parse(Permisos.Rows[0][3].ToString());
             iact = Int32.Parse(Permisos.Rows[0][4].ToString());
             ielim = Int32.Parse(Permisos.Rows[0][5].ToString());
-
-            //iins = 0;
-            //iact = 1;
-            //ielim = 0;
 
             //lena grid
             fllenagridbusqueda(15,"");
