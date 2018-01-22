@@ -104,7 +104,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 }
                 else
                 {
-                    DialogResult resultms = MessageBox.Show("Esta acción proceasa las incidencias del periodo: " + "\r\n" + "\r\n" + cbtiponomina.Text + "\r\n" + "\r\n" + " ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+                    DialogResult resultms = MessageBox.Show("Esta acción genera las incidencias del periodo: " + "\r\n" + "\r\n" + cbtiponomina.Text + "\r\n" + "\r\n" + " ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
 
                     if (resultms == DialogResult.Yes)
                     {
