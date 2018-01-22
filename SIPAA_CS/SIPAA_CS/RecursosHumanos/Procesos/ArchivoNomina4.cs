@@ -154,7 +154,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         break;
                 }
 
-                //Marcar archivo como Generado=2 JLA 13/11/2017
+                //Marcar archivo como Generado=2=AG JLA 13/11/2017 22/01/2018 
                 foreach (DataGridViewRow renglon in dgvArchivoNomina4.Rows)
                 {
                     try
@@ -165,7 +165,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         string sUsuUmod = LoginInfo.IdTrab;
                         string sPrgUmod = this.Name;
 
-                        iprespuesta=objActualizaIncidencia.ActualizaStatusInc(sClave, dtFechaReg, 9, iCvInc,0,0,0,0,DateTime.Now,0,0,DateTime.Now,0,0,2,"",
+                        iprespuesta=objActualizaIncidencia.ActualizaStatusInc(sClave, dtFechaReg, 9, iCvInc,0,0,0,0,DateTime.Now,0,0,DateTime.Now,0,0,0,"AG",
                             DateTime.Now,DateTime.Now,sUsuUmod,sPrgUmod);
                         switch (iprespuesta.ToString())
                         {
