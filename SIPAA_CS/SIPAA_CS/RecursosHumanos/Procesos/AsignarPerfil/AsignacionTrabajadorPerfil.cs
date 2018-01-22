@@ -397,7 +397,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
                 cbDiaEntrada.Enabled = true;
 
-                if (validarHorarioComida() && cbDiaEntrada.SelectedIndex == cbDiaSalida.SelectedIndex)
+                if (validarHorarioComida(false) && cbDiaEntrada.SelectedIndex == cbDiaSalida.SelectedIndex)
                 {
                     TimeSpan inicio, fin, comidaIni, comidaFin;
                     horaCampo(mtxtEntradaTurno, out inicio);
@@ -769,13 +769,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             return TimeSpan.TryParse(mtxtb.Text, out ts);
         }
 
-        private bool validarHorarioComida()
+        private bool validarHorarioComida(bool isLeave)
         {
             TimeSpan comidaIni, comidaFin;
 
             if (horaCampo(mtxtComidaInicio, out comidaIni) && horaCampo(mtxtComidaFin, out comidaFin) && comidaFin > comidaIni)
             {
-                mtxtTiempoComida.Text = Convert.ToString(comidaFin.TotalMinutes - comidaIni.TotalMinutes);
+                if (isLeave)
+                    mtxtTiempoComida.Text = Convert.ToString(comidaFin.TotalMinutes - comidaIni.TotalMinutes);
                 return true;
             }
 
@@ -786,7 +787,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void mtxtComidaFin_Leave(object sender, EventArgs e)
         {
-            validarHorarioComida();
+            validarHorarioComida(true);
         }
 
         private bool validaHorarioJornada(bool isLeave)
@@ -807,7 +808,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     hours = salida.Hours - entrada.Hours;
 
                 if (isLeave)
+                {
                     mtxtTiempoTrabajo.Text = Convert.ToString(hours);
+                }
 
                 return true;
             }
