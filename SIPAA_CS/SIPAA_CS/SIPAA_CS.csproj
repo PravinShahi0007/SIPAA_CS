@@ -897,6 +897,12 @@
     <Compile Include="RecursosHumanos\Reportes\FiltroTrabPerfil.Designer.cs">
       <DependentUpon>FiltroTrabPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\GeneraldeIncidencias.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneraldeIncidencias.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1323,6 +1329,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroTrabPerfil.resx">
       <DependentUpon>FiltroTrabPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\GeneraldeIncidencias.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GeneraldeIncidencias.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

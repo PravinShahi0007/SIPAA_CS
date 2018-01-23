@@ -39,9 +39,9 @@
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArchivoNomina4));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -68,6 +68,7 @@
             this.panelTag = new System.Windows.Forms.Panel();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btngeneralinc = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -186,7 +187,7 @@
             label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label9.Location = new System.Drawing.Point(877, 113);
+            label9.Location = new System.Drawing.Point(877, 108);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(60, 16);
             label9.TabIndex = 234;
@@ -355,7 +356,7 @@
             // 
             this.btnpendientesaut.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnpendientesaut.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnpendientesaut.Location = new System.Drawing.Point(818, 140);
+            this.btnpendientesaut.Location = new System.Drawing.Point(818, 164);
             this.btnpendientesaut.Name = "btnpendientesaut";
             this.btnpendientesaut.Size = new System.Drawing.Size(179, 30);
             this.btnpendientesaut.TabIndex = 177;
@@ -367,7 +368,7 @@
             // 
             this.btnfechashrreg.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnfechashrreg.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.btnfechashrreg.Location = new System.Drawing.Point(818, 188);
+            this.btnfechashrreg.Location = new System.Drawing.Point(818, 196);
             this.btnfechashrreg.Name = "btnfechashrreg";
             this.btnfechashrreg.Size = new System.Drawing.Size(179, 30);
             this.btnfechashrreg.TabIndex = 178;
@@ -436,29 +437,29 @@
             this.dgvArchivoNomina4.AllowUserToAddRows = false;
             this.dgvArchivoNomina4.AllowUserToDeleteRows = false;
             this.dgvArchivoNomina4.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvArchivoNomina4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvArchivoNomina4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvArchivoNomina4.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvArchivoNomina4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvArchivoNomina4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvArchivoNomina4.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvArchivoNomina4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvArchivoNomina4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvArchivoNomina4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvArchivoNomina4.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvArchivoNomina4.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvArchivoNomina4.Location = new System.Drawing.Point(24, 232);
             this.dgvArchivoNomina4.Name = "dgvArchivoNomina4";
             this.dgvArchivoNomina4.ReadOnly = true;
@@ -516,12 +517,25 @@
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btngeneralinc
+            // 
+            this.btngeneralinc.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btngeneralinc.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btngeneralinc.Location = new System.Drawing.Point(818, 131);
+            this.btngeneralinc.Name = "btngeneralinc";
+            this.btngeneralinc.Size = new System.Drawing.Size(179, 30);
+            this.btngeneralinc.TabIndex = 235;
+            this.btngeneralinc.Text = "General de Incidencias";
+            this.btngeneralinc.UseVisualStyleBackColor = false;
+            this.btngeneralinc.Click += new System.EventHandler(this.btngeneralinc_Click);
+            // 
             // ArchivoNomina4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.btngeneralinc);
             this.Controls.Add(label9);
             this.Controls.Add(this.panelTag);
             this.Controls.Add(this.btnBuscar);
@@ -597,5 +611,6 @@
         private System.Windows.Forms.Panel panelTag;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btngeneralinc;
     }
 }

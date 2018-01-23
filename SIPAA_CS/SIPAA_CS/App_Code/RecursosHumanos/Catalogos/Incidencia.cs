@@ -194,13 +194,13 @@ namespace SIPAA_CS.App_Code
             return dtIncidencia;
         }
 
-        public DataTable ReporteIncidenciasPendientesAutorizar(string sIdTrab, DateTime dtFechaInicio, DateTime dtFechaFin, string sCompania, string sTNom, string sUbicacion)
+        public DataTable ReporteIncidenciasPendientesAutorizar(int iOpcion, string sIdTrab, DateTime dtFechaInicio, DateTime dtFechaFin, string sCompania, string sTNom, string sUbicacion)
         {
             Conexion objConexion = new Conexion();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechincidenciaspendientes_s";
             cmd.CommandType = CommandType.StoredProcedure;
-
+            cmd.Parameters.Add("P_opcion", SqlDbType.Int).Value = iOpcion;
             cmd.Parameters.Add("P_idtrab", SqlDbType.VarChar).Value = sIdTrab;
             cmd.Parameters.Add("P_fechainicio", SqlDbType.DateTime).Value = dtFechaInicio;
             cmd.Parameters.Add("P_fechafin", SqlDbType.DateTime).Value = dtFechaFin;

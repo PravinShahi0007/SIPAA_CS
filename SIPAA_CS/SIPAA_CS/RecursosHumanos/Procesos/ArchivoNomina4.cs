@@ -185,6 +185,55 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
         }
 
+        private void btngeneralinc_Click(object sender, EventArgs e) //Reporte general de incidencias
+        {
+            if ((cbCompania.Text == "" | cbCompania.Text == "Seleccionar Compañia...") | (cbTiponomina.Text == "" | cbTiponomina.Text == "Seleccionar Tipo Nomina..."))
+            {
+                MessageBox.Show("Debe seleccionar la compañia y el tipo de nomina", "SIPPA", MessageBoxButtons.OK);
+                cbCompania.Focus();
+
+            }
+            else if (dtpfechainicial.Text == "" | dtpfechafinal.Text == "")
+            {
+                MessageBox.Show("Proporcione un rango de fechas", "SIPPA", MessageBoxButtons.OK);
+                dtpfechainicial.Focus();
+            }
+            else if (DateTime.Parse(dtpfechainicial.Text) > DateTime.Parse(dtpfechafinal.Text))
+            {
+                MessageBox.Show("Error en las Fechas, Verifique.", "SIPPA", MessageBoxButtons.OK);
+                dtpfechainicial.Focus();
+            }
+            else
+            {
+                string idTrab = "%";
+                string cvCia = "%";
+                string cvUbicacion = "%";
+                string sNomina = "%";
+                if (cbEmpleados.Text != String.Empty && cbEmpleados.Text != "Seleccionar") { idTrab = cbEmpleados.SelectedValue.ToString(); }
+                if (cbCompania.SelectedIndex > 0) { cvCia = cbCompania.SelectedValue.ToString(); }
+                if (cbUbicacion.SelectedIndex > 0) { cvUbicacion = cbUbicacion.SelectedValue.ToString(); }
+                if (cbTiponomina.SelectedIndex > 0) { sNomina = cbTiponomina.SelectedValue.ToString(); }
+
+                DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPendientesAutorizar(2, idTrab, dtpfechainicial.Value.Date, dtpfechafinal.Value.Date, cvCia, sNomina, cvUbicacion);
+                switch (dtIncidencia.Rows.Count)
+                {
+                    case 0:
+                        DialogResult result = MessageBox.Show("Consulta Sin Resultados para el Reporte", "SIPAA");
+                        break;
+
+                    default:
+                        ViewerReporte form = new ViewerReporte();
+                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtIncidencia, "SIPAA_CS.RecursosHumanos.Reportes", "GeneraldeIncidencias.rpt");
+                        ReportDoc.SetParameterValue("FechaInicial", dtpfechainicial.Value.Date);
+                        ReportDoc.SetParameterValue("FechaFinal", dtpfechafinal.Value.Date);
+                        ReportDoc.SetParameterValue("NomCompania", cbCompania.SelectedValue.ToString());
+                        form.RptDoc = ReportDoc;
+                        form.Show();
+                        break;
+                }
+            }
+        }
+
         private void btnpendientesaut_Click(object sender, EventArgs e)
         {
             if ((cbCompania.Text == "" | cbCompania.Text == "Seleccionar Compañia...") | (cbTiponomina.Text == "" | cbTiponomina.Text == "Seleccionar Tipo Nomina..."))
@@ -214,7 +263,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 if (cbUbicacion.SelectedIndex > 0) { cvUbicacion = cbUbicacion.SelectedValue.ToString(); }
                 if (cbTiponomina.SelectedIndex > 0) { sNomina = cbTiponomina.SelectedValue.ToString(); }
 
-                DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPendientesAutorizar(idTrab, dtpfechainicial.Value.Date, dtpfechafinal.Value.Date, cvCia, sNomina, cvUbicacion);
+                DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPendientesAutorizar(1, idTrab, dtpfechainicial.Value.Date, dtpfechafinal.Value.Date, cvCia, sNomina, cvUbicacion);
                 switch (dtIncidencia.Rows.Count)
                 {
                     case 0:
