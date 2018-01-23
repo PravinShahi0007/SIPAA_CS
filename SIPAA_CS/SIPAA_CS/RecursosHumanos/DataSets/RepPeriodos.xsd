@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RepPeriodos" targetNamespace="http://tempuri.org/RepPeriodos.xsd" xmlns:mstns="http://tempuri.org/RepPeriodos.xsd" xmlns="http://tempuri.org/RepPeriodos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RepPeriodos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RepPeriodos" msprop:Generator_UserDSName="RepPeriodos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="repper" msprop:Generator_TableClassName="repperDataTable" msprop:Generator_TableVarName="tablerepper" msprop:Generator_RowChangedName="repperRowChanged" msprop:Generator_TablePropName="repper" msprop:Generator_RowDeletingName="repperRowDeleting" msprop:Generator_RowChangingName="repperRowChanging" msprop:Generator_RowEvHandlerName="repperRowChangeEventHandler" msprop:Generator_RowDeletedName="repperRowDeleted" msprop:Generator_RowClassName="repperRow" msprop:Generator_UserTableName="repper" msprop:Generator_RowEvArgName="repperRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Clave" msprop:Generator_ColumnVarNameInTable="columnClave" msprop:Generator_ColumnPropNameInRow="Clave" msprop:Generator_ColumnPropNameInTable="ClaveColumn" msprop:Generator_UserColumnName="Clave" type="xs:string" minOccurs="0" />
+              <xs:element name="Inicio" msprop:Generator_ColumnVarNameInTable="columnInicio" msprop:Generator_ColumnPropNameInRow="Inicio" msprop:Generator_ColumnPropNameInTable="InicioColumn" msprop:Generator_UserColumnName="Inicio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Fin" msprop:Generator_ColumnVarNameInTable="columnFin" msprop:Generator_ColumnPropNameInRow="Fin" msprop:Generator_ColumnPropNameInTable="FinColumn" msprop:Generator_UserColumnName="Fin" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_UserColumnName="Descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="Estatus" msprop:Generator_ColumnVarNameInTable="columnEstatus" msprop:Generator_ColumnPropNameInRow="Estatus" msprop:Generator_ColumnPropNameInTable="EstatusColumn" msprop:Generator_UserColumnName="Estatus" type="xs:string" minOccurs="0" />
+              <xs:element name="FIProcesar" msprop:Generator_ColumnVarNameInTable="columnFIProcesar" msprop:Generator_ColumnPropNameInRow="FIProcesar" msprop:Generator_ColumnPropNameInTable="FIProcesarColumn" msprop:Generator_UserColumnName="FIProcesar" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FFProcesar" msprop:Generator_ColumnVarNameInTable="columnFFProcesar" msprop:Generator_ColumnPropNameInRow="FFProcesar" msprop:Generator_ColumnPropNameInTable="FFProcesarColumn" msprop:Generator_UserColumnName="FFProcesar" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FIConsulta" msprop:Generator_ColumnVarNameInTable="columnFIConsulta" msprop:Generator_ColumnPropNameInRow="FIConsulta" msprop:Generator_ColumnPropNameInTable="FIConsultaColumn" msprop:Generator_UserColumnName="FIConsulta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FFConsulta" msprop:Generator_ColumnVarNameInTable="columnFFConsulta" msprop:Generator_ColumnPropNameInRow="FFConsulta" msprop:Generator_ColumnPropNameInTable="FFConsultaColumn" msprop:Generator_UserColumnName="FFConsulta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FICalifSup" msprop:Generator_ColumnVarNameInTable="columnFICalifSup" msprop:Generator_ColumnPropNameInRow="FICalifSup" msprop:Generator_ColumnPropNameInTable="FICalifSupColumn" msprop:Generator_UserColumnName="FICalifSup" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FFCalifSup" msprop:Generator_ColumnVarNameInTable="columnFFCalifSup" msprop:Generator_ColumnPropNameInRow="FFCalifSup" msprop:Generator_ColumnPropNameInTable="FFCalifSupColumn" msprop:Generator_UserColumnName="FFCalifSup" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FICalifDir" msprop:Generator_ColumnVarNameInTable="columnFICalifDir" msprop:Generator_ColumnPropNameInRow="FICalifDir" msprop:Generator_ColumnPropNameInTable="FICalifDirColumn" msprop:Generator_UserColumnName="FICalifDir" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FFCalifDir" msprop:Generator_ColumnVarNameInTable="columnFFCalifDir" msprop:Generator_ColumnPropNameInRow="FFCalifDir" msprop:Generator_ColumnPropNameInTable="FFCalifDirColumn" msprop:Generator_UserColumnName="FFCalifDir" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

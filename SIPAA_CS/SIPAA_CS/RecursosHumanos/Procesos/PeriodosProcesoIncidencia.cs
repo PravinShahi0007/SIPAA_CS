@@ -16,6 +16,9 @@ using static SIPAA_CS.App_Code.Utilerias;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
 
+using CrystalDecisions.CrystalReports.Engine;
+using SIPAA_CS.RecursosHumanos.Reportes;
+
 //***********************************************************************************************
 //Autor: Benjamin Huizar Barajas
 //Fecha creación: 28-Mar-2017       
@@ -345,7 +348,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            DataTable dtreporte = new DataTable();
+            dtreporte = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(20, Int32.Parse(cbFormaPago.SelectedValue.ToString()),"2","","",0,
+                                                                               LoginInfo.IdTrab, this.Name, "","","","","","","","","","");
 
+            //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
+            ViewerReporte form = new ViewerReporte();
+            RepPerInc dtrpt = new RepPerInc();
+            ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtreporte, "SIPAA_CS.RecursosHumanos.Reportes", dtrpt.ResourceName);
+
+            form.RptDoc = ReportDoc;
+            form.Show();
         }
 
         //-----------------------------------------------------------------------------------------------
