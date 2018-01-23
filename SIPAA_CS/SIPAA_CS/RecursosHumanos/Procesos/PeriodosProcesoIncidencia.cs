@@ -16,6 +16,9 @@ using static SIPAA_CS.App_Code.Utilerias;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.Properties;
 
+using CrystalDecisions.CrystalReports.Engine;
+using SIPAA_CS.RecursosHumanos.Reportes;
+
 //***********************************************************************************************
 //Autor: Benjamin Huizar Barajas
 //Fecha creación: 28-Mar-2017       
@@ -202,7 +205,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             {
                 ckbEliminar.Visible = false;
                 pnlActPeriodoIncidencia.Visible = true;
-                lblActPeriodoIncidencia.Text = "     Agregar Período Proceso Incidencia";
+                lblActPeriodoIncidencia.Text = "     Agregar Período Incidencia";
                 Util.ChangeButton(btnAgregar, 1, true);
                 txtDescripcionPeriodoIncidencia.Text = cbFormaPago.Text;
                 iActbtn = 1;
@@ -343,6 +346,21 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
         }
 
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            DataTable dtreporte = new DataTable();
+            dtreporte = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(20, Int32.Parse(cbFormaPago.SelectedValue.ToString()),"2","","",0,
+                                                                               LoginInfo.IdTrab, this.Name, "","","","","","","","","","");
+
+            //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
+            ViewerReporte form = new ViewerReporte();
+            RepPerInc dtrpt = new RepPerInc();
+            ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtreporte, "SIPAA_CS.RecursosHumanos.Reportes", dtrpt.ResourceName);
+
+            form.RptDoc = ReportDoc;
+            form.Show();
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -419,13 +437,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             if (ckbEliminar.Checked == true)
             {
                 Util.ChangeButton(btnInsertar, 3, false);
-                lblActPeriodoIncidencia.Text = "     Elimina Período Proceso Incidencia";
+                lblActPeriodoIncidencia.Text = "     Elimina Período Incidencias";
                 iActbtn = 3;
             }
             else
             {
                 Util.ChangeButton(btnInsertar, 2, false);
-                lblActPeriodoIncidencia.Text = "     Modifica Período Proceso Incidencia";
+                lblActPeriodoIncidencia.Text = "     Modifica Período Incidencias";
                 iActbtn = 2;
             }
         }
@@ -459,7 +477,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             toolTip1.SetToolTip(this.btnAgregar, "Agrega Registro");
             toolTip1.SetToolTip(this.btnBuscar, "Busca Registro");
             toolTip1.SetToolTip(this.btnInsertar, "Insertar Registro");
-
+            toolTip1.SetToolTip(this.btnImprimir, "Imprimir");
         } // private void fTooltip()
 
         private void fgPeriodosProcesoIncidencia(int iOpcion, int iIdFormaPago, string sFechaInicioPeriodoIncidencia, string sFechaFinPeriodoIncidencia, string sDescripcion, int iStPeriodoProceso, string sUsuumod, string sPrgumod, string sFechaInicioProcInc, string sFechaFinProcInc, string sFechaInicioConsInc, string
@@ -772,7 +790,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 } // switch (row.Cells["Estatus"].Value.ToString())
 
                 pnlActPeriodoIncidencia.Visible = true;
-                lblActPeriodoIncidencia.Text = "     Modifica Período Proceso Incidencia";
+                lblActPeriodoIncidencia.Text = "     Modifica Período Incidencia";
                 dtpFechaInicioPeriodoIncidencia.Text = sFechaInicioPeriodoIncidencia;
                 dtpFechaFinPeriodoIncidencia.Text = sFechaFinPeriodoIncidencia;
                 dtpFechaInicioPeriodoIncidencia.Focus();
