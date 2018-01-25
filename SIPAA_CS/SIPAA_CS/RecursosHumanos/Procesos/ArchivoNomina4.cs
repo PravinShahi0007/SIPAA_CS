@@ -1,5 +1,6 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
-using SIPAA_CS.Accesos.Reportes;
+//using SIPAA_CS.Accesos.Reportes;
+using SIPAA_CS.RecursosHumanos.Reportes;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
