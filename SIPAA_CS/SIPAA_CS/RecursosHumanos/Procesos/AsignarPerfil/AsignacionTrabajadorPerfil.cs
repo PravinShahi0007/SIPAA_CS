@@ -794,18 +794,23 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             TimeSpan entrada, salida;
 
-            if (horaCampo(mtxtEntradaTurno, out entrada) && horaCampo(mtxtSalida, out salida) &&
-                cbDiaSalida.SelectedIndex > 0 && cbDiaEntrada.SelectedIndex > 0 &&
-                !(cbDiaSalida.SelectedIndex == cbDiaEntrada.SelectedIndex && entrada > salida))
+            //if (horaCampo(mtxtEntradaTurno, out entrada) && horaCampo(mtxtSalida, out salida) &&
+            //    cbDiaSalida.SelectedIndex > 0 && cbDiaEntrada.SelectedIndex > 0 &&
+            //    !(cbDiaSalida.SelectedIndex == cbDiaEntrada.SelectedIndex && entrada > salida))
+            //{
+            if (horaCampo(mtxtEntradaTurno, out entrada) && cbDiaEntrada.SelectedIndex > 0)
             {
-
-                int diasdif = (cbDiaSalida.SelectedIndex - cbDiaEntrada.SelectedIndex) * 24;
                 int hours = 0;
 
-                if (diasdif > 0)
-                    hours = entrada.Hours - salida.Hours + diasdif;
-                else
-                    hours = salida.Hours - entrada.Hours;
+                if (cbDiaSalida.SelectedIndex > 0 && horaCampo(mtxtSalida, out salida))
+                {
+                    int diasdif = (cbDiaSalida.SelectedIndex - cbDiaEntrada.SelectedIndex) * 24;
+
+                    if (diasdif > 0)
+                        hours = entrada.Hours - salida.Hours + diasdif;
+                    else
+                        hours = salida.Hours - entrada.Hours;
+                }
 
                 if (isLeave)
                 {
