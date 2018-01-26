@@ -117,9 +117,9 @@
             this.panelTag.BackColor = System.Drawing.Color.Transparent;
             this.panelTag.Controls.Add(this.lblMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(472, 704);
+            this.panelTag.Location = new System.Drawing.Point(542, 704);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(527, 25);
+            this.panelTag.Size = new System.Drawing.Size(457, 25);
             this.panelTag.TabIndex = 150;
             this.panelTag.Visible = false;
             // 

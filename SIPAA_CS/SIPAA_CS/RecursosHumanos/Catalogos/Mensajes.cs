@@ -116,8 +116,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //boton buscar
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            cbEmpleados.Text = ""; 
-           // cbTrabajador.Text = "Seleccionar Empleado...";
+            cbEmpleados.Text = "";
+            // cbTrabajador.Text = "Seleccionar Empleado...";
 
             pnlmensajes.Visible = false;
             gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
@@ -142,7 +142,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             Util.ChangeButton(btnAgregar, 1, false);
             pactbtn = 1;
             //txtidtrab.Text = "";
-            cbEmpleados.Text = ""; 
+            cbEmpleados.Text = "";
             txtmensajeiu.Text = "";
             dtpfechainicial.Text = "";
             dtpfechafin.Text = "";
@@ -165,7 +165,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         }
 
 
-        private  void EliminaMensajesReloj()
+        private void EliminaMensajesReloj()
         {
             int tagReloj = 0;
             int minutos = 0;
@@ -173,8 +173,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             string contenido = string.Empty;
             //obtener el maximo de los mensajes
             int inicio = pantallaMensajes.fudimensajes(5, 160452, 1, "%", "%", "%", sUsuuMod, Name);
-            int max= pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
-            
+            int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
+
             for (int i = inicio; i <= max; i++)
             {
                 if (objCZKEM.GetSMS(1, i, ref tagReloj, ref minutos, ref comienzo, ref contenido))
@@ -227,12 +227,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             int MesFinal = dtpfechafin.Value.Month;
             int MesInicial = dtpfechafin.Value.Month;
             RelojChecador objReloj = new RelojChecador();
-            DataTable dt = new DataTable(); 
+            DataTable dt = new DataTable();
 
-            if (MesFinal==MesInicial)
+            if (MesFinal == MesInicial)
             {
-              if (DiaFinal>DiaInicial)
-                Horas = DiaFinal - DiaInicial;
+                if (DiaFinal > DiaInicial)
+                    Horas = DiaFinal - DiaInicial;
             }
             if (Horas == 0)
                 Horas = 1;
@@ -242,46 +242,49 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
 
             bool bConexion = false;
-            if (rbPublico.Checked==true)
+            if (rbPublico.Checked == true)
             {
 
-             
+
                 dt = objReloj.RelojesxTrabajador(cbEmpleados.SelectedValue.ToString(), 0, 16, "%", "%");
                 foreach (DataRow row in dt.Rows)
                 {
+                    lblMensaje.Text = "Enviando el mensaje a los relojes ";
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
                     if (bConexion != false)
                     {
-                       // EliminaMensajesReloj();
+                        lblMensaje.Text = "Enviando el mensaje a los relojes ";
                         p_rep = pantallaMensajes.fudimensajes(1, 1, 0, txtmensajeiu.Text, dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                         EliminaMensajesReloj();
                         int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
                         objCZKEM.SetSMS(1, max, tag, Horas, dtpfechainicial.Value.Year + "-" + dtpfechainicial.Value.Month + "-" + dtpfechainicial.Value.Day + " 00:01:00", txtmensajeiu.Text);
+                        objCZKEM.Disconnect();
 
                     }
                 }
 
-               
+
 
             }
-            if (rbPersonal.Checked==true)
+            if (rbPersonal.Checked == true)
             {
-               dt= objReloj.RelojesxTrabajador(cbEmpleados.SelectedValue.ToString(), 0, 15, "%", "%"); 
+                dt = objReloj.RelojesxTrabajador(cbEmpleados.SelectedValue.ToString(), 0, 15, "%", "%");
 
-              
+
                 foreach (DataRow row in dt.Rows)
                 {
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
-                    
+                    lblMensaje.Text = "Enviando el mensaje a los relojes asignados al empleado";
                     if (bConexion != false)
                     {
+                        lblMensaje.Text = "Enviando ...";
                         p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), 0, txtmensajeiu.Text, dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                         EliminaMensajesReloj();
                         int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
                         if (objCZKEM.SetSMS(1, max, tag, Horas, dtpfechainicial.Value.Year + "-" + dtpfechainicial.Value.Month + "-" + dtpfechainicial.Value.Day + " 00:01:00", txtmensajeiu.Text))
-                           objCZKEM.SSR_SetUserSMS(1, cbEmpleados.SelectedValue.ToString(), max);
-                     }
-                    
+                            objCZKEM.SSR_SetUserSMS(1, cbEmpleados.SelectedValue.ToString(), max);
+                    }
+
                     objCZKEM.Disconnect();
                 }
             }
@@ -318,22 +321,22 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         {
             if (txtmensajeiu.Text.Trim() == "" && pactbtn == 1)
                 lblMensaje.Text = "Capture un dato a guardar";
-            if (rbPersonal.Checked==true)
-             {
-                if (string.IsNullOrEmpty(cbEmpleados.SelectedValue.ToString() ))
+            if (rbPersonal.Checked == true)
+            {
+                if (string.IsNullOrEmpty(cbEmpleados.SelectedValue.ToString()))
                     lblMensaje.Text = "Tiene que capturar el numero del empleado";
-             }
-           if (pactbtn == 1)//insertar
+            }
+            if (pactbtn == 1)//insertar
             {
                 //inserta registro nuevo 
-                GuardaMensajeReloj();            
-               
+                GuardaMensajeReloj();
+
                 dgvMensajes.DataSource = null;
                 dgvMensajes.Columns.RemoveAt(0);
                 panelTag.Visible = true;
-                cbEmpleados.Text = ""; 
+                cbEmpleados.Text = "";
                 txtmensajeiu.Text = "";
-                cbEmpleados.Focus(); 
+                cbEmpleados.Focus();
                 gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
@@ -342,15 +345,25 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             else if (pactbtn == 2)//actualizar
             {
                 //Actualizar
-                fuidMensajes(2, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+                int cvmensaje = 0;
+                int idTrab = 0;
+                if (dgvMensajes.SelectedRows.Count != 0)
+                {
+                    DataGridViewRow row = this.dgvMensajes.SelectedRows[0];
+                    cvmensaje = Convert.ToInt32(row.Cells["cvmensaje"].Value.ToString());
+                    idTrab = Convert.ToInt32(row.Cells["NoEmpleado"].Value.ToString());
+                }
+
+                fuidMensajes(2, idTrab, cvmensaje, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+                GuardaMensajeReloj();
                 dgvMensajes.DataSource = null;
                 dgvMensajes.Columns.RemoveAt(0);
                 panelTag.Visible = true;
                 txtmensajeiu.Text = "";
-                //txtidtrab.Text = "";
-                cbEmpleados.Text = ""; 
+
+                cbEmpleados.Text = "";
                 txtmensajeiu.Focus();
-                //llena grid con datos existente
+
                 gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
@@ -363,13 +376,20 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 if (result == DialogResult.Yes)
                 {
                     //Eliminar
-                    fuidMensajes(3, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), 0, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
+                    int cvmensaje = 0;
+                    if (dgvMensajes.SelectedRows.Count != 0)
+                    {
+                        DataGridViewRow row = this.dgvMensajes.SelectedRows[0];
+                        cvmensaje = Convert.ToInt32(row.Cells["cvmensaje"].Value.ToString());
+                    }
+                    fuidMensajes(3, 0, cvmensaje, "%", "%", "%", sUsuuMod, Name);
+                    GuardaMensajeReloj();
                     dgvMensajes.DataSource = null;
                     dgvMensajes.Columns.RemoveAt(0);
                     panelTag.Visible = true;
                     txtmensajeiu.Text = "";
                     //txtidtrab.Text = "";
-                    cbEmpleados.Text = ""; 
+                    cbEmpleados.Text = "";
                     txtmensajeiu.Focus();
                     //llena grid con datos existente
                     gridMensajes(4, 0, 0, txtMensaje.Text.Trim(), "", "", "", "");
@@ -445,9 +465,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 btnAgregar.Visible = true;
             }
 
-            gridMensajes(4,0,0,"","","","","");
+            gridMensajes(4, 0, 0, "", "", "", "", "");
 
-           
+
 
             //Combo Empleados
             DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
@@ -474,7 +494,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         //Selección del combo
         private void cbTrabajador_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // txtidtrab.Text = cbTrabajador.SelectedValue.ToString();
+            // txtidtrab.Text = cbTrabajador.SelectedValue.ToString();
             cbEmpleados.Text = cbTrabajador.SelectedValue.ToString();
         }
 
@@ -513,15 +533,32 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
                 imgCheckUsuarios.Name = "img";
                 dgvMensajes.Columns.Insert(0, imgCheckUsuarios);
+
                 dgvMensajes.Columns[0].HeaderText = "Selección";
 
-                dgvMensajes.Columns[0].Width = 80;
-                dgvMensajes.Columns[1].Width = 100;
-                dgvMensajes.Columns[2].Width = 90;
-                //dgvMensajes.Columns[3].Width = 85;
-                dgvMensajes.Columns[4].Width = 300;
-                dgvMensajes.Columns[3].Visible = false;                                     
-               // dgvMensajes.Columns[5].Width = 300;
+                /* dgvMensajes.Columns[0].Width = 80;
+                 dgvMensajes.Columns[1].Width = 80;
+                 dgvMensajes.Columns[2].Width = 80;
+                 //dgvMensajes.Columns[3].Width = 85;
+                 dgvMensajes.Columns[4].Width = 185;
+                 dgvMensajes.Columns[3].Visible = false;
+                 // dgvMensajes.Columns[5].Width = 300;
+
+
+                 /*
+                dgvRelojesChecadores.Columns[0].Width = 75;
+                dgvRelojesChecadores.Columns[1].Width = 50;
+                dgvRelojesChecadores.Columns[2].Width = 100;
+                dgvRelojesChecadores.Columns[3].Width = 120;
+                dgvRelojesChecadores.Columns[4].Width = 80;
+                dgvRelojesChecadores.Columns[5].Width = 70;*/
+
+                /*Se ajusta tamaño de columna de acuerdo al contenido*/
+                dgvMensajes.Columns[3].Visible = false;
+                dgvMensajes.Columns[6].Visible = false;
+                for (int i = 0; i < dgvMensajes.Columns.Count; i++)
+                    dgvMensajes.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
                 dgvMensajes.ClearSelection();
             }
             else if (pins == 1 && pact == 1)
@@ -646,8 +683,8 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             //agrega registro
             if (pactbtn == 1)
             {
-              
-               
+
+
                 p_rep = pantallaMensajes.fudimensajes(popc, pidtrab, pcvmensaje, pdescripcion, pfeinicio, pfefin, pusuumod, pprgumod);
                 txtmensajeiu.Text = "";
             }
@@ -662,6 +699,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 p_rep = pantallaMensajes.fudimensajes(popc, pidtrab, pcvmensaje, pdescripcion, pfeinicio, pfefin, pusuumod, pprgumod);
                 txtmensajeiu.Text = "";
+                int a = 0;
             } // 
 
             switch (p_rep.ToString())
@@ -681,7 +719,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 default:
                     lblMensaje.Text = "";
                     break;
-            } 
+            }
         } //
 
 
@@ -696,22 +734,22 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             {
                 DataGridViewRow row = this.dgvMensajes.SelectedRows[0];
 
-                string valor1 = row.Cells["FechaInicial"].Value.ToString();
-                string valor2 = row.Cells["FechaFin"].Value.ToString();
-                string valor3 = row.Cells["NoEmpleado"].Value.ToString();
-                string ValorRow = row.Cells["Mensaje"].Value.ToString();
 
                 pnlmensajes.Visible = true;
                 lbluid.Text = "     Modifica Mensaje";
-                
-                dtpfechainicial.Text= valor1;
-                dtpfechafin.Text = valor2;
-                //txtidtrab.Text = valor3;
-                cbEmpleados.Text = valor3;
-                txtmensajeiu.Text = ValorRow;
-                //dejo solo el mensaje
+                if (row.Cells["NoEmpleado"].Value.ToString() != "")
+                    rbPersonal.Checked = true;
+                else
+                    rbPersonal.Checked = false;
+                dtpfechainicial.Text = row.Cells["FechaInicial"].Value.ToString();
+                dtpfechafin.Text = row.Cells["FechaFin"].Value.ToString();
 
-                pnldatos.Visible = false;
+                cbEmpleados.Text = row.Cells["Nombre"].Value.ToString();
+                cbEmpleados.SelectedItem = row.Cells["NoEmpleado"].Value.ToString();
+                txtmensajeiu.Text = row.Cells["Mensaje"].Value.ToString();
+
+                pnldatos.Visible = true;
+                cbEmpleados.Enabled = false;
 
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
             }
@@ -720,18 +758,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void dtpfechainicial_ValueChanged(object sender, EventArgs e)
         {
 
-            DateTime Date = DateTime.Today.Date;
-            if (dtpfechainicial.Value.Date < Date)
-            {
-                MessageBox.Show("No puede elegir una fecha anterior a la actual", "SIPPA", MessageBoxButtons.OK);
-                dtpfechainicial.Value = DateTime.Today.Date;
-            }
-            dtpfechafin.Value = dtpfechainicial.Value;
+            //DateTime Date = DateTime.Today.Date;
+            //if (dtpfechainicial.Value.Date < Date)
+            //{
+            //    MessageBox.Show("No puede elegir una fecha anterior a la actual", "SIPPA", MessageBoxButtons.OK);
+            //    dtpfechainicial.Value = DateTime.Today.Date;
+            //}
+            //dtpfechafin.Value = dtpfechainicial.Value;
         }
 
         private void rbPublico_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbPublico.Checked==true)
+            if (rbPublico.Checked == true)
             {
                 tag = 253;
                 chkCaduca.Checked = false;
@@ -740,29 +778,29 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 //txtidtrab.Text = "";
                 //txtidtrab.Enabled = false;
                 cbEmpleados.Text = "";
-                cbEmpleados.Enabled = false; 
+                cbEmpleados.Enabled = false;
                 txtmensajeiu.Text = "";
             }
             else
-               chkCaduca.Visible = false;
-           
-                
-               
+                chkCaduca.Visible = false;
+
+
+
             // 253 es para mensajes publicos , 254 para personales y 255 para borradores, pero esos no los recomiendo que los usen pues no se pueden
             // asignar
         }
 
         private void rbPersonal_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbPersonal.Checked==true)
+            if (rbPersonal.Checked == true)
             {
                 tag = 254;
                 chkCaduca.Checked = false;
                 //txtidtrab.Enabled = true;
-                cbEmpleados.Enabled = true; 
-                txtmensajeiu.Text = ""; 
+                cbEmpleados.Enabled = true;
+                txtmensajeiu.Text = "";
             }
-           
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -777,8 +815,12 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void dtpfechafin_Leave(object sender, EventArgs e)
         {
-           
-                
+            if (dtpfechafin.Value.Date < dtpfechainicial.Value.Date)
+            {
+                MessageBox.Show("No puede elegir una fecha final menor a la de inicio, se pondra la misma fecha de inicio", "SIPPA", MessageBoxButtons.OK);
+                dtpfechafin.Value = dtpfechainicial.Value.Date;
+            }
+
         }
 
         private void dtpfechainicial_Validating(object sender, CancelEventArgs e)
@@ -792,11 +834,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
         private void dtpfechafin_ValueChanged(object sender, EventArgs e)
         {
-            if (dtpfechafin.Value.Date < dtpfechainicial.Value.Date)
-            {
-                MessageBox.Show("No puede elegir una fecha final menor a la de inicio, se pondra la misma fecha de inicio", "SIPPA", MessageBoxButtons.OK);
-                dtpfechafin.Value = dtpfechainicial.Value.Date;
-            }
+            //if (dtpfechafin.Value.Date < dtpfechainicial.Value.Date)
+            //{
+            //    MessageBox.Show("No puede elegir una fecha final menor a la de inicio, se pondra la misma fecha de inicio", "SIPPA", MessageBoxButtons.OK);
+            //    dtpfechafin.Value = dtpfechainicial.Value.Date;
+            //}
         }
 
         private void txtidtrab_TextChanged(object sender, EventArgs e)
@@ -813,6 +855,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 //Utilerias.AgregarCheck(dgv, 0);
 
             }*/
+        }
+
+        private void dtpfechainicial_Leave(object sender, EventArgs e)
+        {
+
+            DateTime Date = DateTime.Today.Date;
+            if (dtpfechainicial.Value.Date < Date)
+            {
+                MessageBox.Show("No puede elegir una fecha anterior a la actual", "SIPPA", MessageBoxButtons.OK);
+                dtpfechainicial.Value = DateTime.Today.Date;
+            }
+            dtpfechafin.Value = dtpfechainicial.Value;
         }
     }
 }

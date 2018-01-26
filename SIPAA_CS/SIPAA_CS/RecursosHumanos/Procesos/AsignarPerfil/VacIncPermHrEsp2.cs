@@ -291,6 +291,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 dgvEmpleados.Columns[2].Width =300;
                 dgvEmpleados.Columns[3].Visible = false;
                 dgvEmpleados.Columns[4].Visible = false;
+                dgvEmpleados.Columns[5].Visible = false;
 
                 //Guajolocombo Conceptos Incidencia
                 /////////CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
@@ -316,6 +317,27 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 dtpFechaInical.Focus();
             }
 
+            ///Si capturaron hra de entrada y salida
+            if (mtxtHoraEntrada.Text != "00:00" & mtxtHoraSalida.Text != "00:00")
+            {
+                DateTime HI = Convert.ToDateTime(mtxtHoraEntrada.Text);
+                DateTime HF = Convert.ToDateTime(mtxtHoraSalida.Text);
+
+                if (HI > HF)
+                {
+                    //MessageBox.Show("Error en las Horas, Verifique.", "SIPPA", MessageBoxButtons.OK);
+                    svalidacampos = "Error en las Horas, Verifique.";
+                    mtxtHoraEntrada.Focus();
+                }
+            }
+
+            //Capturaron solo hra de salida 
+            if (mtxtHoraEntrada.Text == "00:00" & mtxtHoraSalida.Text != "00:00")
+            {
+                svalidacampos = "Debe capturar una Hora de Entrada, Verifique.";
+                mtxtHoraEntrada.Focus();
+            }
+                      
             if (svalidacampos != "0")
             {
                 DialogResult result = MessageBox.Show(svalidacampos, "SIPAA", MessageBoxButtons.OK);
@@ -337,8 +359,22 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         {
                             if (row.Selected)
                             {
-                                int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
+                                if (iop==2)
+                                {
+                                    //Capturaron solo hra de entrada
+                                    if (mtxtHoraEntrada.Text != "00:00" & mtxtHoraSalida.Text == "00:00")
+                                    {
+                                        int iPuesto = Convert.ToInt32(row.Cells[5].Value.ToString());
+                                        if (iPuesto != 287 & iPuesto != 288 & iPuesto != 289 & iPuesto != 290)
+                                        {
+                                            MessageBox.Show("Por el Puesto del trabajador  " + Convert.ToInt32(row.Cells[1].Value.ToString()) + ", debe capturar una Hora de Salida, Verifique.", "SIPPA", MessageBoxButtons.OK);
+                                            //mtxtHoraSalida.Focus();
+                                            break;
+                                        }
+                                    }
+                                }
 
+                                int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
                                 fInsDiasEsp(iIdTrab, iop, Convert.ToInt32(txtCvInc.Text.ToString()), Convert.ToInt32(txtCvTipo.Text.ToString()), dtpFechaInical.Text.Trim(),
                                 dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), mtxtHoraEntrada.Text.Trim(), mtxtHoraSalida.Text.Trim(), txtReferencia.Text, 4,
                                 Convert.ToInt32(txtSubsidio.Text), 0, usuumod.ToString(), prgumod.ToString(), 0, 0);
@@ -357,7 +393,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         catch (Exception ex)
                         {
                             // MessageBox.Show(ex.ToString());
-                            MessageBox.Show("Problemas con el Empleado  "+ Convert.ToInt32(row.Cells[1].Value.ToString())+ "  " + row.Cells[2].Value.ToString() + "  Verifique su Perfil.", "SIPAA");
+                            MessageBox.Show("Problemas con el Empleado  "+ Convert.ToInt32(row.Cells[1].Value.ToString())+ "  " + row.Cells[2].Value.ToString() + "  Verifique los datos.", "SIPAA");
                         }
                     }
                 }
@@ -367,6 +403,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     {
                         try
                         {
+                            //Capturaron solo hra de entrada
+                            if (mtxtHoraEntrada.Text != "00:00" & mtxtHoraSalida.Text == "00:00")
+                            {
+                                int iPuesto =Convert.ToInt32(row.Cells[5].Value.ToString());
+                                if (iPuesto!=287 & iPuesto!=288 & iPuesto!=289 & iPuesto!=290)
+                                {
+                                    MessageBox.Show ("Por el Puesto del trabajador  " + Convert.ToInt32(row.Cells[1].Value.ToString())+ ", debe capturar una Hora de Salida, Verifique.", "SIPPA", MessageBoxButtons.OK);
+                                    //mtxtHoraSalida.Focus();
+                                    break;
+                                }
+                            }
+
                             int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
                             fInsDiasEsp(iIdTrab, 1, Convert.ToInt32(cbConcepto.SelectedValue.ToString()), Convert.ToInt32(cbTipo.SelectedValue.ToString()), dtpFechaInical.Text.Trim(),
                             dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), mtxtHoraEntrada.Text.Trim(), mtxtHoraSalida.Text.Trim(), txtReferencia.Text, 4,
@@ -377,7 +425,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         catch (Exception ex)
                         {
                             //MessageBox.Show(ex.ToString());
-                            MessageBox.Show("Problemas con el Empleado  " + Convert.ToInt32(row.Cells[1].Value.ToString())+"  "+ row.Cells[2].Value.ToString()+ "  Verifique su Perfil.", "SIPAA");
+                            MessageBox.Show("Problemas con el Empleado  " + Convert.ToInt32(row.Cells[1].Value.ToString())+"  "+ row.Cells[2].Value.ToString()+ "  Verifique sus datos.", "SIPAA");
                         }
                     }
                     //frecargar();
