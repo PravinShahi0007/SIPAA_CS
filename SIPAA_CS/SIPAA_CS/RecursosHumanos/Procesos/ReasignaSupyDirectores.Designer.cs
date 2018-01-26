@@ -30,11 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label lblFormaPago;
-            System.Windows.Forms.Label label8;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReasignaSupyDirectores));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label8;
+            System.Windows.Forms.Label label19;
             this.cbFormaPago = new System.Windows.Forms.ComboBox();
             this.panelTag = new System.Windows.Forms.Panel();
             this.lblMensaje = new System.Windows.Forms.Label();
@@ -67,6 +68,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             lblFormaPago = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
+            label19 = new System.Windows.Forms.Label();
             this.panelTag.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdatos)).BeginInit();
@@ -77,27 +79,14 @@
             // 
             lblFormaPago.AutoSize = true;
             lblFormaPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            lblFormaPago.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lblFormaPago.Font = new System.Drawing.Font("Arial", 9.75F);
             lblFormaPago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblFormaPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblFormaPago.Location = new System.Drawing.Point(39, 15);
+            lblFormaPago.Location = new System.Drawing.Point(31, 15);
             lblFormaPago.Name = "lblFormaPago";
-            lblFormaPago.Size = new System.Drawing.Size(68, 18);
+            lblFormaPago.Size = new System.Drawing.Size(56, 16);
             lblFormaPago.TabIndex = 152;
             lblFormaPago.Text = "Periodo:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(539, 128);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(168, 18);
-            label8.TabIndex = 190;
-            label8.Text = "Listado de Incidencias.";
             // 
             // cbFormaPago
             // 
@@ -106,9 +95,9 @@
             this.cbFormaPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbFormaPago.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFormaPago.FormattingEnabled = true;
-            this.cbFormaPago.Location = new System.Drawing.Point(111, 12);
+            this.cbFormaPago.Location = new System.Drawing.Point(91, 11);
             this.cbFormaPago.Name = "cbFormaPago";
-            this.cbFormaPago.Size = new System.Drawing.Size(219, 24);
+            this.cbFormaPago.Size = new System.Drawing.Size(107, 24);
             this.cbFormaPago.TabIndex = 151;
             this.cbFormaPago.SelectedIndexChanged += new System.EventHandler(this.cbFormaPago_SelectedIndexChanged);
             // 
@@ -117,7 +106,7 @@
             this.panelTag.BackColor = System.Drawing.Color.Transparent;
             this.panelTag.Controls.Add(this.lblMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(542, 704);
+            this.panelTag.Location = new System.Drawing.Point(519, 719);
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(457, 25);
             this.panelTag.TabIndex = 150;
@@ -220,10 +209,10 @@
             this.TxtFeIni.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtFeIni.Enabled = false;
             this.TxtFeIni.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtFeIni.Location = new System.Drawing.Point(118, 52);
+            this.TxtFeIni.Location = new System.Drawing.Point(134, 43);
             this.TxtFeIni.Name = "TxtFeIni";
             this.TxtFeIni.ReadOnly = true;
-            this.TxtFeIni.Size = new System.Drawing.Size(120, 18);
+            this.TxtFeIni.Size = new System.Drawing.Size(80, 18);
             this.TxtFeIni.TabIndex = 153;
             this.TxtFeIni.TabStop = false;
             this.TxtFeIni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -234,10 +223,10 @@
             this.TxtFeFin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtFeFin.Enabled = false;
             this.TxtFeFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtFeFin.Location = new System.Drawing.Point(118, 96);
+            this.TxtFeFin.Location = new System.Drawing.Point(284, 39);
             this.TxtFeFin.Name = "TxtFeFin";
             this.TxtFeFin.ReadOnly = true;
-            this.TxtFeFin.Size = new System.Drawing.Size(120, 18);
+            this.TxtFeFin.Size = new System.Drawing.Size(80, 18);
             this.TxtFeFin.TabIndex = 154;
             this.TxtFeFin.TabStop = false;
             this.TxtFeFin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -246,35 +235,35 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label1.Location = new System.Drawing.Point(8, 51);
+            this.label1.Location = new System.Drawing.Point(31, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 18);
+            this.label1.Size = new System.Drawing.Size(100, 16);
             this.label1.TabIndex = 155;
-            this.label1.Text = "Fecha Inicial:";
+            this.label1.Text = "Fechas   Inicial:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label2.Location = new System.Drawing.Point(13, 98);
+            this.label2.Location = new System.Drawing.Point(236, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 18);
+            this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 156;
-            this.label2.Text = "Fecha Final:";
+            this.label2.Text = "Final:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label4.Location = new System.Drawing.Point(8, 152);
+            this.label4.Location = new System.Drawing.Point(31, 84);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 18);
+            this.label4.Size = new System.Drawing.Size(70, 16);
             this.label4.TabIndex = 159;
             this.label4.Text = "Empleado:";
             // 
@@ -282,13 +271,13 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label9.Location = new System.Drawing.Point(146, 312);
+            this.label9.Location = new System.Drawing.Point(31, 206);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(202, 18);
+            this.label9.Size = new System.Drawing.Size(224, 16);
             this.label9.TabIndex = 170;
-            this.label9.Text = "Nuevo Supervisor y Director";
+            this.label9.Text = "NUEVO SUPERVISOR Y DIRECTOR";
             // 
             // btnInsertar
             // 
@@ -296,9 +285,9 @@
             this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Editar;
-            this.btnInsertar.Location = new System.Drawing.Point(417, 450);
+            this.btnInsertar.Location = new System.Drawing.Point(358, 304);
             this.btnInsertar.Name = "btnInsertar";
-            this.btnInsertar.Size = new System.Drawing.Size(50, 50);
+            this.btnInsertar.Size = new System.Drawing.Size(55, 55);
             this.btnInsertar.TabIndex = 171;
             this.btnInsertar.Tag = "Guardar";
             this.btnInsertar.UseVisualStyleBackColor = false;
@@ -307,17 +296,17 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(116, 70);
+            this.panel1.Location = new System.Drawing.Point(133, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(122, 2);
+            this.panel1.Size = new System.Drawing.Size(80, 2);
             this.panel1.TabIndex = 173;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(116, 114);
+            this.panel2.Location = new System.Drawing.Point(282, 59);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(122, 2);
+            this.panel2.Size = new System.Drawing.Size(80, 2);
             this.panel2.TabIndex = 174;
             // 
             // ptbimgusuario
@@ -338,9 +327,9 @@
             this.cbempleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbempleado.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbempleado.FormattingEnabled = true;
-            this.cbempleado.Location = new System.Drawing.Point(97, 150);
+            this.cbempleado.Location = new System.Drawing.Point(105, 80);
             this.cbempleado.Name = "cbempleado";
-            this.cbempleado.Size = new System.Drawing.Size(370, 24);
+            this.cbempleado.Size = new System.Drawing.Size(309, 24);
             this.cbempleado.TabIndex = 179;
             this.cbempleado.SelectedIndexChanged += new System.EventHandler(this.cbempleado_SelectedIndexChanged);
             // 
@@ -372,7 +361,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvdatos.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvdatos.Location = new System.Drawing.Point(542, 158);
+            this.dgvdatos.Location = new System.Drawing.Point(518, 165);
             this.dgvdatos.Name = "dgvdatos";
             this.dgvdatos.ReadOnly = true;
             this.dgvdatos.RowHeadersVisible = false;
@@ -380,7 +369,7 @@
             this.dgvdatos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvdatos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvdatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvdatos.Size = new System.Drawing.Size(457, 518);
+            this.dgvdatos.Size = new System.Drawing.Size(457, 548);
             this.dgvdatos.TabIndex = 180;
             this.dgvdatos.TabStop = false;
             // 
@@ -390,20 +379,20 @@
             this.cbsupervisor.Enabled = false;
             this.cbsupervisor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbsupervisor.FormattingEnabled = true;
-            this.cbsupervisor.Location = new System.Drawing.Point(97, 210);
+            this.cbsupervisor.Location = new System.Drawing.Point(105, 132);
             this.cbsupervisor.Name = "cbsupervisor";
-            this.cbsupervisor.Size = new System.Drawing.Size(370, 24);
+            this.cbsupervisor.Size = new System.Drawing.Size(309, 24);
             this.cbsupervisor.TabIndex = 182;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label6.Location = new System.Drawing.Point(8, 211);
+            this.label6.Location = new System.Drawing.Point(29, 136);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 18);
+            this.label6.Size = new System.Drawing.Size(72, 16);
             this.label6.TabIndex = 181;
             this.label6.Text = "Supervisor:";
             // 
@@ -413,20 +402,20 @@
             this.cbdirector.Enabled = false;
             this.cbdirector.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbdirector.FormattingEnabled = true;
-            this.cbdirector.Location = new System.Drawing.Point(97, 253);
+            this.cbdirector.Location = new System.Drawing.Point(105, 169);
             this.cbdirector.Name = "cbdirector";
-            this.cbdirector.Size = new System.Drawing.Size(370, 24);
+            this.cbdirector.Size = new System.Drawing.Size(309, 24);
             this.cbdirector.TabIndex = 184;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label7.Location = new System.Drawing.Point(24, 255);
+            this.label7.Location = new System.Drawing.Point(31, 172);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 18);
+            this.label7.Size = new System.Drawing.Size(57, 16);
             this.label7.TabIndex = 183;
             this.label7.Text = "Director:";
             // 
@@ -437,20 +426,20 @@
             this.cbdirecnuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbdirecnuevo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbdirecnuevo.FormattingEnabled = true;
-            this.cbdirecnuevo.Location = new System.Drawing.Point(98, 401);
+            this.cbdirecnuevo.Location = new System.Drawing.Point(105, 276);
             this.cbdirecnuevo.Name = "cbdirecnuevo";
-            this.cbdirecnuevo.Size = new System.Drawing.Size(369, 24);
+            this.cbdirecnuevo.Size = new System.Drawing.Size(309, 24);
             this.cbdirecnuevo.TabIndex = 188;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label3.Location = new System.Drawing.Point(24, 402);
+            this.label3.Location = new System.Drawing.Point(31, 279);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 18);
+            this.label3.Size = new System.Drawing.Size(57, 16);
             this.label3.TabIndex = 187;
             this.label3.Text = "Director:";
             // 
@@ -461,27 +450,26 @@
             this.cbsupervnuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbsupervnuevo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbsupervnuevo.FormattingEnabled = true;
-            this.cbsupervnuevo.Location = new System.Drawing.Point(97, 355);
+            this.cbsupervnuevo.Location = new System.Drawing.Point(105, 232);
             this.cbsupervnuevo.Name = "cbsupervnuevo";
-            this.cbsupervnuevo.Size = new System.Drawing.Size(370, 24);
+            this.cbsupervnuevo.Size = new System.Drawing.Size(309, 24);
             this.cbsupervnuevo.TabIndex = 186;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label5.Location = new System.Drawing.Point(9, 356);
+            this.label5.Location = new System.Drawing.Point(29, 235);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 18);
+            this.label5.Size = new System.Drawing.Size(72, 16);
             this.label5.TabIndex = 185;
             this.label5.Text = "Supervisor:";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(212)))), ((int)(((byte)(213)))));
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.cbdirecnuevo);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.cbsupervnuevo);
@@ -502,10 +490,36 @@
             this.panel3.Controls.Add(this.TxtFeIni);
             this.panel3.Controls.Add(lblFormaPago);
             this.panel3.Controls.Add(this.cbFormaPago);
-            this.panel3.Location = new System.Drawing.Point(21, 158);
+            this.panel3.Location = new System.Drawing.Point(23, 165);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(499, 518);
+            this.panel3.Size = new System.Drawing.Size(457, 361);
             this.panel3.TabIndex = 189;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            label8.Font = new System.Drawing.Font("Arial", 9.75F);
+            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label8.Location = new System.Drawing.Point(516, 146);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(141, 16);
+            label8.TabIndex = 191;
+            label8.Text = "Listado de Incidencias.";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            label19.Font = new System.Drawing.Font("Arial", 9.75F);
+            label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label19.Location = new System.Drawing.Point(20, 121);
+            label19.Name = "label19";
+            label19.Size = new System.Drawing.Size(307, 16);
+            label19.TabIndex = 193;
+            label19.Text = "Reasigna Supervisor y Director en el periodo abierto";
             // 
             // ReasignaSupyDirectores
             // 
@@ -513,6 +527,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(label19);
             this.Controls.Add(label8);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.dgvdatos);
