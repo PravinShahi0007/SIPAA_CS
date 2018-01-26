@@ -90,6 +90,7 @@
             this.lblMensaje = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.label22 = new System.Windows.Forms.Label();
             label16 = new System.Windows.Forms.Label();
             label17 = new System.Windows.Forms.Label();
             label18 = new System.Windows.Forms.Label();
@@ -643,6 +644,7 @@
             // pnlAgregarInc
             // 
             this.pnlAgregarInc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlAgregarInc.Controls.Add(this.label22);
             this.pnlAgregarInc.Controls.Add(this.ckbEliminar);
             this.pnlAgregarInc.Controls.Add(this.btnInsertar);
             this.pnlAgregarInc.Controls.Add(this.txtCvTipo);
@@ -833,6 +835,19 @@
             this.ptbimgusuario.TabIndex = 233;
             this.ptbimgusuario.TabStop = false;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label22.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label22.Location = new System.Drawing.Point(518, 65);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(286, 16);
+            this.label22.TabIndex = 236;
+            this.label22.Text = "En Formato 24 Hrs. 00:00 Representa SIN Valor";
+            // 
             // VacIncPermHrEsp2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -923,5 +938,6 @@
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.CheckBox ckbEliminar;
+        private System.Windows.Forms.Label label22;
     }
 }
