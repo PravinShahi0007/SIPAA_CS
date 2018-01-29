@@ -631,11 +631,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             if (Convert.ToInt32(txtDias.Text) > 1)
             {
                 DateTime resultado=Convert.ToDateTime(dtpFechaInical.Text);
-                dtpFechaFinal.Text =Convert.ToString(resultado.AddDays(Convert.ToInt32(txtDias.Text) - 1));                
+                dtpFechaFinal.Text =Convert.ToString(resultado.AddDays(Convert.ToInt32(txtDias.Text) - 1));
+                dtpFechaFinal.Focus();
             }
             else if (Convert.ToInt32(txtDias.Text) == 1)
             {
                 dtpFechaFinal.Text = dtpFechaInical.Text;
+                dtpFechaFinal.Focus();
             }
         }
 
