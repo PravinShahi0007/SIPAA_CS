@@ -210,10 +210,23 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 string cvCia = "%";
                 string cvUbicacion = "%";
                 string sNomina = "%";
-                if (cbEmpleados.Text != String.Empty && cbEmpleados.Text != "Seleccionar") { idTrab = cbEmpleados.SelectedValue.ToString(); }
-                if (cbCompania.SelectedIndex > 0) { cvCia = cbCompania.SelectedValue.ToString(); }
-                if (cbUbicacion.SelectedIndex > 0) { cvUbicacion = cbUbicacion.SelectedValue.ToString(); }
-                if (cbTiponomina.SelectedIndex > 0) { sNomina = cbTiponomina.SelectedValue.ToString(); }
+
+                if (cbEmpleados.Text != String.Empty && cbEmpleados.Text != "Seleccionar")
+                {
+                    idTrab = cbEmpleados.SelectedValue.ToString();
+                }
+                if (cbCompania.Text != "" & cbCompania.Text != "Seleccionar Compañia...")
+                {
+                    cvCia = cbCompania.SelectedValue.ToString();
+                }
+                if (Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) > 0 & cbUbicacion.Text != "Seleccionar...")
+                {
+                    cvUbicacion = cbUbicacion.SelectedValue.ToString();
+                }
+                if (cbTiponomina.Text != "" & cbTiponomina.Text != "Seleccionar Tipo Nomina...")
+                {
+                    sNomina = cbTiponomina.SelectedValue.ToString();
+                }
 
                 DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPendientesAutorizar(2, idTrab, dtpfechainicial.Value.Date, dtpfechafinal.Value.Date, cvCia, sNomina, cvUbicacion);
                 switch (dtIncidencia.Rows.Count)
@@ -259,10 +272,22 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 string cvCia = "%";
                 string cvUbicacion = "%";
                 string sNomina = "%";
-                if (cbEmpleados.Text != String.Empty && cbEmpleados.Text != "Seleccionar") { idTrab = cbEmpleados.SelectedValue.ToString(); }
-                if (cbCompania.SelectedIndex > 0) { cvCia = cbCompania.SelectedValue.ToString(); }
-                if (cbUbicacion.SelectedIndex > 0) { cvUbicacion = cbUbicacion.SelectedValue.ToString(); }
-                if (cbTiponomina.SelectedIndex > 0) { sNomina = cbTiponomina.SelectedValue.ToString(); }
+                if (cbEmpleados.Text != String.Empty && cbEmpleados.Text != "Seleccionar")
+                {
+                    idTrab = cbEmpleados.SelectedValue.ToString();
+                }
+                if (cbCompania.Text != "" & cbCompania.Text != "Seleccionar Compañia...")
+                {
+                    cvCia = cbCompania.SelectedValue.ToString();
+                }
+                if (Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) > 0 & cbUbicacion.Text != "Seleccionar...")
+                {
+                    cvUbicacion = cbUbicacion.SelectedValue.ToString();
+                }
+                if (cbTiponomina.Text != "" & cbTiponomina.Text != "Seleccionar Tipo Nomina...")
+                {
+                    sNomina = cbTiponomina.SelectedValue.ToString();
+                }
 
                 DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPendientesAutorizar(1, idTrab, dtpfechainicial.Value.Date, dtpfechafinal.Value.Date, cvCia, sNomina, cvUbicacion);
                 switch (dtIncidencia.Rows.Count)
@@ -308,10 +333,23 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 string cvCia = "%";
                 string cvUbicacion = "%";
                 string sNomina = "%";
-                if (cbEmpleados.Text != String.Empty && cbEmpleados.Text != "Seleccionar") { idTrab = cbEmpleados.SelectedValue.ToString(); }
-                if (cbCompania.SelectedIndex > 0) { cvCia = cbCompania.SelectedValue.ToString(); }
-                if (cbUbicacion.SelectedIndex > 0) { cvUbicacion = cbUbicacion.SelectedValue.ToString(); }
-                if (cbTiponomina.SelectedIndex > 0) { sNomina = cbTiponomina.SelectedValue.ToString(); }
+
+                if (cbEmpleados.Text != String.Empty && cbEmpleados.Text != "Seleccionar")
+                {
+                    idTrab = cbEmpleados.SelectedValue.ToString();
+                }
+                if (cbCompania.Text != "" & cbCompania.Text != "Seleccionar Compañia...")
+                {
+                    cvCia = cbCompania.SelectedValue.ToString();
+                }
+                if (Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) > 0 & cbUbicacion.Text != "Seleccionar...")
+                {
+                    cvUbicacion = cbUbicacion.SelectedValue.ToString();
+                }
+                if (cbTiponomina.Text != "" & cbTiponomina.Text != "Seleccionar Tipo Nomina...")
+                {
+                    sNomina = cbTiponomina.SelectedValue.ToString();
+                }
 
                 DataTable dtIncidencia = objIncidencia.ReporteFechasHorasRegistro(idTrab, dtpfechainicial.Value.Date, dtpfechafinal.Value.Date, cvCia, sNomina, cvUbicacion);
                 switch (dtIncidencia.Rows.Count)
@@ -411,6 +449,28 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             DataTable dtarchivonomina4 = oArchivoNomina4.ObtenerArchivoNomina4(ipopcion, ipidtrab, ipidcompania,
                 ipidtiponomina, ipidubicacion, spfecinicio, spfecfin, spusuumod, spprgumod);
             dgvArchivoNomina4.DataSource = dtarchivonomina4;
+            if (dtarchivonomina4.Rows.Count==0)
+            {
+                DialogResult result = MessageBox.Show("NO hay información que coincida con los filtros de búsqueda, NO ES NECESARIO GENERAR EL ARCHIVO CSV.", "SIPAA");
+            }
+            else
+            {
+                dgvArchivoNomina4.Columns[0].Width = 60;
+                dgvArchivoNomina4.Columns[4].Width = 20;
+                dgvArchivoNomina4.Columns[5].Width = 20;
+                dgvArchivoNomina4.Columns[6].Width = 40;
+                dgvArchivoNomina4.Columns[7].Width = 80;
+                dgvArchivoNomina4.Columns[8].Width = 25;
+                dgvArchivoNomina4.Columns[9].Width = 20;
+                dgvArchivoNomina4.Columns[10].Width = 20;
+                dgvArchivoNomina4.Columns[12].Width = 20;
+                dgvArchivoNomina4.Columns[13].Width = 20;
+                dgvArchivoNomina4.Columns[14].Width = 20;
+                dgvArchivoNomina4.Columns[15].Width = 20;
+                dgvArchivoNomina4.Columns[16].Width = 20;
+                dgvArchivoNomina4.Columns[17].Width = 30;
+                dgvArchivoNomina4.Columns[18].Width = 80;
+            }
         }
 
         private void creacsv()
@@ -495,7 +555,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                     foreach (DataGridViewRow row in dgvArchivoNomina4.Rows)
                     {
-                        //string cadenaReg = "";
                         if (ren==0)
                         {
                             anonomina = txtanonom.Text;
