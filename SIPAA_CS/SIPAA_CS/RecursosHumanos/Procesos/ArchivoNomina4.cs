@@ -132,12 +132,24 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 string cvCia = "%";
                 string cvUbicacion = "%";
                 string sNomina = "%";
-                if (cbEmpleados.Text != String.Empty && cbEmpleados.Text!="Seleccionar") { idTrab = cbEmpleados.SelectedValue.ToString(); }
 
-                if (cbCompania.SelectedIndex > 0) { cvCia = cbCompania.SelectedValue.ToString(); }
-                if (cbUbicacion.SelectedIndex > 0) { cvUbicacion = cbUbicacion.SelectedValue.ToString(); }
-                if (cbTiponomina.SelectedIndex > 0) { sNomina = cbTiponomina.SelectedValue.ToString(); }
-               
+                if (cbEmpleados.Text != String.Empty && cbEmpleados.Text != "Seleccionar")
+                {
+                    idTrab = cbEmpleados.SelectedValue.ToString();
+                }
+                if (cbCompania.Text != "" & cbCompania.Text != "Seleccionar Compañia...")
+                {
+                    cvCia = cbCompania.SelectedValue.ToString();
+                }
+                if (Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) > 0 & cbUbicacion.Text != "Seleccionar...")
+                {
+                    cvUbicacion = cbUbicacion.SelectedValue.ToString();
+                }
+                if (cbTiponomina.Text != "" & cbTiponomina.Text != "Seleccionar Tipo Nomina...")
+                {
+                    sNomina = cbTiponomina.SelectedValue.ToString();
+                }
+
                 DataTable dtIncidencia = objIncidencia.ReporteIncidenciasPasadasNomina(idTrab, dtpfechainicial.Value.Date,  dtpfechafinal.Value.Date, cvCia, sNomina, cvUbicacion);
                 switch (dtIncidencia.Rows.Count)
                 {
