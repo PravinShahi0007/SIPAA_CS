@@ -58,10 +58,18 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 {
                     iopc = 9;
                 }
+                else
+                {
+                    cbosupdir.DataSource = null;
+                    dgvdatos.DataSource = null;
+                }
 
-                cbosupdir.DataSource = null;
-                DataTable dtsupdir = Empsupdir.dtdatos("0", iopc, "", "", 0, LoginInfo.IdTrab, this.Name, "", "");
-                Utilerias.llenarComboxDataTable(cbosupdir, dtsupdir, "clave", "dato");
+                if (irol == 1 || irol == 2)
+                {
+                    cbosupdir.DataSource = null;
+                    DataTable dtsupdir = Empsupdir.dtdatos("0", iopc, "", "", 0, LoginInfo.IdTrab, this.Name, "", "");
+                    Utilerias.llenarComboxDataTable(cbosupdir, dtsupdir, "clave", "dato");
+                }
             }
         }
         //-----------------------------------------------------------------------------------------------
@@ -110,24 +118,36 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             //valida campos
             Boolean bvalidacampos = fvalidacampos();
 
-            int irol = Int32.Parse(cborol.SelectedValue.ToString());
-            if (irol == 1)
+            if (bvalidacampos == true)
             {
-                iopc = 11;
-            }
-            else if (irol == 2)
-            {
-                iopc = 12;
-            }
-            dtperscardo = Empsupdir.dtdatos(cbosupdir.SelectedValue.ToString(), iopc, "", "", 0, cbosupdir.Text.ToString(), cborol.Text.ToString(), "", "");
 
-            //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
-            ViewerReporte form = new ViewerReporte();
-            RepEmpxsupdir dtrpt = new RepEmpxsupdir();
-            ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtperscardo, "SIPAA_CS.RecursosHumanos.Reportes", dtrpt.ResourceName);
+                int irol = Int32.Parse(cborol.SelectedValue.ToString());
+                if (irol == 1)
+                {
+                    iopc = 11;
+                }
+                else if (irol == 2)
+                {
+                    iopc = 12;
+                }
+                else
+                {
 
-            form.RptDoc = ReportDoc;
-            form.Show();
+                }
+                if (irol == 1 || irol == 2)
+                {
+                    dtperscardo = Empsupdir.dtdatos(cbosupdir.SelectedValue.ToString(), iopc, "", "", 0, cbosupdir.Text.ToString(), cborol.Text.ToString(), "", "");
+
+                    //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
+                    ViewerReporte form = new ViewerReporte();
+                    RepEmpxsupdir dtrpt = new RepEmpxsupdir();
+                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtperscardo, "SIPAA_CS.RecursosHumanos.Reportes", dtrpt.ResourceName);
+
+                    form.RptDoc = ReportDoc;
+                    form.Show();
+                }
+
+            }
         }
         private void btnregresar_Click(object sender, EventArgs e)
         {

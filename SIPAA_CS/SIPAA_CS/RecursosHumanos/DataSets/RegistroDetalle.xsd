@@ -12,7 +12,7 @@
   <xs:element name="RegistroDetalle" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RegistroDetalle" msprop:Generator_UserDSName="RegistroDetalle">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="RegistroDetalle" msprop:Generator_TableClassName="RegistroDetalleDataTable" msprop:Generator_TableVarName="tableRegistroDetalle" msprop:Generator_TablePropName="_RegistroDetalle" msprop:Generator_RowDeletingName="RegistroDetalleRowDeleting" msprop:Generator_RowChangingName="RegistroDetalleRowChanging" msprop:Generator_RowEvHandlerName="RegistroDetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="RegistroDetalleRowDeleted" msprop:Generator_UserTableName="RegistroDetalle" msprop:Generator_RowChangedName="RegistroDetalleRowChanged" msprop:Generator_RowEvArgName="RegistroDetalleRowChangeEvent" msprop:Generator_RowClassName="RegistroDetalleRow">
+        <xs:element name="RegistroDetalle" msprop:Generator_TableClassName="RegistroDetalleDataTable" msprop:Generator_TableVarName="tableRegistroDetalle" msprop:Generator_RowChangedName="RegistroDetalleRowChanged" msprop:Generator_TablePropName="_RegistroDetalle" msprop:Generator_RowDeletingName="RegistroDetalleRowDeleting" msprop:Generator_RowChangingName="RegistroDetalleRowChanging" msprop:Generator_RowEvHandlerName="RegistroDetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="RegistroDetalleRowDeleted" msprop:Generator_RowClassName="RegistroDetalleRow" msprop:Generator_UserTableName="RegistroDetalle" msprop:Generator_RowEvArgName="RegistroDetalleRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idTrab" msprop:Generator_ColumnVarNameInTable="columnidTrab" msprop:Generator_ColumnPropNameInRow="idTrab" msprop:Generator_ColumnPropNameInTable="idTrabColumn" msprop:Generator_UserColumnName="idTrab" type="xs:string" minOccurs="0" />
@@ -22,6 +22,7 @@
               <xs:element name="Reloj" msprop:Generator_ColumnVarNameInTable="columnReloj" msprop:Generator_ColumnPropNameInRow="Reloj" msprop:Generator_ColumnPropNameInTable="RelojColumn" msprop:Generator_UserColumnName="Reloj" type="xs:string" minOccurs="0" />
               <xs:element name="Fecha_Reg" msprop:Generator_ColumnVarNameInTable="columnFecha_Reg" msprop:Generator_ColumnPropNameInRow="Fecha_Reg" msprop:Generator_ColumnPropNameInTable="Fecha_RegColumn" msprop:Generator_UserColumnName="Fecha_Reg" type="xs:string" minOccurs="0" />
               <xs:element name="Hora_Reg" msprop:Generator_ColumnVarNameInTable="columnHora_Reg" msprop:Generator_ColumnPropNameInRow="Hora_Reg" msprop:Generator_ColumnPropNameInTable="Hora_RegColumn" msprop:Generator_UserColumnName="Hora_Reg" type="xs:string" minOccurs="0" />
+              <xs:element name="descreloj" msprop:Generator_ColumnVarNameInTable="columndescreloj" msprop:Generator_ColumnPropNameInRow="descreloj" msprop:Generator_ColumnPropNameInTable="descrelojColumn" msprop:Generator_UserColumnName="descreloj" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

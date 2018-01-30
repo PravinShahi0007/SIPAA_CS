@@ -19,8 +19,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         public string sIdTrab;
         public string sCompania;
         public string sUbicacion;
-        public DateTime dtFechaInicio = DateTime.Today;
-        public DateTime dtFechaFin = DateTime.Today;
+        public string dtFechaInicio;
+        public string dtFechaFin;
         SonaTrabajador contenedorempleados = new SonaTrabajador();
         //public int sysH = SystemInformation.PrimaryMonitorSize.Height;
         //public int sysW = SystemInformation.PrimaryMonitorSize.Width;
@@ -57,8 +57,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         //-----------------------------------------------------------------------------------------------
         private void btnImprimirDetalle_Click(object sender, EventArgs e)
         {
-            dtFechaInicio = dpFechaInicio.Value;
-            dtFechaFin = dpFechaFin.Value;
+            dtFechaInicio = dpFechaInicio.Text;
+            dtFechaFin = dpFechaFin.Text;
 
             if (cbEmpleados.Text==string.Empty)
                   sIdTrab = "%";
@@ -79,7 +79,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             switch (dtReporteRegistroDetalle.Rows.Count)
             {
                 case 0:
-                    DialogResult result = MessageBox.Show("No se encontro información.", "SIPAA");
+                    DialogResult result = MessageBox.Show("No existeinformación para los filtros seleccionados", "SIPAA");
                     break;
 
                 default:
@@ -161,8 +161,9 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             //Combo Empleados
             DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
             Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
-            cbEmpleados.Focus();
+            
             this.btnImprimirDetalle.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
+            cbEmpleados.Focus();
         }
 
         private void dpFechaFin_ValueChanged(object sender, EventArgs e)

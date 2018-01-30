@@ -72,7 +72,7 @@
             label4.Location = new System.Drawing.Point(70, 49);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(145, 17);
-            label4.TabIndex = 65;
+            label4.TabIndex = 209;
             label4.Text = "       Imprimir Reporte";
             // 
             // label2
@@ -81,11 +81,11 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(61, 294);
+            label2.Location = new System.Drawing.Point(33, 297);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(66, 16);
-            label2.TabIndex = 64;
-            label2.Text = "Fecha Fin";
+            label2.TabIndex = 208;
+            label2.Text = "Fecha Fín";
             // 
             // label1
             // 
@@ -93,10 +93,10 @@
             label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(61, 240);
+            label1.Location = new System.Drawing.Point(33, 229);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(96, 16);
-            label1.TabIndex = 63;
+            label1.TabIndex = 207;
             label1.Text = "Fecha de Inicio";
             // 
             // label5
@@ -105,10 +105,10 @@
             label5.Font = new System.Drawing.Font("Arial", 9.75F);
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(61, 160);
+            label5.Location = new System.Drawing.Point(33, 167);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(65, 16);
-            label5.TabIndex = 60;
+            label5.TabIndex = 206;
             label5.Text = "Ubicación";
             // 
             // label6
@@ -117,10 +117,10 @@
             label6.Font = new System.Drawing.Font("Arial", 9.75F);
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(61, 105);
+            label6.Location = new System.Drawing.Point(33, 104);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(66, 16);
-            label6.TabIndex = 58;
+            label6.TabIndex = 205;
             label6.Text = "Compañia";
             // 
             // label8
@@ -129,10 +129,10 @@
             label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(61, 33);
+            label8.Location = new System.Drawing.Point(33, 41);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(135, 16);
-            label8.TabIndex = 44;
+            label8.TabIndex = 204;
             label8.Text = "Nombre de Trabajador";
             // 
             // label9
@@ -142,10 +142,10 @@
             label9.ForeColor = System.Drawing.Color.Gray;
             label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
             label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(5, 0);
+            label9.Location = new System.Drawing.Point(4, 4);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(152, 17);
-            label9.TabIndex = 41;
+            label9.TabIndex = 203;
             label9.Text = "       Filtros de Reporte";
             // 
             // btnRegresar
@@ -158,7 +158,7 @@
             this.btnRegresar.Location = new System.Drawing.Point(916, 1);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(30, 24);
-            this.btnRegresar.TabIndex = 135;
+            this.btnRegresar.TabIndex = 200;
             this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
@@ -172,7 +172,7 @@
             this.btnMinimizar.Location = new System.Drawing.Point(975, 1);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(24, 24);
-            this.btnMinimizar.TabIndex = 134;
+            this.btnMinimizar.TabIndex = 201;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -187,7 +187,7 @@
             this.btnCerrar.Location = new System.Drawing.Point(999, 1);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(24, 24);
-            this.btnCerrar.TabIndex = 133;
+            this.btnCerrar.TabIndex = 202;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -196,7 +196,7 @@
             // 
             this.panel1.Controls.Add(label4);
             this.panel1.Controls.Add(this.btnImprimirDetalle);
-            this.panel1.Location = new System.Drawing.Point(557, 238);
+            this.panel1.Location = new System.Drawing.Point(563, 134);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 119);
             this.panel1.TabIndex = 137;
@@ -210,7 +210,7 @@
             this.btnImprimirDetalle.Location = new System.Drawing.Point(239, 33);
             this.btnImprimirDetalle.Name = "btnImprimirDetalle";
             this.btnImprimirDetalle.Size = new System.Drawing.Size(55, 55);
-            this.btnImprimirDetalle.TabIndex = 2;
+            this.btnImprimirDetalle.TabIndex = 5;
             this.btnImprimirDetalle.Tag = "Buscar";
             this.btnImprimirDetalle.UseVisualStyleBackColor = false;
             this.btnImprimirDetalle.Click += new System.EventHandler(this.btnImprimirDetalle_Click);
@@ -231,7 +231,7 @@
             this.pnlBusqueda.Location = new System.Drawing.Point(34, 133);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(503, 375);
-            this.pnlBusqueda.TabIndex = 136;
+            this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
             // 
             // cbEmpleados
@@ -242,10 +242,10 @@
             this.cbEmpleados.DropDownWidth = 500;
             this.cbEmpleados.Font = new System.Drawing.Font("Arial", 11.25F);
             this.cbEmpleados.FormattingEnabled = true;
-            this.cbEmpleados.Location = new System.Drawing.Point(64, 66);
+            this.cbEmpleados.Location = new System.Drawing.Point(34, 63);
             this.cbEmpleados.Name = "cbEmpleados";
             this.cbEmpleados.Size = new System.Drawing.Size(385, 25);
-            this.cbEmpleados.TabIndex = 180;
+            this.cbEmpleados.TabIndex = 0;
             this.cbEmpleados.Text = "Seleccionar";
             // 
             // cbUbicacion
@@ -260,20 +260,20 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbUbicacion.Location = new System.Drawing.Point(64, 183);
+            this.cbUbicacion.Location = new System.Drawing.Point(36, 189);
             this.cbUbicacion.Name = "cbUbicacion";
             this.cbUbicacion.Size = new System.Drawing.Size(385, 25);
-            this.cbUbicacion.TabIndex = 59;
+            this.cbUbicacion.TabIndex = 2;
             this.cbUbicacion.Text = "Seleccionar ";
             // 
             // dpFechaFin
             // 
             this.dpFechaFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaFin.Location = new System.Drawing.Point(64, 313);
+            this.dpFechaFin.Location = new System.Drawing.Point(36, 319);
             this.dpFechaFin.Name = "dpFechaFin";
             this.dpFechaFin.Size = new System.Drawing.Size(138, 25);
-            this.dpFechaFin.TabIndex = 62;
+            this.dpFechaFin.TabIndex = 4;
             this.dpFechaFin.ValueChanged += new System.EventHandler(this.dpFechaFin_ValueChanged);
             // 
             // cbCompania
@@ -288,20 +288,21 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbCompania.Location = new System.Drawing.Point(64, 125);
+            this.cbCompania.Location = new System.Drawing.Point(36, 126);
             this.cbCompania.Name = "cbCompania";
             this.cbCompania.Size = new System.Drawing.Size(385, 25);
-            this.cbCompania.TabIndex = 57;
+            this.cbCompania.TabIndex = 1;
             this.cbCompania.Text = "Seleccionar ";
             // 
             // dpFechaInicio
             // 
             this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaInicio.Location = new System.Drawing.Point(64, 259);
+            this.dpFechaInicio.Location = new System.Drawing.Point(36, 251);
+            this.dpFechaInicio.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             this.dpFechaInicio.Name = "dpFechaInicio";
             this.dpFechaInicio.Size = new System.Drawing.Size(138, 25);
-            this.dpFechaInicio.TabIndex = 61;
+            this.dpFechaInicio.TabIndex = 3;
             // 
             // label3
             // 
@@ -311,11 +312,11 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_assignment_white_24dp;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(413, 3);
+            this.label3.Location = new System.Drawing.Point(289, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 23);
-            this.label3.TabIndex = 138;
-            this.label3.Text = "         Registro Detalle";
+            this.label3.Size = new System.Drawing.Size(415, 23);
+            this.label3.TabIndex = 212;
+            this.label3.Text = "         Reporte de registros del reloj checador por empleado";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ptbimgusuario
@@ -339,7 +340,7 @@
             this.lblusuario.Location = new System.Drawing.Point(7, 75);
             this.lblusuario.Name = "lblusuario";
             this.lblusuario.Size = new System.Drawing.Size(56, 20);
-            this.lblusuario.TabIndex = 150;
+            this.lblusuario.TabIndex = 210;
             this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

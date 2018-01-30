@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Empleadosporsupdir));
             System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Empleadosporsupdir));
+            System.Windows.Forms.Label label5;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label label4;
-            System.Windows.Forms.Label label1;
-            System.Windows.Forms.Label label5;
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnregresar = new System.Windows.Forms.Button();
@@ -43,11 +43,11 @@
             this.btncerrar = new System.Windows.Forms.Button();
             this.dgvdatos = new System.Windows.Forms.DataGridView();
             this.pnlbusqueda = new System.Windows.Forms.Panel();
+            this.cbosupdir = new System.Windows.Forms.ComboBox();
+            this.cborol = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnbuscar = new System.Windows.Forms.Button();
-            this.cborol = new System.Windows.Forms.ComboBox();
-            this.cbosupdir = new System.Windows.Forms.ComboBox();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -56,6 +56,56 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvdatos)).BeginInit();
             this.pnlbusqueda.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label2.Location = new System.Drawing.Point(11, 178);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(137, 16);
+            label2.TabIndex = 180;
+            label2.Text = "Empleados Asignados";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label4.Location = new System.Drawing.Point(6, 27);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(27, 16);
+            label4.TabIndex = 44;
+            label4.Text = "Rol";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.ForeColor = System.Drawing.Color.Gray;
+            label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.Location = new System.Drawing.Point(4, 4);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(126, 17);
+            label1.TabIndex = 41;
+            label1.Text = "     Buscar por Rol";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label5.Location = new System.Drawing.Point(257, 27);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(125, 16);
+            label5.TabIndex = 174;
+            label5.Text = "Director / Supervisor";
             // 
             // ptbimgusuario
             // 
@@ -127,19 +177,6 @@
             this.btncerrar.UseVisualStyleBackColor = false;
             this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(11, 178);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(137, 16);
-            label2.TabIndex = 180;
-            label2.Text = "Empleados Asignados";
-            // 
             // dgvdatos
             // 
             this.dgvdatos.AllowUserToAddRows = false;
@@ -197,6 +234,31 @@
             this.pnlbusqueda.TabIndex = 181;
             this.pnlbusqueda.TabStop = true;
             // 
+            // cbosupdir
+            // 
+            this.cbosupdir.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbosupdir.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbosupdir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbosupdir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbosupdir.FormattingEnabled = true;
+            this.cbosupdir.Location = new System.Drawing.Point(385, 24);
+            this.cbosupdir.Name = "cbosupdir";
+            this.cbosupdir.Size = new System.Drawing.Size(357, 24);
+            this.cbosupdir.TabIndex = 1;
+            // 
+            // cborol
+            // 
+            this.cborol.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cborol.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cborol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cborol.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cborol.FormattingEnabled = true;
+            this.cborol.Location = new System.Drawing.Point(39, 23);
+            this.cborol.Name = "cborol";
+            this.cborol.Size = new System.Drawing.Size(211, 24);
+            this.cborol.TabIndex = 0;
+            this.cborol.SelectedIndexChanged += new System.EventHandler(this.cborol_SelectedIndexChanged);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -220,23 +282,11 @@
             this.btnImprimir.Location = new System.Drawing.Point(936, 5);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(55, 55);
-            this.btnImprimir.TabIndex = 164;
+            this.btnImprimir.TabIndex = 3;
             this.btnImprimir.Tag = "Buscar";
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Visible = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(6, 27);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(27, 16);
-            label4.TabIndex = 44;
-            label4.Text = "Rol";
             // 
             // btnbuscar
             // 
@@ -251,56 +301,6 @@
             this.btnbuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnbuscar.UseVisualStyleBackColor = false;
             this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.Color.Gray;
-            label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(4, 4);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(126, 17);
-            label1.TabIndex = 41;
-            label1.Text = "     Buscar por Rol";
-            // 
-            // cborol
-            // 
-            this.cborol.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cborol.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cborol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cborol.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cborol.FormattingEnabled = true;
-            this.cborol.Location = new System.Drawing.Point(39, 23);
-            this.cborol.Name = "cborol";
-            this.cborol.Size = new System.Drawing.Size(211, 24);
-            this.cborol.TabIndex = 173;
-            this.cborol.SelectedIndexChanged += new System.EventHandler(this.cborol_SelectedIndexChanged);
-            // 
-            // cbosupdir
-            // 
-            this.cbosupdir.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbosupdir.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbosupdir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbosupdir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbosupdir.FormattingEnabled = true;
-            this.cbosupdir.Location = new System.Drawing.Point(385, 24);
-            this.cbosupdir.Name = "cbosupdir";
-            this.cbosupdir.Size = new System.Drawing.Size(357, 24);
-            this.cbosupdir.TabIndex = 175;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(257, 27);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(125, 16);
-            label5.TabIndex = 174;
-            label5.Text = "Director / Supervisor";
             // 
             // Empleadosporsupdir
             // 
