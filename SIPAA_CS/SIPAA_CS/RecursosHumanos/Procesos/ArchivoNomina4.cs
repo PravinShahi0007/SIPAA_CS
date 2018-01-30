@@ -95,7 +95,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 fgridarchivonomina4(4, 0, Convert.ToInt32(cbCompania.SelectedValue.ToString()),
                 Convert.ToInt32(cbTiponomina.SelectedValue.ToString()), 0,
                 dtpfechainicial.Text.Trim(), dtpfechafinal.Text.Trim(), LoginInfo.IdTrab, "ProcArchNom");
-
             }
             else if (cbEmpleados.Text == "" | cbEmpleados.Text == "Seleccionar" & (cbUbicacion.SelectedValue.ToString() != "" | cbUbicacion.Text == "Seleccionar Ubicación..."))
             {
@@ -563,10 +562,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     string anonomina="", fechareg="";
                     int nonomina=0, noempleado=0, claveafecta=0, duro=0, conteo=1;
                     double tiempo = 0;
+                    double TH = 0, TF = 0, TR = 0;
                     string cadenaReg = "";
+                    bool divide =true;
 
                     foreach (DataGridViewRow row in dgvArchivoNomina4.Rows)
-                    {
+                    {                         
                         if (ren==0)
                         {
                             anonomina = txtanonom.Text;
@@ -578,13 +579,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                 if (dgvArchivoNomina4.Rows[ren].Cells[5].Value.ToString()=="1") //y es turno por dia
                                 {
                                     tiempo = 1;
+                                    divide = false;
                                 }
                             }
-                            else
-                            {
-                                tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString()); //13 mas 2
+                            else //por hora
+                            {                                
+                                tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+                                
                             }
                             fechareg = dgvArchivoNomina4.Rows[ren].Cells[7].Value.ToString();
+                            fechareg = fechareg.Substring(0,10);
                             duro = 0;
                             conteo = 1;
                         }
@@ -599,15 +603,40 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                     if (dgvArchivoNomina4.Rows[ren].Cells[5].Value.ToString() == "1") //y es turno por dia
                                     {
                                         tiempo = tiempo + 1;
+                                        divide = false;
                                     }
                                 }
-                                else
+                                else //por hora
                                 {
                                     tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+
                                 }
                             }
                             else
                             {
+                                ///////////////////////////////
+                                if (tiempo >= 60)
+                                {
+                                    TH = tiempo / 60;
+                                    int THR = Convert.ToInt32(Math.Round(TH));
+                                    TF = tiempo % 60;
+                                    int TFR = Convert.ToInt32(Math.Round(TF));
+                                    TF = TF / 100;
+                                    TR = THR + TF;
+                                    tiempo = TR;
+                                }
+                                else
+                                {
+                                    if (divide)
+                                    {
+                                        tiempo = tiempo / 100;
+                                    }
+                                    else
+                                    {
+                                        divide = true;
+                                    }
+                                }
+                                ///////////////////////////////
                                 cadenaReg = anonomina+","+nonomina+","+noempleado+","+claveafecta+","+tiempo+","+fechareg+","+duro+","+conteo;
                                 Texto.WriteLine(cadenaReg);
                                 //ren += 1;
@@ -620,19 +649,45 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                     if (dgvArchivoNomina4.Rows[ren].Cells[5].Value.ToString() == "1") //y es turno por dia
                                     {
                                         tiempo = 1;
+                                        divide = false;
                                     }
                                 }
                                 else
                                 {
                                     tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+
                                 }
                                 fechareg = dgvArchivoNomina4.Rows[ren].Cells[7].Value.ToString();
+                                fechareg = fechareg.Substring(0,10);
                                 duro = 0;
                                 conteo = 1;
                             }
                         }
                         ren += 1;
                     }
+                    ///////////////////////////////
+                    if (tiempo >= 60)
+                    {
+                        TH = tiempo / 60;
+                        int THR = Convert.ToInt32(Math.Round(TH));
+                        TF = tiempo % 60;
+                        int TFR = Convert.ToInt32(Math.Round(TF));
+                        TF = TF / 100;
+                        TR = THR + TF;
+                        tiempo = TR;
+                    }
+                    else
+                    {
+                        if (divide)
+                        {
+                            tiempo = tiempo / 100;
+                        }
+                        else
+                        {
+                            divide = true;
+                        }
+                    }
+                    ///////////////////////////////
                     cadenaReg = anonomina + "," + nonomina + "," + noempleado + "," + claveafecta + "," + tiempo + "," + fechareg + "," + duro + "," + conteo;
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
