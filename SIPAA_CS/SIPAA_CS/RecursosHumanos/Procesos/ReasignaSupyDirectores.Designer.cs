@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label lblFormaPago;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReasignaSupyDirectores));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label19;
             this.cbFormaPago = new System.Windows.Forms.ComboBox();
@@ -209,11 +209,11 @@
             this.TxtFeIni.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtFeIni.Enabled = false;
             this.TxtFeIni.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtFeIni.Location = new System.Drawing.Point(134, 43);
+            this.TxtFeIni.Location = new System.Drawing.Point(134, 53);
             this.TxtFeIni.Name = "TxtFeIni";
             this.TxtFeIni.ReadOnly = true;
             this.TxtFeIni.Size = new System.Drawing.Size(80, 18);
-            this.TxtFeIni.TabIndex = 153;
+            this.TxtFeIni.TabIndex = 152;
             this.TxtFeIni.TabStop = false;
             this.TxtFeIni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -223,11 +223,11 @@
             this.TxtFeFin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtFeFin.Enabled = false;
             this.TxtFeFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtFeFin.Location = new System.Drawing.Point(284, 39);
+            this.TxtFeFin.Location = new System.Drawing.Point(284, 52);
             this.TxtFeFin.Name = "TxtFeFin";
             this.TxtFeFin.ReadOnly = true;
             this.TxtFeFin.Size = new System.Drawing.Size(80, 18);
-            this.TxtFeFin.TabIndex = 154;
+            this.TxtFeFin.TabIndex = 153;
             this.TxtFeFin.TabStop = false;
             this.TxtFeFin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -237,7 +237,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label1.Location = new System.Drawing.Point(31, 44);
+            this.label1.Location = new System.Drawing.Point(31, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 16);
             this.label1.TabIndex = 155;
@@ -249,7 +249,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label2.Location = new System.Drawing.Point(236, 45);
+            this.label2.Location = new System.Drawing.Point(238, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 156;
@@ -261,7 +261,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label4.Location = new System.Drawing.Point(31, 84);
+            this.label4.Location = new System.Drawing.Point(31, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 16);
             this.label4.TabIndex = 159;
@@ -273,7 +273,7 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label9.Location = new System.Drawing.Point(31, 206);
+            this.label9.Location = new System.Drawing.Point(31, 216);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(224, 16);
             this.label9.TabIndex = 170;
@@ -285,10 +285,10 @@
             this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Editar;
-            this.btnInsertar.Location = new System.Drawing.Point(358, 304);
+            this.btnInsertar.Location = new System.Drawing.Point(358, 314);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(55, 55);
-            this.btnInsertar.TabIndex = 171;
+            this.btnInsertar.TabIndex = 159;
             this.btnInsertar.Tag = "Guardar";
             this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
@@ -296,7 +296,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(133, 63);
+            this.panel1.Location = new System.Drawing.Point(133, 73);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(80, 2);
             this.panel1.TabIndex = 173;
@@ -304,7 +304,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel2.Location = new System.Drawing.Point(282, 59);
+            this.panel2.Location = new System.Drawing.Point(282, 72);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(80, 2);
             this.panel2.TabIndex = 174;
@@ -327,10 +327,10 @@
             this.cbempleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbempleado.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbempleado.FormattingEnabled = true;
-            this.cbempleado.Location = new System.Drawing.Point(105, 80);
+            this.cbempleado.Location = new System.Drawing.Point(105, 90);
             this.cbempleado.Name = "cbempleado";
             this.cbempleado.Size = new System.Drawing.Size(309, 24);
-            this.cbempleado.TabIndex = 179;
+            this.cbempleado.TabIndex = 154;
             this.cbempleado.SelectedIndexChanged += new System.EventHandler(this.cbempleado_SelectedIndexChanged);
             // 
             // dgvdatos
@@ -338,29 +338,29 @@
             this.dgvdatos.AllowUserToAddRows = false;
             this.dgvdatos.AllowUserToDeleteRows = false;
             this.dgvdatos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvdatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvdatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvdatos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvdatos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvdatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvdatos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvdatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvdatos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvdatos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvdatos.Location = new System.Drawing.Point(518, 165);
             this.dgvdatos.Name = "dgvdatos";
             this.dgvdatos.ReadOnly = true;
@@ -379,10 +379,10 @@
             this.cbsupervisor.Enabled = false;
             this.cbsupervisor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbsupervisor.FormattingEnabled = true;
-            this.cbsupervisor.Location = new System.Drawing.Point(105, 132);
+            this.cbsupervisor.Location = new System.Drawing.Point(105, 142);
             this.cbsupervisor.Name = "cbsupervisor";
             this.cbsupervisor.Size = new System.Drawing.Size(309, 24);
-            this.cbsupervisor.TabIndex = 182;
+            this.cbsupervisor.TabIndex = 155;
             // 
             // label6
             // 
@@ -390,7 +390,7 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label6.Location = new System.Drawing.Point(29, 136);
+            this.label6.Location = new System.Drawing.Point(29, 146);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 16);
             this.label6.TabIndex = 181;
@@ -402,10 +402,10 @@
             this.cbdirector.Enabled = false;
             this.cbdirector.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbdirector.FormattingEnabled = true;
-            this.cbdirector.Location = new System.Drawing.Point(105, 169);
+            this.cbdirector.Location = new System.Drawing.Point(105, 179);
             this.cbdirector.Name = "cbdirector";
             this.cbdirector.Size = new System.Drawing.Size(309, 24);
-            this.cbdirector.TabIndex = 184;
+            this.cbdirector.TabIndex = 156;
             // 
             // label7
             // 
@@ -413,7 +413,7 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label7.Location = new System.Drawing.Point(31, 172);
+            this.label7.Location = new System.Drawing.Point(31, 182);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 16);
             this.label7.TabIndex = 183;
@@ -426,10 +426,10 @@
             this.cbdirecnuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbdirecnuevo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbdirecnuevo.FormattingEnabled = true;
-            this.cbdirecnuevo.Location = new System.Drawing.Point(105, 276);
+            this.cbdirecnuevo.Location = new System.Drawing.Point(105, 286);
             this.cbdirecnuevo.Name = "cbdirecnuevo";
             this.cbdirecnuevo.Size = new System.Drawing.Size(309, 24);
-            this.cbdirecnuevo.TabIndex = 188;
+            this.cbdirecnuevo.TabIndex = 158;
             // 
             // label3
             // 
@@ -437,7 +437,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label3.Location = new System.Drawing.Point(31, 279);
+            this.label3.Location = new System.Drawing.Point(31, 289);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 16);
             this.label3.TabIndex = 187;
@@ -450,10 +450,10 @@
             this.cbsupervnuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbsupervnuevo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbsupervnuevo.FormattingEnabled = true;
-            this.cbsupervnuevo.Location = new System.Drawing.Point(105, 232);
+            this.cbsupervnuevo.Location = new System.Drawing.Point(105, 242);
             this.cbsupervnuevo.Name = "cbsupervnuevo";
             this.cbsupervnuevo.Size = new System.Drawing.Size(309, 24);
-            this.cbsupervnuevo.TabIndex = 186;
+            this.cbsupervnuevo.TabIndex = 157;
             // 
             // label5
             // 
@@ -461,7 +461,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label5.Location = new System.Drawing.Point(29, 235);
+            this.label5.Location = new System.Drawing.Point(29, 245);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 16);
             this.label5.TabIndex = 185;
@@ -492,7 +492,7 @@
             this.panel3.Controls.Add(this.cbFormaPago);
             this.panel3.Location = new System.Drawing.Point(23, 165);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(457, 361);
+            this.panel3.Size = new System.Drawing.Size(457, 413);
             this.panel3.TabIndex = 189;
             // 
             // label8

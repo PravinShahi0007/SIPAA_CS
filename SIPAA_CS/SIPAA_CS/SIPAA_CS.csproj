@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>20</ApplicationRevision>
+    <ApplicationRevision>21</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -353,6 +353,7 @@
     <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidenciad.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\AsignacionIncidenciaTrabajador2.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueaIncidencias.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\Empleadoporsupdir.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SincRegistrosica.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorPerfil.cs" />
@@ -423,6 +424,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RepPeriodos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RepPersonalCargo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepPersonalCargo.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
@@ -854,6 +860,12 @@
       <DependentUpon>DetalleHr.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\Empleadosporsupdir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\Empleadosporsupdir.Designer.cs">
+      <DependentUpon>Empleadosporsupdir.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\FaltasPeriodo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -960,6 +972,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RepCatalogoJustIncExt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RepEmpxsupdir.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepEmpxsupdir.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\RepPerInc.cs">
@@ -1315,6 +1333,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DetalleHr.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\Empleadosporsupdir.resx">
+      <DependentUpon>Empleadosporsupdir.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FaltasPeriodo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FaltasPeriodo.cs</LastGenOutput>
@@ -1379,6 +1400,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\RepCatalogoJustIncExt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RepCatalogoJustIncExt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RepEmpxsupdir.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RepEmpxsupdir.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\RepPerInc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1641,6 +1666,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\RepPeriodos.xss">
       <DependentUpon>RepPeriodos.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepPersonalCargo.xsc">
+      <DependentUpon>RepPersonalCargo.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepPersonalCargo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RepPersonalCargo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepPersonalCargo.xss">
+      <DependentUpon>RepPersonalCargo.xsd</DependentUpon>
     </None>
     <None Include="SIPAA_CS_ClaveTemporal.pfx" />
   </ItemGroup>
