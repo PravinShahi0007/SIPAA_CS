@@ -234,7 +234,7 @@ namespace SIPAA_CS.App_Code
 
 
         }
-        public DataTable ObtenerRegistroDetalle(string sidtrab, DateTime dtfechainicio, DateTime dtfechafin, string scompania, string subicacion)
+        public DataTable ObtenerRegistroDetalle(string sidtrab, string dtfechainicio, string dtfechafin, string scompania, string subicacion)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_rechregistrodetalle_s";
@@ -242,8 +242,8 @@ namespace SIPAA_CS.App_Code
             Conexion objConexion = new Conexion();
 
             cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sidtrab;
-            cmd.Parameters.Add("@P_fechainicio", SqlDbType.DateTime).Value = dtfechainicio;
-            cmd.Parameters.Add("@P_fechafin", SqlDbType.DateTime).Value = dtfechafin;
+            cmd.Parameters.Add("@P_fechainicio", SqlDbType.VarChar).Value = dtfechainicio;
+            cmd.Parameters.Add("@P_fechafin", SqlDbType.VarChar).Value = dtfechafin;
             cmd.Parameters.Add("@P_Compania", SqlDbType.VarChar).Value = scompania;
             cmd.Parameters.Add("@P_Ubicacion", SqlDbType.VarChar).Value = subicacion;
 

@@ -41,6 +41,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label8;
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMin = new System.Windows.Forms.Button();
@@ -75,6 +76,7 @@
             label1 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
             this.pnlsuid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
@@ -421,6 +423,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(label8);
             this.panel1.Controls.Add(this.btnbuscar);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.txtconceptobusq);
@@ -464,6 +467,7 @@
             this.txtconceptobusq.TextChanged += new System.EventHandler(this.txtconceptobusq_TextChanged);
             this.txtconceptobusq.Enter += new System.EventHandler(this.txtconceptobusq_Enter);
             this.txtconceptobusq.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtconceptobusq_KeyPress);
+            this.txtconceptobusq.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtconceptobusq_KeyUp);
             // 
             // lblModif
             // 
@@ -531,6 +535,18 @@
             this.btopcperfil.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btopcperfil.UseVisualStyleBackColor = false;
             this.btopcperfil.Click += new System.EventHandler(this.btopcperfil_Click);
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.ForeColor = System.Drawing.Color.Gray;
+            label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label8.Location = new System.Drawing.Point(10, 94);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(211, 12);
+            label8.TabIndex = 48;
+            label8.Text = "Número de Empleado, Nombre, Paterno, Materno";
             // 
             // TrabajadoresPerfil
             // 

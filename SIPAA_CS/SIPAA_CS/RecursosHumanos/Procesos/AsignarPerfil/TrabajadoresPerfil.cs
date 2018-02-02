@@ -408,6 +408,20 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
            
         }
 
+        private void txtconceptobusq_KeyUp(object sender, KeyEventArgs e)
+        {
+            string slargoc = txtconceptobusq.Text.Trim();
+            int ilargoc = slargoc.Length;
+
+            if (ilargoc >= 2)
+            {
+                pnlsuid.Visible = false;
+                //lena grid
+                fllenagridbusqueda(16, txtconceptobusq.Text.Trim());
+            }
+
+        }
+
         private void txtconceptobusq_TextChanged(object sender, EventArgs e)
         {
             

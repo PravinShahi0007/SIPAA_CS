@@ -293,6 +293,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnHora_Reg;
             
+            private global::System.Data.DataColumn columndescreloj;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RegistroDetalleDataTable() {
@@ -384,6 +386,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn descrelojColumn {
+                get {
+                    return this.columndescreloj;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,7 +429,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RegistroDetalleRow AddRegistroDetalleRow(string idTrab, string Nombre, string Compañia, string Ubicacion, string Reloj, string Fecha_Reg, string Hora_Reg) {
+            public RegistroDetalleRow AddRegistroDetalleRow(string idTrab, string Nombre, string Compañia, string Ubicacion, string Reloj, string Fecha_Reg, string Hora_Reg, string descreloj) {
                 RegistroDetalleRow rowRegistroDetalleRow = ((RegistroDetalleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idTrab,
@@ -428,7 +438,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         Ubicacion,
                         Reloj,
                         Fecha_Reg,
-                        Hora_Reg};
+                        Hora_Reg,
+                        descreloj};
                 rowRegistroDetalleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRegistroDetalleRow);
                 return rowRegistroDetalleRow;
@@ -458,6 +469,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.columnReloj = base.Columns["Reloj"];
                 this.columnFecha_Reg = base.Columns["Fecha_Reg"];
                 this.columnHora_Reg = base.Columns["Hora_Reg"];
+                this.columndescreloj = base.Columns["descreloj"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -477,6 +489,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnFecha_Reg);
                 this.columnHora_Reg = new global::System.Data.DataColumn("Hora_Reg", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHora_Reg);
+                this.columndescreloj = new global::System.Data.DataColumn("descreloj", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescreloj);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_RegistroDetalle");
                 this.ExtendedProperties.Add("Generator_UserTableName", "RegistroDetalle");
             }
@@ -733,6 +747,22 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string descreloj {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegistroDetalle.descrelojColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'descreloj\' de la tabla \'RegistroDetalle\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegistroDetalle.descrelojColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidTrabNull() {
                 return this.IsNull(this.tableRegistroDetalle.idTrabColumn);
             }
@@ -813,6 +843,18 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetHora_RegNull() {
                 this[this.tableRegistroDetalle.Hora_RegColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdescrelojNull() {
+                return this.IsNull(this.tableRegistroDetalle.descrelojColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdescrelojNull() {
+                this[this.tableRegistroDetalle.descrelojColumn] = global::System.Convert.DBNull;
             }
         }
         
