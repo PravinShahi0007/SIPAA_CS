@@ -81,6 +81,37 @@ namespace SIPAA_CS.App_Code
             return (dtEmpleados);
         }
 
+        public DataTable obtenerempleadosydiasesp(/*int popcion, */string pidtrab, string pidcompania, string pidarea, string pidpuesto,
+            string piddepartamento, string pidubicacion, string pidtiponomina, string pfechainicial, string pfechafinal)
+        {
+            //Filtros Multiples JLA 21 sep 2017
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_trabajadordiasesp_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            //cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = popcion;
+            cmd.Parameters.Add("@p_IdTrab", SqlDbType.VarChar).Value = pidtrab;
+            cmd.Parameters.Add("@p_IdCompania", SqlDbType.VarChar).Value = pidcompania;
+            cmd.Parameters.Add("@p_IdArea", SqlDbType.VarChar).Value = pidarea;
+            cmd.Parameters.Add("@p_IdPuesto", SqlDbType.VarChar).Value = pidpuesto;
+            cmd.Parameters.Add("@p_IdDepartamento", SqlDbType.VarChar).Value = piddepartamento;
+            cmd.Parameters.Add("@p_IdUbicacion", SqlDbType.VarChar).Value = pidubicacion;
+            cmd.Parameters.Add("@p_IdTipoNomina", SqlDbType.VarChar).Value = pidtiponomina;
+            cmd.Parameters.Add("@p_FechaInicial", SqlDbType.VarChar).Value = pfechainicial;
+            cmd.Parameters.Add("@p_FechaFinal", SqlDbType.VarChar).Value = pfechafinal;
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtEmpleadosDiasEsp = new DataTable();
+            dadapter.Fill(dtEmpleadosDiasEsp);
+            return (dtEmpleadosDiasEsp);
+        }
+
         public DataTable ObtenerPerfilTrabajador(string sIdtrab,int iOpcion,string sCheca,string sEstatus,int iCvtipohr,string sUsuumod,string sPrgumod)
         {
             SqlCommand cmd = new SqlCommand();

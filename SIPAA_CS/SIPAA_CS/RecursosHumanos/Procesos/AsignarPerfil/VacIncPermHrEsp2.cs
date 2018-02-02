@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using SIPAA_CS.RecursosHumanos.Reportes;
+using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.App_Code;
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.Properties;
@@ -37,6 +38,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         SonaPuesto puestos = new SonaPuesto();
         SonaDepartamento departamentos = new SonaDepartamento();
         SonaCompania objCia = new SonaCompania();
+        string sgIdTrab = "%";
+        string sgIdCompania = "%";
+        string sgIdArea = "%";
+        string sgIdPuesto = "%";
+        string sgIdDepartamento = "%";
+        string sgIdUbicacion = "%";
+        string sgIdTipoNomina = "%";
 
         //***********************************************************************************************
         //Autor: José Luis Alvarez Delgado
@@ -227,7 +235,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             util.ChangeButton(btnInsertar, 1, false);
             cbConcepto.Enabled = true;
             cbTipo.Enabled = true;
-            dtpFechaInical.Enabled = true;
+            dtpFechaInical.Enabled = true;            
 
             if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbCompania.SelectedIndex.ToString()) <=0 & Convert.ToInt32(cbAreas.SelectedIndex.ToString()) <= 0 
                 & Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) <=0 
@@ -238,6 +246,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
             else
             {
+                ckbimprimir.Visible = true;
+                ckbimprimir.Checked = false;
                 dgvInc.Columns.Clear();
                 //llena grid Con Filtros
                 string fIdTrab = "%";
@@ -247,36 +257,48 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 string fIdDepartamento = "%";
                 string fIdUbicacion = "%";
                 string fIdTipoNomina = "%";
+                sgIdTrab = "%";
+                sgIdCompania = "%";
+                sgIdArea = "%";
+                sgIdPuesto = "%";
+                sgIdDepartamento = "%";
+                sgIdUbicacion = "%";
+                sgIdTipoNomina = "%";
 
                 if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) > 0)
                 {
                     fIdTrab = cbEmpleados.SelectedValue.ToString();
+                    sgIdTrab = fIdTrab;
                 }
                 if (Convert.ToInt32(cbCompania.SelectedIndex.ToString()) > 0)
                 {
                     fIdCompania = cbCompania.SelectedValue.ToString();
+                    sgIdCompania = fIdCompania;
                 }
                 if (Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) > 0)
                 {
                     fIdUbicacion = cbUbicacion.SelectedValue.ToString();
+                    sgIdUbicacion = fIdUbicacion;
                 }
                 if (Convert.ToInt32(cbAreas.SelectedIndex.ToString()) > 0)
                 {
                     fIdArea = cbAreas.SelectedValue.ToString();
+                    sgIdArea = fIdArea;
                 }
                 if (cbTiponomina.SelectedIndex > 0 || cbTiponomina.Text != "Seleccionar")
-                //if (cbTiponomina.Text != "" || cbTiponomina.Text != "Seleccionar")
-                ////if (Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) > 0)
                 {
                     fIdTipoNomina = cbTiponomina.SelectedValue.ToString();
+                    sgIdTipoNomina = fIdTipoNomina;
                 }
                 if (Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) > 0)
                 {
                     fIdPuesto = cbPuestos.SelectedValue.ToString();
+                    sgIdPuesto = fIdPuesto;
                 }
                 if (Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) > 0)
                 {
                     fIdDepartamento = cbDepartamentos.SelectedValue.ToString();
+                    sgIdDepartamento = fIdDepartamento;
                 }
 
                 int icolumnas =dgvEmpleados.ColumnCount;
@@ -292,6 +314,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 dgvEmpleados.Columns[3].Visible = false;
                 dgvEmpleados.Columns[4].Visible = false;
                 dgvEmpleados.Columns[5].Visible = false;
+
+                if (dgvEmpleados.Rows.Count==0)
+                {
+                    ckbimprimir.Visible = false;
+                }
 
                 //Guajolocombo Conceptos Incidencia
                 /////////CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
@@ -433,6 +460,34 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
         }
 
+        //boton imprimir
+        private void btnImprimirDetalle_Click(object sender, EventArgs e)
+        {
+            ////////////////////////////////////////////// JLA 01/02/2018
+            DataTable dtEmpleadosDiasEsp = contenedorempleados.obtenerempleadosydiasesp(sgIdTrab, sgIdCompania, 
+                sgIdArea, sgIdPuesto, sgIdDepartamento, sgIdUbicacion, sgIdTipoNomina, dtpfechainicio.Text, dtpfechafin.Text);
+            switch (dtEmpleadosDiasEsp.Rows.Count)
+            {
+                case 0:
+                    DialogResult result = MessageBox.Show("Sin Resultados para el Reporte de Dias Especiales", "SIPAA");
+                    break;
+
+                default:
+                    ViewerReporte form = new ViewerReporte();
+                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtEmpleadosDiasEsp, "SIPAA_CS.RecursosHumanos.Reportes", "RepEmpleadosDiasEsp.rpt");
+                    ReportDoc.SetParameterValue("FechaInicial", dtpfechainicio.Value.Date);
+                    ReportDoc.SetParameterValue("FechaFinal", dtpfechafin.Value.Date);
+                    ReportDoc.SetParameterValue("NomCompania", cbCompania.Text);
+                    form.RptDoc = ReportDoc;
+                    form.Show();
+                    break;
+            }
+            oculta();
+            ckbimprimir.Visible = false;
+
+            /////////////////////////////////////////////
+        }
+
         //boton minimizar        
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
@@ -477,6 +532,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     f.Hide();
                 }
             }
+
+            oculta();
+            ckbimprimir.Visible = false;
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
@@ -657,6 +715,90 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
         }
 
+        private void ckbimprimir_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbimprimir.Checked)
+            {
+                muestra();
+            }
+            else
+            {
+                oculta();
+            }
+        }
+
+        private void cbCompania_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbUbicacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbAreas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbTiponomina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbPuestos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbDepartamentos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbEmpleados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void oculta()
+        {
+            btnImprimirDetalle.Visible = false;
+            lblfechas.Visible = false;
+            lblfecha1.Visible = false;
+            lblfecha2.Visible = false;
+            dtpfechainicio.Visible = false;
+            dtpfechafin.Visible = false;
+            linea1.Visible = false;
+            linea2.Visible = false;
+        }
+        private void muestra()
+        {
+            btnImprimirDetalle.Visible = true;
+            lblfechas.Visible = true;
+            lblfecha1.Visible = true;
+            lblfecha2.Visible = true;
+            dtpfechainicio.Visible = true;
+            dtpfechafin.Visible = true;
+            linea1.Visible = true;
+            linea2.Visible = true;
+        }
+                
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
