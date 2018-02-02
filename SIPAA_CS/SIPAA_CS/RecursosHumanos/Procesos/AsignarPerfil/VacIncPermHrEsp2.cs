@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using SIPAA_CS.RecursosHumanos.Reportes;
+using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.App_Code;
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.Properties;
@@ -37,6 +38,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         SonaPuesto puestos = new SonaPuesto();
         SonaDepartamento departamentos = new SonaDepartamento();
         SonaCompania objCia = new SonaCompania();
+        string sgIdTrab = "%";
+        string sgIdCompania = "%";
+        string sgIdArea = "%";
+        string sgIdPuesto = "%";
+        string sgIdDepartamento = "%";
+        string sgIdUbicacion = "%";
+        string sgIdTipoNomina = "%";
 
         //***********************************************************************************************
         //Autor: José Luis Alvarez Delgado
@@ -227,7 +235,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             util.ChangeButton(btnInsertar, 1, false);
             cbConcepto.Enabled = true;
             cbTipo.Enabled = true;
-            dtpFechaInical.Enabled = true;
+            dtpFechaInical.Enabled = true;            
 
             if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbCompania.SelectedIndex.ToString()) <=0 & Convert.ToInt32(cbAreas.SelectedIndex.ToString()) <= 0 
                 & Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) <=0 
@@ -238,6 +246,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
             else
             {
+                ckbimprimir.Visible = true;
+                ckbimprimir.Checked = false;
                 dgvInc.Columns.Clear();
                 //llena grid Con Filtros
                 string fIdTrab = "%";
@@ -247,36 +257,48 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 string fIdDepartamento = "%";
                 string fIdUbicacion = "%";
                 string fIdTipoNomina = "%";
+                sgIdTrab = "%";
+                sgIdCompania = "%";
+                sgIdArea = "%";
+                sgIdPuesto = "%";
+                sgIdDepartamento = "%";
+                sgIdUbicacion = "%";
+                sgIdTipoNomina = "%";
 
                 if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) > 0)
                 {
                     fIdTrab = cbEmpleados.SelectedValue.ToString();
+                    sgIdTrab = fIdTrab;
                 }
                 if (Convert.ToInt32(cbCompania.SelectedIndex.ToString()) > 0)
                 {
                     fIdCompania = cbCompania.SelectedValue.ToString();
+                    sgIdCompania = fIdCompania;
                 }
                 if (Convert.ToInt32(cbUbicacion.SelectedIndex.ToString()) > 0)
                 {
                     fIdUbicacion = cbUbicacion.SelectedValue.ToString();
+                    sgIdUbicacion = fIdUbicacion;
                 }
                 if (Convert.ToInt32(cbAreas.SelectedIndex.ToString()) > 0)
                 {
                     fIdArea = cbAreas.SelectedValue.ToString();
+                    sgIdArea = fIdArea;
                 }
                 if (cbTiponomina.SelectedIndex > 0 || cbTiponomina.Text != "Seleccionar")
-                //if (cbTiponomina.Text != "" || cbTiponomina.Text != "Seleccionar")
-                ////if (Convert.ToInt32(cbTiponomina.SelectedIndex.ToString()) > 0)
                 {
                     fIdTipoNomina = cbTiponomina.SelectedValue.ToString();
+                    sgIdTipoNomina = fIdTipoNomina;
                 }
                 if (Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) > 0)
                 {
                     fIdPuesto = cbPuestos.SelectedValue.ToString();
+                    sgIdPuesto = fIdPuesto;
                 }
                 if (Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) > 0)
                 {
                     fIdDepartamento = cbDepartamentos.SelectedValue.ToString();
+                    sgIdDepartamento = fIdDepartamento;
                 }
 
                 int icolumnas =dgvEmpleados.ColumnCount;
@@ -291,6 +313,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 dgvEmpleados.Columns[2].Width =300;
                 dgvEmpleados.Columns[3].Visible = false;
                 dgvEmpleados.Columns[4].Visible = false;
+                dgvEmpleados.Columns[5].Visible = false;
+
+                if (dgvEmpleados.Rows.Count==0)
+                {
+                    ckbimprimir.Visible = false;
+                }
 
                 //Guajolocombo Conceptos Incidencia
                 /////////CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
@@ -316,6 +344,27 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 dtpFechaInical.Focus();
             }
 
+            ///Si capturaron hra de entrada y salida
+            if (mtxtHoraEntrada.Text != "00:00" & mtxtHoraSalida.Text != "00:00")
+            {
+                DateTime HI = Convert.ToDateTime(mtxtHoraEntrada.Text);
+                DateTime HF = Convert.ToDateTime(mtxtHoraSalida.Text);
+
+                if (HI > HF)
+                {
+                    //MessageBox.Show("Error en las Horas, Verifique.", "SIPPA", MessageBoxButtons.OK);
+                    svalidacampos = "Error en las Horas, Verifique.";
+                    mtxtHoraEntrada.Focus();
+                }
+            }
+
+            //Capturaron solo hra de salida 
+            if (mtxtHoraEntrada.Text == "00:00" & mtxtHoraSalida.Text != "00:00")
+            {
+                svalidacampos = "Debe capturar una Hora de Entrada, Verifique.";
+                mtxtHoraEntrada.Focus();
+            }
+                      
             if (svalidacampos != "0")
             {
                 DialogResult result = MessageBox.Show(svalidacampos, "SIPAA", MessageBoxButtons.OK);
@@ -337,8 +386,22 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         {
                             if (row.Selected)
                             {
-                                int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
+                                if (iop==2)
+                                {
+                                    //Capturaron solo hra de entrada
+                                    if (mtxtHoraEntrada.Text != "00:00" & mtxtHoraSalida.Text == "00:00")
+                                    {
+                                        int iPuesto = Convert.ToInt32(row.Cells[5].Value.ToString());
+                                        if (iPuesto != 287 & iPuesto != 288 & iPuesto != 289 & iPuesto != 290)
+                                        {
+                                            MessageBox.Show("Por el Puesto del trabajador  " + Convert.ToInt32(row.Cells[1].Value.ToString()) + ", debe capturar una Hora de Salida, Verifique.", "SIPPA", MessageBoxButtons.OK);
+                                            //mtxtHoraSalida.Focus();
+                                            break;
+                                        }
+                                    }
+                                }
 
+                                int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
                                 fInsDiasEsp(iIdTrab, iop, Convert.ToInt32(txtCvInc.Text.ToString()), Convert.ToInt32(txtCvTipo.Text.ToString()), dtpFechaInical.Text.Trim(),
                                 dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), mtxtHoraEntrada.Text.Trim(), mtxtHoraSalida.Text.Trim(), txtReferencia.Text, 4,
                                 Convert.ToInt32(txtSubsidio.Text), 0, usuumod.ToString(), prgumod.ToString(), 0, 0);
@@ -357,7 +420,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         catch (Exception ex)
                         {
                             // MessageBox.Show(ex.ToString());
-                            MessageBox.Show("Problemas con el Empleado  "+ Convert.ToInt32(row.Cells[1].Value.ToString())+ "  " + row.Cells[2].Value.ToString() + "  Verifique su Perfil.", "SIPAA");
+                            MessageBox.Show("Problemas con el Empleado  "+ Convert.ToInt32(row.Cells[1].Value.ToString())+ "  " + row.Cells[2].Value.ToString() + "  Verifique los datos.", "SIPAA");
                         }
                     }
                 }
@@ -367,6 +430,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     {
                         try
                         {
+                            //Capturaron solo hra de entrada
+                            if (mtxtHoraEntrada.Text != "00:00" & mtxtHoraSalida.Text == "00:00")
+                            {
+                                int iPuesto =Convert.ToInt32(row.Cells[5].Value.ToString());
+                                if (iPuesto!=287 & iPuesto!=288 & iPuesto!=289 & iPuesto!=290)
+                                {
+                                    MessageBox.Show ("Por el Puesto del trabajador  " + Convert.ToInt32(row.Cells[1].Value.ToString())+ ", debe capturar una Hora de Salida, Verifique.", "SIPPA", MessageBoxButtons.OK);
+                                    //mtxtHoraSalida.Focus();
+                                    break;
+                                }
+                            }
+
                             int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
                             fInsDiasEsp(iIdTrab, 1, Convert.ToInt32(cbConcepto.SelectedValue.ToString()), Convert.ToInt32(cbTipo.SelectedValue.ToString()), dtpFechaInical.Text.Trim(),
                             dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), mtxtHoraEntrada.Text.Trim(), mtxtHoraSalida.Text.Trim(), txtReferencia.Text, 4,
@@ -377,12 +452,40 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         catch (Exception ex)
                         {
                             //MessageBox.Show(ex.ToString());
-                            MessageBox.Show("Problemas con el Empleado  " + Convert.ToInt32(row.Cells[1].Value.ToString())+"  "+ row.Cells[2].Value.ToString()+ "  Verifique su Perfil.", "SIPAA");
+                            MessageBox.Show("Problemas con el Empleado  " + Convert.ToInt32(row.Cells[1].Value.ToString())+"  "+ row.Cells[2].Value.ToString()+ "  Verifique sus datos.", "SIPAA");
                         }
                     }
                     //frecargar();
                 }
             }
+        }
+
+        //boton imprimir
+        private void btnImprimirDetalle_Click(object sender, EventArgs e)
+        {
+            ////////////////////////////////////////////// JLA 01/02/2018
+            DataTable dtEmpleadosDiasEsp = contenedorempleados.obtenerempleadosydiasesp(sgIdTrab, sgIdCompania, 
+                sgIdArea, sgIdPuesto, sgIdDepartamento, sgIdUbicacion, sgIdTipoNomina, dtpfechainicio.Text, dtpfechafin.Text);
+            switch (dtEmpleadosDiasEsp.Rows.Count)
+            {
+                case 0:
+                    DialogResult result = MessageBox.Show("Sin Resultados para el Reporte de Dias Especiales", "SIPAA");
+                    break;
+
+                default:
+                    ViewerReporte form = new ViewerReporte();
+                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtEmpleadosDiasEsp, "SIPAA_CS.RecursosHumanos.Reportes", "RepEmpleadosDiasEsp.rpt");
+                    ReportDoc.SetParameterValue("FechaInicial", dtpfechainicio.Value.Date);
+                    ReportDoc.SetParameterValue("FechaFinal", dtpfechafin.Value.Date);
+                    ReportDoc.SetParameterValue("NomCompania", cbCompania.Text);
+                    form.RptDoc = ReportDoc;
+                    form.Show();
+                    break;
+            }
+            oculta();
+            ckbimprimir.Visible = false;
+
+            /////////////////////////////////////////////
         }
 
         //boton minimizar        
@@ -429,6 +532,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     f.Hide();
                 }
             }
+
+            oculta();
+            ckbimprimir.Visible = false;
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
@@ -583,11 +689,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             if (Convert.ToInt32(txtDias.Text) > 1)
             {
                 DateTime resultado=Convert.ToDateTime(dtpFechaInical.Text);
-                dtpFechaFinal.Text =Convert.ToString(resultado.AddDays(Convert.ToInt32(txtDias.Text) - 1));                
+                dtpFechaFinal.Text =Convert.ToString(resultado.AddDays(Convert.ToInt32(txtDias.Text) - 1));
+                dtpFechaFinal.Focus();
             }
             else if (Convert.ToInt32(txtDias.Text) == 1)
             {
                 dtpFechaFinal.Text = dtpFechaInical.Text;
+                dtpFechaFinal.Focus();
             }
         }
 
@@ -607,6 +715,90 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
         }
 
+        private void ckbimprimir_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbimprimir.Checked)
+            {
+                muestra();
+            }
+            else
+            {
+                oculta();
+            }
+        }
+
+        private void cbCompania_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbUbicacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbAreas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbTiponomina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbPuestos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbDepartamentos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void cbEmpleados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            oculta();
+            ckbimprimir.Checked = false;
+            ckbimprimir.Visible = false;
+        }
+
+        private void oculta()
+        {
+            btnImprimirDetalle.Visible = false;
+            lblfechas.Visible = false;
+            lblfecha1.Visible = false;
+            lblfecha2.Visible = false;
+            dtpfechainicio.Visible = false;
+            dtpfechafin.Visible = false;
+            linea1.Visible = false;
+            linea2.Visible = false;
+        }
+        private void muestra()
+        {
+            btnImprimirDetalle.Visible = true;
+            lblfechas.Visible = true;
+            lblfecha1.Visible = true;
+            lblfecha2.Visible = true;
+            dtpfechainicio.Visible = true;
+            dtpfechafin.Visible = true;
+            linea1.Visible = true;
+            linea2.Visible = true;
+        }
+                
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

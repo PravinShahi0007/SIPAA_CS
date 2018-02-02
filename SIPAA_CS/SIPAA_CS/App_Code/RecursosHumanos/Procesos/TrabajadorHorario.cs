@@ -51,7 +51,12 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
                 cmd.Parameters.Add("@P_hrSalidaTurno", SqlDbType.Time).Value = DBNull.Value;
             else
                 cmd.Parameters.Add("@P_hrSalidaTurno", SqlDbType.Time).Value = this.sHoraSalidaTurno;
-            cmd.Parameters.Add("@P_tiempocomida", SqlDbType.Int).Value = this.iTiempoComida;
+
+            if (this.iTiempoComida == 0)
+                cmd.Parameters.Add("@P_tiempocomida", SqlDbType.Int).Value = DBNull.Value;
+            else
+                cmd.Parameters.Add("@P_tiempocomida", SqlDbType.Int).Value = this.iTiempoComida;
+
             cmd.Parameters.Add("@P_cvdiaComidaInicio", SqlDbType.Int).Value = this.iCvdiaComidaInicio;
             
             if (this.sHoraComidaInicio.Trim().Equals(":"))
@@ -66,7 +71,10 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             else
                 cmd.Parameters.Add("@P_hrComidaFin", SqlDbType.Time).Value = this.sHoraComidaFin;
 
-            cmd.Parameters.Add("@P_noTotalhoras", SqlDbType.VarChar).Value = this.iHorasTotalTrabajo;
+            if (this.iHorasTotalTrabajo == 0)
+                cmd.Parameters.Add("@P_noTotalhoras", SqlDbType.VarChar).Value = DBNull.Value;
+            else
+                cmd.Parameters.Add("@P_noTotalhoras", SqlDbType.VarChar).Value = this.iHorasTotalTrabajo;
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = this.sUsuumod;
             cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = this.sPrgumod;
 

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RepPersonalCargo" targetNamespace="http://tempuri.org/RepPersonalCargo.xsd" xmlns:mstns="http://tempuri.org/RepPersonalCargo.xsd" xmlns="http://tempuri.org/RepPersonalCargo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RepPersonalCargo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RepPersonalCargo" msprop:Generator_UserDSName="RepPersonalCargo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="repperscarg" msprop:Generator_TableClassName="repperscargDataTable" msprop:Generator_TableVarName="tablerepperscarg" msprop:Generator_RowChangedName="repperscargRowChanged" msprop:Generator_TablePropName="repperscarg" msprop:Generator_RowDeletingName="repperscargRowDeleting" msprop:Generator_RowChangingName="repperscargRowChanging" msprop:Generator_RowEvHandlerName="repperscargRowChangeEventHandler" msprop:Generator_RowDeletedName="repperscargRowDeleted" msprop:Generator_RowClassName="repperscargRow" msprop:Generator_UserTableName="repperscarg" msprop:Generator_RowEvArgName="repperscargRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No" msprop:Generator_ColumnVarNameInTable="columnNo" msprop:Generator_ColumnPropNameInRow="No" msprop:Generator_ColumnPropNameInTable="NoColumn" msprop:Generator_UserColumnName="No" type="xs:int" minOccurs="0" />
+              <xs:element name="Num_x0020_Empleado" msprop:Generator_ColumnVarNameInTable="columnNum_Empleado" msprop:Generator_ColumnPropNameInRow="Num_Empleado" msprop:Generator_ColumnPropNameInTable="Num_EmpleadoColumn" msprop:Generator_UserColumnName="Num Empleado" type="xs:int" minOccurs="0" />
+              <xs:element name="Empleado" msprop:Generator_ColumnVarNameInTable="columnEmpleado" msprop:Generator_ColumnPropNameInRow="Empleado" msprop:Generator_ColumnPropNameInTable="EmpleadoColumn" msprop:Generator_UserColumnName="Empleado" type="xs:string" minOccurs="0" />
+              <xs:element name="Compañia" msprop:Generator_ColumnVarNameInTable="columnCompañia" msprop:Generator_ColumnPropNameInRow="Compañia" msprop:Generator_ColumnPropNameInTable="CompañiaColumn" msprop:Generator_UserColumnName="Compañia" type="xs:string" minOccurs="0" />
+              <xs:element name="Ubicación" msprop:Generator_ColumnVarNameInTable="columnUbicación" msprop:Generator_ColumnPropNameInRow="Ubicación" msprop:Generator_ColumnPropNameInTable="UbicaciónColumn" msprop:Generator_UserColumnName="Ubicación" type="xs:string" minOccurs="0" />
+              <xs:element name="Planta_x002F_Área" msprop:Generator_ColumnVarNameInTable="_columnPlanta_Área" msprop:Generator_ColumnPropNameInRow="_Planta_Área" msprop:Generator_ColumnPropNameInTable="_Planta_ÁreaColumn" msprop:Generator_UserColumnName="Planta/Área" type="xs:string" minOccurs="0" />
+              <xs:element name="Depto" msprop:Generator_ColumnVarNameInTable="columnDepto" msprop:Generator_ColumnPropNameInRow="Depto" msprop:Generator_ColumnPropNameInTable="DeptoColumn" msprop:Generator_UserColumnName="Depto" type="xs:string" minOccurs="0" />
+              <xs:element name="Puesto" msprop:Generator_ColumnVarNameInTable="columnPuesto" msprop:Generator_ColumnPropNameInRow="Puesto" msprop:Generator_ColumnPropNameInTable="PuestoColumn" msprop:Generator_UserColumnName="Puesto" type="xs:string" minOccurs="0" />
+              <xs:element name="Tipo_x0020_Horario" msprop:Generator_ColumnVarNameInTable="columnTipo_Horario" msprop:Generator_ColumnPropNameInRow="Tipo_Horario" msprop:Generator_ColumnPropNameInTable="Tipo_HorarioColumn" msprop:Generator_UserColumnName="Tipo Horario" type="xs:string" minOccurs="0" />
+              <xs:element name="Tipo_x0020_Nomina" msprop:Generator_ColumnVarNameInTable="columnTipo_Nomina" msprop:Generator_ColumnPropNameInRow="Tipo_Nomina" msprop:Generator_ColumnPropNameInTable="Tipo_NominaColumn" msprop:Generator_UserColumnName="Tipo Nomina" type="xs:string" minOccurs="0" />
+              <xs:element name="Checa" msprop:Generator_ColumnVarNameInTable="columnCheca" msprop:Generator_ColumnPropNameInRow="Checa" msprop:Generator_ColumnPropNameInTable="ChecaColumn" msprop:Generator_UserColumnName="Checa" type="xs:string" minOccurs="0" />
+              <xs:element name="supdir" msprop:Generator_ColumnVarNameInTable="columnsupdir" msprop:Generator_ColumnPropNameInRow="supdir" msprop:Generator_ColumnPropNameInTable="supdirColumn" msprop:Generator_UserColumnName="supdir" type="xs:string" minOccurs="0" />
+              <xs:element name="rol" msprop:Generator_ColumnVarNameInTable="columnrol" msprop:Generator_ColumnPropNameInRow="rol" msprop:Generator_ColumnPropNameInTable="rolColumn" msprop:Generator_UserColumnName="rol" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

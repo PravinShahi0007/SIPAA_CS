@@ -34,7 +34,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
                               "convert(varchar(10), fechareg, 103) as Fecha, convert(varchar, horareg, 108) as Registo " +
                               "from dbo.rhregistro a inner join dbo.rhtrabajador b on a.idtrab = b.idtrab " +
                               "where a.fechareg between '" + sfecini + "' and '" + sfecfin + "' " +
-                              "and a.idreloj not in (14, 22) " +
+                              "and a.idreloj not in (14, 22, 25) " +
                               "and a.idtrab in (" + sidtrab + ") " +
                               "order by 1 asc ";
             SqlConnection sqlcn = conex.conexsica();
@@ -57,7 +57,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
                               "convert(varchar(10), fechareg, 103) as fecha, convert(varchar, horareg, 108) as registro " +
                               "from dbo.rhregistro " +
                               "where fechareg between '" + sfecini + "' and '" + sfecfin + "' " +
-                              "and idreloj not in (5, 14, 22, 25) " +
+                              "and idreloj not in (14, 22, 25) " +
                               "and idtrab in (" + sidtrab + ") ";
             SqlConnection sqlcn = conex.conexsica();
             conex.asignarconexsica(cmd);
