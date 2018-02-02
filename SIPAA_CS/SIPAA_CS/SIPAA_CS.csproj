@@ -420,6 +420,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RepCatJustIncExt.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RepEmpleadosDiasEsp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepEmpleadosDiasEsp.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\RepPeriodos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -974,6 +979,12 @@
       <DependentUpon>RepCatalogoJustIncExt.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RepEmpleadosDiasEsp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepEmpleadosDiasEsp.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\RepEmpxsupdir.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1401,6 +1412,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RepCatalogoJustIncExt.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RepEmpleadosDiasEsp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RepEmpleadosDiasEsp.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\RepEmpxsupdir.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RepEmpxsupdir.cs</LastGenOutput>
@@ -1655,6 +1670,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\RepCatJustIncExt.xss">
       <DependentUpon>RepCatJustIncExt.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepEmpleadosDiasEsp.xsc">
+      <DependentUpon>RepEmpleadosDiasEsp.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepEmpleadosDiasEsp.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RepEmpleadosDiasEsp.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepEmpleadosDiasEsp.xss">
+      <DependentUpon>RepEmpleadosDiasEsp.xsd</DependentUpon>
     </None>
     <None Include="RecursosHumanos\DataSets\RepPeriodos.xsc">
       <DependentUpon>RepPeriodos.xsd</DependentUpon>
