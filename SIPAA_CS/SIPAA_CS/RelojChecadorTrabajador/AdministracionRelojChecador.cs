@@ -731,6 +731,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         int counter = 0;
                         progressBar1.Maximum = dt.Rows.Count;
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando huellas.. ");
+
                         foreach (DataRow row in dt.Rows)
                         {
                             string idtrab = row["idtrab"].ToString();
