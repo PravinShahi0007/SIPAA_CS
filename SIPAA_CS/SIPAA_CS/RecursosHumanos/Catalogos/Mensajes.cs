@@ -249,6 +249,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dt = objReloj.RelojesxTrabajador(cbEmpleados.SelectedValue.ToString(), 0, 16, "%", "%");
                 foreach (DataRow row in dt.Rows)
                 {
+                    lblMensaje.Visible = true;
+                    lblMensaje.Enabled = true;
+                    pnlmensajes.Visible = true;
                     lblMensaje.Text = "Enviando el mensaje a los relojes ";
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
                     if (bConexion != false)
@@ -273,6 +276,11 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 foreach (DataRow row in dt.Rows)
                 {
+                   
+                    lblMensaje.Visible = true;
+                    lblMensaje.Enabled = true;
+                    pnlmensajes.Visible = true;
+
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
                     lblMensaje.Text = "Enviando el mensaje a los relojes asignados al empleado";
                     if (bConexion != false)
@@ -309,10 +317,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     break;
             }
 
-
-
-
-
+            
         }
 
 

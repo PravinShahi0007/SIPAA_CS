@@ -1350,6 +1350,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvForReg.Columns[4].Visible = false;
             dgvForReg.Columns[3].Visible = false;
             dgvForReg.Columns[0].Width = 65;
+           // for (int i = 0; i < dgvReloj.Columns.Count; i++)
+             //   dgvReloj.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
             dgvForReg.ClearSelection();
         }
@@ -1389,6 +1391,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
 
             dgvReloj.Columns[0].Width = 65; //65
+           // for (int i = 0; i < dgvReloj.Columns.Count; i++)
+             //   dgvReloj.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dgvReloj.Columns[1].Visible = false;
             dgvReloj.Columns[3].Visible = false;
             dgvReloj.Columns[4].Visible = false;

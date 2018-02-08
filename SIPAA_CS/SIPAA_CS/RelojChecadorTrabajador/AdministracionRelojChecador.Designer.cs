@@ -452,7 +452,7 @@
             this.dgvReloj.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvReloj.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvReloj.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReloj.Size = new System.Drawing.Size(617, 550);
+            this.dgvReloj.Size = new System.Drawing.Size(572, 550);
             this.dgvReloj.TabIndex = 172;
             this.dgvReloj.Tag = "Editar";
             this.dgvReloj.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReloj_CellContentClick);
