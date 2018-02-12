@@ -406,7 +406,7 @@
             label27.ForeColor = System.Drawing.Color.Gray;
             label27.Image = ((System.Drawing.Image)(resources.GetObject("label27.Image")));
             label27.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label27.Location = new System.Drawing.Point(18, 31);
+            label27.Location = new System.Drawing.Point(16, 14);
             label27.Name = "label27";
             label27.Size = new System.Drawing.Size(175, 17);
             label27.TabIndex = 194;
@@ -1147,7 +1147,7 @@
             this.chkAdmin.AutoSize = true;
             this.chkAdmin.Font = new System.Drawing.Font("Arial", 9.75F);
             this.chkAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkAdmin.Location = new System.Drawing.Point(819, 94);
+            this.chkAdmin.Location = new System.Drawing.Point(817, 79);
             this.chkAdmin.Name = "chkAdmin";
             this.chkAdmin.Size = new System.Drawing.Size(158, 20);
             this.chkAdmin.TabIndex = 206;
@@ -1186,7 +1186,7 @@
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Controls.Add(this.txtBuscarReloj);
             this.panel11.Controls.Add(label26);
-            this.panel11.Location = new System.Drawing.Point(20, 114);
+            this.panel11.Location = new System.Drawing.Point(8, 40);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(306, 131);
             this.panel11.TabIndex = 200;
@@ -1230,9 +1230,9 @@
             this.PanelReloj.Controls.Add(this.btnGuardarReloj);
             this.PanelReloj.Controls.Add(label27);
             this.PanelReloj.Enabled = false;
-            this.PanelReloj.Location = new System.Drawing.Point(668, 14);
+            this.PanelReloj.Location = new System.Drawing.Point(699, 14);
             this.PanelReloj.Name = "PanelReloj";
-            this.PanelReloj.Size = new System.Drawing.Size(309, 77);
+            this.PanelReloj.Size = new System.Drawing.Size(278, 59);
             this.PanelReloj.TabIndex = 199;
             this.PanelReloj.TabStop = true;
             // 
@@ -1242,7 +1242,7 @@
             this.btnGuardarReloj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarReloj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardarReloj.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardarReloj.Location = new System.Drawing.Point(225, 14);
+            this.btnGuardarReloj.Location = new System.Drawing.Point(226, 3);
             this.btnGuardarReloj.Name = "btnGuardarReloj";
             this.btnGuardarReloj.Size = new System.Drawing.Size(50, 50);
             this.btnGuardarReloj.TabIndex = 2;
@@ -1290,7 +1290,7 @@
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel14.Controls.Add(this.label28);
-            this.panel14.Location = new System.Drawing.Point(0, 30);
+            this.panel14.Location = new System.Drawing.Point(3, 9);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(353, 25);
             this.panel14.TabIndex = 197;

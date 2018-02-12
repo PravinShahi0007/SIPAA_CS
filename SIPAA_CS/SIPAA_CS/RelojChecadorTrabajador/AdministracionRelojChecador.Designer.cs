@@ -243,11 +243,11 @@
             label15.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label15.Location = new System.Drawing.Point(265, 112);
+            label15.Location = new System.Drawing.Point(218, 112);
             label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(73, 20);
+            label15.Size = new System.Drawing.Size(136, 20);
             label15.TabIndex = 208;
-            label15.Text = "Asistencia";
+            label15.Text = " Descarga Asistencia";
             // 
             // label16
             // 
@@ -725,7 +725,7 @@
             this.btnDescarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDescarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnDescarga.Image = global::SIPAA_CS.Properties.Resources.Descargar;
-            this.btnDescarga.Location = new System.Drawing.Point(278, 59);
+            this.btnDescarga.Location = new System.Drawing.Point(248, 59);
             this.btnDescarga.Name = "btnDescarga";
             this.btnDescarga.Size = new System.Drawing.Size(50, 50);
             this.btnDescarga.TabIndex = 2;
