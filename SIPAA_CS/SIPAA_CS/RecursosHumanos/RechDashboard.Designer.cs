@@ -172,9 +172,9 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(340, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(241, 23);
+            this.label1.Size = new System.Drawing.Size(237, 23);
             this.label1.TabIndex = 154;
-            this.label1.Text = "         Inicio Recursos Humamos  -";
+            this.label1.Text = "         Inicio Recursos Humanos  -";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4

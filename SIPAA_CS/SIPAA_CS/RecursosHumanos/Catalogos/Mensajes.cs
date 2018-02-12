@@ -249,6 +249,9 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 dt = objReloj.RelojesxTrabajador(cbEmpleados.SelectedValue.ToString(), 0, 16, "%", "%");
                 foreach (DataRow row in dt.Rows)
                 {
+                    lblMensaje.Visible = true;
+                    lblMensaje.Enabled = true;
+                    pnlmensajes.Visible = true;
                     lblMensaje.Text = "Enviando el mensaje a los relojes ";
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
                     if (bConexion != false)
@@ -273,10 +276,18 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
 
                 foreach (DataRow row in dt.Rows)
                 {
+                   
+                    lblMensaje.Visible = true;
+                    lblMensaje.Enabled = true;
+                    pnlmensajes.Visible = true;
+
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
                     lblMensaje.Text = "Enviando el mensaje a los relojes asignados al empleado";
                     if (bConexion != false)
                     {
+                        lblMensaje.Visible = true;
+                        lblMensaje.Enabled = true;
+                        pnlmensajes.Visible = true;
                         lblMensaje.Text = "Enviando ...";
                         p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), 0, txtmensajeiu.Text, dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                         EliminaMensajesReloj();
@@ -293,15 +304,27 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             switch (p_rep.ToString())
             {
                 case "99":
+                    lblMensaje.Visible = true;
+                    lblMensaje.Enabled = true;
+                    pnlmensajes.Visible = true;
                     lblMensaje.Text = "Registro agregado correctamente";
                     break;
                 case "2":
+                    lblMensaje.Visible = true;
+                    lblMensaje.Enabled = true;
+                    pnlmensajes.Visible = true;
                     lblMensaje.Text = "Registro modificado correctamente";
                     break;
                 case "3":
+                    lblMensaje.Visible = true;
+                    lblMensaje.Enabled = true;
+                    pnlmensajes.Visible = true;
                     lblMensaje.Text = "Registro eliminado correctamente";
                     break;
                 case "1":
+                    lblMensaje.Visible = true;
+                    lblMensaje.Enabled = true;
+                    pnlmensajes.Visible = true;
                     lblMensaje.Text = "Registro ya existe";
                     break;
                 default:
@@ -309,10 +332,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     break;
             }
 
-
-
-
-
+            
         }
 
 
@@ -355,7 +375,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                 }
 
                 fuidMensajes(2, idTrab, cvmensaje, txtmensajeiu.Text.Trim(), dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
-                GuardaMensajeReloj();
+                //GuardaMensajeReloj();
                 dgvMensajes.DataSource = null;
                 dgvMensajes.Columns.RemoveAt(0);
                 panelTag.Visible = true;
@@ -383,7 +403,7 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                         cvmensaje = Convert.ToInt32(row.Cells["cvmensaje"].Value.ToString());
                     }
                     fuidMensajes(3, 0, cvmensaje, "%", "%", "%", sUsuuMod, Name);
-                    GuardaMensajeReloj();
+                   // GuardaMensajeReloj();
                     dgvMensajes.DataSource = null;
                     dgvMensajes.Columns.RemoveAt(0);
                     panelTag.Visible = true;
