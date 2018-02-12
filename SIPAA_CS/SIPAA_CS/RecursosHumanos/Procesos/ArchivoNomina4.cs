@@ -591,7 +591,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                 }
                                 else ////es turno por hora, es profesor
                                 {
-                                    tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                    if (docente)
+                                    {
+                                        tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                    }
+                                    else
+                                    {
+                                        //tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+                                        tiempo = 1;
+                                        divide = false;
+                                    }                         
 
                                 }
                             }
@@ -627,8 +636,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                     }
                                     else ////es turno por hora, es profesor
                                     {
-                                        ////tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
-                                        tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                        if (docente)
+                                        {
+                                            tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                        }
+                                        else
+                                        {
+                                            //tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+                                            tiempo = 1;
+                                            divide = false;
+                                        }                                        
                                     }
                                 }
                                 else 
@@ -681,7 +698,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                     }
                                     else ////es turno por hora, es profesor
                                     {
-                                        tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                        if (docente)
+                                        {
+                                            tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                        }
+                                        else
+                                        {
+                                            tiempo = 1;
+                                            divide = false;
+                                        }
                                     }
                                 }
                                 else
