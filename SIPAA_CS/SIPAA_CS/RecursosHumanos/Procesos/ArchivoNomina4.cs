@@ -565,27 +565,56 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     double TH = 0, TF = 0, TR = 0;
                     string cadenaReg = "";
                     bool divide =true;
+                    int tiponomina = 0;
+                    bool docente = false;
 
                     foreach (DataGridViewRow row in dgvArchivoNomina4.Rows)
                     {                         
                         if (ren==0)
                         {
                             anonomina = txtanonom.Text;
-                            nonomina = Convert.ToInt32(txtnumnom.Text);
+                            nonomina = Convert.ToInt32(txtnumnom.Text);                           
+                            tiponomina = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[20].Value.ToString());
+                            if (tiponomina == 11 | tiponomina ==13 | tiponomina == 14 | tiponomina == 15)
+                            {
+                                docente = true;
+                            }
                             noempleado = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[0].Value.ToString());
                             claveafecta = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[17].Value.ToString()); //15 mas 2
-                            if (dgvArchivoNomina4.Rows[ren].Cells[10].Value.ToString()=="1") //cvrepresenta es Falta 9 mas 1
+
+                            if (dgvArchivoNomina4.Rows[ren].Cells[10].Value.ToString()=="1") //cvrepresenta es Falta 
                             {
                                 if (dgvArchivoNomina4.Rows[ren].Cells[5].Value.ToString()=="1") //y es turno por dia
                                 {
                                     tiempo = 1;
                                     divide = false;
                                 }
+                                else ////es turno por hora, es profesor
+                                {
+                                    if (docente)
+                                    {
+                                        tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                    }
+                                    else
+                                    {
+                                        //tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+                                        tiempo = 1;
+                                        divide = false;
+                                    }                         
+
+                                }
                             }
-                            else //por hora
-                            {                                
-                                tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
-                                
+                            else 
+                            {
+                                if (docente)
+                                {
+                                    tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                }
+                                else
+                                {
+                                    tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+                                }                                
+                                //antes del cambio a 2 columnas tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());                                
                             }
                             fechareg = dgvArchivoNomina4.Rows[ren].Cells[7].Value.ToString();
                             fechareg = fechareg.Substring(0,10);
@@ -605,18 +634,36 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                         tiempo = tiempo + 1;
                                         divide = false;
                                     }
+                                    else ////es turno por hora, es profesor
+                                    {
+                                        if (docente)
+                                        {
+                                            tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                        }
+                                        else
+                                        {
+                                            //tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+                                            tiempo = 1;
+                                            divide = false;
+                                        }                                        
+                                    }
                                 }
-                                else //por hora
+                                else 
                                 {
-                                    tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
-
+                                    if (docente)
+                                    {
+                                        tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                    }
+                                    else
+                                    {
+                                        tiempo = tiempo + Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+                                    }
                                 }
                             }
                             else
                             {
-                                ///////////////////////////////
                                 if (tiempo >= 60)
-                                {
+                                {                                   
                                     TH = tiempo / 60;
                                     int THR = Convert.ToInt32(Math.Round(TH));
                                     TF = tiempo % 60;
@@ -636,10 +683,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                         divide = true;
                                     }
                                 }
-                                ///////////////////////////////
                                 cadenaReg = anonomina+","+nonomina+","+noempleado+","+claveafecta+","+tiempo+","+fechareg+","+duro+","+conteo;
                                 Texto.WriteLine(cadenaReg);
-                                //ren += 1;
                                 anonomina = txtanonom.Text;
                                 nonomina = Convert.ToInt32(txtnumnom.Text);
                                 noempleado = Convert.ToInt32(dgvArchivoNomina4.Rows[ren].Cells[0].Value.ToString());
@@ -651,11 +696,29 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                         tiempo = 1;
                                         divide = false;
                                     }
+                                    else ////es turno por hora, es profesor
+                                    {
+                                        if (docente)
+                                        {
+                                            tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                        }
+                                        else
+                                        {
+                                            tiempo = 1;
+                                            divide = false;
+                                        }
+                                    }
                                 }
                                 else
                                 {
-                                    tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
-
+                                    if (docente)
+                                    {
+                                        tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[16].Value.ToString());
+                                    }
+                                    else
+                                    {
+                                        tiempo = Convert.ToDouble(dgvArchivoNomina4.Rows[ren].Cells[15].Value.ToString());
+                                    }
                                 }
                                 fechareg = dgvArchivoNomina4.Rows[ren].Cells[7].Value.ToString();
                                 fechareg = fechareg.Substring(0,10);
@@ -665,7 +728,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         }
                         ren += 1;
                     }
-                    ///////////////////////////////
                     if (tiempo >= 60)
                     {
                         TH = tiempo / 60;
@@ -687,7 +749,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                             divide = true;
                         }
                     }
-                    ///////////////////////////////
                     cadenaReg = anonomina + "," + nonomina + "," + noempleado + "," + claveafecta + "," + tiempo + "," + fechareg + "," + duro + "," + conteo;
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
