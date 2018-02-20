@@ -79,8 +79,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             IncCalificacion objInc = new IncCalificacion();
-            objInc.fFechaInicio = dpFechaInicio.Value;
-            objInc.fFechaTermino = dpFechaFin.Value;
+            objInc.fFechaInicio = DateTime.Parse(dpFechaInicio.Text);
+            objInc.fFechaTermino = DateTime.Parse(dpFechaFin.Text);
             objInc.sIdtrab = cbEmpleados.SelectedValue.ToString();
 
             LlenarGrid(objInc);
