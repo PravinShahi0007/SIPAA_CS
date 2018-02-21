@@ -356,6 +356,7 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\DesbloqueaIncidencias.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\Empleadoporsupdir.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\IncExtraSuspRetro.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SincRegistrosica.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorPerfil.cs" />
     <Compile Include="App_Code\Sistemas\Procesos\MonitoreoProceso.cs" />
@@ -435,6 +436,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RepPersonalCargo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncExtraTrabajador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncExtraTrabajador.Designer.cs">
+      <DependentUpon>IncExtraTrabajador.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.cs">
       <SubType>Form</SubType>
@@ -1185,6 +1192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\Justificaincidenciasd.resx">
       <DependentUpon>Justificaincidenciasd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\IncExtraTrabajador.resx">
+      <DependentUpon>IncExtraTrabajador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\AsignarPerfil\IncidenciasExtSuspRetroGeneral.resx">
       <DependentUpon>IncidenciasExtSuspRetroGeneral.cs</DependentUpon>
