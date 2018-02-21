@@ -1446,7 +1446,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, sPrguMod, 8);
             }
 
-
+          
+            //guardo en la base de datos para que las tablas no vayan vacias y lo envie sin necesidad de huellas 
+            objTrab.GestionIdentidad(TrabajadorInfo.IdTrab,"", "", "0", LoginInfo.IdTrab, this.Name, 6);
+            objTrab.GestionHuella(TrabajadorInfo.IdTrab, "", 3, LoginInfo.IdTrab, this.Name, 5);
 
             foreach (Reloj obj in ltReloj2)
             {
@@ -1801,6 +1804,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         try
                         {
                             objTrab.GestionIdentidad(idtrab, Cifrado, "", "0", LoginInfo.IdTrab, this.Name, 6);
+                            
                             bBandera = true;
                         }
                         catch (Exception ex)

@@ -724,7 +724,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     pnlMensaje.Enabled = true;
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj.Count);
                     pnlMensaje.Enabled = false;
-                    //System.Threading.Thread.Sleep(20);
+                    System.Threading.Thread.Sleep(20);
 
                     bool bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
 
@@ -754,7 +754,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                             if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
                             {
-                                if (row["huellaTmp"].ToString() != String.Empty)
+                               if (row["huellaTmp"].ToString() != String.Empty)
                                 {
                                     int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
                                     string tmpHuella = "";
@@ -775,8 +775,12 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                         }
                                     }
                                 }
+                               else
+                                    counter += 1;
+
                             }
                         }
+                        System.Threading.Thread.Sleep(20);
                         #endregion
 
                         bool BatchUpdate = objCZKEM.BatchUpdate(1);
@@ -791,6 +795,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
                            // counter = 0;
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando grupos..");
+                            System.Threading.Thread.Sleep(20);
                             dt = objReloj.RelojesxTrabajador("%", obj.cvReloj, 18, "%", "%");
                             foreach (DataRow row in dt.Rows)
                             {
@@ -819,6 +824,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     //System.Threading.Thread.Sleep(20);
                                 }
                             }
+                            System.Threading.Thread.Sleep(20);
 
                             BatchUpdate = objCZKEM.BatchUpdate(1);
                             RefreshData = objCZKEM.RefreshData(1);
@@ -842,12 +848,14 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                 faces.AddLast(new FaceTmp(idtrab, 50, RostroTmp, rostrolong));
 
                                 counter += 1;
-                               // progressBar1.Value = counter;
-                               // pnlMensaje.Enabled = true;
-                               // Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Obteniendo rostros (" + counter + ")");
-                               // pnlMensaje.Enabled = false;
-                               // System.Threading.Thread.Sleep(20);
+                                // progressBar1.Value = counter;
+                                // pnlMensaje.Enabled = true;
+                                // Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Obteniendo rostros (" + counter + ")");
+                                // pnlMensaje.Enabled = false;
+                                // System.Threading.Thread.Sleep(20);
                             }
+                            else
+                                counter += 1;
                         }
                         
                         //Insertando rostros...
@@ -886,6 +894,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     }
 
                                 }
+                                System.Threading.Thread.Sleep(20);
 
 
                             }
