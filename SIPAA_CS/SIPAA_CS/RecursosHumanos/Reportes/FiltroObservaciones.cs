@@ -147,11 +147,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             string sIncidencia = AsignarVariableCombo(cbIncidencia);
 
             string sIdtrab = "";
-            if (cbEmpleados.Text == String.Empty)
+            if (cbEmpleados.Text == String.Empty )
                 sIdtrab = "%";
             else
                sIdtrab =cbEmpleados.SelectedValue.ToString();
-            
+
+            if (sIdtrab == "0")
+                sIdtrab = "%";
+
 
 
             Incidencia objInc = new Incidencia();

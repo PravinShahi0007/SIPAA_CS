@@ -62,7 +62,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             sIdTrab = cboEmpleados.SelectedIndex > 0 ? Convert.ToInt32(cboEmpleados.SelectedValue) : 0;
             sCompania = cbCompania.SelectedIndex > 0 ? Convert.ToInt32(cbCompania.SelectedValue) : 0;
             sUbicacion = cbUbicacion.SelectedIndex > 0 ? Convert.ToInt32(cbUbicacion.SelectedValue) : 0;
-            dtFechaBase = new DateTime(dpFechaBase.Value.Year, dpFechaBase.Value.Month, dpFechaBase.Value.Day);              
+            dtFechaBase = new DateTime(dpFechaBase.Value.Year, dpFechaBase.Value.Month, dpFechaBase.Value.Day);
+           
 
             DataTable dtReporteRegistro = oTrabajador.MasDe3Faltas(5, sIdTrab, sCompania, sUbicacion, dtFechaBase);
 

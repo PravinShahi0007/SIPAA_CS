@@ -80,6 +80,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             {
                 sIdTrab = cbEmpleados.SelectedValue.ToString();
             }
+            if (sIdTrab == "0")
+                sIdTrab = "%";
 
 
 
@@ -231,6 +233,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             }
 
             return sAsignacion;
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
 

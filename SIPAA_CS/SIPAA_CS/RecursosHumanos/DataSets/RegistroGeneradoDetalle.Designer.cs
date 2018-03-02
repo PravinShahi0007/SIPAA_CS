@@ -305,6 +305,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnHora_Salida;
             
+            private global::System.Data.DataColumn columnEstatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RegistroGeneradoDetalleDataTable() {
@@ -444,6 +446,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EstatusColumn {
+                get {
+                    return this.columnEstatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -479,7 +489,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RegistroGeneradoDetalleRow AddRegistroGeneradoDetalleRow(string IdTrab, string Nombre, string Compañia, string Ubicación, string Fecha_Registro, string Hora_Entrada, string Comida_Inicio, string Comida_Fin, string Incidencia, string Representa, string Tiempo_Empleado, string Tiempo_Profesor, string Hora_Salida) {
+            public RegistroGeneradoDetalleRow AddRegistroGeneradoDetalleRow(string IdTrab, string Nombre, string Compañia, string Ubicación, string Fecha_Registro, string Hora_Entrada, string Comida_Inicio, string Comida_Fin, string Incidencia, string Representa, string Tiempo_Empleado, string Tiempo_Profesor, string Hora_Salida, string Estatus) {
                 RegistroGeneradoDetalleRow rowRegistroGeneradoDetalleRow = ((RegistroGeneradoDetalleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IdTrab,
@@ -494,7 +504,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         Representa,
                         Tiempo_Empleado,
                         Tiempo_Profesor,
-                        Hora_Salida};
+                        Hora_Salida,
+                        Estatus};
                 rowRegistroGeneradoDetalleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRegistroGeneradoDetalleRow);
                 return rowRegistroGeneradoDetalleRow;
@@ -530,6 +541,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.columnTiempo_Empleado = base.Columns["Tiempo_Empleado"];
                 this.columnTiempo_Profesor = base.Columns["Tiempo_Profesor"];
                 this.columnHora_Salida = base.Columns["Hora_Salida"];
+                this.columnEstatus = base.Columns["Estatus"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -561,6 +573,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnTiempo_Profesor);
                 this.columnHora_Salida = new global::System.Data.DataColumn("Hora_Salida", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHora_Salida);
+                this.columnEstatus = new global::System.Data.DataColumn("Estatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstatus);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_RegistroGeneradoDetalle");
                 this.ExtendedProperties.Add("Generator_UserTableName", "RegistroGeneradoDetalle");
             }
@@ -924,6 +938,23 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Estatus {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegistroGeneradoDetalle.EstatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Estatus\' de la tabla \'RegistroGeneradoDetalle\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableRegistroGeneradoDetalle.EstatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIdTrabNull() {
                 return this.IsNull(this.tableRegistroGeneradoDetalle.IdTrabColumn);
             }
@@ -1076,6 +1107,18 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetHora_SalidaNull() {
                 this[this.tableRegistroGeneradoDetalle.Hora_SalidaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEstatusNull() {
+                return this.IsNull(this.tableRegistroGeneradoDetalle.EstatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEstatusNull() {
+                this[this.tableRegistroGeneradoDetalle.EstatusColumn] = global::System.Convert.DBNull;
             }
         }
         

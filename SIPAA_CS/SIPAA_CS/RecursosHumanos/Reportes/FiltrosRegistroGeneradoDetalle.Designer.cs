@@ -37,11 +37,14 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label10;
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.cbEmpleados = new System.Windows.Forms.ComboBox();
             this.cbUbicacion = new System.Windows.Forms.ComboBox();
             this.dpFechaFin = new System.Windows.Forms.DateTimePicker();
@@ -61,6 +64,8 @@
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
             this.pnlBusqueda.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelTag.SuspendLayout();
@@ -153,6 +158,31 @@
             label4.TabIndex = 65;
             label4.Text = "       Imprimir Detalle";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label7.Location = new System.Drawing.Point(41, 275);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(348, 16);
+            label7.TabIndex = 65;
+            label7.Text = "La fecha de inicio no puede ser menor al 16 de Enero 2018";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label10.Location = new System.Drawing.Point(53, 162);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(490, 16);
+            label10.TabIndex = 67;
+            label10.Text = "Muestra los registros de asistencia que se están considerando para las incidencia" +
+    "s";
+            // 
             // btnRegresar
             // 
             this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
@@ -208,13 +238,15 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(416, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(231, 23);
+            this.label3.Size = new System.Drawing.Size(253, 23);
             this.label3.TabIndex = 127;
-            this.label3.Text = "       Detalle Registro (Generado)";
+            this.label3.Text = "       Detalle de Registro (Generado)";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.textBox1);
+            this.pnlBusqueda.Controls.Add(label7);
             this.pnlBusqueda.Controls.Add(this.cbEmpleados);
             this.pnlBusqueda.Controls.Add(label2);
             this.pnlBusqueda.Controls.Add(label1);
@@ -231,6 +263,17 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(477, 513);
             this.pnlBusqueda.TabIndex = 200;
             this.pnlBusqueda.TabStop = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.textBox1.Location = new System.Drawing.Point(163, 414);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(185, 40);
+            this.textBox1.TabIndex = 66;
+            this.textBox1.Text = "Solo puede consultar registros que ya hayan sido descargados";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cbEmpleados
             // 
@@ -269,6 +312,8 @@
             this.dpFechaFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaFin.Location = new System.Drawing.Point(44, 414);
+            this.dpFechaFin.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.dpFechaFin.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
             this.dpFechaFin.Name = "dpFechaFin";
             this.dpFechaFin.Size = new System.Drawing.Size(113, 25);
             this.dpFechaFin.TabIndex = 5;
@@ -297,6 +342,8 @@
             this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaInicio.Location = new System.Drawing.Point(44, 310);
+            this.dpFechaInicio.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.dpFechaInicio.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
             this.dpFechaInicio.Name = "dpFechaInicio";
             this.dpFechaInicio.Size = new System.Drawing.Size(113, 25);
             this.dpFechaInicio.TabIndex = 4;
@@ -388,6 +435,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(label10);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.panelTag);
@@ -434,5 +482,6 @@
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.ComboBox cbEmpleados;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

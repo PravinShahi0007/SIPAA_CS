@@ -164,9 +164,9 @@
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbltitulo.Location = new System.Drawing.Point(283, 1);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(324, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(205, 23);
             this.lbltitulo.TabIndex = 126;
-            this.lbltitulo.Text = "      Filtros de Reporte - Conceptos de Nómina";
+            this.lbltitulo.Text = "          Conceptos de Nómina";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlImprimir
