@@ -42,6 +42,8 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label12;
             System.Windows.Forms.Label label13;
+            System.Windows.Forms.Label label14;
+            System.Windows.Forms.Label label15;
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
@@ -76,6 +78,8 @@
             label1 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
             this.panelTag.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
@@ -102,7 +106,7 @@
             label11.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label11.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            label11.Location = new System.Drawing.Point(58, 359);
+            label11.Location = new System.Drawing.Point(58, 233);
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(74, 16);
             label11.TabIndex = 70;
@@ -115,12 +119,13 @@
             label10.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label10.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            label10.Location = new System.Drawing.Point(58, 232);
+            label10.Location = new System.Drawing.Point(58, 428);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(31, 16);
             label10.TabIndex = 68;
             label10.Text = "Área";
             label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            label10.Visible = false;
             // 
             // label4
             // 
@@ -128,11 +133,12 @@
             label4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(58, 174);
+            label4.Location = new System.Drawing.Point(58, 370);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(68, 16);
             label4.TabIndex = 66;
             label4.Text = "Tipo Nomina";
+            label4.Visible = false;
             // 
             // label5
             // 
@@ -140,7 +146,7 @@
             label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(58, 291);
+            label5.Location = new System.Drawing.Point(58, 165);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(54, 16);
             label5.TabIndex = 60;
@@ -226,12 +232,36 @@
             label13.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label13.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            label13.Location = new System.Drawing.Point(58, 426);
+            label13.Location = new System.Drawing.Point(58, 300);
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(55, 16);
             label13.TabIndex = 72;
             label13.Text = "Incidencia";
             label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label14.Location = new System.Drawing.Point(40, 123);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(443, 16);
+            label14.TabIndex = 180;
+            label14.Text = "Brinda las incidencias con la observación que el director o supervisor utilizo";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label15.Location = new System.Drawing.Point(8, 17);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(348, 16);
+            label15.TabIndex = 68;
+            label15.Text = "La fecha de inicio no puede ser menor al 16 de Enero 2018";
             // 
             // timer1
             // 
@@ -275,7 +305,7 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbDepartamento.Location = new System.Drawing.Point(61, 382);
+            this.cbDepartamento.Location = new System.Drawing.Point(61, 256);
             this.cbDepartamento.Name = "cbDepartamento";
             this.cbDepartamento.Size = new System.Drawing.Size(368, 25);
             this.cbDepartamento.TabIndex = 69;
@@ -316,11 +346,12 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbArea.Location = new System.Drawing.Point(61, 255);
+            this.cbArea.Location = new System.Drawing.Point(61, 451);
             this.cbArea.Name = "cbArea";
             this.cbArea.Size = new System.Drawing.Size(368, 25);
             this.cbArea.TabIndex = 67;
             this.cbArea.Text = "Seleccionar ";
+            this.cbArea.Visible = false;
             // 
             // pnlBusqueda
             // 
@@ -331,12 +362,12 @@
             this.pnlBusqueda.Controls.Add(label11);
             this.pnlBusqueda.Controls.Add(this.cbDepartamento);
             this.pnlBusqueda.Controls.Add(label10);
-            this.pnlBusqueda.Controls.Add(this.cbArea);
-            this.pnlBusqueda.Controls.Add(label4);
             this.pnlBusqueda.Controls.Add(label5);
             this.pnlBusqueda.Controls.Add(this.cbUbicacion);
+            this.pnlBusqueda.Controls.Add(this.cbArea);
             this.pnlBusqueda.Controls.Add(label6);
             this.pnlBusqueda.Controls.Add(this.cbCia);
+            this.pnlBusqueda.Controls.Add(label4);
             this.pnlBusqueda.Controls.Add(label8);
             this.pnlBusqueda.Controls.Add(label9);
             this.pnlBusqueda.Location = new System.Drawing.Point(43, 174);
@@ -357,11 +388,12 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbTipoNomina.Location = new System.Drawing.Point(61, 193);
+            this.cbTipoNomina.Location = new System.Drawing.Point(61, 389);
             this.cbTipoNomina.Name = "cbTipoNomina";
             this.cbTipoNomina.Size = new System.Drawing.Size(368, 25);
             this.cbTipoNomina.TabIndex = 179;
             this.cbTipoNomina.Text = "Seleccionar ";
+            this.cbTipoNomina.Visible = false;
             // 
             // cbEmpleados
             // 
@@ -389,7 +421,7 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbIncidencia.Location = new System.Drawing.Point(61, 449);
+            this.cbIncidencia.Location = new System.Drawing.Point(61, 323);
             this.cbIncidencia.Name = "cbIncidencia";
             this.cbIncidencia.Size = new System.Drawing.Size(368, 25);
             this.cbIncidencia.TabIndex = 71;
@@ -407,7 +439,7 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbUbicacion.Location = new System.Drawing.Point(61, 314);
+            this.cbUbicacion.Location = new System.Drawing.Point(61, 188);
             this.cbUbicacion.Name = "cbUbicacion";
             this.cbUbicacion.Size = new System.Drawing.Size(368, 25);
             this.cbUbicacion.TabIndex = 59;
@@ -507,6 +539,8 @@
             this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaInicio.Location = new System.Drawing.Point(636, 238);
+            this.dpFechaInicio.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.dpFechaInicio.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
             this.dpFechaInicio.Name = "dpFechaInicio";
             this.dpFechaInicio.Size = new System.Drawing.Size(137, 25);
             this.dpFechaInicio.TabIndex = 154;
@@ -514,6 +548,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(label15);
             this.panel2.Controls.Add(label12);
             this.panel2.Location = new System.Drawing.Point(583, 174);
             this.panel2.Name = "panel2";
@@ -552,6 +587,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(label14);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.panelTag);

@@ -20,17 +20,17 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DetalleHorario")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Generico")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DetalleHorario : global::System.Data.DataSet {
+    public partial class Generico : global::System.Data.DataSet {
         
-        private dethorarioDataTable tabledethorario;
+        private GenericoDataTable tableGenerico;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DetalleHorario() {
+        public Generico() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected DetalleHorario(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Generico(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["dethorario"] != null)) {
-                    base.Tables.Add(new dethorarioDataTable(ds.Tables["dethorario"]));
+                if ((ds.Tables["Generico"] != null)) {
+                    base.Tables.Add(new GenericoDataTable(ds.Tables["Generico"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public dethorarioDataTable dethorario {
+        public GenericoDataTable _Generico {
             get {
-                return this.tabledethorario;
+                return this.tableGenerico;
             }
         }
         
@@ -127,7 +127,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DetalleHorario cln = ((DetalleHorario)(base.Clone()));
+            Generico cln = ((Generico)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["dethorario"] != null)) {
-                    base.Tables.Add(new dethorarioDataTable(ds.Tables["dethorario"]));
+                if ((ds.Tables["Generico"] != null)) {
+                    base.Tables.Add(new GenericoDataTable(ds.Tables["Generico"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabledethorario = ((dethorarioDataTable)(base.Tables["dethorario"]));
+            this.tableGenerico = ((GenericoDataTable)(base.Tables["Generico"]));
             if ((initTable == true)) {
-                if ((this.tabledethorario != null)) {
-                    this.tabledethorario.InitVars();
+                if ((this.tableGenerico != null)) {
+                    this.tableGenerico.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DetalleHorario";
+            this.DataSetName = "Generico";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DetalleHorario.xsd";
+            this.Namespace = "http://tempuri.org/Generico.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabledethorario = new dethorarioDataTable();
-            base.Tables.Add(this.tabledethorario);
+            this.tableGenerico = new GenericoDataTable();
+            base.Tables.Add(this.tableGenerico);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializedethorario() {
+        private bool ShouldSerialize_Generico() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DetalleHorario ds = new DetalleHorario();
+            Generico ds = new Generico();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,51 +270,51 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void dethorarioRowChangeEventHandler(object sender, dethorarioRowChangeEvent e);
+        public delegate void GenericoRowChangeEventHandler(object sender, GenericoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class dethorarioDataTable : global::System.Data.TypedTableBase<dethorarioRow> {
+        public partial class GenericoDataTable : global::System.Data.TypedTableBase<GenericoRow> {
             
-            private global::System.Data.DataColumn columnIdTrab;
+            private global::System.Data.DataColumn columnidtrab;
             
             private global::System.Data.DataColumn columnNombre;
             
-            private global::System.Data.DataColumn columnasociacion;
+            private global::System.Data.DataColumn columnPuesto;
             
-            private global::System.Data.DataColumn columnubicacion;
+            private global::System.Data.DataColumn columnCompañia;
             
-            private global::System.Data.DataColumn columnestatus;
+            private global::System.Data.DataColumn columnUbicación;
             
-            private global::System.Data.DataColumn columncheca;
+            private global::System.Data.DataColumn columnFecha_Registro;
             
-            private global::System.Data.DataColumn columndia;
+            private global::System.Data.DataColumn columnIncidencia;
             
-            private global::System.Data.DataColumn columnhret;
+            private global::System.Data.DataColumn columnRepresenta;
             
-            private global::System.Data.DataColumn columnhrst;
+            private global::System.Data.DataColumn columnTiempo_Empleado;
             
-            private global::System.Data.DataColumn columnhorario;
+            private global::System.Data.DataColumn columnTiempo_Profesor;
             
-            private global::System.Data.DataColumn columnidtrabsup;
+            private global::System.Data.DataColumn columnPlantel;
             
-            private global::System.Data.DataColumn columnNombre_Supervisor;
+            private global::System.Data.DataColumn columnDepartamento;
             
-            private global::System.Data.DataColumn columnidtrabdir;
+            private global::System.Data.DataColumn columnEstatus;
             
-            private global::System.Data.DataColumn columnNombre_Dir;
+            private global::System.Data.DataColumn columnAutorizada;
             
-            private global::System.Data.DataColumn columntiempocomida;
+            private global::System.Data.DataColumn columnDescontada;
             
-            private global::System.Data.DataColumn columnnohoras;
+            private global::System.Data.DataColumn columnFalta;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dethorarioDataTable() {
-                this.TableName = "dethorario";
+            public GenericoDataTable() {
+                this.TableName = "Generico";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -322,7 +322,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal dethorarioDataTable(global::System.Data.DataTable table) {
+            internal GenericoDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -339,16 +339,16 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected dethorarioDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected GenericoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdTrabColumn {
+            public global::System.Data.DataColumn idtrabColumn {
                 get {
-                    return this.columnIdTrab;
+                    return this.columnidtrab;
                 }
             }
             
@@ -362,113 +362,113 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn asociacionColumn {
+            public global::System.Data.DataColumn PuestoColumn {
                 get {
-                    return this.columnasociacion;
+                    return this.columnPuesto;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ubicacionColumn {
+            public global::System.Data.DataColumn CompañiaColumn {
                 get {
-                    return this.columnubicacion;
+                    return this.columnCompañia;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn estatusColumn {
+            public global::System.Data.DataColumn UbicaciónColumn {
                 get {
-                    return this.columnestatus;
+                    return this.columnUbicación;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn checaColumn {
+            public global::System.Data.DataColumn Fecha_RegistroColumn {
                 get {
-                    return this.columncheca;
+                    return this.columnFecha_Registro;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn diaColumn {
+            public global::System.Data.DataColumn IncidenciaColumn {
                 get {
-                    return this.columndia;
+                    return this.columnIncidencia;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn hretColumn {
+            public global::System.Data.DataColumn RepresentaColumn {
                 get {
-                    return this.columnhret;
+                    return this.columnRepresenta;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn hrstColumn {
+            public global::System.Data.DataColumn Tiempo_EmpleadoColumn {
                 get {
-                    return this.columnhrst;
+                    return this.columnTiempo_Empleado;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn horarioColumn {
+            public global::System.Data.DataColumn Tiempo_ProfesorColumn {
                 get {
-                    return this.columnhorario;
+                    return this.columnTiempo_Profesor;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn idtrabsupColumn {
+            public global::System.Data.DataColumn PlantelColumn {
                 get {
-                    return this.columnidtrabsup;
+                    return this.columnPlantel;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Nombre_SupervisorColumn {
+            public global::System.Data.DataColumn DepartamentoColumn {
                 get {
-                    return this.columnNombre_Supervisor;
+                    return this.columnDepartamento;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn idtrabdirColumn {
+            public global::System.Data.DataColumn EstatusColumn {
                 get {
-                    return this.columnidtrabdir;
+                    return this.columnEstatus;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Nombre_DirColumn {
+            public global::System.Data.DataColumn AutorizadaColumn {
                 get {
-                    return this.columnNombre_Dir;
+                    return this.columnAutorizada;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn tiempocomidaColumn {
+            public global::System.Data.DataColumn DescontadaColumn {
                 get {
-                    return this.columntiempocomida;
+                    return this.columnDescontada;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nohorasColumn {
+            public global::System.Data.DataColumn FaltaColumn {
                 get {
-                    return this.columnnohoras;
+                    return this.columnFalta;
                 }
             }
             
@@ -483,76 +483,76 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dethorarioRow this[int index] {
+            public GenericoRow this[int index] {
                 get {
-                    return ((dethorarioRow)(this.Rows[index]));
+                    return ((GenericoRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event dethorarioRowChangeEventHandler dethorarioRowChanging;
+            public event GenericoRowChangeEventHandler GenericoRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event dethorarioRowChangeEventHandler dethorarioRowChanged;
+            public event GenericoRowChangeEventHandler GenericoRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event dethorarioRowChangeEventHandler dethorarioRowDeleting;
+            public event GenericoRowChangeEventHandler GenericoRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event dethorarioRowChangeEventHandler dethorarioRowDeleted;
+            public event GenericoRowChangeEventHandler GenericoRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AdddethorarioRow(dethorarioRow row) {
+            public void AddGenericoRow(GenericoRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dethorarioRow AdddethorarioRow(
-                        string IdTrab, 
+            public GenericoRow AddGenericoRow(
+                        string idtrab, 
                         string Nombre, 
-                        string asociacion, 
-                        string ubicacion, 
-                        string estatus, 
-                        string checa, 
-                        string dia, 
-                        string hret, 
-                        string hrst, 
-                        string horario, 
-                        string idtrabsup, 
-                        string Nombre_Supervisor, 
-                        string idtrabdir, 
-                        string Nombre_Dir, 
-                        string tiempocomida, 
-                        string nohoras) {
-                dethorarioRow rowdethorarioRow = ((dethorarioRow)(this.NewRow()));
+                        string Puesto, 
+                        string Compañia, 
+                        string Ubicación, 
+                        string Fecha_Registro, 
+                        string Incidencia, 
+                        string Representa, 
+                        string Tiempo_Empleado, 
+                        string Tiempo_Profesor, 
+                        string Plantel, 
+                        string Departamento, 
+                        string Estatus, 
+                        string Autorizada, 
+                        string Descontada, 
+                        string Falta) {
+                GenericoRow rowGenericoRow = ((GenericoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        IdTrab,
+                        idtrab,
                         Nombre,
-                        asociacion,
-                        ubicacion,
-                        estatus,
-                        checa,
-                        dia,
-                        hret,
-                        hrst,
-                        horario,
-                        idtrabsup,
-                        Nombre_Supervisor,
-                        idtrabdir,
-                        Nombre_Dir,
-                        tiempocomida,
-                        nohoras};
-                rowdethorarioRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowdethorarioRow);
-                return rowdethorarioRow;
+                        Puesto,
+                        Compañia,
+                        Ubicación,
+                        Fecha_Registro,
+                        Incidencia,
+                        Representa,
+                        Tiempo_Empleado,
+                        Tiempo_Profesor,
+                        Plantel,
+                        Departamento,
+                        Estatus,
+                        Autorizada,
+                        Descontada,
+                        Falta};
+                rowGenericoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGenericoRow);
+                return rowGenericoRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                dethorarioDataTable cln = ((dethorarioDataTable)(base.Clone()));
+                GenericoDataTable cln = ((GenericoDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -560,91 +560,93 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new dethorarioDataTable();
+                return new GenericoDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnIdTrab = base.Columns["IdTrab"];
+                this.columnidtrab = base.Columns["idtrab"];
                 this.columnNombre = base.Columns["Nombre"];
-                this.columnasociacion = base.Columns["asociacion"];
-                this.columnubicacion = base.Columns["ubicacion"];
-                this.columnestatus = base.Columns["estatus"];
-                this.columncheca = base.Columns["checa"];
-                this.columndia = base.Columns["dia"];
-                this.columnhret = base.Columns["hret"];
-                this.columnhrst = base.Columns["hrst"];
-                this.columnhorario = base.Columns["horario"];
-                this.columnidtrabsup = base.Columns["idtrabsup"];
-                this.columnNombre_Supervisor = base.Columns["Nombre_Supervisor"];
-                this.columnidtrabdir = base.Columns["idtrabdir"];
-                this.columnNombre_Dir = base.Columns["Nombre_Dir"];
-                this.columntiempocomida = base.Columns["tiempocomida"];
-                this.columnnohoras = base.Columns["nohoras"];
+                this.columnPuesto = base.Columns["Puesto"];
+                this.columnCompañia = base.Columns["Compañia"];
+                this.columnUbicación = base.Columns["Ubicación"];
+                this.columnFecha_Registro = base.Columns["Fecha_Registro"];
+                this.columnIncidencia = base.Columns["Incidencia"];
+                this.columnRepresenta = base.Columns["Representa"];
+                this.columnTiempo_Empleado = base.Columns["Tiempo_Empleado"];
+                this.columnTiempo_Profesor = base.Columns["Tiempo_Profesor"];
+                this.columnPlantel = base.Columns["Plantel"];
+                this.columnDepartamento = base.Columns["Departamento"];
+                this.columnEstatus = base.Columns["Estatus"];
+                this.columnAutorizada = base.Columns["Autorizada"];
+                this.columnDescontada = base.Columns["Descontada"];
+                this.columnFalta = base.Columns["Falta"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnIdTrab = new global::System.Data.DataColumn("IdTrab", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIdTrab);
+                this.columnidtrab = new global::System.Data.DataColumn("idtrab", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidtrab);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
-                this.columnasociacion = new global::System.Data.DataColumn("asociacion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnasociacion);
-                this.columnubicacion = new global::System.Data.DataColumn("ubicacion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnubicacion);
-                this.columnestatus = new global::System.Data.DataColumn("estatus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnestatus);
-                this.columncheca = new global::System.Data.DataColumn("checa", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncheca);
-                this.columndia = new global::System.Data.DataColumn("dia", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndia);
-                this.columnhret = new global::System.Data.DataColumn("hret", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhret);
-                this.columnhrst = new global::System.Data.DataColumn("hrst", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhrst);
-                this.columnhorario = new global::System.Data.DataColumn("horario", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhorario);
-                this.columnidtrabsup = new global::System.Data.DataColumn("idtrabsup", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidtrabsup);
-                this.columnNombre_Supervisor = new global::System.Data.DataColumn("Nombre_Supervisor", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre_Supervisor);
-                this.columnidtrabdir = new global::System.Data.DataColumn("idtrabdir", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidtrabdir);
-                this.columnNombre_Dir = new global::System.Data.DataColumn("Nombre_Dir", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombre_Dir);
-                this.columntiempocomida = new global::System.Data.DataColumn("tiempocomida", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntiempocomida);
-                this.columnnohoras = new global::System.Data.DataColumn("nohoras", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnohoras);
+                this.columnPuesto = new global::System.Data.DataColumn("Puesto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPuesto);
+                this.columnCompañia = new global::System.Data.DataColumn("Compañia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompañia);
+                this.columnUbicación = new global::System.Data.DataColumn("Ubicación", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUbicación);
+                this.columnFecha_Registro = new global::System.Data.DataColumn("Fecha_Registro", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Registro);
+                this.columnIncidencia = new global::System.Data.DataColumn("Incidencia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIncidencia);
+                this.columnRepresenta = new global::System.Data.DataColumn("Representa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRepresenta);
+                this.columnTiempo_Empleado = new global::System.Data.DataColumn("Tiempo_Empleado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTiempo_Empleado);
+                this.columnTiempo_Profesor = new global::System.Data.DataColumn("Tiempo_Profesor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTiempo_Profesor);
+                this.columnPlantel = new global::System.Data.DataColumn("Plantel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPlantel);
+                this.columnDepartamento = new global::System.Data.DataColumn("Departamento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepartamento);
+                this.columnEstatus = new global::System.Data.DataColumn("Estatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstatus);
+                this.columnAutorizada = new global::System.Data.DataColumn("Autorizada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAutorizada);
+                this.columnDescontada = new global::System.Data.DataColumn("Descontada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescontada);
+                this.columnFalta = new global::System.Data.DataColumn("Falta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFalta);
+                this.ExtendedProperties.Add("Generator_TablePropName", "_Generico");
+                this.ExtendedProperties.Add("Generator_UserTableName", "Generico");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dethorarioRow NewdethorarioRow() {
-                return ((dethorarioRow)(this.NewRow()));
+            public GenericoRow NewGenericoRow() {
+                return ((GenericoRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new dethorarioRow(builder);
+                return new GenericoRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(dethorarioRow);
+                return typeof(GenericoRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.dethorarioRowChanged != null)) {
-                    this.dethorarioRowChanged(this, new dethorarioRowChangeEvent(((dethorarioRow)(e.Row)), e.Action));
+                if ((this.GenericoRowChanged != null)) {
+                    this.GenericoRowChanged(this, new GenericoRowChangeEvent(((GenericoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -652,8 +654,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.dethorarioRowChanging != null)) {
-                    this.dethorarioRowChanging(this, new dethorarioRowChangeEvent(((dethorarioRow)(e.Row)), e.Action));
+                if ((this.GenericoRowChanging != null)) {
+                    this.GenericoRowChanging(this, new GenericoRowChangeEvent(((GenericoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -661,8 +663,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.dethorarioRowDeleted != null)) {
-                    this.dethorarioRowDeleted(this, new dethorarioRowChangeEvent(((dethorarioRow)(e.Row)), e.Action));
+                if ((this.GenericoRowDeleted != null)) {
+                    this.GenericoRowDeleted(this, new GenericoRowChangeEvent(((GenericoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -670,14 +672,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.dethorarioRowDeleting != null)) {
-                    this.dethorarioRowDeleting(this, new dethorarioRowChangeEvent(((dethorarioRow)(e.Row)), e.Action));
+                if ((this.GenericoRowDeleting != null)) {
+                    this.GenericoRowDeleting(this, new GenericoRowChangeEvent(((GenericoRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovedethorarioRow(dethorarioRow row) {
+            public void RemoveGenericoRow(GenericoRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -686,7 +688,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DetalleHorario ds = new DetalleHorario();
+                Generico ds = new Generico();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -704,7 +706,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "dethorarioDataTable";
+                attribute2.FixedValue = "GenericoDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -748,30 +750,30 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class dethorarioRow : global::System.Data.DataRow {
+        public partial class GenericoRow : global::System.Data.DataRow {
             
-            private dethorarioDataTable tabledethorario;
+            private GenericoDataTable tableGenerico;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal dethorarioRow(global::System.Data.DataRowBuilder rb) : 
+            internal GenericoRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabledethorario = ((dethorarioDataTable)(this.Table));
+                this.tableGenerico = ((GenericoDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string IdTrab {
+            public string idtrab {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.IdTrabColumn]));
+                        return ((string)(this[this.tableGenerico.idtrabColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IdTrab\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idtrab\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.IdTrabColumn] = value;
+                    this[this.tableGenerico.idtrabColumn] = value;
                 }
             }
             
@@ -780,431 +782,431 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public string Nombre {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.NombreColumn]));
+                        return ((string)(this[this.tableGenerico.NombreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.NombreColumn] = value;
+                    this[this.tableGenerico.NombreColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string asociacion {
+            public string Puesto {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.asociacionColumn]));
+                        return ((string)(this[this.tableGenerico.PuestoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'asociacion\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Puesto\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.asociacionColumn] = value;
+                    this[this.tableGenerico.PuestoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ubicacion {
+            public string Compañia {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.ubicacionColumn]));
+                        return ((string)(this[this.tableGenerico.CompañiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ubicacion\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Compañia\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.ubicacionColumn] = value;
+                    this[this.tableGenerico.CompañiaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string estatus {
+            public string Ubicación {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.estatusColumn]));
+                        return ((string)(this[this.tableGenerico.UbicaciónColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'estatus\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Ubicación\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.estatusColumn] = value;
+                    this[this.tableGenerico.UbicaciónColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string checa {
+            public string Fecha_Registro {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.checaColumn]));
+                        return ((string)(this[this.tableGenerico.Fecha_RegistroColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'checa\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha_Registro\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.checaColumn] = value;
+                    this[this.tableGenerico.Fecha_RegistroColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string dia {
+            public string Incidencia {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.diaColumn]));
+                        return ((string)(this[this.tableGenerico.IncidenciaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'dia\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Incidencia\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.diaColumn] = value;
+                    this[this.tableGenerico.IncidenciaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string hret {
+            public string Representa {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.hretColumn]));
+                        return ((string)(this[this.tableGenerico.RepresentaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'hret\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Representa\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.hretColumn] = value;
+                    this[this.tableGenerico.RepresentaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string hrst {
+            public string Tiempo_Empleado {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.hrstColumn]));
+                        return ((string)(this[this.tableGenerico.Tiempo_EmpleadoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'hrst\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Tiempo_Empleado\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.hrstColumn] = value;
+                    this[this.tableGenerico.Tiempo_EmpleadoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string horario {
+            public string Tiempo_Profesor {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.horarioColumn]));
+                        return ((string)(this[this.tableGenerico.Tiempo_ProfesorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'horario\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Tiempo_Profesor\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.horarioColumn] = value;
+                    this[this.tableGenerico.Tiempo_ProfesorColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string idtrabsup {
+            public string Plantel {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.idtrabsupColumn]));
+                        return ((string)(this[this.tableGenerico.PlantelColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idtrabsup\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Plantel\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.idtrabsupColumn] = value;
+                    this[this.tableGenerico.PlantelColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre_Supervisor {
+            public string Departamento {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.Nombre_SupervisorColumn]));
+                        return ((string)(this[this.tableGenerico.DepartamentoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre_Supervisor\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Departamento\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.Nombre_SupervisorColumn] = value;
+                    this[this.tableGenerico.DepartamentoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string idtrabdir {
+            public string Estatus {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.idtrabdirColumn]));
+                        return ((string)(this[this.tableGenerico.EstatusColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idtrabdir\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Estatus\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.idtrabdirColumn] = value;
+                    this[this.tableGenerico.EstatusColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nombre_Dir {
+            public string Autorizada {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.Nombre_DirColumn]));
+                        return ((string)(this[this.tableGenerico.AutorizadaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre_Dir\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Autorizada\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.Nombre_DirColumn] = value;
+                    this[this.tableGenerico.AutorizadaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string tiempocomida {
+            public string Descontada {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.tiempocomidaColumn]));
+                        return ((string)(this[this.tableGenerico.DescontadaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tiempocomida\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Descontada\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.tiempocomidaColumn] = value;
+                    this[this.tableGenerico.DescontadaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nohoras {
+            public string Falta {
                 get {
                     try {
-                        return ((string)(this[this.tabledethorario.nohorasColumn]));
+                        return ((string)(this[this.tableGenerico.FaltaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nohoras\' de la tabla \'dethorario\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Falta\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledethorario.nohorasColumn] = value;
+                    this[this.tableGenerico.FaltaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIdTrabNull() {
-                return this.IsNull(this.tabledethorario.IdTrabColumn);
+            public bool IsidtrabNull() {
+                return this.IsNull(this.tableGenerico.idtrabColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIdTrabNull() {
-                this[this.tabledethorario.IdTrabColumn] = global::System.Convert.DBNull;
+            public void SetidtrabNull() {
+                this[this.tableGenerico.idtrabColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNombreNull() {
-                return this.IsNull(this.tabledethorario.NombreColumn);
+                return this.IsNull(this.tableGenerico.NombreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNombreNull() {
-                this[this.tabledethorario.NombreColumn] = global::System.Convert.DBNull;
+                this[this.tableGenerico.NombreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsasociacionNull() {
-                return this.IsNull(this.tabledethorario.asociacionColumn);
+            public bool IsPuestoNull() {
+                return this.IsNull(this.tableGenerico.PuestoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetasociacionNull() {
-                this[this.tabledethorario.asociacionColumn] = global::System.Convert.DBNull;
+            public void SetPuestoNull() {
+                this[this.tableGenerico.PuestoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsubicacionNull() {
-                return this.IsNull(this.tabledethorario.ubicacionColumn);
+            public bool IsCompañiaNull() {
+                return this.IsNull(this.tableGenerico.CompañiaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetubicacionNull() {
-                this[this.tabledethorario.ubicacionColumn] = global::System.Convert.DBNull;
+            public void SetCompañiaNull() {
+                this[this.tableGenerico.CompañiaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsestatusNull() {
-                return this.IsNull(this.tabledethorario.estatusColumn);
+            public bool IsUbicaciónNull() {
+                return this.IsNull(this.tableGenerico.UbicaciónColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetestatusNull() {
-                this[this.tabledethorario.estatusColumn] = global::System.Convert.DBNull;
+            public void SetUbicaciónNull() {
+                this[this.tableGenerico.UbicaciónColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IschecaNull() {
-                return this.IsNull(this.tabledethorario.checaColumn);
+            public bool IsFecha_RegistroNull() {
+                return this.IsNull(this.tableGenerico.Fecha_RegistroColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetchecaNull() {
-                this[this.tabledethorario.checaColumn] = global::System.Convert.DBNull;
+            public void SetFecha_RegistroNull() {
+                this[this.tableGenerico.Fecha_RegistroColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsdiaNull() {
-                return this.IsNull(this.tabledethorario.diaColumn);
+            public bool IsIncidenciaNull() {
+                return this.IsNull(this.tableGenerico.IncidenciaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetdiaNull() {
-                this[this.tabledethorario.diaColumn] = global::System.Convert.DBNull;
+            public void SetIncidenciaNull() {
+                this[this.tableGenerico.IncidenciaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IshretNull() {
-                return this.IsNull(this.tabledethorario.hretColumn);
+            public bool IsRepresentaNull() {
+                return this.IsNull(this.tableGenerico.RepresentaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SethretNull() {
-                this[this.tabledethorario.hretColumn] = global::System.Convert.DBNull;
+            public void SetRepresentaNull() {
+                this[this.tableGenerico.RepresentaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IshrstNull() {
-                return this.IsNull(this.tabledethorario.hrstColumn);
+            public bool IsTiempo_EmpleadoNull() {
+                return this.IsNull(this.tableGenerico.Tiempo_EmpleadoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SethrstNull() {
-                this[this.tabledethorario.hrstColumn] = global::System.Convert.DBNull;
+            public void SetTiempo_EmpleadoNull() {
+                this[this.tableGenerico.Tiempo_EmpleadoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IshorarioNull() {
-                return this.IsNull(this.tabledethorario.horarioColumn);
+            public bool IsTiempo_ProfesorNull() {
+                return this.IsNull(this.tableGenerico.Tiempo_ProfesorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SethorarioNull() {
-                this[this.tabledethorario.horarioColumn] = global::System.Convert.DBNull;
+            public void SetTiempo_ProfesorNull() {
+                this[this.tableGenerico.Tiempo_ProfesorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsidtrabsupNull() {
-                return this.IsNull(this.tabledethorario.idtrabsupColumn);
+            public bool IsPlantelNull() {
+                return this.IsNull(this.tableGenerico.PlantelColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetidtrabsupNull() {
-                this[this.tabledethorario.idtrabsupColumn] = global::System.Convert.DBNull;
+            public void SetPlantelNull() {
+                this[this.tableGenerico.PlantelColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNombre_SupervisorNull() {
-                return this.IsNull(this.tabledethorario.Nombre_SupervisorColumn);
+            public bool IsDepartamentoNull() {
+                return this.IsNull(this.tableGenerico.DepartamentoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNombre_SupervisorNull() {
-                this[this.tabledethorario.Nombre_SupervisorColumn] = global::System.Convert.DBNull;
+            public void SetDepartamentoNull() {
+                this[this.tableGenerico.DepartamentoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsidtrabdirNull() {
-                return this.IsNull(this.tabledethorario.idtrabdirColumn);
+            public bool IsEstatusNull() {
+                return this.IsNull(this.tableGenerico.EstatusColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetidtrabdirNull() {
-                this[this.tabledethorario.idtrabdirColumn] = global::System.Convert.DBNull;
+            public void SetEstatusNull() {
+                this[this.tableGenerico.EstatusColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNombre_DirNull() {
-                return this.IsNull(this.tabledethorario.Nombre_DirColumn);
+            public bool IsAutorizadaNull() {
+                return this.IsNull(this.tableGenerico.AutorizadaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNombre_DirNull() {
-                this[this.tabledethorario.Nombre_DirColumn] = global::System.Convert.DBNull;
+            public void SetAutorizadaNull() {
+                this[this.tableGenerico.AutorizadaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IstiempocomidaNull() {
-                return this.IsNull(this.tabledethorario.tiempocomidaColumn);
+            public bool IsDescontadaNull() {
+                return this.IsNull(this.tableGenerico.DescontadaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SettiempocomidaNull() {
-                this[this.tabledethorario.tiempocomidaColumn] = global::System.Convert.DBNull;
+            public void SetDescontadaNull() {
+                this[this.tableGenerico.DescontadaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnohorasNull() {
-                return this.IsNull(this.tabledethorario.nohorasColumn);
+            public bool IsFaltaNull() {
+                return this.IsNull(this.tableGenerico.FaltaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnohorasNull() {
-                this[this.tabledethorario.nohorasColumn] = global::System.Convert.DBNull;
+            public void SetFaltaNull() {
+                this[this.tableGenerico.FaltaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1212,22 +1214,22 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class dethorarioRowChangeEvent : global::System.EventArgs {
+        public class GenericoRowChangeEvent : global::System.EventArgs {
             
-            private dethorarioRow eventRow;
+            private GenericoRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dethorarioRowChangeEvent(dethorarioRow row, global::System.Data.DataRowAction action) {
+            public GenericoRowChangeEvent(GenericoRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dethorarioRow Row {
+            public GenericoRow Row {
                 get {
                     return this.eventRow;
                 }

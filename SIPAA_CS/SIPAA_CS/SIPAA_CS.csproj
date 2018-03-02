@@ -383,6 +383,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CartaExtrañamiento.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\Conceptos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Conceptos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\FaltasPeriodo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -392,6 +397,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FechasHorasRegistro.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\Generico.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Generico.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\DataSets\IncidenciasPendientesAutorizar.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -855,6 +865,12 @@
       <DependentUpon>CartaExtrañamiento.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\Conceptos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Conceptos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\ConceptosNomina.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -931,6 +947,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GeneraldeIncidencias.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\Generico.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Generico.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.cs">
@@ -1344,6 +1366,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CartaExtrañamiento.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\Conceptos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Conceptos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\ConceptosNomina.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ConceptosNomina.cs</LastGenOutput>
@@ -1387,6 +1413,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\GeneraldeIncidencias.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>GeneraldeIncidencias.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\Generico.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Generico.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1616,6 +1646,17 @@
     <None Include="RecursosHumanos\DataSets\CartaExtrañamiento.xss">
       <DependentUpon>CartaExtrañamiento.xsd</DependentUpon>
     </None>
+    <None Include="RecursosHumanos\DataSets\Conceptos.xsc">
+      <DependentUpon>Conceptos.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Conceptos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Conceptos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Conceptos.xss">
+      <DependentUpon>Conceptos.xsd</DependentUpon>
+    </None>
     <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xsc">
       <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
     </None>
@@ -1637,6 +1678,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\FechasHorasRegistro.xss">
       <DependentUpon>FechasHorasRegistro.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Generico.xsc">
+      <DependentUpon>Generico.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Generico.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Generico.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Generico.xss">
+      <DependentUpon>Generico.xsd</DependentUpon>
     </None>
     <None Include="RecursosHumanos\DataSets\IncidenciasPendientesAutorizar.xsc">
       <DependentUpon>IncidenciasPendientesAutorizar.xsd</DependentUpon>

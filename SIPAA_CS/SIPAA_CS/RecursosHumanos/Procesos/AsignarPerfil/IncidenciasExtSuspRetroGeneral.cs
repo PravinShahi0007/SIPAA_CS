@@ -88,6 +88,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             cbIncidencia.SelectedValue = 17; //Suspension
             cbIncidencia.Enabled = false;
             llenarComboTipo(17);
+            ckbaplica.Visible = false;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -221,7 +222,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             objDias.sReferencia = txtReferencia.Text;
                             objDias.iOrden = 6;
                             objDias.sUsuumod = LoginInfo.IdTrab;
-                            objDias.sPrgumod = this.Name;
+                            objDias.sPrgumod = "IncidenciasExtSuspRetroGeneral";
                             DataTable dt = objDias.ObtenerDiasEspecialesxTrabajador(objDias, 1);
 
                             if (dt.Columns.Contains("INSERT"))
@@ -423,7 +424,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         public bool CompararObj(Captura2 obj1, Captura2 obj2)
         {
             bool bBandera = false;
-
+ 
             if (obj1.FechaReg == obj2.FechaReg)
             {
                 if (obj1.cvincidencia == obj2.cvincidencia)

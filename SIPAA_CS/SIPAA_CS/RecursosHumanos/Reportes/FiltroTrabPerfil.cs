@@ -77,6 +77,9 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 IACT = Int32.Parse(cboStatus.SelectedIndex.ToString());
                 ISTC = Int32.Parse(CbCheca.SelectedIndex.ToString());
 
+
+
+
                 DataTable dtRpt = CTrabPerf.PerfilTrab_S(4, iIDT, iIDC, IIDU, IACT, ISTC);
 
                 ViewerReporte form = new ViewerReporte();
@@ -126,7 +129,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 IACT = Int32.Parse(cboStatus.SelectedIndex.ToString());
                 ISTC = Int32.Parse(CbCheca.SelectedIndex.ToString());
 
-                DataTable dtrepdethr = CTrabPerf.DetHorario(5, iIDT, iIDC, IIDU, IACT, ISTC);
+                DataTable dtrepdethr = CTrabPerf.DetHorario(6, iIDT, iIDC, IIDU, IACT, ISTC);
 
                 ViewerReporte form = new ViewerReporte();
                 DetalleHr RepDetHr = new DetalleHr();

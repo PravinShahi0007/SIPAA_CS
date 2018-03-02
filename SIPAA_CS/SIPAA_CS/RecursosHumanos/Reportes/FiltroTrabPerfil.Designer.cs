@@ -37,6 +37,7 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label lblStatus;
             System.Windows.Forms.Label lblCheca;
+            System.Windows.Forms.Label label2;
             this.lblusuario = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -61,6 +62,7 @@
             label1 = new System.Windows.Forms.Label();
             lblStatus = new System.Windows.Forms.Label();
             lblCheca = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             this.pnlBusqueda.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -123,11 +125,11 @@
             lblimprimir.ForeColor = System.Drawing.Color.Gray;
             lblimprimir.Image = ((System.Drawing.Image)(resources.GetObject("lblimprimir.Image")));
             lblimprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblimprimir.Location = new System.Drawing.Point(20, 48);
+            lblimprimir.Location = new System.Drawing.Point(20, 50);
             lblimprimir.Name = "lblimprimir";
-            lblimprimir.Size = new System.Drawing.Size(199, 17);
+            lblimprimir.Size = new System.Drawing.Size(193, 17);
             lblimprimir.TabIndex = 66;
-            lblimprimir.Text = "       Imprimir Perfil Trabajador";
+            lblimprimir.Text = "       Imprimir perfil trabajador";
             // 
             // label1
             // 
@@ -138,9 +140,9 @@
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label1.Location = new System.Drawing.Point(20, 48);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(189, 17);
+            label1.Size = new System.Drawing.Size(143, 17);
             label1.TabIndex = 66;
-            label1.Text = "       Imprimir Detalle Horario";
+            label1.Text = "       Imprimir  reporte";
             // 
             // lblStatus
             // 
@@ -165,6 +167,19 @@
             lblCheca.Size = new System.Drawing.Size(45, 16);
             lblCheca.TabIndex = 64;
             lblCheca.Text = "Checa";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label2.Location = new System.Drawing.Point(35, 109);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(406, 16);
+            label2.TabIndex = 65;
+            label2.Text = "Muestra el horario del empleado o el perfil que tiene dentro de SIPAA";
             // 
             // lblusuario
             // 
@@ -346,10 +361,11 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.panel1.Controls.Add(lblimprimir);
             this.panel1.Controls.Add(this.btnImprimir);
-            this.panel1.Location = new System.Drawing.Point(597, 138);
+            this.panel1.Location = new System.Drawing.Point(546, 138);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 114);
             this.panel1.TabIndex = 1;
+            this.panel1.Visible = false;
             // 
             // btnImprimir
             // 
@@ -370,9 +386,9 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.panel3.Controls.Add(label1);
             this.panel3.Controls.Add(this.btnimpdethr);
-            this.panel3.Location = new System.Drawing.Point(597, 303);
+            this.panel3.Location = new System.Drawing.Point(530, 258);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(399, 114);
+            this.panel3.Size = new System.Drawing.Size(294, 114);
             this.panel3.TabIndex = 2;
             // 
             // btnimpdethr
@@ -381,7 +397,7 @@
             this.btnimpdethr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnimpdethr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnimpdethr.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
-            this.btnimpdethr.Location = new System.Drawing.Point(282, 32);
+            this.btnimpdethr.Location = new System.Drawing.Point(217, 30);
             this.btnimpdethr.Name = "btnimpdethr";
             this.btnimpdethr.Size = new System.Drawing.Size(55, 55);
             this.btnimpdethr.TabIndex = 7;
@@ -407,6 +423,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(label2);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
