@@ -22,6 +22,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         public string sUsuumod = String.Empty;
         public DateTime fFhumod = DateTime.Now;
         public string sPrgumod = String.Empty;
+        public int iAplica = 0;
 
 
         public DataTable ExtrañamientoRetroactivo(IncCaptura objIncidencia, int iOpcion)
@@ -44,7 +45,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@P_FechaFin", SqlDbType.DateTime).Value = objIncidencia.fFechaFin;
             cmd.Parameters.Add("@P_usuumod", SqlDbType.VarChar).Value = objIncidencia.sUsuumod;
             cmd.Parameters.Add("@P_prgumod", SqlDbType.VarChar).Value = objIncidencia.sPrgumod;
-            
+            cmd.Parameters.Add("@P_aplica", SqlDbType.Int).Value = objIncidencia.iAplica;
+
             objConexion.asignarConexion(cmd);
 
             SqlDataAdapter dadapter = new SqlDataAdapter(cmd);

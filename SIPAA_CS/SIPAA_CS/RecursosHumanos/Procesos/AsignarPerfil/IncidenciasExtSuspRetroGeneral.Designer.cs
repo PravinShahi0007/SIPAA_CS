@@ -58,6 +58,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dgvInc = new System.Windows.Forms.DataGridView();
             this.pnlAsig = new System.Windows.Forms.Panel();
+            this.ckbaplica = new System.Windows.Forms.CheckBox();
             this.dtimeFechaFinAsig = new System.Windows.Forms.DateTimePicker();
             this.dtimeFechaInicioAsig = new System.Windows.Forms.DateTimePicker();
             this.cbTipo = new System.Windows.Forms.ComboBox();
@@ -278,9 +279,9 @@
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.dpFechaInicio);
-            this.panel2.Location = new System.Drawing.Point(472, 111);
+            this.panel2.Location = new System.Drawing.Point(512, 111);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(350, 100);
+            this.panel2.Size = new System.Drawing.Size(490, 100);
             this.panel2.TabIndex = 203;
             this.panel2.TabStop = true;
             // 
@@ -407,6 +408,7 @@
             // pnlAsig
             // 
             this.pnlAsig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAsig.Controls.Add(this.ckbaplica);
             this.pnlAsig.Controls.Add(this.dtimeFechaFinAsig);
             this.pnlAsig.Controls.Add(this.label10);
             this.pnlAsig.Controls.Add(this.label11);
@@ -425,6 +427,21 @@
             this.pnlAsig.Size = new System.Drawing.Size(988, 140);
             this.pnlAsig.TabIndex = 206;
             this.pnlAsig.TabStop = true;
+            // 
+            // ckbaplica
+            // 
+            this.ckbaplica.AutoSize = true;
+            this.ckbaplica.Checked = true;
+            this.ckbaplica.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbaplica.Enabled = false;
+            this.ckbaplica.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbaplica.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.ckbaplica.Location = new System.Drawing.Point(625, 95);
+            this.ckbaplica.Name = "ckbaplica";
+            this.ckbaplica.Size = new System.Drawing.Size(155, 20);
+            this.ckbaplica.TabIndex = 212;
+            this.ckbaplica.Text = "Aplicar Extrañamiento";
+            this.ckbaplica.UseVisualStyleBackColor = true;
             // 
             // dtimeFechaFinAsig
             // 
@@ -478,6 +495,7 @@
             this.cbIncidencia.TabIndex = 59;
             this.cbIncidencia.Text = "Seleccionar";
             this.cbIncidencia.SelectedIndexChanged += new System.EventHandler(this.cbIncidencia_SelectedIndexChanged);
+            this.cbIncidencia.Leave += new System.EventHandler(this.cbIncidencia_Leave);
             // 
             // label6
             // 
@@ -497,7 +515,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardar.Location = new System.Drawing.Point(629, 85);
+            this.btnGuardar.Location = new System.Drawing.Point(786, 81);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 2;
@@ -555,7 +573,7 @@
             this.panelTrab.Controls.Add(this.label13);
             this.panelTrab.Location = new System.Drawing.Point(14, 111);
             this.panelTrab.Name = "panelTrab";
-            this.panelTrab.Size = new System.Drawing.Size(452, 100);
+            this.panelTrab.Size = new System.Drawing.Size(490, 100);
             this.panelTrab.TabIndex = 208;
             // 
             // cbEmpleados
@@ -566,7 +584,7 @@
             this.cbEmpleados.FormattingEnabled = true;
             this.cbEmpleados.Location = new System.Drawing.Point(81, 65);
             this.cbEmpleados.Name = "cbEmpleados";
-            this.cbEmpleados.Size = new System.Drawing.Size(362, 21);
+            this.cbEmpleados.Size = new System.Drawing.Size(390, 21);
             this.cbEmpleados.TabIndex = 215;
             // 
             // txtdtrab
@@ -708,5 +726,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox cbEmpleados;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.CheckBox ckbaplica;
     }
 } 

@@ -39,8 +39,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@P_Opcion", SqlDbType.Int).Value = iOpcion;
             cmd.Parameters.Add("@P_cvincidencia", SqlDbType.Int).Value = objDias.iCvIncidencia;
             cmd.Parameters.Add("@P_cvtipo", SqlDbType.Int).Value = objDias.iCvTipo;
-            cmd.Parameters.Add("@P_FechaInicio", SqlDbType.DateTime).Value = objDias.fFechaInicio;
-            cmd.Parameters.Add("@P_FechaFin", SqlDbType.DateTime).Value = objDias.fFechaFin;
+            cmd.Parameters.Add("@P_FechaInicio", SqlDbType.VarChar).Value = objDias.fFechaInicio;
+            cmd.Parameters.Add("@P_FechaFin", SqlDbType.VarChar).Value = objDias.fFechaFin;
             cmd.Parameters.Add("@P_Dias", SqlDbType.Int).Value = objDias.iDias;
             cmd.Parameters.Add("@P_HoraEntrada", SqlDbType.Time).Value = objDias.tpHoraentrada;
             cmd.Parameters.Add("@P_HoraSalida", SqlDbType.Time).Value = objDias.tpHoraSalida;

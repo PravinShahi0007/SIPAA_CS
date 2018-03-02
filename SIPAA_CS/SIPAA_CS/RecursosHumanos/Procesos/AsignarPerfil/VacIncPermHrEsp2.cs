@@ -798,7 +798,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             linea1.Visible = true;
             linea2.Visible = true;
         }
-                
+
+        private void dtpFechaInical_Leave(object sender, EventArgs e)
+        {
+            txtDias.Focus();
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------

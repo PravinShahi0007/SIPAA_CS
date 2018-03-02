@@ -50,7 +50,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         
         //***********************************************************************************************
         //Autor: Victor Jesús Iturburu Vergara
-        //Fecha creación:17-05-04      Última Modificacion: 28-OCT-2017 JLA    
+        //Fecha creación:17-05-04 Última Modificacion: 28-OCT-2017 JLA  20-FEB-2018 JLA  
         //Descripción:
         //***********************************************************************************************
 
@@ -79,15 +79,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             IncCalificacion objInc = new IncCalificacion();
-            objInc.fFechaInicio = dpFechaInicio.Value;
-            objInc.fFechaTermino = dpFechaFin.Value;
+            objInc.fFechaInicio = DateTime.Parse(dpFechaInicio.Text);
+            objInc.fFechaTermino = DateTime.Parse(dpFechaFin.Text);
             objInc.sIdtrab = cbEmpleados.SelectedValue.ToString();
 
             LlenarGrid(objInc);
 
-            cbIncidencia.SelectedValue = 17; //tenia 20 creo = Suspension
+            cbIncidencia.SelectedValue = 17; //Suspension
             cbIncidencia.Enabled = false;
             llenarComboTipo(17);
+            ckbaplica.Visible = false;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -149,7 +150,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                     objinc.fFechaFin = DateTime.Parse(dtimeFechaFinAsig.Text);
                                     objinc.fFechaInicio = DateTime.Parse(dtimeFechaInicioAsig.Text);
                                     objinc.sUsuumod = LoginInfo.IdTrab;
-                                    objinc.sPrgumod = this.Name;
+                                    objinc.sPrgumod = "IncidenciasExtSuspRetroGeneral";   //this.Name;
+                                    if (ckbaplica.Checked)
+                                    {
+                                        objinc.iAplica = 1;
+                                    }
+                                    else
+                                    {
+                                        objinc.iAplica = 0;
+                                    }
 
                                     DataTable dt = objinc.ExtrañamientoRetroactivo(objinc, 1);
                                     dtReporte.Rows.Add(Convert.ToString(objinc.fFecharegistro.ToString("dd/MM/yyyy")), obj.sIncidencia, obj.iTiempoEmp, obj.iTiempoProf);
@@ -169,7 +178,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                 {
                                     //Se lanza la carta
                                     ViewerReporte form = new ViewerReporte();
-                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, this.CompanyName, "CartaExtrañamiento.rpt");
+                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "SIPAA_CS.RecursosHumanos.Reportes", "CartaExtrañamiento.rpt");
                                     ReportDoc.SetParameterValue("NombreEmpleado", cbEmpleados.Text);
                                     ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Text);
                                     ReportDoc.SetParameterValue("FechaFin", dpFechaFin.Text);
@@ -213,7 +222,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             objDias.sReferencia = txtReferencia.Text;
                             objDias.iOrden = 6;
                             objDias.sUsuumod = LoginInfo.IdTrab;
-                            objDias.sPrgumod = this.Name;
+                            objDias.sPrgumod = "IncidenciasExtSuspRetroGeneral";
                             DataTable dt = objDias.ObtenerDiasEspecialesxTrabajador(objDias, 1);
 
                             if (dt.Columns.Contains("INSERT"))
@@ -331,6 +340,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 }
             }
 
+            ckbaplica.Visible = false;
+            ckbaplica.Checked = false;
+
             ftooltip();
 
             //llena etiqueta de usuario
@@ -412,7 +424,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         public bool CompararObj(Captura2 obj1, Captura2 obj2)
         {
             bool bBandera = false;
-
+ 
             if (obj1.FechaReg == obj2.FechaReg)
             {
                 if (obj1.cvincidencia == obj2.cvincidencia)
@@ -493,6 +505,20 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             AsignacionIncidenciasTrabajador2 recargar = new AsignacionIncidenciasTrabajador2();
             recargar.Show();
             this.Close();
+        }
+
+        private void cbIncidencia_Leave(object sender, EventArgs e)
+        {
+            if (cbIncidencia.SelectedValue.ToString() == "19") //Extrañamiento
+            {
+                ckbaplica.Visible = true;
+                ckbaplica.Checked = true;
+            }
+            else
+            {
+                ckbaplica.Checked = false;
+                ckbaplica.Visible = false;                
+            }
         }
 
         //-----------------------------------------------------------------------------------------------
