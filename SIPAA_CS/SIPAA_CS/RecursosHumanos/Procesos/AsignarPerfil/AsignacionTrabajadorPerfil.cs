@@ -2131,6 +2131,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         public void ProcesoReloj()
         {
+            int pruebaparasubircambios = 0; 
             ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Obteniendo los biométricos.");
 
             if (ltReloj2.Count > 0)
