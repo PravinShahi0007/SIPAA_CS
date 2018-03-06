@@ -2015,7 +2015,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Comienza proceso");
             relojseleccionados();
-            System.Threading.Thread.Sleep(500);
+            System.Threading.Thread.Sleep(50);
             ProcesoReloj();
             AsignarReloj(TrabajadorInfo.IdTrab);
             ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Los Biométricos se obtuvieron con exito");
@@ -2141,7 +2141,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 {
 
                     RelojChecador objReloj = new RelojChecador();
-                    DataTable dt = objReloj.RelojesxTrabajador("%", obj.cvReloj, 11, "%", "%");
+                    DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 11, "%", "%");
                   
                   
                     bool bConexion = Connect_Net(obj.IpReloj, 4370);
@@ -2157,7 +2157,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         {
                             iContTrab += 1;
                             string idTrab = row["idTrab"].ToString();
-                            string cvreloj = row[1].ToString();
+                            //string cvreloj = row[1].ToString();
                             ConsultaReloj("Pass", idTrab, iContTrab, dt.Rows.Count);
                           
                         }
@@ -2167,7 +2167,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         {
                             iContTrab += 1;
                             string idTrab = row["idTrab"].ToString();
-                            string cvreloj = row[1].ToString();
+                           // string cvreloj = row[1].ToString();
                            ConsultaReloj("Huella", idTrab, iContTrab, dt.Rows.Count);
                            
                         }
@@ -2177,7 +2177,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         {
                             iContTrab += 1;
                             string idTrab = row["idTrab"].ToString();
-                            string cvreloj = row[1].ToString();
+                            //string cvreloj = row[1].ToString();
                            ConsultaReloj("Face", idTrab, iContTrab, dt.Rows.Count);
                            
                         }
@@ -2247,10 +2247,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     int iPrivilegio = 0;
                     bool bActivo = false;
                   
-
-                    if (objCZKEM.SSR_GetAllUserInfo(1, out sIdTrab, out sNombre, out sPass, out iPrivilegio, out bActivo))
+                    while(objCZKEM.SSR_GetAllUserInfo(1, out sIdTrab, out sNombre, out sPass, out iPrivilegio, out bActivo))
                     {
-
                         for (int iFinger = 0; iFinger < 10; iFinger++)
                         {
                             if (objCZKEM.GetUserTmpExStr(1, sIdTrab, iFinger, out flag, out huellatmp, out tpmlong))
@@ -2266,6 +2264,26 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         }
                     }
                     break;
+
+
+                    //if (objCZKEM.SSR_GetAllUserInfo(1, out sIdTrab, out sNombre, out sPass, out iPrivilegio, out bActivo))
+                    //{
+
+                    //    for (int iFinger = 0; iFinger < 10; iFinger++)
+                    //    {
+                    //        if (objCZKEM.GetUserTmpExStr(1, sIdTrab, iFinger, out flag, out huellatmp, out tpmlong))
+                    //        {
+                    //            SonaTrabajador objTrab = new SonaTrabajador();
+                    //            try
+                    //            {
+                    //                objTrab.GestionHuella(sIdTrab, huellatmp, iFinger, LoginInfo.IdTrab, Name, 5);
+                    //                bBandera = true;
+                    //            }
+                    //            catch { }
+                    //        }
+                    //    }
+                    //}
+                    //break;
 
 
                 case "Pass":
