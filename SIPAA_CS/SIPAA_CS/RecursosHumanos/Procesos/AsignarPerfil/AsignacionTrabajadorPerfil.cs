@@ -1422,7 +1422,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                
             }
 
-          
+            
 
             objTrab.GestionIdentidad(TrabajadorInfo.IdTrab,"", "", "0", LoginInfo.IdTrab, this.Name, 10); //6
             objTrab.GestionHuella(TrabajadorInfo.IdTrab, "", 3, LoginInfo.IdTrab, this.Name, 6);//5
@@ -1433,7 +1433,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
                 
                 iCont += 1;
-                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj2.Count);
+                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo "+ obj.Descripcion + " "  + iCont + " de " + ltReloj2.Count);
 
                 bConexion = Connect_Net(obj.IpReloj, 4370);
                 if (bConexion != false)
@@ -1523,14 +1523,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         public void SincronizaBiometricos(List<Reloj> ltReloj2, RelojChecador objReloj)
         {
-           
+             int iCont = 0; 
             bool bConexion = false;
             SonaTrabajador objTrab = new SonaTrabajador();
             foreach (Reloj obj in ltReloj2)
             {
-                
-            
-                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con el reloj  " + obj.Descripcion);
+
+                iCont += 1;
+                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + obj.Descripcion + " " + iCont + " de " + ltReloj2.Count);
                 bConexion = Connect_Net(obj.IpReloj, 4370);
                 if (bConexion != false)
                 {
@@ -1635,7 +1635,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                        // panelTagRelojCheck.Enabled = true;
                         ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando rostro...");
                         //panelTagRelojCheck.Enabled = false;
-                        System.Threading.Thread.Sleep(30000);
+                        System.Threading.Thread.Sleep(60000);
 
                         bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
 
@@ -1647,15 +1647,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                     objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong);
                                     
                                 }
-                        //objCZKEM.BatchUpdate(1);
+                        objCZKEM.BatchUpdate(1);
                         objCZKEM.RefreshData(1);
                         objCZKEM.Disconnect();
                         }
                     }
                         
                     //}
-                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Biométricos guardados correctamente en el reloj: "+obj.Descripcion);
-                    System.Threading.Thread.Sleep(3000);
+                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Biométricos guardados correctamente en el reloj: "+obj.Descripcion+  " " + iCont + " de " + ltReloj2.Count);
+                   // iCont += 1;
+                    //ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + obj.Descripcion + " " + iCont + " de " + ltReloj2.Count);
+                    System.Threading.Thread.Sleep(1000);
                 }
                 else
                 {
@@ -2029,11 +2031,27 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             RelojChecador objReloj = new RelojChecador();
             SonaTrabajador objTrab = new SonaTrabajador();
 
+
             relojseleccionados();
+            foreach (Reloj obj in ltReloj2)
+            {
+                objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 1, sUsuuMod, Name);
+
+            }
+            
+            objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", LoginInfo.IdTrab, this.Name, 10); 
+            objTrab.GestionHuella(TrabajadorInfo.IdTrab, "", 3, LoginInfo.IdTrab, this.Name, 6);
+            if (chkAdmin.Checked == true)
+                objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, Name, 8);
+         
+
+           // relojseleccionados();
            
             SincronizaBiometricos(ltReloj2, objReloj);
             //timer1.Start();
             AsignarReloj(TrabajadorInfo.IdTrab);
+            ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Proceso Terminado" );
+            System.Threading.Thread.Sleep(1000);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -2054,7 +2072,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     {
 
                         iCont += 1;
-                        ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj2.Count);
+                        ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + obj.Descripcion + " " + iCont + " de " + ltReloj2.Count);
 
                         bConexion = Connect_Net(obj.IpReloj, 4370);
                         if (bConexion != false)
@@ -2131,23 +2149,26 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         public void ProcesoReloj()
         {
-            int pruebaparasubircambios = 0; 
+           
             ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Obteniendo los biométricos.");
 
             if (ltReloj2.Count > 0)
             {
-                
 
+               
                 foreach (Reloj obj in ltReloj2)
                 {
 
                     RelojChecador objReloj = new RelojChecador();
                     DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 11, "%", "%");
-                  
-                  
+
+                    int iCont = 0; 
                     bool bConexion = Connect_Net(obj.IpReloj, 4370);
                     if (bConexion != false)
                     {
+
+                        iCont += 1;
+                        ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + obj.Descripcion + " " + iCont + " de " + ltReloj2.Count);
                         objCZKEM.ReadAllUserID(1);
                         objCZKEM.ReadAllTemplate(1);
                        

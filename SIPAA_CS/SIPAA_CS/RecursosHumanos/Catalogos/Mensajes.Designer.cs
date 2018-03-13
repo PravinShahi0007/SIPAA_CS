@@ -531,7 +531,6 @@
             this.panelTag.Name = "panelTag";
             this.panelTag.Size = new System.Drawing.Size(641, 25);
             this.panelTag.TabIndex = 136;
-            this.panelTag.Visible = false;
             // 
             // lblMensaje
             // 

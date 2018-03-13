@@ -137,6 +137,18 @@
             label4.TabIndex = 65;
             label4.Text = "       Imprimir Reporte";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label2.Location = new System.Drawing.Point(31, 104);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(422, 16);
+            label2.TabIndex = 66;
+            label2.Text = "Muestra al personal que tenga mas de 3 faltas en un periodo de 30 dias";
+            // 
             // lblusuario
             // 
             this.lblusuario.AutoSize = true;
@@ -230,6 +242,8 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.textBox1.Location = new System.Drawing.Point(179, 226);
             this.textBox1.Multiline = true;
@@ -325,18 +339,6 @@
             this.ptbimgusuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbimgusuario.TabIndex = 151;
             this.ptbimgusuario.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(31, 104);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(422, 16);
-            label2.TabIndex = 66;
-            label2.Text = "Muestra al personal que tenga mas de 3 faltas en un periodo de 30 dias";
             // 
             // FiltroMasDe3Faltas
             // 

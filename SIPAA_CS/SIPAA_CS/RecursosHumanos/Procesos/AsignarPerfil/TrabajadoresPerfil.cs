@@ -452,6 +452,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void opcactivos_CheckedChanged(object sender, EventArgs e)
         {
+         
+
             dgvTrab.DataSource = null;
             int inumcolumngrid = dgvTrab.ColumnCount;
 

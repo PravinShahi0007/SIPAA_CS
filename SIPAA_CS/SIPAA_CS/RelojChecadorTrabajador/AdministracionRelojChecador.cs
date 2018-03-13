@@ -1363,7 +1363,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         {
                             iContTrab += 1;
                             string idTrab = row["idTrab"].ToString();
-                            string cvreloj = row[1].ToString();
+                            //string cvreloj = row[1].ToString();
                             bBanderaPass = ConsultaReloj("Pass", idTrab, iContTrab, dt.Rows.Count);
                             //progressBar1.Value = progressBar1.Value + (10 / dt.Rows.Count);
                         }
@@ -1373,7 +1373,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         {
                             iContTrab += 1;
                             string idTrab = row["idTrab"].ToString();
-                            string cvreloj = row[1].ToString();
+                            //string cvreloj = row[1].ToString();
                             bBanderaHuella = ConsultaReloj("Huella", idTrab, iContTrab, dt.Rows.Count);
                             //progressBar1.Value = progressBar1.Value + (10 / dt.Rows.Count);
                         }
@@ -1383,7 +1383,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         {
                             iContTrab += 1;
                             string idTrab = row["idTrab"].ToString();
-                            string cvreloj = row[1].ToString();
+                            //string cvreloj = row[1].ToString();
                             bBanderaFace = ConsultaReloj("Face", idTrab, iContTrab, dt.Rows.Count);
                            // progressBar1.Value = progressBar1.Value + (10 / dt.Rows.Count);
                         }
