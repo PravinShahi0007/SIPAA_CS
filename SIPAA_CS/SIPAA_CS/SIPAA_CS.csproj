@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>29</ApplicationRevision>
+    <ApplicationRevision>31</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -357,6 +357,7 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\Empleadoporsupdir.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncExtraSuspRetro.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\SancionesIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SincRegistrosica.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorPerfil.cs" />
     <Compile Include="App_Code\Sistemas\Procesos\MonitoreoProceso.cs" />
@@ -446,6 +447,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RepPersonalCargo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RepSancionesIncidencias.cs">
+      <DependentUpon>RepSancionesIncidencias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RepSancionesIncidencias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepSancionesIncidencias.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncExtraTrabajador.cs">
       <SubType>Form</SubType>
@@ -841,6 +850,12 @@
     <Compile Include="RecursosHumanos\Procesos\ReProcesaIncidencias.Designer.cs">
       <DependentUpon>ReProcesaIncidencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Procesos\SancionesIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\SancionesIncidencias.Designer.cs">
+      <DependentUpon>SancionesIncidencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\SincRegistrossica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1025,6 +1040,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RepPerInc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RepSancionesInc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepSancionesInc.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\Resumen.cs">
@@ -1350,6 +1371,9 @@
     <EmbeddedResource Include="RecursosHumanos\Procesos\ReProcesaIncidencias.resx">
       <DependentUpon>ReProcesaIncidencias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\SancionesIncidencias.resx">
+      <DependentUpon>SancionesIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\SincRegistrossica.resx">
       <DependentUpon>SincRegistrossica.cs</DependentUpon>
     </EmbeddedResource>
@@ -1464,6 +1488,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\RepPerInc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RepPerInc.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RepSancionesInc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RepSancionesInc.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Resumen.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1766,6 +1794,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\RepPersonalCargo.xss">
       <DependentUpon>RepPersonalCargo.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepSancionesIncidencias.xsc">
+      <DependentUpon>RepSancionesIncidencias.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepSancionesIncidencias.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RepSancionesIncidencias.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepSancionesIncidencias.xss">
+      <DependentUpon>RepSancionesIncidencias.xsd</DependentUpon>
     </None>
     <None Include="SIPAA_CS_ClaveTemporal.pfx" />
   </ItemGroup>
