@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RepSancionesIncidencias" targetNamespace="http://tempuri.org/RepSancionesIncidencias.xsd" xmlns:mstns="http://tempuri.org/RepSancionesIncidencias.xsd" xmlns="http://tempuri.org/RepSancionesIncidencias.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RepSancionesIncidencias" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RepSancionesIncidencias" msprop:Generator_UserDSName="RepSancionesIncidencias">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="repsancinc" msprop:Generator_TableClassName="repsancincDataTable" msprop:Generator_TableVarName="tablerepsancinc" msprop:Generator_RowChangedName="repsancincRowChanged" msprop:Generator_TablePropName="repsancinc" msprop:Generator_RowDeletingName="repsancincRowDeleting" msprop:Generator_RowChangingName="repsancincRowChanging" msprop:Generator_RowEvHandlerName="repsancincRowChangeEventHandler" msprop:Generator_RowDeletedName="repsancincRowDeleted" msprop:Generator_RowClassName="repsancincRow" msprop:Generator_UserTableName="repsancinc" msprop:Generator_RowEvArgName="repsancincRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Politica" msprop:Generator_ColumnVarNameInTable="columnPolitica" msprop:Generator_ColumnPropNameInRow="Politica" msprop:Generator_ColumnPropNameInTable="PoliticaColumn" msprop:Generator_UserColumnName="Politica" type="xs:string" minOccurs="0" />
+              <xs:element name="Nivel" msprop:Generator_ColumnVarNameInTable="columnNivel" msprop:Generator_ColumnPropNameInRow="Nivel" msprop:Generator_ColumnPropNameInTable="NivelColumn" msprop:Generator_UserColumnName="Nivel" type="xs:string" minOccurs="0" />
+              <xs:element name="Forma_x0020_de_x0020_Pago" msprop:Generator_ColumnVarNameInTable="columnForma_de_Pago" msprop:Generator_ColumnPropNameInRow="Forma_de_Pago" msprop:Generator_ColumnPropNameInTable="Forma_de_PagoColumn" msprop:Generator_UserColumnName="Forma de Pago" type="xs:string" minOccurs="0" />
+              <xs:element name="Num_x0020_Eventos" msprop:Generator_ColumnVarNameInTable="columnNum_Eventos" msprop:Generator_ColumnPropNameInRow="Num_Eventos" msprop:Generator_ColumnPropNameInTable="Num_EventosColumn" msprop:Generator_UserColumnName="Num Eventos" type="xs:int" minOccurs="0" />
+              <xs:element name="Incidecnia" msprop:Generator_ColumnVarNameInTable="columnIncidecnia" msprop:Generator_ColumnPropNameInRow="Incidecnia" msprop:Generator_ColumnPropNameInTable="IncidecniaColumn" msprop:Generator_UserColumnName="Incidecnia" type="xs:string" minOccurs="0" />
+              <xs:element name="Evaluación" msprop:Generator_ColumnVarNameInTable="columnEvaluación" msprop:Generator_ColumnPropNameInRow="Evaluación" msprop:Generator_ColumnPropNameInTable="EvaluaciónColumn" msprop:Generator_UserColumnName="Evaluación" type="xs:string" minOccurs="0" />
+              <xs:element name="Sanción" msprop:Generator_ColumnVarNameInTable="columnSanción" msprop:Generator_ColumnPropNameInRow="Sanción" msprop:Generator_ColumnPropNameInTable="SanciónColumn" msprop:Generator_UserColumnName="Sanción" type="xs:string" minOccurs="0" />
+              <xs:element name="cvpolitica" msprop:Generator_ColumnVarNameInTable="columncvpolitica" msprop:Generator_ColumnPropNameInRow="cvpolitica" msprop:Generator_ColumnPropNameInTable="cvpoliticaColumn" msprop:Generator_UserColumnName="cvpolitica" type="xs:string" minOccurs="0" />
+              <xs:element name="cvnivel" msprop:Generator_ColumnVarNameInTable="columncvnivel" msprop:Generator_ColumnPropNameInRow="cvnivel" msprop:Generator_ColumnPropNameInTable="cvnivelColumn" msprop:Generator_UserColumnName="cvnivel" type="xs:string" minOccurs="0" />
+              <xs:element name="cvtiponomina" msprop:Generator_ColumnVarNameInTable="columncvtiponomina" msprop:Generator_ColumnPropNameInRow="cvtiponomina" msprop:Generator_ColumnPropNameInTable="cvtiponominaColumn" msprop:Generator_UserColumnName="cvtiponomina" type="xs:string" minOccurs="0" />
+              <xs:element name="cvincrepresenta" msprop:Generator_ColumnVarNameInTable="columncvincrepresenta" msprop:Generator_ColumnPropNameInRow="cvincrepresenta" msprop:Generator_ColumnPropNameInTable="cvincrepresentaColumn" msprop:Generator_UserColumnName="cvincrepresenta" type="xs:string" minOccurs="0" />
+              <xs:element name="cvevaluacion" msprop:Generator_ColumnVarNameInTable="columncvevaluacion" msprop:Generator_ColumnPropNameInRow="cvevaluacion" msprop:Generator_ColumnPropNameInTable="cvevaluacionColumn" msprop:Generator_UserColumnName="cvevaluacion" type="xs:string" minOccurs="0" />
+              <xs:element name="DataColumn1" msprop:Generator_ColumnVarNameInTable="columnDataColumn1" msprop:Generator_ColumnPropNameInRow="DataColumn1" msprop:Generator_ColumnPropNameInTable="DataColumn1Column" msprop:Generator_UserColumnName="DataColumn1" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -45,9 +45,10 @@
             System.Windows.Forms.Label label21;
             System.Windows.Forms.Label label22;
             System.Windows.Forms.Label label23;
+            System.Windows.Forms.Label label27;
             System.Windows.Forms.Label label25;
             System.Windows.Forms.Label label26;
-            System.Windows.Forms.Label label27;
+            System.Windows.Forms.Label label31;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -105,13 +106,18 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.tabReloj = new System.Windows.Forms.TabPage();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.chkAdmin = new System.Windows.Forms.CheckBox();
             this.lbGridReloj = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.btnBuscarReloj = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.txtBuscarReloj = new System.Windows.Forms.TextBox();
             this.PanelReloj = new System.Windows.Forms.Panel();
             this.btnGuardarReloj = new System.Windows.Forms.Button();
             this.dgvReloj = new System.Windows.Forms.DataGridView();
@@ -158,9 +164,10 @@
             label21 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
             label23 = new System.Windows.Forms.Label();
+            label27 = new System.Windows.Forms.Label();
             label25 = new System.Windows.Forms.Label();
             label26 = new System.Windows.Forms.Label();
-            label27 = new System.Windows.Forms.Label();
+            label31 = new System.Windows.Forms.Label();
             this.tabAsignacion.SuspendLayout();
             this.tabPlantillaHorario.SuspendLayout();
             this.panelTag.SuspendLayout();
@@ -175,6 +182,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvForReg)).BeginInit();
             this.panel10.SuspendLayout();
             this.tabReloj.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.PanelReloj.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReloj)).BeginInit();
@@ -374,17 +383,31 @@
             label23.TabIndex = 41;
             label23.Text = "      Buscar Forma de Registro";
             // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label27.ForeColor = System.Drawing.Color.Gray;
+            label27.Image = ((System.Drawing.Image)(resources.GetObject("label27.Image")));
+            label27.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label27.Location = new System.Drawing.Point(4, 7);
+            label27.Name = "label27";
+            label27.Size = new System.Drawing.Size(259, 17);
+            label27.TabIndex = 194;
+            label27.Text = "      Enviar para captura de biométricos";
+            // 
             // label25
             // 
             label25.AutoSize = true;
-            label25.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label25.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label25.ForeColor = System.Drawing.Color.Gray;
+            label25.Image = ((System.Drawing.Image)(resources.GetObject("label25.Image")));
             label25.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label25.Location = new System.Drawing.Point(35, 51);
+            label25.Location = new System.Drawing.Point(6, 7);
             label25.Name = "label25";
-            label25.Size = new System.Drawing.Size(76, 16);
-            label25.TabIndex = 44;
-            label25.Text = "Descripción";
+            label25.Size = new System.Drawing.Size(275, 17);
+            label25.TabIndex = 194;
+            label25.Text = "     Reenviar, para captura de biométricos";
             // 
             // label26
             // 
@@ -393,24 +416,25 @@
             label26.ForeColor = System.Drawing.Color.Gray;
             label26.Image = ((System.Drawing.Image)(resources.GetObject("label26.Image")));
             label26.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label26.Location = new System.Drawing.Point(5, 0);
+            label26.Location = new System.Drawing.Point(6, 7);
             label26.Name = "label26";
-            label26.Size = new System.Drawing.Size(205, 17);
-            label26.TabIndex = 41;
-            label26.Text = "      Buscar Forma de Registro";
+            label26.Size = new System.Drawing.Size(167, 17);
+            label26.TabIndex = 194;
+            label26.Text = "     Obtener  Biometricos";
             // 
-            // label27
+            // label31
             // 
-            label27.AutoSize = true;
-            label27.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label27.ForeColor = System.Drawing.Color.Gray;
-            label27.Image = ((System.Drawing.Image)(resources.GetObject("label27.Image")));
-            label27.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label27.Location = new System.Drawing.Point(16, 14);
-            label27.Name = "label27";
-            label27.Size = new System.Drawing.Size(175, 17);
-            label27.TabIndex = 194;
-            label27.Text = "      Guardar Asignaciones";
+            label31.AutoSize = true;
+            label31.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label31.ForeColor = System.Drawing.Color.Gray;
+            label31.Image = ((System.Drawing.Image)(resources.GetObject("label31.Image")));
+            label31.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label31.Location = new System.Drawing.Point(6, 7);
+            label31.Name = "label31";
+            label31.Size = new System.Drawing.Size(151, 17);
+            label31.TabIndex = 194;
+            label31.Text = "     Enviar Biometricos";
+            label31.Click += new System.EventHandler(this.label31_Click);
             // 
             // lblusuario
             // 
@@ -1126,10 +1150,15 @@
             // tabReloj
             // 
             this.tabReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.tabReloj.Controls.Add(this.textBox4);
+            this.tabReloj.Controls.Add(this.textBox3);
+            this.tabReloj.Controls.Add(this.textBox2);
+            this.tabReloj.Controls.Add(this.textBox1);
+            this.tabReloj.Controls.Add(this.panel13);
+            this.tabReloj.Controls.Add(this.panel12);
+            this.tabReloj.Controls.Add(this.panel11);
             this.tabReloj.Controls.Add(this.chkAdmin);
             this.tabReloj.Controls.Add(this.lbGridReloj);
-            this.tabReloj.Controls.Add(this.label29);
-            this.tabReloj.Controls.Add(this.panel11);
             this.tabReloj.Controls.Add(this.PanelReloj);
             this.tabReloj.Controls.Add(this.dgvReloj);
             this.tabReloj.Controls.Add(this.panel14);
@@ -1142,12 +1171,139 @@
             this.tabReloj.Text = "Reloj Checador";
             this.tabReloj.Click += new System.EventHandler(this.tabReloj_Click);
             // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.textBox4.Location = new System.Drawing.Point(723, 306);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(221, 66);
+            this.textBox4.TabIndex = 210;
+            this.textBox4.Text = "Envié los biométricos del empleado a los relojes designados";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.textBox3.Location = new System.Drawing.Point(723, 237);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(221, 66);
+            this.textBox3.TabIndex = 209;
+            this.textBox3.Text = "Obtenga los biométricos del empleado";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.textBox2.Location = new System.Drawing.Point(722, 144);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(221, 87);
+            this.textBox2.TabIndex = 208;
+            this.textBox2.Text = "Renvié los datos del empleado en caso de que no aparezcan en el reloj de RRHH";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.textBox1.Location = new System.Drawing.Point(723, 49);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(221, 87);
+            this.textBox1.TabIndex = 207;
+            this.textBox1.Text = "Envié los datos del empleado para capturar por primera vez los biométricos  ";
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel13.Controls.Add(this.button6);
+            this.panel13.Controls.Add(label31);
+            this.panel13.Location = new System.Drawing.Point(422, 310);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(294, 62);
+            this.panel13.TabIndex = 202;
+            this.panel13.TabStop = true;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button6.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.button6.Location = new System.Drawing.Point(231, 7);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(50, 50);
+            this.button6.TabIndex = 2;
+            this.button6.Tag = "Guardar";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel12.Controls.Add(this.button5);
+            this.panel12.Controls.Add(label26);
+            this.panel12.Location = new System.Drawing.Point(422, 241);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(294, 62);
+            this.panel12.TabIndex = 201;
+            this.panel12.TabStop = true;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button5.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.button5.Location = new System.Drawing.Point(231, 7);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(50, 50);
+            this.button5.TabIndex = 2;
+            this.button5.Tag = "Guardar";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel11.Controls.Add(this.button4);
+            this.panel11.Controls.Add(label25);
+            this.panel11.Location = new System.Drawing.Point(422, 142);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(294, 93);
+            this.panel11.TabIndex = 200;
+            this.panel11.TabStop = true;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button4.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.button4.Location = new System.Drawing.Point(231, 27);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(50, 50);
+            this.button4.TabIndex = 2;
+            this.button4.Tag = "Guardar";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // chkAdmin
             // 
             this.chkAdmin.AutoSize = true;
             this.chkAdmin.Font = new System.Drawing.Font("Arial", 9.75F);
             this.chkAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkAdmin.Location = new System.Drawing.Point(817, 79);
+            this.chkAdmin.Location = new System.Drawing.Point(201, 45);
             this.chkAdmin.Name = "chkAdmin";
             this.chkAdmin.Size = new System.Drawing.Size(158, 20);
             this.chkAdmin.TabIndex = 206;
@@ -1161,78 +1317,20 @@
             this.lbGridReloj.AutoSize = true;
             this.lbGridReloj.Font = new System.Drawing.Font("Arial", 9.75F);
             this.lbGridReloj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lbGridReloj.Location = new System.Drawing.Point(345, 441);
+            this.lbGridReloj.Location = new System.Drawing.Point(80, 395);
             this.lbGridReloj.Name = "lbGridReloj";
             this.lbGridReloj.Size = new System.Drawing.Size(279, 16);
             this.lbGridReloj.TabIndex = 203;
             this.lbGridReloj.Text = "Seleccione uno o varios relojes para asignarlos";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label29.Location = new System.Drawing.Point(350, 95);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(96, 16);
-            this.label29.TabIndex = 201;
-            this.label29.Text = "Reloj Checador";
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.panel11.Controls.Add(label25);
-            this.panel11.Controls.Add(this.btnBuscarReloj);
-            this.panel11.Controls.Add(this.panel12);
-            this.panel11.Controls.Add(this.txtBuscarReloj);
-            this.panel11.Controls.Add(label26);
-            this.panel11.Location = new System.Drawing.Point(8, 40);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(306, 131);
-            this.panel11.TabIndex = 200;
-            this.panel11.TabStop = true;
-            // 
-            // btnBuscarReloj
-            // 
-            this.btnBuscarReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscarReloj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarReloj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnBuscarReloj.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscarReloj.Location = new System.Drawing.Point(248, 49);
-            this.btnBuscarReloj.Name = "btnBuscarReloj";
-            this.btnBuscarReloj.Size = new System.Drawing.Size(50, 50);
-            this.btnBuscarReloj.TabIndex = 2;
-            this.btnBuscarReloj.Tag = "Buscar";
-            this.btnBuscarReloj.UseVisualStyleBackColor = false;
-            this.btnBuscarReloj.Click += new System.EventHandler(this.btnBuscarReloj_Click);
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel12.Location = new System.Drawing.Point(32, 92);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(203, 2);
-            this.panel12.TabIndex = 43;
-            // 
-            // txtBuscarReloj
-            // 
-            this.txtBuscarReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtBuscarReloj.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBuscarReloj.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarReloj.Location = new System.Drawing.Point(32, 73);
-            this.txtBuscarReloj.Name = "txtBuscarReloj";
-            this.txtBuscarReloj.Size = new System.Drawing.Size(197, 15);
-            this.txtBuscarReloj.TabIndex = 1;
             // 
             // PanelReloj
             // 
             this.PanelReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.PanelReloj.Controls.Add(this.btnGuardarReloj);
             this.PanelReloj.Controls.Add(label27);
-            this.PanelReloj.Enabled = false;
-            this.PanelReloj.Location = new System.Drawing.Point(699, 14);
+            this.PanelReloj.Location = new System.Drawing.Point(422, 49);
             this.PanelReloj.Name = "PanelReloj";
-            this.PanelReloj.Size = new System.Drawing.Size(278, 59);
+            this.PanelReloj.Size = new System.Drawing.Size(294, 87);
             this.PanelReloj.TabIndex = 199;
             this.PanelReloj.TabStop = true;
             // 
@@ -1242,7 +1340,7 @@
             this.btnGuardarReloj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarReloj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardarReloj.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardarReloj.Location = new System.Drawing.Point(226, 3);
+            this.btnGuardarReloj.Location = new System.Drawing.Point(231, 27);
             this.btnGuardarReloj.Name = "btnGuardarReloj";
             this.btnGuardarReloj.Size = new System.Drawing.Size(50, 50);
             this.btnGuardarReloj.TabIndex = 2;
@@ -1273,7 +1371,7 @@
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvReloj.Location = new System.Drawing.Point(349, 114);
+            this.dgvReloj.Location = new System.Drawing.Point(54, 68);
             this.dgvReloj.Name = "dgvReloj";
             this.dgvReloj.ReadOnly = true;
             this.dgvReloj.RowHeadersVisible = false;
@@ -1281,7 +1379,7 @@
             this.dgvReloj.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvReloj.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvReloj.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReloj.Size = new System.Drawing.Size(628, 324);
+            this.dgvReloj.Size = new System.Drawing.Size(348, 324);
             this.dgvReloj.TabIndex = 198;
             this.dgvReloj.Tag = "Editar";
             this.dgvReloj.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReloj_CellContentClick);
@@ -1669,6 +1767,10 @@
             this.panel10.PerformLayout();
             this.tabReloj.ResumeLayout(false);
             this.tabReloj.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.PanelReloj.ResumeLayout(false);
@@ -1755,11 +1857,6 @@
         private System.Windows.Forms.Label lbGridReloj;
         private System.Windows.Forms.Panel panelTagRelojCheck;
         private System.Windows.Forms.Label lbMensajeRelojCheck;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Button btnBuscarReloj;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox txtBuscarReloj;
         private System.Windows.Forms.Panel PanelReloj;
         private System.Windows.Forms.Button btnGuardarReloj;
         private System.Windows.Forms.DataGridView dgvReloj;
@@ -1783,5 +1880,15 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.CheckBox chkAdmin;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

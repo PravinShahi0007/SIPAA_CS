@@ -73,7 +73,9 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
              sUbicacion = "%";
             else
               sUbicacion = cbUbicacion.SelectedValue.ToString();
-           DataTable dtReporteRegistroDetalle = oTrabajador.ObtenerRegistroDetalle(sIdTrab, dtFechaInicio
+            if (sIdTrab == "0")
+                sIdTrab = "%";
+            DataTable dtReporteRegistroDetalle = oTrabajador.ObtenerRegistroDetalle(sIdTrab, dtFechaInicio
                      ,dtFechaFin, sCompania, sUbicacion);
 
             switch (dtReporteRegistroDetalle.Rows.Count)
@@ -180,6 +182,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             {
                 btnImprimirDetalle.Enabled = true;
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
 
         //-----------------------------------------------------------------------------------------------

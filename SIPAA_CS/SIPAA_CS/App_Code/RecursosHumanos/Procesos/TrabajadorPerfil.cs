@@ -12,7 +12,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
 {
     class TrabajadorPerfil
     {
-
+        
         public TrabajadorPerfil()
         {
 

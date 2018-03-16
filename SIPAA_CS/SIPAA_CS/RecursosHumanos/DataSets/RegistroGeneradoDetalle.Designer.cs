@@ -305,6 +305,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnHora_Salida;
             
+            private global::System.Data.DataColumn columnEstatus;
+            
+            private global::System.Data.DataColumn columnJustificacion;
+            
+            private global::System.Data.DataColumn columnOtro;
+            
+            private global::System.Data.DataColumn columnObservaciones;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RegistroGeneradoDetalleDataTable() {
@@ -444,6 +452,38 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EstatusColumn {
+                get {
+                    return this.columnEstatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn JustificacionColumn {
+                get {
+                    return this.columnJustificacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OtroColumn {
+                get {
+                    return this.columnOtro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ObservacionesColumn {
+                get {
+                    return this.columnObservaciones;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -479,7 +519,24 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RegistroGeneradoDetalleRow AddRegistroGeneradoDetalleRow(string IdTrab, string Nombre, string Compañia, string Ubicación, string Fecha_Registro, string Hora_Entrada, string Comida_Inicio, string Comida_Fin, string Incidencia, string Representa, string Tiempo_Empleado, string Tiempo_Profesor, string Hora_Salida) {
+            public RegistroGeneradoDetalleRow AddRegistroGeneradoDetalleRow(
+                        string IdTrab, 
+                        string Nombre, 
+                        string Compañia, 
+                        string Ubicación, 
+                        string Fecha_Registro, 
+                        string Hora_Entrada, 
+                        string Comida_Inicio, 
+                        string Comida_Fin, 
+                        string Incidencia, 
+                        string Representa, 
+                        string Tiempo_Empleado, 
+                        string Tiempo_Profesor, 
+                        string Hora_Salida, 
+                        string Estatus, 
+                        string Justificacion, 
+                        string Otro, 
+                        string Observaciones) {
                 RegistroGeneradoDetalleRow rowRegistroGeneradoDetalleRow = ((RegistroGeneradoDetalleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IdTrab,
@@ -494,7 +551,11 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         Representa,
                         Tiempo_Empleado,
                         Tiempo_Profesor,
-                        Hora_Salida};
+                        Hora_Salida,
+                        Estatus,
+                        Justificacion,
+                        Otro,
+                        Observaciones};
                 rowRegistroGeneradoDetalleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRegistroGeneradoDetalleRow);
                 return rowRegistroGeneradoDetalleRow;
@@ -530,6 +591,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.columnTiempo_Empleado = base.Columns["Tiempo_Empleado"];
                 this.columnTiempo_Profesor = base.Columns["Tiempo_Profesor"];
                 this.columnHora_Salida = base.Columns["Hora_Salida"];
+                this.columnEstatus = base.Columns["Estatus"];
+                this.columnJustificacion = base.Columns["Justificacion"];
+                this.columnOtro = base.Columns["Otro"];
+                this.columnObservaciones = base.Columns["Observaciones"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -561,6 +626,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnTiempo_Profesor);
                 this.columnHora_Salida = new global::System.Data.DataColumn("Hora_Salida", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHora_Salida);
+                this.columnEstatus = new global::System.Data.DataColumn("Estatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstatus);
+                this.columnJustificacion = new global::System.Data.DataColumn("Justificacion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJustificacion);
+                this.columnOtro = new global::System.Data.DataColumn("Otro", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOtro);
+                this.columnObservaciones = new global::System.Data.DataColumn("Observaciones", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnObservaciones);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_RegistroGeneradoDetalle");
                 this.ExtendedProperties.Add("Generator_UserTableName", "RegistroGeneradoDetalle");
             }
@@ -924,6 +997,73 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Estatus {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegistroGeneradoDetalle.EstatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Estatus\' de la tabla \'RegistroGeneradoDetalle\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableRegistroGeneradoDetalle.EstatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Justificacion {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegistroGeneradoDetalle.JustificacionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Justificacion\' de la tabla \'RegistroGeneradoDetalle\' es D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegistroGeneradoDetalle.JustificacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Otro {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegistroGeneradoDetalle.OtroColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Otro\' de la tabla \'RegistroGeneradoDetalle\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegistroGeneradoDetalle.OtroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Observaciones {
+                get {
+                    try {
+                        return ((string)(this[this.tableRegistroGeneradoDetalle.ObservacionesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Observaciones\' de la tabla \'RegistroGeneradoDetalle\' es D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRegistroGeneradoDetalle.ObservacionesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIdTrabNull() {
                 return this.IsNull(this.tableRegistroGeneradoDetalle.IdTrabColumn);
             }
@@ -1076,6 +1216,54 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetHora_SalidaNull() {
                 this[this.tableRegistroGeneradoDetalle.Hora_SalidaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEstatusNull() {
+                return this.IsNull(this.tableRegistroGeneradoDetalle.EstatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEstatusNull() {
+                this[this.tableRegistroGeneradoDetalle.EstatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsJustificacionNull() {
+                return this.IsNull(this.tableRegistroGeneradoDetalle.JustificacionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetJustificacionNull() {
+                this[this.tableRegistroGeneradoDetalle.JustificacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOtroNull() {
+                return this.IsNull(this.tableRegistroGeneradoDetalle.OtroColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOtroNull() {
+                this[this.tableRegistroGeneradoDetalle.OtroColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsObservacionesNull() {
+                return this.IsNull(this.tableRegistroGeneradoDetalle.ObservacionesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetObservacionesNull() {
+                this[this.tableRegistroGeneradoDetalle.ObservacionesColumn] = global::System.Convert.DBNull;
             }
         }
         

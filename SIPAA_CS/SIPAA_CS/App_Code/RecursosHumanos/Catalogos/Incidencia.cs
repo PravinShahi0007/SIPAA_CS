@@ -108,7 +108,7 @@ namespace SIPAA_CS.App_Code
 
         public DataTable ReporteResumen(string sIdTrab, DateTime dtFechaInicio
                                                      , DateTime dtFechaFin, string sDepto, string sCompania,string sTNom
-                                                     , string sUbicacion)
+                                                     , string sUbicacion, string sArea)
         {
 
             Conexion objConexion = new Conexion();
@@ -123,6 +123,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("P_cia", SqlDbType.VarChar).Value = sCompania;
             cmd.Parameters.Add("P_tnom", SqlDbType.VarChar).Value = sTNom;
             cmd.Parameters.Add("P_Ubicacion", SqlDbType.VarChar).Value = sUbicacion;
+            cmd.Parameters.Add("P_planta", SqlDbType.VarChar).Value = sArea;
             //cmd.Parameters.Add("P_plantel", SqlDbType.VarChar).Value = sArea;
 
             objConexion.asignarConexion(cmd);
@@ -238,6 +239,65 @@ namespace SIPAA_CS.App_Code
             DataTable dtIncidencia = new DataTable();
             Adapter.Fill(dtIncidencia);
             return dtIncidencia;
+        }
+
+        public DataTable ReporteConceptos(string idCompañia, string idUbicacion, string idPlanta, string idDepto, DateTime dtFechaInicio, DateTime dtFechaFin ,string Incidencia, string Tipo)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechconceptos_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("P_compañia", SqlDbType.VarChar).Value = idCompañia;
+            cmd.Parameters.Add("P_ubicacion", SqlDbType.VarChar).Value = idUbicacion;
+            cmd.Parameters.Add("P_planta", SqlDbType.VarChar).Value = idPlanta;
+            cmd.Parameters.Add("P_depto", SqlDbType.VarChar).Value = idDepto;
+            cmd.Parameters.Add("P_fechainicio", SqlDbType.DateTime).Value = dtFechaInicio;
+            cmd.Parameters.Add("P_fechafin", SqlDbType.DateTime).Value = dtFechaFin;
+            cmd.Parameters.Add("P_incidencia", SqlDbType.VarChar).Value = Incidencia;
+            cmd.Parameters.Add("P_tipo", SqlDbType.VarChar).Value = Tipo;
+       
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtConceptos= new DataTable();
+            Adapter.Fill(dtConceptos);
+
+            return dtConceptos;
+        }
+
+        public DataTable ReporteGenerico( string idtrab ,string idCompañia, string idUbicacion, string idPlanta, string idDepto, DateTime dtFechaInicio, DateTime dtFechaFin, string Incidencia)
+        {
+
+            Conexion objConexion = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechgenerico_s";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("P_idtrab", SqlDbType.VarChar).Value = idtrab;
+            cmd.Parameters.Add("P_compañia", SqlDbType.VarChar).Value = idCompañia;
+            cmd.Parameters.Add("P_ubicacion", SqlDbType.VarChar).Value = idUbicacion;
+            cmd.Parameters.Add("P_planta", SqlDbType.VarChar).Value = idPlanta;
+            cmd.Parameters.Add("P_depto", SqlDbType.VarChar).Value = idDepto;
+            cmd.Parameters.Add("P_fechaini", SqlDbType.DateTime).Value = dtFechaInicio;
+            cmd.Parameters.Add("P_fechafin", SqlDbType.DateTime).Value = dtFechaFin;
+            cmd.Parameters.Add("P_incidencia", SqlDbType.VarChar).Value = Incidencia;
+
+
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtGenerico = new DataTable();
+            Adapter.Fill(dtGenerico);
+
+            return dtGenerico;
+
+           
         }
     }
 }

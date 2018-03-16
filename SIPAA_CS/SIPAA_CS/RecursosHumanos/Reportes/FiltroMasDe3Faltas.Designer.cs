@@ -35,12 +35,14 @@
             System.Windows.Forms.Label label9;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FiltroMasDe3Faltas));
             System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label2;
             this.lblusuario = new System.Windows.Forms.Label();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.cboEmpleados = new System.Windows.Forms.ComboBox();
             this.cbUbicacion = new System.Windows.Forms.ComboBox();
             this.cbCompania = new System.Windows.Forms.ComboBox();
@@ -54,6 +56,7 @@
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             this.pnlBusqueda.SuspendLayout();
             this.pnlImprimir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
@@ -134,6 +137,18 @@
             label4.TabIndex = 65;
             label4.Text = "       Imprimir Reporte";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label2.Location = new System.Drawing.Point(31, 104);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(422, 16);
+            label2.TabIndex = 66;
+            label2.Text = "Muestra al personal que tenga mas de 3 faltas en un periodo de 30 dias";
+            // 
             // lblusuario
             // 
             this.lblusuario.AutoSize = true;
@@ -158,9 +173,9 @@
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbltitulo.Location = new System.Drawing.Point(285, 2);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(450, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(379, 23);
             this.lbltitulo.TabIndex = 125;
-            this.lbltitulo.Text = "      Filtros de Reporte más de 3 Faltas en un Período de 30 días";
+            this.lbltitulo.Text = "       Reporte más de 3 faltas en un período de 30 días";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegresar
@@ -209,6 +224,7 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.textBox1);
             this.pnlBusqueda.Controls.Add(this.cboEmpleados);
             this.pnlBusqueda.Controls.Add(label1);
             this.pnlBusqueda.Controls.Add(label5);
@@ -223,6 +239,18 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(503, 375);
             this.pnlBusqueda.TabIndex = 139;
             this.pnlBusqueda.TabStop = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.textBox1.Location = new System.Drawing.Point(179, 226);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(154, 44);
+            this.textBox1.TabIndex = 65;
+            this.textBox1.Text = "los 30 días comienzan a partir de la fecha que elija";
             // 
             // cboEmpleados
             // 
@@ -272,6 +300,8 @@
             this.dpFechaBase.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaBase.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaBase.Location = new System.Drawing.Point(64, 226);
+            this.dpFechaBase.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.dpFechaBase.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
             this.dpFechaBase.Name = "dpFechaBase";
             this.dpFechaBase.Size = new System.Drawing.Size(109, 25);
             this.dpFechaBase.TabIndex = 61;
@@ -317,6 +347,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(label2);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.pnlImprimir);
             this.Controls.Add(this.pnlBusqueda);
@@ -355,5 +386,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.ComboBox cboEmpleados;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

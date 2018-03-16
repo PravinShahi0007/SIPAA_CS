@@ -28,6 +28,10 @@
               <xs:element name="Tiempo_Empleado" msprop:Generator_ColumnVarNameInTable="columnTiempo_Empleado" msprop:Generator_ColumnPropNameInRow="Tiempo_Empleado" msprop:Generator_ColumnPropNameInTable="Tiempo_EmpleadoColumn" msprop:Generator_UserColumnName="Tiempo_Empleado" type="xs:string" minOccurs="0" />
               <xs:element name="Tiempo_Profesor" msprop:Generator_ColumnVarNameInTable="columnTiempo_Profesor" msprop:Generator_ColumnPropNameInRow="Tiempo_Profesor" msprop:Generator_ColumnPropNameInTable="Tiempo_ProfesorColumn" msprop:Generator_UserColumnName="Tiempo_Profesor" type="xs:string" minOccurs="0" />
               <xs:element name="Hora_Salida" msprop:Generator_ColumnVarNameInTable="columnHora_Salida" msprop:Generator_ColumnPropNameInRow="Hora_Salida" msprop:Generator_ColumnPropNameInTable="Hora_SalidaColumn" msprop:Generator_UserColumnName="Hora_Salida" type="xs:string" minOccurs="0" />
+              <xs:element name="Estatus" msprop:Generator_ColumnVarNameInTable="columnEstatus" msprop:Generator_ColumnPropNameInRow="Estatus" msprop:Generator_ColumnPropNameInTable="EstatusColumn" msprop:Generator_UserColumnName="Estatus" type="xs:string" minOccurs="0" />
+              <xs:element name="Justificacion" msprop:Generator_ColumnVarNameInTable="columnJustificacion" msprop:Generator_ColumnPropNameInRow="Justificacion" msprop:Generator_ColumnPropNameInTable="JustificacionColumn" msprop:Generator_UserColumnName="Justificacion" type="xs:string" minOccurs="0" />
+              <xs:element name="Otro" msprop:Generator_ColumnVarNameInTable="columnOtro" msprop:Generator_ColumnPropNameInRow="Otro" msprop:Generator_ColumnPropNameInTable="OtroColumn" msprop:Generator_UserColumnName="Otro" type="xs:string" minOccurs="0" />
+              <xs:element name="Observaciones" msprop:Generator_ColumnVarNameInTable="columnObservaciones" msprop:Generator_ColumnPropNameInRow="Observaciones" msprop:Generator_ColumnPropNameInTable="ObservacionesColumn" msprop:Generator_UserColumnName="Observaciones" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

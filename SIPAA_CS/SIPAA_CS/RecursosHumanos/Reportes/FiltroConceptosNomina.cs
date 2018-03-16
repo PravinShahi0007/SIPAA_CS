@@ -118,6 +118,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             }
 
             //llena etiqueta de usuario
+            Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
             lblusuario.Text = LoginInfo.Nombre;
             Utilerias.cargaimagen(ptbimgusuario);
         }

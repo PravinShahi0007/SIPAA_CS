@@ -36,12 +36,14 @@
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
+            System.Windows.Forms.Label label7;
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnImprimirDetalle = new System.Windows.Forms.Button();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.cbEmpleados = new System.Windows.Forms.ComboBox();
             this.cbUbicacion = new System.Windows.Forms.ComboBox();
             this.dpFechaFin = new System.Windows.Forms.DateTimePicker();
@@ -57,6 +59,7 @@
             label6 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
@@ -148,6 +151,18 @@
             label9.TabIndex = 203;
             label9.Text = "       Filtros de Reporte";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label7.Location = new System.Drawing.Point(38, 104);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(505, 18);
+            label7.TabIndex = 209;
+            label7.Text = "Muestra todos los registros de un trabajador en el periodo seleccionado";
+            // 
             // btnRegresar
             // 
             this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
@@ -217,6 +232,7 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.textBox1);
             this.pnlBusqueda.Controls.Add(this.cbEmpleados);
             this.pnlBusqueda.Controls.Add(label2);
             this.pnlBusqueda.Controls.Add(label1);
@@ -233,6 +249,18 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(503, 375);
             this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.textBox1.Location = new System.Drawing.Point(180, 304);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(185, 40);
+            this.textBox1.TabIndex = 209;
+            this.textBox1.Text = "Solo puede consultar registros que ya hayan sido descargados";
             // 
             // cbEmpleados
             // 
@@ -271,6 +299,8 @@
             this.dpFechaFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaFin.Location = new System.Drawing.Point(36, 319);
+            this.dpFechaFin.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.dpFechaFin.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
             this.dpFechaFin.Name = "dpFechaFin";
             this.dpFechaFin.Size = new System.Drawing.Size(138, 25);
             this.dpFechaFin.TabIndex = 4;
@@ -299,7 +329,8 @@
             this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpFechaInicio.Location = new System.Drawing.Point(36, 251);
-            this.dpFechaInicio.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
+            this.dpFechaInicio.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.dpFechaInicio.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
             this.dpFechaInicio.Name = "dpFechaInicio";
             this.dpFechaInicio.Size = new System.Drawing.Size(138, 25);
             this.dpFechaInicio.TabIndex = 3;
@@ -314,10 +345,11 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label3.Location = new System.Drawing.Point(289, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(415, 23);
+            this.label3.Size = new System.Drawing.Size(324, 23);
             this.label3.TabIndex = 212;
-            this.label3.Text = "         Reporte de registros del reloj checador por empleado";
+            this.label3.Text = "         Registros de entradas y salidas a detalle";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // ptbimgusuario
             // 
@@ -351,6 +383,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(label7);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label3);
@@ -391,5 +424,6 @@
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.ComboBox cbEmpleados;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

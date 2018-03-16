@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>26</ApplicationRevision>
+    <ApplicationRevision>30</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -357,6 +357,7 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\Empleadoporsupdir.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncExtraSuspRetro.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\SancionesIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SincRegistrosica.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorPerfil.cs" />
     <Compile Include="App_Code\Sistemas\Procesos\MonitoreoProceso.cs" />
@@ -383,6 +384,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CartaExtrañamiento.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\Conceptos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Conceptos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\FaltasPeriodo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -392,6 +398,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FechasHorasRegistro.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\Generico.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Generico.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\DataSets\IncidenciasPendientesAutorizar.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -436,6 +447,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RepPersonalCargo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RepSancionesIncidencias.cs">
+      <DependentUpon>RepSancionesIncidencias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\RepSancionesIncidencias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepSancionesIncidencias.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\AsignarPerfil\IncExtraTrabajador.cs">
       <SubType>Form</SubType>
@@ -831,6 +850,12 @@
     <Compile Include="RecursosHumanos\Procesos\ReProcesaIncidencias.Designer.cs">
       <DependentUpon>ReProcesaIncidencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Procesos\SancionesIncidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\SancionesIncidencias.Designer.cs">
+      <DependentUpon>SancionesIncidencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Procesos\SincRegistrossica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -853,6 +878,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CartaExtrañamiento.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\Conceptos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Conceptos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\ConceptosNomina.cs">
@@ -933,6 +964,12 @@
       <DependentUpon>GeneraldeIncidencias.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\Generico.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Generico.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1003,6 +1040,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RepPerInc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\RepSancionesInc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepSancionesInc.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\Resumen.cs">
@@ -1328,6 +1371,9 @@
     <EmbeddedResource Include="RecursosHumanos\Procesos\ReProcesaIncidencias.resx">
       <DependentUpon>ReProcesaIncidencias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\SancionesIncidencias.resx">
+      <DependentUpon>SancionesIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\SincRegistrossica.resx">
       <DependentUpon>SincRegistrossica.cs</DependentUpon>
     </EmbeddedResource>
@@ -1343,6 +1389,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\CartaExtrañamiento.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CartaExtrañamiento.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\Conceptos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Conceptos.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\ConceptosNomina.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1387,6 +1437,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\GeneraldeIncidencias.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>GeneraldeIncidencias.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\Generico.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Generico.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\IncidenciasPasadasNomina.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1434,6 +1488,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\RepPerInc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RepPerInc.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\RepSancionesInc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RepSancionesInc.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Resumen.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1616,6 +1674,17 @@
     <None Include="RecursosHumanos\DataSets\CartaExtrañamiento.xss">
       <DependentUpon>CartaExtrañamiento.xsd</DependentUpon>
     </None>
+    <None Include="RecursosHumanos\DataSets\Conceptos.xsc">
+      <DependentUpon>Conceptos.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Conceptos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Conceptos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Conceptos.xss">
+      <DependentUpon>Conceptos.xsd</DependentUpon>
+    </None>
     <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xsc">
       <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
     </None>
@@ -1637,6 +1706,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\FechasHorasRegistro.xss">
       <DependentUpon>FechasHorasRegistro.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Generico.xsc">
+      <DependentUpon>Generico.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Generico.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Generico.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\Generico.xss">
+      <DependentUpon>Generico.xsd</DependentUpon>
     </None>
     <None Include="RecursosHumanos\DataSets\IncidenciasPendientesAutorizar.xsc">
       <DependentUpon>IncidenciasPendientesAutorizar.xsd</DependentUpon>
@@ -1714,6 +1794,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\RepPersonalCargo.xss">
       <DependentUpon>RepPersonalCargo.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepSancionesIncidencias.xsc">
+      <DependentUpon>RepSancionesIncidencias.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepSancionesIncidencias.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RepSancionesIncidencias.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\RepSancionesIncidencias.xss">
+      <DependentUpon>RepSancionesIncidencias.xsd</DependentUpon>
     </None>
     <None Include="SIPAA_CS_ClaveTemporal.pfx" />
   </ItemGroup>

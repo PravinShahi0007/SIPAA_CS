@@ -403,6 +403,29 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
         }
 
+        private void fllenacboemplb(string sactivo)
+        {
+            if (opcactivos.Checked == true)
+            {
+                Util.p_inicbo = 0;
+                DataTable dtact;
+                dtact = TrabPerf.dtdgvcb("0", 31, "0", "1", 0, LoginInfo.IdTrab, this.Name);                
+                Utilerias.llenarComboxDataTable(cboemplbusq, dtact, "cve", "empl");
+                Util.p_inicbo = 1;
+            }
+            else if (opcinactivos.Checked == true)
+            {
+                Util.p_inicbo = 0;
+                DataTable dtinact;
+                dtinact = TrabPerf.dtdgvcb("0", 31, "0", "0", 0, LoginInfo.IdTrab, this.Name);
+                Utilerias.llenarComboxDataTable(cboemplbusq, dtinact, "cve", "empl");
+                Util.p_inicbo = 1;
+            }
+            else
+            {
+            }
+        }
+
         private void txtconceptobusq_Enter(object sender, EventArgs e)
         {
            
@@ -420,6 +443,53 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 fllenagridbusqueda(16, txtconceptobusq.Text.Trim());
             }
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void opcactivos_CheckedChanged(object sender, EventArgs e)
+        {
+         
+
+            dgvTrab.DataSource = null;
+            int inumcolumngrid = dgvTrab.ColumnCount;
+
+            if (inumcolumngrid == 1)
+            {
+                dgvTrab.Columns.RemoveAt(0);
+            }
+            pnlsuid.Visible = false;
+            fllenacboemplb("1");
+            cboemplbusq.Focus();
+        }
+
+        private void opcinactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvTrab.DataSource = null;
+            int inumcolumngrid = dgvTrab.ColumnCount;
+
+            if (inumcolumngrid == 1)
+            {
+                dgvTrab.Columns.RemoveAt(0);
+            }
+            pnlsuid.Visible = false;
+            fllenacboemplb("0");
+            cboemplbusq.Focus();
+        }
+
+        private void cboemplbusq_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Util.p_inicbo == 1)
+            {
+                //lena grid
+                fllenagridbusqueda(32, cboemplbusq.SelectedValue.ToString());
+            }
+            else
+            {
+            }
         }
 
         private void txtconceptobusq_TextChanged(object sender, EventArgs e)

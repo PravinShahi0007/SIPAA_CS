@@ -245,18 +245,19 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
             if (rbPublico.Checked == true)
             {
 
-
                 dt = objReloj.RelojesxTrabajador(cbEmpleados.SelectedValue.ToString(), 0, 16, "%", "%");
                 foreach (DataRow row in dt.Rows)
                 {
                     lblMensaje.Visible = true;
                     lblMensaje.Enabled = true;
                     pnlmensajes.Visible = true;
-                    lblMensaje.Text = "Enviando el mensaje a los relojes ";
+                    //lblMensaje.Text = "Enviando el mensaje a los relojes ";
+                    Utilerias.ControlNotificaciones(panelTag, lblMensaje, 1, "Enviando el mensaje a los relojes ");
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
                     if (bConexion != false)
                     {
-                        lblMensaje.Text = "Enviando el mensaje a los relojes ";
+                       // lblMensaje.Text = "Enviando el mensaje a los relojes ";
+                        Utilerias.ControlNotificaciones(panelTag, lblMensaje, 1, "Enviando el mensaje al reloj");
                         p_rep = pantallaMensajes.fudimensajes(1, 1, 0, txtmensajeiu.Text, dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                         EliminaMensajesReloj();
                         int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
@@ -282,13 +283,17 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     pnlmensajes.Visible = true;
 
                     bConexion = Connect_Net(row["ip"].ToString(), 4370);
-                    lblMensaje.Text = "Enviando el mensaje a los relojes asignados al empleado";
+                    //lblMensaje.Text = "Enviando el mensaje a los relojes asignados al empleado";
+
+                    Utilerias.ControlNotificaciones(panelTag, lblMensaje, 1, "Enviando el mensaje a los relojes asignados al empleado");
+
                     if (bConexion != false)
                     {
                         lblMensaje.Visible = true;
                         lblMensaje.Enabled = true;
                         pnlmensajes.Visible = true;
-                        lblMensaje.Text = "Enviando ...";
+                       // lblMensaje.Text = "Enviando ...";
+                        Utilerias.ControlNotificaciones(panelTag, lblMensaje, 1, "Enviando ...");
                         p_rep = pantallaMensajes.fudimensajes(1, Convert.ToInt32(cbEmpleados.SelectedValue.ToString()), 0, txtmensajeiu.Text, dtpfechainicial.Text.Trim(), dtpfechafin.Text.Trim(), sUsuuMod, Name);
                         EliminaMensajesReloj();
                         int max = pantallaMensajes.fudimensajes(6, 160452, 1, "%", "%", "%", sUsuuMod, Name);
@@ -307,25 +312,29 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
                     lblMensaje.Visible = true;
                     lblMensaje.Enabled = true;
                     pnlmensajes.Visible = true;
-                    lblMensaje.Text = "Registro agregado correctamente";
+                   // lblMensaje.Text = "Registro agregado correctamente";
+                    Utilerias.ControlNotificaciones(panelTag, lblMensaje, 1, "Registro agregado correctamente");
                     break;
                 case "2":
                     lblMensaje.Visible = true;
                     lblMensaje.Enabled = true;
                     pnlmensajes.Visible = true;
-                    lblMensaje.Text = "Registro modificado correctamente";
+                    // lblMensaje.Text = "Registro modificado correctamente";
+                    Utilerias.ControlNotificaciones(panelTag, lblMensaje, 1, "Registro modificado correctamente");
                     break;
                 case "3":
                     lblMensaje.Visible = true;
                     lblMensaje.Enabled = true;
                     pnlmensajes.Visible = true;
-                    lblMensaje.Text = "Registro eliminado correctamente";
+                   // lblMensaje.Text = "Registro eliminado correctamente";
+                    Utilerias.ControlNotificaciones(panelTag, lblMensaje, 1, "Registro eliminado correctamente");
                     break;
                 case "1":
                     lblMensaje.Visible = true;
                     lblMensaje.Enabled = true;
                     pnlmensajes.Visible = true;
-                    lblMensaje.Text = "Registro ya existe";
+                    //lblMensaje.Text = "Registro ya existe";
+                    Utilerias.ControlNotificaciones(panelTag, lblMensaje, 1, "Registro ya existe");
                     break;
                 default:
                     lblMensaje.Text = "";
@@ -340,11 +349,13 @@ namespace SIPAA_CS.RecursosHumanos.Catalogos
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             if (txtmensajeiu.Text.Trim() == "" && pactbtn == 1)
-                lblMensaje.Text = "Capture un dato a guardar";
+              Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "Capture un dato a guardar");
+             //lblMensaje.Text = "Capture un dato a guardar";
             if (rbPersonal.Checked == true)
             {
                 if (string.IsNullOrEmpty(cbEmpleados.SelectedValue.ToString()))
-                    lblMensaje.Text = "Tiene que capturar el numero del empleado";
+                  Utilerias.ControlNotificaciones(panelTag, lblMensaje, 3, "Tiene que capturar el numero del empleado");
+                //lblMensaje.Text = "Tiene que capturar el numero del empleado";
             }
             if (pactbtn == 1)//insertar
             {
