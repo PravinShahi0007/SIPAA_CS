@@ -84,6 +84,7 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.pnlMensaje = new System.Windows.Forms.Panel();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             label2 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -205,12 +206,11 @@
             label11.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label11.Location = new System.Drawing.Point(28, 112);
+            label11.Location = new System.Drawing.Point(234, 298);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(50, 20);
+            label11.Size = new System.Drawing.Size(80, 20);
             label11.TabIndex = 205;
-            label11.Text = "Rostro";
-            label11.Visible = false;
+            label11.Text = "Subir Fotos";
             // 
             // label13
             // 
@@ -690,17 +690,15 @@
             // btnFace
             // 
             this.btnFace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnFace.Enabled = false;
             this.btnFace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnFace.Image = global::SIPAA_CS.Properties.Resources.Face;
-            this.btnFace.Location = new System.Drawing.Point(30, 59);
+            this.btnFace.Location = new System.Drawing.Point(248, 245);
             this.btnFace.Name = "btnFace";
             this.btnFace.Size = new System.Drawing.Size(50, 50);
             this.btnFace.TabIndex = 202;
             this.btnFace.Tag = "Face";
             this.btnFace.UseVisualStyleBackColor = false;
-            this.btnFace.Visible = false;
             this.btnFace.Click += new System.EventHandler(this.btnFace_Click);
             // 
             // btnAdmin
@@ -808,6 +806,10 @@
             this.ptbimgusuario.TabIndex = 202;
             this.ptbimgusuario.TabStop = false;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // AdministracionRelojChecador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -889,5 +891,6 @@
         private System.Windows.Forms.Button btnReloj;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -44,6 +44,7 @@
             System.Windows.Forms.Label label13;
             System.Windows.Forms.Label label14;
             System.Windows.Forms.Label label15;
+            System.Windows.Forms.Label label16;
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
@@ -66,6 +67,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
             label7 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
@@ -80,6 +82,7 @@
             label13 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
             label15 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
             this.panelTag.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
@@ -355,6 +358,8 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.cbStatus);
+            this.pnlBusqueda.Controls.Add(label16);
             this.pnlBusqueda.Controls.Add(this.cbTipoNomina);
             this.pnlBusqueda.Controls.Add(this.cbEmpleados);
             this.pnlBusqueda.Controls.Add(label13);
@@ -580,6 +585,38 @@
             this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label16.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            label16.Location = new System.Drawing.Point(58, 479);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(36, 16);
+            label16.TabIndex = 180;
+            label16.Text = "Status";
+            label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbStatus.DropDownWidth = 500;
+            this.cbStatus.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Seleccionar ",
+            "Activo",
+            "Inactivo"});
+            this.cbStatus.Location = new System.Drawing.Point(61, 498);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(368, 25);
+            this.cbStatus.TabIndex = 181;
+            this.cbStatus.Text = "Seleccionar ";
+            this.cbStatus.DropDown += new System.EventHandler(this.cbStatus_DropDown);
+            // 
             // FiltroObservaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,5 +683,6 @@
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.ComboBox cbEmpleados;
         private System.Windows.Forms.ComboBox cbTipoNomina;
+        private System.Windows.Forms.ComboBox cbStatus;
     }
 }
