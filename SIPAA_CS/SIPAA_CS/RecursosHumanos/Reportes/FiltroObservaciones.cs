@@ -145,20 +145,37 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             string sTipoNom = AsignarVariableCombo(cbTipoNomina);
             string sDepto = AsignarVariableCombo(cbDepartamento);
             string sIncidencia = AsignarVariableCombo(cbIncidencia);
-
             string sIdtrab = "";
-            if (cbEmpleados.Text == String.Empty )
+            string sStatus = string.Empty;
+
+            //if (cbEmpleados.Text == String.Empty )
+            //    sIdtrab = "%";
+            //else
+            //   sIdtrab =cbEmpleados.SelectedValue.ToString();
+
+
+            if (cbEmpleados.SelectedIndex == 0)
                 sIdtrab = "%";
             else
-               sIdtrab =cbEmpleados.SelectedValue.ToString();
+                sIdtrab = cbEmpleados.SelectedValue.ToString(); 
 
-            if (sIdtrab == "0")
-                sIdtrab = "%";
 
+
+            if (cbStatus.SelectedIndex == 0)
+                sStatus = "%";
+            else if (cbStatus.SelectedIndex == 2)
+                sStatus = "0";
+            else 
+                sStatus = cbStatus.SelectedIndex.ToString();
+
+           // MessageBox.Show(sStatus);
+
+
+               
 
 
             Incidencia objInc = new Incidencia();
-            DataTable dtRpt = objInc.ReporteObservaciones(sIdtrab, dtFechaInicio, dtFechaFin, sDepto, sCia, sTipoNom, sUbicacion, sArea, sIncidencia);
+            DataTable dtRpt = objInc.ReporteObservaciones(sIdtrab, dtFechaInicio, dtFechaFin, sDepto, sCia, sTipoNom, sUbicacion, sArea, sIncidencia, sStatus);
 
             switch (dtRpt.Rows.Count)
             {
@@ -236,6 +253,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
             Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
             cbEmpleados.Focus();
+
+
+            List<string> ltvalores = new List<string>();
+            ltvalores.Insert(0, "Seleccionar");
+            ltvalores.Insert(1, "Activo");
+            ltvalores.Insert(2, "Inactivo");
+            cbStatus.DataSource = ltvalores;
+
 
         }
 
@@ -316,6 +341,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             {
 
             }
+        }
+
+        private void cbStatus_DropDown(object sender, EventArgs e)
+        {
+            
         }
 
 
