@@ -235,7 +235,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             util.ChangeButton(btnInsertar, 1, false);
             cbConcepto.Enabled = true;
             cbTipo.Enabled = true;
-            dtpFechaInical.Enabled = true;            
+            dtpFechaInical.Enabled = true;
+            int fActivo = 1;         
 
             if (Convert.ToInt32(cbEmpleados.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbCompania.SelectedIndex.ToString()) <=0 & Convert.ToInt32(cbAreas.SelectedIndex.ToString()) <= 0 
                 & Convert.ToInt32(cbPuestos.SelectedIndex.ToString()) <= 0 & Convert.ToInt32(cbDepartamentos.SelectedIndex.ToString()) <=0 
@@ -307,7 +308,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     dgvEmpleados.Columns.RemoveAt(0);
                 }
 
-                fgridEmpleados(1,fIdTrab,fIdCompania,fIdArea,fIdPuesto,fIdDepartamento,fIdUbicacion,fIdTipoNomina);
+                if (rbactivos.Checked)
+                {
+                    fActivo = 1;
+                }
+                else
+                {
+                    fActivo = 0;
+                }
+
+                fgridEmpleados(1,fIdTrab,fIdCompania,fIdArea,fIdPuesto,fIdDepartamento,fIdUbicacion,fIdTipoNomina,fActivo);
                 dgvEmpleados.Columns[0].Width =85;
                 dgvEmpleados.Columns[1].Width =100;
                 dgvEmpleados.Columns[2].Width =300;
@@ -602,10 +612,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         //FUNCION que Llena el Grid de Empleados
         private void fgridEmpleados(int popcion, string pidtrab, string pidcompania, string pidarea, string pidpuesto,
-            string piddepartamento, string pidubicacion, string pidtiponomina)
+            string piddepartamento, string pidubicacion, string pidtiponomina, int piactivo)
         {
             DataTable dtempleados = contenedorempleados.obtenerempleadosxfiltros(popcion, pidtrab, pidcompania, pidarea, pidpuesto,
-            piddepartamento, pidubicacion, pidtiponomina);
+            piddepartamento, pidubicacion, pidtiponomina, piactivo);
             dgvEmpleados.DataSource = dtempleados;
 
             Utilerias.AgregarCheck(dgvEmpleados, 0);
