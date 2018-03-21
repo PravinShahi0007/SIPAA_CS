@@ -53,7 +53,7 @@ namespace SIPAA_CS.App_Code
 
 
         public DataTable obtenerempleadosxfiltros(int popcion, string pidtrab, string pidcompania, string pidarea, string pidpuesto, 
-            string piddepartamento, string pidubicacion, string pidtiponomina)
+            string piddepartamento, string pidubicacion, string pidtiponomina, int pactivo)
         {
             //Filtros Multiples JLA 21 sep 2017
             SqlCommand cmd = new SqlCommand();
@@ -71,6 +71,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_IdDepartamento", SqlDbType.VarChar).Value = piddepartamento;
             cmd.Parameters.Add("@p_IdUbicacion", SqlDbType.VarChar).Value = pidubicacion;
             cmd.Parameters.Add("@p_IdTipoNomina", SqlDbType.VarChar).Value = pidtiponomina;
+            cmd.Parameters.Add("@p_Activo", SqlDbType.Int).Value = pactivo;
 
             objConexion.asignarConexion(cmd);
             SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
