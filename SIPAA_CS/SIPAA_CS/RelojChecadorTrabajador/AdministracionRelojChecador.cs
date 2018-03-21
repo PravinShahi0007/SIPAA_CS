@@ -1287,8 +1287,31 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         private void btnFace_Click(object sender, EventArgs e)
         {
-            //ProcesoReloj("Face");
-            //ltReloj.Clear();        
+
+            openFileDialog1.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            openFileDialog1.InitialDirectory = path;
+            openFileDialog1.Title = "Seleccione las fotografias";
+            openFileDialog1.Multiselect = true;
+            DialogResult Resultado = openFileDialog1.ShowDialog();
+
+            if (Resultado== DialogResult.OK)
+            {
+                int Contador = 0; 
+
+                foreach (String file in openFileDialog1.FileNames)
+                {
+                    string Origen = Path.GetFullPath(file);
+                    string Nombre = Path.GetFileName(file);
+                    string Destino = @"\\192.168.30.171\Fotos_emp\"+Nombre; 
+                    File.Copy(Origen,Destino, true);
+                    Contador += 1;
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la Fotografía "+Contador+" de "+ openFileDialog1.FileNames.Length.ToString());
+                }
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias subidas exitosamente");
+                MessageBox.Show("Fotografias subidas exitosamente"); 
+                
+            }
         }
 
         private void btnHuella_Click(object sender, EventArgs e)
