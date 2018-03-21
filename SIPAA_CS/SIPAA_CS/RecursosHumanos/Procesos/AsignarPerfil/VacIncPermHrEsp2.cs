@@ -804,6 +804,24 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             txtDias.Focus();
         }
 
+        private void rbactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            //Combo Empleados Act
+            DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
+            Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
+            cbEmpleados.Focus();
+            dgvEmpleados.Columns.Clear();
+        }
+
+        private void rbinactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            //Combo Empleados No Act
+            DataTable dtempleados = contenedorempleados.obtenerempleados(4, "");
+            Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
+            cbEmpleados.Focus();
+            dgvEmpleados.Columns.Clear();
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
