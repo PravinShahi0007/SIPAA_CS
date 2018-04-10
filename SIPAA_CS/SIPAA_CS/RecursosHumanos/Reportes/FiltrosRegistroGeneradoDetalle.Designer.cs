@@ -261,7 +261,7 @@
             this.pnlBusqueda.Location = new System.Drawing.Point(56, 202);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(477, 513);
-            this.pnlBusqueda.TabIndex = 200;
+            this.pnlBusqueda.TabIndex = 0;
             this.pnlBusqueda.TabStop = true;
             // 
             // textBox1
@@ -274,6 +274,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(185, 40);
             this.textBox1.TabIndex = 66;
+            this.textBox1.TabStop = false;
             this.textBox1.Text = "Solo puede consultar registros que ya hayan sido descargados";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -360,7 +361,7 @@
             this.btnImprimirDetalle.Location = new System.Drawing.Point(281, 32);
             this.btnImprimirDetalle.Name = "btnImprimirDetalle";
             this.btnImprimirDetalle.Size = new System.Drawing.Size(55, 55);
-            this.btnImprimirDetalle.TabIndex = 5;
+            this.btnImprimirDetalle.TabIndex = 7;
             this.btnImprimirDetalle.Tag = "Buscar";
             this.btnImprimirDetalle.UseVisualStyleBackColor = false;
             this.btnImprimirDetalle.Click += new System.EventHandler(this.btnImprimirDetalle_Click);
@@ -372,7 +373,7 @@
             this.panel1.Location = new System.Drawing.Point(596, 202);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 119);
-            this.panel1.TabIndex = 133;
+            this.panel1.TabIndex = 6;
             // 
             // panelTag
             // 

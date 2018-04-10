@@ -524,7 +524,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         string Nombre, 
                         string Compañia, 
                         string Ubicación, 
-                        string Fecha_Registro, 
+                        System.DateTime Fecha_Registro, 
                         string Hora_Entrada, 
                         string Comida_Inicio, 
                         string Comida_Fin, 
@@ -608,7 +608,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnCompañia);
                 this.columnUbicación = new global::System.Data.DataColumn("Ubicación", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUbicación);
-                this.columnFecha_Registro = new global::System.Data.DataColumn("Fecha_Registro", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnFecha_Registro = new global::System.Data.DataColumn("Fecha_Registro", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha_Registro);
                 this.columnHora_Entrada = new global::System.Data.DataColumn("Hora_Entrada", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHora_Entrada);
@@ -844,10 +844,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Fecha_Registro {
+            public System.DateTime Fecha_Registro {
                 get {
                     try {
-                        return ((string)(this[this.tableRegistroGeneradoDetalle.Fecha_RegistroColumn]));
+                        return ((global::System.DateTime)(this[this.tableRegistroGeneradoDetalle.Fecha_RegistroColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha_Registro\' de la tabla \'RegistroGeneradoDetalle\' es " +

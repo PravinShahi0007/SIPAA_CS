@@ -255,11 +255,12 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.textBox1.Location = new System.Drawing.Point(180, 304);
+            this.textBox1.Location = new System.Drawing.Point(180, 311);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(185, 40);
-            this.textBox1.TabIndex = 209;
+            this.textBox1.TabIndex = 600;
+            this.textBox1.TabStop = false;
             this.textBox1.Text = "Solo puede consultar registros que ya hayan sido descargados";
             // 
             // cbEmpleados
@@ -273,7 +274,7 @@
             this.cbEmpleados.Location = new System.Drawing.Point(34, 63);
             this.cbEmpleados.Name = "cbEmpleados";
             this.cbEmpleados.Size = new System.Drawing.Size(385, 25);
-            this.cbEmpleados.TabIndex = 0;
+            this.cbEmpleados.TabIndex = 1;
             this.cbEmpleados.Text = "Seleccionar";
             // 
             // cbUbicacion
