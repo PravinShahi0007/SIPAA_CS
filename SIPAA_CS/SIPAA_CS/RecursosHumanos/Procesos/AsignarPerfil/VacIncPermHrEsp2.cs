@@ -374,7 +374,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 svalidacampos = "Debe capturar una Hora de Entrada, Verifique.";
                 mtxtHoraEntrada.Focus();
             }
-                      
+                                  
             if (svalidacampos != "0")
             {
                 DialogResult result = MessageBox.Show(svalidacampos, "SIPAA", MessageBoxButtons.OK);
@@ -409,6 +409,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                             break;
                                         }
                                     }
+                                    //Si es horario especial debe capturar horario a fuerza JLA 24 abr 18
+                                    if (cbConcepto.Text == "HORARIO ESPECIAL")
+                                    {
+                                        if (mtxtHoraEntrada.Text == "00:00" | mtxtHoraSalida.Text == "00:00")
+                                        {
+                                            MessageBox.Show("Debe capturar el Horario Especial correspondiente, Verifique.");
+                                            mtxtHoraEntrada.Focus();
+                                            break;
+                                        }
+                                    }
                                 }
 
                                 int iIdTrab = Convert.ToInt32(row.Cells[1].Value.ToString());
@@ -440,6 +450,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     {
                         try
                         {
+                            //Si es horario especial debe capturar horario a fuerza JLA 24 abr 18
+                            if (cbConcepto.Text == "HORARIO ESPECIAL")
+                            {
+                                if (mtxtHoraEntrada.Text == "00:00" | mtxtHoraSalida.Text == "00:00")
+                                {
+                                    MessageBox.Show("Debe capturar el Horario Especial correspondiente, Verifique.");
+                                    mtxtHoraEntrada.Focus();
+                                    break;
+                                }
+                            }
                             //Capturaron solo hra de entrada
                             if (mtxtHoraEntrada.Text != "00:00" & mtxtHoraSalida.Text == "00:00")
                             {
@@ -584,7 +604,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //Guajolocombo Conceptos Incidencia
             CbConceptoIncidencia(7, 0, "", 0, 0, 0, 0, "", "");
             txtDias.Text = "1";
-
         }
 
         //-----------------------------------------------------------------------------------------------
