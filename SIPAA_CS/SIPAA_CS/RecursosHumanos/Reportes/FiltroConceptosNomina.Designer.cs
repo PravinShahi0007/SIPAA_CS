@@ -54,6 +54,7 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lblusuario = new System.Windows.Forms.Label();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             label4 = new System.Windows.Forms.Label();
             lblDescripcion = new System.Windows.Forms.Label();
             lblIdAfectacion = new System.Windows.Forms.Label();
@@ -363,6 +364,10 @@
             this.ptbimgusuario.TabIndex = 150;
             this.ptbimgusuario.TabStop = false;
             // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.FileName = "Conceptos de Nómina";
+            // 
             // FiltroConceptosNomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,5 +422,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

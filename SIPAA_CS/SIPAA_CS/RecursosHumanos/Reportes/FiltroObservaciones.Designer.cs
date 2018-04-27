@@ -53,6 +53,7 @@
             this.btnImprimirObs = new System.Windows.Forms.Button();
             this.cbArea = new System.Windows.Forms.ComboBox();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.cbTipoNomina = new System.Windows.Forms.ComboBox();
             this.cbEmpleados = new System.Windows.Forms.ComboBox();
             this.cbIncidencia = new System.Windows.Forms.ComboBox();
@@ -67,7 +68,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             label7 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
@@ -111,9 +112,9 @@
             label11.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             label11.Location = new System.Drawing.Point(58, 233);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(74, 16);
+            label11.Size = new System.Drawing.Size(126, 16);
             label11.TabIndex = 70;
-            label11.Text = "Departamento";
+            label11.Text = "Departamento (Opcional)";
             label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label10
@@ -124,9 +125,9 @@
             label10.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             label10.Location = new System.Drawing.Point(58, 428);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(31, 16);
+            label10.Size = new System.Drawing.Size(83, 16);
             label10.TabIndex = 68;
-            label10.Text = "Área";
+            label10.Text = "Área (Opcional)";
             label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             label10.Visible = false;
             // 
@@ -138,9 +139,9 @@
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label4.Location = new System.Drawing.Point(58, 370);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(68, 16);
+            label4.Size = new System.Drawing.Size(120, 16);
             label4.TabIndex = 66;
-            label4.Text = "Tipo Nomina";
+            label4.Text = "Tipo Nomina (Opcional)";
             label4.Visible = false;
             // 
             // label5
@@ -151,9 +152,9 @@
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label5.Location = new System.Drawing.Point(58, 165);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(54, 16);
+            label5.Size = new System.Drawing.Size(106, 16);
             label5.TabIndex = 60;
-            label5.Text = "Ubicación";
+            label5.Text = "Ubicación (Opcional)";
             // 
             // label6
             // 
@@ -163,9 +164,9 @@
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label6.Location = new System.Drawing.Point(58, 117);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(56, 16);
+            label6.Size = new System.Drawing.Size(108, 16);
             label6.TabIndex = 58;
-            label6.Text = "Compañia";
+            label6.Text = "Compañia (Opcional)";
             // 
             // label8
             // 
@@ -175,9 +176,9 @@
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label8.Location = new System.Drawing.Point(58, 49);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(135, 16);
+            label8.Size = new System.Drawing.Size(198, 16);
             label8.TabIndex = 44;
-            label8.Text = "Nombre de Trabajador";
+            label8.Text = "Nombre de Trabajador (Opcional)";
             // 
             // label9
             // 
@@ -237,9 +238,9 @@
             label13.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             label13.Location = new System.Drawing.Point(58, 300);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(55, 16);
+            label13.Size = new System.Drawing.Size(107, 16);
             label13.TabIndex = 72;
-            label13.Text = "Incidencia";
+            label13.Text = "Incidencia (Opcional)";
             label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label14
@@ -265,6 +266,19 @@
             label15.Size = new System.Drawing.Size(348, 16);
             label15.TabIndex = 68;
             label15.Text = "La fecha de inicio no puede ser menor al 16 de Enero 2018";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label16.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            label16.Location = new System.Drawing.Point(58, 479);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(88, 16);
+            label16.TabIndex = 180;
+            label16.Text = "Status (Opcional)";
+            label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // timer1
             // 
@@ -380,6 +394,25 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(477, 567);
             this.pnlBusqueda.TabIndex = 162;
             this.pnlBusqueda.TabStop = true;
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbStatus.DropDownWidth = 500;
+            this.cbStatus.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Seleccionar ",
+            "Activo",
+            "Inactivo"});
+            this.cbStatus.Location = new System.Drawing.Point(61, 498);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(368, 25);
+            this.cbStatus.TabIndex = 181;
+            this.cbStatus.Text = "Seleccionar ";
+            this.cbStatus.DropDown += new System.EventHandler(this.cbStatus_DropDown);
             // 
             // cbTipoNomina
             // 
@@ -585,37 +618,9 @@
             this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label16
+            // saveFileDialog
             // 
-            label16.AutoSize = true;
-            label16.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            label16.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            label16.Location = new System.Drawing.Point(58, 479);
-            label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(36, 16);
-            label16.TabIndex = 180;
-            label16.Text = "Status";
-            label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // cbStatus
-            // 
-            this.cbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cbStatus.DropDownWidth = 500;
-            this.cbStatus.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Items.AddRange(new object[] {
-            "Seleccionar ",
-            "Activo",
-            "Inactivo"});
-            this.cbStatus.Location = new System.Drawing.Point(61, 498);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(368, 25);
-            this.cbStatus.TabIndex = 181;
-            this.cbStatus.Text = "Seleccionar ";
-            this.cbStatus.DropDown += new System.EventHandler(this.cbStatus_DropDown);
+            this.saveFileDialog.FileName = "Observaciones";
             // 
             // FiltroObservaciones
             // 
@@ -684,5 +689,6 @@
         private System.Windows.Forms.ComboBox cbEmpleados;
         private System.Windows.Forms.ComboBox cbTipoNomina;
         private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

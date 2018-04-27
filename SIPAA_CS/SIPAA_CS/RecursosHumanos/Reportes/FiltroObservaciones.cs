@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -188,8 +189,6 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     ViewerReporte form = new ViewerReporte();
                     Observaciones dtrpt = new Observaciones();
                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, this.CompanyName, dtrpt.ResourceName);
-                    
-
                     ReportDoc.SetParameterValue("TotalRegistros", dtRpt.Rows.Count.ToString());
                     ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
                     ReportDoc.SetParameterValue("FechaFin", dpFechaFin.Value);
@@ -199,6 +198,15 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     ReportDoc.SetParameterValue("TipoNomina", sTipoNom);*/
                     form.RptDoc = ReportDoc;
                     form.Show();
+
+
+
+                    // crear CSV
+                    DialogResult Resultado = MessageBox.Show("¿Desea crear el archivo en formato .csv para abrirlo con excel?", "SIPAA", MessageBoxButtons.YesNo);
+                    if (Resultado == DialogResult.Yes)
+                        creacsv(dtRpt);
+
+
                     break;
 
             }
@@ -346,6 +354,52 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         private void cbStatus_DropDown(object sender, EventArgs e)
         {
             
+        }
+
+
+        private void creacsv(DataTable dtRpt)
+        {
+
+
+            
+            saveFileDialog.Filter = "csv files (*.csv)|*.csv";
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK && saveFileDialog.FileName.Length > 0)
+            {
+                bool bandera = false;
+
+                try
+                {
+
+                    StreamWriter Texto = new StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8);
+
+                    string cadenaReg = "";
+                    cadenaReg = "Reporte Observaciones ";
+                    Texto.WriteLine(cadenaReg);
+                    Texto.Write(Texto.NewLine);
+                    cadenaReg = "Idtrab, Nombre, Fecha, Incidencia, Justificacion, Tipo, Id_Aut, Observaciones ";
+                    Texto.WriteLine(cadenaReg);
+                    Texto.Write(Texto.NewLine);
+
+                    foreach (DataRow row in dtRpt.Rows)
+                    {
+                        cadenaReg = row[0].ToString() + "," + row[1].ToString() + "," + row[2].ToString() + "," + row[3].ToString() + "," + row[4].ToString() + "," + row[5].ToString() + "," + row[6].ToString() + "," + row[7].ToString();
+                        Texto.WriteLine(cadenaReg);
+                    }
+
+                    Texto.Close();
+                }
+                catch
+                {
+
+                    bandera = true;
+                }
+                if (!bandera)
+                    MessageBox.Show("El archivo " + saveFileDialog.FileName + "ha sido creado Correctamente, ahora puede abrirlo con excel");
+                else
+                    MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
+
+
+            }
         }
 
 
