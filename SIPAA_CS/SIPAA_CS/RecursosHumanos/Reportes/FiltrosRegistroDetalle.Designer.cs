@@ -52,6 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             label4 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -110,9 +111,9 @@
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label5.Location = new System.Drawing.Point(33, 167);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(65, 16);
+            label5.Size = new System.Drawing.Size(128, 16);
             label5.TabIndex = 206;
-            label5.Text = "Ubicación";
+            label5.Text = "Ubicación (Opcional)";
             // 
             // label6
             // 
@@ -122,9 +123,9 @@
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label6.Location = new System.Drawing.Point(33, 104);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(66, 16);
+            label6.Size = new System.Drawing.Size(129, 16);
             label6.TabIndex = 205;
-            label6.Text = "Compañia";
+            label6.Text = "Compañia (Opcional)";
             // 
             // label8
             // 
@@ -134,9 +135,9 @@
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label8.Location = new System.Drawing.Point(33, 41);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(135, 16);
+            label8.Size = new System.Drawing.Size(198, 16);
             label8.TabIndex = 204;
-            label8.Text = "Nombre de Trabajador";
+            label8.Text = "Nombre de Trabajador (Opcional)";
             // 
             // label9
             // 
@@ -377,6 +378,10 @@
             this.lblusuario.Text = "usuario ";
             this.lblusuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.FileName = "Detalle de Registro";
+            // 
             // FiltrosRegistroDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,5 +431,6 @@
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.ComboBox cbEmpleados;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

@@ -12,6 +12,7 @@ using CrystalDecisions.CrystalReports.Engine;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using static SIPAA_CS.App_Code.Usuario;
+using System.IO;
 
 namespace SIPAA_CS.RecursosHumanos.Reportes
 {
@@ -85,6 +86,17 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
                     form.RptDoc = ReportDoc;
                     form.Show();
+
+
+                    // crear CSV
+                    DialogResult Resultado = MessageBox.Show("¿Desea crear el archivo en formato .csv para abrirlo con excel?", "SIPAA", MessageBoxButtons.YesNo);
+                    if (Resultado == DialogResult.Yes)
+                        creacsv(dtReporteRegistro);
+
+
+                    break;
+
+
                     break;
             }
         }
@@ -166,6 +178,54 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void creacsv(DataTable dtRpt)
+        {
+
+
+
+            saveFileDialog.Filter = "csv files (*.csv)|*.csv";
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK && saveFileDialog.FileName.Length > 0)
+            {
+                bool bandera = false;
+
+                try
+                {
+
+                    StreamWriter Texto = new StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8);
+
+                    string cadenaReg = "";
+                    cadenaReg = "Reporte mas de 3 Faltas ";
+                    Texto.WriteLine(cadenaReg);
+                    Texto.Write(Texto.NewLine);
+                    cadenaReg = "IdTrab, Trabajador, Fereget, Incidencia, Representa, IdTrabDir, Fecha Autorización Director, Estatus Inc, Falta, Autorizada, Falta Efectiva ";
+                    
+                    Texto.WriteLine(cadenaReg);
+                    Texto.Write(Texto.NewLine);
+
+                    foreach (DataRow row in dtRpt.Rows)
+                    {
+                        cadenaReg = row[0].ToString() + "," + row[1].ToString() + "," + row[2].ToString() + "," + row[3].ToString() + "," + row[4].ToString() + ","+
+                            "" + row[5].ToString() + "," + row[6].ToString() + "," + row[7].ToString() + "," + row[8].ToString() + "," + row[9].ToString();
+                        Texto.WriteLine(cadenaReg);
+                    }
+
+                    Texto.Close();
+                }
+                catch
+                {
+
+                    bandera = true;
+                }
+                if (!bandera)
+                    MessageBox.Show("El archivo " + saveFileDialog.FileName + "ha sido creado Correctamente, ahora puede abrirlo con excel");
+                else
+                    MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
+
+
+            }
         }
 
         //-----------------------------------------------------------------------------------------------

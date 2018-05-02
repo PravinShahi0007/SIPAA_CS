@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>36</ApplicationRevision>
+    <ApplicationRevision>39</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -388,6 +388,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Conceptos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\dtrepglinc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtrepglinc.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\DataSets\FaltasPeriodo.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1054,6 +1059,12 @@
       <DependentUpon>RepSancionesInc.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\rep_glinc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rep_glinc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\Resumen.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1502,6 +1513,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RepSancionesInc.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\rep_glinc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rep_glinc.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Resumen.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Resumen.cs</LastGenOutput>
@@ -1693,6 +1708,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\Conceptos.xss">
       <DependentUpon>Conceptos.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\dtrepglinc.xsc">
+      <DependentUpon>dtrepglinc.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\dtrepglinc.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtrepglinc.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\dtrepglinc.xss">
+      <DependentUpon>dtrepglinc.xsd</DependentUpon>
     </None>
     <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xsc">
       <DependentUpon>FaltasPeriodo.xsd</DependentUpon>

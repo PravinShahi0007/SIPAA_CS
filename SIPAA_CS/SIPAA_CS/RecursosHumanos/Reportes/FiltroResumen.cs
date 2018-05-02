@@ -411,9 +411,12 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     ReportDoc.SetParameterValue("FechaFin", dateTimePicker2.Value);
                     form.RptDoc = ReportDoc;
                     form.Show();
-                 
 
-
+                    // crear CSV
+                    DialogResult Resultado = MessageBox.Show("¿Desea crear el archivo en formato .csv para abrirlo con excel?", "SIPAA", MessageBoxButtons.YesNo);
+                    if (Resultado == DialogResult.Yes)
+                        creacsv3(dtRpt);
+                    
                     break;
 
             }
@@ -625,7 +628,52 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             }
         }
 
+        private void creacsv3(DataTable dtRpt)
+        {
 
+
+
+            saveFileDialog.Filter = "csv files (*.csv)|*.csv";
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK && saveFileDialog.FileName.Length > 0)
+            {
+                bool bandera = false;
+
+                try
+                {
+
+                    StreamWriter Texto = new StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8);
+
+                    string cadenaReg = "";
+                    cadenaReg = "Reporte por Conceptos";
+                    Texto.WriteLine(cadenaReg);
+                    Texto.Write(Texto.NewLine);
+                    cadenaReg = "Idtrab, Nombre, Incidencia, Tipo, Fecha_Inicio, Fecha_Fin, Dias Naturales, Dias Efectivos, Referencia, Compañia, Ubicación, Departamento, Tipo_Nomina, Plantel ";
+                    Texto.WriteLine(cadenaReg);
+                    Texto.Write(Texto.NewLine);
+
+                    foreach (DataRow row in dtRpt.Rows)
+                    {
+                        cadenaReg = row[0].ToString() + "," + row[1].ToString() + "," + row[2].ToString() + "," + row[3].ToString() + ","+
+                            "" + row[4].ToString() + "," + row[5].ToString() + "," + row[6].ToString() + "," + row[7].ToString() + ","+
+                            "" + row[8].ToString() + "," + row[9].ToString() + "," + row[10].ToString() + "," + row[11].ToString() + "," + row[12].ToString() + "," + row[13].ToString();
+                        Texto.WriteLine(cadenaReg);
+                    }
+
+                    Texto.Close();
+                }
+                catch
+                {
+
+                    bandera = true;
+                }
+                if (!bandera)
+                    MessageBox.Show("El archivo " + saveFileDialog.FileName + "ha sido creado Correctamente, ahora puede abrirlo con excel");
+                else
+                    MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
+
+
+            }
+        }
 
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E

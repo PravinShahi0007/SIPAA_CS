@@ -13,6 +13,11 @@ using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 using static SIPAA_CS.App_Code.Usuario;
 
+using System.IO;
+
+
+
+
 namespace SIPAA_CS.RecursosHumanos.Reportes
 {
     public partial class FiltroConceptosNomina : Form
@@ -76,9 +81,15 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     ReportDoc.SetParameterValue("Titulo1", "SIPAA - Recursos Humanos");
                     ReportDoc.SetParameterValue("Titulo2", "Catálogo de Conceptos de Nómina");
                     ReportDoc.SetParameterValue("Titulo3", "");
-
                     form.RptDoc = ReportDoc;
                     form.Show();
+
+                    // crear CSV
+                    DialogResult Resultado = MessageBox.Show("¿Desea crear el archivo en formato .csv para abrirlo con excel?", "SIPAA", MessageBoxButtons.YesNo);
+                    if (Resultado == DialogResult.Yes)
+                        creacsv(dtReporteRegistro);
+
+
                     break;
             }
         }
@@ -130,6 +141,56 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
+
+
+        private void creacsv(DataTable dtRpt)
+        {
+
+            
+
+            saveFileDialog.Filter = "csv files (*.csv)|*.csv";
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK && saveFileDialog.FileName.Length > 0)
+            {
+                bool bandera = false;
+
+                try
+                {
+                                       
+                    StreamWriter Texto = new StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8);
+                
+                    string cadenaReg = "";
+                    cadenaReg = "Reporte Conceptos de Nómina ";
+                    Texto.WriteLine(cadenaReg);
+                    Texto.Write(Texto.NewLine);
+                    cadenaReg = "IdAfecta, Descripcion, DescripcionCorta ";
+                    Texto.WriteLine(cadenaReg);
+                    Texto.Write(Texto.NewLine);
+
+                    foreach (DataRow row in dtRpt.Rows)
+                    {
+                        cadenaReg = row[0].ToString() + "," + row[1].ToString() + "," + row[2].ToString();
+                        Texto.WriteLine(cadenaReg);
+                    }
+
+                    Texto.Close();
+                }
+                catch
+                {
+
+                    bandera = true;
+                }
+                if (!bandera)
+                    MessageBox.Show("El archivo " + saveFileDialog.FileName + "ha sido creado Correctamente, ahora puede abrirlo con excel");
+                else
+                    MessageBox.Show("No se pudo crear el archivo. Intente de Nuevo");
+
+
+            }
+        }
+
+
+
+
     } // public class FiltroConceptoNomina : Form
 } // namespace SIPAA_CS.RecursosHumanos.Reportes
 
