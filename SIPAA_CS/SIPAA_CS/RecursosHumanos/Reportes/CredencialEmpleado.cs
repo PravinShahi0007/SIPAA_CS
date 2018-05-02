@@ -131,8 +131,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 job.Open(comboBox1.Text);
                 //Preferencias de impresión
                 job.JobControl.FeederSource = FeederSourceEnum.CardFeeder;
-                //job.JobControl.Destination = DestinationTypeEnum.Eject;//Produccion
-                job.JobControl.Destination = DestinationTypeEnum.Hold;//Desarrollo
+                job.JobControl.Destination = DestinationTypeEnum.Eject;//Produccion
+                //job.JobControl.Destination = DestinationTypeEnum.Hold;//Desarrollo
                 job.JobControl.OrientationFront = OrientationEnum.Portrait;
                 job.JobControl.OrientationBack = OrientationEnum.Portrait;
                 job.JobControl.RotationBack = RotationEnum.Rotate_180;
