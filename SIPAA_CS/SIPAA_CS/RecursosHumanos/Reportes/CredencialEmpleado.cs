@@ -25,11 +25,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         bool isFrontSelected = false;
         bool guardar = false;
         string key = "";
+        FiltrosCredencialEmpleado fcredEmp;
+
         public CredencialEmpleado()
         {
             InitializeComponent();
 
-            CSonaTrab = new SonaTrabajador();            
+            CSonaTrab = new SonaTrabajador();
+            fcredEmp = new FiltrosCredencialEmpleado(ref cboEmpleados);
         }
 
         private void CredencialEmpleado_Load(object sender, EventArgs e)
@@ -64,7 +67,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 }
             }
             catch { }
-
+            //llena combo de empleados
             DataTable dtEmpleado = CSonaTrab.obtenerempleados(7, "");
             Utilerias.llenarComboxDataTable(cboEmpleados, dtEmpleado, "NoEmpleado", "Nombre");
 
@@ -128,11 +131,12 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 job.Open(comboBox1.Text);
                 //Preferencias de impresión
                 job.JobControl.FeederSource = FeederSourceEnum.CardFeeder;
-                job.JobControl.Destination = DestinationTypeEnum.Eject;//Produccion
-                //job.JobControl.Destination = DestinationTypeEnum.Hold;//Desarrollo
+                //job.JobControl.Destination = DestinationTypeEnum.Eject;//Produccion
+                job.JobControl.Destination = DestinationTypeEnum.Hold;//Desarrollo
                 job.JobControl.OrientationFront = OrientationEnum.Portrait;
                 job.JobControl.OrientationBack = OrientationEnum.Portrait;
                 job.JobControl.RotationBack = RotationEnum.Rotate_180;
+
                 //***
                 pnlMensaje.Enabled = true;
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Imprimiendo...");
@@ -236,6 +240,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             cboEmpleados.Enabled = status;
             comboBox1.Enabled = status;
             panel2.Enabled = status;
+            button6.Enabled = status;
 
             if (!status)
             {
@@ -317,16 +322,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     front.txts.Add("IdTrab", new ZMotifText(IdTrab, 300f, 815f, "Arial Narrow", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
                     front.txts.Add("Compania", new ZMotifText(Compania, 40f, 890f, "Arial Narrow", 9f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));
                     front.txts.Add("vig_d", new ZMotifText("Fecha de expedición:", 230f, 940f, "Arial Narrow", 7f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));
-                    string date = new DateTime().ToShortDateString();
-                    front.txts.Add("Vigencia", new ZMotifText(date, 480f, 940f, "Arial Narrow", 7f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));                    
+                    front.txts.Add("Vigencia", new ZMotifText(fcredEmp.date.ToShortDateString(), 480f, 940f, "Arial Narrow", 7f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));                    
                 }
                 else
                 {
                     front.txts.Add("Paterno", new ZMotifText(Paterno, 340f, 220f, "Times New Roman", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
                     front.txts.Add("Materno", new ZMotifText(Materno, 340f, 260f, "Times New Roman", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
                     front.txts.Add("Nombre", new ZMotifText(Nombre, 340f, 300f, "Times New Roman", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
-                    string date = new DateTime().ToShortDateString();
-                    front.txts.Add("Vigencia", new ZMotifText(date, 340f, 430f, "Times New Roman", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
+                    front.txts.Add("Vigencia", new ZMotifText(fcredEmp.date.ToShortDateString(), 340f, 430f, "Times New Roman", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
                     front.txts.Add("IdTrab", new ZMotifText(IdTrab, 380f, 470f, "Times New Roman", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
                     front.txts.Add("Puesto", new ZMotifText(Puesto, 40f, 550f, "Times New Roman", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
                     front.txts.Add("Plantel", new ZMotifText(Plantel, 150f, 798f, "Times New Roman", 14.25f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.White));
@@ -891,6 +894,31 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             panelTag.Visible = false;
             pnlMensaje.Enabled = panelTag.Enabled = false;
             timer1.Stop();
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            fcredEmp.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            int items = cboEmpleados.Items.Count;
+
+            if (items > 0 && cboEmpleados.SelectedIndex + 1 <= items - 1)
+            {
+                cboEmpleados.SelectedIndex = cboEmpleados.SelectedIndex + 1;
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            int items = cboEmpleados.Items.Count;
+
+            if (items > 0 && cboEmpleados.SelectedIndex - 1 > 0)
+            {
+                cboEmpleados.SelectedIndex = cboEmpleados.SelectedIndex - 1;
+            }
         }
 
         private ZMotifCard sideSelected()

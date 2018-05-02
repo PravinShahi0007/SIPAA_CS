@@ -17,12 +17,12 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         public string sHoraEntrada;
         public int iCvdiaSalidaTurno;
         public string sHoraSalidaTurno;
-        public int iTiempoComida;
+        public double iTiempoComida;
         public int iCvdiaComidaInicio;
         public string sHoraComidaInicio;
         public int iCvdiaComidaFin;
         public string sHoraComidaFin;
-        public int iHorasTotalTrabajo;
+        public double iHorasTotalTrabajo;
         public string sUsuumod;
         public string sPrgumod;
 

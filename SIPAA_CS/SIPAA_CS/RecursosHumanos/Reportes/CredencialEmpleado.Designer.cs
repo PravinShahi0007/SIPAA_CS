@@ -45,6 +45,7 @@
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.trackBar4 = new System.Windows.Forms.TrackBar();
             this.trackBar3 = new System.Windows.Forms.TrackBar();
@@ -80,6 +81,8 @@
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             lblimprimir = new System.Windows.Forms.Label();
             lblidtrab = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -112,7 +115,7 @@
             lblimprimir.ForeColor = System.Drawing.Color.Gray;
             lblimprimir.Image = ((System.Drawing.Image)(resources.GetObject("lblimprimir.Image")));
             lblimprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblimprimir.Location = new System.Drawing.Point(222, 580);
+            lblimprimir.Location = new System.Drawing.Point(18, 638);
             lblimprimir.Name = "lblimprimir";
             lblimprimir.Size = new System.Drawing.Size(163, 17);
             lblimprimir.TabIndex = 66;
@@ -124,7 +127,7 @@
             lblidtrab.Font = new System.Drawing.Font("Arial", 10F);
             lblidtrab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             lblidtrab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            lblidtrab.Location = new System.Drawing.Point(7, 82);
+            lblidtrab.Location = new System.Drawing.Point(7, 104);
             lblidtrab.Name = "lblidtrab";
             lblidtrab.Size = new System.Drawing.Size(150, 16);
             lblidtrab.TabIndex = 44;
@@ -282,7 +285,7 @@
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnImprimir.Image = global::SIPAA_CS.Properties.Resources.Imprimir;
-            this.btnImprimir.Location = new System.Drawing.Point(391, 562);
+            this.btnImprimir.Location = new System.Drawing.Point(248, 620);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(55, 55);
             this.btnImprimir.TabIndex = 6;
@@ -293,6 +296,7 @@
             // pnlBusqueda
             // 
             this.pnlBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlBusqueda.Controls.Add(this.button6);
             this.pnlBusqueda.Controls.Add(this.panel2);
             this.pnlBusqueda.Controls.Add(this.button1);
             this.pnlBusqueda.Controls.Add(this.comboBox1);
@@ -300,11 +304,26 @@
             this.pnlBusqueda.Controls.Add(this.cboEmpleados);
             this.pnlBusqueda.Controls.Add(lblidtrab);
             this.pnlBusqueda.Controls.Add(label9);
-            this.pnlBusqueda.Location = new System.Drawing.Point(13, 116);
+            this.pnlBusqueda.Location = new System.Drawing.Point(13, 110);
             this.pnlBusqueda.Name = "pnlBusqueda";
-            this.pnlBusqueda.Size = new System.Drawing.Size(446, 442);
+            this.pnlBusqueda.Size = new System.Drawing.Size(446, 504);
             this.pnlBusqueda.TabIndex = 153;
             this.pnlBusqueda.TabStop = true;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button6.Enabled = false;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button6.Image = global::SIPAA_CS.Properties.Resources.Buscar;
+            this.button6.Location = new System.Drawing.Point(376, 108);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(55, 55);
+            this.button6.TabIndex = 156;
+            this.button6.Tag = "Imprimir";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
             // panel2
             // 
@@ -332,9 +351,9 @@
             this.panel2.Controls.Add(this.numericUpDown1);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Location = new System.Drawing.Point(4, 143);
+            this.panel2.Location = new System.Drawing.Point(4, 193);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(439, 296);
+            this.panel2.Size = new System.Drawing.Size(439, 307);
             this.panel2.TabIndex = 155;
             this.panel2.Visible = false;
             // 
@@ -641,7 +660,7 @@
             this.cboEmpleados.FormattingEnabled = true;
             this.cboEmpleados.Items.AddRange(new object[] {
             "-Seleccionar-"});
-            this.cboEmpleados.Location = new System.Drawing.Point(8, 101);
+            this.cboEmpleados.Location = new System.Drawing.Point(8, 123);
             this.cboEmpleados.Name = "cboEmpleados";
             this.cboEmpleados.Size = new System.Drawing.Size(362, 25);
             this.cboEmpleados.TabIndex = 2;
@@ -718,6 +737,36 @@
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button8.Image = global::SIPAA_CS.Properties.Resources.ic_keyboard_arrow_right_grey_600_18dp;
+            this.button8.Location = new System.Drawing.Point(309, 620);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(55, 55);
+            this.button8.TabIndex = 204;
+            this.button8.Tag = "Imprimir";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button7.Image = global::SIPAA_CS.Properties.Resources.ic_keyboard_arrow_left_grey_600_18dp;
+            this.button7.Location = new System.Drawing.Point(187, 620);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(55, 55);
+            this.button7.TabIndex = 205;
+            this.button7.Tag = "Imprimir";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // CredencialEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -725,6 +774,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.pnlMensaje);
             this.Controls.Add(label3);
             this.Controls.Add(lblimprimir);
@@ -814,5 +865,8 @@
         private System.Windows.Forms.Panel panelTag;
         private System.Windows.Forms.Label lbMensaje;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
     }
 }
