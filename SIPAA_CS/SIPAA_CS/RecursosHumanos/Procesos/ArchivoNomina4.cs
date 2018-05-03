@@ -665,7 +665,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                                 if (tiempo >= 60)
                                 {                                   
                                     TH = tiempo / 60;
-                                    int THR = Convert.ToInt32(Math.Round(TH));
+                                    //int THR = Convert.ToInt32(Math.Round(TH));
+                                    int THR = Convert.ToInt32(Math.Truncate(TH));
                                     TF = tiempo % 60;
                                     int TFR = Convert.ToInt32(Math.Round(TF));
                                     TF = TF / 100;
@@ -731,7 +732,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     if (tiempo >= 60)
                     {
                         TH = tiempo / 60;
-                        int THR = Convert.ToInt32(Math.Round(TH));
+                        //int THR = Convert.ToInt32(Math.Round(TH));
+                        int THR = Convert.ToInt32(Math.Truncate(TH));
                         TF = tiempo % 60;
                         int TFR = Convert.ToInt32(Math.Round(TF));
                         TF = TF / 100;

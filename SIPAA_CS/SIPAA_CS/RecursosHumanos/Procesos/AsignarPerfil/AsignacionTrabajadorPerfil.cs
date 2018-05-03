@@ -203,7 +203,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 mtxtComidaInicio.Text = objHorario.sHoraComidaInicio;
                 mtxtComidaFin.Text = objHorario.sHoraComidaFin;
                 mtxtTiempoComida.Text = objHorario.iTiempoComida.ToString();
+                
                 mtxtTiempoTrabajo.Text = objHorario.iHorasTotalTrabajo.ToString();
+                
                 cbDiaEntrada.SelectedValue = objHorario.iCvDia;
                 cbDiaSalida.SelectedValue = objHorario.iCvdiaSalidaTurno;
 
@@ -498,10 +500,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         }
 
-        private int tiempoCampo(MaskedTextBox campo)
+        private double tiempoCampo(MaskedTextBox campo)
         {
             string val = campo.Text.Trim();
-            return val.Equals(string.Empty) ? val.Length : Convert.ToInt32(val);
+            return val.Equals(string.Empty) ? val.Length : Convert.ToDouble(val);
         }
 
 
@@ -1221,7 +1223,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             objHorario.sHoraSalidaTurno = row.Cells[5].Value.ToString();
             objHorario.sHoraComidaInicio = row.Cells[8].Value.ToString();
             objHorario.sHoraComidaFin = row.Cells[10].Value.ToString();
-            objHorario.iHorasTotalTrabajo = Convert.ToInt32(row.Cells[11].Value.ToString());
+            objHorario.iHorasTotalTrabajo = Convert.ToDouble(row.Cells[11].Value.ToString());
             objHorario.iTiempoComida = Convert.ToInt32(row.Cells[6].Value.ToString());
 
             objHorario.iCvDia = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[2].Value.ToString()));
@@ -2316,5 +2318,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             return bBandera;
         }
 
+        private void mtxtTiempoTrabajo_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }

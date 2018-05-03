@@ -789,9 +789,10 @@
             this.mtxtTiempoTrabajo.Location = new System.Drawing.Point(252, 293);
             this.mtxtTiempoTrabajo.Mask = "99999";
             this.mtxtTiempoTrabajo.Name = "mtxtTiempoTrabajo";
+            this.mtxtTiempoTrabajo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.mtxtTiempoTrabajo.Size = new System.Drawing.Size(100, 19);
             this.mtxtTiempoTrabajo.TabIndex = 84;
-            this.mtxtTiempoTrabajo.ValidatingType = typeof(int);
+            this.mtxtTiempoTrabajo.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxtTiempoTrabajo_MaskInputRejected);
             this.mtxtTiempoTrabajo.Click += new System.EventHandler(this.mtxt);
             // 
             // btnGuardar
