@@ -50,6 +50,7 @@
             this.pnlImprimir = new System.Windows.Forms.Panel();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             label1 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -340,6 +341,10 @@
             this.ptbimgusuario.TabIndex = 151;
             this.ptbimgusuario.TabStop = false;
             // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.FileName = "Mas de 3 Faltas";
+            // 
             // FiltroMasDe3Faltas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,5 +392,6 @@
         private System.Windows.Forms.ComboBox cboEmpleados;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

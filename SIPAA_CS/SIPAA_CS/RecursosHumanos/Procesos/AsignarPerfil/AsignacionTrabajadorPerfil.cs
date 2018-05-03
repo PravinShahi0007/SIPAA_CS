@@ -203,7 +203,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 mtxtComidaInicio.Text = objHorario.sHoraComidaInicio;
                 mtxtComidaFin.Text = objHorario.sHoraComidaFin;
                 mtxtTiempoComida.Text = objHorario.iTiempoComida.ToString();
+                
                 mtxtTiempoTrabajo.Text = objHorario.iHorasTotalTrabajo.ToString();
+                
                 cbDiaEntrada.SelectedValue = objHorario.iCvDia;
                 cbDiaSalida.SelectedValue = objHorario.iCvdiaSalidaTurno;
 
@@ -498,10 +500,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         }
 
-        private int tiempoCampo(MaskedTextBox campo)
+        private double tiempoCampo(MaskedTextBox campo)
         {
             string val = campo.Text.Trim();
-            return val.Equals(string.Empty) ? val.Length : Convert.ToInt32(val);
+            return val.Equals(string.Empty) ? val.Length : Convert.ToDouble(val);
         }
 
 
@@ -1221,7 +1223,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             objHorario.sHoraSalidaTurno = row.Cells[5].Value.ToString();
             objHorario.sHoraComidaInicio = row.Cells[8].Value.ToString();
             objHorario.sHoraComidaFin = row.Cells[10].Value.ToString();
-            objHorario.iHorasTotalTrabajo = Convert.ToInt32(row.Cells[11].Value.ToString());
+            objHorario.iHorasTotalTrabajo = Convert.ToDouble(row.Cells[11].Value.ToString());
             objHorario.iTiempoComida = Convert.ToInt32(row.Cells[6].Value.ToString());
 
             objHorario.iCvDia = Convert.ToInt32(Enum.Parse(typeof(Utilerias.DiasSemana), row.Cells[2].Value.ToString()));
@@ -1523,9 +1525,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         public void SincronizaBiometricos(List<Reloj> ltReloj2, RelojChecador objReloj)
         {
-             int iCont = 0; 
+            int iCont = 0; 
             bool bConexion = false;
             SonaTrabajador objTrab = new SonaTrabajador();
+            DataTable dt = new DataTable(); 
             foreach (Reloj obj in ltReloj2)
             {
 
@@ -1534,57 +1537,58 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 bConexion = Connect_Net(obj.IpReloj, 4370);
                 if (bConexion != false)
                 {
-                    string Nombre, Password; 
-                    Nombre= Password= string.Empty;
-                
-                   
-                    //bool BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
 
-                   
-                        DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 17, "%", "%");
-                        foreach (DataRow row in dt.Rows)
+                    string Nombre, Password;
+                    Nombre = Password = string.Empty;
+                    objCZKEM.BeginBatchUpdate(1, 1);
+                    dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 17, "%", "%");
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string idtrab = row["idtrab"].ToString();
+                        string cvreloj = row[1].ToString();
+                        Nombre = row["Nombre"].ToString();
+                        int Permiso = 0;
+                        string pass_desc = string.Empty;
+
+                        if (!string.IsNullOrEmpty(row["pass"].ToString()))
+                            pass_desc = Utilerias.descifrar(row["pass"].ToString());
+                        if (Convert.ToBoolean(row["administrador"].ToString()))
+                            Permiso = 3;
+
+                        if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
                         {
-                            string idtrab = row["idtrab"].ToString();
-                            string cvreloj = row[1].ToString();
-                            Nombre = row["Nombre"].ToString();
-                            int Permiso = 0;
-                            string pass_desc = string.Empty;
+                            if (row["huellaTmp"].ToString() != String.Empty)
+                           // {
+                                //int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
+                                //string tmpHuella = "";
+                                //tmpHuella = row["huellaTmp"].ToString();
+                             objCZKEM.SetUserTmpExStr(1, idtrab, Convert.ToInt32(row["indicehuella"].ToString()), 1, row["huellaTmp"].ToString());
 
-                            if (!string.IsNullOrEmpty(row["pass"].ToString()))
-                                pass_desc = Utilerias.descifrar(row["pass"].ToString());
-                            if (Convert.ToBoolean(row["administrador"].ToString()))
-                                Permiso = 3;
 
-                            if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
-                            {
-                                if (row["huellaTmp"].ToString() != String.Empty)
-                                {
-                                    int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
-                                    string tmpHuella = "";
-
-                                    if (ifinger >= 0 && ifinger <= 9)
-                                    {
-                                        tmpHuella = row["huellaTmp"].ToString();
-                                        objCZKEM.SetUserTmpExStr(1, idtrab, ifinger, 1, tmpHuella);
-                                       
-
-                                    }
-                                }
-                            }
+                                
+                            //}
                         }
+                    }
 
 
-                        //objCZKEM.BatchUpdate(1);
-                        objCZKEM.RefreshData(1);
-                        objCZKEM.Disconnect();
+                    objCZKEM.BatchUpdate(1);
+                    objCZKEM.RefreshData(1);
+                    objCZKEM.Disconnect();
+                }
+                else
+                {
+                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse al reloj: " + obj.Descripcion);
+                    continue;
+                }
+
+                
                         
                         bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
 
                         if (bConexion)
                         {
-                            //BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
-                      dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 18, "%", "%");
-
+                        objCZKEM.BeginBatchUpdate(1, 1);
+                         dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 18, "%", "%");
                         foreach (DataRow row in dt.Rows)
                             {
                                 string idtrab = row["idtrab"].ToString();
@@ -1597,9 +1601,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                         bool bandera = objCZKEM.SendFile(1, @"\\192.168.30.171\Fotos_emp\" + idtrab + ".jpg");
 
                                     }
-                                    catch
-                                    {
-                                    }
+                                    catch{}
                                
 
                                 }
@@ -1607,13 +1609,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                             }
 
-                           // objCZKEM.BatchUpdate(1);
+                            objCZKEM.BatchUpdate(1);
                             objCZKEM.RefreshData(1);
                             objCZKEM.Disconnect();
                         }
+                        else
+                        {
+                            ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse al reloj: " + obj.Descripcion);
+                            continue;
+                        }
 
                     faces = new LinkedList<FaceTmp>();
-                    dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 19, "%", "%");
+                 dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 19, "%", "%");
                     foreach (DataRow row in dt.Rows)
                         {
                             string idtrab = row["idtrab"].ToString();
@@ -1628,49 +1635,27 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         }
 
                         bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
-                        if (bConexion)
-                        {
-                       // BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
-                        objCZKEM.RestartDevice(1);
-                       // panelTagRelojCheck.Enabled = true;
-                        ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando rostro...");
-                        //panelTagRelojCheck.Enabled = false;
-                        System.Threading.Thread.Sleep(60000);
-
-                        bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
-
-                        if (bConexion)
-                        {
-
-                            foreach (FaceTmp ft in faces)
-                                {
-                                    objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong);
-                                    
-                                }
-                        objCZKEM.BatchUpdate(1);
-                        objCZKEM.RefreshData(1);
-                        objCZKEM.Disconnect();
-                        }
-                    }
-                        
-                    //}
-                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Biométricos guardados correctamente en el reloj: "+obj.Descripcion+  " " + iCont + " de " + ltReloj2.Count);
-                   // iCont += 1;
-                    //ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + obj.Descripcion + " " + iCont + " de " + ltReloj2.Count);
-                    System.Threading.Thread.Sleep(1000);
-                }
-                else
+                if (bConexion)
                 {
-                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse al reloj: " + obj.Descripcion);
-                    break;
+                    objCZKEM.BeginBatchUpdate(1, 1);
+                    objCZKEM.RestartDevice(1);
+                    objCZKEM.Disconnect();
                 }
-
-
-                
-
-           }
+                System.Threading.Thread.Sleep(60000);
+                bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
+                if (bConexion)
+                {
+                 ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando rostro...");
+                 foreach (FaceTmp ft in faces)
+                 { objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong); }
+                 objCZKEM.BatchUpdate(1);
+                 objCZKEM.RefreshData(1);
+                 objCZKEM.Disconnect();
+                 }
+                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Biométricos guardados correctamente en el reloj: "+obj.Descripcion+  " " + iCont + " de " + ltReloj2.Count);
+                 System.Threading.Thread.Sleep(1000);
+               }
             
-
         }
 
         public void ProcesoReloj(string Opcion, Reloj obj)
@@ -2103,10 +2088,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                         bConexion = Connect_Net(obj.IpReloj, 4370);
                         if (bConexion != false)
-                        {
-
-
-                            string idtrab = lbIdTrab.Text;
+                        {   string idtrab = lbIdTrab.Text;
                             objCZKEM.BeginBatchUpdate(1, 1);
                             objCZKEM.SetUserGroup(1, Convert.ToInt32(idtrab), Grupo);
                             bool BatchUpdate = objCZKEM.BatchUpdate(1);
@@ -2336,5 +2318,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             return bBandera;
         }
 
+        private void mtxtTiempoTrabajo_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }

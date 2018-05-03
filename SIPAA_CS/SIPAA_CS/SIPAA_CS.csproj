@@ -945,6 +945,12 @@
     <Compile Include="RecursosHumanos\Reportes\FiltroObservaciones.Designer.cs">
       <DependentUpon>FiltroObservaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltrosCredencialEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\FiltrosCredencialEmpleado.Designer.cs">
+      <DependentUpon>FiltrosCredencialEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\FiltrosRegistroDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1435,6 +1441,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltroObservaciones.resx">
       <DependentUpon>FiltroObservaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\FiltrosCredencialEmpleado.resx">
+      <DependentUpon>FiltrosCredencialEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\FiltrosRegistroDetalle.resx">
       <DependentUpon>FiltrosRegistroDetalle.cs</DependentUpon>
@@ -2548,6 +2557,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NEJS.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_keyboard_arrow_left_grey_600_18dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

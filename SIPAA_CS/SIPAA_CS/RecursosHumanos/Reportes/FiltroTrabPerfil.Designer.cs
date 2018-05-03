@@ -54,6 +54,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnimpdethr = new System.Windows.Forms.Button();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             lblubicacion = new System.Windows.Forms.Label();
             lblidcia = new System.Windows.Forms.Label();
             lblidtrab = new System.Windows.Forms.Label();
@@ -77,9 +78,9 @@
             lblubicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lblubicacion.Location = new System.Drawing.Point(41, 204);
             lblubicacion.Name = "lblubicacion";
-            lblubicacion.Size = new System.Drawing.Size(65, 16);
+            lblubicacion.Size = new System.Drawing.Size(125, 16);
             lblubicacion.TabIndex = 60;
-            lblubicacion.Text = "Ubicación";
+            lblubicacion.Text = "Ubicación (opcional)";
             // 
             // lblidcia
             // 
@@ -89,9 +90,9 @@
             lblidcia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lblidcia.Location = new System.Drawing.Point(41, 143);
             lblidcia.Name = "lblidcia";
-            lblidcia.Size = new System.Drawing.Size(66, 16);
+            lblidcia.Size = new System.Drawing.Size(126, 16);
             lblidcia.TabIndex = 58;
-            lblidcia.Text = "Compañia";
+            lblidcia.Text = "Compañia (opcional)";
             // 
             // lblidtrab
             // 
@@ -127,9 +128,9 @@
             lblimprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lblimprimir.Location = new System.Drawing.Point(20, 50);
             lblimprimir.Name = "lblimprimir";
-            lblimprimir.Size = new System.Drawing.Size(193, 17);
+            lblimprimir.Size = new System.Drawing.Size(246, 17);
             lblimprimir.TabIndex = 66;
-            lblimprimir.Text = "       Imprimir perfil trabajador";
+            lblimprimir.Text = "       Imprimir perfil trabajador (oculto)";
             // 
             // label1
             // 
@@ -152,9 +153,9 @@
             lblStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lblStatus.Location = new System.Drawing.Point(41, 32);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new System.Drawing.Size(53, 16);
+            lblStatus.Size = new System.Drawing.Size(113, 16);
             lblStatus.TabIndex = 62;
-            lblStatus.Text = "Estatus";
+            lblStatus.Text = "Estatus (opcional)";
             // 
             // lblCheca
             // 
@@ -164,9 +165,9 @@
             lblCheca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             lblCheca.Location = new System.Drawing.Point(41, 261);
             lblCheca.Name = "lblCheca";
-            lblCheca.Size = new System.Drawing.Size(45, 16);
+            lblCheca.Size = new System.Drawing.Size(105, 16);
             lblCheca.TabIndex = 64;
-            lblCheca.Text = "Checa";
+            lblCheca.Text = "Checa (opcional)";
             // 
             // label2
             // 
@@ -468,5 +469,6 @@
         private System.Windows.Forms.ComboBox cboStatus;
         private System.Windows.Forms.ComboBox CbCheca;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
