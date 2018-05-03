@@ -12,6 +12,8 @@ using System.Data.SqlClient;
 using SIPAA_CS.App_Code;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
 using static SIPAA_CS.App_Code.Usuario;
+using SIPAA_CS.RecursosHumanos.Reportes;
+using CrystalDecisions.CrystalReports.Engine;
 
 
 //***********************************************************************************************
@@ -250,6 +252,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                         }
                         else
                         {
+                            btnImprimir.Visible = true;
                             btnguardar.Enabled = false;
                             DialogResult result = MessageBox.Show("Este periodo ya fue procesado, solo puede consultar los registros de checadas", "SIPAA", MessageBoxButtons.OK);
                         }
@@ -262,6 +265,48 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
             }
 
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                btnImprimir.Enabled = false;
+                //valida se seleccione un periodo
+                if (Int32.Parse(cbtiponomina.SelectedValue.ToString()) == 0)
+                {
+                    DialogResult result = MessageBox.Show("Seleccione un tipo de nomina", "SIPAA");
+                    cbtiponomina.Focus();
+                }
+                else
+                {
+                    Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, buscando registros...");
+                    //imprime reporte
+                    DataTable dtreporte = new DataTable();
+                    dtreporte = ProcesaInc.dgvregistros(7, 0, 0, "", "", Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0, 0, LoginInfo.IdTrab, this.Name);
+
+                    //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
+                    ViewerReporte form = new ViewerReporte();
+                    rep_glinc dtrpt = new rep_glinc();
+                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtreporte, "SIPAA_CS.RecursosHumanos.Reportes", dtrpt.ResourceName);
+
+                    form.RptDoc = ReportDoc;
+                    form.Show();
+
+
+
+
+                }
+                btnImprimir.Enabled = true;
+                Cursor.Current = Cursors.Default;
+
+                pnlmenssuid.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

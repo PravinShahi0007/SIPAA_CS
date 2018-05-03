@@ -715,15 +715,9 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                     Cursor = Cursors.WaitCursor;
 
-                    //// panelAccion.Enabled = false;
-                    //Deshabilita_Botones(false);
-                    //pnlMensaje.Visible = true;
-                    //pnlMensaje.Enabled = true;
-                    //progressBar1.Visible = true;
-                    //Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Espere por favor. Descargando Registros...");
-                    //pnlMensaje.Enabled = false;
+             
 
-                    int iCont = 0;//Cuenta los relojes
+                    int iCont = 0;
                     RelojChecador objReloj = new RelojChecador();
                     DataTable dt = objReloj.RelojesxTrabajador("%", obj.cvReloj, 17, "%", "%");
                     iCont += 1;
@@ -731,7 +725,9 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     int regHuella = 0;
                     int regGpos = 0;
                     int regFace = 0;
-                    //*********
+                    int counter = 0;
+
+
                     pnlMensaje.Enabled = true;
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj.Count);
                     pnlMensaje.Enabled = false;
@@ -745,18 +741,17 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         bool BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
 
                         #region InsertaHuellas
-                        int counter = 0;
-                       // progressBar1.Maximum = dt.Rows.Count;
+                       
+                        // progressBar1.Maximum = dt.Rows.Count;
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando huellas.. ");
 
                         foreach (DataRow row in dt.Rows)
                         {
                             string idtrab = row["idtrab"].ToString();
-                            //string cvreloj = row[1].ToString();
                             string Nombre = row["Nombre"].ToString();
-                            // int Grupo = Convert.ToInt32(row["cvforma"].ToString());
                             int Permiso = 0;
                             string pass_desc = string.Empty;
+
 
                             if (!string.IsNullOrEmpty(row["pass"].ToString()))
                                 pass_desc = Utilerias.descifrar(row["pass"].ToString());
@@ -765,7 +760,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                             if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
                             {
-                               if (row["huellaTmp"].ToString() != String.Empty)
+                                if (row["huellaTmp"].ToString() != String.Empty)
                                 {
                                     int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
                                     string tmpHuella = "";
@@ -778,15 +773,11 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                         {
                                             regHuella += 1;
                                             counter += 1;
-                                           // progressBar1.Value = counter;
-                                           // pnlMensaje.Enabled = true;
-                                          //  Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando huellas (" + counter + ")");
-                                           // pnlMensaje.Enabled = false;
-                                            //System.Threading.Thread.Sleep(20);
+                                          
                                         }
                                     }
                                 }
-                               else
+                                else
                                     counter += 1;
 
                             }
@@ -798,12 +789,22 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         bool RefreshData = objCZKEM.RefreshData(1);
                         objCZKEM.Disconnect();
 
+                    }
+                    else
+                    {
+                        pnlMensaje.Enabled = true;
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                        pnlMensaje.Enabled = false;
+                        progressBar1.Visible = false;
+                        pnlMensaje.Enabled = true;
+                    }
+                    
                         #region InsertaGrupos
                         bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
 
                         if (bConexion)
                         {
-                            BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
+                           bool BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
                         
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando grupos..");
                             System.Threading.Thread.Sleep(20);
@@ -829,14 +830,14 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                    
                                 }
                             }
-                            System.Threading.Thread.Sleep(20);
+                       
 
-                            BatchUpdate = objCZKEM.BatchUpdate(1);
-                            RefreshData = objCZKEM.RefreshData(1);
+                            objCZKEM.BatchUpdate(1);
+                            objCZKEM.RefreshData(1);
                             objCZKEM.Disconnect();
                         }
                         #endregion
-
+                        
                         //Obteniendo rostros...
                         counter = 0;
                         faces = new LinkedList<FaceTmp>();
@@ -849,15 +850,9 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             {
                                 string RostroTmp = row["rostroTmp"].ToString();
                                 int rostrolong = Convert.ToInt32(row["rostrolong"].ToString());
-
                                 faces.AddLast(new FaceTmp(idtrab, 50, RostroTmp, rostrolong));
-
                                 counter += 1;
-                                // progressBar1.Value = counter;
-                                // pnlMensaje.Enabled = true;
-                                // Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Obteniendo rostros (" + counter + ")");
-                                // pnlMensaje.Enabled = false;
-                                // System.Threading.Thread.Sleep(20);
+                                
                             }
                             else
                                 counter += 1;
@@ -865,7 +860,6 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         
                         //Insertando rostros...
                         bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
-
                         if (bConexion)
                         {
                             //Reiniciando dispositivo...
@@ -874,20 +868,20 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Espere un momento por favor");
                             pnlMensaje.Enabled = false;
                             System.Threading.Thread.Sleep(60000);
-                            //**************************
+                        
+
+                        }
 
                             bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
-
                             if (bConexion)
                             {
-                                counter = 0;
-                                pnlMensaje.Enabled = true;
-                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando rostros...");
-                                foreach (FaceTmp ft in faces)
-                                {
-
-                                    if (objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong))
-                                    {
+                              counter = 0;
+                              pnlMensaje.Enabled = true;
+                              Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando rostros...");
+                              foreach (FaceTmp ft in faces)
+                              {
+                                 if (objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong))
+                                   {
                                        
                                         regFace += 1;
                                         counter += 1;
@@ -895,14 +889,14 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     }
 
                                 }
-                                //System.Threading.Thread.Sleep(20);
+                           
                                 objCZKEM.BatchUpdate(1);
                                 objCZKEM.RefreshData(1);
                                 objCZKEM.Disconnect();
 
 
                             }
-                        }
+                      
 
                         if (regHuella > 0 && regGpos > 0 && regFace > 0)
                         {
@@ -923,15 +917,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             MessageBox.Show("Reloj: " + obj.Descripcion + "\nError en la inserción de datos\nHuellas: " + (regHuella > 0 ? "OK" : "Falló") + "\nGrupos: " + (regGpos > 0 ? "OK" : "Falló") + "\nRostros: " + (regFace > 0 ? "OK" : "Falló"), "SIPAA", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         }
-                    }
-                    else
-                    {
-                        pnlMensaje.Enabled = true;
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
-                        pnlMensaje.Enabled = false;
-                        progressBar1.Visible = false;
-                        pnlMensaje.Enabled = true;
-                    }
+                       
+                    
                     #endregion
                 }
 

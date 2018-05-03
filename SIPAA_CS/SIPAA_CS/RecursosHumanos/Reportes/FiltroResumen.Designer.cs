@@ -179,9 +179,9 @@
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label5.Location = new System.Drawing.Point(30, 155);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(94, 16);
+            label5.Size = new System.Drawing.Size(106, 16);
             label5.TabIndex = 60;
-            label5.Text = "Plantel / Ubicación";
+            label5.Text = "Ubicación (Opcional)";
             // 
             // label6
             // 
@@ -191,9 +191,9 @@
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label6.Location = new System.Drawing.Point(30, 92);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(56, 16);
+            label6.Size = new System.Drawing.Size(108, 16);
             label6.TabIndex = 58;
-            label6.Text = "Compañia";
+            label6.Text = "Compañia (Opcional)";
             // 
             // label8
             // 
@@ -203,9 +203,9 @@
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label8.Location = new System.Drawing.Point(30, 26);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(135, 16);
+            label8.Size = new System.Drawing.Size(198, 16);
             label8.TabIndex = 44;
-            label8.Text = "Nombre de Trabajador";
+            label8.Text = "Nombre de Trabajador (Opcional)";
             // 
             // label9
             // 
@@ -228,9 +228,9 @@
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label4.Location = new System.Drawing.Point(30, 345);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(68, 16);
+            label4.Size = new System.Drawing.Size(120, 16);
             label4.TabIndex = 66;
-            label4.Text = "Tipo Nomina";
+            label4.Text = "Tipo Nomina (Opcional)";
             // 
             // label11
             // 
@@ -240,9 +240,9 @@
             label11.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             label11.Location = new System.Drawing.Point(30, 275);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(74, 16);
+            label11.Size = new System.Drawing.Size(126, 16);
             label11.TabIndex = 70;
-            label11.Text = "Departamento";
+            label11.Text = "Departamento (Opcional)";
             label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label12
@@ -266,9 +266,9 @@
             label13.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             label13.Location = new System.Drawing.Point(30, 214);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(69, 16);
+            label13.Size = new System.Drawing.Size(83, 16);
             label13.TabIndex = 181;
-            label13.Text = "Planta / Área";
+            label13.Text = "Área (Opcional)";
             label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label14
@@ -292,9 +292,9 @@
             label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label15.Location = new System.Drawing.Point(21, 340);
             label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(29, 16);
+            label15.Size = new System.Drawing.Size(81, 16);
             label15.TabIndex = 182;
-            label15.Text = "Tipo";
+            label15.Text = "Tipo (Opcional)";
             // 
             // label16
             // 
@@ -304,9 +304,9 @@
             label16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label16.Location = new System.Drawing.Point(21, 276);
             label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(63, 16);
+            label16.Size = new System.Drawing.Size(126, 16);
             label16.TabIndex = 180;
-            label16.Text = "Concepto";
+            label16.Text = "Concepto (Opcional)";
             // 
             // label10
             // 
@@ -340,9 +340,9 @@
             label18.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             label18.Location = new System.Drawing.Point(21, 154);
             label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(69, 16);
+            label18.Size = new System.Drawing.Size(83, 16);
             label18.TabIndex = 195;
-            label18.Text = "Planta / Área";
+            label18.Text = "Área (Opcional)";
             label18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label19
@@ -353,9 +353,9 @@
             label19.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             label19.Location = new System.Drawing.Point(21, 216);
             label19.Name = "label19";
-            label19.Size = new System.Drawing.Size(74, 16);
+            label19.Size = new System.Drawing.Size(126, 16);
             label19.TabIndex = 193;
-            label19.Text = "Departamento";
+            label19.Text = "Departamento (Opcional)";
             label19.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label20
@@ -366,9 +366,9 @@
             label20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label20.Location = new System.Drawing.Point(21, 94);
             label20.Name = "label20";
-            label20.Size = new System.Drawing.Size(94, 16);
+            label20.Size = new System.Drawing.Size(106, 16);
             label20.TabIndex = 191;
-            label20.Text = "Plantel / Ubicación";
+            label20.Text = "Ubicación (Opcional)";
             // 
             // label21
             // 
@@ -378,9 +378,9 @@
             label21.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label21.Location = new System.Drawing.Point(21, 26);
             label21.Name = "label21";
-            label21.Size = new System.Drawing.Size(56, 16);
+            label21.Size = new System.Drawing.Size(108, 16);
             label21.TabIndex = 189;
-            label21.Text = "Compañia";
+            label21.Text = "Compañia (Opcional)";
             // 
             // label22
             // 
@@ -403,9 +403,9 @@
             label23.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             label23.Location = new System.Drawing.Point(14, 275);
             label23.Name = "label23";
-            label23.Size = new System.Drawing.Size(74, 16);
+            label23.Size = new System.Drawing.Size(126, 16);
             label23.TabIndex = 188;
-            label23.Text = "Departamento";
+            label23.Text = "Departamento (Opcional)";
             label23.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label24
@@ -416,9 +416,9 @@
             label24.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label24.Location = new System.Drawing.Point(14, 155);
             label24.Name = "label24";
-            label24.Size = new System.Drawing.Size(94, 16);
+            label24.Size = new System.Drawing.Size(106, 16);
             label24.TabIndex = 186;
-            label24.Text = "Plantel / Ubicación";
+            label24.Text = "Ubicación (Opcional)";
             // 
             // label25
             // 
@@ -428,9 +428,9 @@
             label25.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label25.Location = new System.Drawing.Point(14, 92);
             label25.Name = "label25";
-            label25.Size = new System.Drawing.Size(56, 16);
+            label25.Size = new System.Drawing.Size(108, 16);
             label25.TabIndex = 184;
-            label25.Text = "Compañia";
+            label25.Text = "Compañia (Opcional)";
             // 
             // label26
             // 
@@ -440,9 +440,9 @@
             label26.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label26.Location = new System.Drawing.Point(14, 26);
             label26.Name = "label26";
-            label26.Size = new System.Drawing.Size(135, 16);
+            label26.Size = new System.Drawing.Size(198, 16);
             label26.TabIndex = 182;
-            label26.Text = "Nombre de Trabajador";
+            label26.Text = "Nombre de Trabajador (Opcional)";
             // 
             // label27
             // 
@@ -489,9 +489,9 @@
             label30.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             label30.Location = new System.Drawing.Point(14, 217);
             label30.Name = "label30";
-            label30.Size = new System.Drawing.Size(69, 16);
+            label30.Size = new System.Drawing.Size(83, 16);
             label30.TabIndex = 183;
-            label30.Text = "Planta / Área";
+            label30.Text = "Área (Opcional)";
             label30.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label31
@@ -502,9 +502,9 @@
             label31.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label31.Location = new System.Drawing.Point(14, 342);
             label31.Name = "label31";
-            label31.Size = new System.Drawing.Size(63, 16);
+            label31.Size = new System.Drawing.Size(126, 16);
             label31.TabIndex = 203;
-            label31.Text = "Concepto";
+            label31.Text = "Concepto (Opcional)";
             // 
             // label3
             // 
