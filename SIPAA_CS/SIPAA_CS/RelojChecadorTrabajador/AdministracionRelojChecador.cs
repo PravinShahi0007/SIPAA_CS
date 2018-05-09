@@ -1276,6 +1276,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         {
 
             openFileDialog1.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+          
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             openFileDialog1.InitialDirectory = path;
             openFileDialog1.Title = "Seleccione las fotografias";
@@ -1290,10 +1291,36 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 {
                     string Origen = Path.GetFullPath(file);
                     string Nombre = Path.GetFileName(file);
-                    string Destino = @"\\192.168.30.171\Fotos_emp\"+Nombre; 
-                    File.Copy(Origen,Destino, true);
-                    Contador += 1;
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la Fotografía "+Contador+" de "+ openFileDialog1.FileNames.Length.ToString());
+                   //string Destino = @"\\192.168.30.171\Fotos_emp\"+Nombre;
+                    string Destino = @"\\192.168.30.171\FotosJs\FotosRelojChecador\" + Nombre;
+                    if (File.Exists(Destino))
+                    {
+                        DialogResult Result = MessageBox.Show("La fotografía "+Nombre+" ya existe \n ¿Desea sobrescribir el archivo?");
+                        if (Result == DialogResult.Yes)
+                        {
+                            File.Copy(Origen, Destino, true);
+                            Contador += 1;
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
+                        }
+                        else
+                        {
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio " );
+                            continue;
+                        }
+                          
+
+                    }
+                    else
+                    {
+                        File.Copy(Origen, Destino);
+                        Contador += 1;
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la Fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
+                    }
+
+
+                      
+                    //Contador += 1;
+                   // Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la Fotografía "+Contador+" de "+ openFileDialog1.FileNames.Length.ToString());
                 }
                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias subidas exitosamente");
                 MessageBox.Show("Fotografias subidas exitosamente"); 
@@ -1688,6 +1715,218 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             //        prgb1.Value = 90;
             //    }
             //}
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            openFileDialog1.InitialDirectory = path;
+            openFileDialog1.Title = "Seleccione las fotografias";
+            openFileDialog1.Multiselect = true;
+            DialogResult Resultado = openFileDialog1.ShowDialog();
+
+            if (Resultado == DialogResult.OK)
+            {
+                int Contador = 0;
+
+                foreach (String file in openFileDialog1.FileNames)
+                {
+                    string Origen = Path.GetFullPath(file);
+                    string Nombre = Path.GetFileName(file);
+                    string Destino = @"\\192.168.30.171\FotosJs\FotosEmpleados\" + Nombre;
+                    if (File.Exists(Destino))
+                    {
+                        DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?");
+                        if (Result == DialogResult.Yes)
+                        {
+                            File.Copy(Origen, Destino, true);
+                            Contador += 1;
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
+                        }
+                        else
+                        {
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
+                            continue;
+                        }
+
+
+                    }
+                    else
+                    {
+                        File.Copy(Origen, Destino);
+                        Contador += 1;
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
+                    }
+
+
+
+                   
+                }
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias subidas exitosamente");
+                MessageBox.Show("Fotografias subidas exitosamente");
+
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            openFileDialog1.InitialDirectory = path;
+            openFileDialog1.Title = "Seleccione las fotografias";
+            openFileDialog1.Multiselect = true;
+            DialogResult Resultado = openFileDialog1.ShowDialog();
+
+            if (Resultado == DialogResult.OK)
+            {
+                int Contador = 0;
+
+                foreach (String file in openFileDialog1.FileNames)
+                {
+                    string Origen = Path.GetFullPath(file);
+                    string Nombre = Path.GetFileName(file);
+                    string Destino = @"\\192.168.30.171\FotosJs\NOI\" + Nombre;
+                    if (File.Exists(Destino))
+                    {
+                        DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?");
+                        if (Result == DialogResult.Yes)
+                        {
+                            File.Copy(Origen, Destino, true);
+                            Contador += 1;
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
+                        }
+                        else
+                        {
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
+                            continue;
+                        }
+
+
+                    }
+                    else
+                    {
+                        File.Copy(Origen, Destino);
+                        Contador += 1;
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la Fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
+                    }
+
+
+
+                    
+                }
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias subidas exitosamente");
+                MessageBox.Show("Fotografias subidas exitosamente");
+
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            openFileDialog2.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            //openFileDialog2.InitialDirectory = @"\\192.168.30.171\FotosJs\FotosEmpleados";
+            openFileDialog2.InitialDirectory = @"\\192.168.30.171\FotosJs\FotosEmpleados";
+            
+            openFileDialog2.Title = "Seleccione las fotografias";
+            openFileDialog2.Multiselect = true;
+            DialogResult Resultado = openFileDialog2.ShowDialog();
+
+            if (Resultado == DialogResult.OK)
+            {
+                int Contador = 0;
+                DialogResult Resultado2 = folderBrowserDialog.ShowDialog();
+                if (Resultado2 == DialogResult.OK)
+                {
+                    string Destino = folderBrowserDialog.SelectedPath;
+                    foreach (String file in openFileDialog2.FileNames)
+                    {
+                        
+                        string Origen = Path.GetFullPath(file);
+                        string Nombre = Path.GetFileName(file);
+                        Destino = Destino+@"\"+Nombre;
+                        if (File.Exists(Destino))
+                        {
+                            DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?");
+                            if (Result == DialogResult.Yes)
+                            {
+                                File.Copy(Origen, Destino, true);
+                                Contador += 1;
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando la fotografía " + Contador + " de " + openFileDialog2.FileNames.Length.ToString());
+                            }
+                            else
+                            {
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            File.Copy(Origen, Destino);
+                            Contador += 1;
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando la Fotografía " + Contador + " de " + openFileDialog2.FileNames.Length.ToString());
+                        }
+                    }
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias descargadas exitosamente");
+                    MessageBox.Show("Fotografias descargadas exitosamente");
+
+                }
+            }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            openFileDialog2.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            // openFileDialog2.InitialDirectory = @"\\192.168.30.171\FotosJs\FotosNOI";
+            openFileDialog2.InitialDirectory = @"\\192.168.30.171\FotosJs\NOI";
+            openFileDialog2.Title = "Seleccione las fotografias";
+            openFileDialog2.Multiselect = true;
+            DialogResult Resultado = openFileDialog2.ShowDialog();
+
+            if (Resultado == DialogResult.OK)
+            {
+                int Contador = 0;
+                DialogResult Resultado2 = folderBrowserDialog.ShowDialog();
+                if (Resultado2 == DialogResult.OK)
+                {
+                    string Destino = folderBrowserDialog.SelectedPath;
+                    foreach (String file in openFileDialog2.FileNames)
+                    {
+
+                        string Origen = Path.GetFullPath(file);
+                        string Nombre = Path.GetFileName(file);
+                        Destino = Destino + @"\" + Nombre;
+                        if (File.Exists(Destino))
+                        {
+                            DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?");
+                            if (Result == DialogResult.Yes)
+                            {
+                                File.Copy(Origen, Destino, true);
+                                Contador += 1;
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando la fotografía " + Contador + " de " + openFileDialog2.FileNames.Length.ToString());
+                            }
+                            else
+                            {
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            File.Copy(Origen, Destino);
+                            Contador += 1;
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando la Fotografía " + Contador + " de " + openFileDialog2.FileNames.Length.ToString());
+                        }
+                    }
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias descargadas exitosamente");
+                    MessageBox.Show("Fotografias Descargadas exitosamente");
+                }
+            }
         }
     }
 

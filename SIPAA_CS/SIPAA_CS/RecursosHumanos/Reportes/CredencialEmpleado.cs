@@ -307,7 +307,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 try { front.imgs.Add(ZMotifCard.background, new ZMotifImage(ImageToByteArray(frontBackground(Compania)), 0, 0, ZMotifGraphics.ImagePositionEnum.Centered, 648, 1024, 0)); }
                 catch { }
 
-                try { front.imgs.Add("FotoEmpleado", new ZMotifImage(g.ImageFileToByteArray(@"\\172.165.1.10\sipaa_web\img\Fotos\" + cboEmpleados.SelectedValue + ".jpg"), 23f, 209f, ZMotifGraphics.ImagePositionEnum.Centered, 303, 305, 0)); }
+                try { front.imgs.Add("FotoEmpleado", new ZMotifImage(g.ImageFileToByteArray(@"\\192.168.30.171\FotosJS\FotosEmpleados\" + cboEmpleados.SelectedValue + ".jpg"), 23f, 209f, ZMotifGraphics.ImagePositionEnum.Centered, 303, 305, 0)); }
                 catch { front.imgs.Add("FotoEmpleado", new ZMotifImage(ImageToByteArray(pictureBox1.ErrorImage), 23f, 209f, ZMotifGraphics.ImagePositionEnum.Centered, 75, 75, 0)); }
 
                 if (Compania.Equals("GMX GRUPO CONSULTOR S.A DE C.V"))
