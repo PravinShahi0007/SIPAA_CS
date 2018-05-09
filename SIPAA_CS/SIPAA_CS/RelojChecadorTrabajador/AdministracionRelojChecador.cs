@@ -1869,6 +1869,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     }
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias descargadas exitosamente");
                     MessageBox.Show("Fotografias descargadas exitosamente");
+
                 }
             }
         }
