@@ -1558,16 +1558,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
                         {
                             if (row["huellaTmp"].ToString() != String.Empty)
-                           // {
-                                //int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
-                                //string tmpHuella = "";
-                                //tmpHuella = row["huellaTmp"].ToString();
-                             objCZKEM.SetUserTmpExStr(1, idtrab, Convert.ToInt32(row["indicehuella"].ToString()), 1, row["huellaTmp"].ToString());
-
-
-                                
-                            //}
+                               objCZKEM.SetUserTmpExStr(1, idtrab, Convert.ToInt32(row["indicehuella"].ToString()), 1, row["huellaTmp"].ToString());
+                            
                         }
+                      
                     }
 
 
@@ -1619,7 +1613,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             continue;
                         }
 
-                    faces = new LinkedList<FaceTmp>();
+                 faces = new LinkedList<FaceTmp>();
                  dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 19, "%", "%");
                     foreach (DataRow row in dt.Rows)
                         {
@@ -1636,18 +1630,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                         bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                 if (bConexion)
-                {
-                    objCZKEM.BeginBatchUpdate(1, 1);
                     objCZKEM.RestartDevice(1);
-                    objCZKEM.Disconnect();
-                }
+                   
+               
                 System.Threading.Thread.Sleep(60000);
+
                 bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                 if (bConexion)
                 {
                  ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando rostro...");
                  foreach (FaceTmp ft in faces)
-                 { objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong); }
+                 {
+                 objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong); }
                  objCZKEM.BatchUpdate(1);
                  objCZKEM.RefreshData(1);
                  objCZKEM.Disconnect();
