@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>41</ApplicationRevision>
+    <ApplicationRevision>42</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -388,6 +388,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Conceptos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\dtrepglinc.cs">
+      <DependentUpon>dtrepglinc.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\DataSets\dtrepglinc.Designer.cs">
       <AutoGen>True</AutoGen>
