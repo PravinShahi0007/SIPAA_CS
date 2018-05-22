@@ -96,6 +96,7 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             label2 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -938,9 +939,14 @@
             this.openFileDialog1.FileName = "Seleccione ";
             this.openFileDialog1.ReadOnlyChecked = true;
             // 
+            // folderBrowserDialog
+            // 
+            this.folderBrowserDialog.Description = "Seleccione una carpeta";
+            this.folderBrowserDialog.ShowNewFolderButton = false;
+            // 
             // openFileDialog2
             // 
-            this.openFileDialog2.FileName = "Seleccione RLR";
+            this.openFileDialog2.FileName = "Seleccione ";
             // 
             // AdministracionRelojChecador
             // 
@@ -1031,5 +1037,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

@@ -289,11 +289,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     }
                 }
                 else
-                {
-
-                    // panelAccion.Enabled = false;
-                    Deshabilita_Botones(false);
-                }
+                   Deshabilita_Botones(false);
+               
 
 
 
@@ -338,7 +335,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                 case "Rostro": if (bBandera != true) { btnFace.Enabled = false; } else { btnFace.Enabled = true; } break;
 
-                //case "Huella": if (bBandera != true) { btnHuella.Enabled = false; } else { btnHuella.Enabled = true; } break;
+               
             }
 
         }
@@ -422,13 +419,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                                                                                          , ref iWorkCode))
                                     {
                                         iContReg += 1;
-                                       /* pnlMensaje.Enabled = true;
-                                       // Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando Registro " + iContReg);
-                                        pnlMensaje.Enabled = false;
-                                        if (progressBar1.Value + (iCont * 5) <= progressBar1.Maximum)
-                                            progressBar1.Value = progressBar1.Value + (iCont * 5);
-                                        // string sIdTrabCifrado = Utilerias.cifrarPass(sIdTrab, 1); AQUI DEBERIA DE IR EL CIFRADO DEL NUMERO DE EMPLEADO
-                                        pnlMensaje.Enabled = false;*/
+                                      
                                         bBandera = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, obj.cvReloj, iModoCheck);
 
                                     }
@@ -490,116 +481,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 }
                 ltReloj.Clear();
                 LlenarGrid(6, 0, "%", "%", "%", 0, "", "");
-                /*
-
-                      foreach (Reloj obj in ltReloj)
-                      {
-                          DialogResult Resultado = MessageBox.Show("El reloj " + obj.Descripcion.ToString() + " tuvo una descarga de asistencia  \nen la fecha:   " + obj.UltimaDescarga + " \n¿Desea Sincronizarlo de nuevo?", "SIPPA", MessageBoxButtons.YesNo);
-
-                          if (Resultado == DialogResult.Yes)
-                          {
-                              panelTag.Update();
-                              Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Espere por favor. Descargando Registros...");
-                              panelTag.Update();
-                              progressBar1.Visible = true;
-                              progressBar1.Value = 20;
-                              panelAccion.Enabled = false;
-                              pnlMensaje.Enabled = false;
-                              int sVerify, iModoCheck, iAnho, iDia, iMes, iHora, iMinuto, iSegundo, iWorkCode, iCont;
-                              sVerify = iModoCheck = iAnho = iDia = iMes = iHora = iMinuto = iSegundo = iWorkCode = iCont = 0;
-                              string sIP, sIdTrab;
-                              sIP=sIdTrab = String.Empty;
-                              bool bBandera = false;
-                              try
-                              {
-                                  iCont += 1;
-                                  pnlMensaje.Enabled = true;
-                                  Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj.Count);
-                                  panelTag.Update();
-                                  progressBar1.Value = 40;
-                                  pnlMensaje.Enabled = false;
-                                  bool bConexion = Connect_Net(obj.IpReloj, 4370);
-                                  objCZKEM.ReadAllUserID(1);
-                                  objCZKEM.ReadAllTemplate(1);
-
-
-                                  if (bConexion != false)
-                                  {
-
-                                      if (objCZKEM.ReadAllGLogData(1))
-                                      {
-                                          int iContReg = 0;
-                                          while (objCZKEM.SSR_GetGeneralLogData(1, out sIdTrab, out sVerify, out iModoCheck, out iAnho
-                                                                                                               , out iMes, out iDia, out iHora, out iMinuto, out iSegundo
-                                                                                                               , ref iWorkCode))
-                                          {
-                                              iContReg += 1;
-                                              pnlMensaje.Enabled = true;
-                                              Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando Registro " + iContReg);
-                                              panelTag.Update();
-                                              pnlMensaje.Enabled = false;
-                                              if (progressBar1.Value + (iCont * 5) <= progressBar1.Maximum)
-                                                  progressBar1.Value = progressBar1.Value + (iCont * 5);
-                                              // string sIdTrabCifrado = Utilerias.cifrarPass(sIdTrab, 1);
-                                              bBandera = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, obj.cvReloj, iModoCheck);
-                                          }
-                                      }
-                                      objCZKEM.Disconnect();
-                                      progressBar1.Value = 90;
-                                      if (bBandera)
-                                      {
-                                          pnlMensaje.Enabled = true;
-                                          RelojChecador objReloj = new RelojChecador();
-                                          objReloj.obtrelojeschecadores(7, obj.cvReloj, "", "", "", 0, "", "");
-                                          Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registros Guardados correctamente");
-                                          panelTag.Update();
-                                          pnlMensaje.Enabled = false;
-                                          timer1.Start();
-                                          objCZKEM.Disconnect();
-                                      }
-                                      else
-                                      {
-                                          pnlMensaje.Enabled = true;
-                                          Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Uno o más registros no se guardaron correctamente. Por Favor Repite el Proceso");
-                                          panelTag.Update();
-                                          pnlMensaje.Enabled = false;
-                                          timer1.Start();
-                                          objCZKEM.Disconnect();
-                                      }
-
-
-                                  }
-                                  else
-                                  {
-                                      pnlMensaje.Enabled = true;
-                                      Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
-                                      panelTag.Update();
-                                      progressBar1.Visible = false;
-
-
-                                  }
-                              }
-                              catch (Exception ex)
-                              { 
-                                  //  Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, ex.Message);
-                              }
-
-                          }
-                         else
-                          {
-                              Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descarga de asistencia cancelada para el reloj "+obj.Descripcion);
-
-                          }
-                      }
-
-                      ltReloj.Clear();
-                      panelAccion.Enabled = false;
-                      progressBar1.Value = 100;
-                      progressBar1.Visible = false;
-                      LlenarGrid(6, 0, "%", "%", "%", 0, "", "");
-                      timer1.Start();
-                      timer2.Start();
-                      panelTag.Update();  */
+             
 
             }
             else
@@ -1275,57 +1157,10 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         private void btnFace_Click(object sender, EventArgs e)
         {
 
-            openFileDialog1.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-          
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            openFileDialog1.InitialDirectory = path;
-            openFileDialog1.Title = "Seleccione las fotografias";
-            openFileDialog1.Multiselect = true;
-            DialogResult Resultado = openFileDialog1.ShowDialog();
 
-            if (Resultado== DialogResult.OK)
-            {
-                int Contador = 0; 
+            string Ubicacion = @"\\192.168.30.171\FotosJs\FotosRelojChecador\";
+            EnviaRecursosCarpeta(Ubicacion, false);
 
-                foreach (String file in openFileDialog1.FileNames)
-                {
-                    string Origen = Path.GetFullPath(file);
-                    string Nombre = Path.GetFileName(file);
-                   //string Destino = @"\\192.168.30.171\Fotos_emp\"+Nombre;
-                    string Destino = @"\\192.168.30.171\FotosJs\FotosRelojChecador\" + Nombre;
-                    if (File.Exists(Destino))
-                    {
-                        DialogResult Result = MessageBox.Show("La fotografía "+Nombre+" ya existe \n ¿Desea sobrescribir el archivo?");
-                        if (Result == DialogResult.Yes)
-                        {
-                            File.Copy(Origen, Destino, true);
-                            Contador += 1;
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
-                        }
-                        else
-                        {
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio " );
-                            continue;
-                        }
-                          
-
-                    }
-                    else
-                    {
-                        File.Copy(Origen, Destino);
-                        Contador += 1;
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la Fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
-                    }
-
-
-                      
-                    //Contador += 1;
-                   // Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la Fotografía "+Contador+" de "+ openFileDialog1.FileNames.Length.ToString());
-                }
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias subidas exitosamente");
-                MessageBox.Show("Fotografias subidas exitosamente"); 
-                
-            }
         }
 
         private void btnHuella_Click(object sender, EventArgs e)
@@ -1676,188 +1511,226 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
             }
             else
-            {
-
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No existen relojes para sincronizar.");
-
-            }
+              Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No existen relojes para sincronizar.");
 
 
-            //foreach (Reloj obj in ltReloj)
-            //{
-            //    iCont += 1;
-            //    panelMensaje.Enabled = true;
-            //    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj.Count);
-            //    prgb1.Value = 40;
-            //    panelMensaje.Enabled = false;
-            //    bool bConect = objCZKEM.Connect_Net(obj.IpReloj, 4370);
 
-            //    if (bConect != false)
-            //    {
-            //        prgb1.Value = prgb1.Value + (10 / ltReloj.Count);
-            //        switch (iOpcionAdmin)
-            //        {
-
-            //            case 0:
-            //                int iAnio = Convert.ToInt32(cbAnio.SelectedItem.ToString());
-            //                int iMes = cbMes.SelectedIndex + 1;
-            //                int iDia = cbdia.SelectedIndex + 1;
-            //                int iHora = cbHora.SelectedIndex;
-            //                int iMinuto = cbMinutos.SelectedIndex;
-            //                if (!objCZKEM.SetDeviceTime2(1, iAnio, iMes, iDia, iHora, iMinuto, 0)) { bBandera = true; }
-            //                break;
-
-            //            case 1:
-            //                if (!objCZKEM.SetDeviceTime(1)) { bBandera = true; }
-            //                break;
-            //        }
-
-            //        prgb1.Value = 90;
-            //    }
-            //}
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            openFileDialog1.InitialDirectory = path;
-            openFileDialog1.Title = "Seleccione las fotografias";
-            openFileDialog1.Multiselect = true;
-            DialogResult Resultado = openFileDialog1.ShowDialog();
-
-            if (Resultado == DialogResult.OK)
-            {
-                int Contador = 0;
-
-                foreach (String file in openFileDialog1.FileNames)
-                {
-                    string Origen = Path.GetFullPath(file);
-                    string Nombre = Path.GetFileName(file);
-                    string Destino = @"\\192.168.30.171\FotosJs\FotosEmpleados\" + Nombre;
-                    if (File.Exists(Destino))
-                    {
-                        DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?");
-                        if (Result == DialogResult.Yes)
-                        {
-                            File.Copy(Origen, Destino, true);
-                            Contador += 1;
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
-                        }
-                        else
-                        {
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
-                            continue;
-                        }
-
-
-                    }
-                    else
-                    {
-                        File.Copy(Origen, Destino);
-                        Contador += 1;
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
-                    }
 
 
 
-                   
-                }
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias subidas exitosamente");
-                MessageBox.Show("Fotografias subidas exitosamente");
-
-            }
+            string Ubicacion = @"\\192.168.30.171\FotosJs\FotosEmpleados\";
+            EnviaRecursosCarpeta(Ubicacion, true);
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            openFileDialog1.InitialDirectory = path;
-            openFileDialog1.Title = "Seleccione las fotografias";
-            openFileDialog1.Multiselect = true;
-            DialogResult Resultado = openFileDialog1.ShowDialog();
+            string Ubicacion = @"\\192.168.30.171\FotosJs\NOI\";
+            EnviaRecursosCarpeta(Ubicacion, false); 
 
-            if (Resultado == DialogResult.OK)
-            {
-                int Contador = 0;
-
-                foreach (String file in openFileDialog1.FileNames)
-                {
-                    string Origen = Path.GetFullPath(file);
-                    string Nombre = Path.GetFileName(file);
-                    string Destino = @"\\192.168.30.171\FotosJs\NOI\" + Nombre;
-                    if (File.Exists(Destino))
-                    {
-                        DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?");
-                        if (Result == DialogResult.Yes)
-                        {
-                            File.Copy(Origen, Destino, true);
-                            Contador += 1;
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
-                        }
-                        else
-                        {
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
-                            continue;
-                        }
-
-
-                    }
-                    else
-                    {
-                        File.Copy(Origen, Destino);
-                        Contador += 1;
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la Fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
-                    }
-
-
-
-                    
-                }
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias subidas exitosamente");
-                MessageBox.Show("Fotografias subidas exitosamente");
-
-            }
+           
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
 
-            openFileDialog2.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            //openFileDialog2.InitialDirectory = @"\\192.168.30.171\FotosJs\FotosEmpleados";
-            openFileDialog2.InitialDirectory = @"\\192.168.30.171\FotosJs\FotosEmpleados";
+            string Ruta = @"\\192.168.30.171\FotosJs\FotosEmpleados";
+            ObtieneRecursosCarpeta(Ruta);
+           
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+            string Ruta = @"\\192.168.30.171\FotosJs\NOI";
+            ObtieneRecursosCarpeta(Ruta);
             
-            openFileDialog2.Title = "Seleccione las fotografias";
+        }
+
+
+        public void EnviaRecursosCarpeta(string Ubicacion, bool bandera)
+        {
+            openFileDialog1.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            openFileDialog1.InitialDirectory = path;
+            openFileDialog1.Title = "Seleccione las fotografias";
+            openFileDialog1.Multiselect = true;
+            DialogResult Resultado = openFileDialog1.ShowDialog();
+
+            if (Resultado == DialogResult.OK)
+            {
+                int Contador = 0;
+                int ContadorRepetidas = 0;
+
+                foreach (String file in openFileDialog1.FileNames)
+                {
+                    string Origen = Path.GetFullPath(file);
+                    string Nombre = Path.GetFileName(file);
+                    string Destino = Ubicacion + Nombre;
+                    
+
+                    if (File.Exists(Destino))
+                    {
+                        if (ContadorRepetidas >= 1)
+                        {
+                            DialogResult Result2 = MessageBox.Show("¿Desea sobreescribir el resto de los archivos? ", "SIPAA", MessageBoxButtons.YesNo);
+                            if (Result2 == DialogResult.Yes)
+                            {
+                                foreach (String file2 in openFileDialog1.FileNames)
+                                {
+                                    string Origen2 = Path.GetFullPath(file2);
+                                    string Nombre2 = Path.GetFileName(file2);
+                                    string Destino2 = Ubicacion + Nombre2;
+                                    File.Copy(Origen2, Destino2, true);
+                                    EnviaSicea(Nombre2, Origen2);
+                                    Contador += 1;
+                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
+
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?", "SIPAA", MessageBoxButtons.YesNo);
+                                if (Result == DialogResult.Yes)
+                                {
+
+                                    File.Copy(Origen, Destino, true);
+                                    EnviaSicea(Nombre,Origen);
+                                    Contador += 1;
+                                    ContadorRepetidas += 1;
+                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
+
+                                }
+                                else
+                                {
+                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
+                                    continue;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?", "SIPAA", MessageBoxButtons.YesNo);
+                            if (Result == DialogResult.Yes)
+                            {
+                                File.Copy(Origen, Destino, true);
+                                EnviaSicea(Nombre, Origen);
+                                Contador += 1;
+                                ContadorRepetidas += 1;
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
+
+                            }
+                            else
+                            {
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
+                                continue;
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        File.Copy(Origen, Destino);
+                        EnviaSicea(Nombre, Origen); 
+                        Contador += 1;
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());
+                    }
+
+                }
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias subidas exitosamente");
+                MessageBox.Show("Fotografias subidas exitosamente");
+            }
+        }
+
+        public void ObtieneRecursosCarpeta(string Ruta)
+        {
+            openFileDialog2.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            openFileDialog2.InitialDirectory = Ruta;
+            openFileDialog2.Title = "Seleccione";
             openFileDialog2.Multiselect = true;
             DialogResult Resultado = openFileDialog2.ShowDialog();
 
             if (Resultado == DialogResult.OK)
             {
                 int Contador = 0;
+
+
                 DialogResult Resultado2 = folderBrowserDialog.ShowDialog();
+
                 if (Resultado2 == DialogResult.OK)
                 {
-                    string Destino = folderBrowserDialog.SelectedPath;
+                    string Ubicacion = folderBrowserDialog.SelectedPath;
+                    int ContadorRepetidas = 0;
                     foreach (String file in openFileDialog2.FileNames)
                     {
-                        
+
                         string Origen = Path.GetFullPath(file);
                         string Nombre = Path.GetFileName(file);
-                        Destino = Destino+@"\"+Nombre;
+                        string Destino = Ubicacion + @"\" + Nombre;
                         if (File.Exists(Destino))
                         {
-                            DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?");
-                            if (Result == DialogResult.Yes)
+                            if (ContadorRepetidas >= 1)
                             {
-                                File.Copy(Origen, Destino, true);
-                                Contador += 1;
-                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando la fotografía " + Contador + " de " + openFileDialog2.FileNames.Length.ToString());
+                                DialogResult Result2 = MessageBox.Show("¿Desea sobreescribir el resto de los archivos? ", "SIPAA", MessageBoxButtons.YesNo);
+                                if (Result2 == DialogResult.Yes)
+                                {
+                                    foreach (String file2 in openFileDialog2.FileNames)
+                                    {
+                                        string Origen2 = Path.GetFullPath(file2);
+                                        string Nombre2 = Path.GetFileName(file2);
+                                        string Destino2 = Ubicacion + Nombre2;
+                                        File.Copy(Origen2, Destino2, true);
+                                        Contador += 1;
+                                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando la fotografía " + Contador + " de " + openFileDialog2.FileNames.Length.ToString());
+
+                                    }
+                                    break;
+                                }
+                                else
+                                {
+                                    DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?", "SIPAA", MessageBoxButtons.YesNo);
+                                    if (Result == DialogResult.Yes)
+                                    {
+
+                                        File.Copy(Origen, Destino, true);
+                                        Contador += 1;
+                                        ContadorRepetidas += 1;
+                                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando la fotografía " + Contador + " de " + openFileDialog2.FileNames.Length.ToString());
+
+                                    }
+                                    else
+                                    {
+                                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
+                                        continue;
+                                    }
+                                }
                             }
                             else
                             {
-                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
-                                continue;
+                                DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?", "SIPAA", MessageBoxButtons.YesNo);
+                                if (Result == DialogResult.Yes)
+                                {
+                                    File.Copy(Origen, Destino, true);
+                                    Contador += 1;
+                                    ContadorRepetidas += 1;
+                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando la fotografía " + Contador + " de " + openFileDialog2.FileNames.Length.ToString());
+
+                                }
+                                else
+                                {
+                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
+                                    continue;
+                                }
                             }
                         }
                         else
@@ -1874,60 +1747,38 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             }
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        public void EnviaSicea( string Nombre, string Origen)
         {
+            DateTime Datetime = DateTime.Now;
+            TimeSpan Ts = TimeSpan.FromHours(1);
+            SonaTrabajador objTrab = new SonaTrabajador();
+            string NombreConcatenado = string.Empty;
 
-        }
+            int index = Nombre.IndexOf('.');
+            DataTable dt = objTrab.Relojchecador(Nombre.Substring(0, index), 6, Datetime, 0, Ts, 0, 0, LoginInfo.IdTrab, Name);
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            openFileDialog2.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            // openFileDialog2.InitialDirectory = @"\\192.168.30.171\FotosJs\FotosNOI";
-            openFileDialog2.InitialDirectory = @"\\192.168.30.171\FotosJs\NOI";
-            openFileDialog2.Title = "Seleccione las fotografias";
-            openFileDialog2.Multiselect = true;
-            DialogResult Resultado = openFileDialog2.ShowDialog();
 
-            if (Resultado == DialogResult.OK)
+            string Descripcion = dt.Rows[0].ItemArray[0].ToString();
+            if (Descripcion == "PROFESOR" || Descripcion == "PROFESOR DE ESPECIALIDAD" || Descripcion == "PROFESOR DE MAESTRIA" || Descripcion == "PROFESOR DE SEMINARIO" || Descripcion == "PROFESOR MEDIO TIEMPO" || Descripcion == "PROFESOR TIEMPO COMPLETO" || Descripcion == "TUTOR DE LICENCIATURA")
             {
-                int Contador = 0;
-                DialogResult Resultado2 = folderBrowserDialog.ShowDialog();
-                if (Resultado2 == DialogResult.OK)
-                {
-                    string Destino = folderBrowserDialog.SelectedPath;
-                    foreach (String file in openFileDialog2.FileNames)
-                    {
-
-                        string Origen = Path.GetFullPath(file);
-                        string Nombre = Path.GetFileName(file);
-                        Destino = Destino + @"\" + Nombre;
-                        if (File.Exists(Destino))
-                        {
-                            DialogResult Result = MessageBox.Show("La fotografía " + Nombre + " ya existe \n ¿Desea sobrescribir el archivo?");
-                            if (Result == DialogResult.Yes)
-                            {
-                                File.Copy(Origen, Destino, true);
-                                Contador += 1;
-                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando la fotografía " + Contador + " de " + openFileDialog2.FileNames.Length.ToString());
-                            }
-                            else
-                            {
-                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "La fotografía " + Nombre + "  no se sobrescribio ");
-                                continue;
-                            }
-                        }
-                        else
-                        {
-                            File.Copy(Origen, Destino);
-                            Contador += 1;
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando la Fotografía " + Contador + " de " + openFileDialog2.FileNames.Length.ToString());
-                        }
-                    }
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Fotografias descargadas exitosamente");
-                    MessageBox.Show("Fotografias Descargadas exitosamente");
-                }
+                string UbicacionSicea = @"\\192.168.11.2\sicea\Proccujs\Empleados\Fotos";
+                if (Nombre.Substring(0, index).Length == 1)
+                    NombreConcatenado = "00000" + Nombre.Substring(0, index) + ".jpg";
+                else if (Nombre.Substring(0, index).Length == 2)
+                    NombreConcatenado = "0000" + Nombre.Substring(0, index) + ".jpg";
+                else if (Nombre.Substring(0, index).Length == 3)
+                    NombreConcatenado = "000" + Nombre.Substring(0, index) + ".jpg";
+                else if (Nombre.Substring(0, index).Length == 4)
+                    NombreConcatenado = "00" + Nombre.Substring(0, index) + ".jpg";
+                else if (Nombre.Substring(0, index).Length == 5)
+                    NombreConcatenado = "0" + Nombre.Substring(0, index) + ".jpg";
+                else
+                    NombreConcatenado = Nombre;
+                string DestinoSicea = UbicacionSicea + @"\" + NombreConcatenado;
+                File.Copy(Origen, DestinoSicea, true);
             }
         }
+
     }
 
 
