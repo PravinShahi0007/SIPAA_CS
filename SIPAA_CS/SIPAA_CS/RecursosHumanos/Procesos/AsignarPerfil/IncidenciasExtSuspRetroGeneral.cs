@@ -422,7 +422,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 Util.ChangeButton(btnGuardar, 1, false);
                 cbIncidencia.Enabled = true;
                 //btnInsertar.Text = "u";
-                //iActbtn = 2;
+                //iActbtn = 2; pruebas
             }
         }
 
