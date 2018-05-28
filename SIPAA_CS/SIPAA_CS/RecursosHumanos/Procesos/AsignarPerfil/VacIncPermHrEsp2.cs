@@ -756,7 +756,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
             else
             {
-                util.ChangeButton(btnInsertar, 2, false);
+                util.ChangeButton(btnInsertar, 1, false);
                 btnInsertar.Text = "u";
                 //iActbtn = 2;
             }
