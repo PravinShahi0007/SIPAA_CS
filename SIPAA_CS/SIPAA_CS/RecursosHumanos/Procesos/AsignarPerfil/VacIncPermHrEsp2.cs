@@ -398,10 +398,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             {
                                 if (iop==2)
                                 {
+                                    int iPuesto = Convert.ToInt32(row.Cells[5].Value.ToString());
                                     //Capturaron solo hra de entrada
                                     if (mtxtHoraEntrada.Text != "00:00" & mtxtHoraSalida.Text == "00:00")
                                     {
-                                        int iPuesto = Convert.ToInt32(row.Cells[5].Value.ToString());
+                                        //int iPuesto = Convert.ToInt32(row.Cells[5].Value.ToString());
                                         if (iPuesto != 287 & iPuesto != 288 & iPuesto != 289 & iPuesto != 290)
                                         {
                                             MessageBox.Show("Por el Puesto del trabajador  " + Convert.ToInt32(row.Cells[1].Value.ToString()) + ", debe capturar una Hora de Salida, Verifique.", "SIPPA", MessageBoxButtons.OK);
@@ -412,9 +413,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                     //Si es horario especial debe capturar horario a fuerza JLA 24 abr 18
                                     if (cbConcepto.Text == "HORARIO ESPECIAL")
                                     {
-                                        if (mtxtHoraEntrada.Text == "00:00" | mtxtHoraSalida.Text == "00:00")
+                                        if ((mtxtHoraEntrada.Text == "00:00" | mtxtHoraSalida.Text == "00:00") 
+                                            & (iPuesto != 287 & iPuesto != 288 & iPuesto != 289 & iPuesto != 290))
                                         {
                                             MessageBox.Show("Debe capturar el Horario Especial correspondiente, Verifique.");
+                                            mtxtHoraEntrada.Focus();
+                                            break;
+                                        }
+
+                                        if ((mtxtHoraEntrada.Text == "00:00") & (iPuesto == 287 | iPuesto == 288 | iPuesto == 289 | iPuesto == 290))
+                                        {
+                                            MessageBox.Show("Debe capturar la hora de entrada, Verifique.");
                                             mtxtHoraEntrada.Focus();
                                             break;
                                         }
@@ -450,12 +459,21 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     {
                         try
                         {
+                            int iPuesto = Convert.ToInt32(row.Cells[5].Value.ToString());
                             //Si es horario especial debe capturar horario a fuerza JLA 24 abr 18
                             if (cbConcepto.Text == "HORARIO ESPECIAL")
                             {
-                                if (mtxtHoraEntrada.Text == "00:00" | mtxtHoraSalida.Text == "00:00")
+                                if ((mtxtHoraEntrada.Text == "00:00" | mtxtHoraSalida.Text == "00:00") 
+                                    & (iPuesto != 287 & iPuesto != 288 & iPuesto != 289 & iPuesto != 290))
                                 {
                                     MessageBox.Show("Debe capturar el Horario Especial correspondiente, Verifique.");
+                                    mtxtHoraEntrada.Focus();
+                                    break;
+                                }
+
+                                if ((mtxtHoraEntrada.Text == "00:00") & (iPuesto == 287 | iPuesto == 288 | iPuesto == 289 | iPuesto == 290))
+                                {
+                                    MessageBox.Show("Debe capturar la hora de entrada, Verifique.");
                                     mtxtHoraEntrada.Focus();
                                     break;
                                 }
@@ -463,7 +481,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             //Capturaron solo hra de entrada
                             if (mtxtHoraEntrada.Text != "00:00" & mtxtHoraSalida.Text == "00:00")
                             {
-                                int iPuesto =Convert.ToInt32(row.Cells[5].Value.ToString());
+                                //int iPuesto =Convert.ToInt32(row.Cells[5].Value.ToString());
                                 if (iPuesto!=287 & iPuesto!=288 & iPuesto!=289 & iPuesto!=290)
                                 {
                                     MessageBox.Show ("Por el Puesto del trabajador  " + Convert.ToInt32(row.Cells[1].Value.ToString())+ ", debe capturar una Hora de Salida, Verifique.", "SIPPA", MessageBoxButtons.OK);
@@ -738,7 +756,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
             else
             {
-                util.ChangeButton(btnInsertar, 2, false);
+                util.ChangeButton(btnInsertar, 1, false);
                 btnInsertar.Text = "u";
                 //iActbtn = 2;
             }
