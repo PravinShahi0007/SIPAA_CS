@@ -39,9 +39,9 @@
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label5;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnregresar = new System.Windows.Forms.Button();
@@ -133,11 +133,11 @@
             label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label10.Location = new System.Drawing.Point(10, 138);
+            label10.Location = new System.Drawing.Point(4, 138);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(96, 16);
+            label10.Size = new System.Drawing.Size(45, 16);
             label10.TabIndex = 146;
-            label10.Text = "Tipo de nomina";
+            label10.Text = "Planta";
             // 
             // label9
             // 
@@ -145,7 +145,7 @@
             label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(11, 209);
+            label9.Location = new System.Drawing.Point(4, 215);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(78, 16);
             label9.TabIndex = 144;
@@ -157,7 +157,7 @@
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(8, 249);
+            label7.Location = new System.Drawing.Point(4, 255);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(70, 16);
             label7.TabIndex = 140;
@@ -169,11 +169,11 @@
             label11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label11.Location = new System.Drawing.Point(13, 106);
+            label11.Location = new System.Drawing.Point(4, 106);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(35, 16);
+            label11.Size = new System.Drawing.Size(66, 16);
             label11.TabIndex = 138;
-            label11.Text = "Nivel";
+            label11.Text = "Compañia";
             // 
             // label6
             // 
@@ -181,7 +181,7 @@
             label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(10, 171);
+            label6.Location = new System.Drawing.Point(4, 177);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(66, 16);
             label6.TabIndex = 154;
@@ -193,7 +193,7 @@
             label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(7, 288);
+            label5.Location = new System.Drawing.Point(4, 294);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(55, 16);
             label5.TabIndex = 156;
@@ -309,7 +309,7 @@
             this.pnlbusqueda.Controls.Add(label1);
             this.pnlbusqueda.Location = new System.Drawing.Point(7, 159);
             this.pnlbusqueda.Name = "pnlbusqueda";
-            this.pnlbusqueda.Size = new System.Drawing.Size(349, 164);
+            this.pnlbusqueda.Size = new System.Drawing.Size(349, 138);
             this.pnlbusqueda.TabIndex = 225;
             this.pnlbusqueda.TabStop = true;
             // 
@@ -320,7 +320,7 @@
             this.label3.ForeColor = System.Drawing.Color.Gray;
             this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_keyboard_arrow_right_grey_600_18dp;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(4, 114);
+            this.label3.Location = new System.Drawing.Point(4, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 17);
             this.label3.TabIndex = 172;
@@ -333,7 +333,7 @@
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
-            this.btnImprimir.Location = new System.Drawing.Point(286, 96);
+            this.btnImprimir.Location = new System.Drawing.Point(286, 78);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(55, 55);
             this.btnImprimir.TabIndex = 164;
@@ -379,29 +379,29 @@
             this.dgvdatos.AllowUserToAddRows = false;
             this.dgvdatos.AllowUserToDeleteRows = false;
             this.dgvdatos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvdatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvdatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvdatos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvdatos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvdatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvdatos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvdatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvdatos.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvdatos.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvdatos.Location = new System.Drawing.Point(362, 157);
             this.dgvdatos.Name = "dgvdatos";
             this.dgvdatos.ReadOnly = true;
@@ -436,9 +436,9 @@
             this.pnlcrud.Controls.Add(this.ckbeliminar);
             this.pnlcrud.Controls.Add(this.btninsertar);
             this.pnlcrud.Controls.Add(this.lbluid);
-            this.pnlcrud.Location = new System.Drawing.Point(7, 334);
+            this.pnlcrud.Location = new System.Drawing.Point(7, 303);
             this.pnlcrud.Name = "pnlcrud";
-            this.pnlcrud.Size = new System.Drawing.Size(349, 375);
+            this.pnlcrud.Size = new System.Drawing.Size(349, 406);
             this.pnlcrud.TabIndex = 227;
             this.pnlcrud.TabStop = true;
             this.pnlcrud.Visible = false;
@@ -471,10 +471,10 @@
             this.cbosancion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbosancion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbosancion.FormattingEnabled = true;
-            this.cbosancion.Location = new System.Drawing.Point(104, 285);
+            this.cbosancion.Location = new System.Drawing.Point(76, 291);
             this.cbosancion.Margin = new System.Windows.Forms.Padding(2);
             this.cbosancion.Name = "cbosancion";
-            this.cbosancion.Size = new System.Drawing.Size(232, 24);
+            this.cbosancion.Size = new System.Drawing.Size(266, 24);
             this.cbosancion.TabIndex = 10;
             // 
             // cboincidencia
@@ -485,16 +485,16 @@
             this.cboincidencia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboincidencia.FormattingEnabled = true;
             this.cboincidencia.ItemHeight = 16;
-            this.cboincidencia.Location = new System.Drawing.Point(111, 168);
+            this.cboincidencia.Location = new System.Drawing.Point(76, 174);
             this.cboincidencia.Margin = new System.Windows.Forms.Padding(2);
             this.cboincidencia.Name = "cboincidencia";
-            this.cboincidencia.Size = new System.Drawing.Size(230, 24);
+            this.cboincidencia.Size = new System.Drawing.Size(266, 24);
             this.cboincidencia.TabIndex = 7;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(106, 225);
+            this.panel1.Location = new System.Drawing.Point(106, 231);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 2);
             this.panel1.TabIndex = 149;
@@ -504,7 +504,7 @@
             this.txtnoeventos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtnoeventos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtnoeventos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnoeventos.Location = new System.Drawing.Point(108, 207);
+            this.txtnoeventos.Location = new System.Drawing.Point(108, 213);
             this.txtnoeventos.Name = "txtnoeventos";
             this.txtnoeventos.Size = new System.Drawing.Size(230, 15);
             this.txtnoeventos.TabIndex = 8;
@@ -517,10 +517,10 @@
             this.cbotiponomina.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbotiponomina.FormattingEnabled = true;
             this.cbotiponomina.ItemHeight = 16;
-            this.cbotiponomina.Location = new System.Drawing.Point(111, 135);
+            this.cbotiponomina.Location = new System.Drawing.Point(76, 135);
             this.cbotiponomina.Margin = new System.Windows.Forms.Padding(2);
             this.cbotiponomina.Name = "cbotiponomina";
-            this.cbotiponomina.Size = new System.Drawing.Size(230, 24);
+            this.cbotiponomina.Size = new System.Drawing.Size(266, 24);
             this.cbotiponomina.TabIndex = 6;
             // 
             // cbotipeval
@@ -530,10 +530,10 @@
             this.cbotipeval.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbotipeval.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbotipeval.FormattingEnabled = true;
-            this.cbotipeval.Location = new System.Drawing.Point(105, 246);
+            this.cbotipeval.Location = new System.Drawing.Point(77, 252);
             this.cbotipeval.Margin = new System.Windows.Forms.Padding(2);
             this.cbotipeval.Name = "cbotipeval";
-            this.cbotipeval.Size = new System.Drawing.Size(232, 24);
+            this.cbotipeval.Size = new System.Drawing.Size(266, 24);
             this.cbotipeval.TabIndex = 9;
             this.cbotipeval.SelectedIndexChanged += new System.EventHandler(this.cbotipeval_SelectedIndexChanged);
             // 
@@ -545,17 +545,18 @@
             this.cbonivel.DropDownWidth = 345;
             this.cbonivel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbonivel.FormattingEnabled = true;
-            this.cbonivel.Location = new System.Drawing.Point(111, 101);
+            this.cbonivel.Location = new System.Drawing.Point(75, 101);
             this.cbonivel.Margin = new System.Windows.Forms.Padding(2);
             this.cbonivel.Name = "cbonivel";
-            this.cbonivel.Size = new System.Drawing.Size(230, 24);
+            this.cbonivel.Size = new System.Drawing.Size(266, 24);
             this.cbonivel.TabIndex = 5;
+            this.cbonivel.SelectedIndexChanged += new System.EventHandler(this.cbonivel_SelectedIndexChanged);
             // 
             // ckbeliminar
             // 
             this.ckbeliminar.AutoSize = true;
             this.ckbeliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbeliminar.Location = new System.Drawing.Point(10, 332);
+            this.ckbeliminar.Location = new System.Drawing.Point(10, 338);
             this.ckbeliminar.Name = "ckbeliminar";
             this.ckbeliminar.Size = new System.Drawing.Size(47, 17);
             this.ckbeliminar.TabIndex = 11;
@@ -570,7 +571,7 @@
             this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btninsertar.Location = new System.Drawing.Point(281, 314);
+            this.btninsertar.Location = new System.Drawing.Point(281, 320);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(55, 55);
             this.btninsertar.TabIndex = 12;
