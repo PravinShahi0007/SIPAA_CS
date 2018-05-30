@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dtrepvalchhr" targetNamespace="http://tempuri.org/dtrepvalchhr.xsd" xmlns:mstns="http://tempuri.org/dtrepvalchhr.xsd" xmlns="http://tempuri.org/dtrepvalchhr.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dtrepvalchhr" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtrepvalchhr" msprop:Generator_UserDSName="dtrepvalchhr">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="repval" msprop:Generator_TableClassName="repvalDataTable" msprop:Generator_TableVarName="tablerepval" msprop:Generator_RowChangedName="repvalRowChanged" msprop:Generator_TablePropName="repval" msprop:Generator_RowDeletingName="repvalRowDeleting" msprop:Generator_RowChangingName="repvalRowChanging" msprop:Generator_RowEvHandlerName="repvalRowChangeEventHandler" msprop:Generator_RowDeletedName="repvalRowDeleted" msprop:Generator_RowClassName="repvalRow" msprop:Generator_UserTableName="repval" msprop:Generator_RowEvArgName="repvalRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idtrab" msprop:Generator_ColumnVarNameInTable="columnidtrab" msprop:Generator_ColumnPropNameInRow="idtrab" msprop:Generator_ColumnPropNameInTable="idtrabColumn" msprop:Generator_UserColumnName="idtrab" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="compania" msprop:Generator_ColumnVarNameInTable="columncompania" msprop:Generator_ColumnPropNameInRow="compania" msprop:Generator_ColumnPropNameInTable="companiaColumn" msprop:Generator_UserColumnName="compania" type="xs:string" minOccurs="0" />
+              <xs:element name="area" msprop:Generator_ColumnVarNameInTable="columnarea" msprop:Generator_ColumnPropNameInRow="area" msprop:Generator_ColumnPropNameInTable="areaColumn" msprop:Generator_UserColumnName="area" type="xs:string" minOccurs="0" />
+              <xs:element name="ubicacion" msprop:Generator_ColumnVarNameInTable="columnubicacion" msprop:Generator_ColumnPropNameInRow="ubicacion" msprop:Generator_ColumnPropNameInTable="ubicacionColumn" msprop:Generator_UserColumnName="ubicacion" type="xs:string" minOccurs="0" />
+              <xs:element name="puesto" msprop:Generator_ColumnVarNameInTable="columnpuesto" msprop:Generator_ColumnPropNameInRow="puesto" msprop:Generator_ColumnPropNameInTable="puestoColumn" msprop:Generator_UserColumnName="puesto" type="xs:string" minOccurs="0" />
+              <xs:element name="checa" msprop:Generator_ColumnVarNameInTable="columncheca" msprop:Generator_ColumnPropNameInRow="checa" msprop:Generator_ColumnPropNameInTable="checaColumn" msprop:Generator_UserColumnName="checa" type="xs:string" minOccurs="0" />
+              <xs:element name="horario" msprop:Generator_ColumnVarNameInTable="columnhorario" msprop:Generator_ColumnPropNameInRow="horario" msprop:Generator_ColumnPropNameInTable="horarioColumn" msprop:Generator_UserColumnName="horario" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>43</ApplicationRevision>
+    <ApplicationRevision>44</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -396,6 +396,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dtrepglinc.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\dtrepvalchhr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtrepvalchhr.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\DataSets\FaltasPeriodo.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1062,6 +1067,12 @@
       <DependentUpon>RepSancionesInc.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\repvalidacionchhr.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repvalidacionchhr.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\rep_glinc.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1516,6 +1527,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RepSancionesInc.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\repvalidacionchhr.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>repvalidacionchhr.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\rep_glinc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rep_glinc.cs</LastGenOutput>
@@ -1722,6 +1737,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\dtrepglinc.xss">
       <DependentUpon>dtrepglinc.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\dtrepvalchhr.xsc">
+      <DependentUpon>dtrepvalchhr.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\dtrepvalchhr.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtrepvalchhr.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\dtrepvalchhr.xss">
+      <DependentUpon>dtrepvalchhr.xsd</DependentUpon>
     </None>
     <None Include="RecursosHumanos\DataSets\FaltasPeriodo.xsc">
       <DependentUpon>FaltasPeriodo.xsd</DependentUpon>
