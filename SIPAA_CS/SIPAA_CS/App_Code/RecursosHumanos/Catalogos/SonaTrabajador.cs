@@ -83,7 +83,7 @@ namespace SIPAA_CS.App_Code
         }
 
         public DataTable obtenerempleadosydiasesp(/*int popcion, */string pidtrab, string pidcompania, string pidarea, string pidpuesto,
-            string piddepartamento, string pidubicacion, string pidtiponomina, string pfechainicial, string pfechafinal)
+            string piddepartamento, string pidubicacion, string pidtiponomina, string pfechainicial, string pfechafinal, int pactivo)
         {
             //Filtros Multiples JLA 21 sep 2017
             SqlCommand cmd = new SqlCommand();
@@ -103,6 +103,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("@p_IdTipoNomina", SqlDbType.VarChar).Value = pidtiponomina;
             cmd.Parameters.Add("@p_FechaInicial", SqlDbType.VarChar).Value = pfechainicial;
             cmd.Parameters.Add("@p_FechaFinal", SqlDbType.VarChar).Value = pfechafinal;
+            cmd.Parameters.Add("@p_Activo", SqlDbType.Int).Value = pactivo;
 
             objConexion.asignarConexion(cmd);
             SqlDataAdapter dadapter = new SqlDataAdapter(cmd);
