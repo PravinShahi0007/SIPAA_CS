@@ -58,6 +58,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dgvInc = new System.Windows.Forms.DataGridView();
             this.pnlAsig = new System.Windows.Forms.Panel();
+            this.ckbEliminar = new System.Windows.Forms.CheckBox();
             this.ckbaplica = new System.Windows.Forms.CheckBox();
             this.dtimeFechaFinAsig = new System.Windows.Forms.DateTimePicker();
             this.dtimeFechaInicioAsig = new System.Windows.Forms.DateTimePicker();
@@ -408,6 +409,7 @@
             // pnlAsig
             // 
             this.pnlAsig.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAsig.Controls.Add(this.ckbEliminar);
             this.pnlAsig.Controls.Add(this.ckbaplica);
             this.pnlAsig.Controls.Add(this.dtimeFechaFinAsig);
             this.pnlAsig.Controls.Add(this.label10);
@@ -427,6 +429,19 @@
             this.pnlAsig.Size = new System.Drawing.Size(988, 140);
             this.pnlAsig.TabIndex = 206;
             this.pnlAsig.TabStop = true;
+            // 
+            // ckbEliminar
+            // 
+            this.ckbEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ckbEliminar.Location = new System.Drawing.Point(864, 89);
+            this.ckbEliminar.Name = "ckbEliminar";
+            this.ckbEliminar.Size = new System.Drawing.Size(71, 39);
+            this.ckbEliminar.TabIndex = 236;
+            this.ckbEliminar.Text = "Borrar Registro";
+            this.ckbEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ckbEliminar.UseVisualStyleBackColor = true;
+            this.ckbEliminar.Visible = false;
+            this.ckbEliminar.CheckedChanged += new System.EventHandler(this.ckbEliminar_CheckedChanged);
             // 
             // ckbaplica
             // 
@@ -560,9 +575,10 @@
             this.labelGrid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.labelGrid.Location = new System.Drawing.Point(16, 565);
             this.labelGrid.Name = "labelGrid";
-            this.labelGrid.Size = new System.Drawing.Size(313, 16);
+            this.labelGrid.Size = new System.Drawing.Size(577, 16);
             this.labelGrid.TabIndex = 207;
-            this.labelGrid.Text = "Seleccione un Registro para realizar una Asignación.";
+            this.labelGrid.Text = "Seleccione un Registro para realizar una Asignación o en su caso Eliminar un Retr" +
+    "oactivo a la vez.";
             // 
             // panelTrab
             // 
@@ -727,5 +743,6 @@
         private System.Windows.Forms.ComboBox cbEmpleados;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.CheckBox ckbaplica;
+        private System.Windows.Forms.CheckBox ckbEliminar;
     }
 } 

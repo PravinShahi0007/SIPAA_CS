@@ -47,7 +47,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             InitializeComponent();
         }
-        
+
+        int iActbtn = 0;
+
         //***********************************************************************************************
         //Autor: Victor Jesús Iturburu Vergara
         //Fecha creación:17-05-04 Última Modificacion: 28-OCT-2017 JLA  20-FEB-2018 JLA  
@@ -73,6 +75,63 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
+
+        private void dgvTipoHr_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvInc.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dgvInc.SelectedRows[0];
+
+                int icvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
+                int icvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
+                DateTime fFechaReg = DateTime.Parse(row.Cells["Fecha Registro"].Value.ToString());
+                string iTiempoE = row.Cells["Tiempo Emp"].Value.ToString();
+                string iTiempoP = row.Cells["Tiempo Prof"].Value.ToString();
+
+                Captura2 objAsig = new Captura2();
+                objAsig.cvincidencia = icvIncidencia;
+                objAsig.cvtipo = icvTipo;
+                objAsig.FechaReg = fFechaReg;
+                //JLA
+                objAsig.sIncidencia = row.Cells["Incidencia"].Value.ToString();
+                objAsig.iTiempoEmp = iTiempoE;
+                objAsig.iTiempoProf = iTiempoP;
+
+                ValidarExistencia(ltTrab, objAsig);
+
+                if (row.Cells[0].Tag.ToString() == "check")
+                {
+                    row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
+                    row.Cells[0].Tag = "uncheck";
+                    ckbEliminar.Checked = false;
+                    ckbEliminar.Visible = false; 
+                }
+                else
+                {
+                    row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+                    row.Cells[0].Tag = "check";
+                    if (row.Cells["Concepto"].Value.ToString() == "RETROACTIVO") 
+                    {
+                        ckbEliminar.Visible = true;
+                    }
+                }
+
+                llenarComboIncidencia();
+                if (ltTrab.Count() == 0)
+                {
+                    if (Permisos.dcPermisos["Crear"] == 1)
+                    {
+                        cbIncidencia.SelectedValue = 17; //tenia 20 porque no se JLA 25oct17
+                        cbIncidencia.Enabled = false;
+                    }
+                    else
+                    {
+                        pnlAsig.Visible = false;
+                    }
+                }
+            }
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
@@ -89,6 +148,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             cbIncidencia.Enabled = false;
             llenarComboTipo(17);
             ckbaplica.Visible = false;
+            ckbEliminar.Checked = false;
+            ckbEliminar.Visible = false;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -115,8 +176,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-                switch (ValidarFecha(DateTime.Parse(dtimeFechaInicioAsig.Text), DateTime.Parse(dtimeFechaFinAsig.Text))){
-
+            if (iActbtn != 3)
+            {
+                switch (ValidarFecha(DateTime.Parse(dtimeFechaInicioAsig.Text), DateTime.Parse(dtimeFechaFinAsig.Text)))
+                {
                     case 0:
 
                         if (cbIncidencia.SelectedValue.ToString() != "17") //Suspension
@@ -130,7 +193,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                 dtReporte.Columns.Add("Incidencia", typeof(string));
                                 dtReporte.Columns.Add("TiempoEmp", typeof(string));
                                 dtReporte.Columns.Add("TiempoProf", typeof(string));
-                            
+
                                 bool bBandera = false;
                                 for (int iCont = 0; iCont < ltTrab.Count(); iCont++)
                                 {
@@ -185,13 +248,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                     form.RptDoc = ReportDoc;
                                     form.Show();
                                 }
-                            
+
                                 ltCvIncidencia.Clear();
                                 ltcvTipo.Clear();
                                 ltFechasRegistro.Clear();
                                 ltTrab.Clear();
 
-                               if (bBandera == true)
+                                if (bBandera == true)
                                 {
                                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
                                     txtReferencia.Text = String.Empty;
@@ -248,24 +311,46 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                 timer1.Start();
                             }
                         }
-                        frecargar();
+                        //// frecargar(); mejor re-leemos en lugar de cerrar y abrir la misma pantalla
+                        btnBuscar_Click(sender, e);
                         break;
 
                     case 1:
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "La Fecha de Inicio no puede ser Superior a la de Término");
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "La Fecha de Inicio no puede ser Mayor a la de Término");
                         timer1.Start();
                         break;
                 }
-        }
-
-        public int ValidarFecha(DateTime fFechaInicio, DateTime fFechaTermino)
-        {
-            int iResponse = 0;
-            if (fFechaInicio > fFechaTermino)
-            {
-                iResponse = 1;
             }
-            return iResponse;
+            else //va a elminarlo
+            {
+                DialogResult result = MessageBox.Show("¿Esta Seguro que desea eliminar el registro seleccionado?", "SIPAA", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    //mandarlo al bote solo a los RETROACTIVOS
+                    DataGridViewRow row = this.dgvInc.SelectedRows[0];
+                    IncCaptura objaEliminar = new IncCaptura();
+                    objaEliminar.iIdtrab = Convert.ToInt32(row.Cells[1].Value);
+                    objaEliminar.iCvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
+                    objaEliminar.fFecharegistro = DateTime.Parse(row.Cells["Fecha Registro"].Value.ToString());
+                    objaEliminar.iCvTipo = 0;
+                    objaEliminar.iCvIncidencia2 = 6;
+                    objaEliminar.iCvTipo2 = 0;
+                    objaEliminar.fFechaInicio = DateTime.Now;
+                    objaEliminar.fFechaFin = DateTime.Now;
+                    objaEliminar.sUsuumod = String.Empty;
+                    objaEliminar.fFhumod = DateTime.Now;
+                    objaEliminar.sPrgumod = "RegistroExtSuspRetro";
+                    objaEliminar.iAplica = 0;
+                    objaEliminar.ExtrañamientoRetroactivo(objaEliminar, 3);
+                    //hay que terminar 
+                    btnBuscar_Click(sender, e);
+                }
+                else
+                {
+                    btnBuscar_Click(sender, e);
+                }                
+            }
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -275,58 +360,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
         //-----------------------------------------------------------------------------------------------
-
-        private void dgvTipoHr_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-                if (dgvInc.SelectedRows.Count != 0)
-                {
-                    //lbAsignacion.Text = "       Asignar Extrañamiento o Retroactivo";
-                    DataGridViewRow row = this.dgvInc.SelectedRows[0];
-
-                    int icvIncidencia = Convert.ToInt32(row.Cells["cvincidencia"].Value.ToString());
-                    int icvTipo = Convert.ToInt32(row.Cells["cvtipo"].Value.ToString());
-                    DateTime fFechaReg = DateTime.Parse(row.Cells["Fecha Registro"].Value.ToString());
-                    string iTiempoE = row.Cells["Tiempo Emp"].Value.ToString();
-                    string iTiempoP = row.Cells["Tiempo Prof"].Value.ToString();
-
-                    Captura2 objAsig = new Captura2();
-                    objAsig.cvincidencia = icvIncidencia;
-                    objAsig.cvtipo = icvTipo;
-                    objAsig.FechaReg = fFechaReg;
-                    //JLA
-                    objAsig.sIncidencia = row.Cells["Incidencia"].Value.ToString();
-                    objAsig.iTiempoEmp = iTiempoE;
-                    objAsig.iTiempoProf = iTiempoP;
-
-                    ValidarExistencia(ltTrab, objAsig);
-
-                    if (row.Cells[0].Tag.ToString() == "check")
-                    {
-                        row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                        row.Cells[0].Tag = "uncheck";
-                    }
-                    else
-                    {
-                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                        row.Cells[0].Tag = "check";
-                    }
-
-                    llenarComboIncidencia();
-                    if (ltTrab.Count() == 0)
-                    {
-                        if (Permisos.dcPermisos["Crear"] == 1)
-                        {
-                            cbIncidencia.SelectedValue = 17; //tenia 20 porque no se JLA 25oct17
-                            cbIncidencia.Enabled = false;
-                            //lbAsignacion.Text = "       Asignar Suspensión, Extrañamiento o Retroactivo";
-                        }
-                        else
-                        {
-                            pnlAsig.Visible = false;
-                        }
-                    }
-                }
-        }
 
         private void AsignacionIncidenciasTrabajador2_Load(object sender, EventArgs e)
         {
@@ -342,6 +375,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             ckbaplica.Visible = false;
             ckbaplica.Checked = false;
+            ckbEliminar.Checked = false;
+            ckbEliminar.Visible = false;
 
             ftooltip();
 
@@ -370,6 +405,24 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
                 labelGrid.Text = "Incidencias Registradas";
                 pnlAsig.Visible = false;
+            }
+        }
+
+        private void ckbEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbEliminar.Checked == true)
+            {
+                Util.ChangeButton(btnGuardar, 3, false);
+                //btnInsertar.Text = "d"; eliminar
+                iActbtn = 3; 
+                cbIncidencia.Enabled = false;
+            }
+            else
+            {
+                Util.ChangeButton(btnGuardar, 1, false);
+                cbIncidencia.Enabled = true;
+                //btnInsertar.Text = "u";
+                //iActbtn = 2; pruebas
             }
         }
 
@@ -521,13 +574,23 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
         }
 
+        public int ValidarFecha(DateTime fFechaInicio, DateTime fFechaTermino)
+        {
+            int iResponse = 0;
+            if (fFechaInicio > fFechaTermino)
+            {
+                iResponse = 1;
+            }
+            return iResponse;
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
     }
 
-    public class Captura2 {
-
+    public class Captura2
+    {
         public string Idtrab;
         public DateTime FechaReg;
         public int cvtipo;

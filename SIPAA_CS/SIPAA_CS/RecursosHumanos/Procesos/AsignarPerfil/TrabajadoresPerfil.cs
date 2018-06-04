@@ -14,12 +14,15 @@ using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
 using SIPAA_CS.App_Code.RecursosHumanos.Catalogos;
 
+using SIPAA_CS.RecursosHumanos.Reportes;
+using CrystalDecisions.CrystalReports.Engine;
+
 namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
     public partial class TrabajadoresPerfil : Form
     {
         #region
-        int iins, iact, ielim;
+        int iins, iact, ielim, iimp;
         int iactbtn, istcheca;
         string sestperf, iidtrabmodif, istchec;
         int iuserexiste, iuserperfexiste, response;
@@ -334,6 +337,26 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             form.Show();
             this.Close();
         }
+
+        //imprimir
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            DataTable dtrepvalchhr = new DataTable();
+
+            dtrepvalchhr = TrabPerf.dtdgvcb("", 34, "", "", 0, LoginInfo.IdTrab, this.Name);
+
+            //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
+            ViewerReporte form = new ViewerReporte();
+            repvalidacionchhr dtrpt = new repvalidacionchhr();
+            ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtrepvalchhr, "SIPAA_CS.RecursosHumanos.Reportes", dtrpt.ResourceName);
+
+            //ReportDoc.SetParameterValue("Titulo1", "SIPAA - Recursos Humanos");
+            //ReportDoc.SetParameterValue("Titulo2", "Catálogo de Conceptos de Nómina");
+            //ReportDoc.SetParameterValue("Titulo3", "");
+
+            form.RptDoc = ReportDoc;
+            form.Show();
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -368,6 +391,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             iins = Int32.Parse(Permisos.Rows[0][3].ToString());
             iact = Int32.Parse(Permisos.Rows[0][4].ToString());
             ielim = Int32.Parse(Permisos.Rows[0][5].ToString());
+            iimp = Int32.Parse(Permisos.Rows[0][6].ToString());
+
+            //imprimir
+            if (iimp == 1) { label11.Visible = true; btnImprimir.Visible = true; }
 
             //lena grid
             fllenagridbusqueda(15,"");

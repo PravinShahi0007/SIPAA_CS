@@ -329,6 +329,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnperiodo;
             
+            private global::System.Data.DataColumn columnorden;
+            
+            private global::System.Data.DataColumn columnidtrabst;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public repincDataTable() {
@@ -564,6 +568,22 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ordenColumn {
+                get {
+                    return this.columnorden;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idtrabstColumn {
+                get {
+                    return this.columnidtrabst;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -624,7 +644,9 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         string cvperiodo, 
                         string fhinireg, 
                         string fhfinreg, 
-                        string periodo) {
+                        string periodo, 
+                        string orden, 
+                        string idtrabst) {
                 repincRow rowrepincRow = ((repincRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idtrab,
@@ -651,7 +673,9 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         cvperiodo,
                         fhinireg,
                         fhfinreg,
-                        periodo};
+                        periodo,
+                        orden,
+                        idtrabst};
                 rowrepincRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowrepincRow);
                 return rowrepincRow;
@@ -699,6 +723,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.columnfhinireg = base.Columns["fhinireg"];
                 this.columnfhfinreg = base.Columns["fhfinreg"];
                 this.columnperiodo = base.Columns["periodo"];
+                this.columnorden = base.Columns["orden"];
+                this.columnidtrabst = base.Columns["idtrabst"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -754,6 +780,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnfhfinreg);
                 this.columnperiodo = new global::System.Data.DataColumn("periodo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnperiodo);
+                this.columnorden = new global::System.Data.DataColumn("orden", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorden);
+                this.columnidtrabst = new global::System.Data.DataColumn("idtrabst", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidtrabst);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1296,6 +1326,38 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string orden {
+                get {
+                    try {
+                        return ((string)(this[this.tablerepinc.ordenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'orden\' de la tabla \'repinc\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerepinc.ordenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string idtrabst {
+                get {
+                    try {
+                        return ((string)(this[this.tablerepinc.idtrabstColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idtrabst\' de la tabla \'repinc\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerepinc.idtrabstColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidtrabNull() {
                 return this.IsNull(this.tablerepinc.idtrabColumn);
             }
@@ -1592,6 +1654,30 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetperiodoNull() {
                 this[this.tablerepinc.periodoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsordenNull() {
+                return this.IsNull(this.tablerepinc.ordenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetordenNull() {
+                this[this.tablerepinc.ordenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsidtrabstNull() {
+                return this.IsNull(this.tablerepinc.idtrabstColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetidtrabstNull() {
+                this[this.tablerepinc.idtrabstColumn] = global::System.Convert.DBNull;
             }
         }
         

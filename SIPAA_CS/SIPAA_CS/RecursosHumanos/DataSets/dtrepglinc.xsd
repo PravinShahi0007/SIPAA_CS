@@ -40,6 +40,8 @@
               <xs:element name="fhinireg" msprop:Generator_ColumnVarNameInTable="columnfhinireg" msprop:Generator_ColumnPropNameInRow="fhinireg" msprop:Generator_ColumnPropNameInTable="fhiniregColumn" msprop:Generator_UserColumnName="fhinireg" type="xs:string" minOccurs="0" />
               <xs:element name="fhfinreg" msprop:Generator_ColumnVarNameInTable="columnfhfinreg" msprop:Generator_ColumnPropNameInRow="fhfinreg" msprop:Generator_ColumnPropNameInTable="fhfinregColumn" msprop:Generator_UserColumnName="fhfinreg" type="xs:string" minOccurs="0" />
               <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo" type="xs:string" minOccurs="0" />
+              <xs:element name="orden" msprop:Generator_ColumnVarNameInTable="columnorden" msprop:Generator_ColumnPropNameInRow="orden" msprop:Generator_ColumnPropNameInTable="ordenColumn" msprop:Generator_UserColumnName="orden" type="xs:string" minOccurs="0" />
+              <xs:element name="idtrabst" msprop:Generator_ColumnVarNameInTable="columnidtrabst" msprop:Generator_ColumnPropNameInRow="idtrabst" msprop:Generator_ColumnPropNameInTable="idtrabstColumn" msprop:Generator_UserColumnName="idtrabst" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

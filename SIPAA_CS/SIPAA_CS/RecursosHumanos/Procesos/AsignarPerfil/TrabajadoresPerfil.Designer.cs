@@ -39,9 +39,9 @@
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label8;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMin = new System.Windows.Forms.Button();
@@ -59,6 +59,9 @@
             this.dgvTrab = new System.Windows.Forms.DataGridView();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cboemplbusq = new System.Windows.Forms.ComboBox();
+            this.opcinactivos = new System.Windows.Forms.RadioButton();
+            this.opcactivos = new System.Windows.Forms.RadioButton();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtconceptobusq = new System.Windows.Forms.TextBox();
@@ -68,9 +71,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlperf = new System.Windows.Forms.Panel();
             this.btopcperfil = new System.Windows.Forms.Button();
-            this.opcinactivos = new System.Windows.Forms.RadioButton();
-            this.opcactivos = new System.Windows.Forms.RadioButton();
-            this.cboemplbusq = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnImprimir = new System.Windows.Forms.Button();
             label9 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
@@ -119,7 +121,7 @@
             label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(17, 86);
+            label5.Location = new System.Drawing.Point(17, 77);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(53, 16);
             label5.TabIndex = 178;
@@ -131,7 +133,7 @@
             label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label10.Location = new System.Drawing.Point(14, 198);
+            label10.Location = new System.Drawing.Point(14, 179);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(53, 16);
             label10.TabIndex = 185;
@@ -143,7 +145,7 @@
             label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(14, 139);
+            label7.Location = new System.Drawing.Point(14, 130);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(68, 16);
             label7.TabIndex = 183;
@@ -182,7 +184,7 @@
             label6.ForeColor = System.Drawing.Color.Gray;
             label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(4, 30);
+            label6.Location = new System.Drawing.Point(4, 25);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(132, 17);
             label6.TabIndex = 42;
@@ -194,7 +196,7 @@
             label8.Font = new System.Drawing.Font("Arial", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.Gray;
             label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label8.Location = new System.Drawing.Point(10, 94);
+            label8.Location = new System.Drawing.Point(10, 79);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(211, 12);
             label8.TabIndex = 48;
@@ -276,9 +278,9 @@
             this.pnlsuid.Controls.Add(this.cbosup);
             this.pnlsuid.Controls.Add(label5);
             this.pnlsuid.Controls.Add(label9);
-            this.pnlsuid.Location = new System.Drawing.Point(27, 323);
+            this.pnlsuid.Location = new System.Drawing.Point(27, 354);
             this.pnlsuid.Name = "pnlsuid";
-            this.pnlsuid.Size = new System.Drawing.Size(339, 303);
+            this.pnlsuid.Size = new System.Drawing.Size(339, 282);
             this.pnlsuid.TabIndex = 0;
             this.pnlsuid.TabStop = true;
             this.pnlsuid.Visible = false;
@@ -288,7 +290,7 @@
             this.ckbcheca.AutoSize = true;
             this.ckbcheca.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbcheca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.ckbcheca.Location = new System.Drawing.Point(199, 107);
+            this.ckbcheca.Location = new System.Drawing.Point(199, 98);
             this.ckbcheca.Name = "ckbcheca";
             this.ckbcheca.Size = new System.Drawing.Size(64, 20);
             this.ckbcheca.TabIndex = 181;
@@ -298,7 +300,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel3.Location = new System.Drawing.Point(14, 126);
+            this.panel3.Location = new System.Drawing.Point(14, 117);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(125, 2);
             this.panel3.TabIndex = 192;
@@ -309,7 +311,7 @@
             this.txtst.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtst.Enabled = false;
             this.txtst.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtst.Location = new System.Drawing.Point(16, 108);
+            this.txtst.Location = new System.Drawing.Point(16, 99);
             this.txtst.Name = "txtst";
             this.txtst.Size = new System.Drawing.Size(125, 15);
             this.txtst.TabIndex = 180;
@@ -339,7 +341,7 @@
             this.btninsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btninsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btninsertar.Location = new System.Drawing.Point(276, 247);
+            this.btninsertar.Location = new System.Drawing.Point(276, 228);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(50, 50);
             this.btninsertar.TabIndex = 184;
@@ -353,7 +355,7 @@
             this.cbodir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbodir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbodir.FormattingEnabled = true;
-            this.cbodir.Location = new System.Drawing.Point(17, 218);
+            this.cbodir.Location = new System.Drawing.Point(17, 199);
             this.cbodir.Name = "cbodir";
             this.cbodir.Size = new System.Drawing.Size(309, 24);
             this.cbodir.TabIndex = 183;
@@ -365,7 +367,7 @@
             this.cbosup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.cbosup.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbosup.FormattingEnabled = true;
-            this.cbosup.Location = new System.Drawing.Point(17, 159);
+            this.cbosup.Location = new System.Drawing.Point(17, 150);
             this.cbosup.Name = "cbosup";
             this.cbosup.Size = new System.Drawing.Size(309, 24);
             this.cbosup.TabIndex = 182;
@@ -389,29 +391,29 @@
             this.dgvTrab.AllowUserToAddRows = false;
             this.dgvTrab.AllowUserToDeleteRows = false;
             this.dgvTrab.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvTrab.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvTrab.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvTrab.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTrab.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvTrab.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTrab.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTrab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTrab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvTrab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTrab.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTrab.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvTrab.Location = new System.Drawing.Point(385, 136);
             this.dgvTrab.Name = "dgvTrab";
             this.dgvTrab.ReadOnly = true;
@@ -449,8 +451,47 @@
             this.panel1.Controls.Add(label1);
             this.panel1.Location = new System.Drawing.Point(27, 136);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(339, 181);
+            this.panel1.Size = new System.Drawing.Size(339, 158);
             this.panel1.TabIndex = 175;
+            // 
+            // cboemplbusq
+            // 
+            this.cboemplbusq.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboemplbusq.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboemplbusq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cboemplbusq.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboemplbusq.FormattingEnabled = true;
+            this.cboemplbusq.Location = new System.Drawing.Point(9, 125);
+            this.cboemplbusq.Name = "cboemplbusq";
+            this.cboemplbusq.Size = new System.Drawing.Size(317, 24);
+            this.cboemplbusq.TabIndex = 184;
+            this.cboemplbusq.SelectedIndexChanged += new System.EventHandler(this.cboemplbusq_SelectedIndexChanged);
+            // 
+            // opcinactivos
+            // 
+            this.opcinactivos.AutoSize = true;
+            this.opcinactivos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.opcinactivos.Location = new System.Drawing.Point(83, 103);
+            this.opcinactivos.Name = "opcinactivos";
+            this.opcinactivos.Size = new System.Drawing.Size(68, 17);
+            this.opcinactivos.TabIndex = 52;
+            this.opcinactivos.TabStop = true;
+            this.opcinactivos.Text = "Inactivos";
+            this.opcinactivos.UseVisualStyleBackColor = true;
+            this.opcinactivos.CheckedChanged += new System.EventHandler(this.opcinactivos_CheckedChanged);
+            // 
+            // opcactivos
+            // 
+            this.opcactivos.AutoSize = true;
+            this.opcactivos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.opcactivos.Location = new System.Drawing.Point(13, 103);
+            this.opcactivos.Name = "opcactivos";
+            this.opcactivos.Size = new System.Drawing.Size(60, 17);
+            this.opcactivos.TabIndex = 51;
+            this.opcactivos.TabStop = true;
+            this.opcactivos.Text = "Activos";
+            this.opcactivos.UseVisualStyleBackColor = true;
+            this.opcactivos.CheckedChanged += new System.EventHandler(this.opcactivos_CheckedChanged);
             // 
             // btnbuscar
             // 
@@ -458,7 +499,7 @@
             this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnbuscar.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnbuscar.Location = new System.Drawing.Point(271, 34);
+            this.btnbuscar.Location = new System.Drawing.Point(271, 19);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(55, 55);
             this.btnbuscar.TabIndex = 46;
@@ -469,7 +510,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel5.Location = new System.Drawing.Point(13, 87);
+            this.panel5.Location = new System.Drawing.Point(13, 72);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(250, 2);
             this.panel5.TabIndex = 47;
@@ -479,7 +520,7 @@
             this.txtconceptobusq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtconceptobusq.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtconceptobusq.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtconceptobusq.Location = new System.Drawing.Point(15, 69);
+            this.txtconceptobusq.Location = new System.Drawing.Point(15, 54);
             this.txtconceptobusq.Name = "txtconceptobusq";
             this.txtconceptobusq.Size = new System.Drawing.Size(250, 15);
             this.txtconceptobusq.TabIndex = 45;
@@ -535,9 +576,9 @@
             // 
             this.pnlperf.Controls.Add(this.btopcperfil);
             this.pnlperf.Controls.Add(label6);
-            this.pnlperf.Location = new System.Drawing.Point(27, 630);
+            this.pnlperf.Location = new System.Drawing.Point(27, 640);
             this.pnlperf.Name = "pnlperf";
-            this.pnlperf.Size = new System.Drawing.Size(339, 70);
+            this.pnlperf.Size = new System.Drawing.Size(339, 63);
             this.pnlperf.TabIndex = 178;
             this.pnlperf.Visible = false;
             // 
@@ -547,7 +588,7 @@
             this.btopcperfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btopcperfil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btopcperfil.Image = global::SIPAA_CS.Properties.Resources.Admin;
-            this.btopcperfil.Location = new System.Drawing.Point(152, 10);
+            this.btopcperfil.Location = new System.Drawing.Point(152, 4);
             this.btopcperfil.Name = "btopcperfil";
             this.btopcperfil.Size = new System.Drawing.Size(55, 55);
             this.btopcperfil.TabIndex = 46;
@@ -555,44 +596,34 @@
             this.btopcperfil.UseVisualStyleBackColor = false;
             this.btopcperfil.Click += new System.EventHandler(this.btopcperfil_Click);
             // 
-            // opcinactivos
+            // label11
             // 
-            this.opcinactivos.AutoSize = true;
-            this.opcinactivos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.opcinactivos.Location = new System.Drawing.Point(83, 123);
-            this.opcinactivos.Name = "opcinactivos";
-            this.opcinactivos.Size = new System.Drawing.Size(68, 17);
-            this.opcinactivos.TabIndex = 52;
-            this.opcinactivos.TabStop = true;
-            this.opcinactivos.Text = "Inactivos";
-            this.opcinactivos.UseVisualStyleBackColor = true;
-            this.opcinactivos.CheckedChanged += new System.EventHandler(this.opcinactivos_CheckedChanged);
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.label11.ForeColor = System.Drawing.Color.Gray;
+            this.label11.Image = global::SIPAA_CS.Properties.Resources.ic_keyboard_arrow_right_grey_600_18dp;
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label11.Location = new System.Drawing.Point(34, 314);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(251, 17);
+            this.label11.TabIndex = 180;
+            this.label11.Text = "      Reporte validación Checa-Horario";
+            this.label11.Visible = false;
             // 
-            // opcactivos
+            // btnImprimir
             // 
-            this.opcactivos.AutoSize = true;
-            this.opcactivos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.opcactivos.Location = new System.Drawing.Point(13, 123);
-            this.opcactivos.Name = "opcactivos";
-            this.opcactivos.Size = new System.Drawing.Size(60, 17);
-            this.opcactivos.TabIndex = 51;
-            this.opcactivos.TabStop = true;
-            this.opcactivos.Text = "Activos";
-            this.opcactivos.UseVisualStyleBackColor = true;
-            this.opcactivos.CheckedChanged += new System.EventHandler(this.opcactivos_CheckedChanged);
-            // 
-            // cboemplbusq
-            // 
-            this.cboemplbusq.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboemplbusq.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboemplbusq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.cboemplbusq.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboemplbusq.FormattingEnabled = true;
-            this.cboemplbusq.Location = new System.Drawing.Point(9, 148);
-            this.cboemplbusq.Name = "cboemplbusq";
-            this.cboemplbusq.Size = new System.Drawing.Size(317, 24);
-            this.cboemplbusq.TabIndex = 184;
-            this.cboemplbusq.SelectedIndexChanged += new System.EventHandler(this.cboemplbusq_SelectedIndexChanged);
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
+            this.btnImprimir.Location = new System.Drawing.Point(301, 296);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(55, 55);
+            this.btnImprimir.TabIndex = 179;
+            this.btnImprimir.Tag = "Buscar";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Visible = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // TrabajadoresPerfil
             // 
@@ -601,6 +632,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.pnlperf);
             this.Controls.Add(this.pnlmenssuid);
             this.Controls.Add(this.lblModif);
@@ -666,5 +699,7 @@
         private System.Windows.Forms.RadioButton opcinactivos;
         private System.Windows.Forms.RadioButton opcactivos;
         private System.Windows.Forms.ComboBox cboemplbusq;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

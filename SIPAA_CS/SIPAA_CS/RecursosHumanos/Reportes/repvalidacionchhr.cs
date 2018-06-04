@@ -16,14 +16,14 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rep_glinc : ReportClass {
+    public class repvalidacionchhr : ReportClass {
         
-        public rep_glinc() {
+        public repvalidacionchhr() {
         }
         
         public override string ResourceName {
             get {
-                return "rep_glinc.rpt";
+                return "repvalidacionchhr.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         
         public override string FullResourceName {
             get {
-                return "SIPAA_CS.RecursosHumanos.Reportes.rep_glinc.rpt";
+                return "SIPAA_CS.RecursosHumanos.Reportes.repvalidacionchhr.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,49 +82,17 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection2 {
-            get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[7];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[8];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class Cachedrep_glinc : Component, ICachedReport {
+    public class Cachedrepvalidacionchhr : Component, ICachedReport {
         
-        public Cachedrep_glinc() {
+        public Cachedrepvalidacionchhr() {
         }
         
         [Browsable(false)]
@@ -161,7 +129,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rep_glinc rpt = new rep_glinc();
+            repvalidacionchhr rpt = new repvalidacionchhr();
             rpt.Site = this.Site;
             return rpt;
         }

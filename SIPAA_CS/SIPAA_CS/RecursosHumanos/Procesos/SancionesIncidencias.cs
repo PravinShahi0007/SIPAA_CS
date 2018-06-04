@@ -44,6 +44,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
+
+        private void cbonivel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Util.p_inicbo == 1)
+            {
+                //cbotiponomina
+                cbotiponomina.DataSource = null;
+                DataTable dtcbotiponomina = clsancionesincidencias.dtdatos(6, 0, "", Int32.Parse(cbonivel.SelectedValue.ToString()), 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                Utilerias.llenarComboxDataTable(cbotiponomina, dtcbotiponomina, "cve", "desc");
+            }
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      G R I D // S
         //-----------------------------------------------------------------------------------------------
@@ -424,8 +436,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             dgvdatos.Columns[0].Width = 75;
             dgvdatos.Columns[1].Width = 200;
-            dgvdatos.Columns[2].Width = 110;
-            dgvdatos.Columns[3].Width = 90;
+            dgvdatos.Columns[2].Width = 210;
+            dgvdatos.Columns[3].Width = 210;
             dgvdatos.Columns[4].Width = 80;
             dgvdatos.Columns[5].Width = 90;
             dgvdatos.Columns[6].Width = 90;
@@ -473,8 +485,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             dgvdatos.DataSource = dtdgvji;
 
             dgvdatos.Columns[0].Width = 200;
-            dgvdatos.Columns[1].Width = 110;
-            dgvdatos.Columns[2].Width = 90;
+            dgvdatos.Columns[1].Width = 210;
+            dgvdatos.Columns[2].Width = 210;
             dgvdatos.Columns[3].Width = 80;
             dgvdatos.Columns[4].Width = 90;
             dgvdatos.Columns[5].Width = 90;
@@ -493,13 +505,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             txtdesc.Text = "";
             //cb nivel
+            Util.p_inicbo = 0;
             cbonivel.DataSource = null;
             DataTable dtnivel = clsancionesincidencias.dtdatos(5, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbonivel, dtnivel, "cve", "desc");
+            Util.p_inicbo = 1;
+
             //cbotiponomina
             cbotiponomina.DataSource = null;
             DataTable dtcbotiponomina = clsancionesincidencias.dtdatos(6, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbotiponomina, dtcbotiponomina, "cve", "desc");
+
             //cboincidencia
             cboincidencia.DataSource = null;
             DataTable dtcboincidencia = clsancionesincidencias.dtdatos(7, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
@@ -541,8 +557,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     icvpolmodif = Convert.ToInt32(row.Cells["cvpolitica"].Value.ToString());
                     txtdesc.Text = row.Cells["Politica"].Value.ToString();
 
-                    cbonivel.Text = row.Cells["Nivel"].Value.ToString();
-                    cbotiponomina.Text = row.Cells["Forma de Pago"].Value.ToString();
+                    cbonivel.Text = row.Cells["Compañia"].Value.ToString();
+                    cbotiponomina.Text = row.Cells["Planta"].Value.ToString();
                     cboincidencia.Text = row.Cells["Incidecnia"].Value.ToString();
                     txtnoeventos.Text = row.Cells["Num Eventos"].Value.ToString();
                     cbotipeval.Text = row.Cells["Evaluación"].Value.ToString();
@@ -564,13 +580,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
             else if (cbonivel.Text.Trim() == "" || cbonivel.SelectedIndex == -1 || cbonivel.SelectedIndex == 0)
             {
-                DialogResult result = MessageBox.Show("Selecciona un nivel", "SIPAA", MessageBoxButtons.OK);
+                DialogResult result = MessageBox.Show("Selecciona una Compañia", "SIPAA", MessageBoxButtons.OK);
                 cbonivel.Focus();
                 return false;
             }
             else if (cbotiponomina.Text.Trim() == "" || cbotiponomina.SelectedIndex == -1 || cbotiponomina.SelectedIndex == 0)
             {
-                DialogResult result = MessageBox.Show("Selecciona una forma de pago", "SIPAA", MessageBoxButtons.OK);
+                DialogResult result = MessageBox.Show("Selecciona una planta", "SIPAA", MessageBoxButtons.OK);
                 cbotiponomina.Focus();
                 return false;
             }

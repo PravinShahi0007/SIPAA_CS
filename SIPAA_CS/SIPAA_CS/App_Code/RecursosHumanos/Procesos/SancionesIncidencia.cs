@@ -32,8 +32,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
         cmd.Parameters.Add("@p_cvpolitica", SqlDbType.Int).Value = icvpolitica;
         cmd.Parameters.Add("@p_descpolitica", SqlDbType.VarChar).Value = sdescpolitica;
-        cmd.Parameters.Add("@p_cvnivel", SqlDbType.Int).Value = icvnivel;
-        cmd.Parameters.Add("@p_cvtiponomina", SqlDbType.Int).Value = icvtiponomina;
+        cmd.Parameters.Add("@p_IdCompania", SqlDbType.Int).Value = icvnivel;
+        cmd.Parameters.Add("@p_Idplanta", SqlDbType.Int).Value = icvtiponomina;
         cmd.Parameters.Add("@p_numeventos", SqlDbType.Int).Value = inumeventos;
         cmd.Parameters.Add("@p_cvincrepresenta", SqlDbType.Int).Value = icvincrepresenta;
         cmd.Parameters.Add("@p_cvevaluacion", SqlDbType.Int).Value = icvevaluacion;
@@ -66,8 +66,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
         cmd.Parameters.Add("@p_cvpolitica", SqlDbType.Int).Value = icvpolitica;
         cmd.Parameters.Add("@p_descpolitica", SqlDbType.VarChar).Value = sdescpolitica;
-        cmd.Parameters.Add("@p_cvnivel", SqlDbType.Int).Value = icvnivel;
-        cmd.Parameters.Add("@p_cvtiponomina", SqlDbType.Int).Value = icvtiponomina;
+        cmd.Parameters.Add("@p_IdCompania", SqlDbType.Int).Value = icvnivel;
+        cmd.Parameters.Add("@p_Idplanta", SqlDbType.Int).Value = icvtiponomina;
         cmd.Parameters.Add("@p_numeventos", SqlDbType.Int).Value = inumeventos;
         cmd.Parameters.Add("@p_cvincrepresenta", SqlDbType.Int).Value = icvincrepresenta;
         cmd.Parameters.Add("@p_cvevaluacion", SqlDbType.Int).Value = icvevaluacion;
