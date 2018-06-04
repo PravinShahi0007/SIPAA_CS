@@ -295,8 +295,6 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnfhautdir;
             
-            private global::System.Data.DataColumn columnstinc;
-            
             private global::System.Data.DataColumn columnFalta;
             
             private global::System.Data.DataColumn columnAut;
@@ -402,14 +400,6 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn stincColumn {
-                get {
-                    return this.columnstinc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn FaltaColumn {
                 get {
                     return this.columnFalta;
@@ -469,7 +459,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FaltasPeriodoRow AddFaltasPeriodoRow(int idtrab, string Trabajador, System.DateTime fereget, string incidencia, string representa, string idtrabdir, string stdir, string fhautdir, string stinc, short Falta, short Aut, short FalEfe) {
+            public FaltasPeriodoRow AddFaltasPeriodoRow(int idtrab, string Trabajador, System.DateTime fereget, string incidencia, string representa, string idtrabdir, string stdir, string fhautdir, short Falta, short Aut, short FalEfe) {
                 FaltasPeriodoRow rowFaltasPeriodoRow = ((FaltasPeriodoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idtrab,
@@ -480,7 +470,6 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         idtrabdir,
                         stdir,
                         fhautdir,
-                        stinc,
                         Falta,
                         Aut,
                         FalEfe};
@@ -514,7 +503,6 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.columnidtrabdir = base.Columns["idtrabdir"];
                 this.columnstdir = base.Columns["stdir"];
                 this.columnfhautdir = base.Columns["fhautdir"];
-                this.columnstinc = base.Columns["stinc"];
                 this.columnFalta = base.Columns["Falta"];
                 this.columnAut = base.Columns["Aut"];
                 this.columnFalEfe = base.Columns["FalEfe"];
@@ -539,8 +527,6 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnstdir);
                 this.columnfhautdir = new global::System.Data.DataColumn("fhautdir", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfhautdir);
-                this.columnstinc = new global::System.Data.DataColumn("stinc", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstinc);
                 this.columnFalta = new global::System.Data.DataColumn("Falta", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFalta);
                 this.columnAut = new global::System.Data.DataColumn("Aut", typeof(short), null, global::System.Data.MappingType.Element);
@@ -819,22 +805,6 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string stinc {
-                get {
-                    try {
-                        return ((string)(this[this.tableFaltasPeriodo.stincColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'stinc\' de la tabla \'FaltasPeriodo\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableFaltasPeriodo.stincColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public short Falta {
                 get {
                     try {
@@ -975,18 +945,6 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetfhautdirNull() {
                 this[this.tableFaltasPeriodo.fhautdirColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsstincNull() {
-                return this.IsNull(this.tableFaltasPeriodo.stincColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetstincNull() {
-                this[this.tableFaltasPeriodo.stincColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

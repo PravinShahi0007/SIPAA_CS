@@ -321,8 +321,13 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     cadenaReg = "Reporte Anual del periodo "+dpFechaInicio.Value.ToString("dd/MM/yy")+" al "+dpFechaFin.Value.ToString("dd/MM/yy");
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
-                    cadenaReg = "IdTrab, Nombre, Falta,Minutos_Falta, Omisión_Entrada,Minutos_Omision_Entrada, Omisión_Salida, Minutos_Omision_Salida, Retardo, Minutos_Retardo, Salida_Anticipada,"+
-                        "Minutos_Salida_Anticipada, Retardo_Comida, Minutos_Retardo_Comida, Id_Supervisor, Supervisor, IdDirector, Director, Departamento, Tipo_Nómina, Ubicación, Compañia";
+                    cadenaReg = "IdTrab, Nombre,  Incapacidad , Permiso_Sin_Goce_De_Sueldo , Minutos_Permiso_Sin_Goce_De_Sueldo , Sin_Registros ,"+
+                        " Minutos_Sin_Registros, Falta_Autorizada , Minutos_Falta_Autorizada ,Omisión_Entrada, Minutos_Omision_Entrada,  Omisión_Entrada_Autorizada,"+
+                        " Minutos_Omision_Entrada_Autorizada ,Omisión_Salida, Minutos_Omision_Salida, Omisión_Salida_Autorizada, Minutos_Omision_Salida_Autorizada ,"+
+                        " Retardo, Minutos_Retardo, Retardo_Autorizado , Minutos_Retardo_Autorizado ,Salida_Anticipada," +
+                        "Minutos_Salida_Anticipada,  Salida_Anticipada_Autorizada , Minutos_Salida_Anticipada_Autorizada ,Retardo_Comida "+
+                        "  ,Minutos_Retardo_Comida,   Retardo_Comida_Autorizado, Minutos_Retardo_Comida_Autorizado ,  Suspension,  IdDirector, Director, "+
+                        "  Id_Supervisor, Supervisor, Departamento, Tipo_Nómina, Ubicación, Compañia";
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
 
@@ -332,7 +337,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                             ","+row[5].ToString()+","+row[6].ToString()+","+row[7].ToString()+","+row[8].ToString()+","+row[9].ToString()+
                             ","+row[10].ToString()+","+row[11].ToString()+","+row[12].ToString()+","+row[13].ToString()+","+row[14].ToString()+
                             ","+row[15].ToString()+","+row[16].ToString()+","+row[17].ToString()+","+row[18].ToString()+","+row[19].ToString()+","+
-                            row[20].ToString()+","+row[21].ToString();
+                            row[20].ToString()+","+row[21].ToString() + "," + row[22].ToString() + "," + row[23].ToString() + "," + row[24].ToString() + "," + 
+                            row[25].ToString() + "," + row[26].ToString() + "," + row[27].ToString() + "," + row[28].ToString() + "," + row[29].ToString() + "," 
+                            + row[30].ToString() + "," + row[31].ToString() + "," + row[32].ToString() + "," + row[33].ToString() + "," + row[34].ToString() + "," 
+                            + row[35].ToString() + "," + row[36].ToString() + "," + row[37].ToString();
+
                         Texto.WriteLine(cadenaReg);
                     }
                     
@@ -576,12 +585,6 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         private void creacsv2(DataTable dtRpt)
         {
 
-
-
-
-            ///////////////////////////////////////////////////////////
-
-
             saveFileDialog.Filter = "csv files (*.csv)|*.csv";
             if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK && saveFileDialog.FileName.Length > 0)
             {
@@ -608,7 +611,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                         cadenaReg = row[0].ToString() + "," + row[1].ToString() + "," + row[2].ToString() + "," + row[3].ToString() + "," + row[4].ToString() +
                             "," + row[5].ToString() + "," + row[6].ToString() + "," + row[7].ToString() + "," + row[8].ToString() + "," + row[9].ToString() +
                             "," + row[10].ToString() + "," + row[11].ToString() + "," + row[12].ToString() + "," + row[13].ToString() + "," + row[14].ToString() +
-                            "," + row[15].ToString() + "," + row[16].ToString() ;
+                            "," + row[15].ToString() ;
                         Texto.WriteLine(cadenaReg);
                     }
 
@@ -626,6 +629,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
 
             }
+           
         }
 
         private void creacsv3(DataTable dtRpt)

@@ -45,6 +45,7 @@
             System.Windows.Forms.Label label14;
             System.Windows.Forms.Label label15;
             System.Windows.Forms.Label label16;
+            System.Windows.Forms.Label label17;
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTag = new System.Windows.Forms.Panel();
             this.lbMensaje = new System.Windows.Forms.Label();
@@ -69,6 +70,7 @@
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.cbAutorizacion = new System.Windows.Forms.ComboBox();
             label7 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
@@ -84,6 +86,7 @@
             label14 = new System.Windows.Forms.Label();
             label15 = new System.Windows.Forms.Label();
             label16 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
             this.panelTag.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlBusqueda.SuspendLayout();
@@ -110,7 +113,7 @@
             label11.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label11.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            label11.Location = new System.Drawing.Point(58, 233);
+            label11.Location = new System.Drawing.Point(58, 215);
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(126, 16);
             label11.TabIndex = 70;
@@ -123,7 +126,7 @@
             label10.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label10.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            label10.Location = new System.Drawing.Point(58, 428);
+            label10.Location = new System.Drawing.Point(58, 386);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(83, 16);
             label10.TabIndex = 68;
@@ -137,7 +140,7 @@
             label4.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label4.Location = new System.Drawing.Point(58, 370);
+            label4.Location = new System.Drawing.Point(58, 333);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(120, 16);
             label4.TabIndex = 66;
@@ -150,7 +153,7 @@
             label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label5.Location = new System.Drawing.Point(58, 165);
+            label5.Location = new System.Drawing.Point(58, 155);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(106, 16);
             label5.TabIndex = 60;
@@ -162,7 +165,7 @@
             label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label6.Location = new System.Drawing.Point(58, 117);
+            label6.Location = new System.Drawing.Point(58, 101);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(108, 16);
             label6.TabIndex = 58;
@@ -236,7 +239,7 @@
             label13.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label13.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            label13.Location = new System.Drawing.Point(58, 300);
+            label13.Location = new System.Drawing.Point(58, 274);
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(107, 16);
             label13.TabIndex = 72;
@@ -273,7 +276,7 @@
             label16.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label16.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            label16.Location = new System.Drawing.Point(58, 479);
+            label16.Location = new System.Drawing.Point(58, 442);
             label16.Name = "label16";
             label16.Size = new System.Drawing.Size(88, 16);
             label16.TabIndex = 180;
@@ -322,7 +325,7 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbDepartamento.Location = new System.Drawing.Point(61, 256);
+            this.cbDepartamento.Location = new System.Drawing.Point(61, 238);
             this.cbDepartamento.Name = "cbDepartamento";
             this.cbDepartamento.Size = new System.Drawing.Size(368, 25);
             this.cbDepartamento.TabIndex = 69;
@@ -363,7 +366,7 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbArea.Location = new System.Drawing.Point(61, 451);
+            this.cbArea.Location = new System.Drawing.Point(61, 409);
             this.cbArea.Name = "cbArea";
             this.cbArea.Size = new System.Drawing.Size(368, 25);
             this.cbArea.TabIndex = 67;
@@ -372,6 +375,8 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.Controls.Add(this.cbAutorizacion);
+            this.pnlBusqueda.Controls.Add(label17);
             this.pnlBusqueda.Controls.Add(this.cbStatus);
             this.pnlBusqueda.Controls.Add(label16);
             this.pnlBusqueda.Controls.Add(this.cbTipoNomina);
@@ -407,7 +412,7 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbStatus.Location = new System.Drawing.Point(61, 498);
+            this.cbStatus.Location = new System.Drawing.Point(61, 461);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(368, 25);
             this.cbStatus.TabIndex = 181;
@@ -426,7 +431,7 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbTipoNomina.Location = new System.Drawing.Point(61, 389);
+            this.cbTipoNomina.Location = new System.Drawing.Point(61, 352);
             this.cbTipoNomina.Name = "cbTipoNomina";
             this.cbTipoNomina.Size = new System.Drawing.Size(368, 25);
             this.cbTipoNomina.TabIndex = 179;
@@ -459,7 +464,7 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbIncidencia.Location = new System.Drawing.Point(61, 323);
+            this.cbIncidencia.Location = new System.Drawing.Point(61, 297);
             this.cbIncidencia.Name = "cbIncidencia";
             this.cbIncidencia.Size = new System.Drawing.Size(368, 25);
             this.cbIncidencia.TabIndex = 71;
@@ -477,7 +482,7 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbUbicacion.Location = new System.Drawing.Point(61, 188);
+            this.cbUbicacion.Location = new System.Drawing.Point(61, 178);
             this.cbUbicacion.Name = "cbUbicacion";
             this.cbUbicacion.Size = new System.Drawing.Size(368, 25);
             this.cbUbicacion.TabIndex = 59;
@@ -495,7 +500,7 @@
             "Seleccionar ",
             "Activo",
             "Inactivo"});
-            this.cbCia.Location = new System.Drawing.Point(61, 137);
+            this.cbCia.Location = new System.Drawing.Point(61, 121);
             this.cbCia.Name = "cbCia";
             this.cbCia.Size = new System.Drawing.Size(368, 25);
             this.cbCia.TabIndex = 57;
@@ -622,6 +627,37 @@
             // 
             this.saveFileDialog.FileName = "Observaciones";
             // 
+            // cbAutorizacion
+            // 
+            this.cbAutorizacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbAutorizacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbAutorizacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbAutorizacion.DropDownWidth = 500;
+            this.cbAutorizacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAutorizacion.FormattingEnabled = true;
+            this.cbAutorizacion.Items.AddRange(new object[] {
+            "Seleccionar ",
+            "DIR",
+            "SUP"});
+            this.cbAutorizacion.Location = new System.Drawing.Point(60, 512);
+            this.cbAutorizacion.Name = "cbAutorizacion";
+            this.cbAutorizacion.Size = new System.Drawing.Size(368, 25);
+            this.cbAutorizacion.TabIndex = 183;
+            this.cbAutorizacion.Text = "Seleccionar ";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label17.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            label17.Location = new System.Drawing.Point(57, 493);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(65, 16);
+            label17.TabIndex = 182;
+            label17.Text = "Autorización";
+            label17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FiltroObservaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -690,5 +726,6 @@
         private System.Windows.Forms.ComboBox cbTipoNomina;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ComboBox cbAutorizacion;
     }
 }

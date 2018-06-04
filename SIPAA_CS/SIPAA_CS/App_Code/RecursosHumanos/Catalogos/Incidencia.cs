@@ -139,7 +139,7 @@ namespace SIPAA_CS.App_Code
 
         public DataTable ReporteObservaciones(string sIdTrab, DateTime dtFechaInicio
                                                    , DateTime dtFechaFin, string sDepto, string sCompania, string sTNom
-                                                   , string sUbicacion, string sArea,string sIncidencia, string sStatus)
+                                                   , string sUbicacion, string sArea,string sIncidencia, string sStatus, string sAutorizacion )
         {
 
             Conexion objConexion = new Conexion();
@@ -157,6 +157,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("P_plantel", SqlDbType.VarChar).Value = sArea;
             cmd.Parameters.Add("P_Incidencia", SqlDbType.VarChar).Value = sIncidencia;
             cmd.Parameters.Add("P_Status", SqlDbType.VarChar).Value = sStatus;
+            cmd.Parameters.Add("P_Autorizacion", SqlDbType.VarChar).Value= sAutorizacion; 
 
             objConexion.asignarConexion(cmd);
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);

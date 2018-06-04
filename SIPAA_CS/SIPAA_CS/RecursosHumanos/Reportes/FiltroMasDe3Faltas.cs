@@ -20,11 +20,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
     {
 
         private static string TITULO_REPORTE = "SIPAA - Recursos Humanos";
-        private static string NOMBRE_REPORTE = "Mas de 3 faltas en un periodo de 30 dias";
+        private static string NOMBRE_REPORTE = "3 o mas faltas en un periodo de 30 dias";
         //Definición de Variables
-        public int sIdTrab;
-        public int sCompania;
-        public int sUbicacion;
+        public string sIdTrab;
+        public string sCompania;
+        public string sUbicacion;
         public DateTime dtFechaBase = DateTime.Today;
 
         //Instanciamos las clases
@@ -60,10 +60,28 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            sIdTrab = cboEmpleados.SelectedIndex > 0 ? Convert.ToInt32(cboEmpleados.SelectedValue) : 0;
-            sCompania = cbCompania.SelectedIndex > 0 ? Convert.ToInt32(cbCompania.SelectedValue) : 0;
-            sUbicacion = cbUbicacion.SelectedIndex > 0 ? Convert.ToInt32(cbUbicacion.SelectedValue) : 0;
+
+
+            if (cboEmpleados.SelectedIndex.ToString() == "0")
+                sIdTrab = "%";
+            else
+                sIdTrab = cboEmpleados.SelectedIndex.ToString();
+
+            if (cbCompania.SelectedIndex.ToString() == "0")
+                sCompania = "%";
+            else
+                sCompania = cbCompania.SelectedIndex.ToString();
+            if (cbUbicacion.SelectedIndex.ToString() == "0")
+                sUbicacion = "%";
+            else
+                sUbicacion = cbUbicacion.SelectedIndex.ToString(); 
+
             dtFechaBase = new DateTime(dpFechaBase.Value.Year, dpFechaBase.Value.Month, dpFechaBase.Value.Day);
+
+            //sIdTrab = cboEmpleados.SelectedIndex.ToString() != "0" ? cboEmpleados.SelectedValue.ToString() : '%';
+            //sCompania = cbCompania.SelectedIndex > 0 ? cbCompania.SelectedValue.ToString() : 0;
+            //sUbicacion = cbUbicacion.SelectedIndex > 0 ? cbUbicacion.SelectedValue.ToString() : 0;
+            //dtFechaBase = new DateTime(dpFechaBase.Value.Year, dpFechaBase.Value.Month, dpFechaBase.Value.Day);
            
 
             DataTable dtReporteRegistro = oTrabajador.MasDe3Faltas(5, sIdTrab, sCompania, sUbicacion, dtFechaBase);
@@ -94,7 +112,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                         creacsv(dtReporteRegistro);
 
 
-                    break;
+                   
 
 
                     break;
@@ -197,10 +215,10 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     StreamWriter Texto = new StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8);
 
                     string cadenaReg = "";
-                    cadenaReg = "Reporte mas de 3 Faltas ";
+                    cadenaReg = "Reporte de 3 o mas Faltas ";
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
-                    cadenaReg = "IdTrab, Trabajador, Fereget, Incidencia, Representa, IdTrabDir, Fecha Autorización Director, Estatus Inc, Falta, Autorizada, Falta Efectiva ";
+                    cadenaReg = "IdTrab, Trabajador, Fereget, Incidencia, Representa, IdTrabDir, Fecha Calificación Director, Falta, Calificada, Falta Efectiva ";
                     
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
@@ -208,7 +226,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     foreach (DataRow row in dtRpt.Rows)
                     {
                         cadenaReg = row[0].ToString() + "," + row[1].ToString() + "," + row[2].ToString() + "," + row[3].ToString() + "," + row[4].ToString() + ","+
-                            "" + row[5].ToString() + "," + row[6].ToString() + "," + row[7].ToString() + "," + row[8].ToString() + "," + row[9].ToString();
+                            "" + row[5].ToString() + "," + row[6].ToString() + "," + row[7].ToString() + "," + row[8].ToString();
                         Texto.WriteLine(cadenaReg);
                     }
 
