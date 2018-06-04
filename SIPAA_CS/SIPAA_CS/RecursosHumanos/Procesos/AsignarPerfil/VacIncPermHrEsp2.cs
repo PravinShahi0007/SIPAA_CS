@@ -512,8 +512,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void btnImprimirDetalle_Click(object sender, EventArgs e)
         {
             ////////////////////////////////////////////// JLA 01/02/2018
+            int activo;
+            if (rbactivos.Checked)
+            {
+                activo = 1;
+            }
+            else
+            {
+                activo = 0;
+            }
             DataTable dtEmpleadosDiasEsp = contenedorempleados.obtenerempleadosydiasesp(sgIdTrab, sgIdCompania, 
-                sgIdArea, sgIdPuesto, sgIdDepartamento, sgIdUbicacion, sgIdTipoNomina, dtpfechainicio.Text, dtpfechafin.Text);
+                sgIdArea, sgIdPuesto, sgIdDepartamento, sgIdUbicacion, sgIdTipoNomina, dtpfechainicio.Text, dtpfechafin.Text, activo);
             switch (dtEmpleadosDiasEsp.Rows.Count)
             {
                 case 0:
