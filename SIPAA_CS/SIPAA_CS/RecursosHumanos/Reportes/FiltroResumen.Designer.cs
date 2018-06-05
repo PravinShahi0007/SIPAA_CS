@@ -651,7 +651,7 @@
             this.dtinicio2.Name = "dtinicio2";
             this.dtinicio2.Size = new System.Drawing.Size(109, 25);
             this.dtinicio2.TabIndex = 198;
-            this.dtinicio2.Value = new System.DateTime(2018, 2, 20, 0, 0, 0, 0);
+            this.dtinicio2.Value = new System.DateTime(2018, 6, 4, 0, 0, 0, 0);
             // 
             // dtfin2
             // 
@@ -872,7 +872,7 @@
             this.dpFechaInicio.Name = "dpFechaInicio";
             this.dpFechaInicio.Size = new System.Drawing.Size(109, 25);
             this.dpFechaInicio.TabIndex = 61;
-            this.dpFechaInicio.Value = new System.DateTime(2018, 2, 20, 0, 0, 0, 0);
+            this.dpFechaInicio.Value = new System.DateTime(2018, 6, 4, 0, 0, 0, 0);
             this.dpFechaInicio.ValueChanged += new System.EventHandler(this.ValidarFechaDataPicker);
             // 
             // dpFechaFin
@@ -1008,7 +1008,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(109, 25);
             this.dateTimePicker1.TabIndex = 184;
-            this.dateTimePicker1.Value = new System.DateTime(2018, 2, 20, 0, 0, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2018, 6, 4, 0, 0, 0, 0);
             // 
             // dateTimePicker2
             // 

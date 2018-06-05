@@ -148,6 +148,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             string sIncidencia = AsignarVariableCombo(cbIncidencia);
             string sIdtrab = "";
             string sStatus = string.Empty;
+            string sAutorizacion = AsignarVariableCombo(cbAutorizacion);
 
             //if (cbEmpleados.Text == String.Empty )
             //    sIdtrab = "%";
@@ -176,7 +177,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
 
             Incidencia objInc = new Incidencia();
-            DataTable dtRpt = objInc.ReporteObservaciones(sIdtrab, dtFechaInicio, dtFechaFin, sDepto, sCia, sTipoNom, sUbicacion, sArea, sIncidencia, sStatus);
+            DataTable dtRpt = objInc.ReporteObservaciones(sIdtrab, dtFechaInicio, dtFechaFin, sDepto, sCia, sTipoNom, sUbicacion, sArea, sIncidencia, sStatus, sAutorizacion);
 
             switch (dtRpt.Rows.Count)
             {
