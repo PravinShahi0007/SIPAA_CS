@@ -19,8 +19,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
     }
 
     //llena dgv,cb
-    public DataTable dtdatos(int iopcion, int icvpolitica, string sdescpolitica, int icvnivel, int icvtiponomina, 
-                             int inumeventos, int icvincrepresenta, int icvevaluacion, int isancgenera, int iordenejec,
+    public DataTable dtdatos(int iopcion, int icvpolitica, string sdescpolitica, int icvnivel, int icvtiponomina,
+                             int inumeventosmin, int inumeventos, int icvincrepresenta, int icvevaluacion, int isancgenera, int iordenejec,
                              int istpolitica, string susuumod, string sprgumod)
     {
         SqlCommand cmd = new SqlCommand();
@@ -34,6 +34,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         cmd.Parameters.Add("@p_descpolitica", SqlDbType.VarChar).Value = sdescpolitica;
         cmd.Parameters.Add("@p_IdCompania", SqlDbType.Int).Value = icvnivel;
         cmd.Parameters.Add("@p_Idplanta", SqlDbType.Int).Value = icvtiponomina;
+        cmd.Parameters.Add("@p_numeventosmin", SqlDbType.Int).Value = inumeventosmin;
         cmd.Parameters.Add("@p_numeventos", SqlDbType.Int).Value = inumeventos;
         cmd.Parameters.Add("@p_cvincrepresenta", SqlDbType.Int).Value = icvincrepresenta;
         cmd.Parameters.Add("@p_cvevaluacion", SqlDbType.Int).Value = icvevaluacion;
@@ -54,7 +55,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
 
     //crud correos
     public int cruddatos(int iopcion, int icvpolitica, string sdescpolitica, int icvnivel, int icvtiponomina,
-                         int inumeventos, int icvincrepresenta, int icvevaluacion, int isancgenera, int iordenejec,
+                         int inumeventosmin, int inumeventos, int icvincrepresenta, int icvevaluacion, int isancgenera, int iordenejec,
                          int istpolitica, string susuumod, string sprgumod)
     {
         SqlCommand cmd = new SqlCommand();
@@ -68,6 +69,7 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         cmd.Parameters.Add("@p_descpolitica", SqlDbType.VarChar).Value = sdescpolitica;
         cmd.Parameters.Add("@p_IdCompania", SqlDbType.Int).Value = icvnivel;
         cmd.Parameters.Add("@p_Idplanta", SqlDbType.Int).Value = icvtiponomina;
+        cmd.Parameters.Add("@p_numeventosmin", SqlDbType.Int).Value = inumeventosmin;
         cmd.Parameters.Add("@p_numeventos", SqlDbType.Int).Value = inumeventos;
         cmd.Parameters.Add("@p_cvincrepresenta", SqlDbType.Int).Value = icvincrepresenta;
         cmd.Parameters.Add("@p_cvevaluacion", SqlDbType.Int).Value = icvevaluacion;

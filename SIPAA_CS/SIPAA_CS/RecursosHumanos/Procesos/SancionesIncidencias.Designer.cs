@@ -42,6 +42,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label8;
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnregresar = new System.Windows.Forms.Button();
@@ -73,6 +74,8 @@
             this.pnlmenssuid = new System.Windows.Forms.Panel();
             this.menssuid = new System.Windows.Forms.Label();
             this.lblModif = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtnoeventosmin = new System.Windows.Forms.TextBox();
             label4 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -82,6 +85,7 @@
             label11 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.pnlbusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdatos)).BeginInit();
@@ -147,9 +151,9 @@
             label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label9.Location = new System.Drawing.Point(4, 215);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(78, 16);
+            label9.Size = new System.Drawing.Size(103, 16);
             label9.TabIndex = 144;
-            label9.Text = "No. Eventos";
+            label9.Text = "No. Eventos Min";
             // 
             // label7
             // 
@@ -418,6 +422,9 @@
             // pnlcrud
             // 
             this.pnlcrud.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlcrud.Controls.Add(label8);
+            this.pnlcrud.Controls.Add(this.panel3);
+            this.pnlcrud.Controls.Add(this.txtnoeventosmin);
             this.pnlcrud.Controls.Add(this.panel2);
             this.pnlcrud.Controls.Add(this.txtdesc);
             this.pnlcrud.Controls.Add(this.cbosancion);
@@ -475,7 +482,7 @@
             this.cbosancion.Margin = new System.Windows.Forms.Padding(2);
             this.cbosancion.Name = "cbosancion";
             this.cbosancion.Size = new System.Drawing.Size(266, 24);
-            this.cbosancion.TabIndex = 10;
+            this.cbosancion.TabIndex = 11;
             // 
             // cboincidencia
             // 
@@ -494,9 +501,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel1.Location = new System.Drawing.Point(106, 231);
+            this.panel1.Location = new System.Drawing.Point(247, 229);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(230, 2);
+            this.panel1.Size = new System.Drawing.Size(90, 2);
             this.panel1.TabIndex = 149;
             // 
             // txtnoeventos
@@ -504,10 +511,10 @@
             this.txtnoeventos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtnoeventos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtnoeventos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnoeventos.Location = new System.Drawing.Point(108, 213);
+            this.txtnoeventos.Location = new System.Drawing.Point(249, 211);
             this.txtnoeventos.Name = "txtnoeventos";
-            this.txtnoeventos.Size = new System.Drawing.Size(230, 15);
-            this.txtnoeventos.TabIndex = 8;
+            this.txtnoeventos.Size = new System.Drawing.Size(90, 15);
+            this.txtnoeventos.TabIndex = 9;
             // 
             // cbotiponomina
             // 
@@ -534,7 +541,7 @@
             this.cbotipeval.Margin = new System.Windows.Forms.Padding(2);
             this.cbotipeval.Name = "cbotipeval";
             this.cbotipeval.Size = new System.Drawing.Size(266, 24);
-            this.cbotipeval.TabIndex = 9;
+            this.cbotipeval.TabIndex = 10;
             this.cbotipeval.SelectedIndexChanged += new System.EventHandler(this.cbotipeval_SelectedIndexChanged);
             // 
             // cbonivel
@@ -559,7 +566,7 @@
             this.ckbeliminar.Location = new System.Drawing.Point(10, 338);
             this.ckbeliminar.Name = "ckbeliminar";
             this.ckbeliminar.Size = new System.Drawing.Size(47, 17);
-            this.ckbeliminar.TabIndex = 11;
+            this.ckbeliminar.TabIndex = 12;
             this.ckbeliminar.Text = "Baja";
             this.ckbeliminar.UseVisualStyleBackColor = true;
             this.ckbeliminar.Visible = false;
@@ -574,7 +581,7 @@
             this.btninsertar.Location = new System.Drawing.Point(281, 320);
             this.btninsertar.Name = "btninsertar";
             this.btninsertar.Size = new System.Drawing.Size(55, 55);
-            this.btninsertar.TabIndex = 12;
+            this.btninsertar.TabIndex = 13;
             this.btninsertar.UseVisualStyleBackColor = false;
             this.btninsertar.Click += new System.EventHandler(this.btninsertar_Click);
             // 
@@ -633,6 +640,36 @@
             this.lblModif.TabIndex = 228;
             this.lblModif.Text = "Para modificar seleccione un registro del grid";
             this.lblModif.Visible = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel3.Location = new System.Drawing.Point(108, 229);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(90, 2);
+            this.panel3.TabIndex = 160;
+            // 
+            // txtnoeventosmin
+            // 
+            this.txtnoeventosmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtnoeventosmin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtnoeventosmin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnoeventosmin.Location = new System.Drawing.Point(110, 211);
+            this.txtnoeventosmin.Name = "txtnoeventosmin";
+            this.txtnoeventosmin.Size = new System.Drawing.Size(90, 15);
+            this.txtnoeventosmin.TabIndex = 8;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label8.Location = new System.Drawing.Point(207, 214);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(33, 16);
+            label8.TabIndex = 161;
+            label8.Text = "Max";
             // 
             // SancionesIncidencias
             // 
@@ -705,5 +742,7 @@
         private System.Windows.Forms.Label lblModif;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtdesc;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox txtnoeventosmin;
     }
 }

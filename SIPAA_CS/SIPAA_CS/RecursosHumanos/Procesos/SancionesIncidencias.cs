@@ -30,6 +30,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         #region
         int iins, iact, ielim, iimp;
         int iactbtn, icvpolmodif;
+        int inumevetmin;
         #endregion
 
         Perfil DatPerfil = new Perfil();
@@ -51,7 +52,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             {
                 //cbotiponomina
                 cbotiponomina.DataSource = null;
-                DataTable dtcbotiponomina = clsancionesincidencias.dtdatos(6, 0, "", Int32.Parse(cbonivel.SelectedValue.ToString()), 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                DataTable dtcbotiponomina = clsancionesincidencias.dtdatos(6, 0, "", Int32.Parse(cbonivel.SelectedValue.ToString()), 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
                 Utilerias.llenarComboxDataTable(cbotiponomina, dtcbotiponomina, "cve", "desc");
             }
         }
@@ -146,7 +147,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             if (inumcolumngrid == 1){dgvdatos.Columns.RemoveAt(0);}
 
             //llena grid
-            fllenagridbusqueda(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            fllenagridbusqueda(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
 
             pnlcrud.Visible = true;
             Util.ChangeButton(btninsertar, 1, false);
@@ -175,7 +176,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             if (inumcolumngrid == 1){dgvdatos.Columns.RemoveAt(0);}
 
             //llena grid
-            fllenagridbusqueda(4, 0, txtbusqueda.Text.Trim(), 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            fllenagridbusqueda(4, 0, txtbusqueda.Text.Trim(), 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
         }
 
         //boton guardar
@@ -189,14 +190,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 if (bvalidacampos == true)
                 {
-                    int ivali = clsancionesincidencias.cruddatos(1, 0, txtdesc.Text.Trim(), Int32.Parse(cbonivel.SelectedValue.ToString()), Int32.Parse(cbotiponomina.SelectedValue.ToString()), Int32.Parse(txtnoeventos.Text),
+                    if (txtnoeventosmin.Text == "") {inumevetmin = 0; } else { inumevetmin = Int32.Parse(txtnoeventosmin.Text);}
+
+                    int ivali = clsancionesincidencias.cruddatos(1, 0, txtdesc.Text.Trim(), Int32.Parse(cbonivel.SelectedValue.ToString()), Int32.Parse(cbotiponomina.SelectedValue.ToString()), inumevetmin, Int32.Parse(txtnoeventos.Text),
                                                                  Int32.Parse(cboincidencia.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), Int32.Parse(cbosancion.SelectedValue.ToString()), 0, 1,
                                                                  LoginInfo.IdTrab, this.Name);
 
                     if (ivali == 1)
                     {
                         //llena grid
-                        fllenagridbusqueda(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                        fllenagridbusqueda(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
                         pnlmenssuid.Visible = true;
                         pnlmenssuid.BackColor = ColorTranslator.FromHtml("#2e7d32");
                         menssuid.Text = "Registro agregado correctamente";
@@ -217,14 +220,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 if (bvalidacampos == true)
                 {
-                    int ivalu = clsancionesincidencias.cruddatos(2, icvpolmodif, txtdesc.Text.Trim(), Int32.Parse(cbonivel.SelectedValue.ToString()), Int32.Parse(cbotiponomina.SelectedValue.ToString()), Int32.Parse(txtnoeventos.Text),
+                    if (txtnoeventosmin.Text == "") {inumevetmin = 0; } else { inumevetmin = Int32.Parse(txtnoeventosmin.Text); }
+                    int ivalu = clsancionesincidencias.cruddatos(2, icvpolmodif, txtdesc.Text.Trim(), Int32.Parse(cbonivel.SelectedValue.ToString()), Int32.Parse(cbotiponomina.SelectedValue.ToString()), inumevetmin, Int32.Parse(txtnoeventos.Text),
                                                                  Int32.Parse(cboincidencia.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), Int32.Parse(cbosancion.SelectedValue.ToString()), 0, 1,
                                                                  LoginInfo.IdTrab, this.Name);
 
                     if (ivalu == 2)
                     {
                         //llena grid
-                        fllenagridbusqueda(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                        fllenagridbusqueda(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
                         pnlmenssuid.Visible = true;
                         pnlmenssuid.BackColor = ColorTranslator.FromHtml("#0277bd");
                         menssuid.Text = "Registro modificado correctamente";
@@ -247,14 +251,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 if (result == DialogResult.Yes)
                 {
-                    int ivald = clsancionesincidencias.cruddatos(3, icvpolmodif, txtdesc.Text.Trim(), Int32.Parse(cbonivel.SelectedValue.ToString()), Int32.Parse(cbotiponomina.SelectedValue.ToString()), Int32.Parse(txtnoeventos.Text),
+                    int ivald = clsancionesincidencias.cruddatos(3, icvpolmodif, txtdesc.Text.Trim(), Int32.Parse(cbonivel.SelectedValue.ToString()), Int32.Parse(cbotiponomina.SelectedValue.ToString()), Int32.Parse(txtnoeventosmin.Text), Int32.Parse(txtnoeventos.Text),
                                                                  Int32.Parse(cboincidencia.SelectedValue.ToString()), Int32.Parse(cbotipeval.SelectedValue.ToString()), Int32.Parse(cbosancion.SelectedValue.ToString()), 0, 1,
                                                                  LoginInfo.IdTrab, this.Name);
 
                     if (ivald == 3)
                     {
                         //llena grid
-                        fllenagridbusqueda(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                        fllenagridbusqueda(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
                         pnlmenssuid.Visible = true;
                         pnlmenssuid.BackColor = ColorTranslator.FromHtml("#f44336");
                         menssuid.Text = "Registro eliminado correctamente";
@@ -323,7 +327,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             if (iimp == 1){label3.Visible = true; btnImprimir.Visible = true;}
 
             //llena grid
-            fllenagridbusqueda(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            fllenagridbusqueda(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
         }
 
         //timer
@@ -372,48 +376,48 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         //funcion busqueda conforme a permisos
         protected void fllenagridbusqueda(int iopcion, int icvpolitica, string sdescpolitica, int icvnivel, int icvtiponomina,
-                                         int inumeventos, int icvincrepresenta, int icvevaluacion, int isancgenera, int iordenejec,
+                                         int inumeventosmin, int inumeventos, int icvincrepresenta, int icvevaluacion, int isancgenera, int iordenejec,
                                          int istpolitica, string susuumod, string sprgumod)
         {
 
             if (iins == 1 && iact == 1 && ielim == 1)
             {
-                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventosmin, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
             }
             else if (iins == 1 && iact == 1)
             {
-                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventosmin, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
             }
             else if (iins == 1 && ielim == 1)
             {
-                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventosmin, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
             }
             else if (iact == 1 && ielim == 1)
             {
-                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventosmin, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
             }
             else if (iins == 1)
             {
-                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventosmin, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
             }
             else if (iact == 1)
             {
-                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventosmin, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
             }
             else if (ielim == 1)
             {
-                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
+                fdgvsuid(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventosmin, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
             }
             else
             {
-                fdgvs(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
+                fdgvs(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventosmin, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
             }
 
         }
 
         //funcion formato grid con modificación busqueda con permisos
         protected void fdgvsuid(int iopcion, int icvpolitica, string sdescpolitica, int icvnivel, int icvtiponomina,
-                         int inumeventos, int icvincrepresenta, int icvevaluacion, int isancgenera, int iordenejec,
+                         int inumeventosmin, int inumeventos, int icvincrepresenta, int icvevaluacion, int isancgenera, int iordenejec,
                          int istpolitica, string susuumod, string sprgumod)
         {
             dgvdatos.DataSource = null;
@@ -425,7 +429,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dgvdatos.Columns.RemoveAt(0);
             }
 
-            DataTable dtdatos = clsancionesincidencias.dtdatos(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
+            DataTable dtdatos = clsancionesincidencias.dtdatos(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventosmin, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
             dgvdatos.DataSource = dtdatos;
 
             DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
@@ -439,15 +443,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             dgvdatos.Columns[2].Width = 210;
             dgvdatos.Columns[3].Width = 210;
             dgvdatos.Columns[4].Width = 80;
-            dgvdatos.Columns[5].Width = 90;
+            dgvdatos.Columns[5].Width = 80;
             dgvdatos.Columns[6].Width = 90;
-            dgvdatos.Columns[7].Width = 105;
-            dgvdatos.Columns[8].Visible = false;
+            dgvdatos.Columns[7].Width = 90;
+            dgvdatos.Columns[8].Width = 105;
             dgvdatos.Columns[9].Visible = false;
             dgvdatos.Columns[10].Visible = false;
             dgvdatos.Columns[11].Visible = false;
             dgvdatos.Columns[12].Visible = false;
             dgvdatos.Columns[13].Visible = false;
+            dgvdatos.Columns[14].Visible = false;
             dgvdatos.ClearSelection();
             lblModif.Visible = true;
         }
@@ -461,7 +466,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             DataTable dtReporteSanc = new DataTable();
 
-            dtReporteSanc = clsancionesincidencias.dtdatos(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            dtReporteSanc = clsancionesincidencias.dtdatos(4, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
 
             //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
             ViewerReporte form = new ViewerReporte();
@@ -478,25 +483,26 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
         //funcion formto grid sin modificación busqueda
         protected void fdgvs(int iopcion, int icvpolitica, string sdescpolitica, int icvnivel, int icvtiponomina,
-                         int inumeventos, int icvincrepresenta, int icvevaluacion, int isancgenera, int iordenejec,
+                         int inumeventosmin, int inumeventos, int icvincrepresenta, int icvevaluacion, int isancgenera, int iordenejec,
                          int istpolitica, string susuumod, string sprgumod)
         {
-            DataTable dtdgvji = clsancionesincidencias.dtdatos(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
+            DataTable dtdgvji = clsancionesincidencias.dtdatos(iopcion, icvpolitica, sdescpolitica, icvnivel, icvtiponomina, inumeventosmin, inumeventos, icvincrepresenta, icvevaluacion, isancgenera, iordenejec, istpolitica, susuumod, sprgumod);
             dgvdatos.DataSource = dtdgvji;
 
             dgvdatos.Columns[0].Width = 200;
             dgvdatos.Columns[1].Width = 210;
             dgvdatos.Columns[2].Width = 210;
             dgvdatos.Columns[3].Width = 80;
-            dgvdatos.Columns[4].Width = 90;
+            dgvdatos.Columns[4].Width = 80;
             dgvdatos.Columns[5].Width = 90;
-            dgvdatos.Columns[6].Width = 105;
-            dgvdatos.Columns[7].Visible = false;
+            dgvdatos.Columns[6].Width = 90;
+            dgvdatos.Columns[7].Width = 105;
             dgvdatos.Columns[8].Visible = false;
             dgvdatos.Columns[9].Visible = false;
             dgvdatos.Columns[10].Visible = false;
             dgvdatos.Columns[11].Visible = false;
             dgvdatos.Columns[12].Visible = false;
+            dgvdatos.Columns[13].Visible = false;
             lblModif.Visible = false;
         }
 
@@ -507,29 +513,30 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             //cb nivel
             Util.p_inicbo = 0;
             cbonivel.DataSource = null;
-            DataTable dtnivel = clsancionesincidencias.dtdatos(5, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dtnivel = clsancionesincidencias.dtdatos(5, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbonivel, dtnivel, "cve", "desc");
             Util.p_inicbo = 1;
 
             //cbotiponomina
             cbotiponomina.DataSource = null;
-            DataTable dtcbotiponomina = clsancionesincidencias.dtdatos(6, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dtcbotiponomina = clsancionesincidencias.dtdatos(6, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbotiponomina, dtcbotiponomina, "cve", "desc");
 
             //cboincidencia
             cboincidencia.DataSource = null;
-            DataTable dtcboincidencia = clsancionesincidencias.dtdatos(7, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dtcboincidencia = clsancionesincidencias.dtdatos(7, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cboincidencia, dtcboincidencia, "cve", "desc");
 
+            txtnoeventosmin.Text = "";
             txtnoeventos.Text = "";
 
             //cbotipeval
             cbotipeval.DataSource = null;
-            DataTable dtcbotipeval = clsancionesincidencias.dtdatos(8, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dtcbotipeval = clsancionesincidencias.dtdatos(8, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbotipeval, dtcbotipeval, "cve", "desc");
             //cbosancion
             cbosancion.DataSource = null;
-            DataTable dtcbosancion = clsancionesincidencias.dtdatos(9, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
+            DataTable dtcbosancion = clsancionesincidencias.dtdatos(9, 0, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, LoginInfo.IdTrab, this.Name);
             Utilerias.llenarComboxDataTable(cbosancion, dtcbosancion, "cve", "desc");
 
             txtdesc.Focus();
@@ -560,10 +567,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     cbonivel.Text = row.Cells["Compañia"].Value.ToString();
                     cbotiponomina.Text = row.Cells["Planta"].Value.ToString();
                     cboincidencia.Text = row.Cells["Incidecnia"].Value.ToString();
+                    txtnoeventosmin.Text = row.Cells["Num Eventos Min"].Value.ToString();
                     txtnoeventos.Text = row.Cells["Num Eventos"].Value.ToString();
                     cbotipeval.Text = row.Cells["Evaluación"].Value.ToString();
                     cbosancion.Text = row.Cells["Sanción"].Value.ToString();
-
+                    
                     txtdesc.Focus();
                 }
             }
