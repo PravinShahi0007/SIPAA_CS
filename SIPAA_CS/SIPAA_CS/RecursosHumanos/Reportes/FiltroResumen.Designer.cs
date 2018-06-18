@@ -153,11 +153,12 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(162, 430);
+            label2.Location = new System.Drawing.Point(162, 412);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(66, 16);
             label2.TabIndex = 64;
             label2.Text = "Fecha Fin";
+            label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -165,11 +166,12 @@
             label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label1.Location = new System.Drawing.Point(30, 430);
+            label1.Location = new System.Drawing.Point(30, 412);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(96, 16);
             label1.TabIndex = 63;
             label1.Text = "Fecha de Inicio";
+            label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label5
             // 
@@ -391,9 +393,9 @@
             label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label22.Location = new System.Drawing.Point(3, 0);
             label22.Name = "label22";
-            label22.Size = new System.Drawing.Size(151, 17);
+            label22.Size = new System.Drawing.Size(311, 17);
             label22.TabIndex = 196;
-            label22.Text = "       Reporte Genérico";
+            label22.Text = "     Reporte Genérico Incidencias Descontadas";
             // 
             // label23
             // 
@@ -463,7 +465,7 @@
             label28.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label28.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label28.Location = new System.Drawing.Point(174, 431);
+            label28.Location = new System.Drawing.Point(164, 397);
             label28.Name = "label28";
             label28.Size = new System.Drawing.Size(66, 16);
             label28.TabIndex = 201;
@@ -475,7 +477,7 @@
             label29.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label29.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label29.Location = new System.Drawing.Point(42, 431);
+            label29.Location = new System.Drawing.Point(32, 397);
             label29.Name = "label29";
             label29.Size = new System.Drawing.Size(96, 16);
             label29.TabIndex = 200;
@@ -505,6 +507,7 @@
             label31.Size = new System.Drawing.Size(126, 16);
             label31.TabIndex = 203;
             label31.Text = "Concepto (Opcional)";
+            label31.Visible = false;
             // 
             // label3
             // 
@@ -608,6 +611,7 @@
             this.cbConcepto2.Size = new System.Drawing.Size(259, 24);
             this.cbConcepto2.TabIndex = 204;
             this.cbConcepto2.Text = "Seleccionar";
+            this.cbConcepto2.Visible = false;
             // 
             // cbPlanta2
             // 
@@ -645,24 +649,25 @@
             // 
             this.dtinicio2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtinicio2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtinicio2.Location = new System.Drawing.Point(45, 450);
+            this.dtinicio2.Location = new System.Drawing.Point(35, 416);
             this.dtinicio2.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.dtinicio2.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
             this.dtinicio2.Name = "dtinicio2";
             this.dtinicio2.Size = new System.Drawing.Size(109, 25);
             this.dtinicio2.TabIndex = 198;
-            this.dtinicio2.Value = new System.DateTime(2018, 6, 4, 0, 0, 0, 0);
+            this.dtinicio2.Value = new System.DateTime(2018, 6, 18, 0, 0, 0, 0);
             // 
             // dtfin2
             // 
             this.dtfin2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtfin2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtfin2.Location = new System.Drawing.Point(177, 450);
+            this.dtfin2.Location = new System.Drawing.Point(167, 416);
             this.dtfin2.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.dtfin2.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
             this.dtfin2.Name = "dtfin2";
             this.dtfin2.Size = new System.Drawing.Size(109, 25);
             this.dtfin2.TabIndex = 199;
+            this.dtfin2.Value = new System.DateTime(2018, 6, 18, 12, 49, 11, 0);
             // 
             // cbNombre2
             // 
@@ -866,20 +871,20 @@
             // 
             this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaInicio.Location = new System.Drawing.Point(33, 449);
+            this.dpFechaInicio.Location = new System.Drawing.Point(33, 431);
             this.dpFechaInicio.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.dpFechaInicio.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
             this.dpFechaInicio.Name = "dpFechaInicio";
             this.dpFechaInicio.Size = new System.Drawing.Size(109, 25);
             this.dpFechaInicio.TabIndex = 61;
-            this.dpFechaInicio.Value = new System.DateTime(2018, 6, 4, 0, 0, 0, 0);
+            this.dpFechaInicio.Value = new System.DateTime(2018, 6, 18, 0, 0, 0, 0);
             this.dpFechaInicio.ValueChanged += new System.EventHandler(this.ValidarFechaDataPicker);
             // 
             // dpFechaFin
             // 
             this.dpFechaFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaFin.Location = new System.Drawing.Point(165, 449);
+            this.dpFechaFin.Location = new System.Drawing.Point(165, 431);
             this.dpFechaFin.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.dpFechaFin.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
             this.dpFechaFin.Name = "dpFechaFin";
@@ -1008,7 +1013,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(109, 25);
             this.dateTimePicker1.TabIndex = 184;
-            this.dateTimePicker1.Value = new System.DateTime(2018, 6, 4, 0, 0, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2018, 6, 18, 12, 49, 45, 0);
             // 
             // dateTimePicker2
             // 

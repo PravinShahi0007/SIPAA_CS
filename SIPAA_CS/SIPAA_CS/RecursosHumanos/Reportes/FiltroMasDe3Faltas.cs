@@ -20,7 +20,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
     {
 
         private static string TITULO_REPORTE = "SIPAA - Recursos Humanos";
-        private static string NOMBRE_REPORTE = "3 o mas faltas en un periodo de 30 dias";
+        private static string NOMBRE_REPORTE = "3 o más faltas en un periodo de 30 dias";
         //Definición de Variables
         public string sIdTrab;
         public string sCompania;
