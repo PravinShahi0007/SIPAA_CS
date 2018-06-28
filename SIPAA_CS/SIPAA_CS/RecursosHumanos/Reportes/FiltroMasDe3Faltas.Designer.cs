@@ -146,9 +146,9 @@
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label2.Location = new System.Drawing.Point(31, 104);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(422, 16);
+            label2.Size = new System.Drawing.Size(415, 16);
             label2.TabIndex = 66;
-            label2.Text = "Muestra al personal que tenga mas de 3 faltas en un periodo de 30 dias";
+            label2.Text = "Muestra al personal que tenga 3 o más faltas en un periodo de 30 dias";
             // 
             // lblusuario
             // 
@@ -174,9 +174,9 @@
             this.lbltitulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbltitulo.Location = new System.Drawing.Point(285, 2);
             this.lbltitulo.Name = "lbltitulo";
-            this.lbltitulo.Size = new System.Drawing.Size(379, 23);
+            this.lbltitulo.Size = new System.Drawing.Size(370, 23);
             this.lbltitulo.TabIndex = 125;
-            this.lbltitulo.Text = "       Reporte más de 3 faltas en un período de 30 días";
+            this.lbltitulo.Text = "       Reporte 3 o más faltas en un período de 30 días";
             this.lbltitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegresar

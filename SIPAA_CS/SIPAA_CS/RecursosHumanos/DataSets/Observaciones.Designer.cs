@@ -295,6 +295,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnObservaciones;
             
+            private global::System.Data.DataColumn columnJustificacion;
+            
+            private global::System.Data.DataColumn columnOtros;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ReporteObservacionesDataTable() {
@@ -394,6 +398,22 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn JustificacionColumn {
+                get {
+                    return this.columnJustificacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OtrosColumn {
+                get {
+                    return this.columnOtros;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -429,7 +449,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReporteObservacionesRow AddReporteObservacionesRow(string idtrab, string Nombre, string Fecha, string Incidencia, string Representa, string Id_Aut, string Tipo, string Observaciones) {
+            public ReporteObservacionesRow AddReporteObservacionesRow(string idtrab, string Nombre, string Fecha, string Incidencia, string Representa, string Id_Aut, string Tipo, string Observaciones, string Justificacion, string Otros) {
                 ReporteObservacionesRow rowReporteObservacionesRow = ((ReporteObservacionesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idtrab,
@@ -439,7 +459,9 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         Representa,
                         Id_Aut,
                         Tipo,
-                        Observaciones};
+                        Observaciones,
+                        Justificacion,
+                        Otros};
                 rowReporteObservacionesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReporteObservacionesRow);
                 return rowReporteObservacionesRow;
@@ -470,6 +492,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.columnId_Aut = base.Columns["Id_Aut"];
                 this.columnTipo = base.Columns["Tipo"];
                 this.columnObservaciones = base.Columns["Observaciones"];
+                this.columnJustificacion = base.Columns["Justificacion"];
+                this.columnOtros = base.Columns["Otros"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -491,6 +515,10 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnTipo);
                 this.columnObservaciones = new global::System.Data.DataColumn("Observaciones", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnObservaciones);
+                this.columnJustificacion = new global::System.Data.DataColumn("Justificacion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJustificacion);
+                this.columnOtros = new global::System.Data.DataColumn("Otros", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOtros);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -764,6 +792,39 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Justificacion {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteObservaciones.JustificacionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Justificacion\' de la tabla \'ReporteObservaciones\' es DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteObservaciones.JustificacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Otros {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteObservaciones.OtrosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Otros\' de la tabla \'ReporteObservaciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteObservaciones.OtrosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidtrabNull() {
                 return this.IsNull(this.tableReporteObservaciones.idtrabColumn);
             }
@@ -856,6 +917,30 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetObservacionesNull() {
                 this[this.tableReporteObservaciones.ObservacionesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsJustificacionNull() {
+                return this.IsNull(this.tableReporteObservaciones.JustificacionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetJustificacionNull() {
+                this[this.tableReporteObservaciones.JustificacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOtrosNull() {
+                return this.IsNull(this.tableReporteObservaciones.OtrosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOtrosNull() {
+                this[this.tableReporteObservaciones.OtrosColumn] = global::System.Convert.DBNull;
             }
         }
         

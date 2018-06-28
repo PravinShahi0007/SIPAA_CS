@@ -283,27 +283,77 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnNombre;
             
+            private global::System.Data.DataColumn columnIncapacidad;
+            
+            private global::System.Data.DataColumn columnPermiso_Sin_Goce_De_Sueldo;
+            
+            private global::System.Data.DataColumn columnMinutos_Permiso_Sin_Goce_De_Sueldo;
+            
             private global::System.Data.DataColumn columnSin_Registros;
+            
+            private global::System.Data.DataColumn columnMinutos_Sin_Registros;
+            
+            private global::System.Data.DataColumn columnFalta_Autorizada;
+            
+            private global::System.Data.DataColumn columnMinutos_Falta_Autorizada;
             
             private global::System.Data.DataColumn columnOmisión_Entrada;
             
+            private global::System.Data.DataColumn columnMinutos_Omision_Entrada;
+            
+            private global::System.Data.DataColumn columnOmisión_Entrada_Autorizada;
+            
+            private global::System.Data.DataColumn columnMinutos_Omision_Entrada_Autorizada;
+            
             private global::System.Data.DataColumn columnOmisión_Salida;
+            
+            private global::System.Data.DataColumn columnMinutos_Omision_Salida;
+            
+            private global::System.Data.DataColumn columnOmisión_Salida_Autorizada;
+            
+            private global::System.Data.DataColumn columnMinutos_Omision_Salida_Autorizada;
             
             private global::System.Data.DataColumn columnRetardo;
             
             private global::System.Data.DataColumn columnMinutos_Retardo;
             
+            private global::System.Data.DataColumn columnRetardo_Autorizado;
+            
+            private global::System.Data.DataColumn columnMinutos_Retardo_Autorizado;
+            
             private global::System.Data.DataColumn columnSalida_Anticipada;
             
             private global::System.Data.DataColumn columnMinutos_Salida_Anticipada;
+            
+            private global::System.Data.DataColumn columnSalida_Anticipada_Autorizada;
+            
+            private global::System.Data.DataColumn columnMinutos_Salida_Anticipada_Autorizada;
             
             private global::System.Data.DataColumn columnRetardo_Comida;
             
             private global::System.Data.DataColumn columnMinutos_Retardo_Comida;
             
+            private global::System.Data.DataColumn columnRetardo_Comida_Autorizado;
+            
+            private global::System.Data.DataColumn columnMinutos_Retardo_Comida_Autorizado;
+            
+            private global::System.Data.DataColumn columnSuspension;
+            
             private global::System.Data.DataColumn columnIdDirector;
             
             private global::System.Data.DataColumn columnDirector;
+            
+            private global::System.Data.DataColumn columnIdSupervisor;
+            
+            private global::System.Data.DataColumn columnNombre_Supervisor;
+            
+            private global::System.Data.DataColumn columnDepartamento;
+            
+            private global::System.Data.DataColumn columnTipo_Nomina;
+            
+            private global::System.Data.DataColumn columnUbicación;
+            
+            private global::System.Data.DataColumn columnCompañia;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -356,9 +406,57 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IncapacidadColumn {
+                get {
+                    return this.columnIncapacidad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Permiso_Sin_Goce_De_SueldoColumn {
+                get {
+                    return this.columnPermiso_Sin_Goce_De_Sueldo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Minutos_Permiso_Sin_Goce_De_SueldoColumn {
+                get {
+                    return this.columnMinutos_Permiso_Sin_Goce_De_Sueldo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Sin_RegistrosColumn {
                 get {
                     return this.columnSin_Registros;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Minutos_Sin_RegistrosColumn {
+                get {
+                    return this.columnMinutos_Sin_Registros;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Falta_AutorizadaColumn {
+                get {
+                    return this.columnFalta_Autorizada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Minutos_Falta_AutorizadaColumn {
+                get {
+                    return this.columnMinutos_Falta_Autorizada;
                 }
             }
             
@@ -372,9 +470,57 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Minutos_Omision_EntradaColumn {
+                get {
+                    return this.columnMinutos_Omision_Entrada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Omisión_Entrada_AutorizadaColumn {
+                get {
+                    return this.columnOmisión_Entrada_Autorizada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Minutos_Omision_Entrada_AutorizadaColumn {
+                get {
+                    return this.columnMinutos_Omision_Entrada_Autorizada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Omisión_SalidaColumn {
                 get {
                     return this.columnOmisión_Salida;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Minutos_Omision_SalidaColumn {
+                get {
+                    return this.columnMinutos_Omision_Salida;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Omisión_Salida_AutorizadaColumn {
+                get {
+                    return this.columnOmisión_Salida_Autorizada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Minutos_Omision_Salida_AutorizadaColumn {
+                get {
+                    return this.columnMinutos_Omision_Salida_Autorizada;
                 }
             }
             
@@ -396,6 +542,22 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Retardo_AutorizadoColumn {
+                get {
+                    return this.columnRetardo_Autorizado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Minutos_Retardo_AutorizadoColumn {
+                get {
+                    return this.columnMinutos_Retardo_Autorizado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Salida_AnticipadaColumn {
                 get {
                     return this.columnSalida_Anticipada;
@@ -407,6 +569,22 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public global::System.Data.DataColumn Minutos_Salida_AnticipadaColumn {
                 get {
                     return this.columnMinutos_Salida_Anticipada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Salida_Anticipada_AutorizadaColumn {
+                get {
+                    return this.columnSalida_Anticipada_Autorizada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Minutos_Salida_Anticipada_AutorizadaColumn {
+                get {
+                    return this.columnMinutos_Salida_Anticipada_Autorizada;
                 }
             }
             
@@ -428,6 +606,30 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Retardo_Comida_AutorizadoColumn {
+                get {
+                    return this.columnRetardo_Comida_Autorizado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Minutos_Retardo_Comida_AutorizadoColumn {
+                get {
+                    return this.columnMinutos_Retardo_Comida_Autorizado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SuspensionColumn {
+                get {
+                    return this.columnSuspension;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn IdDirectorColumn {
                 get {
                     return this.columnIdDirector;
@@ -439,6 +641,54 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             public global::System.Data.DataColumn DirectorColumn {
                 get {
                     return this.columnDirector;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdSupervisorColumn {
+                get {
+                    return this.columnIdSupervisor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Nombre_SupervisorColumn {
+                get {
+                    return this.columnNombre_Supervisor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DepartamentoColumn {
+                get {
+                    return this.columnDepartamento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Tipo_NominaColumn {
+                get {
+                    return this.columnTipo_Nomina;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UbicaciónColumn {
+                get {
+                    return this.columnUbicación;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CompañiaColumn {
+                get {
+                    return this.columnCompañia;
                 }
             }
             
@@ -479,22 +729,85 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReporteResumenRow AddReporteResumenRow(string Idtrab, string Nombre, string Sin_Registros, string Omisión_Entrada, string Omisión_Salida, string Retardo, string Minutos_Retardo, string Salida_Anticipada, string Minutos_Salida_Anticipada, string Retardo_Comida, string Minutos_Retardo_Comida, int IdDirector, string Director) {
+            public ReporteResumenRow AddReporteResumenRow(
+                        string Idtrab, 
+                        string Nombre, 
+                        string Incapacidad, 
+                        string Permiso_Sin_Goce_De_Sueldo, 
+                        string Minutos_Permiso_Sin_Goce_De_Sueldo, 
+                        string Sin_Registros, 
+                        string Minutos_Sin_Registros, 
+                        string Falta_Autorizada, 
+                        string Minutos_Falta_Autorizada, 
+                        string Omisión_Entrada, 
+                        string Minutos_Omision_Entrada, 
+                        string Omisión_Entrada_Autorizada, 
+                        string Minutos_Omision_Entrada_Autorizada, 
+                        string Omisión_Salida, 
+                        string Minutos_Omision_Salida, 
+                        string Omisión_Salida_Autorizada, 
+                        string Minutos_Omision_Salida_Autorizada, 
+                        string Retardo, 
+                        string Minutos_Retardo, 
+                        string Retardo_Autorizado, 
+                        string Minutos_Retardo_Autorizado, 
+                        string Salida_Anticipada, 
+                        string Minutos_Salida_Anticipada, 
+                        string Salida_Anticipada_Autorizada, 
+                        string Minutos_Salida_Anticipada_Autorizada, 
+                        string Retardo_Comida, 
+                        string Minutos_Retardo_Comida, 
+                        string Retardo_Comida_Autorizado, 
+                        string Minutos_Retardo_Comida_Autorizado, 
+                        string Suspension, 
+                        int IdDirector, 
+                        string Director, 
+                        string IdSupervisor, 
+                        string Nombre_Supervisor, 
+                        string Departamento, 
+                        string Tipo_Nomina, 
+                        string Ubicación, 
+                        string Compañia) {
                 ReporteResumenRow rowReporteResumenRow = ((ReporteResumenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Idtrab,
                         Nombre,
+                        Incapacidad,
+                        Permiso_Sin_Goce_De_Sueldo,
+                        Minutos_Permiso_Sin_Goce_De_Sueldo,
                         Sin_Registros,
+                        Minutos_Sin_Registros,
+                        Falta_Autorizada,
+                        Minutos_Falta_Autorizada,
                         Omisión_Entrada,
+                        Minutos_Omision_Entrada,
+                        Omisión_Entrada_Autorizada,
+                        Minutos_Omision_Entrada_Autorizada,
                         Omisión_Salida,
+                        Minutos_Omision_Salida,
+                        Omisión_Salida_Autorizada,
+                        Minutos_Omision_Salida_Autorizada,
                         Retardo,
                         Minutos_Retardo,
+                        Retardo_Autorizado,
+                        Minutos_Retardo_Autorizado,
                         Salida_Anticipada,
                         Minutos_Salida_Anticipada,
+                        Salida_Anticipada_Autorizada,
+                        Minutos_Salida_Anticipada_Autorizada,
                         Retardo_Comida,
                         Minutos_Retardo_Comida,
+                        Retardo_Comida_Autorizado,
+                        Minutos_Retardo_Comida_Autorizado,
+                        Suspension,
                         IdDirector,
-                        Director};
+                        Director,
+                        IdSupervisor,
+                        Nombre_Supervisor,
+                        Departamento,
+                        Tipo_Nomina,
+                        Ubicación,
+                        Compañia};
                 rowReporteResumenRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReporteResumenRow);
                 return rowReporteResumenRow;
@@ -519,17 +832,42 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             internal void InitVars() {
                 this.columnIdtrab = base.Columns["Idtrab"];
                 this.columnNombre = base.Columns["Nombre"];
+                this.columnIncapacidad = base.Columns["Incapacidad"];
+                this.columnPermiso_Sin_Goce_De_Sueldo = base.Columns["Permiso_Sin_Goce_De_Sueldo"];
+                this.columnMinutos_Permiso_Sin_Goce_De_Sueldo = base.Columns["Minutos_Permiso_Sin_Goce_De_Sueldo"];
                 this.columnSin_Registros = base.Columns["Sin_Registros"];
+                this.columnMinutos_Sin_Registros = base.Columns["Minutos_Sin_Registros"];
+                this.columnFalta_Autorizada = base.Columns["Falta_Autorizada"];
+                this.columnMinutos_Falta_Autorizada = base.Columns["Minutos_Falta_Autorizada"];
                 this.columnOmisión_Entrada = base.Columns["Omisión_Entrada"];
+                this.columnMinutos_Omision_Entrada = base.Columns["Minutos_Omision_Entrada"];
+                this.columnOmisión_Entrada_Autorizada = base.Columns["Omisión_Entrada_Autorizada"];
+                this.columnMinutos_Omision_Entrada_Autorizada = base.Columns["Minutos_Omision_Entrada_Autorizada"];
                 this.columnOmisión_Salida = base.Columns["Omisión_Salida"];
+                this.columnMinutos_Omision_Salida = base.Columns["Minutos_Omision_Salida"];
+                this.columnOmisión_Salida_Autorizada = base.Columns["Omisión_Salida_Autorizada"];
+                this.columnMinutos_Omision_Salida_Autorizada = base.Columns["Minutos_Omision_Salida_Autorizada"];
                 this.columnRetardo = base.Columns["Retardo"];
                 this.columnMinutos_Retardo = base.Columns["Minutos_Retardo"];
+                this.columnRetardo_Autorizado = base.Columns["Retardo_Autorizado"];
+                this.columnMinutos_Retardo_Autorizado = base.Columns["Minutos_Retardo_Autorizado"];
                 this.columnSalida_Anticipada = base.Columns["Salida_Anticipada"];
                 this.columnMinutos_Salida_Anticipada = base.Columns["Minutos_Salida_Anticipada"];
+                this.columnSalida_Anticipada_Autorizada = base.Columns["Salida_Anticipada_Autorizada"];
+                this.columnMinutos_Salida_Anticipada_Autorizada = base.Columns["Minutos_Salida_Anticipada_Autorizada"];
                 this.columnRetardo_Comida = base.Columns["Retardo_Comida"];
                 this.columnMinutos_Retardo_Comida = base.Columns["Minutos_Retardo_Comida"];
+                this.columnRetardo_Comida_Autorizado = base.Columns["Retardo_Comida_Autorizado"];
+                this.columnMinutos_Retardo_Comida_Autorizado = base.Columns["Minutos_Retardo_Comida_Autorizado"];
+                this.columnSuspension = base.Columns["Suspension"];
                 this.columnIdDirector = base.Columns["IdDirector"];
                 this.columnDirector = base.Columns["Director"];
+                this.columnIdSupervisor = base.Columns["IdSupervisor"];
+                this.columnNombre_Supervisor = base.Columns["Nombre_Supervisor"];
+                this.columnDepartamento = base.Columns["Departamento"];
+                this.columnTipo_Nomina = base.Columns["Tipo_Nomina"];
+                this.columnUbicación = base.Columns["Ubicación"];
+                this.columnCompañia = base.Columns["Compañia"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -539,28 +877,78 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnIdtrab);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
+                this.columnIncapacidad = new global::System.Data.DataColumn("Incapacidad", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIncapacidad);
+                this.columnPermiso_Sin_Goce_De_Sueldo = new global::System.Data.DataColumn("Permiso_Sin_Goce_De_Sueldo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPermiso_Sin_Goce_De_Sueldo);
+                this.columnMinutos_Permiso_Sin_Goce_De_Sueldo = new global::System.Data.DataColumn("Minutos_Permiso_Sin_Goce_De_Sueldo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMinutos_Permiso_Sin_Goce_De_Sueldo);
                 this.columnSin_Registros = new global::System.Data.DataColumn("Sin_Registros", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSin_Registros);
+                this.columnMinutos_Sin_Registros = new global::System.Data.DataColumn("Minutos_Sin_Registros", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMinutos_Sin_Registros);
+                this.columnFalta_Autorizada = new global::System.Data.DataColumn("Falta_Autorizada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFalta_Autorizada);
+                this.columnMinutos_Falta_Autorizada = new global::System.Data.DataColumn("Minutos_Falta_Autorizada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMinutos_Falta_Autorizada);
                 this.columnOmisión_Entrada = new global::System.Data.DataColumn("Omisión_Entrada", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOmisión_Entrada);
+                this.columnMinutos_Omision_Entrada = new global::System.Data.DataColumn("Minutos_Omision_Entrada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMinutos_Omision_Entrada);
+                this.columnOmisión_Entrada_Autorizada = new global::System.Data.DataColumn("Omisión_Entrada_Autorizada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOmisión_Entrada_Autorizada);
+                this.columnMinutos_Omision_Entrada_Autorizada = new global::System.Data.DataColumn("Minutos_Omision_Entrada_Autorizada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMinutos_Omision_Entrada_Autorizada);
                 this.columnOmisión_Salida = new global::System.Data.DataColumn("Omisión_Salida", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOmisión_Salida);
+                this.columnMinutos_Omision_Salida = new global::System.Data.DataColumn("Minutos_Omision_Salida", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMinutos_Omision_Salida);
+                this.columnOmisión_Salida_Autorizada = new global::System.Data.DataColumn("Omisión_Salida_Autorizada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOmisión_Salida_Autorizada);
+                this.columnMinutos_Omision_Salida_Autorizada = new global::System.Data.DataColumn("Minutos_Omision_Salida_Autorizada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMinutos_Omision_Salida_Autorizada);
                 this.columnRetardo = new global::System.Data.DataColumn("Retardo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRetardo);
                 this.columnMinutos_Retardo = new global::System.Data.DataColumn("Minutos_Retardo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMinutos_Retardo);
+                this.columnRetardo_Autorizado = new global::System.Data.DataColumn("Retardo_Autorizado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRetardo_Autorizado);
+                this.columnMinutos_Retardo_Autorizado = new global::System.Data.DataColumn("Minutos_Retardo_Autorizado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMinutos_Retardo_Autorizado);
                 this.columnSalida_Anticipada = new global::System.Data.DataColumn("Salida_Anticipada", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSalida_Anticipada);
                 this.columnMinutos_Salida_Anticipada = new global::System.Data.DataColumn("Minutos_Salida_Anticipada", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMinutos_Salida_Anticipada);
+                this.columnSalida_Anticipada_Autorizada = new global::System.Data.DataColumn("Salida_Anticipada_Autorizada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSalida_Anticipada_Autorizada);
+                this.columnMinutos_Salida_Anticipada_Autorizada = new global::System.Data.DataColumn("Minutos_Salida_Anticipada_Autorizada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMinutos_Salida_Anticipada_Autorizada);
                 this.columnRetardo_Comida = new global::System.Data.DataColumn("Retardo_Comida", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRetardo_Comida);
                 this.columnMinutos_Retardo_Comida = new global::System.Data.DataColumn("Minutos_Retardo_Comida", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMinutos_Retardo_Comida);
+                this.columnRetardo_Comida_Autorizado = new global::System.Data.DataColumn("Retardo_Comida_Autorizado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRetardo_Comida_Autorizado);
+                this.columnMinutos_Retardo_Comida_Autorizado = new global::System.Data.DataColumn("Minutos_Retardo_Comida_Autorizado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMinutos_Retardo_Comida_Autorizado);
+                this.columnSuspension = new global::System.Data.DataColumn("Suspension", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSuspension);
                 this.columnIdDirector = new global::System.Data.DataColumn("IdDirector", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIdDirector);
                 this.columnDirector = new global::System.Data.DataColumn("Director", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDirector);
+                this.columnIdSupervisor = new global::System.Data.DataColumn("IdSupervisor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIdSupervisor);
+                this.columnNombre_Supervisor = new global::System.Data.DataColumn("Nombre_Supervisor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre_Supervisor);
+                this.columnDepartamento = new global::System.Data.DataColumn("Departamento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepartamento);
+                this.columnTipo_Nomina = new global::System.Data.DataColumn("Tipo_Nomina", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTipo_Nomina);
+                this.columnUbicación = new global::System.Data.DataColumn("Ubicación", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUbicación);
+                this.columnCompañia = new global::System.Data.DataColumn("Compañia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompañia);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -735,6 +1123,56 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Incapacidad {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.IncapacidadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Incapacidad\' de la tabla \'ReporteResumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.IncapacidadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Permiso_Sin_Goce_De_Sueldo {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Permiso_Sin_Goce_De_SueldoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Permiso_Sin_Goce_De_Sueldo\' de la tabla \'ReporteResumen\' " +
+                                "es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Permiso_Sin_Goce_De_SueldoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Minutos_Permiso_Sin_Goce_De_Sueldo {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Minutos_Permiso_Sin_Goce_De_SueldoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Minutos_Permiso_Sin_Goce_De_Sueldo\' de la tabla \'ReporteR" +
+                                "esumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Minutos_Permiso_Sin_Goce_De_SueldoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Sin_Registros {
                 get {
                     try {
@@ -746,6 +1184,57 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 }
                 set {
                     this[this.tableReporteResumen.Sin_RegistrosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Minutos_Sin_Registros {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Minutos_Sin_RegistrosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Minutos_Sin_Registros\' de la tabla \'ReporteResumen\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Minutos_Sin_RegistrosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Falta_Autorizada {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Falta_AutorizadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Falta_Autorizada\' de la tabla \'ReporteResumen\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Falta_AutorizadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Minutos_Falta_Autorizada {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Minutos_Falta_AutorizadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Minutos_Falta_Autorizada\' de la tabla \'ReporteResumen\' es" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Minutos_Falta_AutorizadaColumn] = value;
                 }
             }
             
@@ -767,6 +1256,57 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Minutos_Omision_Entrada {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Minutos_Omision_EntradaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Minutos_Omision_Entrada\' de la tabla \'ReporteResumen\' es " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Minutos_Omision_EntradaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Omisión_Entrada_Autorizada {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Omisión_Entrada_AutorizadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Omisión_Entrada_Autorizada\' de la tabla \'ReporteResumen\' " +
+                                "es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Omisión_Entrada_AutorizadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Minutos_Omision_Entrada_Autorizada {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Minutos_Omision_Entrada_AutorizadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Minutos_Omision_Entrada_Autorizada\' de la tabla \'ReporteR" +
+                                "esumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Minutos_Omision_Entrada_AutorizadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Omisión_Salida {
                 get {
                     try {
@@ -778,6 +1318,57 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 }
                 set {
                     this[this.tableReporteResumen.Omisión_SalidaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Minutos_Omision_Salida {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Minutos_Omision_SalidaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Minutos_Omision_Salida\' de la tabla \'ReporteResumen\' es D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Minutos_Omision_SalidaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Omisión_Salida_Autorizada {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Omisión_Salida_AutorizadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Omisión_Salida_Autorizada\' de la tabla \'ReporteResumen\' e" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Omisión_Salida_AutorizadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Minutos_Omision_Salida_Autorizada {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Minutos_Omision_Salida_AutorizadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Minutos_Omision_Salida_Autorizada\' de la tabla \'ReporteRe" +
+                                "sumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Minutos_Omision_Salida_AutorizadaColumn] = value;
                 }
             }
             
@@ -810,6 +1401,40 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 }
                 set {
                     this[this.tableReporteResumen.Minutos_RetardoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Retardo_Autorizado {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Retardo_AutorizadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Retardo_Autorizado\' de la tabla \'ReporteResumen\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Retardo_AutorizadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Minutos_Retardo_Autorizado {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Minutos_Retardo_AutorizadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Minutos_Retardo_Autorizado\' de la tabla \'ReporteResumen\' " +
+                                "es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Minutos_Retardo_AutorizadoColumn] = value;
                 }
             }
             
@@ -849,6 +1474,40 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Salida_Anticipada_Autorizada {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Salida_Anticipada_AutorizadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Salida_Anticipada_Autorizada\' de la tabla \'ReporteResumen" +
+                                "\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Salida_Anticipada_AutorizadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Minutos_Salida_Anticipada_Autorizada {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Minutos_Salida_Anticipada_AutorizadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Minutos_Salida_Anticipada_Autorizada\' de la tabla \'Report" +
+                                "eResumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Minutos_Salida_Anticipada_AutorizadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Retardo_Comida {
                 get {
                     try {
@@ -877,6 +1536,56 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 }
                 set {
                     this[this.tableReporteResumen.Minutos_Retardo_ComidaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Retardo_Comida_Autorizado {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Retardo_Comida_AutorizadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Retardo_Comida_Autorizado\' de la tabla \'ReporteResumen\' e" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Retardo_Comida_AutorizadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Minutos_Retardo_Comida_Autorizado {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Minutos_Retardo_Comida_AutorizadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Minutos_Retardo_Comida_Autorizado\' de la tabla \'ReporteRe" +
+                                "sumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Minutos_Retardo_Comida_AutorizadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Suspension {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.SuspensionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Suspension\' de la tabla \'ReporteResumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.SuspensionColumn] = value;
                 }
             }
             
@@ -914,6 +1623,103 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string IdSupervisor {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.IdSupervisorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IdSupervisor\' de la tabla \'ReporteResumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.IdSupervisorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Nombre_Supervisor {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Nombre_SupervisorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre_Supervisor\' de la tabla \'ReporteResumen\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Nombre_SupervisorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Departamento {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.DepartamentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Departamento\' de la tabla \'ReporteResumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.DepartamentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Tipo_Nomina {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.Tipo_NominaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Tipo_Nomina\' de la tabla \'ReporteResumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.Tipo_NominaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Ubicación {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.UbicaciónColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Ubicación\' de la tabla \'ReporteResumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.UbicaciónColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Compañia {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporteResumen.CompañiaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Compañia\' de la tabla \'ReporteResumen\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporteResumen.CompañiaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIdtrabNull() {
                 return this.IsNull(this.tableReporteResumen.IdtrabColumn);
             }
@@ -938,6 +1744,42 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIncapacidadNull() {
+                return this.IsNull(this.tableReporteResumen.IncapacidadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIncapacidadNull() {
+                this[this.tableReporteResumen.IncapacidadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPermiso_Sin_Goce_De_SueldoNull() {
+                return this.IsNull(this.tableReporteResumen.Permiso_Sin_Goce_De_SueldoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPermiso_Sin_Goce_De_SueldoNull() {
+                this[this.tableReporteResumen.Permiso_Sin_Goce_De_SueldoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMinutos_Permiso_Sin_Goce_De_SueldoNull() {
+                return this.IsNull(this.tableReporteResumen.Minutos_Permiso_Sin_Goce_De_SueldoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMinutos_Permiso_Sin_Goce_De_SueldoNull() {
+                this[this.tableReporteResumen.Minutos_Permiso_Sin_Goce_De_SueldoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSin_RegistrosNull() {
                 return this.IsNull(this.tableReporteResumen.Sin_RegistrosColumn);
             }
@@ -946,6 +1788,42 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetSin_RegistrosNull() {
                 this[this.tableReporteResumen.Sin_RegistrosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMinutos_Sin_RegistrosNull() {
+                return this.IsNull(this.tableReporteResumen.Minutos_Sin_RegistrosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMinutos_Sin_RegistrosNull() {
+                this[this.tableReporteResumen.Minutos_Sin_RegistrosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFalta_AutorizadaNull() {
+                return this.IsNull(this.tableReporteResumen.Falta_AutorizadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFalta_AutorizadaNull() {
+                this[this.tableReporteResumen.Falta_AutorizadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMinutos_Falta_AutorizadaNull() {
+                return this.IsNull(this.tableReporteResumen.Minutos_Falta_AutorizadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMinutos_Falta_AutorizadaNull() {
+                this[this.tableReporteResumen.Minutos_Falta_AutorizadaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -962,6 +1840,42 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMinutos_Omision_EntradaNull() {
+                return this.IsNull(this.tableReporteResumen.Minutos_Omision_EntradaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMinutos_Omision_EntradaNull() {
+                this[this.tableReporteResumen.Minutos_Omision_EntradaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOmisión_Entrada_AutorizadaNull() {
+                return this.IsNull(this.tableReporteResumen.Omisión_Entrada_AutorizadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOmisión_Entrada_AutorizadaNull() {
+                this[this.tableReporteResumen.Omisión_Entrada_AutorizadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMinutos_Omision_Entrada_AutorizadaNull() {
+                return this.IsNull(this.tableReporteResumen.Minutos_Omision_Entrada_AutorizadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMinutos_Omision_Entrada_AutorizadaNull() {
+                this[this.tableReporteResumen.Minutos_Omision_Entrada_AutorizadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsOmisión_SalidaNull() {
                 return this.IsNull(this.tableReporteResumen.Omisión_SalidaColumn);
             }
@@ -970,6 +1884,42 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetOmisión_SalidaNull() {
                 this[this.tableReporteResumen.Omisión_SalidaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMinutos_Omision_SalidaNull() {
+                return this.IsNull(this.tableReporteResumen.Minutos_Omision_SalidaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMinutos_Omision_SalidaNull() {
+                this[this.tableReporteResumen.Minutos_Omision_SalidaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOmisión_Salida_AutorizadaNull() {
+                return this.IsNull(this.tableReporteResumen.Omisión_Salida_AutorizadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOmisión_Salida_AutorizadaNull() {
+                this[this.tableReporteResumen.Omisión_Salida_AutorizadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMinutos_Omision_Salida_AutorizadaNull() {
+                return this.IsNull(this.tableReporteResumen.Minutos_Omision_Salida_AutorizadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMinutos_Omision_Salida_AutorizadaNull() {
+                this[this.tableReporteResumen.Minutos_Omision_Salida_AutorizadaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -998,6 +1948,30 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRetardo_AutorizadoNull() {
+                return this.IsNull(this.tableReporteResumen.Retardo_AutorizadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRetardo_AutorizadoNull() {
+                this[this.tableReporteResumen.Retardo_AutorizadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMinutos_Retardo_AutorizadoNull() {
+                return this.IsNull(this.tableReporteResumen.Minutos_Retardo_AutorizadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMinutos_Retardo_AutorizadoNull() {
+                this[this.tableReporteResumen.Minutos_Retardo_AutorizadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSalida_AnticipadaNull() {
                 return this.IsNull(this.tableReporteResumen.Salida_AnticipadaColumn);
             }
@@ -1018,6 +1992,30 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMinutos_Salida_AnticipadaNull() {
                 this[this.tableReporteResumen.Minutos_Salida_AnticipadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSalida_Anticipada_AutorizadaNull() {
+                return this.IsNull(this.tableReporteResumen.Salida_Anticipada_AutorizadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSalida_Anticipada_AutorizadaNull() {
+                this[this.tableReporteResumen.Salida_Anticipada_AutorizadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMinutos_Salida_Anticipada_AutorizadaNull() {
+                return this.IsNull(this.tableReporteResumen.Minutos_Salida_Anticipada_AutorizadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMinutos_Salida_Anticipada_AutorizadaNull() {
+                this[this.tableReporteResumen.Minutos_Salida_Anticipada_AutorizadaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1046,6 +2044,42 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRetardo_Comida_AutorizadoNull() {
+                return this.IsNull(this.tableReporteResumen.Retardo_Comida_AutorizadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRetardo_Comida_AutorizadoNull() {
+                this[this.tableReporteResumen.Retardo_Comida_AutorizadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMinutos_Retardo_Comida_AutorizadoNull() {
+                return this.IsNull(this.tableReporteResumen.Minutos_Retardo_Comida_AutorizadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMinutos_Retardo_Comida_AutorizadoNull() {
+                this[this.tableReporteResumen.Minutos_Retardo_Comida_AutorizadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSuspensionNull() {
+                return this.IsNull(this.tableReporteResumen.SuspensionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSuspensionNull() {
+                this[this.tableReporteResumen.SuspensionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsIdDirectorNull() {
                 return this.IsNull(this.tableReporteResumen.IdDirectorColumn);
             }
@@ -1066,6 +2100,78 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDirectorNull() {
                 this[this.tableReporteResumen.DirectorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIdSupervisorNull() {
+                return this.IsNull(this.tableReporteResumen.IdSupervisorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIdSupervisorNull() {
+                this[this.tableReporteResumen.IdSupervisorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNombre_SupervisorNull() {
+                return this.IsNull(this.tableReporteResumen.Nombre_SupervisorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombre_SupervisorNull() {
+                this[this.tableReporteResumen.Nombre_SupervisorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDepartamentoNull() {
+                return this.IsNull(this.tableReporteResumen.DepartamentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDepartamentoNull() {
+                this[this.tableReporteResumen.DepartamentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTipo_NominaNull() {
+                return this.IsNull(this.tableReporteResumen.Tipo_NominaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTipo_NominaNull() {
+                this[this.tableReporteResumen.Tipo_NominaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUbicaciónNull() {
+                return this.IsNull(this.tableReporteResumen.UbicaciónColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUbicaciónNull() {
+                this[this.tableReporteResumen.UbicaciónColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompañiaNull() {
+                return this.IsNull(this.tableReporteResumen.CompañiaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompañiaNull() {
+                this[this.tableReporteResumen.CompañiaColumn] = global::System.Convert.DBNull;
             }
         }
         

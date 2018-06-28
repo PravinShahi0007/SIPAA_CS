@@ -296,7 +296,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     cadenaReg = "Reporte Trabajador Perfil ";
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
-                    cadenaReg = "IdTrab, Nombre, Asociación, Ubicación, Estatus, Checa , Día, Hr Entrada, Hr Salida, Horario, Nombre Supervisor, Nombre Dir, Tiempo Comida, # horas ";
+                    cadenaReg = "IdTrab, Nombre, Estatus, Checa , Día, Hr Entrada, Hr Salida, Horario, Nombre Supervisor, Nombre Dir, Tiempo Comida, # horas , Asociación, Ubicación ";
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
 

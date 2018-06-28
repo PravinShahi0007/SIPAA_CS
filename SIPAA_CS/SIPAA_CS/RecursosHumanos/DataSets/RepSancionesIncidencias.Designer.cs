@@ -281,9 +281,11 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnPolitica;
             
-            private global::System.Data.DataColumn columnNivel;
+            private global::System.Data.DataColumn columnCompañia;
             
-            private global::System.Data.DataColumn columnForma_de_Pago;
+            private global::System.Data.DataColumn columnPlanta;
+            
+            private global::System.Data.DataColumn columnNum_Eventos_Min;
             
             private global::System.Data.DataColumn columnNum_Eventos;
             
@@ -295,15 +297,15 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columncvpolitica;
             
-            private global::System.Data.DataColumn columncvnivel;
+            private global::System.Data.DataColumn columnIdCompania;
             
-            private global::System.Data.DataColumn columncvtiponomina;
+            private global::System.Data.DataColumn columnIdplanta;
             
             private global::System.Data.DataColumn columncvincrepresenta;
             
             private global::System.Data.DataColumn columncvevaluacion;
             
-            private global::System.Data.DataColumn columnDataColumn1;
+            private global::System.Data.DataColumn columnsancgenera;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -348,17 +350,25 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NivelColumn {
+            public global::System.Data.DataColumn CompañiaColumn {
                 get {
-                    return this.columnNivel;
+                    return this.columnCompañia;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Forma_de_PagoColumn {
+            public global::System.Data.DataColumn PlantaColumn {
                 get {
-                    return this.columnForma_de_Pago;
+                    return this.columnPlanta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Num_Eventos_MinColumn {
+                get {
+                    return this.columnNum_Eventos_Min;
                 }
             }
             
@@ -404,17 +414,17 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn cvnivelColumn {
+            public global::System.Data.DataColumn IdCompaniaColumn {
                 get {
-                    return this.columncvnivel;
+                    return this.columnIdCompania;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn cvtiponominaColumn {
+            public global::System.Data.DataColumn IdplantaColumn {
                 get {
-                    return this.columncvtiponomina;
+                    return this.columnIdplanta;
                 }
             }
             
@@ -436,9 +446,9 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DataColumn1Column {
+            public global::System.Data.DataColumn sancgeneraColumn {
                 get {
-                    return this.columnDataColumn1;
+                    return this.columnsancgenera;
                 }
             }
             
@@ -479,22 +489,23 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public repsancincRow AddrepsancincRow(string Politica, string Nivel, string Forma_de_Pago, int Num_Eventos, string Incidecnia, string Evaluación, string Sanción, string cvpolitica, string cvnivel, string cvtiponomina, string cvincrepresenta, string cvevaluacion, string DataColumn1) {
+            public repsancincRow AddrepsancincRow(string Politica, string Compañia, string Planta, int Num_Eventos_Min, int Num_Eventos, string Incidecnia, string Evaluación, string Sanción, string cvpolitica, string IdCompania, string Idplanta, string cvincrepresenta, string cvevaluacion, string sancgenera) {
                 repsancincRow rowrepsancincRow = ((repsancincRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Politica,
-                        Nivel,
-                        Forma_de_Pago,
+                        Compañia,
+                        Planta,
+                        Num_Eventos_Min,
                         Num_Eventos,
                         Incidecnia,
                         Evaluación,
                         Sanción,
                         cvpolitica,
-                        cvnivel,
-                        cvtiponomina,
+                        IdCompania,
+                        Idplanta,
                         cvincrepresenta,
                         cvevaluacion,
-                        DataColumn1};
+                        sancgenera};
                 rowrepsancincRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowrepsancincRow);
                 return rowrepsancincRow;
@@ -518,18 +529,19 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnPolitica = base.Columns["Politica"];
-                this.columnNivel = base.Columns["Nivel"];
-                this.columnForma_de_Pago = base.Columns["Forma de Pago"];
+                this.columnCompañia = base.Columns["Compañia"];
+                this.columnPlanta = base.Columns["Planta"];
+                this.columnNum_Eventos_Min = base.Columns["Num Eventos Min"];
                 this.columnNum_Eventos = base.Columns["Num Eventos"];
                 this.columnIncidecnia = base.Columns["Incidecnia"];
                 this.columnEvaluación = base.Columns["Evaluación"];
                 this.columnSanción = base.Columns["Sanción"];
                 this.columncvpolitica = base.Columns["cvpolitica"];
-                this.columncvnivel = base.Columns["cvnivel"];
-                this.columncvtiponomina = base.Columns["cvtiponomina"];
+                this.columnIdCompania = base.Columns["IdCompania"];
+                this.columnIdplanta = base.Columns["Idplanta"];
                 this.columncvincrepresenta = base.Columns["cvincrepresenta"];
                 this.columncvevaluacion = base.Columns["cvevaluacion"];
-                this.columnDataColumn1 = base.Columns["DataColumn1"];
+                this.columnsancgenera = base.Columns["sancgenera"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -537,10 +549,12 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             private void InitClass() {
                 this.columnPolitica = new global::System.Data.DataColumn("Politica", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPolitica);
-                this.columnNivel = new global::System.Data.DataColumn("Nivel", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNivel);
-                this.columnForma_de_Pago = new global::System.Data.DataColumn("Forma de Pago", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnForma_de_Pago);
+                this.columnCompañia = new global::System.Data.DataColumn("Compañia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompañia);
+                this.columnPlanta = new global::System.Data.DataColumn("Planta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPlanta);
+                this.columnNum_Eventos_Min = new global::System.Data.DataColumn("Num Eventos Min", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNum_Eventos_Min);
                 this.columnNum_Eventos = new global::System.Data.DataColumn("Num Eventos", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNum_Eventos);
                 this.columnIncidecnia = new global::System.Data.DataColumn("Incidecnia", typeof(string), null, global::System.Data.MappingType.Element);
@@ -551,16 +565,16 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnSanción);
                 this.columncvpolitica = new global::System.Data.DataColumn("cvpolitica", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncvpolitica);
-                this.columncvnivel = new global::System.Data.DataColumn("cvnivel", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncvnivel);
-                this.columncvtiponomina = new global::System.Data.DataColumn("cvtiponomina", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncvtiponomina);
+                this.columnIdCompania = new global::System.Data.DataColumn("IdCompania", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIdCompania);
+                this.columnIdplanta = new global::System.Data.DataColumn("Idplanta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIdplanta);
                 this.columncvincrepresenta = new global::System.Data.DataColumn("cvincrepresenta", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncvincrepresenta);
                 this.columncvevaluacion = new global::System.Data.DataColumn("cvevaluacion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncvevaluacion);
-                this.columnDataColumn1 = new global::System.Data.DataColumn("DataColumn1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDataColumn1);
+                this.columnsancgenera = new global::System.Data.DataColumn("sancgenera", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsancgenera);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -719,33 +733,49 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nivel {
+            public string Compañia {
                 get {
                     try {
-                        return ((string)(this[this.tablerepsancinc.NivelColumn]));
+                        return ((string)(this[this.tablerepsancinc.CompañiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nivel\' de la tabla \'repsancinc\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Compañia\' de la tabla \'repsancinc\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablerepsancinc.NivelColumn] = value;
+                    this[this.tablerepsancinc.CompañiaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Forma_de_Pago {
+            public string Planta {
                 get {
                     try {
-                        return ((string)(this[this.tablerepsancinc.Forma_de_PagoColumn]));
+                        return ((string)(this[this.tablerepsancinc.PlantaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Forma de Pago\' de la tabla \'repsancinc\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Planta\' de la tabla \'repsancinc\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablerepsancinc.Forma_de_PagoColumn] = value;
+                    this[this.tablerepsancinc.PlantaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Num_Eventos_Min {
+                get {
+                    try {
+                        return ((int)(this[this.tablerepsancinc.Num_Eventos_MinColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Num Eventos Min\' de la tabla \'repsancinc\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerepsancinc.Num_Eventos_MinColumn] = value;
                 }
             }
             
@@ -831,33 +861,33 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string cvnivel {
+            public string IdCompania {
                 get {
                     try {
-                        return ((string)(this[this.tablerepsancinc.cvnivelColumn]));
+                        return ((string)(this[this.tablerepsancinc.IdCompaniaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cvnivel\' de la tabla \'repsancinc\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IdCompania\' de la tabla \'repsancinc\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablerepsancinc.cvnivelColumn] = value;
+                    this[this.tablerepsancinc.IdCompaniaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string cvtiponomina {
+            public string Idplanta {
                 get {
                     try {
-                        return ((string)(this[this.tablerepsancinc.cvtiponominaColumn]));
+                        return ((string)(this[this.tablerepsancinc.IdplantaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cvtiponomina\' de la tabla \'repsancinc\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Idplanta\' de la tabla \'repsancinc\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablerepsancinc.cvtiponominaColumn] = value;
+                    this[this.tablerepsancinc.IdplantaColumn] = value;
                 }
             }
             
@@ -895,17 +925,17 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string DataColumn1 {
+            public string sancgenera {
                 get {
                     try {
-                        return ((string)(this[this.tablerepsancinc.DataColumn1Column]));
+                        return ((string)(this[this.tablerepsancinc.sancgeneraColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DataColumn1\' de la tabla \'repsancinc\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'sancgenera\' de la tabla \'repsancinc\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablerepsancinc.DataColumn1Column] = value;
+                    this[this.tablerepsancinc.sancgeneraColumn] = value;
                 }
             }
             
@@ -923,26 +953,38 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNivelNull() {
-                return this.IsNull(this.tablerepsancinc.NivelColumn);
+            public bool IsCompañiaNull() {
+                return this.IsNull(this.tablerepsancinc.CompañiaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNivelNull() {
-                this[this.tablerepsancinc.NivelColumn] = global::System.Convert.DBNull;
+            public void SetCompañiaNull() {
+                this[this.tablerepsancinc.CompañiaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsForma_de_PagoNull() {
-                return this.IsNull(this.tablerepsancinc.Forma_de_PagoColumn);
+            public bool IsPlantaNull() {
+                return this.IsNull(this.tablerepsancinc.PlantaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetForma_de_PagoNull() {
-                this[this.tablerepsancinc.Forma_de_PagoColumn] = global::System.Convert.DBNull;
+            public void SetPlantaNull() {
+                this[this.tablerepsancinc.PlantaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNum_Eventos_MinNull() {
+                return this.IsNull(this.tablerepsancinc.Num_Eventos_MinColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNum_Eventos_MinNull() {
+                this[this.tablerepsancinc.Num_Eventos_MinColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1007,26 +1049,26 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscvnivelNull() {
-                return this.IsNull(this.tablerepsancinc.cvnivelColumn);
+            public bool IsIdCompaniaNull() {
+                return this.IsNull(this.tablerepsancinc.IdCompaniaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcvnivelNull() {
-                this[this.tablerepsancinc.cvnivelColumn] = global::System.Convert.DBNull;
+            public void SetIdCompaniaNull() {
+                this[this.tablerepsancinc.IdCompaniaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscvtiponominaNull() {
-                return this.IsNull(this.tablerepsancinc.cvtiponominaColumn);
+            public bool IsIdplantaNull() {
+                return this.IsNull(this.tablerepsancinc.IdplantaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcvtiponominaNull() {
-                this[this.tablerepsancinc.cvtiponominaColumn] = global::System.Convert.DBNull;
+            public void SetIdplantaNull() {
+                this[this.tablerepsancinc.IdplantaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1055,14 +1097,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDataColumn1Null() {
-                return this.IsNull(this.tablerepsancinc.DataColumn1Column);
+            public bool IssancgeneraNull() {
+                return this.IsNull(this.tablerepsancinc.sancgeneraColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDataColumn1Null() {
-                this[this.tablerepsancinc.DataColumn1Column] = global::System.Convert.DBNull;
+            public void SetsancgeneraNull() {
+                this[this.tablerepsancinc.sancgeneraColumn] = global::System.Convert.DBNull;
             }
         }
         
