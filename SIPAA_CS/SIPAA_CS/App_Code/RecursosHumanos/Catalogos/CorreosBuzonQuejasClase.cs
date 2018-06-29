@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using System.Data;
+using System.Data.SqlClient;
+using SIPAA_CS.Conexiones;
+
+namespace SIPAA_CS.App_Code.RecursosHumanos.Catalogos
+{
+    class CorreosBuzonQuejasClase
+    {
+        public CorreosBuzonQuejasClase()
+        {
+
+        }
+
+        //llena dgv,cb correos buzon quejas
+        public DataTable dtdgvcbcorreo(int iopcion, int icvcorreo, int icvplantel, int iidtrab, string scorreo, int istcorreo, string susuumod, string sprgumod)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechccorreobuzon_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            cmd.Parameters.Add("@p_cvcorreo", SqlDbType.Int).Value = icvcorreo;
+            cmd.Parameters.Add("@p_cvplantel", SqlDbType.Int).Value = icvplantel;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = iidtrab;
+            cmd.Parameters.Add("@p_correo", SqlDbType.VarChar).Value = scorreo;
+            cmd.Parameters.Add("@p_stcorreo", SqlDbType.Int).Value = istcorreo;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sprgumod;
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtdgvcboscorreo = new DataTable();
+            Adapter.Fill(dtdgvcboscorreo);
+            return dtdgvcboscorreo;
+        }
+
+        //crud correos buzon quejas
+        public int crudcorreo(int iopcion, int icvcorreo, int icvplantel, int iidtrab, string scorreo, int istcorreo, string susuumod, string sprgumod)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechccorreobuzon_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            cmd.Parameters.Add("@p_cvcorreo", SqlDbType.Int).Value = icvcorreo;
+            cmd.Parameters.Add("@p_cvplantel", SqlDbType.Int).Value = icvplantel;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = iidtrab;
+            cmd.Parameters.Add("@p_correo", SqlDbType.VarChar).Value = scorreo;
+            cmd.Parameters.Add("@p_stcorreo", SqlDbType.Int).Value = istcorreo;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sprgumod;
+            objConexion.asignarConexion(cmd);
+
+            int iverifact = Convert.ToInt32(cmd.ExecuteScalar());
+            objConexion.cerrarConexion();
+            return iverifact;
+        }
+    }
+}

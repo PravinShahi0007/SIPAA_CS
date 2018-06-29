@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>46</ApplicationRevision>
+    <ApplicationRevision>49</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -350,6 +350,7 @@
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\CorreoAvisoIncidencia.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\CorreosBuzonQuejasClase.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidenciad.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\AsignacionIncidenciaTrabajador2.cs" />
@@ -366,6 +367,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\CorreosAvisosIncidencias.Designer.cs">
       <DependentUpon>CorreosAvisosIncidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\CorreosBuzonQuejas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\CorreosBuzonQuejas.Designer.cs">
+      <DependentUpon>CorreosBuzonQuejas.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.cs">
       <SubType>Form</SubType>
@@ -1266,6 +1273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\CorreosAvisosIncidencias.resx">
       <DependentUpon>CorreosAvisosIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\CorreosBuzonQuejas.resx">
+      <DependentUpon>CorreosBuzonQuejas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\JustificaIncidencias.resx">
       <DependentUpon>JustificaIncidencias.cs</DependentUpon>
@@ -2483,92 +2493,92 @@
   <ItemGroup>
     <PublishFile Include="DPFPCtlXTypeLibNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPCtlXWrapperNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPDevNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPEngNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPGuiNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPShrNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPShrXTypeLibNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DPFPVerNET">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="log4net">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
