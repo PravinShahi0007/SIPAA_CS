@@ -350,6 +350,7 @@
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\CorreoAvisoIncidencia.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Catalogos\CorreosBuzonQuejasClase.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\JustificaIncidenciad.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\AsignacionIncidenciaTrabajador2.cs" />
@@ -366,6 +367,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\CorreosAvisosIncidencias.Designer.cs">
       <DependentUpon>CorreosAvisosIncidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\CorreosBuzonQuejas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Catalogos\CorreosBuzonQuejas.Designer.cs">
+      <DependentUpon>CorreosBuzonQuejas.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Catalogos\JustificaIncidencias.cs">
       <SubType>Form</SubType>
@@ -1139,6 +1146,12 @@
     <Compile Include="Sistemas\Procesos\MonitoreosProcesos.Designer.cs">
       <DependentUpon>MonitoreosProcesos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sistemas\Procesos\ReseteaRelojes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistemas\Procesos\ReseteaRelojes.Designer.cs">
+      <DependentUpon>ReseteaRelojes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistemas\SistDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1260,6 +1273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\CorreosAvisosIncidencias.resx">
       <DependentUpon>CorreosAvisosIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Catalogos\CorreosBuzonQuejas.resx">
+      <DependentUpon>CorreosBuzonQuejas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\JustificaIncidencias.resx">
       <DependentUpon>JustificaIncidencias.cs</DependentUpon>
@@ -1567,6 +1583,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sistemas\Procesos\MonitoreosProcesos.resx">
       <DependentUpon>MonitoreosProcesos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistemas\Procesos\ReseteaRelojes.resx">
+      <DependentUpon>ReseteaRelojes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistemas\SistDashboard.resx">
       <DependentUpon>SistDashboard.cs</DependentUpon>
