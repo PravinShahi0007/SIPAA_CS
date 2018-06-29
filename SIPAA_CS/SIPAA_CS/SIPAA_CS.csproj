@@ -1139,6 +1139,12 @@
     <Compile Include="Sistemas\Procesos\MonitoreosProcesos.Designer.cs">
       <DependentUpon>MonitoreosProcesos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sistemas\Procesos\ReseteaRelojes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sistemas\Procesos\ReseteaRelojes.Designer.cs">
+      <DependentUpon>ReseteaRelojes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistemas\SistDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1567,6 +1573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sistemas\Procesos\MonitoreosProcesos.resx">
       <DependentUpon>MonitoreosProcesos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistemas\Procesos\ReseteaRelojes.resx">
+      <DependentUpon>ReseteaRelojes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistemas\SistDashboard.resx">
       <DependentUpon>SistDashboard.cs</DependentUpon>
