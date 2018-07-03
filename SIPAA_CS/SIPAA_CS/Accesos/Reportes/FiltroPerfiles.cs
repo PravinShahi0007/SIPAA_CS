@@ -20,8 +20,8 @@ namespace SIPAA_CS.Accesos.Reportes
         int sysH = SystemInformation.PrimaryMonitorSize.Height;
         int sysW = SystemInformation.PrimaryMonitorSize.Width;
         //***********************************************************************************************
-        //Autor: Gamaliel Lobato Solis
-        //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
+        //Autor: Gamaliel Lobato Solis  Modif:noe alvarez marquina
+        //Fecha creación:dd-mm-aaaa       Última Modificacion: 03-jul-2018
         //Descripción: -------------------------------
         //***********************************************************************************************
         public FiltroPerfiles()
@@ -46,7 +46,7 @@ namespace SIPAA_CS.Accesos.Reportes
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que dese salir?", "Salir", MessageBoxButtons.YesNoCancel);
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir?", "SIPAA", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {

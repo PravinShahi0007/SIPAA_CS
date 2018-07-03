@@ -61,12 +61,12 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label6.Location = new System.Drawing.Point(39, 46);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(81, 16);
+            label6.Size = new System.Drawing.Size(101, 16);
             label6.TabIndex = 58;
             label6.Text = "Estatus Usuario";
             // 
@@ -162,7 +162,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Image = global::SIPAA_CS.Properties.Resources.ic_assignment_white_24dp;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(381, 3);
+            this.label3.Location = new System.Drawing.Point(409, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 23);
             this.label3.TabIndex = 133;
@@ -195,7 +195,7 @@
             this.cbEstatus.Location = new System.Drawing.Point(42, 66);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(291, 25);
-            this.cbEstatus.TabIndex = 57;
+            this.cbEstatus.TabIndex = 0;
             this.cbEstatus.Text = "Seleccionar un Estatus";
             // 
             // panel1
@@ -234,7 +234,7 @@
             this.btnImprimirDetalle.Location = new System.Drawing.Point(281, 32);
             this.btnImprimirDetalle.Name = "btnImprimirDetalle";
             this.btnImprimirDetalle.Size = new System.Drawing.Size(50, 50);
-            this.btnImprimirDetalle.TabIndex = 2;
+            this.btnImprimirDetalle.TabIndex = 1;
             this.btnImprimirDetalle.Tag = "Buscar";
             this.btnImprimirDetalle.UseVisualStyleBackColor = false;
             this.btnImprimirDetalle.Click += new System.EventHandler(this.btnImprimirDetalle_Click);
