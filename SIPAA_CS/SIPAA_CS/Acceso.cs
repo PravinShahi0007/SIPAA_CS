@@ -254,6 +254,15 @@ namespace SIPAA_CS
             }
             
         }
+
+        //recupera contraseña
+        private void btnreccontrasena_Click(object sender, EventArgs e)
+        {
+            //ventana recuperar contraseña
+            RecuperaContrasena reccon = new RecuperaContrasena();
+            reccon.Show();
+            this.Close();
+        }
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
@@ -302,11 +311,6 @@ namespace SIPAA_CS
             //configura texto del objeto
             toolTip1.SetToolTip(this.btnCerrar, "Cerrar Sistema");
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
-        }
-
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

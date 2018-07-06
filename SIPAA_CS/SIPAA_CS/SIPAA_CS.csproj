@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>49</ApplicationRevision>
+    <ApplicationRevision>50</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -204,6 +204,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\RecuperaContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\RecuperaContrasena.Designer.cs">
+      <DependentUpon>RecuperaContrasena.cs</DependentUpon>
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroAreasUsuarios.cs">
       <SubType>Form</SubType>
@@ -1190,6 +1196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Catalogos\Perfiles.resx">
       <DependentUpon>Perfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\RecuperaContrasena.resx">
+      <DependentUpon>RecuperaContrasena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\FiltroAreasUsuarios.resx">
       <DependentUpon>FiltroAreasUsuarios.cs</DependentUpon>
