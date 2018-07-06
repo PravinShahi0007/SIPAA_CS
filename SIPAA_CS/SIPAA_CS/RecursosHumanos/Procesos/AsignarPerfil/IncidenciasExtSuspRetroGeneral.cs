@@ -104,10 +104,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
                     row.Cells[0].Tag = "uncheck";
                     ckbEliminar.Checked = false;
-                    ckbEliminar.Visible = false; 
+                    ckbEliminar.Visible = false;
+                    btnGuardar.Visible = false;
                 }
                 else
                 {
+                    btnGuardar.Visible = true;
                     row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
                     row.Cells[0].Tag = "check";
                     if (row.Cells["Concepto"].Value.ToString() == "RETROACTIVO") 
@@ -129,6 +131,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         pnlAsig.Visible = false;
                     }
                 }
+                //btnGuardar.Visible = true;
             }
         }
 
@@ -137,19 +140,27 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         //-----------------------------------------------------------------------------------------------
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            IncCalificacion objInc = new IncCalificacion();
-            objInc.fFechaInicio = DateTime.Parse(dpFechaInicio.Text);
-            objInc.fFechaTermino = DateTime.Parse(dpFechaFin.Text);
-            objInc.sIdtrab = cbEmpleados.SelectedValue.ToString();
+            if (cbEmpleados.Text=="" | cbEmpleados.Text=="Seleccionar")
+            {
+                MessageBox.Show("Seleccione un Empleado.", "SIPAA");
+            }
+            else
+            {            
+                IncCalificacion objInc = new IncCalificacion();
+                objInc.fFechaInicio = DateTime.Parse(dpFechaInicio.Text);
+                objInc.fFechaTermino = DateTime.Parse(dpFechaFin.Text);
+                objInc.sIdtrab = cbEmpleados.SelectedValue.ToString();
 
-            LlenarGrid(objInc);
+                LlenarGrid(objInc);
 
-            cbIncidencia.SelectedValue = 17; //Suspension
-            cbIncidencia.Enabled = false;
-            llenarComboTipo(17);
-            ckbaplica.Visible = false;
-            ckbEliminar.Checked = false;
-            ckbEliminar.Visible = false;
+                cbIncidencia.SelectedValue = 17; //Suspension
+                cbIncidencia.Enabled = false;
+                llenarComboTipo(17);
+                ckbaplica.Visible = false;
+                ckbEliminar.Checked = false;
+                ckbEliminar.Visible = false;
+                btnGuardar.Visible = false;            
+            }
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -178,85 +189,126 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             if (iActbtn != 3)
             {
-                switch (ValidarFecha(DateTime.Parse(dtimeFechaInicioAsig.Text), DateTime.Parse(dtimeFechaFinAsig.Text)))
+                if (cbTipo.Text=="" | cbTipo.Text=="Seleccionar" | Convert.ToInt32(cbTipo.SelectedValue.ToString())==0 
+                    | Convert.ToInt32(cbTipo.SelectedIndex.ToString()) < 0)
                 {
-                    case 0:
+                    MessageBox.Show("Debe Capturar el Tipo de Incidencia.", "SIPAA");
+                }
+                else
+                {                
+                    switch (ValidarFecha(DateTime.Parse(dtimeFechaInicioAsig.Text), DateTime.Parse(dtimeFechaFinAsig.Text)))
+                    {
+                        case 0:
 
-                        if (cbIncidencia.SelectedValue.ToString() != "17") //Suspension
-                        {
-                            if (ltTrab.Count != 0)
+                            if (cbIncidencia.SelectedValue.ToString() != "17") //Suspension
                             {
-                                IncCaptura objinc = new IncCaptura();
-
-                                DataTable dtReporte = new DataTable();
-                                dtReporte.Columns.Add("FechaInc", typeof(string));
-                                dtReporte.Columns.Add("Incidencia", typeof(string));
-                                dtReporte.Columns.Add("TiempoEmp", typeof(string));
-                                dtReporte.Columns.Add("TiempoProf", typeof(string));
-
-                                bool bBandera = false;
-                                for (int iCont = 0; iCont < ltTrab.Count(); iCont++)
+                                if (ltTrab.Count != 0)
                                 {
-                                    Captura2 obj = ltTrab.ElementAt(iCont);
+                                    IncCaptura objinc = new IncCaptura();
 
-                                    int idTrabActual = Int32.Parse(cbEmpleados.SelectedValue.ToString());
-                                    int cvincidenciaActual = obj.cvincidencia;
-                                    int cvtipoActual = obj.cvtipo;
+                                    DataTable dtReporte = new DataTable();
+                                    dtReporte.Columns.Add("FechaInc", typeof(string));
+                                    dtReporte.Columns.Add("Incidencia", typeof(string));
+                                    dtReporte.Columns.Add("TiempoEmp", typeof(string));
+                                    dtReporte.Columns.Add("TiempoProf", typeof(string));
 
-                                    objinc.fFecharegistro = obj.FechaReg;
-                                    objinc.iIdtrab = idTrabActual;
-                                    objinc.iCvIncidencia = cvincidenciaActual;
-                                    objinc.iCvTipo = cvtipoActual;
-                                    objinc.iCvIncidencia2 = Convert.ToInt32(cbIncidencia.SelectedValue.ToString());
-                                    objinc.iCvTipo2 = Convert.ToInt32(cbTipo.SelectedValue.ToString());
-
-                                    objinc.fFechaFin = DateTime.Parse(dtimeFechaFinAsig.Text);
-                                    objinc.fFechaInicio = DateTime.Parse(dtimeFechaInicioAsig.Text);
-                                    objinc.sUsuumod = LoginInfo.IdTrab;
-                                    objinc.sPrgumod = "IncidenciasExtSuspRetroGeneral";   //this.Name;
-                                    if (ckbaplica.Checked)
+                                    bool bBandera = false;
+                                    for (int iCont = 0; iCont < ltTrab.Count(); iCont++)
                                     {
-                                        objinc.iAplica = 1;
+                                        Captura2 obj = ltTrab.ElementAt(iCont);
+
+                                        int idTrabActual = Int32.Parse(cbEmpleados.SelectedValue.ToString());
+                                        int cvincidenciaActual = obj.cvincidencia;
+                                        int cvtipoActual = obj.cvtipo;
+
+                                        objinc.fFecharegistro = obj.FechaReg;
+                                        objinc.iIdtrab = idTrabActual;
+                                        objinc.iCvIncidencia = cvincidenciaActual;
+                                        objinc.iCvTipo = cvtipoActual;
+                                        objinc.iCvIncidencia2 = Convert.ToInt32(cbIncidencia.SelectedValue.ToString());
+                                        objinc.iCvTipo2 = Convert.ToInt32(cbTipo.SelectedValue.ToString());
+
+                                        objinc.fFechaFin = DateTime.Parse(dtimeFechaFinAsig.Text);
+                                        objinc.fFechaInicio = DateTime.Parse(dtimeFechaInicioAsig.Text);
+                                        objinc.sUsuumod = LoginInfo.IdTrab;
+                                        objinc.sPrgumod = "IncidenciasExtSuspRetroGeneral";   //this.Name;
+                                        if (ckbaplica.Checked)
+                                        {
+                                            objinc.iAplica = 1;
+                                        }
+                                        else
+                                        {
+                                            objinc.iAplica = 0;
+                                        }
+
+                                        DataTable dt = objinc.ExtrañamientoRetroactivo(objinc, 1);
+                                        dtReporte.Rows.Add(Convert.ToString(objinc.fFecharegistro.ToString("dd/MM/yyyy")), obj.sIncidencia, obj.iTiempoEmp, obj.iTiempoProf);
+
+                                        if (dt.Columns.Contains("INSERT") || dt.Columns.Contains("EXISTS"))
+                                        {
+                                            bBandera = true;
+                                            IncCalificacion objInc = new IncCalificacion();
+                                            objInc.fFechaInicio = dpFechaInicio.Value;
+                                            objInc.fFechaTermino = dpFechaFin.Value;
+
+                                            LlenarGrid(objInc);
+                                        }
+                                    }
+
+                                    if (cbIncidencia.SelectedValue.ToString() == "19")  //Extraña
+                                    {
+                                        //Se lanza la carta
+                                        ViewerReporte form = new ViewerReporte();
+                                        ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "SIPAA_CS.RecursosHumanos.Reportes", "CartaExtrañamiento.rpt");
+                                        ReportDoc.SetParameterValue("NombreEmpleado", cbEmpleados.Text);
+                                        ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Text);
+                                        ReportDoc.SetParameterValue("FechaFin", dpFechaFin.Text);
+                                        form.RptDoc = ReportDoc;
+                                        form.Show();
+                                    }
+
+                                    ltCvIncidencia.Clear();
+                                    ltcvTipo.Clear();
+                                    ltFechasRegistro.Clear();
+                                    ltTrab.Clear();
+
+                                    if (bBandera == true)
+                                    {
+                                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                                        txtReferencia.Text = String.Empty;
+                                        cbTipo.SelectedIndex = 0;
+                                        dtimeFechaInicioAsig.Value = DateTime.Now;
+                                        dtimeFechaFinAsig.Value = DateTime.Now;
+                                        cbTipo.SelectedIndex = 0;
+                                        cbTipo.Enabled = false;
+                                        cbIncidencia.SelectedIndex = 0;
+                                        timer1.Start();
                                     }
                                     else
                                     {
-                                        objinc.iAplica = 0;
-                                    }
-
-                                    DataTable dt = objinc.ExtrañamientoRetroactivo(objinc, 1);
-                                    dtReporte.Rows.Add(Convert.ToString(objinc.fFecharegistro.ToString("dd/MM/yyyy")), obj.sIncidencia, obj.iTiempoEmp, obj.iTiempoProf);
-
-                                    if (dt.Columns.Contains("INSERT") || dt.Columns.Contains("EXISTS"))
-                                    {
-                                        bBandera = true;
-                                        IncCalificacion objInc = new IncCalificacion();
-                                        objInc.fFechaInicio = dpFechaInicio.Value;
-                                        objInc.fFechaTermino = dpFechaFin.Value;
-
-                                        LlenarGrid(objInc);
+                                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Una o más asignaciones no se lograron guardar.");
+                                        timer1.Start();
                                     }
                                 }
+                            }
+                            else
+                            {
+                                DiasEspeciales objDias = new DiasEspeciales();
 
-                                if (cbIncidencia.SelectedValue.ToString() == "19")  //Extraña
+                                objDias.sIdTrab = cbEmpleados.SelectedValue.ToString();
+                                objDias.iCvIncidencia = Convert.ToInt32(cbIncidencia.SelectedValue.ToString());
+                                objDias.iCvTipo = Convert.ToInt32(cbTipo.SelectedValue.ToString());
+                                objDias.fFechaInicio = DateTime.Parse(dtimeFechaInicioAsig.Text);
+                                objDias.fFechaFin = DateTime.Parse(dtimeFechaFinAsig.Text);
+                                objDias.sReferencia = txtReferencia.Text;
+                                objDias.iOrden = 6;
+                                objDias.sUsuumod = LoginInfo.IdTrab;
+                                objDias.sPrgumod = "IncidenciasExtSuspRetroGeneral";
+                                DataTable dt = objDias.ObtenerDiasEspecialesxTrabajador(objDias, 1);
+
+                                if (dt.Columns.Contains("INSERT"))
                                 {
-                                    //Se lanza la carta
-                                    ViewerReporte form = new ViewerReporte();
-                                    ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtReporte, "SIPAA_CS.RecursosHumanos.Reportes", "CartaExtrañamiento.rpt");
-                                    ReportDoc.SetParameterValue("NombreEmpleado", cbEmpleados.Text);
-                                    ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Text);
-                                    ReportDoc.SetParameterValue("FechaFin", dpFechaFin.Text);
-                                    form.RptDoc = ReportDoc;
-                                    form.Show();
-                                }
-
-                                ltCvIncidencia.Clear();
-                                ltcvTipo.Clear();
-                                ltFechasRegistro.Clear();
-                                ltTrab.Clear();
-
-                                if (bBandera == true)
-                                {
-                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Asignaciones Guardadas Correctamente");
+                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Suspensión Guardada Correctamente");
                                     txtReferencia.Text = String.Empty;
                                     cbTipo.SelectedIndex = 0;
                                     dtimeFechaInicioAsig.Value = DateTime.Now;
@@ -266,59 +318,26 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                     cbIncidencia.SelectedIndex = 0;
                                     timer1.Start();
                                 }
+                                else if (dt.Columns.Contains("EXISTS"))
+                                {
+                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Este Tipo de Suspensión ya fue Asignado a este trabajador en esa fecha");
+                                    timer1.Start();
+                                }
                                 else
                                 {
-                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Una o más asignaciones no se lograron guardar.");
+                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación. Favor de Repetir el proceso");
                                     timer1.Start();
                                 }
                             }
-                        }
-                        else
-                        {
-                            DiasEspeciales objDias = new DiasEspeciales();
+                            //// frecargar(); mejor re-leemos en lugar de cerrar y abrir la misma pantalla
+                            btnBuscar_Click(sender, e);
+                            break;
 
-                            objDias.sIdTrab = cbEmpleados.SelectedValue.ToString();
-                            objDias.iCvIncidencia = Convert.ToInt32(cbIncidencia.SelectedValue.ToString());
-                            objDias.iCvTipo = Convert.ToInt32(cbTipo.SelectedValue.ToString());
-                            objDias.fFechaInicio = DateTime.Parse(dtimeFechaInicioAsig.Text);
-                            objDias.fFechaFin = DateTime.Parse(dtimeFechaFinAsig.Text);
-                            objDias.sReferencia = txtReferencia.Text;
-                            objDias.iOrden = 6;
-                            objDias.sUsuumod = LoginInfo.IdTrab;
-                            objDias.sPrgumod = "IncidenciasExtSuspRetroGeneral";
-                            DataTable dt = objDias.ObtenerDiasEspecialesxTrabajador(objDias, 1);
-
-                            if (dt.Columns.Contains("INSERT"))
-                            {
-                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Suspensión Guardada Correctamente");
-                                txtReferencia.Text = String.Empty;
-                                cbTipo.SelectedIndex = 0;
-                                dtimeFechaInicioAsig.Value = DateTime.Now;
-                                dtimeFechaFinAsig.Value = DateTime.Now;
-                                cbTipo.SelectedIndex = 0;
-                                cbTipo.Enabled = false;
-                                cbIncidencia.SelectedIndex = 0;
-                                timer1.Start();
-                            }
-                            else if (dt.Columns.Contains("EXISTS"))
-                            {
-                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Este Tipo de Suspensión ya fue Asignado a este trabajador en esa fecha");
-                                timer1.Start();
-                            }
-                            else
-                            {
-                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error de Comunicación. Favor de Repetir el proceso");
-                                timer1.Start();
-                            }
-                        }
-                        //// frecargar(); mejor re-leemos en lugar de cerrar y abrir la misma pantalla
-                        btnBuscar_Click(sender, e);
-                        break;
-
-                    case 1:
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "La Fecha de Inicio no puede ser Mayor a la de Término");
-                        timer1.Start();
-                        break;
+                        case 1:
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "La Fecha de Inicio no puede ser Mayor a la de Término");
+                            timer1.Start();
+                            break;
+                    }
                 }
             }
             else //va a elminarlo
@@ -373,6 +392,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 }
             }
 
+            btnGuardar.Visible = false;
             ckbaplica.Visible = false;
             ckbaplica.Checked = false;
             ckbEliminar.Checked = false;
