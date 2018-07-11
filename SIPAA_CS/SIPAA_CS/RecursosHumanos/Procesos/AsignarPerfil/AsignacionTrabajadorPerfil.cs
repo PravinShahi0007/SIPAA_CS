@@ -616,7 +616,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
 
             ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Comienza proceso");
-            System.Threading.Thread.Sleep(200);
+            
             try
             {
 
@@ -848,6 +848,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             Utilerias.llenarComboxDataTable(cbPlantilla, objPlantilla.cbplantilla(5), "Clave", "Descripción");
             Utilerias.llenarComboxDataTable(cbDiaEntrada, objPlantilla.cbdias(6), "Clave", "Descripción");
             Utilerias.llenarComboxDataTable(cbDiaSalida, objPlantilla.cbdias(6), "Clave", "Descripción");
+            Utilerias.AsignarBotonResize(btnEliminar, new Size(sysW, sysH), "Borrar");
             TrabajadorHorario objHorario = AsignarObjeto();
             llenarGridHorario(objHorario);
             LimpiarFormulario();
@@ -859,6 +860,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 btnGuardar.Visible = false;
                 btnAgregar.Visible = false;
                 ckbEliminar.Visible = false;
+                btnEliminar.Visible = false; 
             }
 
             PanelReloj.Visible = true;
@@ -1364,14 +1366,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvReloj.DataSource = dtRelojChecador;
 
             Utilerias.AgregarCheck(dgvReloj, 0);
-            //dgvRelojesChecadores.Columns[0].Width = 75;
-            //dgvRelojesChecadores.Columns[1].Width = 50;
-
-
             dgvReloj.Columns[0].Width = 15; //65
             dgvReloj.Columns[1].Width = 65; //65
-            //for (int i = 0; i < dgvReloj.Columns.Count; i++)
-            //    dgvReloj.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+           
             dgvReloj.Columns[1].Visible = false;
             dgvReloj.Columns[3].Visible = false;
             dgvReloj.Columns[4].Visible = false;
@@ -1379,21 +1376,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvReloj.Columns[6].Visible = false;
             dgvReloj.Columns[7].Visible = false;
 
-
-            /*dgvReloj.Columns[7].Visible = false;
-            dgvReloj.Columns[8].Visible = false;
-            dgvReloj.Columns[9].Visible = false;*/
             dgvReloj.ClearSelection();
 
-            // int admin = 0;
-            // DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
-            // foreach (DataRow row in dt.Rows)
-            //  {
-            //      if (Convert.ToBoolean(row["administrador"].ToString()))
-            //         admin = 1;
-            //   }
-            //if (admin != 0)
-            //   chkAdmin.Checked = true;
+         
 
         }
 
@@ -1456,8 +1441,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 else
                 {
                     MessageBox.Show("No fue posible conectarse al reloj : " + obj.Descripcion + " por favor hable al area de sistemas", "SIPAA"); 
-                    //ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse al reloj : " + obj.Descripcion+" por favor hable al area de sistemas");
-                    //System.Threading.Thread.Sleep(1000);
+                  
                 }
                     
                     
@@ -1592,7 +1576,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                                     try
                                     {
-                                        bool bandera = objCZKEM.SendFile(1, @"\\192.168.30.171\Fotos_emp\" + idtrab + ".jpg");
+                                        bool bandera = objCZKEM.SendFile(1, @"\\192.168.30.171\FotosJS\FotosRelojChecador\" + idtrab + ".jpg");
 
                                     }
                                     catch{}
@@ -1996,7 +1980,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Comienza proceso");
             relojseleccionados();
-            System.Threading.Thread.Sleep(50);
+           // System.Threading.Thread.Sleep(50);
             ProcesoReloj();
             AsignarReloj(TrabajadorInfo.IdTrab);
             ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Los Biométricos se obtuvieron con exito");
@@ -2036,7 +2020,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void button4_Click(object sender, EventArgs e)
         {
             ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Reenviando Datos, aguarde ");
-            System.Threading.Thread.Sleep(1000);
+           // System.Threading.Thread.Sleep(1000);
             try
             {
 
@@ -2211,7 +2195,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             string sFaceTmp = "";
             int iFaceLong = 0;
-
             bool bBandera = false;
 
             switch (Opcion)
@@ -2264,25 +2247,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     break;
 
 
-                    //if (objCZKEM.SSR_GetAllUserInfo(1, out sIdTrab, out sNombre, out sPass, out iPrivilegio, out bActivo))
-                    //{
-
-                    //    for (int iFinger = 0; iFinger < 10; iFinger++)
-                    //    {
-                    //        if (objCZKEM.GetUserTmpExStr(1, sIdTrab, iFinger, out flag, out huellatmp, out tpmlong))
-                    //        {
-                    //            SonaTrabajador objTrab = new SonaTrabajador();
-                    //            try
-                    //            {
-                    //                objTrab.GestionHuella(sIdTrab, huellatmp, iFinger, LoginInfo.IdTrab, Name, 5);
-                    //                bBandera = true;
-                    //            }
-                    //            catch { }
-                    //        }
-                    //    }
-                    //}
-                    //break;
-
 
                 case "Pass":
 
@@ -2315,6 +2279,32 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void mtxtTiempoTrabajo_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            relojseleccionados();
+            DialogResult result = MessageBox.Show("¿Seguro que desea eliminar "+ltReloj2.Count+" relojes asignados?", "SIPAA", MessageBoxButtons.YesNo);
+            if (result==DialogResult.Yes)
+            {
+                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Comienza proceso");
+                RelojChecador objReloj = new RelojChecador();
+                SonaTrabajador objTrab = new SonaTrabajador();
+               // relojseleccionados();
+                foreach (Reloj obj in ltReloj2)
+                {
+                    objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 24, sUsuuMod, Name);
+
+                }
+                llenarGridReloj("%");
+                ltRelojxUsuario.Clear(); 
+                AsignarReloj(TrabajadorInfo.IdTrab);
+
+
+
+            }
+           
         }
     }
 }
