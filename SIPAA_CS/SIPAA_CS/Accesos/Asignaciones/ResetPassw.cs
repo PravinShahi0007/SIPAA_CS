@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.App_Code;
+using SIPAA_CS.App_Code.Accesos.Catalogos;
 
 //***********************************************************************************************
 //Autor: Noe Alvarez Marquina
@@ -21,13 +22,13 @@ namespace SIPAA_CS.Accesos.Asignaciones
 {
     public partial class ResetPassw : Form
     {
-        string cvuser;
-        string susu;
+        #region
+        string smail, scvdominio, spasswant, snombreusueario, susuarioreset;
         int istusu;
+        #endregion
 
-        Usuario Usu = new Usuario();
-        Utilerias utilerias = new Utilerias();
-        Usuario usu = new Usuario();
+        Utilerias cutilerias = new Utilerias();
+        Usuarioap cusuarioap = new Usuarioap();
 
         public ResetPassw()
         {
@@ -70,12 +71,16 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //variables accesos
-            DataTable dtusuario = Usu.irstpwd(20,txtcvusuarios.Text.Trim(),"");
+            //variables datos del usuario
+            DataTable datosusuario = cusuarioap.dtdatos(4, txtcvusuarios.Text, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+            //smail = datosusuario.Rows[0][3].ToString();
+            //scvdominio = datosusuario.Rows[0][4].ToString();
+            //spasswant = datosusuario.Rows[0][6].ToString();
+            //istusu = Int32.Parse(datosusuario.Rows[0][7].ToString());
 
-            if (dtusuario.Rows.Count >= 1)
+            if (datosusuario.Rows.Count >= 1)
             {
-                istusu = Int32.Parse(dtusuario.Rows[0][3].ToString());
+                istusu = Int32.Parse(datosusuario.Rows[0][7].ToString());
             }
             else
             {
@@ -83,27 +88,49 @@ namespace SIPAA_CS.Accesos.Asignaciones
             }
             
 
-            if (dtusuario.Rows.Count <= 0)
+            if (datosusuario.Rows.Count <= 0)
             {
-                DialogResult result = MessageBox.Show("El usuario que busca no existe, verificar", "SIPAA", MessageBoxButtons.OK);
                 txtusuario.Text = "";
                 txtestatus.Text = "";
+                txtcorreo.Text = "";
+
+                //cb dominios
+                cutilerias.p_inicbo = 0;
+                cbodominios.DataSource = null;
+                DataTable dtdatos = cusuarioap.dtdatos(5, "", 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+                Utilerias.llenarComboxDataTable(cbodominios, dtdatos, "cv", "desc");
+                cutilerias.p_inicbo = 1;
+
+                DialogResult result = MessageBox.Show("El usuario que busca no existe, verificar", "SIPAA", MessageBoxButtons.OK);
                 txtcvusuarios.Focus();
                 btguardar.Enabled = false;
             }
             else if (istusu == 0)
             {
                 DialogResult result = MessageBox.Show("El usuario esta inactivo, no se le puede restaurar la contraseña, verificar", "SIPAA", MessageBoxButtons.OK);
-                txtusuario.Text = dtusuario.Rows[0][2].ToString();
-                txtestatus.Text = dtusuario.Rows[0][4].ToString();
+                txtusuario.Text = datosusuario.Rows[0][1].ToString();
+                txtestatus.Text = datosusuario.Rows[0][8].ToString();
+                txtcorreo.Text = datosusuario.Rows[0][3].ToString();
 
             }
             else
             {
-                cvuser = dtusuario.Rows[0][0].ToString();
-                txtusuario.Text = dtusuario.Rows[0][2].ToString();
-                susu = dtusuario.Rows[0][2].ToString();
-                txtestatus.Text = dtusuario.Rows[0][4].ToString();
+                txtusuario.Text = datosusuario.Rows[0][1].ToString();
+                txtestatus.Text = datosusuario.Rows[0][8].ToString();
+                txtcorreo.Text = datosusuario.Rows[0][3].ToString();
+                scvdominio = datosusuario.Rows[0][4].ToString();
+                snombreusueario = datosusuario.Rows[0][1].ToString();
+                susuarioreset = datosusuario.Rows[0][0].ToString();
+
+                //cb dominios
+                cutilerias.p_inicbo = 0;
+                cbodominios.DataSource = null;
+                DataTable dtdatos = cusuarioap.dtdatos(5, "", 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+                Utilerias.llenarComboxDataTable(cbodominios, dtdatos, "cv", "desc");
+
+                if (scvdominio != "0") { cbodominios.SelectedValue = scvdominio; }
+                cutilerias.p_inicbo = 1;
+
                 btguardar.Enabled = true;
                 btguardar.Focus();
 
@@ -113,26 +140,58 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
         private void btguardar_Click(object sender, EventArgs e)
         {
-
-            //restaura contraseña
-            DialogResult result = MessageBox.Show( LoginInfo.Nombre +": esta acción restaura la contraseña del usuario;" + "\r\n" + "\r\n" + susu + "\r\n" + "\r\n" + "¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
-
-            if (result == DialogResult.Yes)
+            if (txtcorreo.Text.Trim() == "")
             {
-                int ivalida = usu.iactpw(18, cvuser, utilerias.cifradoMd5(cvuser),LoginInfo.IdTrab, this.Name);
+                DialogResult result = MessageBox.Show("Captura un correo electrónico para recuperar contraseña, verificar", "SIPAA", MessageBoxButtons.OK);
+                txtcorreo.Focus();
+            }
+            else if (cbodominios.Text.Trim() == "" || cbodominios.SelectedIndex == -1 || cbodominios.SelectedIndex == 0)
+            {
+                DialogResult result = MessageBox.Show("Selecciona un dominio", "SIPAA", MessageBoxButtons.OK);
+                cbodominios.Focus();
 
-                if (ivalida == 2)
-                {
-                    txtcvusuarios.Text = "";
-                    txtusuario.Text = "";
-                    txtestatus.Text = "";
-                    btguardar.Enabled = false;
-                    DialogResult result1 = MessageBox.Show("Contraseña Modificada con exito!", "SIPAA", MessageBoxButtons.OK);
-                    txtcvusuarios.Focus();
-                }
+            }
+            else if (susuarioreset == "")
+            {
+                DialogResult result = MessageBox.Show("Captura un usuario, verificar", "SIPAA", MessageBoxButtons.OK);
+                txtcvusuarios.Focus();
             }
             else
             {
+                //restaura contraseña
+                DialogResult result = MessageBox.Show(LoginInfo.Nombre + ": esta acción restaura la contraseña del usuario;" + "\r\n" + "\r\n" + snombreusueario + "\r\n" + "\r\n" + "¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    int ivalida = cusuarioap.cruddatos(8, susuarioreset, 0, "", txtcorreo.Text.Trim(),
+                                   Int32.Parse(cbodominios.SelectedValue.ToString()), "", 0, 1, "",
+                                   "", "", "", "", "",
+                                   0, 3, LoginInfo.cvusuario, "", this.Name,
+                                   cutilerias.scontrol());
+
+                    if (ivalida == 2)
+                    {
+                        txtcvusuarios.Text = "";
+                        txtusuario.Text = "";
+                        txtestatus.Text = "";
+                        txtcorreo.Text = "";
+
+                        //cb dominios
+                        cutilerias.p_inicbo = 0;
+                        cbodominios.DataSource = null;
+                        DataTable dtdatos = cusuarioap.dtdatos(5, "", 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+                        Utilerias.llenarComboxDataTable(cbodominios, dtdatos, "cv", "desc");
+                        cutilerias.p_inicbo = 1;
+
+                        btguardar.Enabled = false;
+                        susuarioreset = "";
+                        DialogResult result1 = MessageBox.Show("Contraseña Modificada con exito!  En breve le llegara un correo electrónico al usuario con su contraseña temporal.", "SIPAA", MessageBoxButtons.OK);
+                        txtcvusuarios.Focus();
+                    }
+                }
+                else
+                {
+                }
             }
 
             

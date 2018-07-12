@@ -315,6 +315,8 @@ namespace SIPAA_CS.App_Code
             public static string Nombre;
             public static DataTable dtPermisosTrabajador;
             public static int iconexion;
+
+            public static string cvusuario;
         }
 
 
@@ -501,7 +503,7 @@ namespace SIPAA_CS.App_Code
             public static Dictionary<string, int> dcPermisos;
         }
 
-        public int iactpw(int iopcion, string susurio, string pwnuevo, string susumodif, string sprgmodif)
+        public int iactpw(int iopcion, string susurio, string pwnuevo, string susumodif, string sprgmodif, string snombre, string sidtrab, string sstusuario)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "usp_acceusuario_suid";
@@ -510,10 +512,10 @@ namespace SIPAA_CS.App_Code
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = susurio;
-            cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = 0;
-            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = "";
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sidtrab;
+            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = snombre;
             cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = pwnuevo;
-            cmd.Parameters.Add("@p_stusuario", SqlDbType.Int).Value = 0;
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.VarChar).Value = sstusuario;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susumodif;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sprgmodif;
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
@@ -550,6 +552,60 @@ namespace SIPAA_CS.App_Code
             DataTable dtusuario = new DataTable();
             Adapter.Fill(dtusuario);
             return dtusuario;
+
+        }
+
+        //llena dgv,cb cambiar perfil del usuario
+        public DataTable dtdatos(string scvusuario, string sidtrab, string snombre, string spassw,
+                                 string sstusuario,  string susuumod, string sprgumod, int iopcion)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_acceusuario_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = scvusuario;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sidtrab;
+            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = snombre;
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = spassw;
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.VarChar).Value = sstusuario;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sprgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            objConexion.asignarConexion(cmd);
+
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtdgvcboscorreo = new DataTable();
+            Adapter.Fill(dtdgvcboscorreo);
+            return dtdgvcboscorreo;
+        }
+
+        //actualiza perfil
+        public int idatact(string scvusuario, string sidtrab, string snombre, string spassw,
+                           string sstusuario, string susuumod, string sprgumod, int iopcion)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "usp_acceusuario_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_cvusuario", SqlDbType.VarChar).Value = scvusuario;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sidtrab;
+            cmd.Parameters.Add("@p_nombre", SqlDbType.VarChar).Value = snombre;
+            cmd.Parameters.Add("@p_passw", SqlDbType.VarChar).Value = spassw;
+            cmd.Parameters.Add("@p_stusuario", SqlDbType.VarChar).Value = sstusuario;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = susuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sprgumod;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            objConexion.asignarConexion(cmd);
+
+            int regreso = Convert.ToInt32(cmd.ExecuteScalar());
+            objConexion.cerrarConexion();
+            return regreso;
 
         }
     }

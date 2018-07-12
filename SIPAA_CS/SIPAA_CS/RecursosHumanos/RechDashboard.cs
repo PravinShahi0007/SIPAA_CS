@@ -11,10 +11,17 @@ using static SIPAA_CS.App_Code.Usuario;
 using System.Data;
 using SIPAA_CS.Properties;
 
+using SIPAA_CS.App_Code.Accesos.Catalogos;
+
 namespace SIPAA_CS.RecursosHumanos
 {
     public partial class RechDashboard : Form
     {
+        Usuarioap cusuarioap = new Usuarioap();
+        Utilerias cutilerias = new Utilerias();
+        string sultacceso;
+
+
         public RechDashboard()
         {
             InitializeComponent();
@@ -26,6 +33,11 @@ namespace SIPAA_CS.RecursosHumanos
         */
         private void RechDashboard_Load(object sender, EventArgs e)
         {
+            //variables datos del usuario
+            DataTable datosusuario = cusuarioap.dtdatos(4, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+            sultacceso = datosusuario.Rows[0][5].ToString();
+            lblacceso.Text = sultacceso;
+
             //inicia tool tip
             ftooltip();
 

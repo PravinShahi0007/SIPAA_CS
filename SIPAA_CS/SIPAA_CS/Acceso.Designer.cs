@@ -125,7 +125,6 @@
             this.btnreccontrasena.TabIndex = 3;
             this.btnreccontrasena.TabStop = false;
             this.btnreccontrasena.UseVisualStyleBackColor = false;
-            this.btnreccontrasena.Visible = false;
             this.btnreccontrasena.Click += new System.EventHandler(this.btnreccontrasena_Click);
             // 
             // btnIngresar

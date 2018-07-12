@@ -40,6 +40,12 @@
             this.lblusuario = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.txtcorreo = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbodominios = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblacceso = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,10 +69,10 @@
             this.btguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btguardar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btguardar.ForeColor = System.Drawing.Color.White;
-            this.btguardar.Location = new System.Drawing.Point(315, 375);
+            this.btguardar.Location = new System.Drawing.Point(333, 402);
             this.btguardar.Name = "btguardar";
             this.btguardar.Size = new System.Drawing.Size(210, 50);
-            this.btguardar.TabIndex = 2;
+            this.btguardar.TabIndex = 4;
             this.btguardar.Text = "Guardar";
             this.btguardar.UseVisualStyleBackColor = false;
             this.btguardar.Click += new System.EventHandler(this.btguardar_Click);
@@ -76,7 +82,7 @@
             this.txtconfirmcontrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtconfirmcontrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtconfirmcontrasena.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtconfirmcontrasena.Location = new System.Drawing.Point(293, 313);
+            this.txtconfirmcontrasena.Location = new System.Drawing.Point(117, 264);
             this.txtconfirmcontrasena.MaxLength = 16;
             this.txtconfirmcontrasena.Name = "txtconfirmcontrasena";
             this.txtconfirmcontrasena.PasswordChar = '*';
@@ -88,7 +94,7 @@
             this.txtcontrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtcontrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtcontrasena.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcontrasena.Location = new System.Drawing.Point(295, 219);
+            this.txtcontrasena.Location = new System.Drawing.Point(119, 187);
             this.txtcontrasena.MaxLength = 16;
             this.txtcontrasena.Name = "txtcontrasena";
             this.txtcontrasena.PasswordChar = '*';
@@ -98,17 +104,17 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel3.Location = new System.Drawing.Point(292, 338);
+            this.panel3.Location = new System.Drawing.Point(116, 289);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 2);
+            this.panel3.Size = new System.Drawing.Size(250, 1);
             this.panel3.TabIndex = 56;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel4.Location = new System.Drawing.Point(294, 244);
+            this.panel4.Location = new System.Drawing.Point(118, 212);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 2);
+            this.panel4.Size = new System.Drawing.Size(250, 1);
             this.panel4.TabIndex = 55;
             // 
             // label2
@@ -117,7 +123,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label2.Location = new System.Drawing.Point(291, 283);
+            this.label2.Location = new System.Drawing.Point(115, 241);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 16);
             this.label2.TabIndex = 54;
@@ -129,7 +135,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label1.Location = new System.Drawing.Point(291, 192);
+            this.label1.Location = new System.Drawing.Point(115, 165);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 16);
             this.label1.TabIndex = 53;
@@ -174,6 +180,78 @@
             this.ptbimgusuario.TabIndex = 181;
             this.ptbimgusuario.TabStop = false;
             // 
+            // txtcorreo
+            // 
+            this.txtcorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtcorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtcorreo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcorreo.Location = new System.Drawing.Point(117, 342);
+            this.txtcorreo.MaxLength = 100;
+            this.txtcorreo.Name = "txtcorreo";
+            this.txtcorreo.Size = new System.Drawing.Size(300, 19);
+            this.txtcorreo.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel1.Location = new System.Drawing.Point(116, 364);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(300, 1);
+            this.panel1.TabIndex = 210;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label6.Location = new System.Drawing.Point(113, 317);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(268, 16);
+            this.label6.TabIndex = 209;
+            this.label6.Text = "Correo electrónico para recuperar contraseña";
+            // 
+            // cbodominios
+            // 
+            this.cbodominios.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbodominios.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbodominios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbodominios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbodominios.FormattingEnabled = true;
+            this.cbodominios.Location = new System.Drawing.Point(461, 342);
+            this.cbodominios.Margin = new System.Windows.Forms.Padding(2);
+            this.cbodominios.Name = "cbodominios";
+            this.cbodominios.Size = new System.Drawing.Size(274, 24);
+            this.cbodominios.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(426, 339);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(26, 27);
+            this.label5.TabIndex = 212;
+            this.label5.Text = "@";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblacceso
+            // 
+            this.lblacceso.AutoSize = true;
+            this.lblacceso.BackColor = System.Drawing.Color.Transparent;
+            this.lblacceso.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblacceso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.lblacceso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblacceso.Location = new System.Drawing.Point(9, 472);
+            this.lblacceso.Name = "lblacceso";
+            this.lblacceso.Size = new System.Drawing.Size(52, 16);
+            this.lblacceso.TabIndex = 213;
+            this.lblacceso.Text = "Acceso";
+            this.lblacceso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CambioContrasena
             // 
             this.AcceptButton = this.btguardar;
@@ -181,6 +259,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.log2;
             this.ClientSize = new System.Drawing.Size(840, 495);
+            this.Controls.Add(this.lblacceso);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbodominios);
+            this.Controls.Add(this.txtcorreo);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblusuario);
@@ -217,5 +301,11 @@
         private System.Windows.Forms.Label lblusuario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox ptbimgusuario;
+        private System.Windows.Forms.TextBox txtcorreo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbodominios;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblacceso;
     }
 }

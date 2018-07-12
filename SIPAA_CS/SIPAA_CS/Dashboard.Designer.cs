@@ -48,6 +48,9 @@
             this.btnPower = new System.Windows.Forms.Button();
             this.lblconexion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnperfil = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblacceso = new System.Windows.Forms.Label();
             this.PanelMetro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
@@ -348,6 +351,49 @@
             this.label1.Text = "Ver. 1.0.0.50";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnperfil
+            // 
+            this.btnperfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnperfil.BackgroundImage = global::SIPAA_CS.Properties.Resources.ic_group_white_24dp;
+            this.btnperfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnperfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnperfil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.btnperfil.Location = new System.Drawing.Point(825, 1);
+            this.btnperfil.Name = "btnperfil";
+            this.btnperfil.Size = new System.Drawing.Size(26, 24);
+            this.btnperfil.TabIndex = 154;
+            this.btnperfil.TabStop = false;
+            this.btnperfil.UseVisualStyleBackColor = false;
+            this.btnperfil.Click += new System.EventHandler(this.btnperfil_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(854, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 16);
+            this.label2.TabIndex = 155;
+            this.label2.Text = "Perfíl";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblacceso
+            // 
+            this.lblacceso.AutoSize = true;
+            this.lblacceso.BackColor = System.Drawing.Color.Transparent;
+            this.lblacceso.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblacceso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.lblacceso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblacceso.Location = new System.Drawing.Point(13, 103);
+            this.lblacceso.Name = "lblacceso";
+            this.lblacceso.Size = new System.Drawing.Size(52, 16);
+            this.lblacceso.TabIndex = 214;
+            this.lblacceso.Text = "Acceso";
+            this.lblacceso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,6 +401,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.lblacceso);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnperfil);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblconexion);
             this.Controls.Add(this.btnPower);
@@ -400,5 +449,8 @@
         private System.Windows.Forms.Button btnPower;
         private System.Windows.Forms.Label lblconexion;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnperfil;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblacceso;
     }
 }

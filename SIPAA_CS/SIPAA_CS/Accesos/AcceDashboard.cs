@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 
+using SIPAA_CS.App_Code.Accesos.Catalogos;
+
 namespace SIPAA_CS.Accesos
 {
 
@@ -23,6 +25,10 @@ namespace SIPAA_CS.Accesos
     //***********************************************************************************************
     public partial class AcceDashboard : Form
     {
+
+        Usuarioap cusuarioap = new Usuarioap();
+
+        string sultacceso;
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -91,6 +97,12 @@ namespace SIPAA_CS.Accesos
 
         private void AccesosDashboard_Load(object sender, EventArgs e)
         {
+            //variables datos del usuario
+            DataTable datosusuario = cusuarioap.dtdatos(4, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+            sultacceso = datosusuario.Rows[0][5].ToString();
+
+            lblacceso.Text = sultacceso;
+
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, this.Name);
             Permisos.dcPermisos = Utilerias.CrearListaPermisoxPantalla(dtPermisos);

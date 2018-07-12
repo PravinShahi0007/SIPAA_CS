@@ -39,6 +39,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.lblconexion = new System.Windows.Forms.Label();
+            this.lblacceso = new System.Windows.Forms.Label();
             this.paneltitulo.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
@@ -142,7 +143,7 @@
             this.panel1.Controls.Add(this.MenuAccesos);
             this.panel1.Location = new System.Drawing.Point(-1, 156);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(301, 614);
+            this.panel1.Size = new System.Drawing.Size(301, 578);
             this.panel1.TabIndex = 154;
             // 
             // ptbimgusuario
@@ -170,6 +171,20 @@
             this.lblconexion.Text = "Conexion BD Desarrollo";
             this.lblconexion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblacceso
+            // 
+            this.lblacceso.AutoSize = true;
+            this.lblacceso.BackColor = System.Drawing.Color.Transparent;
+            this.lblacceso.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblacceso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.lblacceso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblacceso.Location = new System.Drawing.Point(3, 743);
+            this.lblacceso.Name = "lblacceso";
+            this.lblacceso.Size = new System.Drawing.Size(52, 16);
+            this.lblacceso.TabIndex = 215;
+            this.lblacceso.Text = "Acceso";
+            this.lblacceso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AcceDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,6 +192,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.lblacceso);
             this.Controls.Add(this.lblconexion);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.panel1);
@@ -212,5 +228,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.Label lblconexion;
+        private System.Windows.Forms.Label lblacceso;
     }
 }

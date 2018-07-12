@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.Accesos;
 using SIPAA_CS.Conexiones;
+using SIPAA_CS.App_Code.Accesos.Catalogos;
 
 namespace SIPAA_CS
 {
@@ -22,8 +23,9 @@ namespace SIPAA_CS
         Usuario usuario = new Usuario();
         Utilerias utilerias = new Utilerias();
         Conexion conex = new Conexion();
-        
+        Usuarioap cusuarioap = new Usuarioap();
 
+        int istpassw;
         public string user;
         public string pwd;
         public List<string> ltModulosxUsuario = new List<string>();
@@ -107,6 +109,7 @@ namespace SIPAA_CS
                                     {
                                         ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 6);
                                         LoginInfo.IdTrab = txtUsuario.Text;
+                                        LoginInfo.cvusuario = txtUsuario.Text;
                                         usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
                                         string NomUsu = usuario.Nombre;
                                         LoginInfo.Nombre = NomUsu;
@@ -114,8 +117,11 @@ namespace SIPAA_CS
 
                                         if (ltModulosxUsuario.Count != 0)
                                         {
+                                            DataTable datosusuario = cusuarioap.dtdatos(4, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+                                            istpassw = Int32.Parse(datosusuario.Rows[0][2].ToString());
+
                                             //valida usuario
-                                            if (usuariov == passworwv)
+                                            if (istpassw == 1)
                                             {
                                                 CambioContrasena camcon = new CambioContrasena();
                                                 camcon.Show();
@@ -123,6 +129,9 @@ namespace SIPAA_CS
                                             }
                                             else
                                             {
+                                                //actualiza acceso
+                                                cusuarioap.cruddatos(6, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", utilerias.scontrol(), "SIPAA CS", 0, 0, "", "", "", "");
+
                                                 Dashboard ds = new Dashboard();
                                                 ds.Show();
                                                 this.Close();
@@ -201,6 +210,8 @@ namespace SIPAA_CS
                                 string NomUsu = usuario.Nombre;
                                 LoginInfo.Nombre = NomUsu;
                                 LoginInfo.iconexion = conex.iconexsvr;
+
+
 
                                 //valida usuario
                                 if (usuariov == passworwv)

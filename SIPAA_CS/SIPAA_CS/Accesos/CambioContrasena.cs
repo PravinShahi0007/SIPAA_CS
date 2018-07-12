@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.App_Code;
+using SIPAA_CS.App_Code.Accesos.Catalogos;
 
 //***********************************************************************************************
 //Autor: Noe Alvarez Marquina
@@ -23,7 +24,10 @@ namespace SIPAA_CS.Accesos
     {
 
         Usuario usu = new Usuario();
+        Usuarioap cusuarioap = new Usuarioap();
         Utilerias utilerias = new Utilerias();
+
+        string smail, scvdominio, sultacceso;
 
         public CambioContrasena()
         {
@@ -51,12 +55,17 @@ namespace SIPAA_CS.Accesos
                 if (bvalidacampos == true)//datos correctos
                 {
 
-                    int ivalida = usu.iactpw(18, LoginInfo.IdTrab, utilerias.cifradoMd5(txtconfirmcontrasena.Text.Trim()), LoginInfo.IdTrab, this.Name);
+                    int ivalida = cusuarioap.cruddatos(7, LoginInfo.cvusuario, 0, "", txtcorreo.Text.Trim(), 
+                                                       Int32.Parse(cbodominios.SelectedValue.ToString()), utilerias.cifradoMd5(txtcontrasena.Text), 0, 0, "", 
+                                                       "", "", "", "", "", 
+                                                       0, 1, LoginInfo.cvusuario, "", this.Name, 
+                                                       utilerias.scontrol());
 
                     if (ivalida == 2)
                     {
                         txtcontrasena.Text = "";
                         txtconfirmcontrasena.Text = "";
+                        txtcorreo.Text = "";
                         DialogResult result = MessageBox.Show("Contraseña Modificada con exito!, vuelva a ingresar al sistema", "SIPAA", MessageBoxButtons.OK);
                         LoginInfo.IdTrab = String.Empty;
                         Acceso frm = new Acceso();
@@ -86,8 +95,31 @@ namespace SIPAA_CS.Accesos
 
         private void CambioContrasena_Load(object sender, EventArgs e)
         {
+            //actualiza acceso
+            cusuarioap.cruddatos(6, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", utilerias.scontrol(), "SIPAA CS", 0, 0, "", "", "", "");
+
             lblusuario.Text = LoginInfo.Nombre;
             Utilerias.cargaimagen(ptbimgusuario);
+
+            //variables datos del usuario
+            DataTable datosusuario = cusuarioap.dtdatos(4, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+            smail = datosusuario.Rows[0][3].ToString();
+            scvdominio = datosusuario.Rows[0][4].ToString();
+            sultacceso = datosusuario.Rows[0][5].ToString();
+
+            lblacceso.Text = sultacceso;
+
+            //cb dominios
+            utilerias.p_inicbo = 0;
+            cbodominios.DataSource = null;
+            DataTable dtdatos = cusuarioap.dtdatos(5, "", 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+            Utilerias.llenarComboxDataTable(cbodominios, dtdatos, "cv", "desc");
+
+            if (scvdominio != "0"){ cbodominios.SelectedValue = scvdominio; }
+            utilerias.p_inicbo = 1;
+
+            txtcorreo.Text = smail;
+
         }
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
@@ -105,12 +137,6 @@ namespace SIPAA_CS.Accesos
                 txtcontrasena.Focus();
                 return false;
             }
-            //else if ((txtconfirmcontrasena.Text.Trim().Length) <= 3)
-            //{
-            //    DialogResult result = MessageBox.Show("La confirmación de contraseña que ingreso contiene menos de 4 caracteres, verificar", "SIPAA", MessageBoxButtons.OK);
-            //    txtconfirmcontrasena.Focus();
-            //    return false;
-            //}
             else if (txtcontrasena.Text.Trim() != txtconfirmcontrasena.Text.Trim())
             {
                 DialogResult result = MessageBox.Show("La contraseña no coincide, verificar", "SIPAA", MessageBoxButtons.OK);
@@ -121,6 +147,18 @@ namespace SIPAA_CS.Accesos
             {
                 DialogResult result = MessageBox.Show("La contraseña no puede ser igual a su usuario, verificar", "SIPAA", MessageBoxButtons.OK);
                 txtcontrasena.Focus();
+                return false;
+            }
+            else if (txtcorreo.Text.Trim() == "")
+            {
+                DialogResult result = MessageBox.Show("Captura un correo electrónico para recuperar contraseña, verificar", "SIPAA", MessageBoxButtons.OK);
+                txtcorreo.Focus();
+                return false;
+            }
+            else if (cbodominios.Text.Trim() == "" || cbodominios.SelectedIndex == -1 || cbodominios.SelectedIndex == 0)
+            {
+                DialogResult result = MessageBox.Show("Selecciona un dominio", "SIPAA", MessageBoxButtons.OK);
+                cbodominios.Focus();
                 return false;
             }
             else
