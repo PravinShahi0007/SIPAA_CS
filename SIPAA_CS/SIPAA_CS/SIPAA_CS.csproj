@@ -150,6 +150,12 @@
     <Compile Include="Accesos\CambioContrasena.Designer.cs">
       <DependentUpon>CambioContrasena.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\Catalogos\TiposModulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Catalogos\TiposModulos.Designer.cs">
+      <DependentUpon>TiposModulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\DataSets\ReporteAreasUsuarios.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -359,6 +365,7 @@
     <Compile Include="App_Code\Accesos\Asignaciones\CompaniaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\DepartamentoUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
+    <Compile Include="App_Code\Accesos\Catalogos\TipoModulo.cs" />
     <Compile Include="App_Code\Accesos\Catalogos\Usuarioap.cs" />
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
@@ -1197,6 +1204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\CambioContrasena.resx">
       <DependentUpon>CambioContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Catalogos\TiposModulos.resx">
+      <DependentUpon>TiposModulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Catalogos\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
