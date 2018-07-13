@@ -57,6 +57,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label29;
             this.lblusuario = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -149,6 +150,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             label13 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -168,6 +172,7 @@
             label25 = new System.Windows.Forms.Label();
             label26 = new System.Windows.Forms.Label();
             label31 = new System.Windows.Forms.Label();
+            label29 = new System.Windows.Forms.Label();
             this.tabAsignacion.SuspendLayout();
             this.tabPlantillaHorario.SuspendLayout();
             this.panelTag.SuspendLayout();
@@ -196,6 +201,7 @@
             this.panelTagHuella.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuella)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
+            this.panel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // label13
@@ -1151,6 +1157,8 @@
             // tabReloj
             // 
             this.tabReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.tabReloj.Controls.Add(this.textBox5);
+            this.tabReloj.Controls.Add(this.panel15);
             this.tabReloj.Controls.Add(this.textBox4);
             this.tabReloj.Controls.Add(this.textBox3);
             this.tabReloj.Controls.Add(this.textBox2);
@@ -1302,11 +1310,11 @@
             // chkAdmin
             // 
             this.chkAdmin.AutoSize = true;
-            this.chkAdmin.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.chkAdmin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkAdmin.Location = new System.Drawing.Point(201, 45);
+            this.chkAdmin.Location = new System.Drawing.Point(54, 44);
             this.chkAdmin.Name = "chkAdmin";
-            this.chkAdmin.Size = new System.Drawing.Size(158, 20);
+            this.chkAdmin.Size = new System.Drawing.Size(186, 22);
             this.chkAdmin.TabIndex = 206;
             this.chkAdmin.Tag = "Eliminar";
             this.chkAdmin.Text = "Administrador de Reloj";
@@ -1718,6 +1726,57 @@
             this.ptbimgusuario.TabIndex = 183;
             this.ptbimgusuario.TabStop = false;
             // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel15.Controls.Add(this.btnEliminar);
+            this.panel15.Controls.Add(label29);
+            this.panel15.Location = new System.Drawing.Point(422, 395);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(294, 62);
+            this.panel15.TabIndex = 203;
+            this.panel15.TabStop = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.btndel;
+            this.btnEliminar.Location = new System.Drawing.Point(231, 7);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(50, 50);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Tag = "Guardar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label29.ForeColor = System.Drawing.Color.Gray;
+            label29.Image = ((System.Drawing.Image)(resources.GetObject("label29.Image")));
+            label29.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label29.Location = new System.Drawing.Point(6, 7);
+            label29.Name = "label29";
+            label29.Size = new System.Drawing.Size(171, 17);
+            label29.TabIndex = 194;
+            label29.Text = "     Eliminar Asignaciones";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.textBox5.Location = new System.Drawing.Point(723, 392);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(221, 66);
+            this.textBox5.TabIndex = 211;
+            this.textBox5.Text = "Seleccione los relojes que desea eliminar ";
+            // 
             // AsignacionTrabajadorPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1793,6 +1852,8 @@
             this.panelTagHuella.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuella)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1891,5 +1952,8 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
