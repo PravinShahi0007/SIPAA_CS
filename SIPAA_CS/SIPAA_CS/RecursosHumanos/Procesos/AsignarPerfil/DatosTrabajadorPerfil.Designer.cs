@@ -89,6 +89,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panelAsignacionTrabajador = new System.Windows.Forms.Panel();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             label7 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
@@ -112,6 +113,7 @@
             this.panel5.SuspendLayout();
             this.panelAsignacionTrabajador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -839,6 +841,15 @@
             this.ptbimgusuario.TabIndex = 187;
             this.ptbimgusuario.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(176, 96);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(78, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 188;
+            this.pictureBox1.TabStop = false;
+            // 
             // DatosTrabajadorPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -846,6 +857,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(label13);
             this.Controls.Add(this.panel1);
@@ -874,6 +886,7 @@
             this.panelAsignacionTrabajador.ResumeLayout(false);
             this.panelAsignacionTrabajador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -925,5 +938,6 @@
         private System.Windows.Forms.Label lbSupervisor;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

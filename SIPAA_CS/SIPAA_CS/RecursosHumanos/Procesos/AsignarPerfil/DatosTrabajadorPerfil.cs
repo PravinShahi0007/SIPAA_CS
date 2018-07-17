@@ -144,7 +144,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 lbDepto.Text = row["Depto"].ToString();
 
             }
-
+            try
+            {
+                pictureBox1.Image = Image.FromFile(@"\\192.168.30.171\FotosJS\FotosEmpleados\" + lbIdTrab.Text + ".jpg");
+            }
+            catch {}
+           
             ltTnom.Clear();
         }
 
