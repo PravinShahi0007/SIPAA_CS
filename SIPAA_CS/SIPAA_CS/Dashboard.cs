@@ -8,6 +8,7 @@ using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.Accesos;
 using System.Data;
 using SIPAA_CS.Sistemas;
+using SIPAA_CS.App_Code.Accesos.Catalogos;
 
 //***********************************************************************************************
 //Autor: ------------------       modifico: noe alvarez marquina (se agrega estandar)
@@ -23,7 +24,10 @@ namespace SIPAA_CS
         public Boolean mouseAction;
         public List<string> ltModulosxUsuario = new List<string>();
         Utilerias util = new Utilerias();
-       
+        Usuarioap cusuarioap = new Usuarioap();
+
+        string sultacceso;
+
         public Dashboard()
         {
             InitializeComponent();
@@ -93,6 +97,12 @@ namespace SIPAA_CS
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            //variables datos del usuario
+            DataTable datosusuario = cusuarioap.dtdatos(4, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+            sultacceso = datosusuario.Rows[0][5].ToString();
+
+            lblacceso.Text = sultacceso;
+
             //inicia tool tip
             ftooltip();
 
@@ -185,6 +195,14 @@ namespace SIPAA_CS
         {
             SistDashboard form = new SistDashboard();
             form.Show();
+            this.Close();
+        }
+
+        //boton perfil
+        private void btnperfil_Click(object sender, EventArgs e)
+        {
+            UsuarioPerfSesion usupers = new UsuarioPerfSesion();
+            usupers.Show();
             this.Close();
         }
     }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.App_Code;
+using SIPAA_CS.App_Code.Accesos.Catalogos;
 
 //***********************************************************************************************
 //Autor: noe alvarez marquina
@@ -25,6 +26,11 @@ namespace SIPAA_CS.Sistemas
         {
             InitializeComponent();
         }
+
+        Usuarioap cusuarioap = new Usuarioap();
+
+        string sultacceso;
+
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
@@ -64,6 +70,11 @@ namespace SIPAA_CS.Sistemas
         //-----------------------------------------------------------------------------------------------
         private void SistDashboard_Load(object sender, EventArgs e)
         {
+            //variables datos del usuario
+            DataTable datosusuario = cusuarioap.dtdatos(4, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+            sultacceso = datosusuario.Rows[0][5].ToString();
+            lblacceso.Text = sultacceso;
+
             //Rezise de la Forma
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 

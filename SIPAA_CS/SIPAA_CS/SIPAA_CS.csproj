@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>49</ApplicationRevision>
+    <ApplicationRevision>52</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -150,6 +150,12 @@
     <Compile Include="Accesos\CambioContrasena.Designer.cs">
       <DependentUpon>CambioContrasena.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\Catalogos\TiposModulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\Catalogos\TiposModulos.Designer.cs">
+      <DependentUpon>TiposModulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accesos\DataSets\ReporteAreasUsuarios.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -204,6 +210,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Accesos\RecuperaContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\RecuperaContrasena.Designer.cs">
+      <DependentUpon>RecuperaContrasena.cs</DependentUpon>
     </Compile>
     <Compile Include="Accesos\Reportes\FiltroAreasUsuarios.cs">
       <SubType>Form</SubType>
@@ -343,10 +355,18 @@
     <Compile Include="Accesos\Reportes\ViewerReporte.Designer.cs">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accesos\UsuarioPerfSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accesos\UsuarioPerfSesion.Designer.cs">
+      <DependentUpon>UsuarioPerfSesion.cs</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\Accesos\Asignaciones\AreaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\CompaniaUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\DepartamentoUsuario.cs" />
     <Compile Include="App_Code\Accesos\Asignaciones\UbicacionUsuario.cs" />
+    <Compile Include="App_Code\Accesos\Catalogos\TipoModulo.cs" />
+    <Compile Include="App_Code\Accesos\Catalogos\Usuarioap.cs" />
     <Compile Include="App_Code\Generales\statue.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\ConcepInc.cs" />
     <Compile Include="App_Code\RecursosHumanos\Catalogos\CorreoAvisoIncidencia.cs" />
@@ -1185,11 +1205,17 @@
     <EmbeddedResource Include="Accesos\CambioContrasena.resx">
       <DependentUpon>CambioContrasena.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\Catalogos\TiposModulos.resx">
+      <DependentUpon>TiposModulos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Catalogos\Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Catalogos\Perfiles.resx">
       <DependentUpon>Perfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\RecuperaContrasena.resx">
+      <DependentUpon>RecuperaContrasena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\FiltroAreasUsuarios.resx">
       <DependentUpon>FiltroAreasUsuarios.cs</DependentUpon>
@@ -1270,6 +1296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accesos\Reportes\ViewerReporte.resx">
       <DependentUpon>ViewerReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accesos\UsuarioPerfSesion.resx">
+      <DependentUpon>UsuarioPerfSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Catalogos\CorreosAvisosIncidencias.resx">
       <DependentUpon>CorreosAvisosIncidencias.cs</DependentUpon>

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SIPAA_CS.App_Code.Usuario;
 
 namespace SIPAA_CS.Accesos.Reportes
 {
@@ -60,6 +61,9 @@ namespace SIPAA_CS.Accesos.Reportes
         {
             Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
             ReporteView.ReportSource = RptDoc;
+
+            //llena etiqueta de usuario
+            lblusuario.Text = LoginInfo.Nombre;
         }
 
         

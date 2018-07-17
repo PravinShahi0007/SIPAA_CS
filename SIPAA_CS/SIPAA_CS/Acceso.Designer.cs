@@ -35,7 +35,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPwd = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnreccontrasena = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -99,7 +99,6 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(250, 18);
             this.txtUsuario.TabIndex = 0;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // txtPwd
             // 
@@ -114,19 +113,19 @@
             this.txtPwd.TabIndex = 1;
             this.txtPwd.TextChanged += new System.EventHandler(this.txtPwd_TextChanged);
             // 
-            // button4
+            // btnreccontrasena
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.button4.Image = global::SIPAA_CS.Properties.Resources.btnpass;
-            this.button4.Location = new System.Drawing.Point(545, 420);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(210, 50);
-            this.button4.TabIndex = 3;
-            this.button4.TabStop = false;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Visible = false;
+            this.btnreccontrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnreccontrasena.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnreccontrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnreccontrasena.Image = global::SIPAA_CS.Properties.Resources.btnpass;
+            this.btnreccontrasena.Location = new System.Drawing.Point(545, 420);
+            this.btnreccontrasena.Name = "btnreccontrasena";
+            this.btnreccontrasena.Size = new System.Drawing.Size(210, 50);
+            this.btnreccontrasena.TabIndex = 3;
+            this.btnreccontrasena.TabStop = false;
+            this.btnreccontrasena.UseVisualStyleBackColor = false;
+            this.btnreccontrasena.Click += new System.EventHandler(this.btnreccontrasena_Click);
             // 
             // btnIngresar
             // 
@@ -225,7 +224,7 @@
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnreccontrasena);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtPwd);
             this.Controls.Add(this.txtUsuario);
@@ -253,7 +252,7 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.Button btnIngresar;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnreccontrasena;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnCerrar;

@@ -18,8 +18,10 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         public DateTime fFechaInicio = DateTime.Now;
         public DateTime fFechaFin = DateTime.Now;
         public int iDias = 0;
-        public TimeSpan tpHoraentrada = DateTime.Now.TimeOfDay;
-        public TimeSpan tpHoraSalida = DateTime.Now.TimeOfDay;
+        //public TimeSpan tpHoraentrada = DateTime.Now.TimeOfDay;
+        //public TimeSpan tpHoraSalida = DateTime.Now.TimeOfDay;
+        public string tpHoraentrada = "00:00";
+        public string tpHoraSalida = "00:00";
         public string sReferencia = String.Empty;
         public int iOrden = 1;
         public int iSubsidio = 0;

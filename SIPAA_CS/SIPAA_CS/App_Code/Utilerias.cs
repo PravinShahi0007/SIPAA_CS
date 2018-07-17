@@ -15,6 +15,7 @@ using static SIPAA_CS.App_Code.Usuario;
 
 using SIPAA_CS.RecursosHumanos;
 using System.Reflection;
+using System.Security.Principal;
 
 namespace SIPAA_CS.App_Code
 {
@@ -1180,8 +1181,17 @@ namespace SIPAA_CS.App_Code
             return cadena_descifrada;
         }
 
+        public string scontrol()
+        {
+
+            string sequipo = System.Environment.MachineName;
+            WindowsIdentity nombre = WindowsIdentity.GetCurrent();
+            string susercontrol = sequipo + "|" + nombre.Name;
+            return susercontrol;
+        }
+
     }
-    
+    }
     //public class ResultadoHuella
     //{
     //    public NffvStatus engineStatus;
@@ -1196,4 +1206,4 @@ namespace SIPAA_CS.App_Code
     //}
 
 
-}
+

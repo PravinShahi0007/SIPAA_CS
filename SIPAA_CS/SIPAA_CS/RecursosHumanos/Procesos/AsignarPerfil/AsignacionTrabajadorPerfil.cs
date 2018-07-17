@@ -1247,43 +1247,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             cbDiaEntrada.SelectedIndex = 0;
             cbDiaSalida.SelectedIndex = 0;
-
             mtxtEntradaTurno.Text = "";
-            //  mtxtEntradaTurno.SelectionLength = 5;
             mtxtSalida.Text = "";
-            //   mtxtSalida.SelectionLength = 5;
             mtxtComidaInicio.Text = "";
-            //    mtxtComidaInicio.SelectionLength = 5;
             mtxtComidaFin.Text = "";
-            //   mtxtComidaFin.SelectionLength = 5;
             mtxtTiempoComida.Text = "";
-            //    mtxtTiempoComida.SelectionLength = 3;
             mtxtTiempoTrabajo.Text = "";
-            //    mtxtTiempoTrabajo.SelectionLength = 3;
-
-
+       
         }
 
-        /*private void AsignarGrupo()
-        {
-            int Valor = 0;
-            RelojChecador objReloj = new RelojChecador();
-            DataTable dt = objReloj.RelojesxTrabajador(this.lbIdTrab.Text, 25, 11, "%", "%");
-            DataRow row = dt.Rows[0];
-            --Grupo= Valor = Convert.ToInt32(row["cvgruposreloj"].ToString());
-            
-            foreach (DataGridViewRow fila in dgvForReg.Rows)
-            {
-             int aux = Convert.ToInt32( fila.Cells[1].Value.ToString());
-               if (aux==Valor)
-                {
-                    fila.Cells[0].Value= Resources.ic_check_circle_green_400_18dp;
-                    fila.Cells[0].Tag = "check";
-                    break;
-                }
-            }
-            
-        }*/
 
 
         private void AsignarReloj(string sIdtrab)

@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblconexion = new System.Windows.Forms.Label();
+            this.lblacceso = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.paneltitulo.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -159,7 +160,7 @@
             this.panel1.Controls.Add(this.MsMenu);
             this.panel1.Location = new System.Drawing.Point(0, 128);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(301, 632);
+            this.panel1.Size = new System.Drawing.Size(301, 598);
             this.panel1.TabIndex = 153;
             // 
             // label1
@@ -205,6 +206,20 @@
             this.lblconexion.Text = "Conexion BD Desarrollo";
             this.lblconexion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblacceso
+            // 
+            this.lblacceso.AutoSize = true;
+            this.lblacceso.BackColor = System.Drawing.Color.Transparent;
+            this.lblacceso.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblacceso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.lblacceso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblacceso.Location = new System.Drawing.Point(6, 745);
+            this.lblacceso.Name = "lblacceso";
+            this.lblacceso.Size = new System.Drawing.Size(52, 16);
+            this.lblacceso.TabIndex = 214;
+            this.lblacceso.Text = "Acceso";
+            this.lblacceso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // RechDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,6 +227,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.lblacceso);
             this.Controls.Add(this.lblconexion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
@@ -253,5 +269,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblconexion;
+        private System.Windows.Forms.Label lblacceso;
     }
 }
