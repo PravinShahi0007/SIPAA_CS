@@ -34,6 +34,10 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.lblalert = new System.Windows.Forms.Label();
+            this.lblarrb = new System.Windows.Forms.Label();
+            this.txtdominio = new System.Windows.Forms.TextBox();
+            this.pnldominio = new System.Windows.Forms.Panel();
             this.txtcorreo = new System.Windows.Forms.TextBox();
             this.pnlcorreo = new System.Windows.Forms.Panel();
             this.lblcorreo = new System.Windows.Forms.Label();
@@ -42,11 +46,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnreccontrasena = new System.Windows.Forms.Button();
-            this.txtdominio = new System.Windows.Forms.TextBox();
-            this.pnldominio = new System.Windows.Forms.Panel();
-            this.lblarrb = new System.Windows.Forms.Label();
-            this.lblalert = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label7 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             this.pnlBusqueda.SuspendLayout();
             this.SuspendLayout();
@@ -116,6 +117,55 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(616, 343);
             this.pnlBusqueda.TabIndex = 181;
             this.pnlBusqueda.TabStop = true;
+            // 
+            // lblalert
+            // 
+            this.lblalert.AutoSize = true;
+            this.lblalert.Enabled = false;
+            this.lblalert.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblalert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.lblalert.Location = new System.Drawing.Point(37, 315);
+            this.lblalert.Name = "lblalert";
+            this.lblalert.Size = new System.Drawing.Size(54, 19);
+            this.lblalert.TabIndex = 217;
+            this.lblalert.Text = "label2";
+            this.lblalert.Visible = false;
+            // 
+            // lblarrb
+            // 
+            this.lblarrb.AutoSize = true;
+            this.lblarrb.BackColor = System.Drawing.Color.Transparent;
+            this.lblarrb.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblarrb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.lblarrb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblarrb.Location = new System.Drawing.Point(297, 194);
+            this.lblarrb.Name = "lblarrb";
+            this.lblarrb.Size = new System.Drawing.Size(26, 27);
+            this.lblarrb.TabIndex = 215;
+            this.lblarrb.Text = "@";
+            this.lblarrb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblarrb.Visible = false;
+            // 
+            // txtdominio
+            // 
+            this.txtdominio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtdominio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtdominio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdominio.Location = new System.Drawing.Point(332, 202);
+            this.txtdominio.MaxLength = 20;
+            this.txtdominio.Name = "txtdominio";
+            this.txtdominio.Size = new System.Drawing.Size(250, 19);
+            this.txtdominio.TabIndex = 128;
+            this.txtdominio.Visible = false;
+            // 
+            // pnldominio
+            // 
+            this.pnldominio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.pnldominio.Location = new System.Drawing.Point(331, 224);
+            this.pnldominio.Name = "pnldominio";
+            this.pnldominio.Size = new System.Drawing.Size(250, 1);
+            this.pnldominio.TabIndex = 129;
+            this.pnldominio.Visible = false;
             // 
             // txtcorreo
             // 
@@ -211,59 +261,25 @@
             this.btnreccontrasena.Visible = false;
             this.btnreccontrasena.Click += new System.EventHandler(this.btnreccontrasena_Click);
             // 
-            // txtdominio
-            // 
-            this.txtdominio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.txtdominio.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtdominio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdominio.Location = new System.Drawing.Point(332, 202);
-            this.txtdominio.MaxLength = 20;
-            this.txtdominio.Name = "txtdominio";
-            this.txtdominio.Size = new System.Drawing.Size(250, 19);
-            this.txtdominio.TabIndex = 128;
-            this.txtdominio.Visible = false;
-            // 
-            // pnldominio
-            // 
-            this.pnldominio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.pnldominio.Location = new System.Drawing.Point(331, 224);
-            this.pnldominio.Name = "pnldominio";
-            this.pnldominio.Size = new System.Drawing.Size(250, 1);
-            this.pnldominio.TabIndex = 129;
-            this.pnldominio.Visible = false;
-            // 
-            // lblarrb
-            // 
-            this.lblarrb.AutoSize = true;
-            this.lblarrb.BackColor = System.Drawing.Color.Transparent;
-            this.lblarrb.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblarrb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
-            this.lblarrb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblarrb.Location = new System.Drawing.Point(297, 194);
-            this.lblarrb.Name = "lblarrb";
-            this.lblarrb.Size = new System.Drawing.Size(26, 27);
-            this.lblarrb.TabIndex = 215;
-            this.lblarrb.Text = "@";
-            this.lblarrb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblarrb.Visible = false;
-            // 
-            // lblalert
-            // 
-            this.lblalert.AutoSize = true;
-            this.lblalert.Enabled = false;
-            this.lblalert.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblalert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblalert.Location = new System.Drawing.Point(37, 315);
-            this.lblalert.Name = "lblalert";
-            this.lblalert.Size = new System.Drawing.Size(54, 19);
-            this.lblalert.TabIndex = 217;
-            this.lblalert.Text = "label2";
-            this.lblalert.Visible = false;
-            // 
             // timer1
             // 
             this.timer1.Interval = 7000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.Location = new System.Drawing.Point(334, 2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(189, 23);
+            this.label7.TabIndex = 209;
+            this.label7.Text = "       Recupera contraseña";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RecuperaContrasena
             // 
@@ -271,6 +287,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.log2;
             this.ClientSize = new System.Drawing.Size(840, 495);
+            this.Controls.Add(this.label7);
             this.Controls.Add(label9);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.btnRegresar);
@@ -306,5 +323,6 @@
         private System.Windows.Forms.Label lblarrb;
         private System.Windows.Forms.Label lblalert;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -136,6 +136,7 @@ namespace SIPAA_CS.Accesos
             toolTip1.SetToolTip(this.btnRegresar, "Regresar");
         }
 
+
         private void btguardar_Click(object sender, EventArgs e)
         {
             try
@@ -186,8 +187,63 @@ namespace SIPAA_CS.Accesos
                 DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
             }
 
-
         }
+
+        //boton guardar solo correo
+        private void btnactmail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //valida campos
+                Boolean bvalidacampos = fvalidacamposmail();
+
+                if (bvalidacampos == true)//datos correctos
+                {
+
+                    int ivalida = cusuarioap.cruddatos(10, LoginInfo.cvusuario, 0, "", txtcorreo.Text.Trim(),
+                                                       Int32.Parse(cbodominios.SelectedValue.ToString()), "", 0, 0, "",
+                                                       "", "", "", "", "",
+                                                       0, 5, LoginInfo.cvusuario, "", this.Name,
+                                                       cutilerias.scontrol());
+
+                    if (ivalida == 2)
+                    {
+                        txtcontrasenaact.Text = "";
+                        txtconnueva.Text = "";
+                        txtconnuevaconf.Text = "";
+                        txtcorreo.Text = "";
+
+                        //variables datos del usuario
+                        DataTable datosusuario = cusuarioap.dtdatos(4, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+                        smail = datosusuario.Rows[0][3].ToString();
+                        scvdominio = datosusuario.Rows[0][4].ToString();
+                        spasswant = datosusuario.Rows[0][6].ToString();
+
+                        //cb dominios
+                        cutilerias.p_inicbo = 0;
+                        cbodominios.DataSource = null;
+                        DataTable dtdatos = cusuarioap.dtdatos(5, "", 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+                        Utilerias.llenarComboxDataTable(cbodominios, dtdatos, "cv", "desc");
+
+                        if (scvdominio != "0") { cbodominios.SelectedValue = scvdominio; }
+                        cutilerias.p_inicbo = 1;
+                        txtcorreo.Text = smail;
+                        DialogResult result = MessageBox.Show("Correo electrónico modificado con exito!", "SIPAA", MessageBoxButtons.OK);
+
+                    }
+
+                }
+                else
+                {
+                }
+
+            }
+            catch (Exception ex)
+            {
+                DialogResult result = MessageBox.Show(ex.Message + ex.StackTrace, "SIPAA");
+            }
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------
@@ -241,6 +297,47 @@ namespace SIPAA_CS.Accesos
             else if (spasswant == cutilerias.cifradoMd5(txtconnueva.Text))
             {
                 DialogResult result = MessageBox.Show("La contraseña actual no puede ser igual a la contraseña anterior, verificar", "SIPAA", MessageBoxButtons.OK);
+                txtconnueva.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        //validacion de campos
+        private Boolean fvalidacamposmail()
+        {
+            string spassactcap = cutilerias.cifradoMd5(txtcontrasenaact.Text.Trim());
+
+            if ((txtcontrasenaact.Text.Trim().Length) <= 3)
+            {
+                DialogResult result = MessageBox.Show("La contraseña actual es invalida, verificar", "SIPAA", MessageBoxButtons.OK);
+                txtcontrasenaact.Focus();
+                return false;
+            }
+            else if (spassactcap != spasswant)
+            {
+                DialogResult result = MessageBox.Show("La contraseña actual no coincide, verificar", "SIPAA", MessageBoxButtons.OK);
+                txtcontrasenaact.Focus();
+                return false;
+            }
+            else if (txtcorreo.Text.Trim() == "")
+            {
+                DialogResult result = MessageBox.Show("Captura un correo electrónico para recuperar contraseña, verificar", "SIPAA", MessageBoxButtons.OK);
+                txtcorreo.Focus();
+                return false;
+            }
+            else if (cbodominios.Text.Trim() == "" || cbodominios.SelectedIndex == -1 || cbodominios.SelectedIndex == 0)
+            {
+                DialogResult result = MessageBox.Show("Selecciona un dominio", "SIPAA", MessageBoxButtons.OK);
+                cbodominios.Focus();
+                return false;
+            }
+            else if (LoginInfo.cvusuario == txtconnueva.Text.Trim())
+            {
+                DialogResult result = MessageBox.Show("La contraseña no puede ser igual a su usuario, verificar", "SIPAA", MessageBoxButtons.OK);
                 txtconnueva.Focus();
                 return false;
             }

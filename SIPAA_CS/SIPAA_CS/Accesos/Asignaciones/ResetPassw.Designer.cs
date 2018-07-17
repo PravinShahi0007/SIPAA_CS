@@ -52,6 +52,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtcvusuarios = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -348,6 +349,21 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.Location = new System.Drawing.Point(291, 3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(252, 23);
+            this.label7.TabIndex = 209;
+            this.label7.Text = "       Restaura contraseña de usurio";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ResetPassw
             // 
             this.AcceptButton = this.btguardar;
@@ -355,6 +371,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.log2;
             this.ClientSize = new System.Drawing.Size(840, 495);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
@@ -396,5 +413,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbodominios;
+        private System.Windows.Forms.Label label7;
     }
 }
