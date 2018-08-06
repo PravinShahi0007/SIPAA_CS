@@ -171,9 +171,10 @@ namespace SIPAA_CS.Accesos.Catalogos
                                     cbAmbiente.Text = "Selecciona un Ambiente";
                                     cbModuloTipo.Text = "Selecciona una Categoría";
                                     PanelEditar.Visible = false;
+                                    LlenarGridModulos("%", "", "", "", "", "", "", "", "", "", "", 4, dgvModulos);
                                     //Modulos_Load(sender, e);
 
-                                    if (response == 1)
+                            if (response == 1)
                                     {
                                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Se creo correctamente");
                                         timer1.Start();
@@ -246,9 +247,10 @@ namespace SIPAA_CS.Accesos.Catalogos
                                     cbModuloTipo.Text = "Selecciona una Categoría";
                                     cbModulos.Text = "Selecciona un Módulo";
                                     PanelEditar.Visible = false;
-                                    //Modulos_Load(sender, e);
+                                    
+                                     //Modulos_Load(sender, e);
 
-                                    if (response == 1)
+                        if (response == 1)
                                     {
                                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Se creo correctamente");
                                         timer1.Start();
@@ -324,6 +326,7 @@ namespace SIPAA_CS.Accesos.Catalogos
                             cbAmbiente.Text = "Selecciona un Ambiente";
                             cbModuloTipo.Text = "Selecciona una Categoría";
                             PanelEditar.Visible = false;
+                            LlenarGridModulos("%", "", "", "", "", "", "", "", "", "", "", 4, dgvModulos);
                             //Modulos_Load(sender, e);
 
                             if (response == 1)
