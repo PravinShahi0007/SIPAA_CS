@@ -100,6 +100,7 @@ namespace SIPAA_CS.App_Code
             objConexion.cerrarConexion();
 
             DataTable dtIncidencia = new DataTable();
+
             Adapter.Fill(dtIncidencia);
 
             return dtIncidencia;
