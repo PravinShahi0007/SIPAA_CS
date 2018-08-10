@@ -236,9 +236,9 @@
             label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label13.Location = new System.Drawing.Point(50, 112);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(156, 20);
+            label13.Size = new System.Drawing.Size(139, 20);
             label13.TabIndex = 206;
-            label13.Text = "Sincroniza Briométricos";
+            label13.Text = "Obtiene Briométricos";
             // 
             // label14
             // 
