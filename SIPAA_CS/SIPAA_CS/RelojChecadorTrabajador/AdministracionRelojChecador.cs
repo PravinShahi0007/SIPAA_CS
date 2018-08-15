@@ -425,7 +425,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     }
                                 }
                                 //ELimina automaticamente los registros de la asistencia en el reloj checador 
-                                objCZKEM.ClearData(1, 1);
+                               // objCZKEM.ClearData(1, 1);
                                 objCZKEM.Disconnect();
                                 progressBar1.Value = 90;
                                 if (bBandera)
@@ -590,10 +590,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     #region InsertaBiometricos
                     DialogResult result = MessageBox.Show("Reloj " + obj.Descripcion + "\nÚltima sincronización: " + obj.UltimaSincronizacion + "\nUsuario sincronizó: " + obj.UltimoUsuarioSinc + " \n\n¿Esta Seguro que desea SINCRONIZAR la información del sistema?\nEsto eliminará la información del dispositivo y será sustituida con la información del sistema", "SIPPA", MessageBoxButtons.YesNo);
                     if (result == DialogResult.No)
-                    {
-                        System.Threading.Thread.Sleep(500);
-                        continue;
-                    }
+                         continue;
+                    
 
                     Cursor = Cursors.WaitCursor;
 
@@ -619,7 +617,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                     if (bConexion)
                     {
-                        bool ClearData = objCZKEM.ClearData(1, 5);
+                       // bool ClearData = objCZKEM.ClearData(1, 5);
                         bool BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
 
                         #region InsertaHuellas
@@ -664,7 +662,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                             }
                         }
-                        System.Threading.Thread.Sleep(20);
+                       // System.Threading.Thread.Sleep(20);
                         #endregion
 
                         bool BatchUpdate = objCZKEM.BatchUpdate(1);
@@ -675,7 +673,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     else
                     {
                         pnlMensaje.Enabled = true;
-                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                        Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse al reloj : " + obj.Descripcion);
                         pnlMensaje.Enabled = false;
                         progressBar1.Visible = false;
                         pnlMensaje.Enabled = true;
@@ -718,10 +716,23 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             objCZKEM.RefreshData(1);
                             objCZKEM.Disconnect();
                         }
-                        #endregion
-                        
-                        //Obteniendo rostros...
-                        counter = 0;
+
+                        else
+                        {
+                            pnlMensaje.Enabled = true;
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse al reloj : " + obj.Descripcion);
+                            pnlMensaje.Enabled = false;
+                            progressBar1.Visible = false;
+                            pnlMensaje.Enabled = true;
+                        }
+
+
+
+
+                    #endregion
+
+                    //Obteniendo rostros...
+                    counter = 0;
                         faces = new LinkedList<FaceTmp>();
                         dt = objReloj.RelojesxTrabajador("%", obj.cvReloj, 19, "%", "%");
 

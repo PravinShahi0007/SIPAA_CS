@@ -655,7 +655,7 @@
             this.dtinicio2.Name = "dtinicio2";
             this.dtinicio2.Size = new System.Drawing.Size(109, 25);
             this.dtinicio2.TabIndex = 198;
-            this.dtinicio2.Value = new System.DateTime(2018, 6, 18, 0, 0, 0, 0);
+            this.dtinicio2.Value = new System.DateTime(2018, 8, 9, 0, 0, 0, 0);
             // 
             // dtfin2
             // 
@@ -667,7 +667,7 @@
             this.dtfin2.Name = "dtfin2";
             this.dtfin2.Size = new System.Drawing.Size(109, 25);
             this.dtfin2.TabIndex = 199;
-            this.dtfin2.Value = new System.DateTime(2018, 6, 18, 12, 49, 11, 0);
+            this.dtfin2.Value = new System.DateTime(2018, 8, 9, 0, 0, 0, 0);
             // 
             // cbNombre2
             // 
@@ -877,7 +877,7 @@
             this.dpFechaInicio.Name = "dpFechaInicio";
             this.dpFechaInicio.Size = new System.Drawing.Size(109, 25);
             this.dpFechaInicio.TabIndex = 61;
-            this.dpFechaInicio.Value = new System.DateTime(2018, 6, 18, 0, 0, 0, 0);
+            this.dpFechaInicio.Value = new System.DateTime(2018, 8, 9, 0, 0, 0, 0);
             this.dpFechaInicio.ValueChanged += new System.EventHandler(this.ValidarFechaDataPicker);
             // 
             // dpFechaFin
@@ -1013,7 +1013,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(109, 25);
             this.dateTimePicker1.TabIndex = 184;
-            this.dateTimePicker1.Value = new System.DateTime(2018, 6, 18, 12, 49, 45, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2018, 8, 9, 0, 0, 0, 0);
             // 
             // dateTimePicker2
             // 
@@ -1025,6 +1025,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(109, 25);
             this.dateTimePicker2.TabIndex = 185;
+            this.dateTimePicker2.Value = new System.DateTime(2018, 8, 9, 16, 25, 3, 0);
             // 
             // cbConcepto
             // 

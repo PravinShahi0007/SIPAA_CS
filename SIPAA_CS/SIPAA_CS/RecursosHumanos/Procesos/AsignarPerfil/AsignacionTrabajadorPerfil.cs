@@ -1498,6 +1498,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     Nombre = Password = string.Empty;
                     objCZKEM.BeginBatchUpdate(1, 1);
                     dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 17, "%", "%");
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando huellas.. ");
                     foreach (DataRow row in dt.Rows)
                     {
                         string idtrab = row["idtrab"].ToString();
@@ -1517,7 +1518,27 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                objCZKEM.SetUserTmpExStr(1, idtrab, Convert.ToInt32(row["indicehuella"].ToString()), 1, row["huellaTmp"].ToString());
                             
                         }
-                      
+
+
+
+                        if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
+                        {
+                            if (row["huellaTmp"].ToString() != String.Empty)
+                            {
+                                int ifinger = Convert.ToInt32(row["indicehuella"].ToString());
+                                string tmpHuella = "";
+
+                                if (ifinger >= 0 && ifinger <= 9)
+                                {
+                                    tmpHuella = row["huellaTmp"].ToString();
+                                    objCZKEM.SetUserTmpExStr(1, idtrab, ifinger, 1, tmpHuella);
+                                   
+                                }
+                            }
+                          
+
+                        }
+
                     }
 
 
@@ -1539,7 +1560,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         {
                         objCZKEM.BeginBatchUpdate(1, 1);
                          dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 18, "%", "%");
-                        foreach (DataRow row in dt.Rows)
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando grupos... ");
+                    foreach (DataRow row in dt.Rows)
                             {
                                 string idtrab = row["idtrab"].ToString();
                                 int Grupo = Convert.ToInt32(row["cvforma"].ToString());
@@ -1584,12 +1606,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             }
                         }
 
-                        bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
+                 bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                 if (bConexion)
+                {
+                    //Reiniciando dispositivo...
                     objCZKEM.RestartDevice(1);
-                   
-               
-                System.Threading.Thread.Sleep(60000);
+                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Espere un momento por favor");
+                    System.Threading.Thread.Sleep(60000);
+                 }
 
                 bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                 if (bConexion)
@@ -1598,12 +1622,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                  foreach (FaceTmp ft in faces)
                  {
                  objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong); }
-                 objCZKEM.BatchUpdate(1);
-                 objCZKEM.RefreshData(1);
-                 objCZKEM.Disconnect();
+                
                  }
+
+                objCZKEM.BatchUpdate(1);
+                objCZKEM.RefreshData(1);
+                objCZKEM.Disconnect();
+
                 ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Biométricos guardados correctamente en el reloj: "+obj.Descripcion+  " " + iCont + " de " + ltReloj2.Count);
-                 System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(1000);
                }
             
         }
@@ -1974,10 +2001,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             }
             
-            objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", LoginInfo.IdTrab, this.Name, 10); 
-            objTrab.GestionHuella(TrabajadorInfo.IdTrab, "", 3, LoginInfo.IdTrab, this.Name, 6);
-            if (chkAdmin.Checked == true)
-                objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, Name, 8);
+            //objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", LoginInfo.IdTrab, this.Name, 10); 
+            //objTrab.GestionHuella(TrabajadorInfo.IdTrab, "", 3, LoginInfo.IdTrab, this.Name, 6);
+            //if (chkAdmin.Checked == true)
+              //  objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, Name, 8);
          
 
            // relojseleccionados();
@@ -2260,7 +2287,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             DialogResult result = MessageBox.Show("¿Seguro que desea eliminar "+ltReloj2.Count+" relojes asignados?", "SIPAA", MessageBoxButtons.YesNo);
             if (result==DialogResult.Yes)
             {
-                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Comienza proceso");
+                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "Eliminando Asignaciones");
                 RelojChecador objReloj = new RelojChecador();
                 SonaTrabajador objTrab = new SonaTrabajador();
                // relojseleccionados();
@@ -2272,7 +2299,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 llenarGridReloj("%");
                 ltRelojxUsuario.Clear(); 
                 AsignarReloj(TrabajadorInfo.IdTrab);
-
+                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Asignaciones Eliminadas");
 
 
             }
