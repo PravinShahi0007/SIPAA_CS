@@ -228,26 +228,26 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                     TrabPerf.vuidtrabperf(iidtrabmodif, 19, istchec, cbosup.SelectedValue.ToString(), Int32.Parse(cbodir.SelectedValue.ToString()), LoginInfo.IdTrab, this.Name);
 
-                        //variables usuario existe
-                        DataTable user = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 21);
-                        iuserexiste = Int32.Parse(user.Rows[0][0].ToString());
-                        //variable perfil existe
-                        DataTable userperfil = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 22);
-                        iuserperfexiste = Int32.Parse(userperfil.Rows[0][0].ToString());
+                    //    //variables usuario existe
+                    //    DataTable user = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 21);
+                    //    iuserexiste = Int32.Parse(user.Rows[0][0].ToString());
+                    //    //variable perfil existe
+                    //    DataTable userperfil = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 22);
+                    //    iuserperfexiste = Int32.Parse(userperfil.Rows[0][0].ToString());
 
-                    if (iuserexiste == 0 && iuserperfexiste == 0 && istchec == "1")
-                    {
-                        //inserta usuario
-                        response = usuario.AsignarAccesoUsuario(iidtrabmodif, Int32.Parse(iidtrabmodif), txttrabjador.Text, Util.cifradoMd5(iidtrabmodif), 0, LoginInfo.IdTrab, this.Name, 1);
+                    //if (iuserexiste == 0 && iuserperfexiste == 0 && istchec == "1")
+                    //{
+                    //    //inserta usuario
+                    //    response = usuario.AsignarAccesoUsuario(iidtrabmodif, Int32.Parse(iidtrabmodif), txttrabjador.Text, Util.cifradoMd5(iidtrabmodif), 0, LoginInfo.IdTrab, this.Name, 1);
 
-                        //inserta perfil
-                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
-                    }
-                    else if (iuserexiste == 1 && iuserperfexiste == 0 && istchec == "1")
-                    {
-                        //inserta perfil
-                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
-                    }
+                    //    //inserta perfil
+                    //    usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    //}
+                    //else if (iuserexiste == 1 && iuserperfexiste == 0 && istchec == "1")
+                    //{
+                    //    //inserta perfil
+                    //    usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    //}
 
                     //lena grid
                     fllenagridbusqueda(16, iidtrabmodif);
@@ -269,44 +269,44 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                     TrabPerf.vuidtrabperf(iidtrabmodif, 18, istchec, cbosup.SelectedValue.ToString(), Int32.Parse(cbodir.SelectedValue.ToString()), LoginInfo.IdTrab, this.Name);
 
-                    //variables usuario existe
-                    DataTable user = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 21);
-                    iuserexiste = Int32.Parse(user.Rows[0][0].ToString());
-                    //variable perfil existe
-                    DataTable userperfil = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 23);
-                    iuserperfexiste = Int32.Parse(userperfil.Rows[0][0].ToString());
+                    ////variables usuario existe
+                    //DataTable user = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 21);
+                    //iuserexiste = Int32.Parse(user.Rows[0][0].ToString());
+                    ////variable perfil existe
+                    //DataTable userperfil = TrabPerf.dtpermisos(iidtrabmodif, iidtrabmodif, "", "", "1", LoginInfo.IdTrab, this.Name, 23);
+                    //iuserperfexiste = Int32.Parse(userperfil.Rows[0][0].ToString());
 
-                    if (iuserexiste == 0 && iuserperfexiste == 0 && istchec == "1")
-                    {
-                        //inserta usuario
-                        response = usuario.AsignarAccesoUsuario(iidtrabmodif, Int32.Parse(iidtrabmodif), txttrabjador.Text, Util.cifradoMd5(iidtrabmodif), 0, LoginInfo.IdTrab, this.Name, 1);
+                    //if (iuserexiste == 0 && iuserperfexiste == 0 && istchec == "1")
+                    //{
+                    //    //inserta usuario
+                    //    response = usuario.AsignarAccesoUsuario(iidtrabmodif, Int32.Parse(iidtrabmodif), txttrabjador.Text, Util.cifradoMd5(iidtrabmodif), 0, LoginInfo.IdTrab, this.Name, 1);
 
-                        //inserta perfil
-                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
-                    }
-                    else if (iuserexiste == 1 && iuserperfexiste == 0 && istchec == "1")
-                    {
-                        //inserta perfil
-                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
-                    }
-                    else if (iuserexiste == 1 && iuserperfexiste > 1 && istchec == "1")
-                    {
-                        //inserta perfil
-                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
-                    }
-                    else if (iuserexiste == 1 && iuserperfexiste == 1 && istchec == "0")
-                    {
-                        //inserta usuario
-                        response = usuario.AsignarAccesoUsuario(iidtrabmodif, Int32.Parse(iidtrabmodif), txttrabjador.Text, Util.cifradoMd5(iidtrabmodif), 0, LoginInfo.IdTrab, this.Name, 3);
+                    //    //inserta perfil
+                    //    usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    //}
+                    //else if (iuserexiste == 1 && iuserperfexiste == 0 && istchec == "1")
+                    //{
+                    //    //inserta perfil
+                    //    usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    //}
+                    //else if (iuserexiste == 1 && iuserperfexiste > 1 && istchec == "1")
+                    //{
+                    //    //inserta perfil
+                    //    usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    //}
+                    //else if (iuserexiste == 1 && iuserperfexiste == 1 && istchec == "0")
+                    //{
+                    //    //inserta usuario
+                    //    response = usuario.AsignarAccesoUsuario(iidtrabmodif, Int32.Parse(iidtrabmodif), txttrabjador.Text, Util.cifradoMd5(iidtrabmodif), 0, LoginInfo.IdTrab, this.Name, 3);
 
-                        //inserta perfil
-                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
-                    }
-                    else if (iuserexiste == 1 && iuserperfexiste > 1 && istchec == "0")
-                    {
-                        //inserta perfil
-                        usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
-                    }
+                    //    //inserta perfil
+                    //    usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    //}
+                    //else if (iuserexiste == 1 && iuserperfexiste > 1 && istchec == "0")
+                    //{
+                    //    //inserta perfil
+                    //    usuario.AsignarPerfilaUsuario(iidtrabmodif, 23, 1, LoginInfo.IdTrab, this.Name);
+                    //}
 
                     //lena grid
                     fllenagridbusqueda(16, iidtrabmodif);
