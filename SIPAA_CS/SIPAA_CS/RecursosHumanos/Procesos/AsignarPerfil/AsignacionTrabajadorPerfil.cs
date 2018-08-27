@@ -782,7 +782,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //{
             if (horaCampo(mtxtEntradaTurno, out entrada) && cbDiaEntrada.SelectedIndex > 0)
             {
-                int hours = 0;
+                double hours = 0;
 
                 if (cbDiaSalida.SelectedIndex > 0 && horaCampo(mtxtSalida, out salida))
                 {
@@ -2297,13 +2297,21 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                 }
                 llenarGridReloj("%");
-                ltRelojxUsuario.Clear(); 
+                ltRelojxUsuario.Clear();
                 AsignarReloj(TrabajadorInfo.IdTrab);
                 ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Asignaciones Eliminadas");
 
-
             }
            
+        }
+
+        private void mtxtTiempoTrabajo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            System.Globalization.CultureInfo cc = System.Threading.Thread.CurrentThread.CurrentCulture;
+            if (char.IsNumber(e.KeyChar) || e.KeyChar.ToString() == cc.NumberFormat.NumberDecimalSeparator)
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
     }
 }
