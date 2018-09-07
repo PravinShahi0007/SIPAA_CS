@@ -33,15 +33,19 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         public List<string> ltFormasxUsuario = new List<string>();
         public List<int> ltReloj = new List<int>();
         List<Reloj> ltReloj2 = new List<Reloj>(); // esta es para hacer la prueba  
+        List<Reloj> ltElimina = new List<Reloj>(); //para eliminar las asignaciones
+        List<Reloj> ltAgrega = new List<Reloj>(); //para agregar nuevos relojes
         public List<string> ltRelojxUsuario = new List<string>();
+        public List<string> ltRelojxUsuario2 = new List<string>();
         public string sUsuuMod = LoginInfo.IdTrab;
+        SonaTrabajador contenedorempleados = new SonaTrabajador();
 
         //Huella Digital
         public delegate void OnTemplateEventHandler(DPFP.Template template);
-        private DPFP.Capture.Capture Capturer;
+       // private DPFP.Capture.Capture Capturer;
         public Bitmap bitmap;
         public DPFP.Processing.Enrollment Enroller;
-        public event OnTemplateEventHandler OnTemplate;
+       // public event OnTemplateEventHandler OnTemplate;
         private LinkedList<FaceTmp> faces;
 
         // private DPFP.Gui.Enrollment.EnrollmentControl EnrollmentControl;
@@ -650,7 +654,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void btnAgregarHuella_Click(object sender, EventArgs e)
         {
-            PanelGuardarHuella.Visible = true; // estaba false
+          /*  PanelGuardarHuella.Visible = true; // estaba false
 
             prgbar.Visible = true;
             prgbar.Style = ProgressBarStyle.Marquee;
@@ -666,79 +670,79 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             Start();
 
 
-
+            */
         }
 
         public CZKEMClass objCZKEM = new CZKEMClass();
         private void btnGuardarHuella_Click(object sender, EventArgs e)
         {
-            try
-            {
+          //try
+          //  {
 
 
-                switch (iOpcionAdmin)
-                {
+          //      switch (iOpcionAdmin)
+          //      {
 
-                    // 1
-                    case 4:
-                        int flag = 0;
-                        string huellatmp = "";
-                        int tpmlong = 0;
-                        string sIdTrab = "";
+          //          // 1
+          //          case 4:
+          //              int flag = 0;
+          //              string huellatmp = "";
+          //              int tpmlong = 0;
+          //              string sIdTrab = "";
 
-                        SonaTrabajador objTrab = new SonaTrabajador();
+          //              SonaTrabajador objTrab = new SonaTrabajador();
 
-                        try
-                        {
-                            byte[] arr = Enroller.Template.Bytes;
-
-
-                            //DataTable dtTrab = objTrab.GestionHuella(huellaTmp: Convert.ToBase64String(arr, 0, arr.Length), iHuella: 4, sIdtrab: TrabajadorInfo.IdTrab, sUsuumod: sUsuuMod, sPrgmod: this.Name, iOpcion: 5);
-                            objTrab.GestionHuella(sIdTrab, Convert.ToBase64String(arr, 0, arr.Length), 4, LoginInfo.IdTrab, this.Name, 5);
-
-                        }
-                        catch
-                        {
-
-                        }
-
-                        //Image img = bitmap;
-                        //ImageConverter converter = new ImageConverter();
-                        //byte[] arrImagen = (byte[])converter.ConvertTo(img, typeof(byte[]));
-
-                        //SonaTrabajador objTrab = new SonaTrabajador();
+          //              try
+          //              {
+          //                  byte[] arr = Enroller.Template.Bytes;
 
 
-                        //dtTrab = objTrab.GestionHuella(System.Text.Encoding.UTF8.GetString(Enroller.Template.Bytes), System.Text.Encoding.UTF8.GetString(arrImagen), Convert.ToInt32(TrabajadorInfo.IdTrab), sUsuuMod, this.Name, 1);
-                        //**********************************************//
-                        // if (dtTrab.Columns.Contains("INSERT"))
-                        //{
-                        Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Asignada Correctamente");
-                        Enroller.Clear();
-                        //}
+          //                  //DataTable dtTrab = objTrab.GestionHuella(huellaTmp: Convert.ToBase64String(arr, 0, arr.Length), iHuella: 4, sIdtrab: TrabajadorInfo.IdTrab, sUsuumod: sUsuuMod, sPrgmod: this.Name, iOpcion: 5);
+          //                  objTrab.GestionHuella(sIdTrab, Convert.ToBase64String(arr, 0, arr.Length), 4, LoginInfo.IdTrab, this.Name, 5);
 
-                        break;
+          //              }
+          //              catch
+          //              {
 
-                    case 3:
-                        //sonatrabajador obj = new sonatrabajador();
-                        //dttrab = obj.gestionhuella(enroller.template.bytes, new byte[] { }, trabajadorinfo.idtrab, susuumod, this.name, 3);
-                        //if (dttrab != null)
-                        //{
-                        //    utilerias.controlnotificaciones(paneltaghuella, lbmensajehuella, 1, "huella eliminada correctamente");
-                        //    enroller.clear();
-                        //}
-                        break;
+          //              }
 
-                }
+          //              //Image img = bitmap;
+          //              //ImageConverter converter = new ImageConverter();
+          //              //byte[] arrImagen = (byte[])converter.ConvertTo(img, typeof(byte[]));
+
+          //              //SonaTrabajador objTrab = new SonaTrabajador();
 
 
+          //              //dtTrab = objTrab.GestionHuella(System.Text.Encoding.UTF8.GetString(Enroller.Template.Bytes), System.Text.Encoding.UTF8.GetString(arrImagen), Convert.ToInt32(TrabajadorInfo.IdTrab), sUsuuMod, this.Name, 1);
+          //              //**********************************************//
+          //              // if (dtTrab.Columns.Contains("INSERT"))
+          //              //{
+          //              Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Huella Asignada Correctamente");
+          //              Enroller.Clear();
+          //              //}
 
-            }
-            catch (Exception EX)
-            {
+          //              break;
 
-                Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "Error de Comunicación con el Servidor. Favor de Intentarlo más tarde.");
-            }
+          //          case 3:
+          //              //sonatrabajador obj = new sonatrabajador();
+          //              //dttrab = obj.gestionhuella(enroller.template.bytes, new byte[] { }, trabajadorinfo.idtrab, susuumod, this.name, 3);
+          //              //if (dttrab != null)
+          //              //{
+          //              //    utilerias.controlnotificaciones(paneltaghuella, lbmensajehuella, 1, "huella eliminada correctamente");
+          //              //    enroller.clear();
+          //              //}
+          //              break;
+
+          //      }
+
+
+
+          //  }
+          //  catch (Exception EX)
+          //  {
+
+          //      Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "Error de Comunicación con el Servidor. Favor de Intentarlo más tarde.");
+          //  }
 
         }
 
@@ -849,6 +853,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             Utilerias.llenarComboxDataTable(cbDiaEntrada, objPlantilla.cbdias(6), "Clave", "Descripción");
             Utilerias.llenarComboxDataTable(cbDiaSalida, objPlantilla.cbdias(6), "Clave", "Descripción");
             Utilerias.AsignarBotonResize(btnEliminar, new Size(sysW, sysH), "Borrar");
+
+            DataTable dtempleadosInactivos = contenedorempleados.obtenerempleados(4, "");
+            DataTable dtempleadosActivos = contenedorempleados.obtenerempleados(7, "");
+
+            Utilerias.llenarComboxDataTable(cbEmpleadosInactivos, dtempleadosInactivos, "NoEmpleado", "Nombre");
+            Utilerias.llenarComboxDataTable(cbEmpleadosActivos, dtempleadosActivos, "NoEmpleado", "Nombre");
+
             TrabajadorHorario objHorario = AsignarObjeto();
             llenarGridHorario(objHorario);
             LimpiarFormulario();
@@ -889,8 +900,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             panelTag.Visible = false;
             panelTagForReg.Visible = false;
-            panelTagHuella.Visible = false;
-            lbMensajeHuella.Text = "";
+           // panelTagHuella.Visible = false;
+            //lbMensajeHuella.Text = "";
             panelTagRelojCheck.Visible = false;
             timer1.Stop();
         }
@@ -914,85 +925,60 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     ltFormasReg.Clear();
                     if (Permisos.dcPermisos["Crear"] == 0) { panelPermisos.Visible = false; label24.Text = "Formas de Registro Asignadas Actualmente"; }
                     break;
-
-
-
-
+                    
                 case 2:
+
+                  
                     llenarGridReloj("%");
                     AsignarReloj(TrabajadorInfo.IdTrab);
-                   // PanelReloj.Enabled = false;
                     if (Permisos.dcPermisos["Crear"] == 0) { PanelReloj.Visible = false; label24.Text = "Relojes Asignados Actualmente"; }
                     break;
 
 
                 case 3:
-                    txtEstatus.Text = String.Empty;
-                    PanelGuardarHuella.Visible = false;
-                    pbHuella.Image = null;
-                    PanelGuardarHuella.Visible = false;
-                    panelTagHuella.Visible = false;
-                    SonaTrabajador objTrab = new SonaTrabajador();
-                    byte[] byteArray = new byte[] { };
-                    //DataTable dtTrab = objTrab.GestionHuella(byteArray, byteArray, TrabajadorInfo.IdTrab, "", "", 5);
-                    //try
-                    //{
-                    //    foreach (DataRow row in dtTrab.Rows)
-                    //    { byteArray = (byte[])row["imgtemplate"]; }
-                    //    Image imgHuella = null;
-                    //    MemoryStream ms = new MemoryStream(byteArray);
-                    //    imgHuella = Image.FromStream(ms);
-                    //    ms.Close();
-                    //    pbHuella.Image = imgHuella;
-                    //}
-                    //catch (Exception ex) {
 
-                    //    pbHuella.Image = null;
-                    //}
-
-
+                    llenarGridElimina("%", dgvAgrega);
+                    AsignaParaEliminar(dgvAgrega);
+                    if (Permisos.dcPermisos["Crear"] == 0) { pnlAgrega.Visible = false; }
+                    break;
+                case 4:
+                    llenarGridElimina("%", dgvElimina);
+                    AsignaParaEliminar(dgvElimina);
+                    if (Permisos.dcPermisos["Eliminar"] == 0) { pnlElimina.Visible = false; }
                     break;
             }
-            if (Permisos.dcPermisos["Crear"] != 1) { panelHuella.Visible = false; lbHuella.Visible = false; }
-            if (Permisos.dcPermisos["Eliminar"] != 1) { checkBox1.Visible = false; }
+          
         }
 
 
         //Eventos Huella Digital 
+        private void AsignaParaEliminar(DataGridView dgv)
+        {
+            RelojChecador objReloj = new RelojChecador();
+            DataTable dt = objReloj.RelojesxTrabajador("0", 0, 4, "", "");
+            foreach (DataRow row in dt.Rows)
+            {
+                if (!ltRelojxUsuario2.Contains(Convert.ToInt32(row[0]).ToString()))
+                    ltRelojxUsuario2.Add(Convert.ToInt32(row[0]).ToString());
+            }
+
+            Utilerias.ImprimirAsignacionesGrid(dgv, 0, 1, ltRelojxUsuario2);
+        }
+
+
+      
+
 
         public void Start()
         {
-            if (null != Capturer)
-            {
-
-                try
-                {
-                    Capturer.StartCapture();
-                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Escaneo Iniciado Correctamente. Ingrese su Huella en el Lector.");
-                }
-                catch
-                {
-                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "No es posible iniciar la Captura");
-                }
-            }
+           
         }
 
 
 
         public void Stop()
         {
-            if (null != Capturer)
-            {
-                try
-                {
-                    Capturer.StopCapture();
-                }
-                catch
-                {
-                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "No es posible iniciar la Captura");
-
-                }
-            }
+          
         }
 
 
@@ -1000,130 +986,63 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         protected DPFP.FeatureSet ExtractFeatures(DPFP.Sample Sample, DPFP.Processing.DataPurpose Purpose)
         {
-            DPFP.Processing.FeatureExtraction Extractor = new DPFP.Processing.FeatureExtraction();  // Create a feature extractor
-            DPFP.Capture.CaptureFeedback feedback = DPFP.Capture.CaptureFeedback.None;
-            DPFP.FeatureSet features = new DPFP.FeatureSet();
-            Extractor.CreateFeatureSet(Sample, Purpose, ref feedback, ref features);            // TODO: return features as a result?
-            if (feedback == DPFP.Capture.CaptureFeedback.Good)
-                return features;
-            else
-                return null;
+            /*DPFP.Processing.FeatureExtraction Extractor = new DPFP.Processing.FeatureExtraction();  // Create a feature extractor
+             DPFP.Capture.CaptureFeedback feedback = DPFP.Capture.CaptureFeedback.None;
+             DPFP.FeatureSet features = new DPFP.FeatureSet();
+             Extractor.CreateFeatureSet(Sample, Purpose, ref feedback, ref features);            // TODO: return features as a result?
+             if (feedback == DPFP.Capture.CaptureFeedback.Good)
+                 return features;
+             else*/
+            return null;
         }
 
 
         protected void Process(DPFP.Sample Sample)
         {
-            DPFP.Capture.SampleConversion Convertor = new DPFP.Capture.SampleConversion();
-            bitmap = null;
-            Convertor.ConvertToPicture(Sample, ref bitmap);
-            pbHuella.Image = new Bitmap(bitmap, pbHuella.Size);
-
-            DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Enrollment);
-
-            if (features != null) try
-                {
-                    Enroller.AddFeatures(features);     // Add feature set to template.
-                }
-                finally
-                {
-                    lbHuella.Text = String.Format("Ingresos Necesarios: {0}", Enroller.FeaturesNeeded);
-
-                    // Check if template has been created.
-                    switch (Enroller.TemplateStatus)
-                    {
-                        case DPFP.Processing.Enrollment.Status.Ready:
-                            Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 1, "Proceso Completado, es posible Guardar");
-                            Stop();
-
-                            prgbar.Visible = false;
-                            PanelGuardarHuella.Visible = true;
-                            break;
-
-                        case DPFP.Processing.Enrollment.Status.Failed:  // report failure and restart capturing
-                            Enroller.Clear();
-                            Stop();
-                            lbHuella.Text = String.Format("Ingresos Necesarios: {0}", Enroller.FeaturesNeeded);
-                            OnTemplate(null);
-                            Start();
-                            break;
-                    }
-                }
+          
         }
 
 
         public virtual void FormInit()
         {
-            try
-            {
-
-                Capturer = new DPFP.Capture.Capture();              // Create a capture operation.
-                if (null != Capturer)
-                    Capturer.EventHandler = this;					// Subscribe for capturing events.
-                else
-                    Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 3, "No es posible iniciar la Captura");
-            }
-            catch
-            {
-                // MessageBox.Show("Can't initiate capture operation!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
 
-        //public void ExchangeData(bool read)
-        //{
-        //    if (read)
-        //    {   // read values from the form's controls to the data object
-        //        Data.EnrolledFingersMask = EnrollmentControl.EnrolledFingerMask;
-        //        Data.MaxEnroll = EnrollmentControl.MaxEnrollFingerCount;
-        //        Data.Update();
-        //    }
-        //    else
-        //    {   // read values from the data object to the form's controls
-        //        EnrollmentControl.EnrolledFingerMask = Data.EnrolledFingersMask;
-        //        EnrollmentControl.MaxEnrollFingerCount = Data.MaxEnroll;
-        //    }
-        //}
-
+       
         #region EventHandler Members:
 
         public void OnComplete(object Capture, string ReaderSerialNumber, DPFP.Sample Sample)
         {
-            txtEstatus.AppendText("Huella CAPTURADA Correctamente." + "\r\n");
-            Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 2, "INGRESE su Huella Nuevamente");
-            Process(Sample);
+        
         }
 
         public void OnFingerGone(object Capture, string ReaderSerialNumber)
         {
-            txtEstatus.AppendText("HUELLA REMOVIDA de Lector." + "\r\n");
+          
         }
 
         public void OnFingerTouch(object Capture, string ReaderSerialNumber)
         {
             CheckForIllegalCrossThreadCalls = false;
-            txtEstatus.AppendText("El Lector ha sido TOCADO." + "\r\n");
+            
         }
 
         public void OnReaderConnect(object Capture, string ReaderSerialNumber)
         {
             CheckForIllegalCrossThreadCalls = false;
-            txtEstatus.AppendText("El Lector CONECTADO." + "\r\n");
+            
         }
 
         public void OnReaderDisconnect(object Capture, string ReaderSerialNumber)
         {
-            //         timer1.Start();
-            //       await task
-            //Utilerias.ControlNotificaciones(panelTagHuella, lbMensajeHuella, 2, "Dispositivo Desconectado");
+            
 
         }
 
         public void OnSampleQuality(object Capture, string ReaderSerialNumber, DPFP.Capture.CaptureFeedback CaptureFeedback)
         {
-            if (CaptureFeedback == DPFP.Capture.CaptureFeedback.Good)
-                txtEstatus.AppendText("La calidad de la Huella es CORRECTA." + "\r\n");
-            else
-                txtEstatus.AppendText("La calidad de la Huella es POBRE." + "\r\n");
+           
         }
         #endregion
 
@@ -1274,6 +1193,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
 
             Utilerias.ImprimirAsignacionesGrid(dgvReloj, 0, 1, ltRelojxUsuario);
+
             int admin = 0;
             DataTable dt2 = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
             foreach (DataRow row in dt2.Rows)
@@ -1302,8 +1222,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvForReg.Columns[4].Visible = false;
             dgvForReg.Columns[3].Visible = false;
             dgvForReg.Columns[0].Width = 65;
-           // for (int i = 0; i < dgvReloj.Columns.Count; i++)
-             //   dgvReloj.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+         
 
             dgvForReg.ClearSelection();
         }
@@ -1338,8 +1257,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             dgvReloj.DataSource = dtRelojChecador;
 
             Utilerias.AgregarCheck(dgvReloj, 0);
-            dgvReloj.Columns[0].Width = 15; //65
-            dgvReloj.Columns[1].Width = 65; //65
+            dgvReloj.Columns[0].Width = 15; 
+            dgvReloj.Columns[1].Width = 65; 
            
             dgvReloj.Columns[1].Visible = false;
             dgvReloj.Columns[3].Visible = false;
@@ -1352,6 +1271,31 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
          
 
+        }
+        private void llenarGridElimina(string sDescripcion, DataGridView dgv)
+        {
+            if (dgv.Columns.Count > 1)
+            {
+                dgv.Columns.RemoveAt(0);
+            }
+
+            RelojChecador objReloj = new RelojChecador();
+            DataTable dtRelojChecador = objReloj.obtrelojeschecadores(4, 0, sDescripcion, "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
+
+            dgv.DataSource = dtRelojChecador;
+
+           
+
+            Utilerias.AgregarCheck(dgv, 0);
+            dgv.Columns[0].Width = 15; 
+            dgv.Columns[1].Width = 65; 
+            dgv.Columns[1].Visible = false;
+            dgv.Columns[3].Visible = false;
+            dgv.Columns[4].Visible = false;
+            dgv.Columns[5].Visible = false;
+            dgv.Columns[6].Visible = false;
+            dgv.Columns[7].Visible = false;
+            dgv.ClearSelection();
         }
 
         private void AsignarFormas(string sIdtrab)
@@ -1438,8 +1382,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 }
                 else
                 {
-                    //ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse a la IP: " + obj.Descripcion);
-                    //System.Threading.Thread.Sleep(1000);
+                    
                     MessageBox.Show("No fue posible conectarse al reloj : " + obj.Descripcion + " por favor hable al area de sistemas", "SIPAA");
                 }
 
@@ -1450,36 +1393,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
 
 
-            //DialogResult Resultado = MessageBox.Show("Por favor capture los biométricos del empleado, AL TERMINAR \npresione ACEPTAR para que los datos se sincronicen\nen caso de no poder tomar los biometricos, presione CANCELAR", "SIPAA", MessageBoxButtons.OKCancel);
-            //if (Resultado == DialogResult.OK)
-            //{
-            //    foreach (Reloj obj in ltReloj2)
-            //    {
-
-            //        ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Obteniendo los biométricos.");
-            //        ProcesoReloj("Face", obj);
-            //        ProcesoReloj("Huella", obj);
-            //        ProcesoReloj("Pass", obj);
-            //        break;
-
-            //    }
-
-            //    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Comenzando la sincronizacion.");
-            //    SincronizaBiometricos(ltReloj2, objReloj);
-
-
-            //}
-
-            // Utilerias.ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Asignaciones Guardadas Correctamente");
             timer1.Start();
             AsignarReloj(TrabajadorInfo.IdTrab);
-           // PanelReloj.Enabled = false;
+          
             ltReloj.Clear();
 
         }
 
 
-        public void SincronizaBiometricos(List<Reloj> ltReloj2, RelojChecador objReloj)
+        public void SincronizaBiometricos(List<Reloj> ltReloj2, RelojChecador objReloj, Panel Pnl, Label Lbl)
         {
             int iCont = 0; 
             bool bConexion = false;
@@ -1489,7 +1411,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
 
                 iCont += 1;
-                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Conectando con Dispositivo " + obj.Descripcion + " " + iCont + " de " + ltReloj2.Count);
+                ControlNotificaciones(Pnl, Lbl, 2, "Conectando con Dispositivo " + obj.Descripcion + " " + iCont + " de " + ltReloj2.Count);
                 bConexion = Connect_Net(obj.IpReloj, 4370);
                 if (bConexion != false)
                 {
@@ -1498,7 +1420,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     Nombre = Password = string.Empty;
                     objCZKEM.BeginBatchUpdate(1, 1);
                     dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 17, "%", "%");
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando huellas.. ");
+                    ControlNotificaciones(Pnl, Lbl, 2, "Insertando huellas.. ");
                     foreach (DataRow row in dt.Rows)
                     {
                         string idtrab = row["idtrab"].ToString();
@@ -1515,8 +1437,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
                         {
                             if (row["huellaTmp"].ToString() != String.Empty)
-                               objCZKEM.SetUserTmpExStr(1, idtrab, Convert.ToInt32(row["indicehuella"].ToString()), 1, row["huellaTmp"].ToString());
-                            
+                                objCZKEM.SetUserTmpExStr(1, idtrab, Convert.ToInt32(row["indicehuella"].ToString()), 1, row["huellaTmp"].ToString());
+
                         }
 
 
@@ -1532,10 +1454,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                 {
                                     tmpHuella = row["huellaTmp"].ToString();
                                     objCZKEM.SetUserTmpExStr(1, idtrab, ifinger, 1, tmpHuella);
-                                   
+
                                 }
                             }
-                          
+
 
                         }
 
@@ -1548,50 +1470,50 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 }
                 else
                 {
-                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse al reloj: " + obj.Descripcion);
+                    ControlNotificaciones(Pnl, Lbl, 3, "No fue posible conectarse al reloj: " + obj.Descripcion);
                     continue;
                 }
 
-                
-                        
-                        bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
 
-                        if (bConexion)
-                        {
-                        objCZKEM.BeginBatchUpdate(1, 1);
-                         dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 18, "%", "%");
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando grupos... ");
+
+                bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
+
+                if (bConexion)
+                {
+                    objCZKEM.BeginBatchUpdate(1, 1);
+                    dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 18, "%", "%");
+                    ControlNotificaciones(Pnl, Lbl, 2, "Insertando grupos... ");
                     foreach (DataRow row in dt.Rows)
+                    {
+                        string idtrab = row["idtrab"].ToString();
+                        int Grupo = Convert.ToInt32(row["cvforma"].ToString());
+                        if (objCZKEM.SetUserGroup(1, Convert.ToInt32(idtrab), Grupo))
+                        {
+
+                            try
                             {
-                                string idtrab = row["idtrab"].ToString();
-                                int Grupo = Convert.ToInt32(row["cvforma"].ToString());
-                                if(objCZKEM.SetUserGroup(1, Convert.ToInt32(idtrab), Grupo))
-                                {
-
-                                    try
-                                    {
-                                        bool bandera = objCZKEM.SendFile(1, @"\\192.168.30.171\FotosJS\FotosRelojChecador\" + idtrab + ".jpg");
-
-                                    }
-                                    catch{}
-                               
-
-                                }
-                           
+                                bool bandera = objCZKEM.SendFile(1, @"\\192.168.30.171\FotosJS\FotosRelojChecador\" + idtrab + ".jpg");
 
                             }
+                            catch { }
 
-                            objCZKEM.BatchUpdate(1);
-                            objCZKEM.RefreshData(1);
-                            objCZKEM.Disconnect();
-                        }
-                        else
-                        {
-                            ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 3, "No fue posible conectarse al reloj: " + obj.Descripcion);
-                            continue;
+
                         }
 
-                 faces = new LinkedList<FaceTmp>();
+
+                    }
+
+                    objCZKEM.BatchUpdate(1);
+                    objCZKEM.RefreshData(1);
+                    objCZKEM.Disconnect();
+                }
+                else
+                {
+                    ControlNotificaciones(Pnl, Lbl, 3, "No fue posible conectarse al reloj: " + obj.Descripcion);
+                    continue;
+                }
+
+                faces = new LinkedList<FaceTmp>();
                  dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 19, "%", "%");
                     foreach (DataRow row in dt.Rows)
                         {
@@ -1606,30 +1528,31 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             }
                         }
 
-                 bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
+                bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                 if (bConexion)
                 {
                     //Reiniciando dispositivo...
                     objCZKEM.RestartDevice(1);
-                    ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 2, "Espere un momento por favor");
+                    ControlNotificaciones(Pnl, Lbl, 2, "Espere un momento por favor");
                     System.Threading.Thread.Sleep(60000);
-                 }
+                }
 
                 bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                 if (bConexion)
                 {
-                 ControlNotificaciones(panelTag, lbMensaje, 2, "Insertando rostro...");
-                 foreach (FaceTmp ft in faces)
-                 {
-                 objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong); }
-                
-                 }
+                    ControlNotificaciones(Pnl, Lbl, 2, "Insertando rostro...");
+                    foreach (FaceTmp ft in faces)
+                    {
+                        objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong);
+                    }
+
+                }
 
                 objCZKEM.BatchUpdate(1);
                 objCZKEM.RefreshData(1);
                 objCZKEM.Disconnect();
 
-                ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Biométricos guardados correctamente en el reloj: "+obj.Descripcion+  " " + iCont + " de " + ltReloj2.Count);
+                ControlNotificaciones(Pnl, Lbl, 1, "Biométricos guardados correctamente en el reloj: "+obj.Descripcion+  " " + iCont + " de " + ltReloj2.Count);
                 System.Threading.Thread.Sleep(1000);
                }
             
@@ -1646,10 +1569,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 objCZKEM.ReadAllUserID(1);
                 objCZKEM.ReadAllTemplate(1);
                 bool bBandera = false;
-                //int iContTrab = 0;
-                //foreach (DataRow row in dt.Rows)
-                //{
-                //iContTrab += 1;
+               
                 string idTrab = lbIdTrab.Text;
                 string cvreloj = obj.cvReloj.ToString();
                 bBandera = ConsultaReloj(Opcion, idTrab);
@@ -1698,17 +1618,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     }
 
                     break;
-                /*
-            case "Foto":
-                int longitud = 0;
-                byte Foto;
-                string NombreFoto = "170014.jpg";
-                if (objCZKEM.GetPhotoByName(1,NombreFoto, out Foto, out longitud))
-                    MessageBox.Show("Foto");
-
-
-                break;
-                */
+           
                 case "Huella":
 
                     int flag = 0;
@@ -1836,9 +1746,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            PanelGuardarHuella.Visible = true;
-            Utilerias.AsignarBotonResize(btnGuardarHuella, Utilerias.PantallaSistema(), "Borrar");
-            iOpcionAdmin = 3;
+          
         }
 
         private void label14_Click(object sender, EventArgs e)
@@ -1853,54 +1761,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void tabAsignacion_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (e.TabPage == tabAsignacion.TabPages[3])
-            {
-                e.Cancel = true;
-            }
+         
         }
 
         private void dgGrupos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {/*
-            if (Permisos.dcPermisos["Crear"] != 0 && Permisos.dcPermisos["Actualizar"] != 0)
-            {
-                PanelReloj.Enabled = true; 
-                 foreach (DataGridViewRow fila in dgvGrupos.Rows)
-                  {
-                  fila.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                  fila.Cells[0].Tag = "uncheck";
-                  }
-              if (dgvGrupos.SelectedRows.Count != 0)
-                {
-                 DataGridViewRow row = dgvGrupos.SelectedRows[0];
-                   
-                    Grupo = Convert.ToInt32( row.Cells[1].Value);
-                   // MessageBox.Show(Grupo.ToString());
-                   
-
-                    try
-                    {
-                        switch (row.Cells[0].Tag.ToString())
-                        {
-                            case "check":
-                                row.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
-                                row.Cells[0].Tag = "uncheck";
-
-                                break;
-                            case "uncheck":
-                                row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                                row.Cells[0].Tag = "check";
-
-                                break;
-                        }
-                                 
-                    }
-                    catch
-                    {
-                        row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
-                        row.Cells[0].Tag = "check";
-                    }
-                }
-            }*/
+        {
         }
 
         private void chkAdmin_CheckedChanged(object sender, EventArgs e)
@@ -2001,16 +1866,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             }
             
-            //objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", LoginInfo.IdTrab, this.Name, 10); 
-            //objTrab.GestionHuella(TrabajadorInfo.IdTrab, "", 3, LoginInfo.IdTrab, this.Name, 6);
-            //if (chkAdmin.Checked == true)
-              //  objTrab.GestionIdentidad(TrabajadorInfo.IdTrab, "", "", "0", sUsuuMod, Name, 8);
-         
-
-           // relojseleccionados();
-           
-            SincronizaBiometricos(ltReloj2, objReloj);
-            //timer1.Start();
+            SincronizaBiometricos(ltReloj2, objReloj, panelTagRelojCheck, lbMensajeRelojCheck);
             AsignarReloj(TrabajadorInfo.IdTrab);
             ControlNotificaciones(panelTagRelojCheck, lbMensajeRelojCheck, 1, "Proceso Terminado" );
             System.Threading.Thread.Sleep(1000);
@@ -2305,5 +2161,189 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
            
         }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+           
+          
+            for (int i = 0; i < dgvElimina.RowCount; i++)
+            {
+                if (dgvElimina.Rows[i].Cells[0].Tag.ToString().Equals("check"))
+                {
+                    DataGridViewRow row = dgvElimina.Rows[i];
+                    Reloj objR = new Reloj();
+                    objR.cvReloj = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
+                    objR.IpReloj = row.Cells["IP"].Value.ToString();
+                    objR.Teclado = Convert.ToBoolean(row.Cells["Teclado"].Value);
+                    objR.Huella = Convert.ToBoolean(row.Cells["Huella"].Value);
+                    objR.Rostro = Convert.ToBoolean(row.Cells["Rostro"].Value);
+                    objR.MultipleHuella = Convert.ToBoolean(row.Cells["multiplehuella"].Value);
+                    ltElimina.Add(objR);
+                }
+            }
+
+            if(ltElimina.Count>0)
+            {
+                DialogResult result = MessageBox.Show("¿Seguro que desea eliminar " + ltElimina.Count + " relojes asignados?", "SIPAA", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    ControlNotificaciones(pnlEliminaAsignaciones, lblEliminaAsignaciones, 3, "Eliminando Asignaciones");
+                    RelojChecador objReloj = new RelojChecador();
+                                  
+                    foreach (Reloj obj in ltElimina)
+                    {
+                        objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 24, sUsuuMod, Name);
+
+                    }
+                   
+                   
+                    dgvElimina.ClearSelection();
+                    AsignaParaEliminar(dgvElimina);
+                    ControlNotificaciones(pnlEliminaAsignaciones, lblEliminaAsignaciones, 1, "Asignaciones Eliminadas");
+                    DialogResult result2 = MessageBox.Show("Relojes Eliminados", "SIPAA", MessageBoxButtons.OK);
+                    if (result2== DialogResult.OK)
+                    {
+                        AsignacionTrabajadorPerfil form = new AsignacionTrabajadorPerfil();
+                        form.Show();
+                        Close();
+                    }
+
+
+                }
+            }
+            else
+                ControlNotificaciones(pnlEliminaAsignaciones, lblEliminaAsignaciones, 3, "Seleccione al menos un reloj para eliminar");
+
+           
+
+
+        }
+
+        private void dgvElimina_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Permisos.dcPermisos["Crear"] != 0 && Permisos.dcPermisos["Actualizar"] != 0)
+            {
+                
+                    iOpcionAdmin = 1;
+                    Utilerias.MultiSeleccionGridView(dgvElimina, 1, ltReloj, PanelReloj);
+                    DataGridViewRow row = dgvElimina.SelectedRows[0];
+                    Reloj objR = new Reloj();
+                    objR.cvReloj = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
+                    objR.Descripcion = row.Cells["Descripción"].Value.ToString();
+                    objR.IpReloj = row.Cells["IP"].Value.ToString();
+                    objR.Teclado = Convert.ToBoolean(row.Cells["Teclado"].Value);
+                    objR.Huella = Convert.ToBoolean(row.Cells["Huella"].Value);
+                    objR.Rostro = Convert.ToBoolean(row.Cells["Rostro"].Value);
+                    objR.MultipleHuella = Convert.ToBoolean(row.Cells["multiplehuella"].Value);
+
+              }
+            }
+
+        private void dgvAgrega_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Permisos.dcPermisos["Crear"] != 0 && Permisos.dcPermisos["Actualizar"] != 0)
+            {
+
+               
+                Utilerias.MultiSeleccionGridView(dgvAgrega, 1, ltReloj, PanelReloj);
+                DataGridViewRow row = dgvAgrega.SelectedRows[0];
+                Reloj objR = new Reloj();
+                objR.cvReloj = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
+                objR.Descripcion = row.Cells["Descripción"].Value.ToString();
+                objR.IpReloj = row.Cells["IP"].Value.ToString();
+                objR.Teclado = Convert.ToBoolean(row.Cells["Teclado"].Value);
+                objR.Huella = Convert.ToBoolean(row.Cells["Huella"].Value);
+                objR.Rostro = Convert.ToBoolean(row.Cells["Rostro"].Value);
+                objR.MultipleHuella = Convert.ToBoolean(row.Cells["multiplehuella"].Value);
+
+            }
+        }
+
+        private void btnAgrega_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvAgrega.RowCount; i++)
+            {
+                if (dgvAgrega.Rows[i].Cells[0].Tag.ToString().Equals("check"))
+                {
+                    DataGridViewRow row = dgvAgrega.Rows[i];
+                    Reloj objR = new Reloj();
+                    objR.cvReloj = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
+                    objR.IpReloj = row.Cells["IP"].Value.ToString();
+                    objR.Teclado = Convert.ToBoolean(row.Cells["Teclado"].Value);
+                    objR.Huella = Convert.ToBoolean(row.Cells["Huella"].Value);
+                    objR.Rostro = Convert.ToBoolean(row.Cells["Rostro"].Value);
+                    objR.MultipleHuella = Convert.ToBoolean(row.Cells["multiplehuella"].Value);
+                    ltAgrega.Add(objR);
+                }
+            }
+
+            if (ltAgrega.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("¿Seguro que desea asignar " + ltAgrega.Count + " relojes?", "SIPAA", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    ControlNotificaciones(pnlAgregaRelojes, lblAgregaRelojes, 2, "Comienza Proceso");
+
+                    RelojChecador objReloj = new RelojChecador();
+
+                    foreach (Reloj obj in ltAgrega)
+                    {
+                        objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 1, sUsuuMod, Name);
+
+                    }
+
+                    SincronizaBiometricos(ltAgrega, objReloj, pnlAgregaRelojes, lblAgregaRelojes);
+                    ControlNotificaciones(pnlAgregaRelojes, lblAgregaRelojes, 1, "Relojes Agregados Correctamente");
+                    DialogResult result2 = MessageBox.Show("Relojes Agregados Correctamente ", "SIPAA", MessageBoxButtons.OK);
+                    if (result2==DialogResult.OK)
+                    {
+                        AsignacionTrabajadorPerfil form = new AsignacionTrabajadorPerfil();
+                        form.Show();
+                        Close();
+                    }
+
+
+                }
+            }
+            else
+                ControlNotificaciones(pnlEliminaAsignaciones, lblEliminaAsignaciones, 3, "Seleccione al menos un reloj para Agregar");
+
+          
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem.ToString()=="Si")
+               dpFechaInicio.Visible = dpFechaFin.Visible = lbFechaInicio.Visible = lbFechaFin.Visible = true; 
+            else
+                dpFechaInicio.Visible = dpFechaFin.Visible = lbFechaInicio.Visible = lbFechaFin.Visible = false;
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //relojseleccionados();
+
+            if (ltReloj2.Count > 0)
+            {
+                RelojChecador objReloj = new RelojChecador();
+               // objReloj.CambiaAsociacion(TrabajadorInfo.IdTrab, 170226, 0, 100,  ,  , sUsuuMod, Name);
+                
+
+
+            }
+
+            else
+            
+                ControlNotificaciones(pnlCambia, lblCambia, 3, "No le ha asignado ningún reloj al empleado.");
+               
+           
+        }
+
+        private void label37_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+    }
+//}

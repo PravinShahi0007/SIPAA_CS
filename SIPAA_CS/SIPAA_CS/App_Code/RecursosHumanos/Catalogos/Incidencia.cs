@@ -125,7 +125,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("P_tnom", SqlDbType.VarChar).Value = sTNom;
             cmd.Parameters.Add("P_Ubicacion", SqlDbType.VarChar).Value = sUbicacion;
             cmd.Parameters.Add("P_planta", SqlDbType.VarChar).Value = sArea;
-            //cmd.Parameters.Add("P_plantel", SqlDbType.VarChar).Value = sArea;
+            
 
             objConexion.asignarConexion(cmd);
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
@@ -244,7 +244,7 @@ namespace SIPAA_CS.App_Code
             return dtIncidencia;
         }
 
-        public DataTable ReporteConceptos(string idCompañia, string idUbicacion, string idPlanta, string idDepto, DateTime dtFechaInicio, DateTime dtFechaFin ,string Incidencia, string Tipo)
+        public DataTable ReporteConceptos(  string idTrab, string idCompañia, string idUbicacion, string idPlanta, string idDepto, DateTime dtFechaInicio, DateTime dtFechaFin ,string Incidencia, string Tipo, string Nomina)
         {
 
             Conexion objConexion = new Conexion();
@@ -252,6 +252,8 @@ namespace SIPAA_CS.App_Code
             cmd.CommandText = @"usp_rechconceptos_s";
             cmd.CommandType = CommandType.StoredProcedure;
 
+
+            cmd.Parameters.Add("P_idtrab", SqlDbType.VarChar).Value = idTrab;
             cmd.Parameters.Add("P_compañia", SqlDbType.VarChar).Value = idCompañia;
             cmd.Parameters.Add("P_ubicacion", SqlDbType.VarChar).Value = idUbicacion;
             cmd.Parameters.Add("P_planta", SqlDbType.VarChar).Value = idPlanta;
@@ -260,6 +262,7 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("P_fechafin", SqlDbType.DateTime).Value = dtFechaFin;
             cmd.Parameters.Add("P_incidencia", SqlDbType.VarChar).Value = Incidencia;
             cmd.Parameters.Add("P_tipo", SqlDbType.VarChar).Value = Tipo;
+            cmd.Parameters.Add("P_nomina", SqlDbType.VarChar).Value = Nomina;
        
 
             objConexion.asignarConexion(cmd);
@@ -272,7 +275,7 @@ namespace SIPAA_CS.App_Code
             return dtConceptos;
         }
 
-        public DataTable ReporteGenerico( string idtrab ,string idCompañia, string idUbicacion, string idPlanta, string idDepto, DateTime dtFechaInicio, DateTime dtFechaFin, string Incidencia)
+        public DataTable ReporteGenerico( string idtrab ,string idCompañia, string idUbicacion, string idPlanta, string idDepto, DateTime dtFechaInicio, DateTime dtFechaFin, string Incidencia,string activo, string status_dir, string nomina)
         {
 
             Conexion objConexion = new Conexion();
@@ -288,6 +291,9 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("P_fechaini", SqlDbType.DateTime).Value = dtFechaInicio;
             cmd.Parameters.Add("P_fechafin", SqlDbType.DateTime).Value = dtFechaFin;
             cmd.Parameters.Add("P_incidencia", SqlDbType.VarChar).Value = Incidencia;
+            cmd.Parameters.Add("P_activo", SqlDbType.VarChar).Value = activo;
+            cmd.Parameters.Add("P_status_dir", SqlDbType.VarChar).Value = status_dir;
+            cmd.Parameters.Add("P_nomina", SqlDbType.VarChar).Value = nomina;
 
 
 

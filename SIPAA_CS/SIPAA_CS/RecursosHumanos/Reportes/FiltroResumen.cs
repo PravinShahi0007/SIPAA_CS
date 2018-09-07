@@ -138,9 +138,9 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             
             Incidencia objInc = new Incidencia();
 
-            if (sIdtrab == "0")
+           if (sIdtrab == "0")
                 sIdtrab = "%";
-
+                
             DataTable dtRpt = objInc.ReporteResumen(sIdtrab, dtFechaInicio, dtFechaFin, sDepto, sCia, sTipoNom, sUbicacion, sArea);
 
             switch (dtRpt.Rows.Count)
@@ -210,30 +210,49 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             SonaCompania objCia = new SonaCompania();
             DataTable dtCia = objCia.obtcomp(5, "%");
             llenarCombo(cbCia, dtCia, "Descripción");
-            llenarCombo(comboBox4, dtCia, "Descripción");
-            llenarCombo(cbCompañia2, dtCia, "Descripción"); 
+           
 
             DataTable dtUbicaciones = objCia.ObtenerUbicacionPlantel(5, "%");
             llenarCombo(cbUbicacion, dtUbicaciones, "Descripción");
-            llenarCombo(comboBox3, dtUbicaciones, "Descripción");
-            llenarCombo(cbUbicacion2, dtUbicaciones, "Descripción");
+          
 
             SonaDepartamento objDepto = new SonaDepartamento();
             DataTable dtDepto = objDepto.obtdepto(5, "%");
             llenarCombo(cbDepartamento, dtDepto, "Descripción");
-            llenarCombo(comboBox2, dtDepto, "Descripción");
-            llenarCombo(cbDepartamento2, dtDepto, "Descripción");
-         //cbNombre2
+          
+
             cbTipoNomina.Enabled = false;
          
             DataTable dtempleados = contenedorempleados.obtenerempleados(7, "");
             Utilerias.llenarComboxDataTable(cbEmpleados, dtempleados, "NoEmpleado", "Nombre");
-            Utilerias.llenarComboxDataTable(cbNombre2, dtempleados, "NoEmpleado", "Nombre");
-            //llenarCombo(cbNombre2, dtDepto, "NoEmpleado");
-
+           
+          
+       
             cbEmpleados.Focus();
       
             CbConceptoIncidencia(8, 0, "", 0, 0, 0, 0, "", "");
+
+            List<string> ltRepresenta = new List<string>();
+            ltRepresenta.Insert(0, "Seleccionar");
+            ltRepresenta.Insert(1,"Falta");
+            ltRepresenta.Insert(2,"Retardo");
+            cbRepresenta.DataSource = ltRepresenta;
+
+            List<string> ltActivo = new List<string>();
+            ltActivo.Insert(0, "Todos");
+            ltActivo.Insert(1, "Activos");
+            ltActivo.Insert(2, "Inactivos");
+            cbActivo.DataSource = ltActivo;
+
+            List<string> ltEstatus = new List<string>();
+            ltEstatus.Insert(0, "Todas");
+            ltEstatus.Insert(1, "Descontadas");
+            ltEstatus.Insert(2, "Justificadas");
+            cbEstatus.DataSource = ltEstatus;
+
+
+
+
 
         }
 
@@ -275,21 +294,12 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         {
 
             string sAsignacion;
-
             if (cb.SelectedIndex == 0)
                 sAsignacion = "%";
-            
-            
-
-                //if(cb.SelectedItem.ToString() == "System.Data.DataRowView")
-                //sAsignacion = cb.ite
             else
               sAsignacion = cb.SelectedItem.ToString();
           
-               
-                 
-
-          
+                         
 
             return sAsignacion;
 
@@ -369,41 +379,36 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         private void button4_Click(object sender, EventArgs e)
         {
             Incidencia objInc = new Incidencia();
-            DateTime dtFechaInicio = dateTimePicker1.Value;
-            DateTime dtFechaFin = dateTimePicker2.Value;
-            string idCompañia, idUbicacion, idPlanta, idDepto, Incidencia, Tipo;
+            DateTime dtFechaInicio = dpFechaInicio.Value;
+            DateTime dtFechaFin = dpFechaFin.Value;
+            string idCompañia, idUbicacion, idPlanta, idDepto, Incidencia, Tipo, Nomina;
 
-            idCompañia = AsignarVariableCombo(comboBox4);
-            idUbicacion = AsignarVariableCombo(comboBox3);
-            idPlanta = AsignarVariableCombo(comboBox1);
-            idDepto = AsignarVariableCombo(comboBox2);
+            idCompañia = AsignarVariableCombo(cbCia);
+            idUbicacion = AsignarVariableCombo(cbUbicacion);
+            idPlanta = AsignarVariableCombo(cbArea);
+            idDepto = AsignarVariableCombo(cbDepartamento);
             Incidencia = AsignarVariableCombo(cbConcepto);
             Tipo = AsignarVariableCombo(cbTipo);
+            Nomina = AsignarVariableCombo(cbTipoNomina);
+            //string idTrab = AsignarVariableCombo(cbEmpleados);
 
 
-            //idCompañia = comboBox4.SelectedValue.ToString();
-            //idUbicacion = comboBox3.SelectedValue.ToString();
-            //idPlanta = comboBox1.SelectedValue.ToString();
-            //idDepto = comboBox2.SelectedValue.ToString();
-            //Incidencia = cbConcepto.SelectedValue.ToString();
-            //Tipo = cbTipo.SelectedValue.ToString();
+            string sIdtrab = "";
+            if (cbEmpleados.Text == String.Empty)
+                sIdtrab = "%";
+            else
+                sIdtrab = cbEmpleados.SelectedValue.ToString();
 
-            //if (idUbicacion == "" || idUbicacion == "Seleccionar")
-            //    idUbicacion = "%";
-            //if (idCompañia == "" || idCompañia == "Seleccionar")
-            //    idCompañia = "%";
-            //if (idPlanta == "" || idPlanta == "Seleccionar")
-            //    idPlanta = "%";
-            //if (idDepto == "" || idDepto == "Seleccionar")
-            //    idDepto = "%";
+           
 
-            //if (Incidencia == ""||Incidencia=="Seleccionar")
-            //    Incidencia = "%";
-            //if (Tipo == ""|| Tipo== "Seleccionar" )
-            //    Tipo = "%";
+            if (sIdtrab == "0")
+                sIdtrab = "%";
 
 
-            DataTable dtRpt = objInc.ReporteConceptos (idCompañia, idUbicacion, idPlanta, idDepto, dtFechaInicio, dtFechaFin, Incidencia, Tipo);
+
+
+
+            DataTable dtRpt = objInc.ReporteConceptos (sIdtrab, idCompañia, idUbicacion, idPlanta, idDepto, dtFechaInicio, dtFechaFin, Incidencia, Tipo, Nomina);
             switch (dtRpt.Rows.Count)
             {
 
@@ -416,8 +421,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     ViewerReporte form = new ViewerReporte();
                     Conceptos dtrpt = new Conceptos();
                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, this.CompanyName, dtrpt.ResourceName);
-                    ReportDoc.SetParameterValue("FechaInicio", dateTimePicker1.Value);
-                    ReportDoc.SetParameterValue("FechaFin", dateTimePicker2.Value);
+                    ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
+                    ReportDoc.SetParameterValue("FechaFin", dpFechaFin.Value);
                     form.RptDoc = ReportDoc;
                     form.Show();
 
@@ -442,12 +447,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         private void CbConceptoIncidencia(int p_opcion, int p_cvIncidencia, string p_descripcion, int p_orden, int p_stgenera, int p_strepresenta, int p_stincidencia, string p_usuumod, string p_prgumodr)
         {
             DataTable dtIncidencia = ConceptoIncidencias.ConcepInc_S(p_opcion, p_cvIncidencia, p_descripcion, p_orden, p_stgenera, p_strepresenta, p_stincidencia, p_usuumod, p_prgumodr);
-             llenarCombo(cbConcepto, dtIncidencia, "Descripcion");
-            llenarCombo(cbConcepto2, dtIncidencia, "Descripcion");
-
-            //cbConcepto.DataSource = dtIncidencia;
-            // cbConcepto.DisplayMember = "Descripcion";
-            //cbConcepto.ValueMember = "Clave";
+            llenarCombo(cbConcepto, dtIncidencia, "Descripcion");
+         
         }
 
         private void cbTipo_DropDown(object sender, EventArgs e)
@@ -478,6 +479,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
         {
             if (!String.IsNullOrEmpty(cbConcepto.Text))
             {
+           
                 Incidencia objIncidencia = new Incidencia();
                 objIncidencia.CVIncidencia = 0; 
                 objIncidencia.Descripcion = AsignarVariableCombo(cbConcepto);
@@ -491,10 +493,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
                 DataTable dtIncidencia = TipoIncidencias.ObtenerIncidenciaxTipo(objIncidencia, Opcion);
                 llenarCombo(cbTipo, dtIncidencia, "Tipo");
-                //cbTipo.DataSource = dtIncidencia;
-                //cbTipo.DisplayMember = "Tipo";
-                //cbTipo.ValueMember = "cvtipo";
-                //cbTipo.Text = "Seleccionar";
+             
             }
         }
 
@@ -505,7 +504,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox4.SelectedIndex != 0)
+          /*  if (comboBox4.SelectedIndex != 0)
             {
                 SonaCompania objCia = new SonaCompania();
                 cbArea.Enabled = true;
@@ -514,29 +513,53 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
 
 
-            }
+            }*/
           
         }
 
         private void cbCompañia2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SonaCompania objCia = new SonaCompania();
+            /*SonaCompania objCia = new SonaCompania();
             cbPlanta2.Enabled = true;
             DataTable dtArea = objCia.ObtenerPlantel(4, 0, cbCompañia2.SelectedItem.ToString(), "");
-            llenarCombo(cbPlanta2 , dtArea, "Descripción");
+            llenarCombo(cbPlanta2 , dtArea, "Descripción");*/
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //string sIdtrab = AsignarVariableCombo(cbNombre2);
-            string sCia = AsignarVariableCombo(cbCompañia2);
-            string sUbicacion = AsignarVariableCombo(cbUbicacion2);
-            string sArea = AsignarVariableCombo(cbPlanta2);
-            string sDepto = AsignarVariableCombo(cbDepartamento2);
-            string sIncidencia = AsignarVariableCombo(cbConcepto2);
-            DateTime dtFechaInicio = dtinicio2.Value;
-            DateTime dtFechaFin = dtfin2.Value;
+            
+            string sCia = AsignarVariableCombo(cbCia);
+            string sUbicacion = AsignarVariableCombo(cbUbicacion);
+            string sArea = AsignarVariableCombo(cbArea);
+            string sDepto = AsignarVariableCombo(cbDepartamento);
+            string sIncidencia = AsignarVariableCombo(cbIncidencia);
+            DateTime dtFechaInicio = dpFechaInicio.Value;
+            DateTime dtFechaFin = dpFechaFin.Value;
             Incidencia objInc = new Incidencia();
+            string Nomina = AsignarVariableCombo(cbTipoNomina);
+
+          
+
+            string activo;
+            if (cbActivo.SelectedIndex == 0)
+                activo = "%";
+            else if (cbActivo.SelectedIndex == 1)
+                activo = "1";
+            else
+                activo = "0"; 
+
+
+
+
+            string status_dir;
+            if (cbEstatus.SelectedIndex == 0)
+                status_dir = "%";
+            else
+                status_dir = cbEstatus.SelectedIndex.ToString();
+
+
+
+
 
 
             string sIdtrab = "";
@@ -547,7 +570,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             if (sIdtrab == "0")
                 sIdtrab = "%";
 
-            DataTable dtRpt = objInc.ReporteGenerico(sIdtrab, sCia, sUbicacion, sArea, sDepto,dtFechaInicio, dtFechaFin,sIncidencia);
+            DataTable dtRpt = objInc.ReporteGenerico(sIdtrab, sCia, sUbicacion, sArea, sDepto,dtFechaInicio, dtFechaFin,sIncidencia,activo, status_dir, Nomina);
             switch (dtRpt.Rows.Count)
             {
 
@@ -556,12 +579,12 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     break;
 
                 default:
-                    //DialogResult resulta = MessageBox.Show("Trae Datos", "SIPAA");
+                   
                     ViewerReporte form = new ViewerReporte();
                     Generico dtrpt = new Generico();
                     ReportDocument ReportDoc = Utilerias.ObtenerObjetoReporte(dtRpt, this.CompanyName, dtrpt.ResourceName);
 
-                   // ReportDoc.SetParameterValue("TotalRegistros", dtRpt.Rows.Count.ToString());
+                  
                     ReportDoc.SetParameterValue("FechaInicio", dpFechaInicio.Value);
                     ReportDoc.SetParameterValue("FechaFin", dpFechaFin.Value);
 
@@ -570,7 +593,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     form.Show();
                     DialogResult Resultado = MessageBox.Show("¿Desea crear el archivo en formato .csv para abrirlo con excel?", "SIPAA", MessageBoxButtons.YesNo);
                     if (Resultado == DialogResult.Yes)
-                       // creacsv(dtRpt);
+                      
                         creacsv2(dtRpt);
 
 
@@ -597,21 +620,20 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                  
 
                     string cadenaReg = "";
-                    cadenaReg = "Reporte Genérico del Periodo " + dtinicio2.Value.ToString("dd/MM/yy") + " al " + dtfin2.Value.ToString("dd/MM/yy");
+                    cadenaReg = "Reporte Genérico del Periodo " + dpFechaInicio.Value.ToString("dd/MM/yy") + " al " + dpFechaFin.Value.ToString("dd/MM/yy");
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
 
-                    cadenaReg = "IdTrab, Nombre, Puesto, Compañia , Ubicación, Fecha de Registro, Incidencia , Representa, Tiempo Empleado, Tiempo Profesor," +
-                        "Area, Departamento, Estatus, Autorizada, Descontada, Falta";
+                    cadenaReg = "IdTrab, Estado del Empleado, Nombre, Puesto, Fecha de Registro, Representa, Incidencia, Tiempo_Empleado, Tiempo_Profesor,"+
+                        " Estatus, Justificada, Descontada, Falta, Tipo de Nómina, Departamento, Plantel, Ubicación, Compañia";
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
 
                     foreach (DataRow row in dtRpt.Rows)
                     {
                         cadenaReg = row[0].ToString() + "," + row[1].ToString() + "," + row[2].ToString() + "," + row[3].ToString() + "," + row[4].ToString() +
-                            "," + row[5].ToString() + "," + row[6].ToString() + "," + row[7].ToString() + "," + row[8].ToString() + "," + row[9].ToString() +
-                            "," + row[10].ToString() + "," + row[11].ToString() + "," + row[12].ToString() + "," + row[13].ToString() + "," + row[14].ToString() +
-                            "," + row[15].ToString() ;
+                            "," + row[5].ToString() + "," + row[6].ToString() + "," + row[7].ToString() + "," + row[8].ToString() + "," + row[9].ToString() +","+row[10].ToString()+
+                            ","+row[11].ToString()+","+row[12].ToString()+","+row[13].ToString()+","+row[14].ToString()+","+row[15].ToString()+","+row[16].ToString()+","+row[17].ToString() ;
                         Texto.WriteLine(cadenaReg);
                     }
 
@@ -648,10 +670,11 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     StreamWriter Texto = new StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8);
 
                     string cadenaReg = "";
-                    cadenaReg = "Reporte por Conceptos";
+                    cadenaReg = "Reporte por Conceptos del periodo " + dpFechaInicio.Value.ToString("dd/MM/yy") + " al " + dpFechaFin.Value.ToString("dd/MM/yy");
                     Texto.WriteLine(cadenaReg);
+                  
                     Texto.Write(Texto.NewLine);
-                    cadenaReg = "Idtrab, Nombre, Incidencia, Tipo, Fecha_Inicio, Fecha_Fin, Dias Naturales, Dias Efectivos, Referencia, Compañia, Ubicación, Departamento, Tipo_Nomina, Plantel ";
+                    cadenaReg = "Idtrab, Nombre, Incidencia, Tipo, Fecha_Inicio, Fecha_Fin, Dias Naturales, Dias Efectivos, Referencia, Tipo_Nómina, Departamento, Ubicacion, Plantel, Compañia ";
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
 
@@ -689,14 +712,119 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         }
 
-        //-----------------------------------------------------------------------------------------------
-        //                                      R E P O R T E
-        //-----------------------------------------------------------------------------------------------
+        private void cbRepresenta_DropDown(object sender, EventArgs e)
+        {
+            cbIncidencia.Text = string.Empty;
+        }
 
+        private void cbRepresenta_DropDownClosed(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(cbRepresenta.Text))
+            {
 
+                Incidencia objIncidencia = new Incidencia();
+                objIncidencia.CVIncidencia = 0;
 
+                string sAsignacion;
+                if (cbRepresenta.SelectedIndex == 0)
+                    sAsignacion = "%";
+                else
+                    sAsignacion = cbRepresenta.SelectedIndex.ToString();
+                objIncidencia.Descripcion = sAsignacion;
+                objIncidencia.CVTipo = 1;
+                objIncidencia.TipoIncidencia = "";
+                objIncidencia.Estatus = "";
+                objIncidencia.UsuuMod = "";
+                objIncidencia.PrguMod = "";
+                objIncidencia.Estatus = "";
+                int Opcion = 10;
 
+                DataTable dtIncidencia = TipoIncidencias.ObtenerIncidenciaxTipo(objIncidencia, Opcion);
+                llenarCombo(cbIncidencia, dtIncidencia, "descripcion");
 
+            }
+        }
 
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_DropDownClosed(object sender, EventArgs e)
+        {
+            //cbEmpleados.Text = cbCia.Text = cbUbicacion.Text = cbArea.Text = cbDepartamento.Text = cbTipoNomina.Text = cbConcepto.Text = cbTipo.Text = cbEstatus.Text = cbRepresenta.Text = cbIncidencia.Text = cbActivo.Text = string.Empty;
+            /*
+            if (comboBox1.Text== "Reporte Anual")
+            {
+                label12.Visible = label17.Visible = false;
+                button5.Visible = button4.Visible = false;
+                cbEstatus.Visible = cbRepresenta.Visible = cbIncidencia.Visible = cbActivo.Visible = lbConcepto.Visible = lbTipo.Visible =  false;
+                lbEstatus.Visible = lbRepresenta.Visible = lbIncidencia.Visible = lbActivo.Visible = cbConcepto.Visible = cbTipo.Visible = false;
+             
+                btnImprimirResumen.Visible = label10.Visible = true;
+            }
+            else if (comboBox1.Text== "Reporte General")
+            {
+                button5.Visible = true;
+                button4.Visible = btnImprimirResumen.Visible = false;
+                //cbConcepto.Visible = cbTipo.Visible = false;
+                cbEstatus.Visible = cbRepresenta.Visible = cbIncidencia.Visible = cbActivo.Visible = true;
+                lbEstatus.Visible = lbRepresenta.Visible = lbIncidencia.Visible = lbActivo.Visible = true;
+
+                lbConcepto.Visible = lbTipo.Visible = false;
+                cbConcepto.Visible = cbTipo.Visible = false; 
+               
+            }
+            else if (comboBox1.Text== "Reporte por Conceptos")
+            {
+                button4.Visible = true;
+                button5.Visible = btnImprimirResumen.Visible = false;
+                lbConcepto.Visible = lbTipo.Visible = true;
+                cbConcepto.Visible = cbTipo.Visible = true;
+                cbEstatus.Visible = cbRepresenta.Visible = cbIncidencia.Visible = cbActivo.Visible = false;
+                lbEstatus.Visible = lbRepresenta.Visible = lbIncidencia.Visible = lbActivo.Visible = false;
+            }*/
+        }
+
+        private void comboBox1_DropDown(object sender, EventArgs e)
+        {
+      
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbEmpleados.SelectedIndex = cbCia.SelectedIndex = cbUbicacion.SelectedIndex = cbArea.SelectedIndex = cbDepartamento.SelectedIndex = cbTipoNomina.SelectedIndex = 0;
+            cbEmpleados.Visible = lbEmpleado.Visible = cbCia.Visible = lbCia.Visible = cbUbicacion.Visible = lbUbicacion.Visible = cbArea.Visible = lbArea.Visible = cbDepartamento.Visible = lbDepto.Visible = cbTipoNomina.Visible = lbTipoNomina.Visible = lbFechaInicio.Visible= lbFechaFin.Visible= dpFechaFin.Visible= dpFechaInicio.Visible= true ;
+
+            if (comboBox1.SelectedIndex==0)
+            {
+               
+                btnImprimirResumen.Visible = label10.Visible = true;
+                button5.Visible = label12.Visible = false;
+                label17.Visible = button4.Visible = false;
+
+                cbConcepto.Visible = cbTipo.Visible = lbConcepto.Visible = lbTipo.Visible = false;
+                cbEstatus.Visible = lbEstatus.Visible= cbIncidencia.Visible = lbIncidencia.Visible= cbRepresenta.Visible = lbRepresenta.Visible= cbActivo.Visible = lbActivo.Visible= false; 
+                
+            }
+            else if (comboBox1.SelectedIndex==1)
+            {
+                button5.Visible = label12.Visible = true;
+                btnImprimirResumen.Visible = label10.Visible =  false;
+                label17.Visible = button4.Visible = false;
+                cbConcepto.Visible = cbTipo.Visible = lbConcepto.Visible = lbTipo.Visible = false;
+                cbEstatus.Visible = lbEstatus.Visible = cbIncidencia.Visible = lbIncidencia.Visible = cbRepresenta.Visible = lbRepresenta.Visible = cbActivo.Visible = lbActivo.Visible = true;
+
+            }
+            else if(comboBox1.SelectedIndex==2)
+            {
+                label17.Visible = button4.Visible = true;
+                button5.Visible = label12.Visible = false;
+                btnImprimirResumen.Visible = label10.Visible = false;
+                cbConcepto.Visible = cbTipo.Visible = lbConcepto.Visible = lbTipo.Visible = true;
+                cbEstatus.Visible = lbEstatus.Visible = cbIncidencia.Visible = lbIncidencia.Visible = cbRepresenta.Visible = lbRepresenta.Visible = cbActivo.Visible = lbActivo.Visible = false;
+             
+            }
+        }
     }
 }

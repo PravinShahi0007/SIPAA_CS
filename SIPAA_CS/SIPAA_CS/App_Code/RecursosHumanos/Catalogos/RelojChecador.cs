@@ -183,5 +183,37 @@ namespace SIPAA_CS.App_Code
             return dtForReg;
 
         }
+
+
+        public DataTable CambiaAsociacion(string sIdTrab1, string sIdtrab2, int iCVReloj, int iOpcion, DateTime FechaInicio, DateTime FechaFin,  string sUsuumod, string sPrgmod)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"usp_rechtrabreloj_suid";
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion objConexion = new Conexion();
+            objConexion.asignarConexion(cmd);
+
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_cvreloj", SqlDbType.Int).Value = iCVReloj;
+            cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = sUsuumod;
+            cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sPrgmod;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sIdTrab1;
+
+
+            objConexion.asignarConexion(cmd);
+            SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
+            objConexion.cerrarConexion();
+
+            DataTable dtForReg = new DataTable();
+            Adapter.Fill(dtForReg);
+            return dtForReg;
+
+        }
+
+
+
+
+
     } // class DiasFestivos
 } // namespace SIPAA_CS.Recursos_Humanos.App_Code

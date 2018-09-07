@@ -49,15 +49,21 @@
             System.Windows.Forms.Label label25;
             System.Windows.Forms.Label label26;
             System.Windows.Forms.Label label31;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label29;
+            System.Windows.Forms.Label label33;
+            System.Windows.Forms.Label label37;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblusuario = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -126,23 +132,44 @@
             this.label28 = new System.Windows.Forms.Label();
             this.panelTagRelojCheck = new System.Windows.Forms.Panel();
             this.lbMensajeRelojCheck = new System.Windows.Forms.Label();
-            this.tabHuella = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.panelHuella = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnAgregarHuella = new System.Windows.Forms.Button();
-            this.txtEstatus = new System.Windows.Forms.TextBox();
-            this.lbHuella = new System.Windows.Forms.Label();
+            this.tabAgregarReloj = new System.Windows.Forms.TabPage();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.pnlAgrega = new System.Windows.Forms.Panel();
+            this.btnAgrega = new System.Windows.Forms.Button();
+            this.pnlAgregaRelojes = new System.Windows.Forms.Panel();
+            this.lblAgregaRelojes = new System.Windows.Forms.Label();
+            this.dgvAgrega = new System.Windows.Forms.DataGridView();
+            this.label32 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.label30 = new System.Windows.Forms.Label();
-            this.prgbar = new System.Windows.Forms.ProgressBar();
+            this.tabHuella = new System.Windows.Forms.TabPage();
+            this.pnlEliminaAsignaciones = new System.Windows.Forms.Panel();
+            this.lblEliminaAsignaciones = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.pnlElimina = new System.Windows.Forms.Panel();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dgvElimina = new System.Windows.Forms.DataGridView();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
-            this.PanelGuardarHuella = new System.Windows.Forms.Panel();
-            this.lblAccion = new System.Windows.Forms.Label();
-            this.btnGuardarHuella = new System.Windows.Forms.Button();
-            this.panelTagHuella = new System.Windows.Forms.Panel();
-            this.lbMensajeHuella = new System.Windows.Forms.Label();
-            this.pbHuella = new System.Windows.Forms.PictureBox();
+            this.tabCambiaAsociacion = new System.Windows.Forms.TabPage();
+            this.pnlCambia = new System.Windows.Forms.Panel();
+            this.lblCambia = new System.Windows.Forms.Label();
+            this.lbFechaFin = new System.Windows.Forms.Label();
+            this.lbFechaInicio = new System.Windows.Forms.Label();
+            this.dpFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaFin = new System.Windows.Forms.DateTimePicker();
+            this.label38 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pnlCambiarAsociacion = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label36 = new System.Windows.Forms.Label();
+            this.cbEmpleadosActivos = new System.Windows.Forms.ComboBox();
+            this.lbEmpleado = new System.Windows.Forms.Label();
+            this.cbEmpleadosInactivos = new System.Windows.Forms.ComboBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label34 = new System.Windows.Forms.Label();
             this.lbNombre = new System.Windows.Forms.Label();
             this.lbIdTrab = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -150,9 +177,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             label13 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -173,6 +197,8 @@
             label26 = new System.Windows.Forms.Label();
             label31 = new System.Windows.Forms.Label();
             label29 = new System.Windows.Forms.Label();
+            label33 = new System.Windows.Forms.Label();
+            label37 = new System.Windows.Forms.Label();
             this.tabAsignacion.SuspendLayout();
             this.tabPlantillaHorario.SuspendLayout();
             this.panelTag.SuspendLayout();
@@ -194,14 +220,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReloj)).BeginInit();
             this.panel14.SuspendLayout();
             this.panelTagRelojCheck.SuspendLayout();
-            this.tabHuella.SuspendLayout();
-            this.panelHuella.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.PanelGuardarHuella.SuspendLayout();
-            this.panelTagHuella.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHuella)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
+            this.tabAgregarReloj.SuspendLayout();
+            this.pnlAgrega.SuspendLayout();
+            this.pnlAgregaRelojes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgrega)).BeginInit();
             this.panel15.SuspendLayout();
+            this.tabHuella.SuspendLayout();
+            this.pnlEliminaAsignaciones.SuspendLayout();
+            this.pnlElimina.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElimina)).BeginInit();
+            this.panel16.SuspendLayout();
+            this.tabCambiaAsociacion.SuspendLayout();
+            this.pnlCambia.SuspendLayout();
+            this.pnlCambiarAsociacion.SuspendLayout();
+            this.panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
@@ -442,6 +475,46 @@
             label31.Text = "     Enviar Biometricos";
             label31.Click += new System.EventHandler(this.label31_Click);
             // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label29.ForeColor = System.Drawing.Color.Gray;
+            label29.Image = ((System.Drawing.Image)(resources.GetObject("label29.Image")));
+            label29.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label29.Location = new System.Drawing.Point(6, 7);
+            label29.Name = "label29";
+            label29.Size = new System.Drawing.Size(134, 17);
+            label29.TabIndex = 194;
+            label29.Text = "     Eliminar Relojes";
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label33.ForeColor = System.Drawing.Color.Gray;
+            label33.Image = ((System.Drawing.Image)(resources.GetObject("label33.Image")));
+            label33.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label33.Location = new System.Drawing.Point(6, 7);
+            label33.Name = "label33";
+            label33.Size = new System.Drawing.Size(131, 17);
+            label33.TabIndex = 194;
+            label33.Text = "     Agregar Relojes";
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label37.ForeColor = System.Drawing.Color.Gray;
+            label37.Image = ((System.Drawing.Image)(resources.GetObject("label37.Image")));
+            label37.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label37.Location = new System.Drawing.Point(3, 25);
+            label37.Name = "label37";
+            label37.Size = new System.Drawing.Size(255, 17);
+            label37.TabIndex = 194;
+            label37.Text = "      Realizar el cambio de Biométricos";
+            label37.Click += new System.EventHandler(this.label37_Click);
+            // 
             // lblusuario
             // 
             this.lblusuario.AutoSize = true;
@@ -521,7 +594,9 @@
             this.tabAsignacion.Controls.Add(this.tabPlantillaHorario);
             this.tabAsignacion.Controls.Add(this.tabFormasRegistro);
             this.tabAsignacion.Controls.Add(this.tabReloj);
+            this.tabAsignacion.Controls.Add(this.tabAgregarReloj);
             this.tabAsignacion.Controls.Add(this.tabHuella);
+            this.tabAsignacion.Controls.Add(this.tabCambiaAsociacion);
             this.tabAsignacion.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabAsignacion.Location = new System.Drawing.Point(-2, 177);
             this.tabAsignacion.Name = "tabAsignacion";
@@ -611,21 +686,21 @@
             this.dgvHorario.AllowUserToAddRows = false;
             this.dgvHorario.AllowUserToDeleteRows = false;
             this.dgvHorario.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvHorario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvHorario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
             this.dgvHorario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvHorario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvHorario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHorario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvHorario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHorario.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHorario.DefaultCellStyle = dataGridViewCellStyle38;
             this.dgvHorario.Location = new System.Drawing.Point(498, 229);
             this.dgvHorario.Name = "dgvHorario";
             this.dgvHorario.ReadOnly = true;
@@ -699,21 +774,21 @@
             this.c.AllowUserToAddRows = false;
             this.c.AllowUserToDeleteRows = false;
             this.c.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.c.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.c.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
             this.c.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.c.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.c.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.c.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.c.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.c.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.c.DefaultCellStyle = dataGridViewCellStyle40;
             this.c.Location = new System.Drawing.Point(450, 25);
             this.c.Name = "c";
             this.c.ReadOnly = true;
@@ -1101,22 +1176,22 @@
             this.dgvForReg.AllowUserToDeleteRows = false;
             this.dgvForReg.AllowUserToResizeColumns = false;
             this.dgvForReg.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
             this.dgvForReg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvForReg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvForReg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvForReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvForReg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvForReg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle42;
             this.dgvForReg.Location = new System.Drawing.Point(422, 116);
             this.dgvForReg.Name = "dgvForReg";
             this.dgvForReg.ReadOnly = true;
@@ -1157,8 +1232,6 @@
             // tabReloj
             // 
             this.tabReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.tabReloj.Controls.Add(this.textBox5);
-            this.tabReloj.Controls.Add(this.panel15);
             this.tabReloj.Controls.Add(this.textBox4);
             this.tabReloj.Controls.Add(this.textBox3);
             this.tabReloj.Controls.Add(this.textBox2);
@@ -1177,7 +1250,7 @@
             this.tabReloj.Padding = new System.Windows.Forms.Padding(3);
             this.tabReloj.Size = new System.Drawing.Size(1009, 565);
             this.tabReloj.TabIndex = 2;
-            this.tabReloj.Text = "Reloj Checador";
+            this.tabReloj.Text = "Toma de Biométricos";
             this.tabReloj.Click += new System.EventHandler(this.tabReloj_Click);
             // 
             // textBox4
@@ -1186,7 +1259,7 @@
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.textBox4.Location = new System.Drawing.Point(723, 306);
+            this.textBox4.Location = new System.Drawing.Point(723, 325);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(221, 66);
@@ -1199,7 +1272,7 @@
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.textBox3.Location = new System.Drawing.Point(723, 237);
+            this.textBox3.Location = new System.Drawing.Point(723, 256);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(221, 66);
@@ -1212,7 +1285,7 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.textBox2.Location = new System.Drawing.Point(722, 144);
+            this.textBox2.Location = new System.Drawing.Point(722, 163);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(221, 87);
@@ -1225,7 +1298,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.textBox1.Location = new System.Drawing.Point(723, 49);
+            this.textBox1.Location = new System.Drawing.Point(723, 68);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(221, 87);
@@ -1237,7 +1310,7 @@
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.panel13.Controls.Add(this.button6);
             this.panel13.Controls.Add(label31);
-            this.panel13.Location = new System.Drawing.Point(422, 310);
+            this.panel13.Location = new System.Drawing.Point(422, 329);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(294, 62);
             this.panel13.TabIndex = 202;
@@ -1262,7 +1335,7 @@
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.panel12.Controls.Add(this.button5);
             this.panel12.Controls.Add(label26);
-            this.panel12.Location = new System.Drawing.Point(422, 241);
+            this.panel12.Location = new System.Drawing.Point(422, 260);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(294, 62);
             this.panel12.TabIndex = 201;
@@ -1287,7 +1360,7 @@
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.panel11.Controls.Add(this.button4);
             this.panel11.Controls.Add(label25);
-            this.panel11.Location = new System.Drawing.Point(422, 142);
+            this.panel11.Location = new System.Drawing.Point(422, 161);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(294, 93);
             this.panel11.TabIndex = 200;
@@ -1310,11 +1383,11 @@
             // chkAdmin
             // 
             this.chkAdmin.AutoSize = true;
-            this.chkAdmin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAdmin.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chkAdmin.Location = new System.Drawing.Point(54, 44);
+            this.chkAdmin.Location = new System.Drawing.Point(54, 398);
             this.chkAdmin.Name = "chkAdmin";
-            this.chkAdmin.Size = new System.Drawing.Size(186, 22);
+            this.chkAdmin.Size = new System.Drawing.Size(222, 26);
             this.chkAdmin.TabIndex = 206;
             this.chkAdmin.Tag = "Eliminar";
             this.chkAdmin.Text = "Administrador de Reloj";
@@ -1324,20 +1397,20 @@
             // lbGridReloj
             // 
             this.lbGridReloj.AutoSize = true;
-            this.lbGridReloj.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.lbGridReloj.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbGridReloj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lbGridReloj.Location = new System.Drawing.Point(80, 395);
+            this.lbGridReloj.Location = new System.Drawing.Point(35, 39);
             this.lbGridReloj.Name = "lbGridReloj";
-            this.lbGridReloj.Size = new System.Drawing.Size(279, 16);
+            this.lbGridReloj.Size = new System.Drawing.Size(420, 17);
             this.lbGridReloj.TabIndex = 203;
-            this.lbGridReloj.Text = "Seleccione uno o varios relojes para asignarlos";
+            this.lbGridReloj.Text = "Seleccione uno o varios relojes para asignarlos por primera vez";
             // 
             // PanelReloj
             // 
             this.PanelReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.PanelReloj.Controls.Add(this.btnGuardarReloj);
             this.PanelReloj.Controls.Add(label27);
-            this.PanelReloj.Location = new System.Drawing.Point(422, 49);
+            this.PanelReloj.Location = new System.Drawing.Point(422, 68);
             this.PanelReloj.Name = "PanelReloj";
             this.PanelReloj.Size = new System.Drawing.Size(294, 87);
             this.PanelReloj.TabIndex = 199;
@@ -1363,8 +1436,8 @@
             this.dgvReloj.AllowUserToDeleteRows = false;
             this.dgvReloj.AllowUserToResizeColumns = false;
             this.dgvReloj.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
             this.dgvReloj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReloj.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvReloj.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
@@ -1372,14 +1445,14 @@
             this.dgvReloj.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvReloj.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReloj.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle44;
             this.dgvReloj.Location = new System.Drawing.Point(54, 68);
             this.dgvReloj.Name = "dgvReloj";
             this.dgvReloj.ReadOnly = true;
@@ -1442,129 +1515,286 @@
             this.lbMensajeRelojCheck.Text = "Administración de Perfiles    ";
             this.lbMensajeRelojCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabHuella
+            // tabAgregarReloj
             // 
-            this.tabHuella.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.tabHuella.Controls.Add(this.checkBox1);
-            this.tabHuella.Controls.Add(this.panelHuella);
-            this.tabHuella.Controls.Add(this.txtEstatus);
-            this.tabHuella.Controls.Add(this.lbHuella);
-            this.tabHuella.Controls.Add(this.label30);
-            this.tabHuella.Controls.Add(this.prgbar);
-            this.tabHuella.Controls.Add(this.panel16);
-            this.tabHuella.Controls.Add(this.PanelGuardarHuella);
-            this.tabHuella.Controls.Add(this.panelTagHuella);
-            this.tabHuella.Controls.Add(this.pbHuella);
-            this.tabHuella.Location = new System.Drawing.Point(4, 29);
-            this.tabHuella.Name = "tabHuella";
-            this.tabHuella.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHuella.Size = new System.Drawing.Size(1009, 565);
-            this.tabHuella.TabIndex = 3;
-            this.tabHuella.Text = "Huella Digital";
+            this.tabAgregarReloj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.tabAgregarReloj.Controls.Add(this.textBox6);
+            this.tabAgregarReloj.Controls.Add(this.pnlAgrega);
+            this.tabAgregarReloj.Controls.Add(this.pnlAgregaRelojes);
+            this.tabAgregarReloj.Controls.Add(this.dgvAgrega);
+            this.tabAgregarReloj.Controls.Add(this.label32);
+            this.tabAgregarReloj.Controls.Add(this.panel15);
+            this.tabAgregarReloj.Location = new System.Drawing.Point(4, 29);
+            this.tabAgregarReloj.Name = "tabAgregarReloj";
+            this.tabAgregarReloj.Size = new System.Drawing.Size(1009, 565);
+            this.tabAgregarReloj.TabIndex = 4;
+            this.tabAgregarReloj.Text = "Agregar Relojes";
             // 
-            // checkBox1
+            // textBox6
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.checkBox1.Location = new System.Drawing.Point(516, 31);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(74, 20);
-            this.checkBox1.TabIndex = 56;
-            this.checkBox1.Tag = "Eliminar";
-            this.checkBox1.Text = "Eliminar";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.Visible = false;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox6.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.textBox6.Location = new System.Drawing.Point(422, 155);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(221, 50);
+            this.textBox6.TabIndex = 217;
+            this.textBox6.Text = "Solo agrega los relojes seleccionados a los ya existentes";
             // 
-            // panelHuella
+            // pnlAgrega
             // 
-            this.panelHuella.Controls.Add(this.label14);
-            this.panelHuella.Controls.Add(this.btnAgregarHuella);
-            this.panelHuella.Location = new System.Drawing.Point(720, 9);
-            this.panelHuella.Name = "panelHuella";
-            this.panelHuella.Size = new System.Drawing.Size(268, 63);
-            this.panelHuella.TabIndex = 203;
+            this.pnlAgrega.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlAgrega.Controls.Add(this.btnAgrega);
+            this.pnlAgrega.Controls.Add(label33);
+            this.pnlAgrega.Location = new System.Drawing.Point(422, 87);
+            this.pnlAgrega.Name = "pnlAgrega";
+            this.pnlAgrega.Size = new System.Drawing.Size(294, 62);
+            this.pnlAgrega.TabIndex = 216;
+            this.pnlAgrega.TabStop = true;
             // 
-            // label14
+            // btnAgrega
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Gray;
-            this.label14.Image = ((System.Drawing.Image)(resources.GetObject("label14.Image")));
-            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label14.Location = new System.Drawing.Point(1, 21);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(205, 18);
-            this.label14.TabIndex = 57;
-            this.label14.Text = "        Registrar Nueva Huella";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
+            this.btnAgrega.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnAgrega.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgrega.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnAgrega.Image = global::SIPAA_CS.Properties.Resources.Agregar;
+            this.btnAgrega.Location = new System.Drawing.Point(228, 3);
+            this.btnAgrega.Name = "btnAgrega";
+            this.btnAgrega.Size = new System.Drawing.Size(50, 50);
+            this.btnAgrega.TabIndex = 195;
+            this.btnAgrega.Tag = "Agregar";
+            this.btnAgrega.UseVisualStyleBackColor = false;
+            this.btnAgrega.Click += new System.EventHandler(this.btnAgrega_Click);
             // 
-            // btnAgregarHuella
+            // pnlAgregaRelojes
             // 
-            this.btnAgregarHuella.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnAgregarHuella.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarHuella.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnAgregarHuella.Image = global::SIPAA_CS.Properties.Resources.Agregar;
-            this.btnAgregarHuella.Location = new System.Drawing.Point(212, 4);
-            this.btnAgregarHuella.Name = "btnAgregarHuella";
-            this.btnAgregarHuella.Size = new System.Drawing.Size(50, 50);
-            this.btnAgregarHuella.TabIndex = 57;
-            this.btnAgregarHuella.Tag = "Agregar";
-            this.btnAgregarHuella.UseVisualStyleBackColor = false;
-            this.btnAgregarHuella.Click += new System.EventHandler(this.btnAgregarHuella_Click);
+            this.pnlAgregaRelojes.BackColor = System.Drawing.Color.Transparent;
+            this.pnlAgregaRelojes.Controls.Add(this.lblAgregaRelojes);
+            this.pnlAgregaRelojes.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlAgregaRelojes.Location = new System.Drawing.Point(370, 455);
+            this.pnlAgregaRelojes.Name = "pnlAgregaRelojes";
+            this.pnlAgregaRelojes.Size = new System.Drawing.Size(628, 30);
+            this.pnlAgregaRelojes.TabIndex = 215;
+            this.pnlAgregaRelojes.Visible = false;
             // 
-            // txtEstatus
+            // lblAgregaRelojes
             // 
-            this.txtEstatus.Location = new System.Drawing.Point(614, 117);
-            this.txtEstatus.Multiline = true;
-            this.txtEstatus.Name = "txtEstatus";
-            this.txtEstatus.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtEstatus.Size = new System.Drawing.Size(388, 252);
-            this.txtEstatus.TabIndex = 202;
+            this.lblAgregaRelojes.AutoSize = true;
+            this.lblAgregaRelojes.BackColor = System.Drawing.Color.Transparent;
+            this.lblAgregaRelojes.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAgregaRelojes.ForeColor = System.Drawing.Color.White;
+            this.lblAgregaRelojes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAgregaRelojes.Location = new System.Drawing.Point(9, 5);
+            this.lblAgregaRelojes.Name = "lblAgregaRelojes";
+            this.lblAgregaRelojes.Size = new System.Drawing.Size(181, 20);
+            this.lblAgregaRelojes.TabIndex = 26;
+            this.lblAgregaRelojes.Text = "Administración de Perfiles    ";
+            this.lblAgregaRelojes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbHuella
+            // dgvAgrega
             // 
-            this.lbHuella.AutoSize = true;
-            this.lbHuella.BackColor = System.Drawing.Color.Transparent;
-            this.lbHuella.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHuella.ForeColor = System.Drawing.Color.Gray;
-            this.lbHuella.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbHuella.Location = new System.Drawing.Point(362, 466);
-            this.lbHuella.Name = "lbHuella";
-            this.lbHuella.Size = new System.Drawing.Size(123, 18);
-            this.lbHuella.TabIndex = 201;
-            this.lbHuella.Text = "Ingreso Huella 0";
+            this.dgvAgrega.AllowUserToAddRows = false;
+            this.dgvAgrega.AllowUserToDeleteRows = false;
+            this.dgvAgrega.AllowUserToResizeColumns = false;
+            this.dgvAgrega.AllowUserToResizeRows = false;
+            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvAgrega.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
+            this.dgvAgrega.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAgrega.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvAgrega.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.dgvAgrega.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAgrega.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvAgrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAgrega.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAgrega.DefaultCellStyle = dataGridViewCellStyle46;
+            this.dgvAgrega.Location = new System.Drawing.Point(44, 87);
+            this.dgvAgrega.Name = "dgvAgrega";
+            this.dgvAgrega.ReadOnly = true;
+            this.dgvAgrega.RowHeadersVisible = false;
+            this.dgvAgrega.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvAgrega.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
+            this.dgvAgrega.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
+            this.dgvAgrega.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAgrega.Size = new System.Drawing.Size(348, 324);
+            this.dgvAgrega.TabIndex = 207;
+            this.dgvAgrega.Tag = "Editar";
+            this.dgvAgrega.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAgrega_CellContentClick);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label32.Location = new System.Drawing.Point(41, 46);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(280, 17);
+            this.label32.TabIndex = 206;
+            this.label32.Text = "Seleccione los relojes que desea agregar ";
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel15.Controls.Add(this.label30);
+            this.panel15.Location = new System.Drawing.Point(21, 9);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(353, 25);
+            this.panel15.TabIndex = 198;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.BackColor = System.Drawing.Color.Transparent;
-            this.label30.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.ForeColor = System.Drawing.Color.Gray;
-            this.label30.Image = ((System.Drawing.Image)(resources.GetObject("label30.Image")));
+            this.label30.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.White;
+            this.label30.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
             this.label30.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label30.Location = new System.Drawing.Point(611, 87);
+            this.label30.Location = new System.Drawing.Point(19, 3);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(138, 18);
-            this.label30.TabIndex = 57;
-            this.label30.Text = "       Estatus Huella";
+            this.label30.Size = new System.Drawing.Size(193, 20);
+            this.label30.TabIndex = 183;
+            this.label30.Text = "        Agregar Nuevos Relojes ";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // prgbar
+            // tabHuella
             // 
-            this.prgbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.prgbar.Location = new System.Drawing.Point(361, 442);
-            this.prgbar.Name = "prgbar";
-            this.prgbar.Size = new System.Drawing.Size(640, 10);
-            this.prgbar.TabIndex = 199;
-            this.prgbar.Visible = false;
+            this.tabHuella.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.tabHuella.Controls.Add(this.pnlEliminaAsignaciones);
+            this.tabHuella.Controls.Add(this.textBox5);
+            this.tabHuella.Controls.Add(this.pnlElimina);
+            this.tabHuella.Controls.Add(this.label14);
+            this.tabHuella.Controls.Add(this.dgvElimina);
+            this.tabHuella.Controls.Add(this.panel16);
+            this.tabHuella.Location = new System.Drawing.Point(4, 29);
+            this.tabHuella.Name = "tabHuella";
+            this.tabHuella.Padding = new System.Windows.Forms.Padding(3);
+            this.tabHuella.Size = new System.Drawing.Size(1009, 565);
+            this.tabHuella.TabIndex = 3;
+            this.tabHuella.Text = "Eliminar Relojes";
+            // 
+            // pnlEliminaAsignaciones
+            // 
+            this.pnlEliminaAsignaciones.BackColor = System.Drawing.Color.Transparent;
+            this.pnlEliminaAsignaciones.Controls.Add(this.lblEliminaAsignaciones);
+            this.pnlEliminaAsignaciones.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlEliminaAsignaciones.Location = new System.Drawing.Point(375, 412);
+            this.pnlEliminaAsignaciones.Name = "pnlEliminaAsignaciones";
+            this.pnlEliminaAsignaciones.Size = new System.Drawing.Size(628, 30);
+            this.pnlEliminaAsignaciones.TabIndex = 214;
+            this.pnlEliminaAsignaciones.Visible = false;
+            // 
+            // lblEliminaAsignaciones
+            // 
+            this.lblEliminaAsignaciones.AutoSize = true;
+            this.lblEliminaAsignaciones.BackColor = System.Drawing.Color.Transparent;
+            this.lblEliminaAsignaciones.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEliminaAsignaciones.ForeColor = System.Drawing.Color.White;
+            this.lblEliminaAsignaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEliminaAsignaciones.Location = new System.Drawing.Point(9, 5);
+            this.lblEliminaAsignaciones.Name = "lblEliminaAsignaciones";
+            this.lblEliminaAsignaciones.Size = new System.Drawing.Size(181, 20);
+            this.lblEliminaAsignaciones.TabIndex = 26;
+            this.lblEliminaAsignaciones.Text = "Administración de Perfiles    ";
+            this.lblEliminaAsignaciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.textBox5.Location = new System.Drawing.Point(446, 147);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(221, 66);
+            this.textBox5.TabIndex = 213;
+            this.textBox5.Text = "Consulte en la pestaña anterior los relojes que tiene asignados el empleado";
+            // 
+            // pnlElimina
+            // 
+            this.pnlElimina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlElimina.Controls.Add(this.btnEliminar);
+            this.pnlElimina.Controls.Add(label29);
+            this.pnlElimina.Location = new System.Drawing.Point(422, 79);
+            this.pnlElimina.Name = "pnlElimina";
+            this.pnlElimina.Size = new System.Drawing.Size(294, 62);
+            this.pnlElimina.TabIndex = 212;
+            this.pnlElimina.TabStop = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.btndel;
+            this.btnEliminar.Location = new System.Drawing.Point(229, 3);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(50, 50);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Tag = "Guardar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label14.Location = new System.Drawing.Point(43, 48);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(399, 17);
+            this.label14.TabIndex = 205;
+            this.label14.Text = "Solo seleccione los relojes que desea eliminar del empleado";
+            // 
+            // dgvElimina
+            // 
+            this.dgvElimina.AllowUserToAddRows = false;
+            this.dgvElimina.AllowUserToDeleteRows = false;
+            this.dgvElimina.AllowUserToResizeColumns = false;
+            this.dgvElimina.AllowUserToResizeRows = false;
+            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvElimina.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle47;
+            this.dgvElimina.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvElimina.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvElimina.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.dgvElimina.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvElimina.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvElimina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvElimina.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvElimina.DefaultCellStyle = dataGridViewCellStyle48;
+            this.dgvElimina.Location = new System.Drawing.Point(46, 79);
+            this.dgvElimina.Name = "dgvElimina";
+            this.dgvElimina.ReadOnly = true;
+            this.dgvElimina.RowHeadersVisible = false;
+            this.dgvElimina.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvElimina.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
+            this.dgvElimina.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
+            this.dgvElimina.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvElimina.Size = new System.Drawing.Size(348, 324);
+            this.dgvElimina.TabIndex = 204;
+            this.dgvElimina.Tag = "Editar";
+            this.dgvElimina.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvElimina_CellContentClick);
             // 
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel16.Controls.Add(this.label17);
-            this.panel16.Location = new System.Drawing.Point(0, 30);
+            this.panel16.Location = new System.Drawing.Point(0, 9);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(353, 25);
             this.panel16.TabIndex = 198;
@@ -1579,85 +1809,245 @@
             this.label17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label17.Location = new System.Drawing.Point(19, 3);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(167, 20);
+            this.label17.Size = new System.Drawing.Size(173, 20);
             this.label17.TabIndex = 183;
-            this.label17.Text = "        Asignar Huella Digital";
+            this.label17.Text = "        Eliminar Asignaciones";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PanelGuardarHuella
+            // tabCambiaAsociacion
             // 
-            this.PanelGuardarHuella.BackColor = System.Drawing.Color.Transparent;
-            this.PanelGuardarHuella.Controls.Add(this.lblAccion);
-            this.PanelGuardarHuella.Controls.Add(this.btnGuardarHuella);
-            this.PanelGuardarHuella.ForeColor = System.Drawing.SystemColors.Control;
-            this.PanelGuardarHuella.Location = new System.Drawing.Point(23, 87);
-            this.PanelGuardarHuella.Name = "PanelGuardarHuella";
-            this.PanelGuardarHuella.Size = new System.Drawing.Size(304, 118);
-            this.PanelGuardarHuella.TabIndex = 115;
-            this.PanelGuardarHuella.TabStop = true;
+            this.tabCambiaAsociacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.tabCambiaAsociacion.Controls.Add(this.pnlCambia);
+            this.tabCambiaAsociacion.Controls.Add(this.lbFechaFin);
+            this.tabCambiaAsociacion.Controls.Add(this.lbFechaInicio);
+            this.tabCambiaAsociacion.Controls.Add(this.dpFechaInicio);
+            this.tabCambiaAsociacion.Controls.Add(this.dpFechaFin);
+            this.tabCambiaAsociacion.Controls.Add(this.label38);
+            this.tabCambiaAsociacion.Controls.Add(this.comboBox1);
+            this.tabCambiaAsociacion.Controls.Add(this.pnlCambiarAsociacion);
+            this.tabCambiaAsociacion.Controls.Add(this.label36);
+            this.tabCambiaAsociacion.Controls.Add(this.cbEmpleadosActivos);
+            this.tabCambiaAsociacion.Controls.Add(this.lbEmpleado);
+            this.tabCambiaAsociacion.Controls.Add(this.cbEmpleadosInactivos);
+            this.tabCambiaAsociacion.Controls.Add(this.label35);
+            this.tabCambiaAsociacion.Controls.Add(this.panel17);
+            this.tabCambiaAsociacion.Location = new System.Drawing.Point(4, 29);
+            this.tabCambiaAsociacion.Name = "tabCambiaAsociacion";
+            this.tabCambiaAsociacion.Size = new System.Drawing.Size(1009, 565);
+            this.tabCambiaAsociacion.TabIndex = 5;
+            this.tabCambiaAsociacion.Text = "Cambiar Asociación";
             // 
-            // lblAccion
+            // pnlCambia
             // 
-            this.lblAccion.AutoSize = true;
-            this.lblAccion.BackColor = System.Drawing.Color.Transparent;
-            this.lblAccion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccion.ForeColor = System.Drawing.Color.Gray;
-            this.lblAccion.Image = ((System.Drawing.Image)(resources.GetObject("lblAccion.Image")));
-            this.lblAccion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblAccion.Location = new System.Drawing.Point(35, 23);
-            this.lblAccion.Name = "lblAccion";
-            this.lblAccion.Size = new System.Drawing.Size(174, 18);
-            this.lblAccion.TabIndex = 41;
-            this.lblAccion.Text = "       Guardar Asignación";
+            this.pnlCambia.BackColor = System.Drawing.Color.Transparent;
+            this.pnlCambia.Controls.Add(this.lblCambia);
+            this.pnlCambia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlCambia.Location = new System.Drawing.Point(361, 511);
+            this.pnlCambia.Name = "pnlCambia";
+            this.pnlCambia.Size = new System.Drawing.Size(628, 30);
+            this.pnlCambia.TabIndex = 235;
+            this.pnlCambia.Visible = false;
             // 
-            // btnGuardarHuella
+            // lblCambia
             // 
-            this.btnGuardarHuella.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardarHuella.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarHuella.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnGuardarHuella.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardarHuella.Location = new System.Drawing.Point(233, 6);
-            this.btnGuardarHuella.Name = "btnGuardarHuella";
-            this.btnGuardarHuella.Size = new System.Drawing.Size(50, 50);
-            this.btnGuardarHuella.TabIndex = 52;
-            this.btnGuardarHuella.Tag = "Guardar";
-            this.btnGuardarHuella.UseVisualStyleBackColor = false;
-            this.btnGuardarHuella.Click += new System.EventHandler(this.btnGuardarHuella_Click);
+            this.lblCambia.AutoSize = true;
+            this.lblCambia.BackColor = System.Drawing.Color.Transparent;
+            this.lblCambia.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCambia.ForeColor = System.Drawing.Color.White;
+            this.lblCambia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCambia.Location = new System.Drawing.Point(9, 5);
+            this.lblCambia.Name = "lblCambia";
+            this.lblCambia.Size = new System.Drawing.Size(181, 20);
+            this.lblCambia.TabIndex = 26;
+            this.lblCambia.Text = "Administración de Perfiles    ";
+            this.lblCambia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelTagHuella
+            // lbFechaFin
             // 
-            this.panelTagHuella.BackColor = System.Drawing.Color.Transparent;
-            this.panelTagHuella.Controls.Add(this.lbMensajeHuella);
-            this.panelTagHuella.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTagHuella.Location = new System.Drawing.Point(365, 384);
-            this.panelTagHuella.Name = "panelTagHuella";
-            this.panelTagHuella.Size = new System.Drawing.Size(637, 58);
-            this.panelTagHuella.TabIndex = 114;
-            this.panelTagHuella.Visible = false;
+            this.lbFechaFin.AutoSize = true;
+            this.lbFechaFin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFechaFin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.lbFechaFin.Location = new System.Drawing.Point(194, 270);
+            this.lbFechaFin.Name = "lbFechaFin";
+            this.lbFechaFin.Size = new System.Drawing.Size(66, 16);
+            this.lbFechaFin.TabIndex = 234;
+            this.lbFechaFin.Text = "Fecha Fin";
+            this.lbFechaFin.Visible = false;
             // 
-            // lbMensajeHuella
+            // lbFechaInicio
             // 
-            this.lbMensajeHuella.AutoSize = true;
-            this.lbMensajeHuella.BackColor = System.Drawing.Color.Transparent;
-            this.lbMensajeHuella.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMensajeHuella.ForeColor = System.Drawing.Color.White;
-            this.lbMensajeHuella.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbMensajeHuella.Location = new System.Drawing.Point(3, 15);
-            this.lbMensajeHuella.Name = "lbMensajeHuella";
-            this.lbMensajeHuella.Size = new System.Drawing.Size(88, 29);
-            this.lbMensajeHuella.TabIndex = 26;
-            this.lbMensajeHuella.Text = "Mensaje";
-            this.lbMensajeHuella.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbFechaInicio.AutoSize = true;
+            this.lbFechaInicio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFechaInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.lbFechaInicio.Location = new System.Drawing.Point(43, 270);
+            this.lbFechaInicio.Name = "lbFechaInicio";
+            this.lbFechaInicio.Size = new System.Drawing.Size(96, 16);
+            this.lbFechaInicio.TabIndex = 233;
+            this.lbFechaInicio.Text = "Fecha de Inicio";
+            this.lbFechaInicio.Visible = false;
             // 
-            // pbHuella
+            // dpFechaInicio
             // 
-            this.pbHuella.BackColor = System.Drawing.Color.White;
-            this.pbHuella.Location = new System.Drawing.Point(365, 87);
-            this.pbHuella.Name = "pbHuella";
-            this.pbHuella.Size = new System.Drawing.Size(226, 282);
-            this.pbHuella.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbHuella.TabIndex = 1;
-            this.pbHuella.TabStop = false;
+            this.dpFechaInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaInicio.Location = new System.Drawing.Point(46, 289);
+            this.dpFechaInicio.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.dpFechaInicio.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
+            this.dpFechaInicio.Name = "dpFechaInicio";
+            this.dpFechaInicio.Size = new System.Drawing.Size(109, 25);
+            this.dpFechaInicio.TabIndex = 232;
+            this.dpFechaInicio.Visible = false;
+            // 
+            // dpFechaFin
+            // 
+            this.dpFechaFin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaFin.Location = new System.Drawing.Point(197, 289);
+            this.dpFechaFin.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
+            this.dpFechaFin.MinDate = new System.DateTime(2018, 1, 16, 0, 0, 0, 0);
+            this.dpFechaFin.Name = "dpFechaFin";
+            this.dpFechaFin.Size = new System.Drawing.Size(109, 25);
+            this.dpFechaFin.TabIndex = 231;
+            this.dpFechaFin.Visible = false;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label38.Location = new System.Drawing.Point(29, 209);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(136, 16);
+            this.label38.TabIndex = 230;
+            this.label38.Text = "¿Exportar Asistencia?";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.comboBox1.DropDownWidth = 500;
+            this.comboBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "No",
+            "Si"});
+            this.comboBox1.Location = new System.Drawing.Point(32, 228);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(345, 25);
+            this.comboBox1.TabIndex = 229;
+            this.comboBox1.Text = "Seleccionar";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // pnlCambiarAsociacion
+            // 
+            this.pnlCambiarAsociacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlCambiarAsociacion.Controls.Add(this.button7);
+            this.pnlCambiarAsociacion.Controls.Add(label37);
+            this.pnlCambiarAsociacion.Location = new System.Drawing.Point(659, 408);
+            this.pnlCambiarAsociacion.Name = "pnlCambiarAsociacion";
+            this.pnlCambiarAsociacion.Size = new System.Drawing.Size(330, 67);
+            this.pnlCambiarAsociacion.TabIndex = 228;
+            this.pnlCambiarAsociacion.TabStop = true;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button7.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.button7.Location = new System.Drawing.Point(264, 8);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(50, 50);
+            this.button7.TabIndex = 2;
+            this.button7.Tag = "Guardar";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label36.Location = new System.Drawing.Point(29, 139);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(231, 16);
+            this.label36.TabIndex = 227;
+            this.label36.Text = "Nombre de Trabajador (Nuevo y Activo)";
+            // 
+            // cbEmpleadosActivos
+            // 
+            this.cbEmpleadosActivos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbEmpleadosActivos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbEmpleadosActivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleadosActivos.DropDownWidth = 500;
+            this.cbEmpleadosActivos.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEmpleadosActivos.FormattingEnabled = true;
+            this.cbEmpleadosActivos.Location = new System.Drawing.Point(32, 158);
+            this.cbEmpleadosActivos.Name = "cbEmpleadosActivos";
+            this.cbEmpleadosActivos.Size = new System.Drawing.Size(345, 25);
+            this.cbEmpleadosActivos.TabIndex = 226;
+            this.cbEmpleadosActivos.Text = "Seleccionar";
+            // 
+            // lbEmpleado
+            // 
+            this.lbEmpleado.AutoSize = true;
+            this.lbEmpleado.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEmpleado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.lbEmpleado.Location = new System.Drawing.Point(29, 75);
+            this.lbEmpleado.Name = "lbEmpleado";
+            this.lbEmpleado.Size = new System.Drawing.Size(250, 16);
+            this.lbEmpleado.TabIndex = 225;
+            this.lbEmpleado.Text = "Nombre de Trabajador (Anterior e Inactivo)";
+            // 
+            // cbEmpleadosInactivos
+            // 
+            this.cbEmpleadosInactivos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbEmpleadosInactivos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbEmpleadosInactivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbEmpleadosInactivos.DropDownWidth = 500;
+            this.cbEmpleadosInactivos.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEmpleadosInactivos.FormattingEnabled = true;
+            this.cbEmpleadosInactivos.Location = new System.Drawing.Point(32, 94);
+            this.cbEmpleadosInactivos.Name = "cbEmpleadosInactivos";
+            this.cbEmpleadosInactivos.Size = new System.Drawing.Size(345, 25);
+            this.cbEmpleadosInactivos.TabIndex = 224;
+            this.cbEmpleadosInactivos.Text = "Seleccionar";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label35.Location = new System.Drawing.Point(20, 46);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(435, 17);
+            this.label35.TabIndex = 206;
+            this.label35.Text = "Cambia los Biométricos de un empleado de una asociacion a otra";
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel17.Controls.Add(this.label34);
+            this.panel17.Location = new System.Drawing.Point(23, 9);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(353, 25);
+            this.panel17.TabIndex = 199;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.BackColor = System.Drawing.Color.Transparent;
+            this.label34.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.White;
+            this.label34.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.label34.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label34.Location = new System.Drawing.Point(19, 3);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(156, 20);
+            this.label34.TabIndex = 183;
+            this.label34.Text = "        Cambia Asociación";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbNombre
             // 
@@ -1726,57 +2116,6 @@
             this.ptbimgusuario.TabIndex = 183;
             this.ptbimgusuario.TabStop = false;
             // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.panel15.Controls.Add(this.btnEliminar);
-            this.panel15.Controls.Add(label29);
-            this.panel15.Location = new System.Drawing.Point(422, 395);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(294, 62);
-            this.panel15.TabIndex = 203;
-            this.panel15.TabStop = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.btnEliminar.Image = global::SIPAA_CS.Properties.Resources.btndel;
-            this.btnEliminar.Location = new System.Drawing.Point(231, 7);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(50, 50);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Tag = "Guardar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // label29
-            // 
-            label29.AutoSize = true;
-            label29.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label29.ForeColor = System.Drawing.Color.Gray;
-            label29.Image = ((System.Drawing.Image)(resources.GetObject("label29.Image")));
-            label29.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label29.Location = new System.Drawing.Point(6, 7);
-            label29.Name = "label29";
-            label29.Size = new System.Drawing.Size(171, 17);
-            label29.TabIndex = 194;
-            label29.Text = "     Eliminar Asignaciones";
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.textBox5.Location = new System.Drawing.Point(723, 392);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(221, 66);
-            this.textBox5.TabIndex = 211;
-            this.textBox5.Text = "Seleccione los relojes que desea eliminar ";
-            // 
             // AsignacionTrabajadorPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1840,20 +2179,33 @@
             this.panel14.PerformLayout();
             this.panelTagRelojCheck.ResumeLayout(false);
             this.panelTagRelojCheck.PerformLayout();
-            this.tabHuella.ResumeLayout(false);
-            this.tabHuella.PerformLayout();
-            this.panelHuella.ResumeLayout(false);
-            this.panelHuella.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.PanelGuardarHuella.ResumeLayout(false);
-            this.PanelGuardarHuella.PerformLayout();
-            this.panelTagHuella.ResumeLayout(false);
-            this.panelTagHuella.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHuella)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
+            this.tabAgregarReloj.ResumeLayout(false);
+            this.tabAgregarReloj.PerformLayout();
+            this.pnlAgrega.ResumeLayout(false);
+            this.pnlAgrega.PerformLayout();
+            this.pnlAgregaRelojes.ResumeLayout(false);
+            this.pnlAgregaRelojes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAgrega)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
+            this.tabHuella.ResumeLayout(false);
+            this.tabHuella.PerformLayout();
+            this.pnlEliminaAsignaciones.ResumeLayout(false);
+            this.pnlEliminaAsignaciones.PerformLayout();
+            this.pnlElimina.ResumeLayout(false);
+            this.pnlElimina.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElimina)).EndInit();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.tabCambiaAsociacion.ResumeLayout(false);
+            this.tabCambiaAsociacion.PerformLayout();
+            this.pnlCambia.ResumeLayout(false);
+            this.pnlCambia.PerformLayout();
+            this.pnlCambiarAsociacion.ResumeLayout(false);
+            this.pnlCambiarAsociacion.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1917,29 +2269,13 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lbGridReloj;
-        private System.Windows.Forms.Panel panelTagRelojCheck;
-        private System.Windows.Forms.Label lbMensajeRelojCheck;
         private System.Windows.Forms.Panel PanelReloj;
         private System.Windows.Forms.Button btnGuardarReloj;
         private System.Windows.Forms.DataGridView dgvReloj;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Panel panelTagHuella;
-        private System.Windows.Forms.Label lbMensajeHuella;
-        private System.Windows.Forms.Panel PanelGuardarHuella;
-        private System.Windows.Forms.Label lblAccion;
-        private System.Windows.Forms.Button btnGuardarHuella;
-        private System.Windows.Forms.Button btnAgregarHuella;
-        private System.Windows.Forms.PictureBox pbHuella;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ProgressBar prgbar;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label lbHuella;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox txtEstatus;
-        private System.Windows.Forms.Panel panelHuella;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.PictureBox ptbimgusuario;
         private System.Windows.Forms.CheckBox chkAdmin;
         private System.Windows.Forms.Panel panel12;
@@ -1952,8 +2288,42 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panelTagRelojCheck;
+        private System.Windows.Forms.Label lbMensajeRelojCheck;
+        private System.Windows.Forms.Panel pnlEliminaAsignaciones;
+        private System.Windows.Forms.Label lblEliminaAsignaciones;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel pnlElimina;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridView dgvElimina;
+        private System.Windows.Forms.TabPage tabAgregarReloj;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Panel pnlAgrega;
+        private System.Windows.Forms.Button btnAgrega;
+        private System.Windows.Forms.Panel pnlAgregaRelojes;
+        private System.Windows.Forms.Label lblAgregaRelojes;
+        private System.Windows.Forms.DataGridView dgvAgrega;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TabPage tabCambiaAsociacion;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.ComboBox cbEmpleadosActivos;
+        private System.Windows.Forms.Label lbEmpleado;
+        private System.Windows.Forms.ComboBox cbEmpleadosInactivos;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Panel pnlCambiarAsociacion;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label lbFechaFin;
+        private System.Windows.Forms.Label lbFechaInicio;
+        private System.Windows.Forms.DateTimePicker dpFechaInicio;
+        private System.Windows.Forms.DateTimePicker dpFechaFin;
+        private System.Windows.Forms.Panel pnlCambia;
+        private System.Windows.Forms.Label lblCambia;
     }
 }
