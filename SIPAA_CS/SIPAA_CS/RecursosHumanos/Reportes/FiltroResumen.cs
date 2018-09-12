@@ -617,7 +617,9 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 {
               
                     StreamWriter Texto = new StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8);
-                 
+                    int TiempoProfesor, TiempoEmpleado, Justificada, Descontada, Falta;
+                    TiempoProfesor = TiempoEmpleado = Justificada = Descontada = Falta = 0;
+
 
                     string cadenaReg = "";
                     cadenaReg = "Reporte Genérico del Periodo " + dpFechaInicio.Value.ToString("dd/MM/yy") + " al " + dpFechaFin.Value.ToString("dd/MM/yy");
@@ -629,13 +631,39 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
 
-                    foreach (DataRow row in dtRpt.Rows)
+
+                    for (int i = 0; i < dtRpt.Rows.Count - 1; ++i)
                     {
-                        cadenaReg = row[0].ToString() + "," + row[1].ToString() + "," + row[2].ToString() + "," + row[3].ToString() + "," + row[4].ToString() +
-                            "," + row[5].ToString() + "," + row[6].ToString() + "," + row[7].ToString() + "," + row[8].ToString() + "," + row[9].ToString() +","+row[10].ToString()+
-                            ","+row[11].ToString()+","+row[12].ToString()+","+row[13].ToString()+","+row[14].ToString()+","+row[15].ToString()+","+row[16].ToString()+","+row[17].ToString() ;
-                        Texto.WriteLine(cadenaReg);
+                        DataRow Fila = dtRpt.Rows[i];
+                        DataRow SiguienteFila = dtRpt.Rows[i + 1];                      
+                        if (!SiguienteFila.IsNull(2))
+                        {
+                            
+                            cadenaReg = Fila[0].ToString() + "," + Fila[1].ToString() + "," + Fila[2].ToString() + "," + Fila[3].ToString() + "," + Fila[4].ToString() +
+                            "," + Fila[5].ToString() + "," + Fila[6].ToString() + "," + Fila[7].ToString() + "," + Fila[8].ToString() + "," + Fila[9].ToString() + "," + Fila[10].ToString() +
+                            "," + Fila[11].ToString() + "," + Fila[12].ToString() + "," + Fila[13].ToString() + "," + Fila[14].ToString() + "," + Fila[15].ToString() + "," + Fila[16].ToString() + "," + Fila[17].ToString();
+                            Texto.WriteLine(cadenaReg);
+
+                            TiempoEmpleado = TiempoEmpleado + Convert.ToInt32(Fila[7].ToString());
+                            TiempoProfesor = TiempoProfesor + Convert.ToInt32(Fila[8].ToString());
+                            Justificada = Justificada + Convert.ToInt32(Fila[10].ToString());
+                            Descontada = Descontada + Convert.ToInt32(Fila[11].ToString());
+                            Falta = Falta + Convert.ToInt32(Fila[12].ToString());
+
+
+                            if (Fila[2].ToString() != SiguienteFila[2].ToString())
+                            {
+                                cadenaReg = " , , , , , , ," + TiempoEmpleado + "," + TiempoProfesor + ", ," + Justificada + "," + Descontada + "," + Falta + ", , , , ,  ";
+                                Texto.WriteLine(cadenaReg);
+                                Texto.Write(Texto.NewLine);
+                                TiempoEmpleado = TiempoProfesor = Justificada = Descontada = Falta = 0; 
+
+                            }
+                          
+                        }
+
                     }
+                    
 
                     Texto.Close();
                 }

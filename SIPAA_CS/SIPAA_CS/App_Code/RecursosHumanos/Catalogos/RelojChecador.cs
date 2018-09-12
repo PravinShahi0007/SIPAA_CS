@@ -185,7 +185,7 @@ namespace SIPAA_CS.App_Code
         }
 
 
-        public DataTable CambiaAsociacion(string sIdTrab1, string sIdtrab2, int iCVReloj, int iOpcion, DateTime FechaInicio, DateTime FechaFin,  string sUsuumod, string sPrgmod)
+        public DataTable CambiaAsociacion(string sIdTrab_Nuevo, string IdTrab_Anterior, int iCVReloj, int iOpcion, DateTime FechaInicio, DateTime FechaFin,  string sUsuumod, string sPrgmod)
         {
 
             SqlCommand cmd = new SqlCommand();
@@ -194,11 +194,16 @@ namespace SIPAA_CS.App_Code
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
 
-            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sIdTrab_Nuevo;
             cmd.Parameters.Add("@p_cvreloj", SqlDbType.Int).Value = iCVReloj;
             cmd.Parameters.Add("@p_usuumod", SqlDbType.VarChar).Value = sUsuumod;
             cmd.Parameters.Add("@p_prgumod", SqlDbType.VarChar).Value = sPrgmod;
-            cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sIdTrab1;
+            cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iOpcion;
+            cmd.Parameters.Add("@p_idtrab_anterior", SqlDbType.Int).Value = IdTrab_Anterior;
+            cmd.Parameters.Add("@P_FechaInicio", SqlDbType.Date).Value =FechaInicio ;
+            cmd.Parameters.Add("@P_FechaFin", SqlDbType.Date).Value =FechaFin;
+
+
 
 
             objConexion.asignarConexion(cmd);
