@@ -2355,19 +2355,19 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                 RelojChecador objReloj = new RelojChecador();
 
-                DataTable data = objReloj.RelojesxTrabajador(cbEmpleadosInactivos.SelectedValue.ToString(), 0, 4, "", "");
+                DataTable data = objReloj.RelojesxTrabajador(cbEmpleadosInactivos.SelectedValue.ToString(), 0, 28, "", "");
                 foreach (DataRow row in data.Rows)
                 {
-                    DataTable dtRelojChecador = objReloj.obtrelojeschecadores(6, Convert.ToInt32( row[0].ToString()), "%", "%", "%", 0, "%", "%", LoginInfo.IdTrab, LoginInfo.IdTrab);
+                    //DataTable dtRelojChecador = objReloj.obtrelojeschecadores(14, Convert.ToInt32( row[0].ToString()), "%", "%", "%", 0, "%", "%", LoginInfo.IdTrab, LoginInfo.IdTrab);
                  
                     bool bBandera = false;
                     try
                     {
-                        foreach (DataRow Fila in dtRelojChecador.Rows)
-                        {
+                        //foreach (DataRow Fila in dtRelojChecador.Rows)
+                        //{
                                
                                 //iCont += 1;
-                                bool bConexion = Connect_Net(Fila[2].ToString(), 4370);
+                                bool bConexion = Connect_Net(row[2].ToString(), 4370);
                                 objCZKEM.ReadAllUserID(1);
                                 objCZKEM.ReadAllTemplate(1);
                                 if (bConexion != false)
@@ -2381,7 +2381,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                                                                                              , ref iWorkCode))
                                         {
                                            
-                                            bBandera = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, Convert.ToInt32( Fila[0].ToString()), iModoCheck);
+                                            bBandera = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, Convert.ToInt32( row[0].ToString()), iModoCheck);
 
                                         }
                                     }
@@ -2391,7 +2391,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                     if (bBandera)
                                     {
                                         
-                                        objReloj.obtrelojeschecadores(7, Convert.ToInt32(Fila[0].ToString()), "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
+                                        objReloj.obtrelojeschecadores(7, Convert.ToInt32(row[0].ToString()), "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
                                         ControlNotificaciones(pnlCambia, lblCambia, 1, "Registros de asistencia guardados correctamente");
                                       
 
@@ -2407,13 +2407,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                 }
                                 else
                                 {
-                                 ControlNotificaciones(pnlCambia, lblCambia, 3, "No fue posible conectarse al reloj : " + Fila[1].ToString());
+                                 ControlNotificaciones(pnlCambia, lblCambia, 3, "No fue posible conectarse al reloj : " + row[1].ToString());
                                  Enabled = false;
                                  Visible = false;
                                 }
                            
 
-                        }
+                       // }
                       
                     }
                     catch (Exception ex)
