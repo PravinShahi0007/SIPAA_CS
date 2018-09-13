@@ -283,7 +283,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 if (dgvReloj.SelectedRows.Count != 0)
                 {
                     iOpcionAdmin = 1;
-                    Utilerias.MultiSeleccionGridView(dgvReloj, 1, ltReloj, PanelReloj);
+                    MultiSeleccionGridView(dgvReloj, 1, ltReloj, PanelReloj);
                     DataGridViewRow row = dgvReloj.SelectedRows[0];
                     Reloj objR = new Reloj();
                     objR.cvReloj = Convert.ToInt32(row.Cells["Clave"].Value.ToString());
@@ -1198,7 +1198,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 }
             }
 
-            Utilerias.ImprimirAsignacionesGrid(dgvReloj, 0, 1, ltRelojxUsuario);
+            ImprimirAsignacionesGrid(dgvReloj, 0, 1, ltRelojxUsuario);
 
             int admin = 0;
             DataTable dt2 = objReloj.RelojesxTrabajador(lbIdTrab.Text, 25, 14, "%", "%");
@@ -2328,6 +2328,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void button7_Click(object sender, EventArgs e)
         {
+            string sIdTrab;
+            sIdTrab = String.Empty;
+            int sVerify, iModoCheck, iAnho, iDia, iMes, iHora, iMinuto, iSegundo, iWorkCode, iCont;
+            sVerify = iModoCheck = iAnho = iDia = iMes = iHora = iMinuto = iSegundo = iWorkCode = iCont = 0;
+
             for (int i = 0; i < dgvCambiaAsociacion.RowCount; i++)
             {
                 if (dgvCambiaAsociacion.Rows[i].Cells[0].Tag.ToString().Equals("check"))
@@ -2349,7 +2354,89 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 DateTime FechaVacia = new DateTime();
 
                 RelojChecador objReloj = new RelojChecador();
-                if (comboBox1.SelectedItem.ToString() == "Si")
+
+                DataTable data = objReloj.RelojesxTrabajador(cbEmpleadosInactivos.SelectedValue.ToString(), 0, 4, "", "");
+                foreach (DataRow row in data.Rows)
+                {
+                    DataTable dtRelojChecador = objReloj.obtrelojeschecadores(6, Convert.ToInt32( row[0].ToString()), "%", "%", "%", 0, "%", "%", LoginInfo.IdTrab, LoginInfo.IdTrab);
+                 
+                    bool bBandera = false;
+                    try
+                    {
+                        foreach (DataRow Fila in dtRelojChecador.Rows)
+                        {
+                               
+                                //iCont += 1;
+                                bool bConexion = Connect_Net(Fila[2].ToString(), 4370);
+                                objCZKEM.ReadAllUserID(1);
+                                objCZKEM.ReadAllTemplate(1);
+                                if (bConexion != false)
+                                {
+                                    ControlNotificaciones(pnlCambia, lblCambia, 2, "Descargando Asistencias");
+                                    if (objCZKEM.ReadAllGLogData(1))
+                                    {
+                                       
+                                        while (objCZKEM.SSR_GetGeneralLogData(1, out sIdTrab, out sVerify, out iModoCheck, out iAnho
+                                                                                                             , out iMes, out iDia, out iHora, out iMinuto, out iSegundo
+                                                                                                             , ref iWorkCode))
+                                        {
+                                           
+                                            bBandera = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, Convert.ToInt32( Fila[0].ToString()), iModoCheck);
+
+                                        }
+                                    }
+                                    
+                                    objCZKEM.Disconnect();
+                                   
+                                    if (bBandera)
+                                    {
+                                        
+                                        objReloj.obtrelojeschecadores(7, Convert.ToInt32(Fila[0].ToString()), "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
+                                        ControlNotificaciones(pnlCambia, lblCambia, 1, "Registros de asistencia guardados correctamente");
+                                      
+
+                                    }
+                                    else
+                                    {
+                                        ControlNotificaciones(pnlCambia, lblCambia, 3, "Uno o más registros no se guardaron correctamente. Por Favor Repite el Proceso");
+                                      
+
+                                    }
+
+
+                                }
+                                else
+                                {
+                                 ControlNotificaciones(pnlCambia, lblCambia, 3, "No fue posible conectarse al reloj : " + Fila[1].ToString());
+                                 Enabled = false;
+                                 Visible = false;
+                                }
+                           
+
+                        }
+                      
+                    }
+                    catch (Exception ex)
+                    {
+                       
+                        MessageBox.Show(ex.ToString());
+                        ControlNotificaciones(pnlCambia, lblCambia, 3, ex.Message);
+                       
+                    }
+                    finally
+                    {
+                        objCZKEM.Disconnect();
+                        timer1.Start();
+                    }
+
+
+                   
+
+                }
+
+
+
+                    if (comboBox1.SelectedItem.ToString() == "Si")
                     objReloj.CambiaAsociacion(TrabajadorInfo.IdTrab, cbEmpleadosInactivos.SelectedValue.ToString(), 0, 27, dpFechaInicio.Value, dpFechaFin.Value, sUsuuMod, Name);
                 else
                     objReloj.CambiaAsociacion(TrabajadorInfo.IdTrab, cbEmpleadosInactivos.SelectedValue.ToString(), 0, 27, FechaVacia, FechaVacia, sUsuuMod, Name);
@@ -2551,6 +2638,80 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             }
         }
+
+
+        public bool IngresarRegistro(string sIdTrab, int Year, int Month, int Day, int Hour, int Minute, int Second, int cvReloj, int iTipoCheck)
+        {
+
+            SonaTrabajador objTrab = new SonaTrabajador();
+            string sMes = "";
+            string sDia = "";
+
+            TimeSpan tpHora = new TimeSpan(Hour, Minute, Second);
+            if (Month.ToString().Length == 1)
+            
+                sMes = "0" + Month.ToString();
+           
+            else
+            
+                sMes = Month.ToString();
+           
+
+            if (Day.ToString().Length == 1)
+            
+                sDia = "0" + Day.ToString();
+            
+            else
+            
+                sDia = Day.ToString();
+           
+            string sFecha = Year.ToString() + "-" + sMes + "-" + Day;
+
+
+            switch (iTipoCheck)
+            {
+                case 0:
+                    iTipoCheck += 1;
+                    break;
+
+                case 1:
+                    iTipoCheck += 1;
+                    break;
+
+                case 2:
+                    iTipoCheck += 1;
+                    break;
+
+                case 3:
+                    iTipoCheck += 1;
+                    break;
+                case 4:
+                    iTipoCheck += 1;
+                    break;
+                case 5:
+                    iTipoCheck += 1;
+                    break;
+
+            }
+
+            DataTable dt = objTrab.Relojchecador(sIdTrab, 5, DateTime.Parse(sFecha), iTipoCheck, tpHora, cvReloj, 2, LoginInfo.IdTrab, Name);
+
+            if (dt != null)
+            {
+                ControlNotificaciones(pnlCambia, lblCambia, 1, "Registro Correcto");
+                panelTag.Update();
+                return true;
+            }
+            else
+            {
+                ControlNotificaciones(pnlCambia, lblCambia, 3, "Error en el guardado de Datos, intente de nuevo");
+                panelTag.Update();
+                return false;
+            }
+
+        }
+
+
     }
     }
 //}
