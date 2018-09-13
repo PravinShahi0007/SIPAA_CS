@@ -2330,8 +2330,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         {
             string sIdTrab;
             sIdTrab = String.Empty;
-            int sVerify, iModoCheck, iAnho, iDia, iMes, iHora, iMinuto, iSegundo, iWorkCode, iCont;
-            sVerify = iModoCheck = iAnho = iDia = iMes = iHora = iMinuto = iSegundo = iWorkCode = iCont = 0;
+            int sVerify, iModoCheck, iAnho, iDia, iMes, iHora, iMinuto, iSegundo, iWorkCode;
+            sVerify = iModoCheck = iAnho = iDia = iMes = iHora = iMinuto = iSegundo = iWorkCode =  0;
 
             for (int i = 0; i < dgvCambiaAsociacion.RowCount; i++)
             {
