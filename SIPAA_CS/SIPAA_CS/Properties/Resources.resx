@@ -541,4 +541,31 @@
   <data name="ic_keyboard_arrow_left_grey_600_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_keyboard_arrow_left_grey_600_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="administrativos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\administrativos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="credencialatras" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\credencialatras.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="docentes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\docentes.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="preparatoria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\preparatoria.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="secundaria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\secundaria.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="universidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\universidad.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visitantes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\visitantes.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="credencialatrasfirmada" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\credencialatrasfirmada.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="odonm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\odonm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
