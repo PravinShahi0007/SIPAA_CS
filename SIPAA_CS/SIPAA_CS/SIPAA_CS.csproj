@@ -440,6 +440,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FechasHorasRegistro.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\Generico.cs">
+      <DependentUpon>Generico.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\Generico.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

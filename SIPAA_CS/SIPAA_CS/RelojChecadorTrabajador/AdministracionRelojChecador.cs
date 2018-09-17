@@ -386,8 +386,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 pnlMensaje.Enabled = true;
                 //progressBar1.Value = 20;
                 pnlMensaje.Enabled = false;
-                string sIdTrab, sIP;
-                sIdTrab= sIP = String.Empty;
+                string sIdTrab;
+                sIdTrab = String.Empty;
                 int sVerify, iModoCheck, iAnho, iDia, iMes, iHora, iMinuto, iSegundo, iWorkCode, iCont;
                 sVerify = iModoCheck = iAnho = iDia = iMes = iHora = iMinuto = iSegundo = iWorkCode = iCont = 0;
                 
@@ -433,7 +433,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     pnlMensaje.Enabled = true;
                                     RelojChecador objReloj = new RelojChecador();
                                     objReloj.obtrelojeschecadores(7, obj.cvReloj, "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
-                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registros  de Asistencia Guardados Correctamente");
+                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registros de asistencia guardados correctamente");
                                     progressBar1.Value = 100;
                                     pnlMensaje.Enabled = false;
 
@@ -453,7 +453,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             {
                                 pnlMensaje.Enabled = true;
                                 progressBar1.Visible = false;
-                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse a la IP: " + obj.IpReloj);
+                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse al reloj : " + obj.Descripcion);
                                 pnlMensaje.Enabled = false;
                                 progressBar1.Visible = false;
                             }

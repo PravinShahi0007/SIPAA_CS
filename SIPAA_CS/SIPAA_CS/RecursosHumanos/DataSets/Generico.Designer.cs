@@ -305,7 +305,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnEstatus;
             
-            private global::System.Data.DataColumn columnAutorizada;
+            private global::System.Data.DataColumn columnJustificada;
             
             private global::System.Data.DataColumn columnDescontada;
             
@@ -450,9 +450,9 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AutorizadaColumn {
+            public global::System.Data.DataColumn JustificadaColumn {
                 get {
-                    return this.columnAutorizada;
+                    return this.columnJustificada;
                 }
             }
             
@@ -523,7 +523,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         string Plantel, 
                         string Departamento, 
                         string Estatus, 
-                        string Autorizada, 
+                        string Justificada, 
                         string Descontada, 
                         string Falta) {
                 GenericoRow rowGenericoRow = ((GenericoRow)(this.NewRow()));
@@ -541,7 +541,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         Plantel,
                         Departamento,
                         Estatus,
-                        Autorizada,
+                        Justificada,
                         Descontada,
                         Falta};
                 rowGenericoRow.ItemArray = columnValuesArray;
@@ -579,7 +579,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.columnPlantel = base.Columns["Plantel"];
                 this.columnDepartamento = base.Columns["Departamento"];
                 this.columnEstatus = base.Columns["Estatus"];
-                this.columnAutorizada = base.Columns["Autorizada"];
+                this.columnJustificada = base.Columns["Justificada"];
                 this.columnDescontada = base.Columns["Descontada"];
                 this.columnFalta = base.Columns["Falta"];
             }
@@ -613,8 +613,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columnDepartamento);
                 this.columnEstatus = new global::System.Data.DataColumn("Estatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstatus);
-                this.columnAutorizada = new global::System.Data.DataColumn("Autorizada", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAutorizada);
+                this.columnJustificada = new global::System.Data.DataColumn("Justificada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJustificada);
                 this.columnDescontada = new global::System.Data.DataColumn("Descontada", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescontada);
                 this.columnFalta = new global::System.Data.DataColumn("Falta", typeof(string), null, global::System.Data.MappingType.Element);
@@ -971,17 +971,17 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Autorizada {
+            public string Justificada {
                 get {
                     try {
-                        return ((string)(this[this.tableGenerico.AutorizadaColumn]));
+                        return ((string)(this[this.tableGenerico.JustificadaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Autorizada\' de la tabla \'Generico\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Justificada\' de la tabla \'Generico\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGenerico.AutorizadaColumn] = value;
+                    this[this.tableGenerico.JustificadaColumn] = value;
                 }
             }
             
@@ -1175,14 +1175,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAutorizadaNull() {
-                return this.IsNull(this.tableGenerico.AutorizadaColumn);
+            public bool IsJustificadaNull() {
+                return this.IsNull(this.tableGenerico.JustificadaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAutorizadaNull() {
-                this[this.tableGenerico.AutorizadaColumn] = global::System.Convert.DBNull;
+            public void SetJustificadaNull() {
+                this[this.tableGenerico.JustificadaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
