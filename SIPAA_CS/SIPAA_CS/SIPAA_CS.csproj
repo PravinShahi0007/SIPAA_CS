@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>55</ApplicationRevision>
+    <ApplicationRevision>56</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -379,6 +379,7 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncExtraSuspRetro.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SancionesIncidencia.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\SancionesProceso.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SincRegistrosica.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorPerfil.cs" />
     <Compile Include="App_Code\Sistemas\Procesos\MonitoreoProceso.cs" />
@@ -898,6 +899,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\SancionesIncidencias.Designer.cs">
       <DependentUpon>SancionesIncidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\SancionesProcesos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\SancionesProcesos.Designer.cs">
+      <DependentUpon>SancionesProcesos.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\SincRegistrossica.cs">
       <SubType>Form</SubType>
@@ -1452,6 +1459,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\SancionesIncidencias.resx">
       <DependentUpon>SancionesIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\SancionesProcesos.resx">
+      <DependentUpon>SancionesProcesos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\SincRegistrossica.resx">
       <DependentUpon>SincRegistrossica.cs</DependentUpon>
