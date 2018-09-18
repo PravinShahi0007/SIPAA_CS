@@ -426,21 +426,21 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 front.txts.Add("Paterno", new ZMotifText(Paterno, 340f, 140f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
                 front.txts.Add("Materno", new ZMotifText(Materno, 340f, 180f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
                 front.txts.Add("Nombre", new ZMotifText(Nombre, 340f, 220f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
-                front.txts.Add("Vigencia", new ZMotifText(fcredEmp.date.ToShortDateString(), 340f, 340f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
+                //front.txts.Add("Vigencia", new ZMotifText(fcredEmp.date.ToShortDateString(), 340f, 340f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
                 front.txts.Add("IdTrab", new ZMotifText(IdTrab, 340f, 380f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
                 front.txts.Add("Puesto", new ZMotifText(Puesto, 40f, 460f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
                 //front.txts.Add("Plantel", new ZMotifText(Plantel, 150f, 798f, "Myriad Pro", 14.25f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.White));
 
                 //Datos Reverso...
-                back = new ZMotifCard(ZMotifGraphics.ImageOrientationEnum.Portrait, ZMotifGraphics.RibbonTypeEnum.GrayG);
+                back = new ZMotifCard(ZMotifGraphics.ImageOrientationEnum.Portrait, ZMotifGraphics.RibbonTypeEnum.MonoK);
                 try { back.imgs.Add(ZMotifCard.background, new ZMotifImage(ImageToByteArray(Resources.credencialatrasfirmada), 0, 0, ZMotifGraphics.ImagePositionEnum.Centered, 648, 1024, 0)); }
                 catch { }
 
                 back.txts.Add("dep_d", new ZMotifText("Departamento:", 40f, 105f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
                 back.txts.Add("Departamento", new ZMotifText(Departamento, 40f, 140f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
-                /*back.txts.Add("dir_d", new ZMotifText("Dirección Empleado:", 40f, 260f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
-                back.txts.Add("Calle", new ZMotifText(Calle, 40f, 295f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
-                back.txts.Add("ext_d", new ZMotifText("No. Exterior:", 40f, 410f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
+                back.txts.Add("vig_d", new ZMotifText("Vigencia:", 40f, 260f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
+                back.txts.Add("Vigencia", new ZMotifText(fcredEmp.date.ToShortDateString(), 40f, 295f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
+                /*back.txts.Add("ext_d", new ZMotifText("No. Exterior:", 40f, 410f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
                 back.txts.Add("Exterior", new ZMotifText(Exterior, 250f, 410f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
                 back.txts.Add("int_d", new ZMotifText("No. Interior:", 40f, 460f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
                 back.txts.Add("Interior", new ZMotifText(Interior, 250f, 460f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
@@ -503,7 +503,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 case "preparatoria":
                     return Resources.preparatoria;
                 case "universidad":
-                    return Resources.universidad;
+                    return Resources.universidad2;
                 case "visitantes":
                     return Resources.visitantes;
                 default:
