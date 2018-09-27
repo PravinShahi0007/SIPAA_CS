@@ -2652,13 +2652,7 @@
     <None Include="Resources\ic_keyboard_arrow_left_grey_600_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\administrativos.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\credencialatras.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\docentes.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\preparatoria.jpg" />
@@ -2680,6 +2674,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\universidad2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\administrativos2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\docentes2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ejemplocred.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\administrativos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\docentes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\credfirmada.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
