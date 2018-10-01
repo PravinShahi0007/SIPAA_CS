@@ -230,6 +230,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             if (Permisos.dcPermisos["Crear"] != 0 && Permisos.dcPermisos["Actualizar"] != 0)
             {
                 panelPermisos.Enabled = true;
+                panel18.Enabled = true;
                 foreach (DataGridViewRow fila in dgvForReg.Rows)
                 {
                     fila.Cells[0].Value = Resources.ic_lens_blue_grey_600_18dp;
@@ -559,8 +560,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             try
             {
-                //string UsuuMod = LoginInfo.IdTrab;
-                //string PrguMod = this.Name;
+               
                 FormaReg objFr = new FormaReg();
                 LlenarGridFormasRegistro("%");
                 AsignarFormas(TrabajadorInfo.IdTrab);
@@ -854,12 +854,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             llenarComboxDataTable(cbDiaEntrada, objPlantilla.cbdias(6), "Clave", "Descripción");
             llenarComboxDataTable(cbDiaSalida, objPlantilla.cbdias(6), "Clave", "Descripción");
             AsignarBotonResize(btnEliminar, new Size(sysW, sysH), "Borrar");
+            AsignarBotonResize(button8, new Size(sysW, sysH), "Editar");
+
 
             DataTable dtempleadosInactivos = contenedorempleados.obtenerempleados(4, "");
             DataTable dtempleadosActivos = contenedorempleados.obtenerempleados(7, "");
 
             llenarComboxDataTable(cbEmpleadosInactivos, dtempleadosInactivos, "NoEmpleado", "Nombre");
-            //llenarComboxDataTable(cbEmpleadosActivos, dtempleadosActivos, "NoEmpleado", "Nombre");
+       
 
             TrabajadorHorario objHorario = AsignarObjeto();
             llenarGridHorario(objHorario);
@@ -2711,7 +2713,39 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DialogResult result2 = MessageBox.Show("¿Desea cambiar la forma de registro del empleado? ", "SIPAA", MessageBoxButtons.YesNo);
+            if (result2 == DialogResult.Yes)
+            {
+                FormaReg objFr = new FormaReg();
+                foreach (int cv in ltFormasReg)
+                {
 
+                    objFr.FormasxUsuario(TrabajadorInfo.IdTrab, ltFormasReg.ElementAt(0), 1, sUsuuMod, Name);
+               }
+                
+
+                RelojChecador objReloj = new RelojChecador();
+                DataTable dt = objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, 0, 28, "", "");
+                foreach (DataRow row in dt.Rows)
+                {
+                    ControlNotificaciones(panelTagForReg, lbMensajeForReg, 2, "Conectando con el reloj " + row[1].ToString());
+                    bool bConexion = objCZKEM.Connect_Net(row[2].ToString(), 4370);
+                   
+                    if (bConexion)
+                       objCZKEM.SetUserGroup(1, Convert.ToInt32(TrabajadorInfo.IdTrab), ltFormasReg.ElementAt(0));
+                    else
+                       ControlNotificaciones(panelTagForReg, lbMensajeForReg, 3, "No se pudo conectar con " + row[1].ToString());
+
+                }
+
+                AsignarFormas(TrabajadorInfo.IdTrab);
+                ltFormasReg.Clear();
+                ControlNotificaciones(panelTagForReg, lbMensajeForReg, 1, "Se cambio la forma de registro exitosamente");
+            }
+
+       }
     }
     }
 //}
