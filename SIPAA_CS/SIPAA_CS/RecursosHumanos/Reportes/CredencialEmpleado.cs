@@ -444,12 +444,12 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
                 //Datos Reverso...
                 back = new ZMotifCard(ZMotifGraphics.ImageOrientationEnum.Portrait, ZMotifGraphics.RibbonTypeEnum.MonoK);
-                try { back.imgs.Add(ZMotifCard.background, new ZMotifImage(ImageToByteArray(Resources.credencialatrasfirmada), 0, 0, ZMotifGraphics.ImagePositionEnum.Centered, 648, 1024, 0)); }
+                try { back.imgs.Add(ZMotifCard.background, new ZMotifImage(ImageToByteArray(Resources.credfirmada), 0, 0, ZMotifGraphics.ImagePositionEnum.Centered, 648, 1024, 0)); }
                 catch { }
 
-                back.txts.Add("dep_d", new ZMotifText("Departamento:", 40f, 120f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
+                back.txts.Add("dep_d", new ZMotifText("Departamento:", 40f, 120f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
                 back.txts.Add("Departamento", new ZMotifText(Departamento, 40f, 160f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
-                back.txts.Add("vig_d", new ZMotifText("Vigencia:", 40f, 275f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
+                back.txts.Add("vig_d", new ZMotifText("Vigencia:", 40f, 275f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
                 back.txts.Add("Vigencia", new ZMotifText(fcredEmp.date.ToShortDateString(), 40f, 315f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, Color.Black));
                 /*back.txts.Add("ext_d", new ZMotifText("No. Exterior:", 40f, 410f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
                 back.txts.Add("Exterior", new ZMotifText(Exterior, 250f, 410f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
@@ -459,7 +459,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 back.txts.Add("CP", new ZMotifText(CP, 490f, 460f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
                 back.txts.Add("col_d", new ZMotifText("Colonia:", 40f, 530f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
                 back.txts.Add("Colonia", new ZMotifText(Colonia, 40f, 580f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));*/
-                back.txts.Add("imss_d", new ZMotifText("I.M.S.S.:", 40f, 700f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
+                back.txts.Add("imss_d", new ZMotifText("I.M.S.S.:", 40f, 700f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
                 back.txts.Add("IMSS", new ZMotifText(IMSS, 200f, 700f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
                 //back.txts.Add("firm_d", new ZMotifText("FIRMA TRABAJADOR", 150f, 970f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
 
@@ -509,14 +509,6 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     return Resources.administrativos;
                 case "docentes":
                     return Resources.docentes;
-                case "secundaria":
-                    return Resources.secundaria;
-                case "preparatoria":
-                    return Resources.preparatoria;
-                case "universidad":
-                    return Resources.universidad2;
-                case "visitantes":
-                    return Resources.visitantes;
                 default:
                     return Resources._default;
             }
