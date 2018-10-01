@@ -123,8 +123,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 {
                     if (Permisos.dcPermisos["Crear"] == 1)
                     {
-                        cbIncidencia.SelectedValue = 17; //tenia 20 porque no se JLA 25oct17
-                        cbIncidencia.Enabled = false;
+                        //cbIncidencia.SelectedValue = 6; //tenia 17 suspension JLA 25oct17 mod 28/09/18
+                        //cbIncidencia.Enabled = false;
                     }
                     else
                     {
@@ -132,6 +132,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     }
                 }
                 //btnGuardar.Visible = true;
+                cbIncidencia.SelectedValue = 6;
+                cbIncidencia.Enabled = false;                
             }
         }
 
@@ -153,9 +155,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                 LlenarGrid(objInc);
 
-                cbIncidencia.SelectedValue = 17; //Suspension
+                cbIncidencia.SelectedValue = 6; //Retroactivo tenia 17 Suspension
                 cbIncidencia.Enabled = false;
-                llenarComboTipo(17);
+                llenarComboTipo(6);
                 ckbaplica.Visible = false;
                 ckbEliminar.Checked = false;
                 ckbEliminar.Visible = false;
@@ -403,7 +405,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
             Utilerias.cargaimagen(ptbimgusuario);
-            lbAsignacion.Text = "Asignar Suspensión, Extrañamiento o Retroactivo";
+            lbAsignacion.Text = "Asignación.";
 
             // Diccionario Permisos x Pantalla
             DataTable dtPermisos = Modulo.ObtenerPermisosxUsuario(LoginInfo.IdTrab, "IncidenciasExtSuspRetroGeneral");
@@ -413,7 +415,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             llenarComboIncidencia();
           
-            llenarComboTipo(17);  ///////////
+            llenarComboTipo(6);  ///////////
             ltCvIncidencia.Clear();
             ltFechasRegistro.Clear();
 
@@ -523,7 +525,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
             else {
                 Utilerias.llenarComboxDataTable(cbIncidencia, dtIncidencia, "cvincidencia", "Descripcion");
-                cbIncidencia.SelectedValue = 20;
+                cbIncidencia.SelectedValue = 6;
                 cbIncidencia.Enabled = false;
             }
         }
