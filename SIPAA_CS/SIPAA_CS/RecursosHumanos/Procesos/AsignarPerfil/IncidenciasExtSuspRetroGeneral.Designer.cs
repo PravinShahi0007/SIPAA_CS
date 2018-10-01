@@ -262,11 +262,11 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Image = global::SIPAA_CS.Properties.Resources.ic_settings_white_24dp;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(343, 2);
+            this.label1.Location = new System.Drawing.Point(415, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(402, 23);
+            this.label1.Size = new System.Drawing.Size(201, 23);
             this.label1.TabIndex = 120;
-            this.label1.Text = "      Registro de Extrañamiento Suspensión y Retroactivos";
+            this.label1.Text = "      Registro de Retroactivos";
             // 
             // panel2
             // 
@@ -562,11 +562,11 @@
             this.lbAsignacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAsignacion.ForeColor = System.Drawing.Color.Gray;
             this.lbAsignacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbAsignacion.Location = new System.Drawing.Point(5, 11);
+            this.lbAsignacion.Location = new System.Drawing.Point(18, 9);
             this.lbAsignacion.Name = "lbAsignacion";
-            this.lbAsignacion.Size = new System.Drawing.Size(142, 17);
+            this.lbAsignacion.Size = new System.Drawing.Size(96, 17);
             this.lbAsignacion.TabIndex = 41;
-            this.lbAsignacion.Text = "Asignar Suspensión ";
+            this.lbAsignacion.Text = "- Asignación -";
             // 
             // labelGrid
             // 
@@ -575,10 +575,10 @@
             this.labelGrid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.labelGrid.Location = new System.Drawing.Point(16, 565);
             this.labelGrid.Name = "labelGrid";
-            this.labelGrid.Size = new System.Drawing.Size(577, 16);
+            this.labelGrid.Size = new System.Drawing.Size(581, 16);
             this.labelGrid.TabIndex = 207;
-            this.labelGrid.Text = "Seleccione un Registro para realizar una Asignación o en su caso Eliminar un Retr" +
-    "oactivo a la vez.";
+            this.labelGrid.Text = "Seleccione un Registro para realizar una Asignación o en su caso, Eliminar un Ret" +
+    "roactivo a la vez.";
             // 
             // panelTrab
             // 
