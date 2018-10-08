@@ -19,10 +19,9 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         }
 
         //llena dgv,cb
-        public DataTable dtdatos(int iopcion, int iidtrab, string sfereget, int icvincidencia, int icvtipo,
-                                 int icvincidenciagen, int icvtipogen, int icvperiodo, string susuvobo, string sfhvobo,
-                                 string seqvobo, string susucancela, string sfhcancela, string sobscancela, int istsancion,
-                                 string sfhgenera)
+        public DataTable dtdatos(int iopcion, int icvsancion, int iidtrab, int iidtrabdir, int icvincidenciagen,
+                                 int icvtipogen, int icvperiodo, int icvpolitica, string sfsuspension, int istsanción,
+                                 string sobssanción, string susumodifst, string sfhumodst, string sprgumodst, string sequmodst)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_sancionesprocesos_suid";
@@ -31,21 +30,20 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            cmd.Parameters.Add("@p_cvsancion", SqlDbType.Int).Value = icvsancion;
             cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = iidtrab;
-            cmd.Parameters.Add("@p_fereget", SqlDbType.VarChar).Value = sfereget;
-            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = icvincidencia;
-            cmd.Parameters.Add("@p_cvtipo", SqlDbType.Int).Value = icvtipo;
+            cmd.Parameters.Add("@p_idtrabdir", SqlDbType.Int).Value = iidtrabdir;
             cmd.Parameters.Add("@p_cvincidenciagen", SqlDbType.Int).Value = icvincidenciagen;
             cmd.Parameters.Add("@p_cvtipogen", SqlDbType.Int).Value = icvtipogen;
             cmd.Parameters.Add("@p_cvperiodo", SqlDbType.Int).Value = icvperiodo;
-            cmd.Parameters.Add("@p_usuvobo", SqlDbType.VarChar).Value = susuvobo;
-            cmd.Parameters.Add("@p_fhvobo", SqlDbType.VarChar).Value = sfhvobo;
-            cmd.Parameters.Add("@p_eqvobo", SqlDbType.VarChar).Value = seqvobo;
-            cmd.Parameters.Add("@p_usucancela", SqlDbType.VarChar).Value = susucancela;
-            cmd.Parameters.Add("@p_fhcancela", SqlDbType.VarChar).Value = sfhcancela;
-            cmd.Parameters.Add("@p_obscancela", SqlDbType.VarChar).Value = sobscancela;
-            cmd.Parameters.Add("@p_stsancion", SqlDbType.Int).Value = istsancion;
-            cmd.Parameters.Add("@p_fhgenera", SqlDbType.VarChar).Value = sfhgenera;
+            cmd.Parameters.Add("@p_cvpolitica", SqlDbType.Int).Value = icvpolitica;
+            cmd.Parameters.Add("@p_fsuspension", SqlDbType.VarChar).Value = sfsuspension;
+            cmd.Parameters.Add("@p_stsanción", SqlDbType.Int).Value = istsanción;
+            cmd.Parameters.Add("@p_obssanción", SqlDbType.VarChar).Value = sobssanción;
+            cmd.Parameters.Add("@p_usumodifst", SqlDbType.VarChar).Value = susumodifst;
+            cmd.Parameters.Add("@p_fhumodst", SqlDbType.VarChar).Value = sfhumodst;
+            cmd.Parameters.Add("@p_prgumodst", SqlDbType.VarChar).Value = sprgumodst;
+            cmd.Parameters.Add("@p_equmodst", SqlDbType.VarChar).Value = sequmodst;
             objConexion.asignarConexion(cmd);
 
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
@@ -57,10 +55,9 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         }
 
         //crud correos
-        public int cruddatos(int iopcion, int iidtrab, string sfereget, int icvincidencia, int icvtipo,
-                             int icvincidenciagen, int icvtipogen, int icvperiodo, string susuvobo, string sfhvobo,
-                             string seqvobo, string susucancela, string sfhcancela, string sobscancela, int istsancion,
-                             string sfhgenera)
+        public int cruddatos(int iopcion, int icvsancion, int iidtrab, int iidtrabdir, int icvincidenciagen,
+                             int icvtipogen, int icvperiodo, int icvpolitica, string sfsuspension, int istsanción,
+                             string sobssanción, string susumodifst, string sfhumodst, string sprgumodst, string sequmodst)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = @"usp_sancionesprocesos_suid";
@@ -69,21 +66,20 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             objConexion.asignarConexion(cmd);
 
             cmd.Parameters.Add("@p_opcion", SqlDbType.Int).Value = iopcion;
+            cmd.Parameters.Add("@p_cvsancion", SqlDbType.Int).Value = icvsancion;
             cmd.Parameters.Add("@p_idtrab", SqlDbType.Int).Value = iidtrab;
-            cmd.Parameters.Add("@p_fereget", SqlDbType.VarChar).Value = sfereget;
-            cmd.Parameters.Add("@p_cvincidencia", SqlDbType.Int).Value = icvincidencia;
-            cmd.Parameters.Add("@p_cvtipo", SqlDbType.Int).Value = icvtipo;
+            cmd.Parameters.Add("@p_idtrabdir", SqlDbType.Int).Value = iidtrabdir;
             cmd.Parameters.Add("@p_cvincidenciagen", SqlDbType.Int).Value = icvincidenciagen;
             cmd.Parameters.Add("@p_cvtipogen", SqlDbType.Int).Value = icvtipogen;
             cmd.Parameters.Add("@p_cvperiodo", SqlDbType.Int).Value = icvperiodo;
-            cmd.Parameters.Add("@p_usuvobo", SqlDbType.VarChar).Value = susuvobo;
-            cmd.Parameters.Add("@p_fhvobo", SqlDbType.VarChar).Value = sfhvobo;
-            cmd.Parameters.Add("@p_eqvobo", SqlDbType.VarChar).Value = seqvobo;
-            cmd.Parameters.Add("@p_usucancela", SqlDbType.VarChar).Value = susucancela;
-            cmd.Parameters.Add("@p_fhcancela", SqlDbType.VarChar).Value = sfhcancela;
-            cmd.Parameters.Add("@p_obscancela", SqlDbType.VarChar).Value = sobscancela;
-            cmd.Parameters.Add("@p_stsancion", SqlDbType.Int).Value = istsancion;
-            cmd.Parameters.Add("@p_fhgenera", SqlDbType.VarChar).Value = sfhgenera;
+            cmd.Parameters.Add("@p_cvpolitica", SqlDbType.Int).Value = icvpolitica;
+            cmd.Parameters.Add("@p_fsuspension", SqlDbType.VarChar).Value = sfsuspension;
+            cmd.Parameters.Add("@p_stsanción", SqlDbType.Int).Value = istsanción;
+            cmd.Parameters.Add("@p_obssanción", SqlDbType.VarChar).Value = sobssanción;
+            cmd.Parameters.Add("@p_usumodifst", SqlDbType.VarChar).Value = susumodifst;
+            cmd.Parameters.Add("@p_fhumodst", SqlDbType.VarChar).Value = sfhumodst;
+            cmd.Parameters.Add("@p_prgumodst", SqlDbType.VarChar).Value = sprgumodst;
+            cmd.Parameters.Add("@p_equmodst", SqlDbType.VarChar).Value = sequmodst;
             objConexion.asignarConexion(cmd);
 
             int iverifact = Convert.ToInt32(cmd.ExecuteScalar());

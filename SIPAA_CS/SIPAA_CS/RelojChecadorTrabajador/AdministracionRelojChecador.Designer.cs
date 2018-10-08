@@ -200,9 +200,9 @@
             label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             label5.Location = new System.Drawing.Point(22, 222);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(77, 20);
+            label5.Size = new System.Drawing.Size(79, 20);
             label5.TabIndex = 45;
-            label5.Text = "Sync Datos";
+            label5.Text = "Sincronizar";
             // 
             // label10
             // 
@@ -889,10 +889,11 @@
             this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbMensaje.Location = new System.Drawing.Point(15, 10);
             this.lbMensaje.Name = "lbMensaje";
-            this.lbMensaje.Size = new System.Drawing.Size(83, 25);
+            this.lbMensaje.Size = new System.Drawing.Size(593, 25);
             this.lbMensaje.TabIndex = 26;
             this.lbMensaje.Tag = "frmAsignar_Perfil";
-            this.lbMensaje.Text = "Mensaje";
+            this.lbMensaje.Text = "Mensaje                                                                          " +
+    "                            ";
             this.lbMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1

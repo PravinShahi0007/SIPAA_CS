@@ -56,6 +56,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -64,8 +66,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label36;
             this.lblusuario = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -155,6 +156,7 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.tabCambiaAsociacion = new System.Windows.Forms.TabPage();
+            this.dgvCambiaAsociacion = new System.Windows.Forms.DataGridView();
             this.pnlCambia = new System.Windows.Forms.Panel();
             this.lblCambia = new System.Windows.Forms.Label();
             this.lbFechaFin = new System.Windows.Forms.Label();
@@ -177,7 +179,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
-            this.dgvCambiaAsociacion = new System.Windows.Forms.DataGridView();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             label13 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
@@ -200,6 +203,7 @@
             label29 = new System.Windows.Forms.Label();
             label33 = new System.Windows.Forms.Label();
             label37 = new System.Windows.Forms.Label();
+            label36 = new System.Windows.Forms.Label();
             this.tabAsignacion.SuspendLayout();
             this.tabPlantillaHorario.SuspendLayout();
             this.panelTag.SuspendLayout();
@@ -232,11 +236,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvElimina)).BeginInit();
             this.panel16.SuspendLayout();
             this.tabCambiaAsociacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCambiaAsociacion)).BeginInit();
             this.pnlCambia.SuspendLayout();
             this.pnlCambiarAsociacion.SuspendLayout();
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCambiaAsociacion)).BeginInit();
+            this.panel18.SuspendLayout();
             this.SuspendLayout();
             // 
             // label13
@@ -393,7 +398,7 @@
             label21.ForeColor = System.Drawing.Color.Gray;
             label21.Image = ((System.Drawing.Image)(resources.GetObject("label21.Image")));
             label21.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label21.Location = new System.Drawing.Point(18, 31);
+            label21.Location = new System.Drawing.Point(3, 20);
             label21.Name = "label21";
             label21.Size = new System.Drawing.Size(175, 17);
             label21.TabIndex = 194;
@@ -1037,6 +1042,7 @@
             // tabFormasRegistro
             // 
             this.tabFormasRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.tabFormasRegistro.Controls.Add(this.panel18);
             this.tabFormasRegistro.Controls.Add(this.label24);
             this.tabFormasRegistro.Controls.Add(this.panelTagForReg);
             this.tabFormasRegistro.Controls.Add(this.panel2);
@@ -1083,9 +1089,9 @@
             this.lbMensajeForReg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbMensajeForReg.Location = new System.Drawing.Point(5, 5);
             this.lbMensajeForReg.Name = "lbMensajeForReg";
-            this.lbMensajeForReg.Size = new System.Drawing.Size(209, 20);
+            this.lbMensajeForReg.Size = new System.Drawing.Size(337, 20);
             this.lbMensajeForReg.TabIndex = 26;
-            this.lbMensajeForReg.Text = "       Administración de Perfiles    ";
+            this.lbMensajeForReg.Text = "       Administración de Perfiles                                    ";
             this.lbMensajeForReg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -1098,7 +1104,7 @@
             this.panel2.Controls.Add(label23);
             this.panel2.Location = new System.Drawing.Point(19, 116);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(377, 131);
+            this.panel2.Size = new System.Drawing.Size(276, 146);
             this.panel2.TabIndex = 196;
             this.panel2.TabStop = true;
             this.panel2.Visible = false;
@@ -1109,7 +1115,7 @@
             this.btnBuscarForReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarForReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnBuscarForReg.Image = global::SIPAA_CS.Properties.Resources.Buscar;
-            this.btnBuscarForReg.Location = new System.Drawing.Point(310, 49);
+            this.btnBuscarForReg.Location = new System.Drawing.Point(199, 38);
             this.btnBuscarForReg.Name = "btnBuscarForReg";
             this.btnBuscarForReg.Size = new System.Drawing.Size(50, 50);
             this.btnBuscarForReg.TabIndex = 2;
@@ -1122,7 +1128,7 @@
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel9.Location = new System.Drawing.Point(32, 94);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(250, 2);
+            this.panel9.Size = new System.Drawing.Size(139, 13);
             this.panel9.TabIndex = 43;
             // 
             // txtBuscarForReg
@@ -1132,7 +1138,7 @@
             this.txtBuscarForReg.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarForReg.Location = new System.Drawing.Point(32, 73);
             this.txtBuscarForReg.Name = "txtBuscarForReg";
-            this.txtBuscarForReg.Size = new System.Drawing.Size(250, 15);
+            this.txtBuscarForReg.Size = new System.Drawing.Size(139, 15);
             this.txtBuscarForReg.TabIndex = 1;
             // 
             // panelPermisos
@@ -1141,9 +1147,9 @@
             this.panelPermisos.Controls.Add(this.btnGuardarForReg);
             this.panelPermisos.Controls.Add(label21);
             this.panelPermisos.Enabled = false;
-            this.panelPermisos.Location = new System.Drawing.Point(668, 14);
+            this.panelPermisos.Location = new System.Drawing.Point(702, 9);
             this.panelPermisos.Name = "panelPermisos";
-            this.panelPermisos.Size = new System.Drawing.Size(309, 77);
+            this.panelPermisos.Size = new System.Drawing.Size(242, 60);
             this.panelPermisos.TabIndex = 195;
             this.panelPermisos.TabStop = true;
             // 
@@ -1153,7 +1159,7 @@
             this.btnGuardarForReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarForReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnGuardarForReg.Image = global::SIPAA_CS.Properties.Resources.Guardar;
-            this.btnGuardarForReg.Location = new System.Drawing.Point(225, 14);
+            this.btnGuardarForReg.Location = new System.Drawing.Point(184, 7);
             this.btnGuardarForReg.Name = "btnGuardarForReg";
             this.btnGuardarForReg.Size = new System.Drawing.Size(50, 50);
             this.btnGuardarForReg.TabIndex = 2;
@@ -1178,22 +1184,22 @@
             this.dgvForReg.AllowUserToDeleteRows = false;
             this.dgvForReg.AllowUserToResizeColumns = false;
             this.dgvForReg.AllowUserToResizeRows = false;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvForReg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvForReg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvForReg.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvForReg.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dgvForReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvForReg.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvForReg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvForReg.DefaultCellStyle = dataGridViewCellStyle30;
             this.dgvForReg.Location = new System.Drawing.Point(422, 116);
             this.dgvForReg.Name = "dgvForReg";
             this.dgvForReg.ReadOnly = true;
@@ -1211,7 +1217,7 @@
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel10.Controls.Add(this.label20);
-            this.panel10.Location = new System.Drawing.Point(0, 29);
+            this.panel10.Location = new System.Drawing.Point(3, 9);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(424, 25);
             this.panel10.TabIndex = 44;
@@ -1438,8 +1444,8 @@
             this.dgvReloj.AllowUserToDeleteRows = false;
             this.dgvReloj.AllowUserToResizeColumns = false;
             this.dgvReloj.AllowUserToResizeRows = false;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvReloj.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle35;
             this.dgvReloj.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReloj.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvReloj.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
@@ -1447,14 +1453,14 @@
             this.dgvReloj.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvReloj.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReloj.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReloj.DefaultCellStyle = dataGridViewCellStyle36;
             this.dgvReloj.Location = new System.Drawing.Point(38, 67);
             this.dgvReloj.Name = "dgvReloj";
             this.dgvReloj.ReadOnly = true;
@@ -1601,8 +1607,8 @@
             this.dgvAgrega.AllowUserToDeleteRows = false;
             this.dgvAgrega.AllowUserToResizeColumns = false;
             this.dgvAgrega.AllowUserToResizeRows = false;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvAgrega.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvAgrega.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
             this.dgvAgrega.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAgrega.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAgrega.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
@@ -1610,14 +1616,14 @@
             this.dgvAgrega.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvAgrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgrega.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAgrega.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAgrega.DefaultCellStyle = dataGridViewCellStyle38;
             this.dgvAgrega.Location = new System.Drawing.Point(44, 87);
             this.dgvAgrega.Name = "dgvAgrega";
             this.dgvAgrega.ReadOnly = true;
@@ -1762,8 +1768,8 @@
             this.dgvElimina.AllowUserToDeleteRows = false;
             this.dgvElimina.AllowUserToResizeColumns = false;
             this.dgvElimina.AllowUserToResizeRows = false;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvElimina.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvElimina.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
             this.dgvElimina.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvElimina.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvElimina.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
@@ -1771,14 +1777,14 @@
             this.dgvElimina.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvElimina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvElimina.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvElimina.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvElimina.DefaultCellStyle = dataGridViewCellStyle40;
             this.dgvElimina.Location = new System.Drawing.Point(46, 79);
             this.dgvElimina.Name = "dgvElimina";
             this.dgvElimina.ReadOnly = true;
@@ -1837,6 +1843,42 @@
             this.tabCambiaAsociacion.Size = new System.Drawing.Size(1009, 565);
             this.tabCambiaAsociacion.TabIndex = 5;
             this.tabCambiaAsociacion.Text = "Cambiar Asociación";
+            // 
+            // dgvCambiaAsociacion
+            // 
+            this.dgvCambiaAsociacion.AllowUserToAddRows = false;
+            this.dgvCambiaAsociacion.AllowUserToDeleteRows = false;
+            this.dgvCambiaAsociacion.AllowUserToResizeColumns = false;
+            this.dgvCambiaAsociacion.AllowUserToResizeRows = false;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
+            this.dgvCambiaAsociacion.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            this.dgvCambiaAsociacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCambiaAsociacion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvCambiaAsociacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.dgvCambiaAsociacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCambiaAsociacion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvCambiaAsociacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCambiaAsociacion.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCambiaAsociacion.DefaultCellStyle = dataGridViewCellStyle42;
+            this.dgvCambiaAsociacion.Location = new System.Drawing.Point(458, 75);
+            this.dgvCambiaAsociacion.Name = "dgvCambiaAsociacion";
+            this.dgvCambiaAsociacion.ReadOnly = true;
+            this.dgvCambiaAsociacion.RowHeadersVisible = false;
+            this.dgvCambiaAsociacion.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvCambiaAsociacion.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
+            this.dgvCambiaAsociacion.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
+            this.dgvCambiaAsociacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCambiaAsociacion.Size = new System.Drawing.Size(400, 324);
+            this.dgvCambiaAsociacion.TabIndex = 236;
+            this.dgvCambiaAsociacion.Tag = "Editar";
+            this.dgvCambiaAsociacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCambiaAsociacion_CellContentClick);
             // 
             // pnlCambia
             // 
@@ -2092,41 +2134,44 @@
             this.ptbimgusuario.TabIndex = 183;
             this.ptbimgusuario.TabStop = false;
             // 
-            // dgvCambiaAsociacion
+            // panel18
             // 
-            this.dgvCambiaAsociacion.AllowUserToAddRows = false;
-            this.dgvCambiaAsociacion.AllowUserToDeleteRows = false;
-            this.dgvCambiaAsociacion.AllowUserToResizeColumns = false;
-            this.dgvCambiaAsociacion.AllowUserToResizeRows = false;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
-            this.dgvCambiaAsociacion.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
-            this.dgvCambiaAsociacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCambiaAsociacion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvCambiaAsociacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.dgvCambiaAsociacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvCambiaAsociacion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            this.dgvCambiaAsociacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCambiaAsociacion.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(202)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCambiaAsociacion.DefaultCellStyle = dataGridViewCellStyle30;
-            this.dgvCambiaAsociacion.Location = new System.Drawing.Point(458, 75);
-            this.dgvCambiaAsociacion.Name = "dgvCambiaAsociacion";
-            this.dgvCambiaAsociacion.ReadOnly = true;
-            this.dgvCambiaAsociacion.RowHeadersVisible = false;
-            this.dgvCambiaAsociacion.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvCambiaAsociacion.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
-            this.dgvCambiaAsociacion.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
-            this.dgvCambiaAsociacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCambiaAsociacion.Size = new System.Drawing.Size(400, 324);
-            this.dgvCambiaAsociacion.TabIndex = 236;
-            this.dgvCambiaAsociacion.Tag = "Editar";
-            this.dgvCambiaAsociacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCambiaAsociacion_CellContentClick);
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel18.Controls.Add(this.button8);
+            this.panel18.Controls.Add(label36);
+            this.panel18.Enabled = false;
+            this.panel18.Location = new System.Drawing.Point(433, 9);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(241, 60);
+            this.panel18.TabIndex = 196;
+            this.panel18.TabStop = true;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button8.Image = global::SIPAA_CS.Properties.Resources.Editar;
+            this.button8.Location = new System.Drawing.Point(184, 3);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(50, 50);
+            this.button8.TabIndex = 2;
+            this.button8.Tag = "Guardar";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label36.ForeColor = System.Drawing.Color.Gray;
+            label36.Image = ((System.Drawing.Image)(resources.GetObject("label36.Image")));
+            label36.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label36.Location = new System.Drawing.Point(3, 20);
+            label36.Name = "label36";
+            label36.Size = new System.Drawing.Size(178, 17);
+            label36.TabIndex = 194;
+            label36.Text = "      Cambiar Asignaciones";
             // 
             // AsignacionTrabajadorPerfil
             // 
@@ -2211,6 +2256,7 @@
             this.panel16.PerformLayout();
             this.tabCambiaAsociacion.ResumeLayout(false);
             this.tabCambiaAsociacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCambiaAsociacion)).EndInit();
             this.pnlCambia.ResumeLayout(false);
             this.pnlCambia.PerformLayout();
             this.pnlCambiarAsociacion.ResumeLayout(false);
@@ -2218,7 +2264,8 @@
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCambiaAsociacion)).EndInit();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2337,5 +2384,7 @@
         private System.Windows.Forms.Panel pnlCambia;
         private System.Windows.Forms.Label lblCambia;
         private System.Windows.Forms.DataGridView dgvCambiaAsociacion;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Button button8;
     }
 }
