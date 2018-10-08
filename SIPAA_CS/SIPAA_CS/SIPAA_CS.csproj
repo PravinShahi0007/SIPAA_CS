@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>56</ApplicationRevision>
+    <ApplicationRevision>58</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -112,6 +112,7 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -482,6 +483,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RepEmpleadosDiasEsp.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecursosHumanos\DataSets\repgralsancext.cs">
+      <DependentUpon>repgralsancext.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\repgralsancext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repgralsancext.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\repmensualsancext.cs">
+      <DependentUpon>repmensualsancext.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\repmensualsancext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repmensualsancext.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecursosHumanos\DataSets\RepPeriodos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -491,6 +508,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RepPersonalCargo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\repsancglobal.cs">
+      <DependentUpon>repsancglobal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\DataSets\repsancglobal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repsancglobal.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\DataSets\RepSancionesIncidencias.cs">
       <DependentUpon>RepSancionesIncidencias.xsd</DependentUpon>
@@ -1092,10 +1117,22 @@
       <DependentUpon>RepEmpxsupdir.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosHumanos\Reportes\repgeneralse.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repgeneralse.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecursosHumanos\Reportes\RepPerInc.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RepPerInc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\repsancionesglobal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>repsancionesglobal.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\RepSancionesInc.cs">
@@ -1114,6 +1151,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rep_glinc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Reportes\rep_mensual_se.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rep_mensual_se.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosHumanos\Reportes\Resumen.cs">
@@ -1577,9 +1620,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RepEmpxsupdir.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\repgeneralse.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>repgeneralse.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\RepPerInc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RepPerInc.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\repsancionesglobal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>repsancionesglobal.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\RepSancionesInc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1592,6 +1643,10 @@
     <EmbeddedResource Include="RecursosHumanos\Reportes\rep_glinc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rep_glinc.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Reportes\rep_mensual_se.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rep_mensual_se.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Reportes\Resumen.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1898,6 +1953,28 @@
     <None Include="RecursosHumanos\DataSets\RepEmpleadosDiasEsp.xss">
       <DependentUpon>RepEmpleadosDiasEsp.xsd</DependentUpon>
     </None>
+    <None Include="RecursosHumanos\DataSets\repgralsancext.xsc">
+      <DependentUpon>repgralsancext.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\repgralsancext.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>repgralsancext.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\repgralsancext.xss">
+      <DependentUpon>repgralsancext.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\repmensualsancext.xsc">
+      <DependentUpon>repmensualsancext.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\repmensualsancext.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>repmensualsancext.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\repmensualsancext.xss">
+      <DependentUpon>repmensualsancext.xsd</DependentUpon>
+    </None>
     <None Include="RecursosHumanos\DataSets\RepPeriodos.xsc">
       <DependentUpon>RepPeriodos.xsd</DependentUpon>
     </None>
@@ -1919,6 +1996,17 @@
     </None>
     <None Include="RecursosHumanos\DataSets\RepPersonalCargo.xss">
       <DependentUpon>RepPersonalCargo.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\repsancglobal.xsc">
+      <DependentUpon>repsancglobal.xsd</DependentUpon>
+    </None>
+    <None Include="RecursosHumanos\DataSets\repsancglobal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>repsancglobal.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RecursosHumanos\DataSets\repsancglobal.xss">
+      <DependentUpon>repsancglobal.xsd</DependentUpon>
     </None>
     <None Include="RecursosHumanos\DataSets\RepSancionesIncidencias.xsc">
       <DependentUpon>RepSancionesIncidencias.xsd</DependentUpon>
