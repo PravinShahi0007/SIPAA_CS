@@ -133,6 +133,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap administrativos {
+            get {
+                object obj = ResourceManager.GetObject("administrativos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Agregar {
             get {
                 object obj = ResourceManager.GetObject("Agregar", resourceCulture);
@@ -403,6 +413,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap credfirmada {
+            get {
+                object obj = ResourceManager.GetObject("credfirmada", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Descargar {
             get {
                 object obj = ResourceManager.GetObject("Descargar", resourceCulture);
@@ -426,6 +446,26 @@ namespace SIPAA_CS.Properties {
         internal static System.Drawing.Bitmap Descargar30x30 {
             get {
                 object obj = ResourceManager.GetObject("Descargar30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap direc {
+            get {
+                object obj = ResourceManager.GetObject("direc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap docentes {
+            get {
+                object obj = ResourceManager.GetObject("docentes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

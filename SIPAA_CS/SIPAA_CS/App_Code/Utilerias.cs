@@ -554,14 +554,14 @@ namespace SIPAA_CS.App_Code
         {
 
             if (size.Width <= 600 || size.Height <= 600)
-            { btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "20x20"); }
+            btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "20x20"); 
             else if (size.Width <= 768 || size.Height <= 768)
-            {
+           
                 btn.Image = (Image)Resources.ResourceManager.GetObject(Icono + "30x30");
-            }
-            else {
+            
+            else 
                 btn.Image = (Image)Resources.ResourceManager.GetObject(Icono);
-            }
+            
 
         }
 

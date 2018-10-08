@@ -45,6 +45,7 @@
             this.lblusuario = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.cbuniv = new System.Windows.Forms.CheckBox();
             this.button6 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.trackBar4 = new System.Windows.Forms.TrackBar();
@@ -83,6 +84,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             lblimprimir = new System.Windows.Forms.Label();
             lblidtrab = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -164,7 +166,7 @@
             label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(465, 123);
+            label2.Location = new System.Drawing.Point(465, 142);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(45, 16);
             label2.TabIndex = 157;
@@ -176,7 +178,7 @@
             label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label3.Location = new System.Drawing.Point(728, 123);
+            label3.Location = new System.Drawing.Point(728, 142);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(54, 16);
             label3.TabIndex = 158;
@@ -296,6 +298,7 @@
             // pnlBusqueda
             // 
             this.pnlBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.pnlBusqueda.Controls.Add(this.cbuniv);
             this.pnlBusqueda.Controls.Add(this.button6);
             this.pnlBusqueda.Controls.Add(this.panel2);
             this.pnlBusqueda.Controls.Add(this.button1);
@@ -309,6 +312,19 @@
             this.pnlBusqueda.Size = new System.Drawing.Size(446, 504);
             this.pnlBusqueda.TabIndex = 153;
             this.pnlBusqueda.TabStop = true;
+            // 
+            // cbuniv
+            // 
+            this.cbuniv.AutoSize = true;
+            this.cbuniv.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbuniv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.cbuniv.Location = new System.Drawing.Point(8, 154);
+            this.cbuniv.Name = "cbuniv";
+            this.cbuniv.Size = new System.Drawing.Size(93, 20);
+            this.cbuniv.TabIndex = 206;
+            this.cbuniv.Text = "Universidad";
+            this.cbuniv.UseVisualStyleBackColor = true;
+            this.cbuniv.CheckedChanged += new System.EventHandler(this.cbuniv_CheckedChanged);
             // 
             // button6
             // 
@@ -671,7 +687,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Enabled = false;
-            this.pictureBox1.Location = new System.Drawing.Point(462, 148);
+            this.pictureBox1.Location = new System.Drawing.Point(462, 161);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(260, 410);
@@ -685,7 +701,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Enabled = false;
-            this.pictureBox2.Location = new System.Drawing.Point(731, 148);
+            this.pictureBox2.Location = new System.Drawing.Point(731, 161);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(260, 410);
@@ -702,7 +718,7 @@
             // pnlMensaje
             // 
             this.pnlMensaje.Controls.Add(this.panelTag);
-            this.pnlMensaje.Location = new System.Drawing.Point(462, 562);
+            this.pnlMensaje.Location = new System.Drawing.Point(462, 575);
             this.pnlMensaje.Name = "pnlMensaje";
             this.pnlMensaje.Size = new System.Drawing.Size(529, 52);
             this.pnlMensaje.TabIndex = 202;
@@ -767,6 +783,25 @@
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // comboBox3
+            // 
+            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.DropDownWidth = 500;
+            this.comboBox3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "administrativos",
+            "docentes",
+            "directivo"});
+            this.comboBox3.Location = new System.Drawing.Point(465, 108);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(254, 25);
+            this.comboBox3.TabIndex = 206;
+            this.comboBox3.Visible = false;
+            // 
             // CredencialEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -774,6 +809,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.pnlMensaje);
@@ -868,5 +904,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.CheckBox cbuniv;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }

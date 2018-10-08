@@ -33,6 +33,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             CSonaTrab = new SonaTrabajador();
             fcredEmp = new FiltrosCredencialEmpleado(ref cboEmpleados);
+            comboBox3.SelectedIndex = 0;
         }
 
         private void CredencialEmpleado_Load(object sender, EventArgs e)
@@ -255,18 +256,33 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void cboEmpleados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboEmpleados.SelectedIndex <= 0 || comboBox1.SelectedIndex <= 0)
+            if (cboEmpleados.SelectedIndex <= 0 || comboBox1.SelectedIndex <= 0) 
                 return;
 
             panel2.Visible = false;
 
-            if (Map())
+            if (cbuniv.CheckState == CheckState.Checked)
             {
-                pictureBox1.Enabled = true;
-                pictureBox2.Enabled = true;
-                paint(ref bmpFront, ref front, ref pictureBox1);
-                paint(ref bmpBack, ref back, ref pictureBox2);
+                if (MapUniv())
+                {
+                    pictureBox1.Enabled = true;
+                    pictureBox2.Enabled = true;
+                    paint(ref bmpFront, ref front, ref pictureBox1);
+                    paint(ref bmpBack, ref back, ref pictureBox2);
+                }
             }
+            else
+            {
+                if (Map())
+                {
+                    pictureBox1.Enabled = true;
+                    pictureBox2.Enabled = true;
+                    paint(ref bmpFront, ref front, ref pictureBox1);
+                    paint(ref bmpBack, ref back, ref pictureBox2);
+                }
+            }
+
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -280,7 +296,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             try
             {
                 DataTable table = CSonaTrab.ObtenerPerfilTrabajador(cboEmpleados.SelectedValue.ToString(), 21, "%", "%", 0, "%", "%");
-                string IdTrab = "", Paterno = "", Materno = "", Nombre = "", Puesto = "", Plantel = "", Compania = "", Departamento = "", Calle = "", Exterior = "", Interior = "", CP = "", Colonia = "", IMSS = "";
+                string IdTrab = "", Paterno = "", Materno = "", Nombre = "", Puesto = "", Plantel = "", Compania = "", Departamento = "", Calle = "", Exterior = "", Interior = "", CP = "", Colonia = "", IMSS = "" ;
 
                 foreach (DataRow row in table.Rows)
                 {
@@ -298,6 +314,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     CP = row["CP"].ToString().Trim(' ');
                     Colonia = row["Colonia"].ToString().Trim(' ');
                     IMSS = row["IMSS"].ToString().Trim(' ');
+                  
                 }
 
                 ZMotifGraphics g = new ZMotifGraphics();
@@ -370,7 +387,100 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             return status;
         }
-        
+
+        private bool MapUniv()
+        {
+            bool status = false;
+            try
+            {
+                DataTable table = CSonaTrab.ObtenerPerfilTrabajador(cboEmpleados.SelectedValue.ToString(), 21, "%", "%", 0, "%", "%");
+                string IdTrab = "", Paterno = "", Materno = "", Nombre = "", Puesto = "", Plantel = "", Compania = "", Departamento = "", Calle = "", Exterior = "", Interior = "", CP = "", Colonia = "", IMSS = "", Longitud= "";
+
+                foreach (DataRow row in table.Rows)
+                {
+                    IdTrab = row["IdTrab"].ToString().Trim(' ');
+                    Paterno = row["Paterno"].ToString().Trim(' ');
+                    Materno = row["Materno"].ToString().Trim(' ');
+                    Nombre = row["Nombre"].ToString().Trim(' ');
+                    Puesto = row["Puesto"].ToString().Trim(' ');
+                    Plantel = row["Plantel"].ToString().Trim(' ');
+                    Compania = row["Compania"].ToString().Trim(' ');
+                    Departamento = row["Departamento"].ToString().Trim(' ');
+                    Calle = row["Calle"].ToString().Trim(' ');
+                    Exterior = row["Exterior"].ToString().Trim(' ');
+                    Interior = row["Interior"].ToString().Trim(' ');
+                    CP = row["CP"].ToString().Trim(' ');
+                    Colonia = row["Colonia"].ToString().Trim(' ');
+                    IMSS = row["IMSS"].ToString().Trim(' ');
+                    Longitud = row["Longitud"].ToString().Trim(' ');
+                }
+
+                ZMotifGraphics g = new ZMotifGraphics();
+                //Datos Frente...
+                front = new ZMotifCard(ZMotifGraphics.ImageOrientationEnum.Portrait, ZMotifGraphics.RibbonTypeEnum.Color);
+
+                try { front.imgs.Add(ZMotifCard.background, new ZMotifImage(ImageToByteArray(frontBackgroundUniv()), 0, 0, ZMotifGraphics.ImagePositionEnum.Centered, 648, 1024, 0)); }
+                catch { }
+
+                try { front.imgs.Add("FotoEmpleado", new ZMotifImage(g.ImageFileToByteArray(@"\\192.168.30.171\FotosJS\FotosEmpleados\" + cboEmpleados.SelectedValue + ".jpg"), 23f, 120f, ZMotifGraphics.ImagePositionEnum.Centered, 265, 305, 0)); }
+                catch { front.imgs.Add("FotoEmpleado", new ZMotifImage(ImageToByteArray(pictureBox1.ErrorImage), 23f, 209f, ZMotifGraphics.ImagePositionEnum.Centered, 75, 75, 0)); }
+                
+                front.txts.Add("Paterno", new ZMotifText(Paterno, 295f, 265f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                front.txts.Add("Materno", new ZMotifText(Materno, 295f, 316f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                front.txts.Add("Nombre", new ZMotifText(Nombre, 295f, 365f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                //front.txts.Add("Vigencia", new ZMotifText(fcredEmp.date.ToShortDateString(), 340f, 340f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
+                front.txts.Add("IdTrab", new ZMotifText(IdTrab, 106f, 425f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.Red )); //192; 0; 0
+                if (Longitud=="1")
+                    front.txts.Add("Puesto", new ZMotifText(Puesto, 228f, 475f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                else if (Longitud=="2")
+                    front.txts.Add("Puesto", new ZMotifText(Puesto, 173f, 475f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                else if (Longitud == "3")
+                    front.txts.Add("Puesto", new ZMotifText(Puesto, 30f, 475f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                else
+                  front.txts.Add("Puesto", new ZMotifText(Puesto, 15f, 475f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                
+               
+                //front.txts.Add("Plantel", new ZMotifText(Plantel, 150f, 798f, "Myriad Pro", 14.25f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.White));
+
+                //Datos Reverso...
+                back = new ZMotifCard(ZMotifGraphics.ImageOrientationEnum.Portrait, ZMotifGraphics.RibbonTypeEnum.MonoK);
+                try { back.imgs.Add(ZMotifCard.background, new ZMotifImage(ImageToByteArray(Resources.credfirmada), 0, 0, ZMotifGraphics.ImagePositionEnum.Centered, 648, 1024, 0)); }
+                catch { }
+
+                back.txts.Add("dep_d", new ZMotifText("Departamento:", 40f, 120f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
+                back.txts.Add("Departamento", new ZMotifText(Departamento, 40f, 160f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
+                back.txts.Add("vig_d", new ZMotifText("Vigencia:", 40f, 275f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
+                back.txts.Add("Vigencia", new ZMotifText(fcredEmp.date.ToShortDateString(), 40f, 315f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, Color.Black));
+                /*back.txts.Add("ext_d", new ZMotifText("No. Exterior:", 40f, 410f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
+                back.txts.Add("Exterior", new ZMotifText(Exterior, 250f, 410f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
+                back.txts.Add("int_d", new ZMotifText("No. Interior:", 40f, 460f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
+                back.txts.Add("Interior", new ZMotifText(Interior, 250f, 460f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
+                back.txts.Add("cp_d", new ZMotifText("C.P.:", 400f, 460f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
+                back.txts.Add("CP", new ZMotifText(CP, 490f, 460f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
+                back.txts.Add("col_d", new ZMotifText("Colonia:", 40f, 530f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, System.Drawing.Color.Black));
+                back.txts.Add("Colonia", new ZMotifText(Colonia, 40f, 580f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));*/
+                back.txts.Add("imss_d", new ZMotifText("I.M.S.S.:", 40f, 700f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
+                back.txts.Add("IMSS", new ZMotifText(IMSS, 200f, 700f, "Myriad Pro", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
+                //back.txts.Add("firm_d", new ZMotifText("FIRMA TRABAJADOR", 150f, 970f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, System.Drawing.Color.Black));
+
+                status = true;
+            }
+            catch
+            {
+                pictureBox1.Image = pictureBox1.ErrorImage;
+                pictureBox2.Image = pictureBox2.ErrorImage;
+                pictureBox1.Enabled = false;
+                pictureBox2.Enabled = false;
+                //***
+                pnlMensaje.Enabled = true;
+                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Error al obtener datos");
+                pnlMensaje.Enabled = false;
+                //***
+            }
+
+            return status;
+        }
+
         private Bitmap frontBackground(string compania)
         {
             switch (compania)
@@ -389,7 +499,23 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     return Resources._default;
             }
         }   
-             
+
+        private Bitmap frontBackgroundUniv()
+        {
+            string value = comboBox3.SelectedItem.ToString();
+            switch (value)
+            {
+                case "administrativos":
+                    return Resources.administrativos;
+                case "docentes":
+                    return Resources.docentes;
+                case "directivo":
+                    return Resources.direc;
+                default:
+                    return Resources._default;
+            }
+        }
+
         private void paint(ref byte[] image, ref ZMotifCard card, ref PictureBox pbox)
         {
             try
@@ -919,6 +1045,16 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             {
                 cboEmpleados.SelectedIndex = cboEmpleados.SelectedIndex - 1;
             }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbuniv_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox3.Visible = cbuniv.CheckState == CheckState.Checked;
         }
 
         private ZMotifCard sideSelected()

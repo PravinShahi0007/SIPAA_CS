@@ -282,3 +282,5 @@ ModelManifest.xml
 /SIPAA_CS/SIPAA_CS/RecursosHumanos/Procesos/ReasignaSupyDirectores2.Designer.cs
 /SIPAA_CS/SIPAA_CS/RecursosHumanos/Procesos/ReasignaSupyDirectores2.cs
 /SIPAA_CS/SIPAA_CS/App_Code/RecursosHumanos/Procesos/ReasignaSupyDirector2.cs
+*.cs
+/SIPAA_Consola
