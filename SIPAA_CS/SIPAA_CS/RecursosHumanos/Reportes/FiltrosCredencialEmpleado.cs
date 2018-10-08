@@ -88,7 +88,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
             //llena combo de empleados
             SonaTrabajador CSonaTrab = new SonaTrabajador();
-            DataTable dtEmpleado = CSonaTrab.obtenerempleadosxfiltros(9, "%", compania, area, "%", "%", ubicacion, tnomina, status);
+            DataTable dtEmpleado = CSonaTrab.obtenerempleadosxfiltros(9, "%", compania, area, "%", "%", ubicacion, tnomina, status, 1);
             Utilerias.llenarComboxDataTable(cb, dtEmpleado, "NoEmpleado", "Nombre");
             
             //***
