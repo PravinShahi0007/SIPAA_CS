@@ -627,7 +627,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     Texto.Write(Texto.NewLine);
 
                     cadenaReg = "IdTrab, Estado del Empleado, Nombre, Puesto, Fecha de Registro, Representa, Incidencia, Tiempo_Empleado, Tiempo_Profesor,"+
-                        " Estatus, Justificada, Descontada, Falta, Tipo de Nómina, Departamento, Plantel, Ubicación, Compañia";
+                        " Estatus, Justificada, Descontada, Falta, Retroactivo ,Tipo de Nómina, Departamento, Plantel, Ubicación, Compañia";
                     Texto.WriteLine(cadenaReg);
                     Texto.Write(Texto.NewLine);
 
@@ -641,7 +641,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                             
                             cadenaReg = Fila[0].ToString() + "," + Fila[1].ToString() + "," + Fila[2].ToString() + "," + Fila[3].ToString() + "," + Fila[4].ToString() +
                             "," + Fila[5].ToString() + "," + Fila[6].ToString() + "," + Fila[7].ToString() + "," + Fila[8].ToString() + "," + Fila[9].ToString() + "," + Fila[10].ToString() +
-                            "," + Fila[11].ToString() + "," + Fila[12].ToString() + "," + Fila[13].ToString() + "," + Fila[14].ToString() + "," + Fila[15].ToString() + "," + Fila[16].ToString() + "," + Fila[17].ToString();
+                            "," + Fila[11].ToString() + "," + Fila[12].ToString() + "," + Fila[13].ToString() + "," + Fila[14].ToString() + "," + Fila[15].ToString() + "," + Fila[16].ToString() + "," + Fila[17].ToString()+","+Fila[18].ToString();
                             Texto.WriteLine(cadenaReg);
 
                             TiempoEmpleado = TiempoEmpleado + Convert.ToInt32(Fila[7].ToString());
