@@ -913,6 +913,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         private void tabAsignacion_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
             switch (tabAsignacion.SelectedIndex)
             {
 
@@ -953,6 +954,10 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     llenarGridElimina("%", dgvCambiaAsociacion);
                     AsignaParaEliminar(dgvCambiaAsociacion);
                     if (Permisos.dcPermisos["Eliminar"] == 0) { pnlCambiarAsociacion.Visible = false; }
+                    break;
+                case 6:
+                    MuestraBiometricos();
+               
                     break;
             }
           
@@ -2712,6 +2717,61 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
 
         }
+
+        private void MuestraBiometricos()
+        {
+            RelojChecador objReloj = new RelojChecador();
+            DataTable dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, 0, 29, "", "");
+
+            foreach (DataRow row in dt.Rows)
+            {
+                switch (row[0].ToString())
+                {
+                    case "0":
+                        Finger0.Checked = true;
+                     continue;
+                    case "1":
+                        Finger1.Checked = true;
+                        continue;
+                    case "2":
+                        Finger2.Checked = true;
+                        continue;
+                    case "3":
+                        Finger3.Checked = true;
+                        continue;
+                    case "4":
+                        Finger4.Checked = true;
+                        continue;
+                    case "5":
+                        Finger5.Checked = true;
+                        continue;
+                    case "6":
+                        Finger6.Checked = true;
+                        continue;
+                    case "7":
+                        Finger7.Checked = true;
+                        continue;
+                    case "8":
+                        Finger8.Checked = true;
+                        continue;
+                    case "9":
+                        Finger9.Checked = true;
+                        continue;
+                }
+            }
+
+            dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, 0, 30, "", "");
+           
+           
+           // MessageBox.Show(" "+dt.Rows[0].Field<string>(0)+" => "+ dt.Rows[0].ItemArray[0].ToString() );
+            if (dt.Rows[0].Field<string>(0) == "0")
+                label39.Text = "SIN ROSTRO";
+             
+           
+                
+
+        }
+
 
         private void button8_Click(object sender, EventArgs e)
         {
