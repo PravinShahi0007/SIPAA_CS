@@ -511,6 +511,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     return Resources.docentes;
                 case "directivo":
                     return Resources.direc;
+                case "visitantes":
+                    return Resources.visitantes;
                 default:
                     return Resources._default;
             }

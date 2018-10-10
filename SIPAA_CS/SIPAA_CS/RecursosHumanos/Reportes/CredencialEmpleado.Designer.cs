@@ -795,7 +795,8 @@
             this.comboBox3.Items.AddRange(new object[] {
             "administrativos",
             "docentes",
-            "directivo"});
+            "directivo",
+            "visitantes"});
             this.comboBox3.Location = new System.Drawing.Point(465, 108);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(254, 25);
