@@ -661,7 +661,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             string piddepartamento, string pidubicacion, string pidtiponomina, int piactivo)
         {
             DataTable dtempleados = contenedorempleados.obtenerempleadosxfiltros(popcion, pidtrab, pidcompania, pidarea, pidpuesto,
-            piddepartamento, pidubicacion, pidtiponomina, piactivo);
+            piddepartamento, pidubicacion, pidtiponomina, piactivo, 1);
             dgvEmpleados.DataSource = dtempleados;
 
             Utilerias.AgregarCheck(dgvEmpleados, 0);

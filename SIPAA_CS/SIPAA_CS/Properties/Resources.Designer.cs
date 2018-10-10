@@ -453,6 +453,16 @@ namespace SIPAA_CS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap direc {
+            get {
+                object obj = ResourceManager.GetObject("direc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap docentes {
             get {
                 object obj = ResourceManager.GetObject("docentes", resourceCulture);

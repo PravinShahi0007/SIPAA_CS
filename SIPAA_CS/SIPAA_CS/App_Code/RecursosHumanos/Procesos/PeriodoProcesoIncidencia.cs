@@ -70,10 +70,11 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         //metodo data table para llenar el grid/combo de busqueda
         public DataTable obtPeriodosProcesoIncidencia(int iOpcion, int iIdFormaPago, string sFechaInicioReg, string sFechaFinReg, string sDescripcion, 
             int iStPeriodoProceso, string sUsuumod, string sPrgumodr, string sFechaInicioProcInc, string sFechaFinProcInc, string sFechaInicioConsInc, string
-            sFechaFinConsInc, string sFechaInicioCalifSup, string sFechaFinCalifSup, string sFechaInicioCalifDir, string sFechaFinCalifDir, string sFechaInicioUpdate, string sFechaFinUpdate)
+            sFechaFinConsInc, string sFechaInicioCalifSup, string sFechaFinCalifSup, string sFechaInicioCalifDir, string sFechaFinCalifDir, string sFechaInicioUpdate, 
+            string sFechaFinUpdate, int istgensanciones, string sfgensanciones)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechperiodoproinc_suid";
+            cmd.CommandText = @"usp_periodoprocesainc_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -95,6 +96,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
             cmd.Parameters.Add("@p_fhfincalifdir", SqlDbType.VarChar).Value = sFechaFinCalifDir;
             cmd.Parameters.Add("@p_fhinireg_update", SqlDbType.VarChar).Value = sFechaInicioUpdate;
             cmd.Parameters.Add("@p_fhfinreg_update", SqlDbType.VarChar).Value = sFechaFinUpdate;
+            cmd.Parameters.Add("@p_stgensanciones", SqlDbType.Int).Value = istgensanciones;
+            cmd.Parameters.Add("@p_fgensanciones", SqlDbType.VarChar).Value = sfgensanciones;
             objConexion.asignarConexion(cmd);
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
             objConexion.cerrarConexion();
@@ -106,11 +109,12 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
         //metodo insertar, actualizar, eliminar registro, listar
         public int udiPeriodosProcesoIncidencia(int iOpcion, int iIdFormaPago, string sFechaInicioReg, string sFechaFinReg, string sDescripcion,
             int iStPeriodoProceso, string sUsuumod, string sPrgumodr, string sFechaInicioProcInc, string sFechaFinProcInc, string sFechaInicioConsInc, string
-            sFechaFinConsInc, string sFechaInicioCalifSup, string sFechaFinCalifSup, string sFechaInicioCalifDir, string sFechaFinCalifDir, string sFechaInicioUpdate, string sFechaFinUpdate)
+            sFechaFinConsInc, string sFechaInicioCalifSup, string sFechaFinCalifSup, string sFechaInicioCalifDir, string sFechaFinCalifDir, 
+            string sFechaInicioUpdate, string sFechaFinUpdate, int istgensanciones, string sfgensanciones)
         {
             iRespuesta = 0;
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"usp_rechperiodoproinc_suid";
+            cmd.CommandText = @"usp_periodoprocesainc_suid";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
             objConexion.asignarConexion(cmd);
@@ -136,6 +140,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
                 cmd.Parameters.Add("@p_fhfincalifdir", SqlDbType.VarChar).Value = sFechaFinCalifDir;
                 cmd.Parameters.Add("@p_fhinireg_update", SqlDbType.VarChar).Value = sFechaInicioUpdate;
                 cmd.Parameters.Add("@p_fhfinreg_update", SqlDbType.VarChar).Value = sFechaFinUpdate;
+                cmd.Parameters.Add("@p_stgensanciones", SqlDbType.Int).Value = istgensanciones;
+                cmd.Parameters.Add("@p_fgensanciones", SqlDbType.VarChar).Value = sfgensanciones;
                 objConexion.asignarConexion(cmd);
                 //
                 iRespuesta = Convert.ToInt32(cmd.ExecuteScalar());
@@ -165,6 +171,8 @@ namespace SIPAA_CS.App_Code.RecursosHumanos.Procesos
                 cmd.Parameters.Add("@p_fhfincalifdir", SqlDbType.VarChar).Value = sFechaFinCalifDir;
                 cmd.Parameters.Add("@p_fhinireg_update", SqlDbType.VarChar).Value = sFechaInicioUpdate;
                 cmd.Parameters.Add("@p_fhfinreg_update", SqlDbType.VarChar).Value = sFechaFinUpdate;
+                cmd.Parameters.Add("@p_stgensanciones", SqlDbType.Int).Value = istgensanciones;
+                cmd.Parameters.Add("@p_fgensanciones", SqlDbType.VarChar).Value = sfgensanciones;
                 objConexion.asignarConexion(cmd);
                 //
                 iRespuesta = Convert.ToInt32(cmd.ExecuteScalar());

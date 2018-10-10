@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="repsancglobal" targetNamespace="http://tempuri.org/repsancglobal.xsd" xmlns:mstns="http://tempuri.org/repsancglobal.xsd" xmlns="http://tempuri.org/repsancglobal.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="repsancglobal" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="repsancglobal" msprop:Generator_UserDSName="repsancglobal">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="sancglobal" msprop:Generator_TableClassName="sancglobalDataTable" msprop:Generator_TableVarName="tablesancglobal" msprop:Generator_TablePropName="sancglobal" msprop:Generator_RowDeletingName="sancglobalRowDeleting" msprop:Generator_RowChangingName="sancglobalRowChanging" msprop:Generator_RowEvHandlerName="sancglobalRowChangeEventHandler" msprop:Generator_RowDeletedName="sancglobalRowDeleted" msprop:Generator_UserTableName="sancglobal" msprop:Generator_RowChangedName="sancglobalRowChanged" msprop:Generator_RowEvArgName="sancglobalRowChangeEvent" msprop:Generator_RowClassName="sancglobalRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="stsancion" msprop:Generator_ColumnVarNameInTable="columnstsancion" msprop:Generator_ColumnPropNameInRow="stsancion" msprop:Generator_ColumnPropNameInTable="stsancionColumn" msprop:Generator_UserColumnName="stsancion" type="xs:int" minOccurs="0" />
+              <xs:element name="ciclo" msprop:Generator_ColumnVarNameInTable="columnciclo" msprop:Generator_ColumnPropNameInRow="ciclo" msprop:Generator_ColumnPropNameInTable="cicloColumn" msprop:Generator_UserColumnName="ciclo" type="xs:string" minOccurs="0" />
+              <xs:element name="desc" msprop:Generator_ColumnVarNameInTable="columndesc" msprop:Generator_ColumnPropNameInRow="desc" msprop:Generator_ColumnPropNameInTable="descColumn" msprop:Generator_UserColumnName="desc" type="xs:string" minOccurs="0" />
+              <xs:element name="numsanc" msprop:Generator_ColumnVarNameInTable="columnnumsanc" msprop:Generator_ColumnPropNameInRow="numsanc" msprop:Generator_ColumnPropNameInTable="numsancColumn" msprop:Generator_UserColumnName="numsanc" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
