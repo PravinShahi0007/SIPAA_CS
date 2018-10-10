@@ -424,7 +424,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     }
                                 }
                                 //ELimina automaticamente los registros de la asistencia en el reloj checador 
-                                objCZKEM.ClearData(1, 1);
+                               // objCZKEM.ClearData(1, 1);
                                 objCZKEM.Disconnect();
                                 progressBar1.Value = 90;
                                 if (bBandera)
