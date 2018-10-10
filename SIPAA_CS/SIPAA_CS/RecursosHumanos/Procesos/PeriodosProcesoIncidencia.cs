@@ -95,7 +95,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 pnlActPeriodoIncidencia.Visible = false;
                 iIdFormaPagoBuscar = Convert.ToInt32(cbFormaPago.SelectedValue.ToString());
                 iIdFormaPago = iIdFormaPagoBuscar;
-                fgPeriodosProcesoIncidencia(6, iIdFormaPagoBuscar, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,"","","","","","","","","","");
+                fgPeriodosProcesoIncidencia(6, iIdFormaPagoBuscar, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,"","","","","","","","","","", 0, "");
             } // if (!bClickPrimeraVezFormaPago)
         } // private void cbFormaPago_SelectedIndexChanged(object sender, EventArgs e)
 
@@ -222,6 +222,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dtpFechaInicioCalificarIncidenciaDir.Text = "";
                 dtpFechaFinCalificarIncidenciaDir.Text = "";
 
+                ckbaplicasanc.Visible = true;
+                ckbaplicasanc.Checked = false;
+                label11.Visible = false;
+                dtpfecsancion.Visible = false;
+
             }
             else
             {
@@ -242,7 +247,20 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             {
                 rV = validarFechas_Periodos();
                 if (rV == true)
-                { 
+                {
+                    int igensac;
+                    string sfecgensanc;
+                    if (ckbaplicasanc.Checked == true)
+                    {
+                        igensac = 1;
+                        sfecgensanc = dtpfecsancion.Text;
+                    }
+                    else
+                    {
+                        igensac = 0;
+                        sfecgensanc = "";
+                    }
+
                    //inserta registro nuevo
                     fuidPeriodosProcesoIncidencia(1, iIdFormaPago, dtpFechaInicioPeriodoIncidencia.Text, dtpFechaFinPeriodoIncidencia.Text, txtDescripcionPeriodoIncidencia.Text.Trim(), iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,
                     dtpFechaInicioProcesarIncidencia.Text, dtpFechaFinProcesarIncidencia.Text,
@@ -251,13 +269,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     dtpFechaInicioCalificarIncidenciaSup.Text,
                     dtpFechaFinCalificarIncidenciaSup.Text,
                     dtpFechaInicioCalificarIncidenciaDir.Text,
-                    dtpFechaFinCalificarIncidenciaDir.Text, "", "");
+                    dtpFechaFinCalificarIncidenciaDir.Text, "", "", igensac, sfecgensanc);
                     panelTag.Visible = true;
                     txtDescripcionPeriodoIncidencia.Text = "";
                     txtDescripcionPeriodoIncidencia.Focus();
                     timer1.Start();
                     //llena grid con datos existente
-                    fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "");
+                    fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "", 0, "");
                     ckbEliminar.Checked = false;
                     ckbEliminar.Visible = false;
                     pnlActPeriodoIncidencia.Visible = false;
@@ -275,7 +293,18 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                           // Colocar el periodo abierto anterior en 0
                           fuidPeriodosProcesoIncidencia(12, iIdFormaPago, "", "", "", 0, LoginInfo.IdTrab, this.Name,"","","","","","","","","","");
                       }*/
-
+                    int igensacm;
+                    string sfecgensancm;
+                    if (ckbaplicasanc.Checked == true)
+                    {
+                        igensacm = 1;
+                        sfecgensancm = dtpfecsancion.Text;
+                    }
+                    else
+                    {
+                        igensacm = 0;
+                        sfecgensancm = "";
+                    }
 
 
                     fuidPeriodosProcesoIncidencia(2, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, txtDescripcionPeriodoIncidencia.Text.Trim(), iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,
@@ -286,14 +315,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     dtpFechaInicioCalificarIncidenciaSup.Text,
                     dtpFechaFinCalificarIncidenciaSup.Text,
                     dtpFechaInicioCalificarIncidenciaDir.Text,
-                    dtpFechaFinCalificarIncidenciaDir.Text, dtpFechaInicioPeriodoIncidencia.Text, dtpFechaFinPeriodoIncidencia.Text);
+                    dtpFechaFinCalificarIncidenciaDir.Text, dtpFechaInicioPeriodoIncidencia.Text, dtpFechaFinPeriodoIncidencia.Text, igensacm, sfecgensancm);
                     panelTag.Visible = true;
                     txtDescripcionPeriodoIncidencia.Text = "";
                     txtDescripcionPeriodoIncidencia.Focus();
                     timer1.Start();
                     //llena grid con datos existente
                     //fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, "bhb", "PeriodosProcesoIncidencia");
-                    fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "");
+                    fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "", 0, "");
                     ckbEliminar.Checked = false;
                     ckbEliminar.Visible = false;
                     pnlActPeriodoIncidencia.Visible = false;
@@ -306,13 +335,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 if (result == DialogResult.Yes)
                 {
                    //inserta registro nuevo
-                    fuidPeriodosProcesoIncidencia(3, iIdFormaPago, dtpFechaInicioPeriodoIncidencia.Text, dtpFechaFinPeriodoIncidencia.Text, txtDescripcionPeriodoIncidencia.Text.Trim(), iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,"","","","","","","","","","");
+                    fuidPeriodosProcesoIncidencia(3, iIdFormaPago, dtpFechaInicioPeriodoIncidencia.Text, dtpFechaFinPeriodoIncidencia.Text, txtDescripcionPeriodoIncidencia.Text.Trim(), iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,"","","","","","","","","","", 0, "");
                     panelTag.Visible = true;
                     txtDescripcionPeriodoIncidencia.Text = "";
                     txtDescripcionPeriodoIncidencia.Focus();
                     timer1.Start();
                     //llena grid con datos existente
-                    fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,"","","","","","","","","","");
+                    fgPeriodosProcesoIncidencia(6, iIdFormaPago, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name,"","","","","","","","","","", 0, "");
                     ckbEliminar.Checked = false;
                     ckbEliminar.Visible = false;
                     pnlActPeriodoIncidencia.Visible = false;
@@ -350,7 +379,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             DataTable dtreporte = new DataTable();
             dtreporte = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(20, Int32.Parse(cbFormaPago.SelectedValue.ToString()),"2","","",0,
-                                                                               LoginInfo.IdTrab, this.Name, "","","","","","","","","","");
+                                                                               LoginInfo.IdTrab, this.Name, "","","","","","","","","","", 0, "");
 
             //Preparación de los objetos para mandar a imprimir el reporte de Crystal Reports
             ViewerReporte form = new ViewerReporte();
@@ -425,7 +454,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 pnlActPeriodoIncidencia.Visible = false;
                 iIdFormaPagoBuscar = Convert.ToInt32(cbFormaPago.SelectedValue.ToString());
                 iIdFormaPago = iIdFormaPagoBuscar;
-                fgPeriodosProcesoIncidencia(6, iIdFormaPagoBuscar, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "");
+                fgPeriodosProcesoIncidencia(6, iIdFormaPagoBuscar, "", "", "", iStPeriodoIncidencia, LoginInfo.IdTrab, this.Name, "", "", "", "", "", "", "", "", "", "", 0, "");
             } // if (!bClickPrimeraVezFormaPago)
 
 
@@ -481,13 +510,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         } // private void fTooltip()
 
         private void fgPeriodosProcesoIncidencia(int iOpcion, int iIdFormaPago, string sFechaInicioPeriodoIncidencia, string sFechaFinPeriodoIncidencia, string sDescripcion, int iStPeriodoProceso, string sUsuumod, string sPrgumod, string sFechaInicioProcInc, string sFechaFinProcInc, string sFechaInicioConsInc, string
-            sFechaFinConsInc, string sFechaInicioCalifSup, string sFechaFinCalifSup, string sFechaInicioCalifDir, string sFechaFinCalifDir, string sFechaInicioUpdate, string sFechaFinUpdate)
+            sFechaFinConsInc, string sFechaInicioCalifSup, string sFechaFinCalifSup, string sFechaInicioCalifDir, string sFechaFinCalifDir, string sFechaInicioUpdate, string sFechaFinUpdate,
+            int istgensanciones, string sfgensanciones)
         {
             if (iIns == 1 && iAct == 1 && iElim == 1)
             {
 
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod,  sFechaInicioProcInc,  sFechaFinProcInc,  sFechaInicioConsInc, 
-                sFechaFinConsInc,  sFechaInicioCalifSup,  sFechaFinCalifSup,  sFechaInicioCalifDir,  sFechaFinCalifDir,  sFechaInicioUpdate,  sFechaFinUpdate);
+                sFechaFinConsInc,  sFechaInicioCalifSup,  sFechaFinCalifSup,  sFechaInicioCalifDir,  sFechaFinCalifDir,  sFechaInicioUpdate,  sFechaFinUpdate, istgensanciones, sfgensanciones);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
 
                
@@ -514,7 +544,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             else if (iIns == 1 && iAct == 1)
             {
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod, sFechaInicioProcInc, sFechaFinProcInc, sFechaInicioConsInc,
-            sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate);
+            sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate, istgensanciones, sfgensanciones);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
@@ -540,7 +570,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             else if (iIns == 1 && iElim == 1)
             {
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod, sFechaInicioProcInc, sFechaFinProcInc, sFechaInicioConsInc,
-                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate);
+                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate, istgensanciones, sfgensanciones);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
@@ -565,7 +595,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             else if (iAct == 1 && iElim == 1)
             {
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod, sFechaInicioProcInc, sFechaFinProcInc, sFechaInicioConsInc,
-                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate);
+                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate, istgensanciones, sfgensanciones);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
@@ -590,7 +620,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             else if (iIns == 1)
             {
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod, sFechaInicioProcInc, sFechaFinProcInc, sFechaInicioConsInc,
-                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate);
+                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate, istgensanciones, sfgensanciones);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
                 dgvPeriodosProcesoIncidencias.Columns[1].Visible = false;
                 dgvPeriodosProcesoIncidencias.Columns[2].Width = 100;
@@ -604,7 +634,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             else if (iAct == 1)
             {
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod, sFechaInicioProcInc, sFechaFinProcInc, sFechaInicioConsInc,
-                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate);
+                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate, istgensanciones, sfgensanciones);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
@@ -629,7 +659,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             else if (iElim == 1)
             {
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod, sFechaInicioProcInc, sFechaFinProcInc, sFechaInicioConsInc,
-                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate);
+                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate, istgensanciones, sfgensanciones);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
                 DataGridViewImageColumn imgCheckUsuarios = new DataGridViewImageColumn();
                 imgCheckUsuarios.Image = Resources.ic_lens_blue_grey_600_18dp;
@@ -653,7 +683,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             else
             {
                 DataTable dtPeriodosProcesoIncidencias = oPeriodoProcesoIncidencia.obtPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod, sFechaInicioProcInc, sFechaFinProcInc, sFechaInicioConsInc,
-                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate);
+                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate, istgensanciones, sfgensanciones);
                 dgvPeriodosProcesoIncidencias.DataSource = dtPeriodosProcesoIncidencias;
 
 
@@ -684,6 +714,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dgvPeriodosProcesoIncidencias.Columns[11].Width = 85;
                 dgvPeriodosProcesoIncidencias.Columns[12].Width = 85;
                 dgvPeriodosProcesoIncidencias.Columns[13].Width = 85;
+                //dgvPeriodosProcesoIncidencias.Columns[14].Visible = false;
                 dgvPeriodosProcesoIncidencias.ClearSelection();
             }
         }
@@ -695,15 +726,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             cbStatusPeriodo.DisplayMember = "Descripción";
             cbStatusPeriodo.ValueMember = "Val Status";
         }
-        private void fuidPeriodosProcesoIncidencia(int iOpcion, int iIdFormaPago, string sFechaInicioPeriodoIncidencia, string sFechaFinPeriodoIncidencia, string sDescripcion, int iStPeriodoIncidencia, string sUsuumod, string sPrgumod, string sFechaInicioProcInc, string sFechaFinProcInc, string sFechaInicioConsInc, string
-            sFechaFinConsInc, string sFechaInicioCalifSup, string sFechaFinCalifSup, string sFechaInicioCalifDir, string sFechaFinCalifDir, string sFechaInicioUpdate, string sFechaFinUpdate)
+        private void fuidPeriodosProcesoIncidencia(int iOpcion, int iIdFormaPago, string sFechaInicioPeriodoIncidencia, string sFechaFinPeriodoIncidencia, string sDescripcion, 
+            int iStPeriodoIncidencia, string sUsuumod, string sPrgumod, string sFechaInicioProcInc, string sFechaFinProcInc, 
+            string sFechaInicioConsInc, string sFechaFinConsInc, string sFechaInicioCalifSup, string sFechaFinCalifSup, string sFechaInicioCalifDir, 
+            string sFechaFinCalifDir, string sFechaInicioUpdate, string sFechaFinUpdate, int istgensanciones, string sfgensanciones)
         {
 
             //agrega registro
             if (iActbtn == 1)
             {
                 iResp = oPeriodoProcesoIncidencia.udiPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod,  sFechaInicioProcInc,  sFechaFinProcInc,  sFechaInicioConsInc, 
-            sFechaFinConsInc,  sFechaInicioCalifSup,  sFechaFinCalifSup,  sFechaInicioCalifDir,  sFechaFinCalifDir,  sFechaInicioUpdate, sFechaFinUpdate);
+            sFechaFinConsInc,  sFechaInicioCalifSup,  sFechaFinCalifSup,  sFechaInicioCalifDir,  sFechaFinCalifDir,  sFechaInicioUpdate, sFechaFinUpdate, istgensanciones, sfgensanciones);
                 //lbMensaje.Text = iResp.ToString();
                 txtDescripcionPeriodoIncidencia.Text = "";
             }
@@ -711,13 +744,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             else if (iActbtn == 2)
             {
                 iResp = oPeriodoProcesoIncidencia.udiPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod, sFechaInicioProcInc, sFechaFinProcInc, sFechaInicioConsInc,
-            sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate);
+            sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate, istgensanciones, sfgensanciones);
             }
             //elimina registro
             else if (iActbtn == 3)
             {
                 iResp = oPeriodoProcesoIncidencia.udiPeriodosProcesoIncidencia(iOpcion, iIdFormaPago, sFechaInicioPeriodoIncidencia, sFechaFinPeriodoIncidencia, sDescripcion, iStPeriodoIncidencia, sUsuumod, sPrgumod, sFechaInicioProcInc, sFechaFinProcInc, sFechaInicioConsInc,
-                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate);
+                sFechaFinConsInc, sFechaInicioCalifSup, sFechaFinCalifSup, sFechaInicioCalifDir, sFechaFinCalifDir, sFechaInicioUpdate, sFechaFinUpdate, istgensanciones, sfgensanciones);
                 txtDescripcionPeriodoIncidencia.Text = "";
             } // 
 
@@ -805,6 +838,24 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dtpFechaFinCalificarIncidenciaDir.Text =  sFechaFinCalifDir;
                 cbStatusPeriodo.Text = sStPeriodoIncidencia;
                 row.Cells[0].Value = Resources.ic_check_circle_green_400_18dp;
+
+                string sgeninc = row.Cells["GeneraSanciones"].Value.ToString();
+
+                if (sgeninc == "Si")
+                {
+                    ckbaplicasanc.Checked = true;
+                    label11.Visible = true;
+                    dtpfecsancion.Visible = true;
+                    dtpfecsancion.Text = row.Cells["FecSanciones"].Value.ToString();
+                }
+                else if (sgeninc == "No")
+                {
+                    ckbaplicasanc.Checked = false;
+                    label11.Visible = false;
+                    dtpfecsancion.Visible = false;
+                    dtpfecsancion.Text = dtpFechaFinCalificarIncidenciaDir.Text;
+                }
+
             }
         }
 
@@ -1075,6 +1126,27 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
             return resultadoValida;
         }
+
+        private void ckbaplicasanc_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbaplicasanc.Checked == true)
+            {
+                label11.Visible = true;
+                dtpfecsancion.Visible = true;
+
+            }
+            else if (ckbaplicasanc.Checked == false)
+            {
+                label11.Visible = false;
+                dtpfecsancion.Visible = false;
+            }
+            else
+            {
+                label11.Visible = false;
+                dtpfecsancion.Visible = false;
+            }
+        }
+
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E S
         //-----------------------------------------------------------------------------------------------
