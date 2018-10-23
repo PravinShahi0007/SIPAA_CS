@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>60</ApplicationRevision>
+    <ApplicationRevision>61</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -2752,9 +2752,6 @@
     <None Include="Resources\universidad.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\visitantes.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\odonm.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2783,6 +2780,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\direc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visitantes.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
