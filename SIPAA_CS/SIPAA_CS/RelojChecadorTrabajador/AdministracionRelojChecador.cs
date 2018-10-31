@@ -408,39 +408,41 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             bool bConexion = Connect_Net(obj.IpReloj, 4370);
                             objCZKEM.ReadAllUserID(1);
                             objCZKEM.ReadAllTemplate(1);
-                            if (bConexion != false)
+                            if (bConexion)
                             {
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando Asistencias");
                                 if (objCZKEM.ReadAllGLogData(1))
                                 {
-                                    int iContReg = 0;
+                                    //int iContReg = 0;
                                     while (objCZKEM.SSR_GetGeneralLogData(1, out sIdTrab, out sVerify, out iModoCheck, out iAnho
                                                                                                          , out iMes, out iDia, out iHora, out iMinuto, out iSegundo
                                                                                                          , ref iWorkCode))
                                     {
-                                        iContReg += 1;
+                                       // iContReg += 1;
                                         bBandera = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, obj.cvReloj, iModoCheck);
+                                       // if (!bBandera)
+                                        //    MessageBox.Show(" Error en  "+sIdTrab+" "+iAnho+" "+ iMes+ " "+iDia +" "+iHora+" "+ obj.cvReloj+ " "+iModoCheck );
 
                                     }
                                 }
                                 //ELimina automaticamente los registros de la asistencia en el reloj checador 
-                               // objCZKEM.ClearData(1, 1);
+                                objCZKEM.ClearData(1, 1);
                                 objCZKEM.Disconnect();
-                                progressBar1.Value = 90;
+                               // progressBar1.Value = 90;
                                 if (bBandera)
                                 {
                                     pnlMensaje.Enabled = true;
                                     RelojChecador objReloj = new RelojChecador();
                                     objReloj.obtrelojeschecadores(7, obj.cvReloj, "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
                                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registros de asistencia guardados correctamente");
-                                    progressBar1.Value = 100;
+                                   
                                     pnlMensaje.Enabled = false;
 
                                 }
                                 else
                                 {
                                     pnlMensaje.Enabled = true;
-                                    progressBar1.Visible = false;
+                                    
                                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Uno o más registros no se guardaron correctamente repita el proceso");
                                     pnlMensaje.Enabled = false;
 
@@ -451,10 +453,10 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             else
                             {
                                 pnlMensaje.Enabled = true;
-                                progressBar1.Visible = false;
+                               
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse al reloj : " + obj.Descripcion);
                                 pnlMensaje.Enabled = false;
-                                progressBar1.Visible = false;
+                               
                             }
                         }
                         else
@@ -468,14 +470,14 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 catch (Exception ex)
                 {
                     pnlMensaje.Enabled = true;
-                    progressBar1.Visible = false;
+                   
                     MessageBox.Show(ex.ToString());
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, ex.Message);
                     pnlMensaje.Enabled = false;
                 }
                 finally
                 {
-                    objCZKEM.Disconnect();
+                    //objCZKEM.Disconnect();
                     timer1.Start();
                 }
                 ltReloj.Clear();
@@ -1172,7 +1174,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         {
 
 
-            string Ubicacion = @"\\192.168.30.171\FotosJs\FotosRelojChecador\";
+            string Ubicacion = @"\\172.165.1.10\FotosJS\FotosRelojChecador\";
             EnviaRecursosCarpeta(Ubicacion, false);
 
         }
@@ -1494,14 +1496,14 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
 
 
-            string Ubicacion = @"\\192.168.30.171\FotosJs\FotosEmpleados\";
+            string Ubicacion = @"\\172.165.1.10\FotosJS\FotosEmpleados\";
             EnviaRecursosCarpeta(Ubicacion, true);
            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string Ubicacion = @"\\192.168.30.171\FotosJs\NOI\";
+            string Ubicacion = @"\\172.165.1.10\FotosJS\NOI\";
             EnviaRecursosCarpeta(Ubicacion, false); 
 
            
@@ -1510,7 +1512,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         private void button5_Click(object sender, EventArgs e)
         {
 
-            string Ruta = @"\\192.168.30.171\FotosJS\FotosEmpleados";
+            string Ruta = @"\\172.165.1.10\FotosJS\FotosEmpleados";
             ObtieneRecursosCarpeta(Ruta);
            // EnviaRecursosCarpeta(Ruta, false);
 
@@ -1524,7 +1526,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         private void button6_Click(object sender, EventArgs e)
         {
 
-            string Ruta = @"\\192.168.30.171\FotosJs\NOI";
+            string Ruta = @"\\172.165.1.10\FotosJS\FotosEmpleados\NOI";
             ObtieneRecursosCarpeta(Ruta);
             
         }
@@ -1548,9 +1550,9 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                 {
                     string Origen = Path.GetFullPath(file);
                     string Nombre = Path.GetFileName(file);
-                    string Cadena1 = @"\\192.168.30.171\FotosJs\FotosEmpleados\";
+                    string Cadena1 = @"\\172.165.1.10\FotosJS\FotosEmpleados\";
                     string Cadena2 = Ubicacion;
-                    string Cadena3 = @"\\172.165.1.10\sipaa_web\img\Fotos\" + Nombre; 
+                   // string Cadena3 = @"\\172.165.1.10\sipaa_web\img\Fotos\" + Nombre; 
                     string Destino = Ubicacion + Nombre;
                     
 
@@ -1570,7 +1572,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     if(Cadena1== Cadena2)
                                     {
                                         EnviaSicea(Nombre2, Origen2);
-                                        File.Copy(Origen2,Cadena3, true);
+                                        //File.Copy(Origen2,Cadena3, true);
                                     }
                                
                                     Contador += 1;
@@ -1589,7 +1591,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     if (Cadena1 == Cadena2)
                                     {
                                         EnviaSicea(Nombre, Origen);
-                                        File.Copy(Origen, Cadena3, true);
+                                        //File.Copy(Origen, Cadena3, true);
                                     }
                                    
                                     Contador += 1;
@@ -1613,7 +1615,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                 if (Cadena1 == Cadena2)
                                 {
                                     EnviaSicea(Nombre, Origen);
-                                    File.Copy(Origen, Cadena3, true);
+                                    //File.Copy(Origen, Cadena3, true);
                                 }
                                 Contador += 1;
                                 ContadorRepetidas += 1;
@@ -1634,7 +1636,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         if (Cadena1 == Cadena2)
                         {
                             EnviaSicea(Nombre, Origen);
-                            File.Copy(Origen, Cadena3);
+                            //File.Copy(Origen, Cadena3);
                         }
                         Contador += 1;
                         Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Subiendo la fotografía " + Contador + " de " + openFileDialog1.FileNames.Length.ToString());

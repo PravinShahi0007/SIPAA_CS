@@ -2753,9 +2753,6 @@
     <None Include="Resources\universidad.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\visitantes.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\odonm.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2784,6 +2781,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\direc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visitantes.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

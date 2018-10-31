@@ -324,7 +324,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 try { front.imgs.Add(ZMotifCard.background, new ZMotifImage(ImageToByteArray(frontBackground(Compania)), 0, 0, ZMotifGraphics.ImagePositionEnum.Centered, 648, 1024, 0)); }
                 catch { }
 
-                try { front.imgs.Add("FotoEmpleado", new ZMotifImage(g.ImageFileToByteArray(@"\\192.168.30.171\FotosJS\FotosEmpleados\" + cboEmpleados.SelectedValue + ".jpg"), 23f, 209f, ZMotifGraphics.ImagePositionEnum.Centered, 303, 305, 0)); }
+                try { front.imgs.Add("FotoEmpleado", new ZMotifImage(g.ImageFileToByteArray(@"\\172.165.1.10\FotosJS\FotosEmpleados\" + cboEmpleados.SelectedValue + ".jpg"), 23f, 209f, ZMotifGraphics.ImagePositionEnum.Centered, 303, 305, 0)); }
                 catch { front.imgs.Add("FotoEmpleado", new ZMotifImage(ImageToByteArray(pictureBox1.ErrorImage), 23f, 209f, ZMotifGraphics.ImagePositionEnum.Centered, 75, 75, 0)); }
 
                 if (Compania.Equals("GMX GRUPO CONSULTOR S.A DE C.V"))
@@ -422,7 +422,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 try { front.imgs.Add(ZMotifCard.background, new ZMotifImage(ImageToByteArray(frontBackgroundUniv()), 0, 0, ZMotifGraphics.ImagePositionEnum.Centered, 648, 1024, 0)); }
                 catch { }
 
-                try { front.imgs.Add("FotoEmpleado", new ZMotifImage(g.ImageFileToByteArray(@"\\192.168.30.171\FotosJS\FotosEmpleados\" + cboEmpleados.SelectedValue + ".jpg"), 23f, 120f, ZMotifGraphics.ImagePositionEnum.Centered, 265, 305, 0)); }
+                try { front.imgs.Add("FotoEmpleado", new ZMotifImage(g.ImageFileToByteArray(@"\\172.165.1.10\FotosJS\FotosEmpleados\" + cboEmpleados.SelectedValue + ".jpg"), 23f, 120f, ZMotifGraphics.ImagePositionEnum.Centered, 265, 305, 0)); }
                 catch { front.imgs.Add("FotoEmpleado", new ZMotifImage(ImageToByteArray(pictureBox1.ErrorImage), 23f, 209f, ZMotifGraphics.ImagePositionEnum.Centered, 75, 75, 0)); }
                 
                 front.txts.Add("Paterno", new ZMotifText(Paterno, 295f, 265f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
@@ -511,6 +511,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     return Resources.docentes;
                 case "directivo":
                     return Resources.direc;
+                case "visitantes":
+                    return Resources.visitantes;
                 default:
                     return Resources._default;
             }
