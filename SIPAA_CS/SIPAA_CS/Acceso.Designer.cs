@@ -51,12 +51,11 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label1.Location = new System.Drawing.Point(521, 203);
+            this.label1.Location = new System.Drawing.Point(510, 196);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
+            this.label1.Size = new System.Drawing.Size(113, 16);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Usuario";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Correo electrónico";
             // 
             // label2
             // 
@@ -64,40 +63,37 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label2.Location = new System.Drawing.Point(521, 292);
+            this.label2.Location = new System.Drawing.Point(510, 285);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel4.Location = new System.Drawing.Point(524, 248);
+            this.panel4.Location = new System.Drawing.Point(513, 241);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 1);
+            this.panel4.Size = new System.Drawing.Size(292, 1);
             this.panel4.TabIndex = 18;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.panel3.Location = new System.Drawing.Point(522, 338);
+            this.panel3.Location = new System.Drawing.Point(511, 331);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 1);
+            this.panel3.Size = new System.Drawing.Size(292, 1);
             this.panel3.TabIndex = 19;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // txtUsuario
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(525, 228);
-            this.txtUsuario.MaxLength = 20;
+            this.txtUsuario.Location = new System.Drawing.Point(514, 221);
+            this.txtUsuario.MaxLength = 50;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(250, 18);
+            this.txtUsuario.Size = new System.Drawing.Size(292, 18);
             this.txtUsuario.TabIndex = 0;
             // 
             // txtPwd
@@ -105,13 +101,12 @@
             this.txtPwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtPwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPwd.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPwd.Location = new System.Drawing.Point(523, 318);
+            this.txtPwd.Location = new System.Drawing.Point(512, 311);
             this.txtPwd.MaxLength = 20;
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
-            this.txtPwd.Size = new System.Drawing.Size(250, 18);
+            this.txtPwd.Size = new System.Drawing.Size(292, 18);
             this.txtPwd.TabIndex = 1;
-            this.txtPwd.TextChanged += new System.EventHandler(this.txtPwd_TextChanged);
             // 
             // btnreccontrasena
             // 
@@ -208,7 +203,6 @@
             this.label4.TabIndex = 49;
             this.label4.Text = "Acceso - SIPAA";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Acceso
             // 

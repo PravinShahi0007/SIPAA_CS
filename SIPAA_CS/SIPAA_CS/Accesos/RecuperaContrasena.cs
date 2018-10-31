@@ -74,33 +74,45 @@ namespace SIPAA_CS.Accesos
         //boton recuperar contraseña
         private void btnreccontrasena_Click(object sender, EventArgs e)
         {
-            int ivalida = cusuarioap.cruddatos(9, txtUsuario.Text.Trim(), 0, "", "",
-                                               0, "", 0, 1, "",
-                                               "", "", "", "", "",
-                                               0, 4, txtUsuario.Text.Trim(), "", this.Name,
-                                               cutilerias.scontrol());
-            //int ivalida = 2;
-            if (ivalida == 2)
+            //valida formato de correo electronico
+            string mail = txtUsuario.Text.Trim();
+            bool verificar = mail.Contains("@");
+
+            //valida que esista el correo
+            DataTable dtaccesos = cusuarioap.dtdatos(14, "", 0, "", txtUsuario.Text.Trim(), 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+            int existe = Int32.Parse(dtaccesos.Rows[0][0].ToString());
+
+            //valida informacion correcta
+            if (verificar == false)
             {
-                lblalert.Visible = false;
-                txtcorreo.Text = "";
-                txtdominio.Text = "";
-                lblcorreo.Visible = false;
-                txtcorreo.Visible = false;
-                pnlcorreo.Visible = false;
-                lblarrb.Visible = false;
-                txtdominio.Visible = false;
-                pnldominio.Visible = false;
-                btnreccontrasena.Visible = false;
-
-                DialogResult result1 = MessageBox.Show("En breve recibira un correo electrónico con su contraseña temporal.", "SIPAA", MessageBoxButtons.OK);
-
-                Acceso frm = new Acceso();
-                this.Hide();
-                frm.Show();
+                MessageBox.Show("Ingresa un correo electrónico valido", "SIPAA", MessageBoxButtons.OK);
+                txtUsuario.Focus();
             }
+            else if (existe == 0)
+            {
+                MessageBox.Show("Correo electrónico inexistente", "SIPAA", MessageBoxButtons.OK);
+                txtUsuario.Focus();
+            }
+            else
+            {
+                int ivalida = cusuarioap.cruddatos(12, "", 0, "", txtUsuario.Text.Trim(),
+                                                   0, "", 0, 1, "",
+                                                   "", "", "", "", "",
+                                                   0, 4, txtUsuario.Text.Trim(), "", this.Name,
+                                                   cutilerias.scontrol());
 
+                if (ivalida == 2)
+                {
 
+                    txtUsuario.Text = "";
+
+                    DialogResult result1 = MessageBox.Show("En breve recibira un correo electrónico con su contraseña temporal.", "SIPAA", MessageBoxButtons.OK);
+
+                    Acceso frm = new Acceso();
+                    this.Hide();
+                    frm.Show();
+                }
+            }
         }
 
         //-----------------------------------------------------------------------------------------------
@@ -147,8 +159,8 @@ namespace SIPAA_CS.Accesos
             //configuracion
             toolTip1.AutoPopDelay = 5000;
             toolTip1.InitialDelay = 1000;
-            toolTip1.ReshowDelay = 500;
-            toolTip1.ShowAlways = true;
+            toolTip1.ReshowDelay  = 500;
+            toolTip1.ShowAlways   = true;
 
             //configura texto del objeto
             toolTip1.SetToolTip(this.btnCerrar, "Cierrar Sistema");
@@ -166,9 +178,6 @@ namespace SIPAA_CS.Accesos
             {
                 //variables datos del usuario
                 DataTable datosusuario = cusuarioap.dtdatos(4, txtUsuario.Text.Trim(), 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
-
-
-
 
                 if (datosusuario.Rows.Count >= 1)
                 {

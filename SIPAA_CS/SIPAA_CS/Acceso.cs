@@ -13,6 +13,12 @@ using SIPAA_CS.Accesos;
 using SIPAA_CS.Conexiones;
 using SIPAA_CS.App_Code.Accesos.Catalogos;
 
+//***********************************************************************************************
+//Autor: Gamaliel Lobato Solis    Modif: noe alvarez marquina
+//Fecha creación:dd-mm-aaaa       Última Modificacion: 30-cot-2018
+//Descripción: se cambia a loggin a correo electronico
+//***********************************************************************************************
+
 namespace SIPAA_CS
 {
     public partial class Acceso : Form
@@ -24,8 +30,8 @@ namespace SIPAA_CS
         Utilerias utilerias = new Utilerias();
         Conexion conex = new Conexion();
         Usuarioap cusuarioap = new Usuarioap();
+        cAcceso clacceso = new cAcceso();
 
-        int istpassw;
         public string user;
         public string pwd;
         public List<string> ltModulosxUsuario = new List<string>();
@@ -33,14 +39,6 @@ namespace SIPAA_CS
         {
             InitializeComponent();
         }
-
-
-        //***********************************************************************************************
-        //Autor: Gamaliel Lobato Solis
-        //Fecha creación:dd-mm-aaaa       Última Modificacion: dd-mm-aaaa
-        //Descripción: -------------------------------
-        //***********************************************************************************************
-
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
         //-----------------------------------------------------------------------------------------------
@@ -69,201 +67,31 @@ namespace SIPAA_CS
         }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            //valida formato de correo electronico
+            string mail = txtUsuario.Text.Trim();
+            bool verificar = mail.Contains("@");
 
-            string usuariov = utilerias.cifradoMd5(txtUsuario.Text.Trim());
-            string passworwv = utilerias.cifradoMd5(txtPwd.Text.Trim());
-
-            if (txtUsuario.Text != String.Empty && txtPwd.Text != String.Empty)
+            //valida informacion correcta
+            if (verificar == false)
             {
-                
-                if (utilerias.IsNumber(txtUsuario.Text))
-                {
-                    user = txtUsuario.Text;
-                    pwd = txtPwd.Text;
-                    int us = Convert.ToInt32(user);
-
-                    string password = utilerias.cifradoMd5(pwd);
-
-                   // Console.Write(password);
-                   
-                    try
-                    {
-                        //obtiene la lista 
-                        usuario = usuario.ObtenerListaTrabajadorUsuario(5,us);
-
-                        //valida si lo encontro
-                        if (usuario.enc == 1)
-                        {
-                            //valida si esta activo en sonarh
-                            if (usuario.st == 1)
-                            {
-                                //MessageBox.Show("El usuario " + usuario.Nombre + " esta activo en sonarh");
-                                int u = usuario.AsignarAccesoUsuario("", us, "", "", 0, "", "", 6);
-
-                                //valida si esta activo en sipaa
-                                if (u == 1)
-                                {
-                                    //MessageBox.Show("El usuario  esta activo en sipaa");
-                                    int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), us, "", password.Trim(), 0, "", "", 10);
-                                    if (respuesta == 1)
-                                    {
-                                        ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 6);
-                                        LoginInfo.IdTrab = txtUsuario.Text;
-                                        LoginInfo.cvusuario = txtUsuario.Text;
-                                        usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
-                                        string NomUsu = usuario.Nombre;
-                                        LoginInfo.Nombre = NomUsu;
-                                        LoginInfo.iconexion = conex.iconexsvr;
-
-                                        if (ltModulosxUsuario.Count != 0)
-                                        {
-                                            DataTable datosusuario = cusuarioap.dtdatos(4, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
-                                            istpassw = Int32.Parse(datosusuario.Rows[0][2].ToString());
-
-                                            //valida usuario
-                                            if (istpassw == 1)
-                                            {
-                                                CambioContrasena camcon = new CambioContrasena();
-                                                camcon.Show();
-                                                this.Close();
-                                            }
-                                            else
-                                            {
-                                                //actualiza acceso
-                                                cusuarioap.cruddatos(6, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", utilerias.scontrol(), "SIPAA CS", 0, 0, "", "", "", "");
-
-                                                Dashboard ds = new Dashboard();
-                                                ds.Show();
-                                                this.Close();
-                                            }
-
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("No tienes módulos asignados","SIPAA");
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Usuario y contraseña no coincide","SIPAA");
-                                        txtUsuario.Focus();
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("El usuario  esta inaactivo en sipaa","SIPAA");
-                                    txtUsuario.Focus();
-                                }
-
-                            }
-                            else
-                            {
-                                MessageBox.Show("El usuario " + usuario.Nombre + " esta inactivo","SIPAA");
-                                txtUsuario.Focus();
-                                //utilerias.DisableBotones(btnGuardar, 1, true);
-                            }
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se encontró usuario en SONARH","SIPAA");
-                            txtUsuario.Focus();
-                        }
-                    }
-                    catch (Exception)
-                    {
-
-                        MessageBox.Show("No se encontró usuario en SONARH","SIPAA");
-                        txtUsuario.Focus();
-                    }
-                }
-
-
-                //valida si es texto
-                if (!utilerias.IsNumber(txtUsuario.Text))
-                {
-                    user = txtUsuario.Text;
-                    pwd = txtPwd.Text;
-                    //int us = Convert.ToInt32(user);
-
-
-                    string password = utilerias.cifradoMd5(pwd);
-
-                    Console.Write(password);
-                    //MessageBox.Show("no es numero");
-
-                    try
-                    {
-                       
-                        int u = usuario.AsignarAccesoUsuario(user, 0, "", "", 0, "", "", 9);
-
-                        //valida si esta activo en sipaa
-                        if (u == 1)
-                        {
-                            //MessageBox.Show("El usuario  esta activo en sipaa");
-                            int respuesta = usuario.AsignarAccesoUsuario(user.Trim(), 0, "", password.Trim(), 0, "", "", 10);
-                            if (respuesta == 1)
-                            {
-                                ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(txtUsuario.Text, 6);
-                                LoginInfo.IdTrab = txtUsuario.Text;
-                                usuario = usuario.ObtenerDatosUsuario(txtUsuario.Text, 0, "", "", "", "", "", 7);
-                                string NomUsu = usuario.Nombre;
-                                LoginInfo.Nombre = NomUsu;
-                                LoginInfo.iconexion = conex.iconexsvr;
-
-
-
-                                //valida usuario
-                                if (usuariov == passworwv)
-                                {
-                                    CambioContrasena camcon = new CambioContrasena();
-                                    camcon.Show();
-                                    this.Close();
-                                }
-                                else
-                                {
-                                    if (ltModulosxUsuario.Count != 0)
-                                    {
-                                        //MessageBox.Show("si tienes padres");
-                                        Dashboard ds = new Dashboard();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("No tienes módulos asignados", "SIPAA");
-                                    }
-
-                                }
-                               
-                            }
-                            else
-                            {
-                                MessageBox.Show("Usuario y/o contraseña incorrectos","SIPAA");
-                                txtUsuario.Focus();
-                                txtPwd.Text = "";
-                                txtUsuario.Text = ""; 
-                               
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("El usuario esta inaactivo en SIPAA","SIPAA");
-                            txtUsuario.Focus();
-                        }
-                        
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("No se encontró usuario en SONARH","SIPAA");
-                        txtUsuario.Focus();
-                    }
-                }
+                MessageBox.Show("Ingresa un correo electrónico valido", "SIPAA", MessageBoxButtons.OK);
+                txtUsuario.Focus();
+            }
+            else if (txtUsuario.Text.Trim() == "")
+            {
+                MessageBox.Show("Ingresa tu correo electrónico", "SIPAA", MessageBoxButtons.OK);
+                txtUsuario.Focus();
+            }
+            else if (txtPwd.Text.Trim() == "")
+            {
+                MessageBox.Show("Ingresa tu contraseña", "SIPAA", MessageBoxButtons.OK);
+                txtUsuario.Focus();
             }
             else
             {
-                MessageBox.Show("Asigna usuario y contraseña","SIPAA");
-                txtUsuario.Focus();
-            }
-            
+                //funcion validar usuario
+                fvalidausuario(utilerias.cifradoMd5(txtUsuario.Text.Trim()), utilerias.cifradoMd5(txtPwd.Text.Trim()));
+            }            
         }
 
         //recupera contraseña
@@ -324,33 +152,51 @@ namespace SIPAA_CS
             toolTip1.SetToolTip(this.btnMinimizar, "Minimizar Sistema");
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        //valida usuario por email
+        private void fvalidausuario(string susuario, string spassw)
         {
+            //obtiene datos del usuario
+            DataTable dtaccesos = clacceso.dtdatos(1, susuario, spassw);
 
-        }
+            int inumregusu = dtaccesos.Rows.Count;
+            if (inumregusu == 0)
+            {
+                DialogResult result = MessageBox.Show("El usuario no existe, verifique usuario y contraseña", "SIPAA", MessageBoxButtons.OK);
+                txtUsuario.Focus();
+            }
+            else if (inumregusu == 1)
+            {
+                string stusuario = dtaccesos.Rows[0][3].ToString();
+                string stpassw   = dtaccesos.Rows[0][2].ToString();
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
+                LoginInfo.Nombre    = dtaccesos.Rows[0][1].ToString();
+                LoginInfo.cvusuario = dtaccesos.Rows[0][0].ToString();
+                LoginInfo.IdTrab    = dtaccesos.Rows[0][0].ToString();
 
-        }
+                if (stusuario == "0")
+                {
+                    DialogResult result = MessageBox.Show("Su usuario esta dado de baja, comuniquese al área de sistemas para verificar su situación", "SIPAA", MessageBoxButtons.OK);
+                }
+                else if (stpassw == "1")
+                {
+                    CambioContrasena camcon = new CambioContrasena();
+                    camcon.Show();
+                    this.Close();
+                }
+                else
+                {
+                    ltModulosxUsuario = usuario.ObtenerListaModulosxUsuario(LoginInfo.cvusuario, 6);
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+                    //actualiza acceso
+                    cusuarioap.cruddatos(6, LoginInfo.cvusuario, 0, "", "", 0, "", 0, 0, "", "", "", "", utilerias.scontrol(), "SIPAA CS", 0, 0, "", "", "", "");
+                    
+                    //abre dashboard
+                    Dashboard ds = new Dashboard();
+                    ds.Show();
+                    this.Close();
+                }
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPwd_TextChanged(object sender, EventArgs e)
-        {
+            }
 
         }
         //-----------------------------------------------------------------------------------------------

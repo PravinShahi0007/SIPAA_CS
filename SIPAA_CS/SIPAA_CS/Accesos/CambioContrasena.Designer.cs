@@ -184,6 +184,7 @@
             // 
             this.txtcorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtcorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtcorreo.Enabled = false;
             this.txtcorreo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcorreo.Location = new System.Drawing.Point(117, 342);
             this.txtcorreo.MaxLength = 100;
@@ -194,6 +195,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(116, 364);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(300, 1);
@@ -216,6 +218,7 @@
             this.cbodominios.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbodominios.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbodominios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbodominios.Enabled = false;
             this.cbodominios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbodominios.FormattingEnabled = true;
             this.cbodominios.Location = new System.Drawing.Point(461, 342);
@@ -228,6 +231,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Enabled = false;
             this.label5.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;

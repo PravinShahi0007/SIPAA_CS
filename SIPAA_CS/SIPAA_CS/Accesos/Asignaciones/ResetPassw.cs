@@ -25,6 +25,9 @@ namespace SIPAA_CS.Accesos.Asignaciones
         #region
         string smail, scvdominio, spasswant, snombreusueario, susuarioreset;
         int istusu;
+        //valida formato de correo electronico
+        string mail;
+        bool verificar;
         #endregion
 
         Utilerias cutilerias = new Utilerias();
@@ -140,6 +143,9 @@ namespace SIPAA_CS.Accesos.Asignaciones
 
         private void btguardar_Click(object sender, EventArgs e)
         {
+            mail = txtcorreo.Text.Trim();
+            verificar = mail.Contains("@");
+
             if (txtcorreo.Text.Trim() == "")
             {
                 DialogResult result = MessageBox.Show("Captura un correo electrónico para recuperar contraseña, verificar", "SIPAA", MessageBoxButtons.OK);
@@ -155,6 +161,11 @@ namespace SIPAA_CS.Accesos.Asignaciones
             {
                 DialogResult result = MessageBox.Show("Captura un usuario, verificar", "SIPAA", MessageBoxButtons.OK);
                 txtcvusuarios.Focus();
+            }
+            else if (verificar == true)
+            {
+                DialogResult result = MessageBox.Show("Correo electrónico invalido, verificar", "SIPAA", MessageBoxButtons.OK);
+                txtcorreo.Focus();
             }
             else
             {

@@ -24,6 +24,10 @@ namespace SIPAA_CS.Accesos
     {
         #region
         string smail, scvdominio, spasswant;
+
+        //valida formato de correo electronico
+        string mail;
+        bool verificar;
         #endregion
 
         Perfil DatPerfil = new Perfil();
@@ -141,6 +145,8 @@ namespace SIPAA_CS.Accesos
         {
             try
             {
+                mail = txtcorreo.Text.Trim();
+                verificar = mail.Contains("@");
                 //valida campos
                 Boolean bvalidacampos = fvalidacampos();
 
@@ -194,6 +200,8 @@ namespace SIPAA_CS.Accesos
         {
             try
             {
+                mail = txtcorreo.Text.Trim();
+                verificar = mail.Contains("@");
                 //valida campos
                 Boolean bvalidacampos = fvalidacamposmail();
 
@@ -300,6 +308,12 @@ namespace SIPAA_CS.Accesos
                 txtconnueva.Focus();
                 return false;
             }
+            else if (verificar == true)
+            {
+                DialogResult result = MessageBox.Show("Correo electrónico invalido, verificar", "SIPAA", MessageBoxButtons.OK);
+                txtcorreo.Focus();
+                return false;
+            }
             else
             {
                 return true;
@@ -339,6 +353,12 @@ namespace SIPAA_CS.Accesos
             {
                 DialogResult result = MessageBox.Show("La contraseña no puede ser igual a su usuario, verificar", "SIPAA", MessageBoxButtons.OK);
                 txtconnueva.Focus();
+                return false;
+            }
+            else if (verificar == true)
+            {
+                DialogResult result = MessageBox.Show("Correo electrónico invalido, verificar", "SIPAA", MessageBoxButtons.OK);
+                txtcorreo.Focus();
                 return false;
             }
             else

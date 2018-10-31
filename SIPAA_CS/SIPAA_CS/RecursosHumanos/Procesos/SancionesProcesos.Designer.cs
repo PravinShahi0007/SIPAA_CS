@@ -1061,8 +1061,8 @@
             this.Controls.Add(this.btncerrar);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.pnlpendrh);
             this.Controls.Add(this.pnlrep);
+            this.Controls.Add(this.pnlpendrh);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SancionesProcesos";

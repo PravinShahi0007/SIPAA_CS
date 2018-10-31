@@ -60,12 +60,12 @@
             label9.ForeColor = System.Drawing.Color.Gray;
             label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
             label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label9.Location = new System.Drawing.Point(39, 103);
+            label9.Location = new System.Drawing.Point(96, 109);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(769, 17);
+            label9.Size = new System.Drawing.Size(667, 17);
             label9.TabIndex = 182;
-            label9.Text = "     ¿Olvidaste tu contraseña? Escribe tu usuario y te enviaremos una contraseña " +
-    "temporal al correo que diste de alta.";
+            label9.Text = "     ¿Olvidaste tu contraseña? Escribe tu correo electrónico y te enviaremos una " +
+    "contraseña temporal.";
             // 
             // btnCerrar
             // 
@@ -138,7 +138,7 @@
             this.lblarrb.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblarrb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
             this.lblarrb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblarrb.Location = new System.Drawing.Point(297, 194);
+            this.lblarrb.Location = new System.Drawing.Point(297, 272);
             this.lblarrb.Name = "lblarrb";
             this.lblarrb.Size = new System.Drawing.Size(26, 27);
             this.lblarrb.TabIndex = 215;
@@ -151,7 +151,7 @@
             this.txtdominio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtdominio.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtdominio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdominio.Location = new System.Drawing.Point(332, 202);
+            this.txtdominio.Location = new System.Drawing.Point(332, 280);
             this.txtdominio.MaxLength = 20;
             this.txtdominio.Name = "txtdominio";
             this.txtdominio.Size = new System.Drawing.Size(250, 19);
@@ -161,7 +161,7 @@
             // pnldominio
             // 
             this.pnldominio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.pnldominio.Location = new System.Drawing.Point(331, 224);
+            this.pnldominio.Location = new System.Drawing.Point(331, 302);
             this.pnldominio.Name = "pnldominio";
             this.pnldominio.Size = new System.Drawing.Size(250, 1);
             this.pnldominio.TabIndex = 129;
@@ -172,7 +172,7 @@
             this.txtcorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.txtcorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtcorreo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcorreo.Location = new System.Drawing.Point(40, 202);
+            this.txtcorreo.Location = new System.Drawing.Point(40, 280);
             this.txtcorreo.MaxLength = 20;
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(250, 19);
@@ -182,7 +182,7 @@
             // pnlcorreo
             // 
             this.pnlcorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
-            this.pnlcorreo.Location = new System.Drawing.Point(39, 224);
+            this.pnlcorreo.Location = new System.Drawing.Point(39, 302);
             this.pnlcorreo.Name = "pnlcorreo";
             this.pnlcorreo.Size = new System.Drawing.Size(250, 1);
             this.pnlcorreo.TabIndex = 127;
@@ -194,7 +194,7 @@
             this.lblcorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.lblcorreo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.lblcorreo.Location = new System.Drawing.Point(36, 173);
+            this.lblcorreo.Location = new System.Drawing.Point(36, 251);
             this.lblcorreo.Name = "lblcorreo";
             this.lblcorreo.Size = new System.Drawing.Size(137, 18);
             this.lblcorreo.TabIndex = 126;
@@ -206,12 +206,13 @@
             this.ckbaut.AutoSize = true;
             this.ckbaut.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbaut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ckbaut.Location = new System.Drawing.Point(40, 108);
+            this.ckbaut.Location = new System.Drawing.Point(40, 221);
             this.ckbaut.Name = "ckbaut";
             this.ckbaut.Size = new System.Drawing.Size(277, 20);
             this.ckbaut.TabIndex = 124;
             this.ckbaut.Text = "Autorizo proceso para restaurar contraseña";
             this.ckbaut.UseVisualStyleBackColor = true;
+            this.ckbaut.Visible = false;
             this.ckbaut.CheckedChanged += new System.EventHandler(this.ckbaut_CheckedChanged);
             // 
             // txtUsuario
@@ -220,17 +221,17 @@
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(38, 65);
-            this.txtUsuario.MaxLength = 20;
+            this.txtUsuario.MaxLength = 50;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(300, 19);
-            this.txtUsuario.TabIndex = 120;
+            this.txtUsuario.Size = new System.Drawing.Size(544, 19);
+            this.txtUsuario.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
             this.panel4.Location = new System.Drawing.Point(37, 87);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(300, 1);
+            this.panel4.Size = new System.Drawing.Size(544, 1);
             this.panel4.TabIndex = 122;
             // 
             // label1
@@ -241,24 +242,22 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
             this.label1.Location = new System.Drawing.Point(34, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 18);
+            this.label1.Size = new System.Drawing.Size(137, 18);
             this.label1.TabIndex = 121;
-            this.label1.Text = "Usuario";
+            this.label1.Text = "Correo electrónico";
             // 
             // btnreccontrasena
             // 
             this.btnreccontrasena.BackColor = System.Drawing.Color.Red;
-            this.btnreccontrasena.Enabled = false;
             this.btnreccontrasena.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnreccontrasena.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnreccontrasena.ForeColor = System.Drawing.Color.White;
-            this.btnreccontrasena.Location = new System.Drawing.Point(371, 253);
+            this.btnreccontrasena.Location = new System.Drawing.Point(209, 127);
             this.btnreccontrasena.Name = "btnreccontrasena";
             this.btnreccontrasena.Size = new System.Drawing.Size(210, 50);
-            this.btnreccontrasena.TabIndex = 4;
+            this.btnreccontrasena.TabIndex = 1;
             this.btnreccontrasena.Text = "ENVIAR";
             this.btnreccontrasena.UseVisualStyleBackColor = false;
-            this.btnreccontrasena.Visible = false;
             this.btnreccontrasena.Click += new System.EventHandler(this.btnreccontrasena_Click);
             // 
             // timer1
