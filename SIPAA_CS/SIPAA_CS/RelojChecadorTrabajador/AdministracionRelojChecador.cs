@@ -593,14 +593,14 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                     ////////////////////////////////////////////////////////////////////////
                     #region InsertaBiometricos
-                    DialogResult result = MessageBox.Show("Reloj " + obj.Descripcion + "\nÚltima sincronización: " + obj.UltimaSincronizacion + "\nUsuario sincronizó: " + obj.UltimoUsuarioSinc + " \n\n¿Esta Seguro que desea SINCRONIZAR la información del sistema?\nEsto eliminará la información del dispositivo y será sustituida con la información del sistema", "SIPPA", MessageBoxButtons.YesNo);
+                    DialogResult result = MessageBox.Show("Reloj " + obj.Descripcion + "\nÚltima sincronización: " + obj.UltimaSincronizacion + "\nUsuario sincronizó: " + obj.UltimoUsuarioSinc + " \n\n¿Esta Seguro que desea SINCRONIZAR el reloj?\nEsto eliminará la información del dispositivo y será sustituida con la información de la base de datos", "SIPPA", MessageBoxButtons.YesNo);
                     if (result == DialogResult.No)
                         continue;
-
-
+                    
                     Cursor = Cursors.WaitCursor;
-
-
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Por seguridad, se obtendran los biometricos");
+                    ProcesoReloj();
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Comienza Sincronización");
 
                     int iCont = 0;
                     RelojChecador objReloj = new RelojChecador();
@@ -1181,7 +1181,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         private void btnHuella_Click(object sender, EventArgs e)
         {
-            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Comienza proceso, no apriete otra vez el boton " );
+            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Comienza proceso" );
             ProcesoReloj();
             // ProcesoReloj("Face");
             //ProcesoReloj("Pass");
@@ -1430,26 +1430,22 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         private void button2_Click_1(object sender, EventArgs e)
         {
             // DateTime now = DateTime.Now;
-            DialogResult Resultado = MessageBox.Show("Este proceso sincronizara todos los dispositivos con la misma hora ¿Desea continuar? ", "SIPAA", MessageBoxButtons.YesNo);
+            DialogResult Resultado = MessageBox.Show("¿Desea sincronizar la hora? ", "SIPAA", MessageBoxButtons.YesNo);
             if (Resultado == DialogResult.Yes)
                 SincronizaHora();
         }
 
         private void SincronizaHora()
         {
-            RelojChecador objReloj = new RelojChecador();
-            DataTable dt = objReloj.obtrelojeschecadores(6, 0, "%", "%", "%", 0, "%", "%", LoginInfo.IdTrab, LoginInfo.IdTrab);
-
+           RelojChecador objReloj = new RelojChecador();
+            //DataTable dt = objReloj.obtrelojeschecadores(6, 0, "%", "%", "%", 0, "%", "%", LoginInfo.IdTrab, LoginInfo.IdTrab);
 
             if (ltReloj.Count > 0)
             {
-
-                foreach (DataRow row in dt.Rows)
+                foreach (Reloj obj in ltReloj)
                 {
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Conectando con Dispositivo  " + row[1].ToString());
-                    progressBar1.Value = 40;
                     bool bBandera = false;
-                    bool bConect = objCZKEM.Connect_Net(row[2].ToString(), 4370);
+                    bool bConect = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                     if (bConect)
                     {
 
@@ -1462,7 +1458,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             HoraServidor = Row[1].ToString();
                         }
 
-                        progressBar1.Value = progressBar1.Value + (10 / dt.Columns.Count);
+                     
                         int Año, Mes, Dia, Hora, Minuto, Segundo;
                         Año = Mes = Dia = Hora = Minuto = Segundo = 0;
                         Año = Convert.ToInt32(FechaServidor.Substring(6, 2));
@@ -1474,16 +1470,17 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         if (!objCZKEM.SetDeviceTime2(1, Año, Mes, Dia, Hora, Minuto, Segundo))
                             bBandera = true;
                         if (bBandera)
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error al sincronizar la hora con el dispositivo: " + row[1].ToString());
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Error al sincronizar la hora con el dispositivo: " + obj.Descripcion);
                         else
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Hora sincronizada correctamente en el dispositivo: " + row[1].ToString());
+                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Hora sincronizada correctamente en el dispositivo: " + obj.Descripcion);
                         objCZKEM.Disconnect();
                     }
                 }
 
-
-
             }
+            
+               
+          
             else
               Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No existen relojes para sincronizar.");
 
