@@ -379,7 +379,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                 dgvdatos.Columns[0].HeaderText = "Num";//numero
                 dgvdatos.Columns[0].Width = 40;
                 dgvdatos.Columns[1].HeaderText = "Fecha";//fecha
-                dgvdatos.Columns[01].Width = 75;
+                dgvdatos.Columns[1].Width = 75;
                 dgvdatos.Columns[2].HeaderText = "Incidencia";//incidencia
                 dgvdatos.Columns[2].Width = 150;
                 dgvdatos.Columns[3].HeaderText = "Tiempo empleado";//tiempo empleado

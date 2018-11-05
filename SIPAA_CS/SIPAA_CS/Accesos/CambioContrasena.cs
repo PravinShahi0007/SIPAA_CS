@@ -55,7 +55,7 @@ namespace SIPAA_CS.Accesos
                 if (bvalidacampos == true)//datos correctos
                 {
 
-                    int ivalida = cusuarioap.cruddatos(7, LoginInfo.cvusuario, 0, "", txtcorreo.Text.Trim(), 
+                    int ivalida = cusuarioap.cruddatos(13, LoginInfo.cvusuario, 0, "", txtcorreo.Text.Trim()+"@"+cbodominios.Text, 
                                                        Int32.Parse(cbodominios.SelectedValue.ToString()), utilerias.cifradoMd5(txtcontrasena.Text), 0, 0, "", 
                                                        "", "", "", "", "", 
                                                        0, 1, LoginInfo.cvusuario, "", this.Name, 

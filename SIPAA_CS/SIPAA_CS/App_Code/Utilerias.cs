@@ -391,7 +391,8 @@ namespace SIPAA_CS.App_Code
             try
             {
 
-                pbusuario.Image = Image.FromFile(@"\\172.165.1.10\sipaa_web\img\Fotos\" + LoginInfo.IdTrab + ".jpg", true);
+                //pbusuario.Image = Image.FromFile(@"\\172.165.1.10\sipaa_web\img\Fotos\" + LoginInfo.IdTrab + ".jpg", true);
+                pbusuario.Image = Image.FromFile(@"\\172.165.1.10\FotosJS\" + LoginInfo.IdTrab + ".jpg", true);
                 pbusuario.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch (Exception ex)
