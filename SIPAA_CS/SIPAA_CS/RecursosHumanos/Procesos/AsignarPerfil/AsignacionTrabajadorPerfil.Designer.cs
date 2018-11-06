@@ -1336,7 +1336,7 @@
             this.tabReloj.Padding = new System.Windows.Forms.Padding(3);
             this.tabReloj.Size = new System.Drawing.Size(1009, 565);
             this.tabReloj.TabIndex = 2;
-            this.tabReloj.Text = "Toma biométricos por primera vez";
+            this.tabReloj.Text = "Capturar biométricos ";
             this.tabReloj.Click += new System.EventHandler(this.tabReloj_Click);
             // 
             // textBox4
