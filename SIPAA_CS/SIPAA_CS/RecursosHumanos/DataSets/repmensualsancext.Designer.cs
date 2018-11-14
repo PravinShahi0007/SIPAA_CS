@@ -323,6 +323,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             private global::System.Data.DataColumn columnubic;
             
+            private global::System.Data.DataColumn columnDirector;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public repmenssancextDataTable() {
@@ -534,6 +536,14 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DirectorColumn {
+                get {
+                    return this.columnDirector;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -591,7 +601,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         int stsancion, 
                         int cvsanciongen, 
                         string cia, 
-                        string ubic) {
+                        string ubic, 
+                        string Director) {
                 repmenssancextRow rowrepmenssancextRow = ((repmenssancextRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idtrab,
@@ -615,7 +626,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                         stsancion,
                         cvsanciongen,
                         cia,
-                        ubic};
+                        ubic,
+                        Director};
                 rowrepmenssancextRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowrepmenssancextRow);
                 return rowrepmenssancextRow;
@@ -660,6 +672,7 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 this.columncvsanciongen = base.Columns["cvsanciongen"];
                 this.columncia = base.Columns["cia"];
                 this.columnubic = base.Columns["ubic"];
+                this.columnDirector = base.Columns["Director"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -709,6 +722,8 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
                 base.Columns.Add(this.columncia);
                 this.columnubic = new global::System.Data.DataColumn("ubic", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnubic);
+                this.columnDirector = new global::System.Data.DataColumn("Director", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDirector);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1203,6 +1218,22 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Director {
+                get {
+                    try {
+                        return ((string)(this[this.tablerepmenssancext.DirectorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Director\' de la tabla \'repmenssancext\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerepmenssancext.DirectorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsidtrabNull() {
                 return this.IsNull(this.tablerepmenssancext.idtrabColumn);
             }
@@ -1463,6 +1494,18 @@ namespace SIPAA_CS.RecursosHumanos.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetubicNull() {
                 this[this.tablerepmenssancext.ubicColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDirectorNull() {
+                return this.IsNull(this.tablerepmenssancext.DirectorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDirectorNull() {
+                this[this.tablerepmenssancext.DirectorColumn] = global::System.Convert.DBNull;
             }
         }
         
