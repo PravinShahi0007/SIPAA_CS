@@ -2806,6 +2806,15 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
 
        }
+
+        private void mtxtTiempoTrabajo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            double value = 0;
+            if (!double.TryParse(mtxtTiempoTrabajo.Text + e.KeyChar.ToString(), out value) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
     }
 //}
