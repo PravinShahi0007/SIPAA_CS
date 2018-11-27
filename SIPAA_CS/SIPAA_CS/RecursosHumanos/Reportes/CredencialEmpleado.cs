@@ -331,17 +331,17 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 {
                     Compania = "MADI Y JOMA SERVICIOS S.A DE C.V";
 
-                    front.txts.Add("Paterno", new ZMotifText(Paterno, 340f, 230f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
-                    front.txts.Add("Materno", new ZMotifText(Materno, 340f, 270f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
-                    front.txts.Add("Nombre", new ZMotifText(Nombre, 340f, 310f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                    front.txts.Add("Paterno", new ZMotifText(Paterno, 340f, 230f, "Arial", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                    front.txts.Add("Materno", new ZMotifText(Materno, 340f, 270f, "Arial", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                    front.txts.Add("Nombre", new ZMotifText(Nombre, 340f, 310f, "Arial", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
                     //front.txts.Add("Plantel", new ZMotifText(Plantel, 340f, 350f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.Black));
-                    front.txts.Add("IdTrab", new ZMotifText(IdTrab, 40f, 530f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
-                    front.txts.Add("Puesto", new ZMotifText(Puesto, 40f, 570f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
-                    front.txts.Add("descripcion1", new ZMotifText("QUEJAS Y SUGERENCIAS", 80f, 640f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
-                    front.txts.Add("descripcion2", new ZMotifText("AL TELEFONO:", 80f, 680f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
-                    front.txts.Add("descripcion3", new ZMotifText("5581041619", 335f, 680f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
+                    front.txts.Add("IdTrab", new ZMotifText(IdTrab, 40f, 530f, "Arial", 9f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
+                    front.txts.Add("Puesto", new ZMotifText(Puesto, 40f, 570f, "Arial", 9f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                    front.txts.Add("descripcion1", new ZMotifText("QUEJAS Y SUGERENCIAS", 80f, 640f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
+                    front.txts.Add("descripcion2", new ZMotifText("AL TELEFONO:", 80f, 680f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
+                    front.txts.Add("descripcion3", new ZMotifText("5581041619", 335f, 680f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
                     //front.txts.Add("noEmpleado_d", new ZMotifText("No. Empleado:", 40f, 820f, "Myriad Pro", 9f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
-                    front.txts.Add("Compania", new ZMotifText(Compania, 25f, 900f, "Myriad Pro", 9f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));
+                    front.txts.Add("Compania", new ZMotifText(Compania, 20f, 900f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));
                     //front.txts.Add("vig_d", new ZMotifText("Fecha de expedición:", 230f, 940f, "Myriad Pro", 7f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));
                     //front.txts.Add("Vigencia", new ZMotifText(fcredEmp.date.ToShortDateString(), 480f, 940f, "Myriad Pro", 7f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));                    
                 }
