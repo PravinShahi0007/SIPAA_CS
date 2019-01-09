@@ -406,8 +406,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                        
                             pnlMensaje.Enabled = false;
                             bool bConexion = Connect_Net(obj.IpReloj, 4370);
-                            objCZKEM.ReadAllUserID(1);
-                            objCZKEM.ReadAllTemplate(1);
+                            //objCZKEM.ReadAllUserID(1);
+                          //  objCZKEM.ReadAllTemplate(1);
                             if (bConexion)
                             {
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando Asistencias");
@@ -586,11 +586,17 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         {
             if (ltReloj.Count > 0)
             {
+
                 foreach (Reloj obj in ltReloj)
                 {
+                    Cursor = Cursors.WaitCursor;
+                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Por seguridad, se obtendran los biometricos");
+                    ProcesoReloj();
+                }
 
-
-
+                foreach (Reloj obj in ltReloj)
+                {
+                    
                     ////////////////////////////////////////////////////////////////////////
                     #region InsertaBiometricos
                     DialogResult result = MessageBox.Show("Reloj " + obj.Descripcion + "\nÚltima sincronización: " + obj.UltimaSincronizacion + "\nUsuario sincronizó: " + obj.UltimoUsuarioSinc + " \n\n¿Esta Seguro que desea SINCRONIZAR el reloj?\nEsto eliminará la información del dispositivo y será sustituida con la información de la base de datos", "SIPPA", MessageBoxButtons.YesNo);
@@ -598,8 +604,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         continue;
                     
                     Cursor = Cursors.WaitCursor;
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Por seguridad, se obtendran los biometricos");
-                    ProcesoReloj();
+                    // Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Por seguridad, se obtendran los biometricos");
+                    //ProcesoReloj();
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Comienza Sincronización");
 
                     int iCont = 0;
@@ -624,7 +630,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     {
 
 
-                         bool ClearData = objCZKEM.ClearData(1, 5);
+                       // bool ClearData = objCZKEM.ClearData(1, 5);
                         bool BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
 
                         #region InsertaHuellas
@@ -717,6 +723,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                             }
                         }
+
+
 
 
                         objCZKEM.BatchUpdate(1);
@@ -1240,8 +1248,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     bool bConexion = Connect_Net(obj.IpReloj, 4370);
                     if (bConexion != false)
                     {
-                        objCZKEM.ReadAllUserID(1);
-                        objCZKEM.ReadAllTemplate(1);
+                        //objCZKEM.ReadAllUserID(1);
+                        //objCZKEM.ReadAllTemplate(1);
                         bool bBanderaPass, bBanderaHuella, bBanderaFace;
                         bBanderaPass = bBanderaHuella = bBanderaFace = false;
                         int iContTrab = 0;
@@ -1351,6 +1359,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                 }
                                 catch { }
                             }
+
                         }
                     }
                     break;
