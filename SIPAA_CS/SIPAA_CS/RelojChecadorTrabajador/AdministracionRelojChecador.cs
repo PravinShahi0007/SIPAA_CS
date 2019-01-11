@@ -407,26 +407,26 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             pnlMensaje.Enabled = false;
                             bool bConexion = Connect_Net(obj.IpReloj, 4370);
                             //objCZKEM.ReadAllUserID(1);
-                          //  objCZKEM.ReadAllTemplate(1);
+                            //objCZKEM.ReadAllTemplate(1);
                             if (bConexion)
                             {
                                 Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando Asistencias");
                                 if (objCZKEM.ReadAllGLogData(1))
                                 {
-                                    //int iContReg = 0;
+                                    
                                     while (objCZKEM.SSR_GetGeneralLogData(1, out sIdTrab, out sVerify, out iModoCheck, out iAnho
                                                                                                          , out iMes, out iDia, out iHora, out iMinuto, out iSegundo
                                                                                                          , ref iWorkCode))
                                     {
-                                       // iContReg += 1;
+                                      
                                         bBandera = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, obj.cvReloj, iModoCheck);
-                                       // if (!bBandera)
-                                        //    MessageBox.Show(" Error en  "+sIdTrab+" "+iAnho+" "+ iMes+ " "+iDia +" "+iHora+" "+ obj.cvReloj+ " "+iModoCheck );
+                                       
 
                                     }
+                                    //ELimina automaticamente los registros de la asistencia en el reloj checador 
+                                    //objCZKEM.ClearData(1, 1);
                                 }
-                                //ELimina automaticamente los registros de la asistencia en el reloj checador 
-                                objCZKEM.ClearData(1, 1);
+
                                 objCZKEM.Disconnect();
                                // progressBar1.Value = 90;
                                 if (bBandera)
@@ -435,14 +435,12 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                                     RelojChecador objReloj = new RelojChecador();
                                     objReloj.obtrelojeschecadores(7, obj.cvReloj, "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
                                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registros de asistencia guardados correctamente");
-                                   
                                     pnlMensaje.Enabled = false;
 
                                 }
                                 else
                                 {
                                     pnlMensaje.Enabled = true;
-                                    
                                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Uno o más registros no se guardaron correctamente repita el proceso");
                                     pnlMensaje.Enabled = false;
 
