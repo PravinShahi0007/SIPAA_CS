@@ -710,7 +710,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                                 try
                                 {
-                                    bool bandera = objCZKEM.SendFile(1, @"\\192.168.30.171\FotosJS\FotosRelojChecador\" + idtrab + ".jpg");
+                                    bool bandera = objCZKEM.SendFile(1, @"\\172.165.1.10\FotosJS\FotosRelojChecador\" + idtrab + ".jpg");
 
                                 }
                                 catch
