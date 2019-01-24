@@ -220,8 +220,6 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     Texto.Write(Texto.NewLine);
                     cadenaReg = "idTrab, Nombre, Compañia, Ubicacion, cvReloj, Fecha_reg, Hora_reg, Reloj ";
                     Texto.WriteLine(cadenaReg);
-                    Texto.Write(Texto.NewLine);
-
                     foreach (DataRow row in dtRpt.Rows)
                     {
                         cadenaReg = row[0].ToString() + "," + row[1].ToString() + "," + row[2].ToString() + "," + row[3].ToString() + "," + row[4].ToString() + "," + row[5].ToString() + "," + row[6].ToString() + "," + row[7].ToString();
