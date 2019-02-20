@@ -585,13 +585,12 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             if (ltReloj.Count > 0)
             {
 
-                foreach (Reloj obj in ltReloj)
+               foreach (Reloj obj in ltReloj)
                 {
                     Cursor = Cursors.WaitCursor;
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Por seguridad, se obtendran los biometricos");
                     ProcesoReloj();
                 }
-
                 foreach (Reloj obj in ltReloj)
                 {
                     
