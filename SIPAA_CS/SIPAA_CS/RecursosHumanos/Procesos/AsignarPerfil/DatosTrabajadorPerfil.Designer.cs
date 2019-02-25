@@ -45,6 +45,7 @@
             System.Windows.Forms.Label label28;
             System.Windows.Forms.Label label29;
             System.Windows.Forms.Label label30;
+            System.Windows.Forms.Label label31;
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -85,11 +86,22 @@
             this.btnAsignaciones = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panelAsignacionTrabajador = new System.Windows.Forms.Panel();
+            this.panelDiasEsp = new System.Windows.Forms.Panel();
+            this.btnInsertar = new System.Windows.Forms.Button();
+            this.txtReferencia = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.txtDias = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
+            this.label33 = new System.Windows.Forms.Label();
+            this.dtpFechaInical = new System.Windows.Forms.DateTimePicker();
+            this.label32 = new System.Windows.Forms.Label();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.chkBoxdias = new System.Windows.Forms.CheckBox();
             label7 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
@@ -106,12 +118,14 @@
             label28 = new System.Windows.Forms.Label();
             label29 = new System.Windows.Forms.Label();
             label30 = new System.Windows.Forms.Label();
+            label31 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelAsignaciones.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panelAsignacionTrabajador.SuspendLayout();
+            this.panelDiasEsp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -123,7 +137,7 @@
             label7.ForeColor = System.Drawing.Color.Gray;
             label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
             label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label7.Location = new System.Drawing.Point(9, 19);
+            label7.Location = new System.Drawing.Point(1, 9);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(110, 17);
             label7.TabIndex = 176;
@@ -136,11 +150,11 @@
             label13.ForeColor = System.Drawing.Color.Gray;
             label13.Image = ((System.Drawing.Image)(resources.GetObject("label13.Image")));
             label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label13.Location = new System.Drawing.Point(18, 133);
+            label13.Location = new System.Drawing.Point(-4, 11);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(144, 17);
+            label13.Size = new System.Drawing.Size(101, 17);
             label13.TabIndex = 177;
-            label13.Text = "      Datos Trabajador";
+            label13.Text = "      Trabajador";
             // 
             // label22
             // 
@@ -148,7 +162,7 @@
             label22.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label22.ForeColor = System.Drawing.Color.Gray;
             label22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label22.Location = new System.Drawing.Point(10, 78);
+            label22.Location = new System.Drawing.Point(98, 80);
             label22.Name = "label22";
             label22.Size = new System.Drawing.Size(52, 17);
             label22.TabIndex = 182;
@@ -160,7 +174,7 @@
             label23.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label23.ForeColor = System.Drawing.Color.Gray;
             label23.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label23.Location = new System.Drawing.Point(10, 61);
+            label23.Location = new System.Drawing.Point(98, 63);
             label23.Name = "label23";
             label23.Size = new System.Drawing.Size(109, 17);
             label23.TabIndex = 181;
@@ -185,7 +199,7 @@
             label25.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label25.ForeColor = System.Drawing.Color.Gray;
             label25.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label25.Location = new System.Drawing.Point(10, 44);
+            label25.Location = new System.Drawing.Point(98, 46);
             label25.Name = "label25";
             label25.Size = new System.Drawing.Size(138, 17);
             label25.TabIndex = 179;
@@ -197,7 +211,7 @@
             label26.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label26.ForeColor = System.Drawing.Color.Gray;
             label26.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label26.Location = new System.Drawing.Point(10, 27);
+            label26.Location = new System.Drawing.Point(98, 29);
             label26.Name = "label26";
             label26.Size = new System.Drawing.Size(113, 17);
             label26.TabIndex = 178;
@@ -209,7 +223,7 @@
             label17.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label17.ForeColor = System.Drawing.Color.Gray;
             label17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label17.Location = new System.Drawing.Point(10, 61);
+            label17.Location = new System.Drawing.Point(152, 51);
             label17.Name = "label17";
             label17.Size = new System.Drawing.Size(90, 17);
             label17.TabIndex = 181;
@@ -234,7 +248,7 @@
             label20.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label20.ForeColor = System.Drawing.Color.Gray;
             label20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label20.Location = new System.Drawing.Point(10, 44);
+            label20.Location = new System.Drawing.Point(125, 27);
             label20.Name = "label20";
             label20.Size = new System.Drawing.Size(85, 17);
             label20.TabIndex = 179;
@@ -313,6 +327,19 @@
             label30.TabIndex = 182;
             label30.Text = "Horarios Especiales";
             // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Font = new System.Drawing.Font("Arial", 11.25F);
+            label31.ForeColor = System.Drawing.Color.Gray;
+            label31.Image = ((System.Drawing.Image)(resources.GetObject("label31.Image")));
+            label31.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label31.Location = new System.Drawing.Point(3, 10);
+            label31.Name = "label31";
+            label31.Size = new System.Drawing.Size(364, 17);
+            label31.TabIndex = 177;
+            label31.Text = "      Insertar Dias Especiales por checadas desfasadas";
+            // 
             // btnRegresar
             // 
             this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
@@ -387,7 +414,11 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.chkBoxdias);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lbDirector);
+            this.panel1.Controls.Add(label13);
             this.panel1.Controls.Add(this.lbSupervisor);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label15);
@@ -413,16 +444,16 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(30, 165);
+            this.panel1.Location = new System.Drawing.Point(45, 128);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(518, 526);
+            this.panel1.Size = new System.Drawing.Size(523, 529);
             this.panel1.TabIndex = 122;
             // 
             // lbDirector
             // 
             this.lbDirector.AutoSize = true;
             this.lbDirector.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDirector.Location = new System.Drawing.Point(112, 438);
+            this.lbDirector.Location = new System.Drawing.Point(158, 469);
             this.lbDirector.Name = "lbDirector";
             this.lbDirector.Size = new System.Drawing.Size(57, 16);
             this.lbDirector.TabIndex = 180;
@@ -432,7 +463,7 @@
             // 
             this.lbSupervisor.AutoSize = true;
             this.lbSupervisor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSupervisor.Location = new System.Drawing.Point(113, 409);
+            this.lbSupervisor.Location = new System.Drawing.Point(159, 440);
             this.lbSupervisor.Name = "lbSupervisor";
             this.lbSupervisor.Size = new System.Drawing.Size(73, 16);
             this.lbSupervisor.TabIndex = 177;
@@ -443,7 +474,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label16.Location = new System.Drawing.Point(54, 438);
+            this.label16.Location = new System.Drawing.Point(100, 469);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(61, 16);
             this.label16.TabIndex = 179;
@@ -454,7 +485,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label15.Location = new System.Drawing.Point(40, 409);
+            this.label15.Location = new System.Drawing.Point(86, 440);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(76, 16);
             this.label15.TabIndex = 178;
@@ -464,7 +495,7 @@
             // 
             this.lbCheca.AutoSize = true;
             this.lbCheca.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheca.Location = new System.Drawing.Point(113, 358);
+            this.lbCheca.Location = new System.Drawing.Point(159, 399);
             this.lbCheca.Name = "lbCheca";
             this.lbCheca.Size = new System.Drawing.Size(50, 18);
             this.lbCheca.TabIndex = 176;
@@ -474,7 +505,7 @@
             // 
             this.lbltiponom.AutoSize = true;
             this.lbltiponom.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltiponom.Location = new System.Drawing.Point(112, 296);
+            this.lbltiponom.Location = new System.Drawing.Point(158, 337);
             this.lbltiponom.Name = "lbltiponom";
             this.lbltiponom.Size = new System.Drawing.Size(93, 16);
             this.lbltiponom.TabIndex = 175;
@@ -485,7 +516,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label14.Location = new System.Drawing.Point(66, 358);
+            this.label14.Location = new System.Drawing.Point(112, 399);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(49, 16);
             this.label14.TabIndex = 174;
@@ -495,7 +526,7 @@
             // 
             this.lbFechaIngreso.AutoSize = true;
             this.lbFechaIngreso.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFechaIngreso.Location = new System.Drawing.Point(116, 328);
+            this.lbFechaIngreso.Location = new System.Drawing.Point(162, 369);
             this.lbFechaIngreso.Name = "lbFechaIngreso";
             this.lbFechaIngreso.Size = new System.Drawing.Size(103, 16);
             this.lbFechaIngreso.TabIndex = 19;
@@ -505,7 +536,7 @@
             // 
             this.lbPuesto.AutoSize = true;
             this.lbPuesto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPuesto.Location = new System.Drawing.Point(112, 265);
+            this.lbPuesto.Location = new System.Drawing.Point(158, 306);
             this.lbPuesto.Name = "lbPuesto";
             this.lbPuesto.Size = new System.Drawing.Size(49, 16);
             this.lbPuesto.TabIndex = 18;
@@ -515,7 +546,7 @@
             // 
             this.lbDepto.AutoSize = true;
             this.lbDepto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDepto.Location = new System.Drawing.Point(113, 235);
+            this.lbDepto.Location = new System.Drawing.Point(159, 276);
             this.lbDepto.Name = "lbDepto";
             this.lbDepto.Size = new System.Drawing.Size(87, 16);
             this.lbDepto.TabIndex = 17;
@@ -525,7 +556,7 @@
             // 
             this.lbEstatus.AutoSize = true;
             this.lbEstatus.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEstatus.Location = new System.Drawing.Point(112, 206);
+            this.lbEstatus.Location = new System.Drawing.Point(158, 247);
             this.lbEstatus.Name = "lbEstatus";
             this.lbEstatus.Size = new System.Drawing.Size(51, 16);
             this.lbEstatus.TabIndex = 16;
@@ -535,7 +566,7 @@
             // 
             this.lbArea.AutoSize = true;
             this.lbArea.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbArea.Location = new System.Drawing.Point(113, 175);
+            this.lbArea.Location = new System.Drawing.Point(159, 216);
             this.lbArea.Name = "lbArea";
             this.lbArea.Size = new System.Drawing.Size(35, 16);
             this.lbArea.TabIndex = 15;
@@ -545,7 +576,7 @@
             // 
             this.lbUbicacion.AutoSize = true;
             this.lbUbicacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUbicacion.Location = new System.Drawing.Point(113, 143);
+            this.lbUbicacion.Location = new System.Drawing.Point(159, 184);
             this.lbUbicacion.Name = "lbUbicacion";
             this.lbUbicacion.Size = new System.Drawing.Size(63, 16);
             this.lbUbicacion.TabIndex = 14;
@@ -555,7 +586,7 @@
             // 
             this.lbCia.AutoSize = true;
             this.lbCia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCia.Location = new System.Drawing.Point(114, 114);
+            this.lbCia.Location = new System.Drawing.Point(160, 155);
             this.lbCia.Name = "lbCia";
             this.lbCia.Size = new System.Drawing.Size(64, 16);
             this.lbCia.TabIndex = 13;
@@ -565,7 +596,7 @@
             // 
             this.lbNombre.AutoSize = true;
             this.lbNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbNombre.Location = new System.Drawing.Point(113, 52);
+            this.lbNombre.Location = new System.Drawing.Point(159, 124);
             this.lbNombre.Name = "lbNombre";
             this.lbNombre.Size = new System.Drawing.Size(58, 16);
             this.lbNombre.TabIndex = 12;
@@ -575,7 +606,7 @@
             // 
             this.lbIdTrab.AutoSize = true;
             this.lbIdTrab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIdTrab.Location = new System.Drawing.Point(113, 21);
+            this.lbIdTrab.Location = new System.Drawing.Point(159, 98);
             this.lbIdTrab.Name = "lbIdTrab";
             this.lbIdTrab.Size = new System.Drawing.Size(106, 16);
             this.lbIdTrab.TabIndex = 11;
@@ -586,7 +617,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label12.Location = new System.Drawing.Point(17, 328);
+            this.label12.Location = new System.Drawing.Point(63, 369);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(98, 16);
             this.label12.TabIndex = 9;
@@ -597,7 +628,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label11.Location = new System.Drawing.Point(27, 296);
+            this.label11.Location = new System.Drawing.Point(73, 337);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(88, 16);
             this.label11.TabIndex = 8;
@@ -608,7 +639,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label10.Location = new System.Drawing.Point(58, 266);
+            this.label10.Location = new System.Drawing.Point(104, 307);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 16);
             this.label10.TabIndex = 7;
@@ -619,7 +650,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label9.Location = new System.Drawing.Point(18, 235);
+            this.label9.Location = new System.Drawing.Point(64, 276);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 16);
             this.label9.TabIndex = 6;
@@ -630,7 +661,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label8.Location = new System.Drawing.Point(54, 206);
+            this.label8.Location = new System.Drawing.Point(100, 247);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(61, 16);
             this.label8.TabIndex = 5;
@@ -641,7 +672,7 @@
             this.labe456.AutoSize = true;
             this.labe456.Font = new System.Drawing.Font("Arial", 9.75F);
             this.labe456.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.labe456.Location = new System.Drawing.Point(72, 175);
+            this.labe456.Location = new System.Drawing.Point(118, 216);
             this.labe456.Name = "labe456";
             this.labe456.Size = new System.Drawing.Size(43, 16);
             this.labe456.TabIndex = 4;
@@ -652,7 +683,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label6.Location = new System.Drawing.Point(42, 143);
+            this.label6.Location = new System.Drawing.Point(88, 184);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 16);
             this.label6.TabIndex = 3;
@@ -663,7 +694,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label5.Location = new System.Drawing.Point(6, 21);
+            this.label5.Location = new System.Drawing.Point(52, 98);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 16);
             this.label5.TabIndex = 2;
@@ -674,7 +705,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label4.Location = new System.Drawing.Point(42, 114);
+            this.label4.Location = new System.Drawing.Point(88, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 16);
             this.label4.TabIndex = 1;
@@ -685,7 +716,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label3.Location = new System.Drawing.Point(54, 52);
+            this.label3.Location = new System.Drawing.Point(100, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 16);
             this.label3.TabIndex = 0;
@@ -693,12 +724,14 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.btnTipoHr);
             this.panel3.Controls.Add(this.lbHorario);
+            this.panel3.Controls.Add(label7);
             this.panel3.Controls.Add(this.label19);
-            this.panel3.Location = new System.Drawing.Point(14, 59);
+            this.panel3.Location = new System.Drawing.Point(15, 15);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(378, 65);
+            this.panel3.Size = new System.Drawing.Size(376, 99);
             this.panel3.TabIndex = 173;
             // 
             // btnTipoHr
@@ -707,7 +740,7 @@
             this.btnTipoHr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTipoHr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnTipoHr.Image = global::SIPAA_CS.Properties.Resources.Editar;
-            this.btnTipoHr.Location = new System.Drawing.Point(277, 6);
+            this.btnTipoHr.Location = new System.Drawing.Point(289, 6);
             this.btnTipoHr.Name = "btnTipoHr";
             this.btnTipoHr.Size = new System.Drawing.Size(55, 55);
             this.btnTipoHr.TabIndex = 177;
@@ -719,7 +752,7 @@
             // 
             this.lbHorario.AutoSize = true;
             this.lbHorario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHorario.Location = new System.Drawing.Point(8, 33);
+            this.lbHorario.Location = new System.Drawing.Point(102, 57);
             this.lbHorario.Name = "lbHorario";
             this.lbHorario.Size = new System.Drawing.Size(47, 16);
             this.lbHorario.TabIndex = 175;
@@ -730,7 +763,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Arial", 9.75F);
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
-            this.label19.Location = new System.Drawing.Point(5, 5);
+            this.label19.Location = new System.Drawing.Point(99, 38);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(106, 16);
             this.label19.TabIndex = 10;
@@ -738,15 +771,16 @@
             // 
             // panelAsignaciones
             // 
+            this.panelAsignaciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelAsignaciones.Controls.Add(this.btnAsignaciones);
             this.panelAsignaciones.Controls.Add(label22);
             this.panelAsignaciones.Controls.Add(label23);
             this.panelAsignaciones.Controls.Add(label24);
             this.panelAsignaciones.Controls.Add(label25);
             this.panelAsignaciones.Controls.Add(label26);
-            this.panelAsignaciones.Location = new System.Drawing.Point(15, 176);
+            this.panelAsignaciones.Location = new System.Drawing.Point(15, 134);
             this.panelAsignaciones.Name = "panelAsignaciones";
-            this.panelAsignaciones.Size = new System.Drawing.Size(377, 105);
+            this.panelAsignaciones.Size = new System.Drawing.Size(376, 105);
             this.panelAsignaciones.TabIndex = 183;
             // 
             // btnAsignaciones
@@ -755,7 +789,7 @@
             this.btnAsignaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsignaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.btnAsignaciones.Image = global::SIPAA_CS.Properties.Resources.Editar;
-            this.btnAsignaciones.Location = new System.Drawing.Point(277, 28);
+            this.btnAsignaciones.Location = new System.Drawing.Point(289, 28);
             this.btnAsignaciones.Name = "btnAsignaciones";
             this.btnAsignaciones.Size = new System.Drawing.Size(55, 55);
             this.btnAsignaciones.TabIndex = 178;
@@ -766,13 +800,14 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(label17);
             this.panel2.Controls.Add(label18);
             this.panel2.Controls.Add(label20);
             this.panel2.Controls.Add(label21);
-            this.panel2.Location = new System.Drawing.Point(3, 27);
+            this.panel2.Location = new System.Drawing.Point(4, 27);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(378, 87);
+            this.panel2.Size = new System.Drawing.Size(367, 79);
             this.panel2.TabIndex = 184;
             this.panel2.Visible = false;
             // 
@@ -782,7 +817,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.button1.Image = global::SIPAA_CS.Properties.Resources.Editar;
-            this.button1.Location = new System.Drawing.Point(277, 19);
+            this.button1.Location = new System.Drawing.Point(305, 20);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(55, 55);
             this.button1.TabIndex = 178;
@@ -790,28 +825,13 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(label30);
-            this.panel5.Controls.Add(this.button2);
-            this.panel5.Controls.Add(this.panel2);
-            this.panel5.Controls.Add(label2);
-            this.panel5.Controls.Add(label27);
-            this.panel5.Controls.Add(label28);
-            this.panel5.Controls.Add(label29);
-            this.panel5.Location = new System.Drawing.Point(12, 399);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(378, 105);
-            this.panel5.TabIndex = 185;
-            this.panel5.Visible = false;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.button2.Image = global::SIPAA_CS.Properties.Resources.Editar;
-            this.button2.Location = new System.Drawing.Point(277, 28);
+            this.button2.Location = new System.Drawing.Point(248, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(55, 55);
             this.button2.TabIndex = 178;
@@ -819,16 +839,147 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(label30);
+            this.panel5.Controls.Add(this.panel2);
+            this.panel5.Controls.Add(label2);
+            this.panel5.Controls.Add(label27);
+            this.panel5.Controls.Add(label28);
+            this.panel5.Controls.Add(label29);
+            this.panel5.Location = new System.Drawing.Point(12, 411);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(378, 114);
+            this.panel5.TabIndex = 185;
+            this.panel5.Visible = false;
+            // 
             // panelAsignacionTrabajador
             // 
+            this.panelAsignacionTrabajador.Controls.Add(this.panelDiasEsp);
             this.panelAsignacionTrabajador.Controls.Add(this.panel5);
-            this.panelAsignacionTrabajador.Controls.Add(label7);
             this.panelAsignacionTrabajador.Controls.Add(this.panel3);
             this.panelAsignacionTrabajador.Controls.Add(this.panelAsignaciones);
-            this.panelAsignacionTrabajador.Location = new System.Drawing.Point(591, 165);
+            this.panelAsignacionTrabajador.Location = new System.Drawing.Point(580, 128);
             this.panelAsignacionTrabajador.Name = "panelAsignacionTrabajador";
-            this.panelAsignacionTrabajador.Size = new System.Drawing.Size(403, 526);
+            this.panelAsignacionTrabajador.Size = new System.Drawing.Size(403, 533);
             this.panelAsignacionTrabajador.TabIndex = 186;
+            // 
+            // panelDiasEsp
+            // 
+            this.panelDiasEsp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDiasEsp.Controls.Add(this.btnInsertar);
+            this.panelDiasEsp.Controls.Add(this.txtReferencia);
+            this.panelDiasEsp.Controls.Add(this.label35);
+            this.panelDiasEsp.Controls.Add(this.txtDias);
+            this.panelDiasEsp.Controls.Add(this.label34);
+            this.panelDiasEsp.Controls.Add(this.dtpFechaFinal);
+            this.panelDiasEsp.Controls.Add(this.label33);
+            this.panelDiasEsp.Controls.Add(this.dtpFechaInical);
+            this.panelDiasEsp.Controls.Add(this.label32);
+            this.panelDiasEsp.Controls.Add(label31);
+            this.panelDiasEsp.Location = new System.Drawing.Point(16, 260);
+            this.panelDiasEsp.Name = "panelDiasEsp";
+            this.panelDiasEsp.Size = new System.Drawing.Size(375, 131);
+            this.panelDiasEsp.TabIndex = 186;
+            // 
+            // btnInsertar
+            // 
+            this.btnInsertar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInsertar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.btnInsertar.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.btnInsertar.Location = new System.Drawing.Point(288, 32);
+            this.btnInsertar.Name = "btnInsertar";
+            this.btnInsertar.Size = new System.Drawing.Size(55, 55);
+            this.btnInsertar.TabIndex = 237;
+            this.btnInsertar.Tag = "Guardar";
+            this.btnInsertar.UseVisualStyleBackColor = false;
+            this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
+            // 
+            // txtReferencia
+            // 
+            this.txtReferencia.Location = new System.Drawing.Point(79, 96);
+            this.txtReferencia.Name = "txtReferencia";
+            this.txtReferencia.Size = new System.Drawing.Size(268, 20);
+            this.txtReferencia.TabIndex = 236;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label35.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label35.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label35.Location = new System.Drawing.Point(5, 100);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(73, 16);
+            this.label35.TabIndex = 235;
+            this.label35.Text = "Referencia:";
+            // 
+            // txtDias
+            // 
+            this.txtDias.Location = new System.Drawing.Point(224, 35);
+            this.txtDias.Name = "txtDias";
+            this.txtDias.Size = new System.Drawing.Size(31, 20);
+            this.txtDias.TabIndex = 234;
+            this.txtDias.Leave += new System.EventHandler(this.txtDias_Leave);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label34.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label34.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label34.Location = new System.Drawing.Point(188, 40);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(38, 16);
+            this.label34.TabIndex = 233;
+            this.label34.Text = "Dias:";
+            // 
+            // dtpFechaFinal
+            // 
+            this.dtpFechaFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFinal.Location = new System.Drawing.Point(80, 65);
+            this.dtpFechaFinal.MinDate = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaFinal.Name = "dtpFechaFinal";
+            this.dtpFechaFinal.Size = new System.Drawing.Size(102, 20);
+            this.dtpFechaFinal.TabIndex = 232;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label33.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label33.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label33.Location = new System.Drawing.Point(35, 69);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(43, 16);
+            this.label33.TabIndex = 231;
+            this.label33.Text = "al día:";
+            // 
+            // dtpFechaInical
+            // 
+            this.dtpFechaInical.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaInical.Location = new System.Drawing.Point(80, 35);
+            this.dtpFechaInical.MinDate = new System.DateTime(1999, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaInical.Name = "dtpFechaInical";
+            this.dtpFechaInical.Size = new System.Drawing.Size(102, 20);
+            this.dtpFechaInical.TabIndex = 230;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.label32.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label32.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label32.Location = new System.Drawing.Point(28, 40);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(50, 16);
+            this.label32.TabIndex = 229;
+            this.label32.Text = "del día:";
             // 
             // ptbimgusuario
             // 
@@ -843,12 +994,24 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(176, 96);
+            this.pictureBox1.Location = new System.Drawing.Point(163, 11);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(78, 73);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 188;
             this.pictureBox1.TabStop = false;
+            // 
+            // chkBoxdias
+            // 
+            this.chkBoxdias.AutoSize = true;
+            this.chkBoxdias.ForeColor = System.Drawing.Color.Red;
+            this.chkBoxdias.Location = new System.Drawing.Point(163, 500);
+            this.chkBoxdias.Name = "chkBoxdias";
+            this.chkBoxdias.Size = new System.Drawing.Size(331, 17);
+            this.chkBoxdias.TabIndex = 189;
+            this.chkBoxdias.Text = "Insertar Dias Especiales por checadas desfasadas del trabajador";
+            this.chkBoxdias.UseVisualStyleBackColor = true;
+            this.chkBoxdias.CheckedChanged += new System.EventHandler(this.chkBoxdias_CheckedChanged);
             // 
             // DatosTrabajadorPerfil
             // 
@@ -857,9 +1020,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ptbimgusuario);
-            this.Controls.Add(label13);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.label1);
@@ -884,7 +1045,8 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panelAsignacionTrabajador.ResumeLayout(false);
-            this.panelAsignacionTrabajador.PerformLayout();
+            this.panelDiasEsp.ResumeLayout(false);
+            this.panelDiasEsp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -939,5 +1101,16 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelDiasEsp;
+        private System.Windows.Forms.DateTimePicker dtpFechaInical;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.DateTimePicker dtpFechaFinal;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox txtDias;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox txtReferencia;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button btnInsertar;
+        private System.Windows.Forms.CheckBox chkBoxdias;
     }
 }
