@@ -53,6 +53,7 @@
             System.Windows.Forms.Label label33;
             System.Windows.Forms.Label label37;
             System.Windows.Forms.Label label36;
+            System.Windows.Forms.Label label43;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -157,6 +158,17 @@
             this.dgvElimina = new System.Windows.Forms.DataGridView();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
+            this.tabCorreo = new System.Windows.Forms.TabPage();
+            this.label44 = new System.Windows.Forms.Label();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
+            this.cbodominios = new System.Windows.Forms.ComboBox();
+            this.txtcorreo = new System.Windows.Forms.TextBox();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.label40 = new System.Windows.Forms.Label();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.label41 = new System.Windows.Forms.Label();
             this.tabCambiaAsociacion = new System.Windows.Forms.TabPage();
             this.dgvCambiaAsociacion = new System.Windows.Forms.DataGridView();
             this.pnlCambia = new System.Windows.Forms.Panel();
@@ -229,6 +241,7 @@
             label33 = new System.Windows.Forms.Label();
             label37 = new System.Windows.Forms.Label();
             label36 = new System.Windows.Forms.Label();
+            label43 = new System.Windows.Forms.Label();
             this.tabAsignacion.SuspendLayout();
             this.tabPlantillaHorario.SuspendLayout();
             this.panelTag.SuspendLayout();
@@ -261,6 +274,9 @@
             this.pnlElimina.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvElimina)).BeginInit();
             this.panel16.SuspendLayout();
+            this.tabCorreo.SuspendLayout();
+            this.panel31.SuspendLayout();
+            this.panel29.SuspendLayout();
             this.tabCambiaAsociacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCambiaAsociacion)).BeginInit();
             this.pnlCambia.SuspendLayout();
@@ -573,6 +589,19 @@
             label36.TabIndex = 194;
             label36.Text = "      Cambiar Asignaciones";
             // 
+            // label43
+            // 
+            label43.AutoSize = true;
+            label43.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label43.ForeColor = System.Drawing.Color.Gray;
+            label43.Image = ((System.Drawing.Image)(resources.GetObject("label43.Image")));
+            label43.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label43.Location = new System.Drawing.Point(4, 7);
+            label43.Name = "label43";
+            label43.Size = new System.Drawing.Size(146, 17);
+            label43.TabIndex = 194;
+            label43.Text = "      Guardar el correo";
+            // 
             // lblusuario
             // 
             this.lblusuario.AutoSize = true;
@@ -654,6 +683,7 @@
             this.tabAsignacion.Controls.Add(this.tabReloj);
             this.tabAsignacion.Controls.Add(this.tabAgregarReloj);
             this.tabAsignacion.Controls.Add(this.tabHuella);
+            this.tabAsignacion.Controls.Add(this.tabCorreo);
             this.tabAsignacion.Controls.Add(this.tabCambiaAsociacion);
             this.tabAsignacion.Controls.Add(this.tabBiometricos);
             this.tabAsignacion.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -927,13 +957,13 @@
             this.mtxtTiempoTrabajo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.mtxtTiempoTrabajo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mtxtTiempoTrabajo.Location = new System.Drawing.Point(252, 293);
-            this.mtxtTiempoTrabajo.Mask = "99999";
             this.mtxtTiempoTrabajo.Name = "mtxtTiempoTrabajo";
             this.mtxtTiempoTrabajo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.mtxtTiempoTrabajo.Size = new System.Drawing.Size(100, 19);
             this.mtxtTiempoTrabajo.TabIndex = 84;
             this.mtxtTiempoTrabajo.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxtTiempoTrabajo_MaskInputRejected);
             this.mtxtTiempoTrabajo.Click += new System.EventHandler(this.mtxt);
+            this.mtxtTiempoTrabajo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtxtTiempoTrabajo_KeyPress);
             // 
             // btnGuardar
             // 
@@ -1336,7 +1366,7 @@
             this.tabReloj.Padding = new System.Windows.Forms.Padding(3);
             this.tabReloj.Size = new System.Drawing.Size(1009, 565);
             this.tabReloj.TabIndex = 2;
-            this.tabReloj.Text = "Toma biométricos por primera vez";
+            this.tabReloj.Text = "Capturar biométricos ";
             this.tabReloj.Click += new System.EventHandler(this.tabReloj_Click);
             // 
             // textBox4
@@ -1899,6 +1929,142 @@
             this.label17.TabIndex = 183;
             this.label17.Text = "        Eliminar Asignaciones";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabCorreo
+            // 
+            this.tabCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.tabCorreo.Controls.Add(this.label44);
+            this.tabCorreo.Controls.Add(this.panel31);
+            this.tabCorreo.Controls.Add(this.label42);
+            this.tabCorreo.Controls.Add(this.cbodominios);
+            this.tabCorreo.Controls.Add(this.txtcorreo);
+            this.tabCorreo.Controls.Add(this.panel30);
+            this.tabCorreo.Controls.Add(this.label40);
+            this.tabCorreo.Controls.Add(this.panel29);
+            this.tabCorreo.Location = new System.Drawing.Point(4, 29);
+            this.tabCorreo.Name = "tabCorreo";
+            this.tabCorreo.Size = new System.Drawing.Size(1009, 565);
+            this.tabCorreo.TabIndex = 7;
+            this.tabCorreo.Text = "Correo electrónico";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label44.Location = new System.Drawing.Point(426, 70);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(150, 17);
+            this.label44.TabIndex = 221;
+            this.label44.Text = "Seleccione el dominio";
+            // 
+            // panel31
+            // 
+            this.panel31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.panel31.Controls.Add(this.button10);
+            this.panel31.Controls.Add(label43);
+            this.panel31.Location = new System.Drawing.Point(83, 173);
+            this.panel31.Name = "panel31";
+            this.panel31.Size = new System.Drawing.Size(208, 87);
+            this.panel31.TabIndex = 220;
+            this.panel31.TabStop = true;
+            this.panel31.Visible = false;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button10.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.button10.Location = new System.Drawing.Point(147, 27);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(50, 50);
+            this.button10.TabIndex = 2;
+            this.button10.Tag = "Guardar";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BackColor = System.Drawing.Color.Transparent;
+            this.label42.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.label42.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label42.Location = new System.Drawing.Point(394, 115);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(26, 27);
+            this.label42.TabIndex = 219;
+            this.label42.Text = "@";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cbodominios
+            // 
+            this.cbodominios.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbodominios.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbodominios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbodominios.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbodominios.FormattingEnabled = true;
+            this.cbodominios.Location = new System.Drawing.Point(429, 118);
+            this.cbodominios.Margin = new System.Windows.Forms.Padding(2);
+            this.cbodominios.Name = "cbodominios";
+            this.cbodominios.Size = new System.Drawing.Size(259, 30);
+            this.cbodominios.TabIndex = 217;
+            // 
+            // txtcorreo
+            // 
+            this.txtcorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtcorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtcorreo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcorreo.Location = new System.Drawing.Point(83, 122);
+            this.txtcorreo.MaxLength = 100;
+            this.txtcorreo.Name = "txtcorreo";
+            this.txtcorreo.Size = new System.Drawing.Size(300, 19);
+            this.txtcorreo.TabIndex = 216;
+            // 
+            // panel30
+            // 
+            this.panel30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel30.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel30.Location = new System.Drawing.Point(83, 141);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(300, 3);
+            this.panel30.TabIndex = 218;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label40.Location = new System.Drawing.Point(80, 70);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(197, 17);
+            this.label40.TabIndex = 207;
+            this.label40.Text = "Ingrese el correo insitucional ";
+            // 
+            // panel29
+            // 
+            this.panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel29.Controls.Add(this.label41);
+            this.panel29.Location = new System.Drawing.Point(34, 24);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(353, 25);
+            this.panel29.TabIndex = 206;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.BackColor = System.Drawing.Color.Transparent;
+            this.label41.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.White;
+            this.label41.Image = global::SIPAA_CS.Properties.Resources.ic_compare_arrows_white_24dp;
+            this.label41.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label41.Location = new System.Drawing.Point(19, 3);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(219, 20);
+            this.label41.TabIndex = 183;
+            this.label41.Text = "        Capture el Correo Institucional";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabCambiaAsociacion
             // 
@@ -2539,6 +2705,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvElimina)).EndInit();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
+            this.tabCorreo.ResumeLayout(false);
+            this.tabCorreo.PerformLayout();
+            this.panel31.ResumeLayout(false);
+            this.panel31.PerformLayout();
+            this.panel29.ResumeLayout(false);
+            this.panel29.PerformLayout();
             this.tabCambiaAsociacion.ResumeLayout(false);
             this.tabCambiaAsociacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCambiaAsociacion)).EndInit();
@@ -2718,5 +2890,16 @@
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.TabPage tabCorreo;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Panel panel29;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.ComboBox cbodominios;
+        private System.Windows.Forms.TextBox txtcorreo;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Label label44;
     }
 }

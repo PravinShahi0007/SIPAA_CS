@@ -20,6 +20,7 @@ using static SIPAA_CS.App_Code.SonaCompania;
 using static SIPAA_CS.App_Code.Usuario;
 using static SIPAA_CS.App_Code.Utilerias;
 using zkemkeeper;
+using SIPAA_CS.App_Code.Accesos.Catalogos;
 
 namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
@@ -40,6 +41,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         public List<string> ltRelojxUsuario2 = new List<string>();
         public string sUsuuMod = LoginInfo.IdTrab;
         SonaTrabajador contenedorempleados = new SonaTrabajador();
+        Usuarioap cusuarioap = new Usuarioap();
+        string mail;
+        bool verificar;
+        Utilerias cutilerias = new Utilerias();
+      
+
 
         //Huella Digital
         public delegate void OnTemplateEventHandler(DPFP.Template template);
@@ -937,10 +944,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     AsignarReloj(TrabajadorInfo.IdTrab);
                     if (Permisos.dcPermisos["Crear"] == 0) { PanelReloj.Visible = false; label24.Text = "Relojes Asignados Actualmente"; }
                     break;
-
-
                 case 3:
-
                     llenarGridElimina("%", dgvAgrega);
                     AsignaParaEliminar(dgvAgrega);
                     if (Permisos.dcPermisos["Crear"] == 0) { pnlAgrega.Visible = false; }
@@ -951,16 +955,72 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     if (Permisos.dcPermisos["Eliminar"] == 0) { pnlElimina.Visible = false; }
                     break;
                 case 5:
+                    Correos();
+                    break;
+                case 6:
                     llenarGridElimina("%", dgvCambiaAsociacion);
                     AsignaParaEliminar(dgvCambiaAsociacion);
                     if (Permisos.dcPermisos["Eliminar"] == 0) { pnlCambiarAsociacion.Visible = false; }
                     break;
-                case 6:
+                case 7:
                     MuestraBiometricos();
-               
                     break;
             }
           
+        }
+
+
+        private void Correos()
+        {
+            ////////////////////////////////////////////////
+           
+            DataTable datosusuario = cusuarioap.dtdatos(4, lbIdTrab.Text, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+
+            int istusu = 0;
+            string scvdominio = string.Empty;
+
+            if (datosusuario.Rows.Count >= 1)
+           
+                istusu = int.Parse(datosusuario.Rows[0][7].ToString());
+           
+           
+
+
+            if (datosusuario.Rows.Count <= 0)
+            {
+                
+                txtcorreo.Text = "";        
+                cutilerias.p_inicbo = 0;
+                cbodominios.DataSource = null;
+                DataTable dtdatos2 = cusuarioap.dtdatos(5, "", 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+                Utilerias.llenarComboxDataTable(cbodominios, dtdatos2, "cv", "desc");
+                cutilerias.p_inicbo = 1;
+                panel31.Visible = true;
+               // DialogResult result = MessageBox.Show("El usuario que busca no existe, verificar", "SIPAA", MessageBoxButtons.OK);
+                
+            }
+            
+            else
+            {
+               
+                txtcorreo.Text = datosusuario.Rows[0][3].ToString();
+                scvdominio = datosusuario.Rows[0][4].ToString();
+              
+                cutilerias.p_inicbo = 0;
+                cbodominios.DataSource = null;
+                DataTable dtdatos3 = cusuarioap.dtdatos(5, "", 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+                llenarComboxDataTable(cbodominios, dtdatos3, "cv", "desc");
+                if (scvdominio != "0") { cbodominios.SelectedValue = scvdominio; }
+                cutilerias.p_inicbo = 1;
+                panel31.Visible = false;
+
+            }
+
+            ////////////////////////////////////////////////////////////////////////////////
+           /* cbodominios.DataSource = null;
+            DataTable dtdatos = cusuarioap.dtdatos(5, "", 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
+            Utilerias.llenarComboxDataTable(cbodominios, dtdatos, "cv", "desc");*/
+
         }
 
 
@@ -2806,6 +2866,61 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
 
        }
+
+        private void mtxtTiempoTrabajo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            double value = 0;
+            if (!double.TryParse(mtxtTiempoTrabajo.Text + e.KeyChar.ToString(), out value) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            mail = txtcorreo.Text.Trim();
+            verificar = mail.Contains("@");
+
+            if (string.IsNullOrEmpty(mail))
+            {
+                DialogResult result = MessageBox.Show("ingrese un correo , verificar", "SIPAA", MessageBoxButtons.OK);
+                txtcorreo.Focus();
+            }
+            else
+            {
+                if (verificar == true)
+                {
+                    DialogResult result = MessageBox.Show("Correo electrónico invalido, verificar", "SIPAA", MessageBoxButtons.OK);
+                    txtcorreo.Focus();
+                }
+                else if (cbodominios.Text.Trim() == "" || cbodominios.SelectedIndex == -1 || cbodominios.SelectedIndex == 0)
+                {
+                    DialogResult result = MessageBox.Show("Selecciona un dominio", "SIPAA", MessageBoxButtons.OK);
+                    cbodominios.Focus();
+
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show(LoginInfo.Nombre + ": esta acción actualizara el correo del empleado;" + "\r\n" + "\r\n" + "\r\n" + "¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        int ivalida = cusuarioap.cruddatos(18, lbIdTrab.Text,  Convert.ToInt32(lbIdTrab.Text), "", txtcorreo.Text.Trim(),
+                                       int.Parse(cbodominios.SelectedValue.ToString()), "", 0, 1, "",
+                                       "", "", "", "", "",
+                                       0, 3, LoginInfo.cvusuario, "", Name,
+                                       cutilerias.scontrol());
+                        //MessageBox.Show(""+ivalida);
+
+                        if (ivalida == 2)
+                            MessageBox.Show("Se ha guardado correctamente el correo electronico \r\n la contraseña por primera vez será el número de empleado.", "SIPAA", MessageBoxButtons.OK);
+                       
+                    }
+                }
+            }
+
+             
+            
+        }
     }
     }
 //}

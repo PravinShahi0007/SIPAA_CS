@@ -327,19 +327,23 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 try { front.imgs.Add("FotoEmpleado", new ZMotifImage(g.ImageFileToByteArray(@"\\172.165.1.10\FotosJS\FotosEmpleados\" + cboEmpleados.SelectedValue + ".jpg"), 23f, 209f, ZMotifGraphics.ImagePositionEnum.Centered, 303, 305, 0)); }
                 catch { front.imgs.Add("FotoEmpleado", new ZMotifImage(ImageToByteArray(pictureBox1.ErrorImage), 23f, 209f, ZMotifGraphics.ImagePositionEnum.Centered, 75, 75, 0)); }
 
-                if (Compania.Equals("GMX GRUPO CONSULTOR S.A DE C.V"))
+                if (Compania.Equals("GMX GRUPO CONSULTOR S.A DE C.V") || Compania.Equals("MADI Y JOMA SERVICIOS S.A DE C.V"))
                 {
-                    front.txts.Add("Puesto", new ZMotifText(Puesto, 340f, 260f, "Arial Narrow", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
-                    front.txts.Add("Plantel", new ZMotifText(Plantel, 340f, 380f, "Arial Narrow", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.Black));
-                    front.txts.Add("Nombre", new ZMotifText(Paterno + " " + Materno + " " + Nombre, 40f, 530f, "Arial Narrow", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
-                    front.txts.Add("descripcion1", new ZMotifText("QUEJAS Y SUGERENCIAS", 110f, 660f, "Calibri", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.Black));
-                    front.txts.Add("descripcion2", new ZMotifText("A LOS TELEFONOS", 170f, 700f, "Calibri", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.Black));
-                    front.txts.Add("descripcion3", new ZMotifText("50954312 - 55977628", 150f, 740f, "Calibri", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.Black));
-                    front.txts.Add("noEmpleado_d", new ZMotifText("No. Empleado:", 40f, 820f, "Arial", 9f, ZMotifGraphics.FontTypeEnum.Regular, Color.Black));
-                    front.txts.Add("IdTrab", new ZMotifText(IdTrab, 300f, 815f, "Arial Narrow", 10f, ZMotifGraphics.FontTypeEnum.Regular, Color.FromArgb(255, 0, 0, 160)));
-                    front.txts.Add("Compania", new ZMotifText(Compania, 40f, 890f, "Arial Narrow", 9f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));
-                    front.txts.Add("vig_d", new ZMotifText("Fecha de expedición:", 230f, 940f, "Arial Narrow", 7f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));
-                    front.txts.Add("Vigencia", new ZMotifText(fcredEmp.date.ToShortDateString(), 480f, 940f, "Arial Narrow", 7f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));                    
+                    Compania = "MADI Y JOMA SERVICIOS S.A DE C.V";
+
+                    front.txts.Add("Paterno", new ZMotifText(Paterno, 340f, 230f, "Arial", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                    front.txts.Add("Materno", new ZMotifText(Materno, 340f, 270f, "Arial", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                    front.txts.Add("Nombre", new ZMotifText(Nombre, 340f, 310f, "Arial", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                    //front.txts.Add("Plantel", new ZMotifText(Plantel, 340f, 350f, "Myriad Pro", 10f, ZMotifGraphics.FontTypeEnum.Bold, Color.Black));
+                    front.txts.Add("IdTrab", new ZMotifText(IdTrab, 40f, 530f, "Arial", 9f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
+                    front.txts.Add("Puesto", new ZMotifText(Puesto, 40f, 570f, "Arial", 9f, ZMotifGraphics.FontTypeEnum.Bold, Color.FromArgb(255, 0, 0, 160)));
+                    front.txts.Add("descripcion1", new ZMotifText("QUEJAS Y SUGERENCIAS", 80f, 640f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
+                    front.txts.Add("descripcion2", new ZMotifText("AL TELEFONO:", 80f, 680f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
+                    front.txts.Add("descripcion3", new ZMotifText("5581041619", 335f, 680f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
+                    //front.txts.Add("noEmpleado_d", new ZMotifText("No. Empleado:", 40f, 820f, "Myriad Pro", 9f, ZMotifGraphics.FontTypeEnum.Regular, Color.Red));
+                    front.txts.Add("Compania", new ZMotifText(Compania, 20f, 900f, "Arial", 8f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));
+                    //front.txts.Add("vig_d", new ZMotifText("Fecha de expedición:", 230f, 940f, "Myriad Pro", 7f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));
+                    //front.txts.Add("Vigencia", new ZMotifText(fcredEmp.date.ToShortDateString(), 480f, 940f, "Myriad Pro", 7f, ZMotifGraphics.FontTypeEnum.Bold, Color.White));                    
                 }
                 else
                 {
@@ -494,7 +498,9 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                 case "BACHILLERATO TECNOLOGICO JUSTO SIERRA, A.C.":
                     return Resources.BTJS;
                 case "GMX GRUPO CONSULTOR S.A DE C.V":
-                    return Resources.GMX;
+                case "MADI Y JOMA SERVICIOS S.A DE C.V":
+                    //return Resources.GMX;
+                    return Resources.GMX2;
                 default:
                     return Resources._default;
             }

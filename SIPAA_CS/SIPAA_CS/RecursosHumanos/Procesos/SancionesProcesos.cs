@@ -284,7 +284,37 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             }
             else
             {
-                if (opcaplicar.Checked == true)//autorizar
+                if (Int32.Parse(cbsancion.SelectedValue.ToString()) == 19 && opcaplicar.Checked == true)//autorizar
+                {
+                    string sobsaut;
+                    if (txtobs.Text == "")
+                    {
+                        sobsaut = "0";
+                    }
+                    else
+                    {
+                        sobsaut = txtobs.Text.Trim();
+                    }
+
+                    int ivalcancel = scancionesproceso.cruddatos(10, Int32.Parse(cbempleado.SelectedValue.ToString()), 0, 0, 0, 0, 0, 0, "null", 8, sobsaut, LoginInfo.cvusuario, "", this.Name, cutilerias.scontrol());
+
+                    pnlmenssuid.Visible = true;
+                    pnlmenssuid.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                    menssuid.Text = "Sanción autorizada correctamente";
+                    timer1.Start();
+
+                    //llena empleados
+                    cutilerias.p_inicbo = 0;
+                    DataTable dtcbempleado = scancionesproceso.dtdatos(5, 0, 0, 0, 0, 0, 0, 0, "", 0, "", "", "", "", "");
+                    Utilerias.llenarComboxDataTable(cbempleado, dtcbempleado, "cv", "empleado");
+                    cutilerias.p_inicbo = 1;
+                    flimpiapendrh();
+                    fest();
+                    cbempleado.Focus();
+
+
+                }
+                else if (opcaplicar.Checked == true)
                 {
                     string sobsaut;
                     if (txtobs.Text == "")
@@ -311,8 +341,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     flimpiapendrh();
                     fest();
                     cbempleado.Focus();
-
-
                 }
                 else if (opccancelar.Checked == true)//cancelar
                 {
@@ -841,26 +869,27 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     dgvrepsanciones.Columns[1].Width = 240;
                     dgvrepsanciones.Columns[2].HeaderText = "Puesto";//puesto
                     dgvrepsanciones.Columns[2].Width = 160;
-                    dgvrepsanciones.Columns[3].HeaderText = "No";//acumulado
-                    dgvrepsanciones.Columns[3].Width = 75;
-                    dgvrepsanciones.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    dgvrepsanciones.Columns[4].HeaderText = "Sanción";//sancion
-                    dgvrepsanciones.Columns[4].Width = 130;
-                    dgvrepsanciones.Columns[5].HeaderText = "Periodo";//quincena
-                    dgvrepsanciones.Columns[5].Width = 195;
-                    dgvrepsanciones.Columns[6].HeaderText = "Retardos";//retardos
-                    dgvrepsanciones.Columns[6].Width = 70;
-                    dgvrepsanciones.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    dgvrepsanciones.Columns[7].HeaderText = "Minutos";//minutos
+                    dgvrepsanciones.Columns[3].HeaderText = "Director";//nombre
+                    dgvrepsanciones.Columns[3].Width = 240;
+                    dgvrepsanciones.Columns[4].HeaderText = "No";//acumulado
+                    dgvrepsanciones.Columns[4].Width = 75;
+                    dgvrepsanciones.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvrepsanciones.Columns[5].HeaderText = "Sanción";//sancion
+                    dgvrepsanciones.Columns[5].Width = 130;
+                    dgvrepsanciones.Columns[6].HeaderText = "Periodo";//quincena
+                    dgvrepsanciones.Columns[6].Width = 195;
+                    dgvrepsanciones.Columns[7].HeaderText = "Retardos";//retardos
                     dgvrepsanciones.Columns[7].Width = 70;
                     dgvrepsanciones.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    dgvrepsanciones.Columns[8].HeaderText = "Fecha Susp";//fecha de suspension
-                    dgvrepsanciones.Columns[8].Width = 75;
-                    dgvrepsanciones.Columns[9].HeaderText = "Estatus";//estado
-                    dgvrepsanciones.Columns[9].Width = 240;
-                    dgvrepsanciones.Columns[10].HeaderText = "Observaciones";//obs
+                    dgvrepsanciones.Columns[8].HeaderText = "Minutos";//minutos
+                    dgvrepsanciones.Columns[8].Width = 70;
+                    dgvrepsanciones.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvrepsanciones.Columns[9].HeaderText = "Fecha Susp";//fecha de suspension
+                    dgvrepsanciones.Columns[9].Width = 75;
+                    dgvrepsanciones.Columns[10].HeaderText = "Estatus";//estado
                     dgvrepsanciones.Columns[10].Width = 240;
-                    dgvrepsanciones.Columns[11].Visible = false;
+                    dgvrepsanciones.Columns[11].HeaderText = "Observaciones";//obs
+                    dgvrepsanciones.Columns[11].Width = 240;
                     dgvrepsanciones.Columns[12].Visible = false;
                     dgvrepsanciones.Columns[13].Visible = false;
                     dgvrepsanciones.Columns[14].Visible = false;
@@ -871,6 +900,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     dgvrepsanciones.Columns[19].Visible = false;
                     dgvrepsanciones.Columns[20].Visible = false;
                     dgvrepsanciones.Columns[21].Visible = false;
+                    dgvrepsanciones.Columns[22].Visible = false;
                     dgvrepsanciones.ClearSelection();
                 }
                 else
@@ -903,32 +933,34 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
                     dgvrepsanciones.Columns[5].Width = 240;
                     dgvrepsanciones.Columns[6].HeaderText = "Puesto";//puesto
                     dgvrepsanciones.Columns[6].Width = 160;
-                    dgvrepsanciones.Columns[7].HeaderText = "Ext";//extrañamiento
-                    dgvrepsanciones.Columns[7].Width = 35;
-                    dgvrepsanciones.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    dgvrepsanciones.Columns[8].HeaderText = "Susp";//suspension
+                    dgvrepsanciones.Columns[7].HeaderText = "Director";//dir
+                    dgvrepsanciones.Columns[7].Width = 160;
+                    dgvrepsanciones.Columns[8].HeaderText = "Ext";//extrañamiento
                     dgvrepsanciones.Columns[8].Width = 35;
                     dgvrepsanciones.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    dgvrepsanciones.Columns[9].HeaderText = "Fecha Susp";//fecha de suspension
-                    dgvrepsanciones.Columns[9].Width = 75;
-                    dgvrepsanciones.Columns[10].HeaderText = "Retardos";//retardos
-                    dgvrepsanciones.Columns[10].Width = 70;
-                    dgvrepsanciones.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    dgvrepsanciones.Columns[11].HeaderText = "Minutos";//minutos
+                    dgvrepsanciones.Columns[9].HeaderText = "Susp";//suspension
+                    dgvrepsanciones.Columns[9].Width = 35;
+                    dgvrepsanciones.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvrepsanciones.Columns[10].HeaderText = "Fecha Susp";//fecha de suspension
+                    dgvrepsanciones.Columns[10].Width = 75;
+                    dgvrepsanciones.Columns[11].HeaderText = "Retardos";//retardos
                     dgvrepsanciones.Columns[11].Width = 70;
                     dgvrepsanciones.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    dgvrepsanciones.Columns[12].HeaderText = "Acum Ext, Susp";//acumulado
-                    dgvrepsanciones.Columns[12].Width = 75;
+                    dgvrepsanciones.Columns[12].HeaderText = "Minutos";//minutos
+                    dgvrepsanciones.Columns[12].Width = 70;
                     dgvrepsanciones.Columns[12].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    dgvrepsanciones.Columns[13].HeaderText = "Estatus";//estado
-                    dgvrepsanciones.Columns[13].Width = 240;
-                    dgvrepsanciones.Columns[14].HeaderText = "Observaciones";//obs
+                    dgvrepsanciones.Columns[13].HeaderText = "Acum Ext, Susp";//acumulado
+                    dgvrepsanciones.Columns[13].Width = 75;
+                    dgvrepsanciones.Columns[13].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvrepsanciones.Columns[14].HeaderText = "Estatus";//estado
                     dgvrepsanciones.Columns[14].Width = 240;
-                    dgvrepsanciones.Columns[15].Visible = false;
+                    dgvrepsanciones.Columns[15].HeaderText = "Observaciones";//obs
+                    dgvrepsanciones.Columns[15].Width = 240;
                     dgvrepsanciones.Columns[16].Visible = false;
                     dgvrepsanciones.Columns[17].Visible = false;
                     dgvrepsanciones.Columns[18].Visible = false;
                     dgvrepsanciones.Columns[19].Visible = false;
+                    dgvrepsanciones.Columns[20].Visible = false;
                     dgvrepsanciones.ClearSelection();
                 }
                 else
