@@ -1012,7 +1012,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 llenarComboxDataTable(cbodominios, dtdatos3, "cv", "desc");
                 if (scvdominio != "0") { cbodominios.SelectedValue = scvdominio; }
                 cutilerias.p_inicbo = 1;
-                panel31.Visible = false;
+                panel31.Visible = true;
 
             }
 
@@ -2883,14 +2883,14 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             if (string.IsNullOrEmpty(mail))
             {
-                DialogResult result = MessageBox.Show("ingrese un correo , verificar", "SIPAA", MessageBoxButtons.OK);
+                DialogResult result = MessageBox.Show("ingrese un correo ", "SIPAA", MessageBoxButtons.OK);
                 txtcorreo.Focus();
             }
             else
             {
                 if (verificar == true)
                 {
-                    DialogResult result = MessageBox.Show("Correo electrónico invalido, verificar", "SIPAA", MessageBoxButtons.OK);
+                    DialogResult result = MessageBox.Show(@"Correo electrónico invalido, no ingrese el @ (arroba)", "SIPAA", MessageBoxButtons.OK);
                     txtcorreo.Focus();
                 }
                 else if (cbodominios.Text.Trim() == "" || cbodominios.SelectedIndex == -1 || cbodominios.SelectedIndex == 0)
