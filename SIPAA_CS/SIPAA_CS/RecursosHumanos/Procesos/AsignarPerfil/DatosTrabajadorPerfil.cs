@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SIPAA_CS.App_Code.RecursosHumanos.Procesos;
 using static SIPAA_CS.App_Code.SonaCompania;
 using static SIPAA_CS.App_Code.Usuario;
 
@@ -24,10 +25,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             InitializeComponent();
         }
 
+        int iprespuesta = 0;
+        DiasEspeciales DiasEspeciales = new DiasEspeciales();
 
         //***********************************************************************************************
         //Autor: Victor Jesús Iturburu Vergara
         //Fecha creación:7-04-2017     Última Modificacion: 17-04-2017
+        //Última Modificacion: 20-02-2019 JLA se agrega lo de dias especiales por  ingreso defasado
         //Descripción: -------------------------------
         //***********************************************************************************************
 
@@ -77,13 +81,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             AsignacionTipoHorarioTrabajador form = new AsignacionTipoHorarioTrabajador();
             form.Show();
             this.Close(); 
-
         }
 
         //-----------------------------------------------------------------------------------------------
         //                           C A J A S      D E      T E X T O   
         //-----------------------------------------------------------------------------------------------
-
 
         //-----------------------------------------------------------------------------------------------
         //                                     E V E N T O S
@@ -100,7 +102,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             //////////////////////////////////////////////////////////////////////////////////
             lblusuario.Text = LoginInfo.Nombre;
             Utilerias.cargaimagen(ptbimgusuario);
-
+            
             string sIdtrab = TrabajadorInfo.IdTrab;
             List<string> ltTnom = new List<string>();
             SonaTrabajador objTrab = new SonaTrabajador();
@@ -108,7 +110,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
            
             foreach (DataRow row in dtTrab.Rows)
             {
-
                 lbIdTrab.Text = row["idtrab"].ToString();
                 lbNombre.Text = row["Nombre"].ToString();
                 TrabajadorInfo.Nombre = row["Nombre"].ToString();
@@ -125,11 +126,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                 switch (Convert.ToInt32(row["Checa"].ToString()))
                 {
-
                     case 0:
                         panelAsignacionTrabajador.Visible = false;
                         lbCheca.Text = "No";
                         lbCheca.ForeColor = ColorTranslator.FromHtml("#f44336");
+                        chkBoxdias.Visible = false;
                         break;
                     case 1:
                         lbCheca.Text = "Si";
@@ -137,30 +138,24 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         panelAsignacionTrabajador.Visible = true;
                         lbSupervisor.Text = row["Supervisor"].ToString();
                         lbDirector.Text = row["IdTrabDirector"].ToString();
+                        panelDiasEsp.Enabled = false;
                         break;
                 }
-
-
                 lbDepto.Text = row["Depto"].ToString();
-
             }
             try
-            {
-                pictureBox1.Image = Image.FromFile(@"\\172.165.1.10\FotosJS\FotosEmpleados\" + lbIdTrab.Text + ".jpg");
+            {                
+                pictureBox1.Image = Image.FromFile(@"\\192.168.30.171\FotosJS\FotosEmpleados\" + lbIdTrab.Text + ".jpg");
             }
             catch {}
            
             ltTnom.Clear();
         }
 
-
-
         //-----------------------------------------------------------------------------------------------
         //                                      F U N C I O N E S 
         //-----------------------------------------------------------------------------------------------
-
-
-
+        
         //-----------------------------------------------------------------------------------------------
         //                                      R E P O R T E
         //-----------------------------------------------------------------------------------------------
@@ -181,6 +176,63 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             VacIncPermHrEsp nvform = new VacIncPermHrEsp();
             nvform.Show();
             this.Close();  
+        }
+
+        private void txtDias_Leave(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(txtDias.Text) > 1)
+            {
+                DateTime resultado = Convert.ToDateTime(dtpFechaInical.Text);
+                dtpFechaFinal.Text = Convert.ToString(resultado.AddDays(Convert.ToInt32(txtDias.Text) - 1));
+                //dtpFechaFinal.Focus();
+                dtpFechaFinal.Enabled = false;
+                txtReferencia.Focus();
+            }
+            else if (Convert.ToInt32(txtDias.Text) == 1)
+            {
+                dtpFechaFinal.Text = dtpFechaInical.Text;
+                //dtpFechaFinal.Focus();
+                dtpFechaFinal.Enabled = false;
+                txtReferencia.Focus();
+            }
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {            
+            //panelTag.Visible = true;
+            //timer1.Start();
+            string usuumod = LoginInfo.IdTrab;
+            string prgumod = this.Name;
+            int idtrab = int.Parse(lbIdTrab.Text);
+            
+            iprespuesta = DiasEspeciales.InsertarDiasEspecialesxTrabajador(idtrab, 1, 3, 9, dtpFechaInical.Text.Trim(),
+            dtpFechaFinal.Text.Trim(), Convert.ToInt32(txtDias.Text), "00:00", "00:00", txtReferencia.Text, 4,
+            0, 0, usuumod.ToString(), prgumod.ToString(), 0, 0);
+
+            switch (iprespuesta.ToString())
+            {
+                case "1":
+                    MessageBox.Show("La Asignación de dias especiales se llevo a cabo correctamente", "SIPAA");
+                    panelDiasEsp.Enabled = false;
+                    chkBoxdias.Visible = false;
+                    break;                
+                case "":
+                    MessageBox.Show("Problemas al insertar los dias especiales, verifique.", "SIPAA");
+                    chkBoxdias.Visible = false;
+                    break;
+            }
+        }
+
+        private void chkBoxdias_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBoxdias.Checked)
+            {
+                panelDiasEsp.Enabled = true;
+            }
+            else
+            {
+                panelDiasEsp.Enabled = false;
+            }
         }
     }
 }
