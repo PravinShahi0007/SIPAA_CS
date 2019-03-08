@@ -44,6 +44,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
         Usuarioap cusuarioap = new Usuarioap();
         string mail;
         bool verificar;
+        bool verificacorreo = false;
         Utilerias cutilerias = new Utilerias();
       
 
@@ -976,17 +977,26 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
            
             DataTable datosusuario = cusuarioap.dtdatos(4, lbIdTrab.Text, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
 
-            int istusu = 0;
+            // int istusu = 0;
+
+
+            //if (datosusuario.Rows.Count >= 1)
+            //istusu = int.Parse(datosusuario.Rows[0][7].ToString());
             string scvdominio = string.Empty;
 
-            if (datosusuario.Rows.Count >= 1)
-           
-                istusu = int.Parse(datosusuario.Rows[0][7].ToString());
-           
-           
+            /*if (datosusuario.Rows[0][3].ToString() == "" || datosusuario.Rows[0][3].ToString() == string.Empty)
+            { verificacorreo = false;
+                panel31.Visible = true;
+            }
+            else if (datosusuario.Rows[0][3].ToString() != "" || datosusuario.Rows[0][3].ToString() != string.Empty)
+            {
+                verificacorreo = true;
+                panel31.Visible = false;
+            }*/
+         
 
 
-            if (datosusuario.Rows.Count <= 0)
+            if (datosusuario.Rows.Count <= 0) // no existe en la tabla acceusuariosipaa
             {
                 
                 txtcorreo.Text = "";        
@@ -995,24 +1005,31 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 DataTable dtdatos2 = cusuarioap.dtdatos(5, "", 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
                 Utilerias.llenarComboxDataTable(cbodominios, dtdatos2, "cv", "desc");
                 cutilerias.p_inicbo = 1;
+                verificacorreo = false;
                 panel31.Visible = true;
-               // DialogResult result = MessageBox.Show("El usuario que busca no existe, verificar", "SIPAA", MessageBoxButtons.OK);
-                
+                //panel31.Visible = true;
+                // DialogResult result = MessageBox.Show("El usuario que busca no existe, verificar", "SIPAA", MessageBoxButtons.OK);
+
             }
             
-            else
+            else // existe en la tabla acceusuariosipaa
             {
                
                 txtcorreo.Text = datosusuario.Rows[0][3].ToString();
                 scvdominio = datosusuario.Rows[0][4].ToString();
-              
                 cutilerias.p_inicbo = 0;
                 cbodominios.DataSource = null;
                 DataTable dtdatos3 = cusuarioap.dtdatos(5, "", 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
                 llenarComboxDataTable(cbodominios, dtdatos3, "cv", "desc");
                 if (scvdominio != "0") { cbodominios.SelectedValue = scvdominio; }
                 cutilerias.p_inicbo = 1;
-                panel31.Visible = true;
+                if (datosusuario.Rows[0][3].ToString() == "")
+                {   verificacorreo =   true;
+                    panel31.Visible = true; 
+                }
+                else if (datosusuario.Rows[0][3].ToString() != "")
+                    panel31.Visible = false; 
+               // panel31.Visible = true;
 
             }
 
@@ -2904,12 +2921,32 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     DialogResult result = MessageBox.Show(LoginInfo.Nombre + ": esta acción actualizara el correo del empleado;" + "\r\n" + "\r\n" + "\r\n" + "¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
-                        int ivalida = cusuarioap.cruddatos(18, lbIdTrab.Text,  Convert.ToInt32(lbIdTrab.Text), "", txtcorreo.Text.Trim(),
+
+                        int ivalida = 0;
+                        if (!verificacorreo) // usar la opcion 10 que crea en la tabla el registro y el correo 
+                        {
+                            ivalida = cusuarioap.cruddatos(18, lbIdTrab.Text, Convert.ToInt32(lbIdTrab.Text), "", txtcorreo.Text.Trim(),
                                        int.Parse(cbodominios.SelectedValue.ToString()), "", 0, 1, "",
                                        "", "", "", "", "",
                                        0, 3, LoginInfo.cvusuario, "", Name,
                                        cutilerias.scontrol());
-                        //MessageBox.Show(""+ivalida);
+                        }
+                        else // solo actualiza el correo 
+                        {
+                            ivalida = cusuarioap.cruddatos(10, lbIdTrab.Text, Convert.ToInt32(lbIdTrab.Text), "", txtcorreo.Text.Trim(),
+                                      int.Parse(cbodominios.SelectedValue.ToString()), "", 0, 1, "",
+                                      "", "", "", "", "",
+                                      0, 3, LoginInfo.cvusuario, "", Name,
+                                      cutilerias.scontrol());
+                        }
+
+
+                        /*int ivalida = cusuarioap.cruddatos(18, lbIdTrab.Text,  Convert.ToInt32(lbIdTrab.Text), "", txtcorreo.Text.Trim(),
+                                       int.Parse(cbodominios.SelectedValue.ToString()), "", 0, 1, "",
+                                       "", "", "", "", "",
+                                       0, 3, LoginInfo.cvusuario, "", Name,
+                                       cutilerias.scontrol());*/
+                        
 
                         if (ivalida == 2)
                             MessageBox.Show("Se ha guardado correctamente el correo electronico \r\n la contraseña por primera vez será el número de empleado.", "SIPAA", MessageBoxButtons.OK);
