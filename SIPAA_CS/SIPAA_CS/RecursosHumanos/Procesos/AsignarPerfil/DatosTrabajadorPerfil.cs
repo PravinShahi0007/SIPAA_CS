@@ -145,7 +145,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             }
             try
             {                
-                pictureBox1.Image = Image.FromFile(@"\\192.168.30.171\FotosJS\FotosEmpleados\" + lbIdTrab.Text + ".jpg");
+                pictureBox1.Image = Image.FromFile(@"\\172.165.1.10\FotosJS\FotosEmpleados\" + lbIdTrab.Text + ".jpg");
             }
             catch {}
            
