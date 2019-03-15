@@ -2897,7 +2897,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show(LoginInfo.Nombre + ": esta acción actualizara el correo del empleado;" + "\r\n" + "\r\n" + "\r\n" + "¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+                    DialogResult result = MessageBox.Show(LoginInfo.Nombre + ": esta acción actualizará el correo del empleado;" + "\r\n" + "\r\n" + "\r\n" + "¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
 
@@ -2928,7 +2928,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         
 
                         if (ivalida == 2)
-                            MessageBox.Show("Se ha guardado correctamente el correo electronico \r\n la contraseña por primera vez será el número de empleado.", "SIPAA", MessageBoxButtons.OK);
+                            MessageBox.Show("Se ha guardado correctamente el correo electrónico \r\n la contraseña por primera vez será el número de empleado.", "SIPAA", MessageBoxButtons.OK);
                        
                     }
                 }
