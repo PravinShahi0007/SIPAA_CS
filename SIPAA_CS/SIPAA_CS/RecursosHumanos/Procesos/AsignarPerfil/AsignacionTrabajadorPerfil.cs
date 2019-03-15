@@ -976,26 +976,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             ////////////////////////////////////////////////
            
             DataTable datosusuario = cusuarioap.dtdatos(4, lbIdTrab.Text, 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
-
-            // int istusu = 0;
-
-
-            //if (datosusuario.Rows.Count >= 1)
-            //istusu = int.Parse(datosusuario.Rows[0][7].ToString());
+            
             string scvdominio = string.Empty;
-
-            /*if (datosusuario.Rows[0][3].ToString() == "" || datosusuario.Rows[0][3].ToString() == string.Empty)
-            { verificacorreo = false;
-                panel31.Visible = true;
-            }
-            else if (datosusuario.Rows[0][3].ToString() != "" || datosusuario.Rows[0][3].ToString() != string.Empty)
-            {
-                verificacorreo = true;
-                panel31.Visible = false;
-            }*/
-         
-
-
+            
             if (datosusuario.Rows.Count <= 0) // no existe en la tabla acceusuariosipaa
             {
                 
@@ -1007,8 +990,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 cutilerias.p_inicbo = 1;
                 verificacorreo = false;
                 panel31.Visible = true;
-                //panel31.Visible = true;
-                // DialogResult result = MessageBox.Show("El usuario que busca no existe, verificar", "SIPAA", MessageBoxButtons.OK);
+                
 
             }
             
@@ -1029,14 +1011,11 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 }
                 else if (datosusuario.Rows[0][3].ToString() != "")
                     panel31.Visible = false; 
-               // panel31.Visible = true;
+              
 
             }
 
-            ////////////////////////////////////////////////////////////////////////////////
-           /* cbodominios.DataSource = null;
-            DataTable dtdatos = cusuarioap.dtdatos(5, "", 0, "", "", 0, "", 0, 0, "", "", "", "", "", "", 0, 0, "", "", "", "");
-            Utilerias.llenarComboxDataTable(cbodominios, dtdatos, "cv", "desc");*/
+          
 
         }
 
@@ -2918,7 +2897,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show(LoginInfo.Nombre + ": esta acción actualizara el correo del empleado;" + "\r\n" + "\r\n" + "\r\n" + "¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+                    DialogResult result = MessageBox.Show(LoginInfo.Nombre + ": esta acción actualizará el correo del empleado;" + "\r\n" + "\r\n" + "\r\n" + "¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
 
@@ -2949,7 +2928,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         
 
                         if (ivalida == 2)
-                            MessageBox.Show("Se ha guardado correctamente el correo electronico \r\n la contraseña por primera vez será el número de empleado.", "SIPAA", MessageBoxButtons.OK);
+                            MessageBox.Show("Se ha guardado correctamente el correo electrónico \r\n la contraseña por primera vez será el número de empleado.", "SIPAA", MessageBoxButtons.OK);
                        
                     }
                 }

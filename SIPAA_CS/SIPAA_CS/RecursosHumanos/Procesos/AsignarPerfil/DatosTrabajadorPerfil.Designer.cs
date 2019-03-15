@@ -46,12 +46,15 @@
             System.Windows.Forms.Label label29;
             System.Windows.Forms.Label label30;
             System.Windows.Forms.Label label31;
+            System.Windows.Forms.Label label37;
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblusuario = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkBoxdias = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbDirector = new System.Windows.Forms.Label();
             this.lbSupervisor = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -100,8 +103,13 @@
             this.dtpFechaInical = new System.Windows.Forms.DateTimePicker();
             this.label32 = new System.Windows.Forms.Label();
             this.ptbimgusuario = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.chkBoxdias = new System.Windows.Forms.CheckBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.cbodominios = new System.Windows.Forms.ComboBox();
+            this.txtcorreo = new System.Windows.Forms.TextBox();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
             label7 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
@@ -119,7 +127,9 @@
             label29 = new System.Windows.Forms.Label();
             label30 = new System.Windows.Forms.Label();
             label31 = new System.Windows.Forms.Label();
+            label37 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panelAsignaciones.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -127,7 +137,7 @@
             this.panelAsignacionTrabajador.SuspendLayout();
             this.panelDiasEsp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -448,6 +458,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(523, 529);
             this.panel1.TabIndex = 122;
+            // 
+            // chkBoxdias
+            // 
+            this.chkBoxdias.AutoSize = true;
+            this.chkBoxdias.ForeColor = System.Drawing.Color.Red;
+            this.chkBoxdias.Location = new System.Drawing.Point(163, 500);
+            this.chkBoxdias.Name = "chkBoxdias";
+            this.chkBoxdias.Size = new System.Drawing.Size(331, 17);
+            this.chkBoxdias.TabIndex = 189;
+            this.chkBoxdias.Text = "Insertar Dias Especiales por checadas desfasadas del trabajador";
+            this.chkBoxdias.UseVisualStyleBackColor = true;
+            this.chkBoxdias.CheckedChanged += new System.EventHandler(this.chkBoxdias_CheckedChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(163, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(78, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 188;
+            this.pictureBox1.TabStop = false;
             // 
             // lbDirector
             // 
@@ -992,26 +1023,106 @@
             this.ptbimgusuario.TabIndex = 187;
             this.ptbimgusuario.TabStop = false;
             // 
-            // pictureBox1
+            // panel4
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(163, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(78, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 188;
-            this.pictureBox1.TabStop = false;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.button10);
+            this.panel4.Controls.Add(this.label44);
+            this.panel4.Controls.Add(this.label42);
+            this.panel4.Controls.Add(this.cbodominios);
+            this.panel4.Controls.Add(this.txtcorreo);
+            this.panel4.Controls.Add(this.panel30);
+            this.panel4.Controls.Add(label37);
+            this.panel4.Location = new System.Drawing.Point(45, 672);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(523, 74);
+            this.panel4.TabIndex = 188;
             // 
-            // chkBoxdias
+            // label37
             // 
-            this.chkBoxdias.AutoSize = true;
-            this.chkBoxdias.ForeColor = System.Drawing.Color.Red;
-            this.chkBoxdias.Location = new System.Drawing.Point(163, 500);
-            this.chkBoxdias.Name = "chkBoxdias";
-            this.chkBoxdias.Size = new System.Drawing.Size(331, 17);
-            this.chkBoxdias.TabIndex = 189;
-            this.chkBoxdias.Text = "Insertar Dias Especiales por checadas desfasadas del trabajador";
-            this.chkBoxdias.UseVisualStyleBackColor = true;
-            this.chkBoxdias.CheckedChanged += new System.EventHandler(this.chkBoxdias_CheckedChanged);
+            label37.AutoSize = true;
+            label37.Font = new System.Drawing.Font("Arial", 11.25F);
+            label37.ForeColor = System.Drawing.Color.Gray;
+            label37.Image = ((System.Drawing.Image)(resources.GetObject("label37.Image")));
+            label37.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label37.Location = new System.Drawing.Point(6, 9);
+            label37.Name = "label37";
+            label37.Size = new System.Drawing.Size(221, 17);
+            label37.TabIndex = 176;
+            label37.Text = "      Ingrese el correo institucional";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label44.Location = new System.Drawing.Point(251, 9);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(135, 16);
+            this.label44.TabIndex = 227;
+            this.label44.Text = "Seleccione el dominio";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BackColor = System.Drawing.Color.Transparent;
+            this.label42.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(62)))), ((int)(((byte)(120)))));
+            this.label42.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label42.Location = new System.Drawing.Point(223, 27);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(26, 27);
+            this.label42.TabIndex = 226;
+            this.label42.Text = "@";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cbodominios
+            // 
+            this.cbodominios.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbodominios.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbodominios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.cbodominios.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbodominios.FormattingEnabled = true;
+            this.cbodominios.Location = new System.Drawing.Point(254, 31);
+            this.cbodominios.Margin = new System.Windows.Forms.Padding(2);
+            this.cbodominios.Name = "cbodominios";
+            this.cbodominios.Size = new System.Drawing.Size(206, 25);
+            this.cbodominios.TabIndex = 224;
+            // 
+            // txtcorreo
+            // 
+            this.txtcorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.txtcorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtcorreo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcorreo.Location = new System.Drawing.Point(7, 34);
+            this.txtcorreo.MaxLength = 100;
+            this.txtcorreo.Name = "txtcorreo";
+            this.txtcorreo.Size = new System.Drawing.Size(213, 18);
+            this.txtcorreo.TabIndex = 223;
+            this.txtcorreo.TextChanged += new System.EventHandler(this.txtcorreo_TextChanged);
+            // 
+            // panel30
+            // 
+            this.panel30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(119)))), ((int)(((byte)(189)))));
+            this.panel30.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel30.Location = new System.Drawing.Point(7, 49);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(214, 5);
+            this.panel30.TabIndex = 225;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.button10.Image = global::SIPAA_CS.Properties.Resources.Guardar;
+            this.button10.Location = new System.Drawing.Point(465, 6);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(50, 50);
+            this.button10.TabIndex = 228;
+            this.button10.Tag = "Guardar";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // DatosTrabajadorPerfil
             // 
@@ -1020,6 +1131,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblusuario);
@@ -1036,6 +1148,7 @@
             this.Load += new System.EventHandler(this.DatosTrabajadorPerfil_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panelAsignaciones.ResumeLayout(false);
@@ -1048,7 +1161,8 @@
             this.panelDiasEsp.ResumeLayout(false);
             this.panelDiasEsp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbimgusuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1112,5 +1226,12 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.CheckBox chkBoxdias;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.ComboBox cbodominios;
+        private System.Windows.Forms.TextBox txtcorreo;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Button button10;
     }
 }
