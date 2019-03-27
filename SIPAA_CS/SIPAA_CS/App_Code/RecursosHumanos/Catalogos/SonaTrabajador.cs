@@ -243,6 +243,7 @@ namespace SIPAA_CS.App_Code
             cmd.CommandText = @"usp_rechregistrodetalle_s";
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion objConexion = new Conexion();
+          
 
             cmd.Parameters.Add("@p_idtrab", SqlDbType.VarChar).Value = sidtrab;
             cmd.Parameters.Add("@P_fechainicio", SqlDbType.VarChar).Value = dtfechainicio;
