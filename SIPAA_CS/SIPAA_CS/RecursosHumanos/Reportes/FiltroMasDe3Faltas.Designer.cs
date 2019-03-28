@@ -251,7 +251,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(154, 44);
             this.textBox1.TabIndex = 65;
-            this.textBox1.Text = "los 30 días comienzan a partir de la fecha que elija";
+            this.textBox1.Text = "los 30 días comienzan a partir de la fecha que elija hacia adelante";
             // 
             // cboEmpleados
             // 

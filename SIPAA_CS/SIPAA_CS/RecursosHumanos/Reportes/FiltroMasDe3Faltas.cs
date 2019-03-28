@@ -21,6 +21,8 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private static string TITULO_REPORTE = "SIPAA - Recursos Humanos";
         private static string NOMBRE_REPORTE = "3 o más faltas en un periodo de 30 dias";
+        int sysH = SystemInformation.PrimaryMonitorSize.Height;
+        int sysW = SystemInformation.PrimaryMonitorSize.Width;
         //Definición de Variables
         public string sIdTrab;
         public string sCompania;
@@ -60,13 +62,23 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            /////////////////////////////
 
+            string sIdtrab = "";
+            if (cboEmpleados.Text == String.Empty)
+                sIdtrab = "%";
+            else
+                sIdtrab = cboEmpleados.SelectedValue.ToString();
+            if (sIdtrab == "0")
+                sIdtrab = "%";
+            ///////////////////////
 
-            if (cboEmpleados.SelectedIndex.ToString() == "0")
+           /* if (cboEmpleados.SelectedIndex.ToString() == "0")
                 sIdTrab = "%";
             else
                 sIdTrab = cboEmpleados.SelectedIndex.ToString();
-
+                */
+                
             if (cbCompania.SelectedIndex.ToString() == "0")
                 sCompania = "%";
             else
@@ -84,7 +96,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
             //dtFechaBase = new DateTime(dpFechaBase.Value.Year, dpFechaBase.Value.Month, dpFechaBase.Value.Day);
            
 
-            DataTable dtReporteRegistro = oTrabajador.MasDe3Faltas(5, sIdTrab, sCompania, sUbicacion, dtFechaBase);
+            DataTable dtReporteRegistro = oTrabajador.MasDe3Faltas(5, sIdtrab, sCompania, sUbicacion, dtFechaBase);
 
             switch (dtReporteRegistro.Rows.Count)
             {
@@ -150,6 +162,7 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                     f.Hide();
                 }
             }
+            Utilerias.ResizeForm(this, new Size(new Point(sysH, sysW)));
 
             //llena etiqueta de usuario
             lblusuario.Text = LoginInfo.Nombre;
