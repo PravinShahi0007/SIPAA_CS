@@ -135,7 +135,10 @@ namespace SIPAA_CS.RecursosHumanos.Reportes
                sIdtrab = "%";
             else
               sIdtrab = cbEmpleados.SelectedValue.ToString();
+            if (sIdtrab == "0")
+                sIdtrab = "%";
             
+
             Incidencia objInc = new Incidencia();
 
            if (sIdtrab == "0")
