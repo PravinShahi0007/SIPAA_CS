@@ -296,8 +296,16 @@ namespace SIPAA_CS.App_Code
             cmd.Parameters.Add("P_nomina", SqlDbType.VarChar).Value = nomina;
 
 
+           
+
+
+
+
 
             objConexion.asignarConexion(cmd);
+            cmd.CommandTimeout= 120;
+            cmd.ExecuteScalar();
+
             SqlDataAdapter Adapter = new SqlDataAdapter(cmd);
             objConexion.cerrarConexion();
 
