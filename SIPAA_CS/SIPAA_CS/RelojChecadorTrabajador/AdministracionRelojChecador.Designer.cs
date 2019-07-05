@@ -97,6 +97,9 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.PnlMsn = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -517,7 +520,7 @@
             this.dgvReloj.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(230)))), ((int)(((byte)(201)))));
             this.dgvReloj.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(94)))), ((int)(((byte)(32)))));
             this.dgvReloj.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReloj.Size = new System.Drawing.Size(572, 550);
+            this.dgvReloj.Size = new System.Drawing.Size(572, 487);
             this.dgvReloj.TabIndex = 172;
             this.dgvReloj.Tag = "Editar";
             this.dgvReloj.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReloj_CellContentClick);
@@ -873,9 +876,9 @@
             // 
             this.panelTag.Controls.Add(this.lbMensaje);
             this.panelTag.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTag.Location = new System.Drawing.Point(0, 1);
+            this.panelTag.Location = new System.Drawing.Point(3, 0);
             this.panelTag.Name = "panelTag";
-            this.panelTag.Size = new System.Drawing.Size(618, 44);
+            this.panelTag.Size = new System.Drawing.Size(597, 44);
             this.panelTag.TabIndex = 197;
             this.panelTag.Visible = false;
             this.panelTag.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTag_Paint);
@@ -887,7 +890,7 @@
             this.lbMensaje.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMensaje.ForeColor = System.Drawing.Color.White;
             this.lbMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbMensaje.Location = new System.Drawing.Point(15, 10);
+            this.lbMensaje.Location = new System.Drawing.Point(4, 11);
             this.lbMensaje.Name = "lbMensaje";
             this.lbMensaje.Size = new System.Drawing.Size(593, 25);
             this.lbMensaje.TabIndex = 26;
@@ -919,10 +922,11 @@
             // 
             this.pnlMensaje.Controls.Add(this.panelTag);
             this.pnlMensaje.Controls.Add(this.progressBar1);
-            this.pnlMensaje.Location = new System.Drawing.Point(371, 695);
+            this.pnlMensaje.Location = new System.Drawing.Point(371, 706);
             this.pnlMensaje.Name = "pnlMensaje";
-            this.pnlMensaje.Size = new System.Drawing.Size(621, 52);
+            this.pnlMensaje.Size = new System.Drawing.Size(641, 52);
             this.pnlMensaje.TabIndex = 201;
+            this.pnlMensaje.Visible = false;
             // 
             // ptbimgusuario
             // 
@@ -949,6 +953,39 @@
             // 
             this.openFileDialog2.FileName = "Seleccione ";
             // 
+            // PnlMsn
+            // 
+            this.PnlMsn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.PnlMsn.Location = new System.Drawing.Point(374, 621);
+            this.PnlMsn.Name = "PnlMsn";
+            this.PnlMsn.Size = new System.Drawing.Size(20, 8);
+            this.PnlMsn.TabIndex = 203;
+            this.PnlMsn.Visible = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label24.Location = new System.Drawing.Point(374, 653);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(38, 16);
+            this.label24.TabIndex = 205;
+            this.label24.Text = "label";
+            this.label24.Visible = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label26.Location = new System.Drawing.Point(373, 632);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(38, 18);
+            this.label26.TabIndex = 208;
+            this.label26.Text = "label";
+            this.label26.Visible = false;
+            // 
             // AdministracionRelojChecador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -957,6 +994,9 @@
             this.BackgroundImage = global::SIPAA_CS.Properties.Resources.f8;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.PnlMsn);
             this.Controls.Add(this.ptbimgusuario);
             this.Controls.Add(this.pnlMensaje);
             this.Controls.Add(this.panelAccion);
@@ -1039,5 +1079,8 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Panel PnlMsn;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label26;
     }
 }

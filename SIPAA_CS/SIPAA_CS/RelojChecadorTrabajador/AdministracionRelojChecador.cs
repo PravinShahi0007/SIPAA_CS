@@ -5,9 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using zkemkeeper;
 using static SIPAA_CS.App_Code.SonaCompania;
@@ -49,6 +51,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         BackgroundWorker bd = new BackgroundWorker();
 
         public string Mensaje;
+        int auxiliar = 0;
+   
         //BarraProgreso frm = new BarraProgreso();
         //BarraProgreso frm = new BarraProgreso();
 
@@ -372,126 +376,208 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
         }
 
+
+
         private void btnDescarga_Click(object sender, EventArgs e)
         {
-          
-            Deshabilita_Botones(false);
-            pnlMensaje.Visible = true;
-          
-            panelTag.Visible = false;
+            
+            DateTime tiempo1 = DateTime.Now;
+
+           
 
             if (ltReloj.Count > 0)
             {
-                
-                pnlMensaje.Enabled = true;
-               
-                pnlMensaje.Enabled = false;
-                string sIdTrab;
-                sIdTrab = String.Empty;
-                int sVerify, iModoCheck, iAnho, iDia, iMes, iHora, iMinuto, iSegundo, iWorkCode, iCont;
-                sVerify = iModoCheck = iAnho = iDia = iMes = iHora = iMinuto = iSegundo = iWorkCode = iCont = 0;
-                
-                bool bBandera = false;
-                try
+                label26.Text = "";
+                label26.Visible = true;
+                label26.Text = "Comienza proceso";
+                bool result = false;
+                foreach (Reloj obj in ltReloj)
                 {
-                    foreach (Reloj obj in ltReloj)
+
+                    label24.Text = label26.Text = "";
+                    PnlMsn.Width = 1;
+                    result=RealizaProceso(obj);
+                    if (result)
                     {
-                        DialogResult Resultado = MessageBox.Show("El reloj " + obj.Descripcion.ToString() + " tuvo una descarga de asistencia  \nen la fecha:   " + obj.UltimaDescargaAsistencia + " por el usuario " + obj.UsuDescargaAsistencia + " \n¿Desea Sincronizarlo de nuevo?", "SIPPA", MessageBoxButtons.YesNo);
-                        if (Resultado == DialogResult.Yes)
-                        {
-                          
-                            iCont += 1;
-                            pnlMensaje.Enabled = true;
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Conectando con Dispositivo " + iCont + " de " + ltReloj.Count);
-                       
-                            pnlMensaje.Enabled = false;
-                            bool bConexion = Connect_Net(obj.IpReloj, 4370);
-                            //objCZKEM.ReadAllUserID(1);
-                            //objCZKEM.ReadAllTemplate(1);
-                            if (bConexion)
-                            {
-                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descargando Asistencias");
-                                if (objCZKEM.ReadAllGLogData(1))
-                                {
-                                    
-                                    while (objCZKEM.SSR_GetGeneralLogData(1, out sIdTrab, out sVerify, out iModoCheck, out iAnho
-                                                                                                         , out iMes, out iDia, out iHora, out iMinuto, out iSegundo
-                                                                                                         , ref iWorkCode))
-                                    {
-                                      
-                                        bBandera = IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, obj.cvReloj, iModoCheck);
-                                       
-
-                                    }
-                                    //ELimina automaticamente los registros de la asistencia en el reloj checador 
-                                    //objCZKEM.ClearData(1, 1);
-                                }
-
-                                objCZKEM.Disconnect();
-                               // progressBar1.Value = 90;
-                                if (bBandera)
-                                {
-                                    pnlMensaje.Enabled = true;
-                                    RelojChecador objReloj = new RelojChecador();
-                                    objReloj.obtrelojeschecadores(7, obj.cvReloj, "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
-                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 1, "Registros de asistencia guardados correctamente");
-                                    pnlMensaje.Enabled = false;
-
-                                }
-                                else
-                                {
-                                    pnlMensaje.Enabled = true;
-                                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "Uno o más registros no se guardaron correctamente repita el proceso");
-                                    pnlMensaje.Enabled = false;
-
-                                }
-
-
-                            }
-                            else
-                            {
-                                pnlMensaje.Enabled = true;
-                               
-                                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No fue posible conectarse al reloj : " + obj.Descripcion);
-                                pnlMensaje.Enabled = false;
-                               
-                            }
-                        }
-                        else
-                        {
-                            Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Descarga de asistencia cancelada para el reloj " + obj.Descripcion);
-                        }
-
+                        RelojChecador objReloj = new RelojChecador();
+                        objReloj.obtrelojeschecadores(7, obj.cvReloj, "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
+                      
                     }
-                    // limpiarReloj("Reloj");
-                }
-                catch (Exception ex)
-                {
-                    pnlMensaje.Enabled = true;
-                   
-                    MessageBox.Show(ex.ToString());
-                    Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, ex.Message);
-                    pnlMensaje.Enabled = false;
-                }
-                finally
-                {
-                    //objCZKEM.Disconnect();
-                    timer1.Start();
-                }
-                ltReloj.Clear();
-                LlenarGrid(6, 0, "%", "%", "%", 0, "", "");
-             
 
+                   
+                }
+                PnlMsn.Visible = label26.Visible = label24.Visible = false;
+                PnlMsn.Width = 25;
+               
+            }
+
+
+            DateTime tiempo2 = DateTime.Now;
+            int totalMinutes = (int)(tiempo2 - tiempo1).TotalMinutes;
+            MessageBox.Show("Descarga de asistencia finalizado \nEl tiempo total fue de: "+ totalMinutes+" minuto(s)", "SIPAA", MessageBoxButtons.OK);
+            ltReloj.Clear();
+            LlenarGrid(6, 0, "%", "%", "%", 0, "", "");
+
+
+
+        }
+
+        private bool RealizaProceso(Reloj obj)
+        {
+            string sIdTrab;
+            sIdTrab = String.Empty;
+            int sVerify, iModoCheck, iAnho, iDia, iMes, iHora, iMinuto, iSegundo, iWorkCode, iCont;
+            sVerify = iModoCheck = iAnho = iDia = iMes = iHora = iMinuto = iSegundo = iWorkCode = iCont = 0;
+            bool banderaaux = false;
+            bool bConexion;
+            bool bauxvalida = false;
+            bool result = false;
+
+            label26.Text = "Conectando a " + obj.Descripcion;
+            PnlMsn.Visible = true;
+            PnlMsn.Width = 100;
+            PnlMsn.BackColor = Color.Yellow;
+            Application.DoEvents();
+            if (bConexion = ConectaR(obj.IpReloj))
+            {
+                label26.Text = "Conectado";
+                PnlMsn.Width = 200;
+               
+                Invoke(new Delegado(Ejecuta), banderaaux, sIdTrab, sVerify, iModoCheck,  iAnho
+                                                                                         , iMes, iDia, iHora, iMinuto, iSegundo
+                                                                                         , iWorkCode, obj);
+             objCZKEM.Disconnect();
+             PnlMsn.Width = 1;
+             bauxvalida = true;
             }
             else
             {
-                Utilerias.ControlNotificaciones(panelTag, lbMensaje, 3, "No se ha seleccionado algún Registro.");
-                panelTag.Update();
-                timer1.Start();
+                PnlMsn.Width = 450;
+                PnlMsn.BackColor = Color.Red;
+                label24.Text = "Conexión fallida";
+                MessageBox.Show("No fue posible conectarse al dispositivo de  "+obj.Descripcion, "SIPPA", MessageBoxButtons.OK);
+                
+            }
+             if(bauxvalida==true)
+            {
+                    PnlMsn.Width = 200;
+                    //PnlMsn.BackColor = Color.Yellow;
+                    label26.Text = "Reconectando a " + obj.Descripcion;
+                    if (bConexion = ConectaR(obj.IpReloj))
+                    {
+                        banderaaux = true;
+                        label26.Text = "Reconectado";
+                        PnlMsn.Width = 450;
+                        result = (bool)this.Invoke(new Delegado(Ejecuta), banderaaux, sIdTrab, sVerify, iModoCheck, iAnho                                                                                              , iMes, iDia, iHora, iMinuto, iSegundo
+                                                                                           , iWorkCode, obj);
+
+                        objCZKEM.Disconnect();
+                        PnlMsn.Width = 1;
+                        label26.Text = "Proceso terminado en: " + obj.Descripcion;
+                        
+                }
+                    else
+                    {
+                    PnlMsn.Width = 450;
+                    PnlMsn.BackColor = Color.Red;
+                    label24.Text = "Conexión fallida";
+                    Application.DoEvents();
+                    MessageBox.Show("No fue posible conectarse al dispositivo de  "+obj.Descripcion, "SIPPA", MessageBoxButtons.OK);
+                 
+                    }
 
             }
+            else { label26.Text = "Proceso con error de conexión en : " + obj.Descripcion; }
 
+            return result;
+                
         }
+
+        private delegate bool Delegado(bool bandera, string sIdTrab, int sVerify, int iModoCheck, int iAnho ,int  iMes, int iDia,int iHora,
+            int  iMinuto,int iSegundo ,int  iWorkCode, Reloj obj);
+
+
+
+        private bool Ejecuta(bool bandera,
+                               string sIdTrab,
+                               int sVerify,
+                               int iModoCheck,
+                               int iAnho,
+                               int iMes,
+                               int iDia,
+                               int iHora,
+                               int iMinuto,
+                               int iSegundo,
+                               int iWorkCode,
+                               Reloj obj)
+        {
+            bool resultado = false;
+            if (bandera) // descarga asistencia
+            {
+                if (objCZKEM.ReadAllGLogData(1))
+                {
+                    int aux = 0; 
+
+                    while (objCZKEM.SSR_GetGeneralLogData(1, out sIdTrab, out sVerify, out iModoCheck, out iAnho
+                                                                                         , out iMes, out iDia, out iHora, out iMinuto, out iSegundo
+                                                                                         , ref iWorkCode))
+                    {  // guarda la asistencia
+                       aux++;
+                       float ancho = (450 * aux )/ auxiliar;
+                       IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, obj.cvReloj, iModoCheck);
+                       label26.Text = ("Descargando "+aux+" de "+auxiliar+" registros");
+                       label24.Visible = true;
+                       label24.Text = obj.Descripcion;
+                       PnlMsn.Width = (int)ancho;
+                       PnlMsn.BackColor = Color.Green;
+                       Application.DoEvents();
+
+                    }
+                    resultado = true;
+                    label24.Visible = false;
+                    Application.DoEvents(); 
+                }
+                
+            }
+            else // calcula el total de asistencia
+            {
+                int aux = 0;
+                if (objCZKEM.ReadAllGLogData(1))
+                {
+                    PnlMsn.Width = 350;
+                   
+                    label26.Text = "Calculando...";
+                    Application.DoEvents();
+                    while (objCZKEM.SSR_GetGeneralLogData(1, out sIdTrab, out sVerify, out iModoCheck, out iAnho
+                                                                                         , out iMes, out iDia, out iHora, out iMinuto, out iSegundo
+                                                                                         , ref iWorkCode))
+                    {
+                        
+                        aux++;
+                    }
+                    PnlMsn.Width = 450;
+                    auxiliar = aux;
+                    Application.DoEvents(); 
+
+
+                }
+            }
+            
+            return resultado;
+        }
+
+        public bool ConectaR(string IP)
+        {
+            bool  bConexion = Connect_Net(IP, 4370);
+            return bConexion;
+        }
+
+       
+     
+
+     
+
+      
 
 
         public bool IngresarRegistro(string sIdTrab, int Year, int Month, int Day, int Hour, int Minute, int Second, int cvReloj, int iTipoCheck)
