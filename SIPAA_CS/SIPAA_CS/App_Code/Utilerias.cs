@@ -82,7 +82,6 @@ namespace SIPAA_CS.App_Code
             
             panelTag.Visible = true;
             panelTag.Enabled = true;
-            
             lbMensaje.Enabled = true;
           
 
@@ -95,6 +94,8 @@ namespace SIPAA_CS.App_Code
                     panelTag.Visible = true;
                     panelTag.BackColor = ColorTranslator.FromHtml("#2e7d32");
                     lbMensaje.BackColor = ColorTranslator.FromHtml("#2e7d32");
+                    
+                    
                     lbMensaje.Text = strMensaje;
                     panelTag.Enabled = false;
                     lbMensaje.Enabled = false;
