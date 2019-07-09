@@ -344,7 +344,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         }
                         else 
                         {
-                            ivalida = cusuarioap.cruddatos(10, lbIdTrab.Text, Convert.ToInt32(lbIdTrab.Text), "", txtcorreo.Text.Trim(),
+                            ivalida = cusuarioap.cruddatos(19, lbIdTrab.Text, Convert.ToInt32(lbIdTrab.Text), "", txtcorreo.Text.Trim(),
                                       int.Parse(cbodominios.SelectedValue.ToString()), "", 0, 1, "",
                                       "", "", "", "", "",
                                       0, 3, LoginInfo.cvusuario, "", Name,
