@@ -236,7 +236,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         //-----------------------------------------------------------------------------------------------
         //                                     B O T O N E S
         //-----------------------------------------------------------------------------------------------
-
         //boton minimizar
         private void btnminimizar_Click(object sender, EventArgs e)
         {
@@ -605,6 +604,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
             //Rezise de la Forma
             Utilerias.ResizeForm(this, Utilerias.PantallaSistema());
 
+            //maximizar-restaurar
+            button1.Visible = true;
+            button1.Visible = false;
 
             //inicializa tool tip
             ftooltip();
