@@ -461,7 +461,6 @@ namespace SIPAA_CS.RelojChecadorTrabajador
              if(bauxvalida==true)
             {
                     PnlMsn.Width = 200;
-                    //PnlMsn.BackColor = Color.Yellow;
                     label26.Text = "Reconectando a " + obj.Descripcion;
                     if (bConexion = ConectaR(obj.IpReloj))
                     {
@@ -671,15 +670,16 @@ namespace SIPAA_CS.RelojChecadorTrabajador
             if (ltReloj.Count > 0)
             {
 
-               foreach (Reloj obj in ltReloj)
+               /*foreach (Reloj obj in ltReloj)
                 {
                     Cursor = Cursors.WaitCursor;
                     Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Por seguridad, se obtendran los biometricos");
                     ProcesoReloj();
-                }
+                }*/
                 foreach (Reloj obj in ltReloj)
                 {
-                    
+
+                   
                     ////////////////////////////////////////////////////////////////////////
                     #region InsertaBiometricos
                     DialogResult result = MessageBox.Show("Reloj " + obj.Descripcion + "\nÚltima sincronización: " + obj.UltimaSincronizacion + "\nUsuario sincronizó: " + obj.UltimoUsuarioSinc + " \n\n¿Esta Seguro que desea SINCRONIZAR el reloj?\nEsto eliminará la información del dispositivo y será sustituida con la información de la base de datos", "SIPPA", MessageBoxButtons.YesNo);
@@ -713,7 +713,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     {
 
 
-                       // bool ClearData = objCZKEM.ClearData(1, 5);
+                      //  bool ClearData = objCZKEM.ClearData(1, 5);
                         bool BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
 
                         #region InsertaHuellas
