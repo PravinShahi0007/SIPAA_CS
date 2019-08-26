@@ -170,6 +170,10 @@
             this.panel29 = new System.Windows.Forms.Panel();
             this.label41 = new System.Windows.Forms.Label();
             this.tabCambiaAsociacion = new System.Windows.Forms.TabPage();
+            this.labelprogreso = new System.Windows.Forms.Label();
+            this.labelmensaje = new System.Windows.Forms.Label();
+            this.PnlMensaje = new System.Windows.Forms.Panel();
+            this.label45 = new System.Windows.Forms.Label();
             this.dgvCambiaAsociacion = new System.Windows.Forms.DataGridView();
             this.pnlCambia = new System.Windows.Forms.Panel();
             this.lblCambia = new System.Windows.Forms.Label();
@@ -2069,6 +2073,10 @@
             // tabCambiaAsociacion
             // 
             this.tabCambiaAsociacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(213)))));
+            this.tabCambiaAsociacion.Controls.Add(this.labelprogreso);
+            this.tabCambiaAsociacion.Controls.Add(this.labelmensaje);
+            this.tabCambiaAsociacion.Controls.Add(this.PnlMensaje);
+            this.tabCambiaAsociacion.Controls.Add(this.label45);
             this.tabCambiaAsociacion.Controls.Add(this.dgvCambiaAsociacion);
             this.tabCambiaAsociacion.Controls.Add(this.pnlCambia);
             this.tabCambiaAsociacion.Controls.Add(this.lbFechaFin);
@@ -2087,6 +2095,51 @@
             this.tabCambiaAsociacion.Size = new System.Drawing.Size(1009, 565);
             this.tabCambiaAsociacion.TabIndex = 5;
             this.tabCambiaAsociacion.Text = "Cambia Asociación";
+            this.tabCambiaAsociacion.Click += new System.EventHandler(this.TabCambiaAsociacion_Click);
+            // 
+            // labelprogreso
+            // 
+            this.labelprogreso.AutoSize = true;
+            this.labelprogreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelprogreso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.labelprogreso.Location = new System.Drawing.Point(350, 502);
+            this.labelprogreso.Name = "labelprogreso";
+            this.labelprogreso.Size = new System.Drawing.Size(38, 18);
+            this.labelprogreso.TabIndex = 240;
+            this.labelprogreso.Text = "label";
+            this.labelprogreso.Visible = false;
+            // 
+            // labelmensaje
+            // 
+            this.labelmensaje.AutoSize = true;
+            this.labelmensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelmensaje.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.labelmensaje.Location = new System.Drawing.Point(351, 523);
+            this.labelmensaje.Name = "labelmensaje";
+            this.labelmensaje.Size = new System.Drawing.Size(38, 16);
+            this.labelmensaje.TabIndex = 239;
+            this.labelmensaje.Text = "label";
+            this.labelmensaje.Visible = false;
+            // 
+            // PnlMensaje
+            // 
+            this.PnlMensaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.PnlMensaje.Location = new System.Drawing.Point(353, 491);
+            this.PnlMensaje.Name = "PnlMensaje";
+            this.PnlMensaje.Size = new System.Drawing.Size(20, 8);
+            this.PnlMensaje.TabIndex = 238;
+            this.PnlMensaje.Visible = false;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(87)))), ((int)(((byte)(155)))));
+            this.label45.Location = new System.Drawing.Point(673, 56);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(185, 16);
+            this.label45.TabIndex = 237;
+            this.label45.Text = "Elija los relojes donde checará";
             // 
             // dgvCambiaAsociacion
             // 
@@ -2129,9 +2182,9 @@
             this.pnlCambia.BackColor = System.Drawing.Color.Transparent;
             this.pnlCambia.Controls.Add(this.lblCambia);
             this.pnlCambia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlCambia.Location = new System.Drawing.Point(353, 491);
+            this.pnlCambia.Location = new System.Drawing.Point(32, 313);
             this.pnlCambia.Name = "pnlCambia";
-            this.pnlCambia.Size = new System.Drawing.Size(628, 30);
+            this.pnlCambia.Size = new System.Drawing.Size(183, 30);
             this.pnlCambia.TabIndex = 235;
             this.pnlCambia.Visible = false;
             // 
@@ -2901,5 +2954,9 @@
         private System.Windows.Forms.Panel panel31;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Panel PnlMensaje;
+        private System.Windows.Forms.Label labelprogreso;
+        private System.Windows.Forms.Label labelmensaje;
     }
 }
