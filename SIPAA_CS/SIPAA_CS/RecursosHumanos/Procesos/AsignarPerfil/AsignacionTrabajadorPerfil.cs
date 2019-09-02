@@ -21,6 +21,7 @@ using static SIPAA_CS.App_Code.Usuario;
 using static SIPAA_CS.App_Code.Utilerias;
 using zkemkeeper;
 using SIPAA_CS.App_Code.Accesos.Catalogos;
+using System.Threading;
 
 namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 {
@@ -1598,18 +1599,25 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             }
                         }
 
-                bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
-                if (bConexion)
-                {
-                    //Reiniciando dispositivo...
-                    objCZKEM.RestartDevice(1);
-                    ControlNotificaciones(Pnl, Lbl, 2, "Espere un momento por favor");
-                    System.Threading.Thread.Sleep(60000);
-                }
+                //bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
+                //if (bConexion)
+                //{
+                //    //Reiniciando dispositivo...
+                //    objCZKEM.RestartDevice(1);
+                //    ControlNotificaciones(Pnl, Lbl, 2, "Espere un momento por favor");
+                //    System.Threading.Thread.Sleep(60000);
+                //}
+
+
+
+
+
+
 
                 bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                 if (bConexion)
                 {
+                    objCZKEM.BeginBatchUpdate(1, 1);
                     ControlNotificaciones(Pnl, Lbl, 2, "Insertando rostro...");
                     foreach (FaceTmp ft in faces)
                     {
@@ -2421,43 +2429,73 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             {
                 CambiaMensajes("Por favor espere", "Comienza proceso", 150, Color.Yellow);
                 Application.DoEvents();
-              
+                Thread.Sleep(1500);
+
 
 
                 if (comboBox1.SelectedItem.ToString() == "Si")
                 {
                     #region CopiaAsistencia
-                    CambiaMensajes("1 de 4",
-                                 "Cambiando de asociación",
-                                 220,
-                                 Color: Color.Green);
-                    Application.DoEvents(); 
-                    objReloj.CambiaAsociacion(TrabajadorInfo.IdTrab, cbEmpleadosInactivos.SelectedValue.ToString(), 0, 27, dpFechaInicio.Value, dpFechaFin.Value, sUsuuMod, Name);
-                    CambiaMensajes("2 de 4","Comenzara la descarga  de asistencia",440,Color: Color.Green);
+
+
+                   
+                    CambiaMensajes("", "Comenzara la descarga  de asistencia", 440, Color: Color.Green);
                     Application.DoEvents();
+                    Thread.Sleep(500);
                     DataTable data = objReloj.RelojesxTrabajador(cbEmpleadosInactivos.SelectedValue.ToString(), 0, 28, "", "");
                     foreach (DataRow row in data.Rows)
                     {
-                       
+
                         bool result = false;
                         result = RealizaProceso(row);
                         if (result)
-                           objReloj.obtrelojeschecadores(7, (int)row["cvreloj"], "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
+                            objReloj.obtrelojeschecadores(7, (int)row["cvreloj"], "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
 
                     }
+                    CambiaMensajes("Exito", "Asistencia descargada", 440, Color: Color.Green);
+                    Application.DoEvents();
+                    Thread.Sleep(500);
+                   
+                    CambiaMensajes("Por favor espere", "Se esta cambiando la asociación del empleado", 320, Color: Color.Green);
+                    Application.DoEvents();
+                    objReloj.CambiaAsociacion(TrabajadorInfo.IdTrab, cbEmpleadosInactivos.SelectedValue.ToString(), 0, 27, dpFechaInicio.Value, dpFechaFin.Value, sUsuuMod, Name);
+                    Thread.Sleep(500);
 
+                    CambiaMensajes("Exito", "Se cambio la asociación del empleado", 320, Color: Color.Green);
+                    Application.DoEvents();
+                    Thread.Sleep(500);
+
+                    // se agregan los relojes al empleado
+                    foreach (Reloj obj in ltCambiaAsociacion)
+                    {
+                        objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 1, sUsuuMod, Name);
+
+                    }
+                   
                     #endregion
                 }
 
-                else
+                else  // cambia asociacion sin descarga de asistencia 
                 {
-                    objReloj.CambiaAsociacion(TrabajadorInfo.IdTrab, cbEmpleadosInactivos.SelectedValue.ToString(), 0, 27, FechaVacia, FechaVacia, sUsuuMod, Name);
+
+                    CambiaMensajes("Por favor espere", "Se esta cambiando la asociación del empleado", 320, Color: Color.Green);
+                    Application.DoEvents();
+                    objReloj.CambiaAsociacion(TrabajadorInfo.IdTrab, cbEmpleadosInactivos.SelectedValue.ToString(), 0, 27, dpFechaInicio.Value, dpFechaFin.Value, sUsuuMod, Name);
+                    Thread.Sleep(500);
+
+                    CambiaMensajes("Exito", "Se cambio la asociación del empleado", 320, Color: Color.Green);
+                    Application.DoEvents();
+                    Thread.Sleep(500);
+
+                    // se agregan los relojes al empleado
+                    foreach (Reloj obj in ltCambiaAsociacion)
+                    {
+                        objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 1, sUsuuMod, Name);
+
+                    }
                 }
 
-
-
-
-                CambiaMensajes("3 de 4", "Comenzará la sincronizacion de los relojes", 500, Color: Color.Blue);
+                CambiaMensajes("Por favor espere", "Comenzará la sincronizacion de los relojes", 500, Color: Color.Blue);
                 Application.DoEvents();
 
                 foreach (Reloj obj in ltCambiaAsociacion)
@@ -2472,39 +2510,29 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     foreach (Reloj obj in ltCambiaAsociacion)
                     {
 
+                     #region InsertaBiometricos
+                    int iCont = 1;
+                    DataTable dt = new DataTable(); 
 
-
-
-                        #region InsertaBiometricos
-                        int iCont = 0;
-
-                        DataTable dt = objReloj.RelojesxTrabajador("%", obj.cvReloj, 17, "%", "%");
-                    //  ControlNotificaciones(pnlCambia, lblCambia, 2, "Conectando con Dispositivo " + iCont + " de " + ltCambiaAsociacion.Count);
-
-                    CambiaMensajes("3 de 4", "Conectando con Dispositivo " + iCont + " de " + ltCambiaAsociacion.Count, 500, Color: Color.Green);
-                    Application.DoEvents();
-
+                    #region InsertaHuellas
                     bool bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
-
                         if (bConexion)
                         {
-                            bool ClearData = objCZKEM.ClearData(1, 5);
-                            bool BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
-
-                            #region InsertaHuellas
-
-
-                        //ControlNotificaciones(pnlCambia, lblCambia, 2, "Insertando huellas.. ");
-                        CambiaMensajes("3 de 4", "Insertando huellas" , 500, Color: Color.Green);
+                        dt = objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 17, "%", "%");
+                        CambiaMensajes("", "Conectando con Dispositivo " + iCont + " de " + ltCambiaAsociacion.Count, 500, Color: Color.Green);
                         Application.DoEvents();
-
+                        Thread.Sleep(500);
+                        //bool ClearData = objCZKEM.ClearData(1, 5);
+                        objCZKEM.SSR_DeleteEnrollDataExt(1, cbEmpleadosInactivos.SelectedValue.ToString(), 12);
+                        bool BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
+                          
                         foreach (DataRow row in dt.Rows)
                             {
                                 string idtrab = row["idtrab"].ToString();
                                 string Nombre = row["Nombre"].ToString();
                                 int Permiso = 0;
                                 string pass_desc = string.Empty;
-
+                           
 
                                 if (!string.IsNullOrEmpty(row["pass"].ToString()))
                                     pass_desc = Utilerias.descifrar(row["pass"].ToString());
@@ -2531,33 +2559,38 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                 }
                             }
 
-                            #endregion
                             bool BatchUpdate = objCZKEM.BatchUpdate(1);
                             bool RefreshData = objCZKEM.RefreshData(1);
                             objCZKEM.Disconnect();
+                            if (BatchUpdate)
+                            {
+                            CambiaMensajes("Exito", "Las huellas han sido enviadas al reloj  " + obj.Descripcion, 700, Color: Color.Green);
+                            Application.DoEvents();
+                            Thread.Sleep(1500);
+                             }
 
                         }
                     else
                     {
-                      // ControlNotificaciones(pnlCambia, lblCambia, 3, "No fue posible conectarse al reloj : " + obj.Descripcion);
-                        CambiaMensajes("Error", "No fue posible conectarse al reloj : " + obj.Descripcion, 700, Color: Color.Red);
+                      
+                        CambiaMensajes("Error", "No fue posible conectarse al reloj  " + obj.Descripcion, 700, Color: Color.Red);
                         Application.DoEvents();
                     }
-                          
 
-
+                    #endregion
 
                     #region InsertaGrupos
+                    CambiaMensajes("", "Conectando con Dispositivo " + iCont + " de " + ltCambiaAsociacion.Count, 500, Color: Color.Green);
+                    Application.DoEvents();
+                    Thread.Sleep(500);
                     bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
 
                         if (bConexion)
                         {
-                            bool BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
-                          //  ControlNotificaciones(pnlCambia, lblCambia, 2, "Insertando grupos..");
-                        CambiaMensajes("3 de 4", "Insertando grupos...", 550, Color: Color.Green);
-                        Application.DoEvents();
-
-                        dt = objReloj.RelojesxTrabajador("%", obj.cvReloj, 18, "%", "%");
+                         bool BeginBatchUpdate = objCZKEM.BeginBatchUpdate(1, 1);
+ 
+                       
+                        dt = objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 18, "%", "%");
                             foreach (DataRow row in dt.Rows)
                             {
                                 string idtrab = row["idtrab"].ToString();
@@ -2568,31 +2601,43 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                                     try
                                     {
-                                        bool bandera = objCZKEM.SendFile(1, @"\\192.168.30.171\FotosJS\FotosRelojChecador\" + idtrab + ".jpg");
-                                    }
+                                    objCZKEM.BeginBatchUpdate(1, 1);
+                                   
+                                    System.IO.File.Copy(@"\\192.168.30.171\FotosJS\FotosEmpleados\" + cbEmpleadosInactivos.SelectedValue.ToString() + ".jpg", @"\\192.168.30.171\FotosJS\FotosEmpleados\" + TrabajadorInfo.IdTrab + ".jpg", true);
+                                    System.IO.File.Copy(@"\\192.168.30.171\FotosJS\FotosRelojChecador\" + cbEmpleadosInactivos.SelectedValue.ToString() + ".jpg", @"\\192.168.30.171\FotosJS\FotosRelojChecador\" + TrabajadorInfo.IdTrab + ".jpg", true);
+                                    bool EnviaFoto = objCZKEM.SendFile(1, @"\\192.168.30.171\FotosJS\FotosRelojChecador\" + TrabajadorInfo.IdTrab + ".jpg");
+                                    objCZKEM.BatchUpdate(1);
+                                    objCZKEM.RefreshData(1);
+                                }
                                     catch
                                     {
                                     }
                                 }
                             }
 
-                            objCZKEM.BatchUpdate(1);
+                           bool BatchUpdate = objCZKEM.BatchUpdate(1);
                             objCZKEM.RefreshData(1);
                             objCZKEM.Disconnect();
-                        }
+                            if (BatchUpdate)
+                            {
+                                CambiaMensajes("Exito", "El grupo ha sido enviado al reloj  " + obj.Descripcion, 700, Color: Color.Green);
+                                Application.DoEvents();
+                                Thread.Sleep(1500);
+                            }
+                    }
 
                     else
                     {
-                        CambiaMensajes("3 de 4", "No fue posible conectarse al reloj : " + obj.Descripcion, 550, Color: Color.Green);
+                        CambiaMensajes("Error", "No fue posible conectarse al reloj : " + obj.Descripcion, 550, Color: Color.Green);
                         Application.DoEvents();
                     }
-                         //   ControlNotificaciones(pnlCambia, lblCambia, 3, "No fue posible conectarse al reloj : " + obj.Descripcion);
-
-                        #endregion
 
 
-                        faces = new LinkedList<FaceTmp>();
-                        dt = objReloj.RelojesxTrabajador("%", obj.cvReloj, 19, "%", "%");
+                    #endregion
+
+                    #region ObtieneRostros
+                    faces = new LinkedList<FaceTmp>();
+                        dt = objReloj.RelojesxTrabajador(TrabajadorInfo.IdTrab, obj.cvReloj, 19, "%", "%");
                         foreach (DataRow row in dt.Rows)
                         {
                             string idtrab = row["idtrab"].ToString();
@@ -2603,44 +2648,59 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                 faces.AddLast(new FaceTmp(idtrab, 50, RostroTmp, rostrolong));
                             }
                         }
+                    #endregion
 
 
-                        bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
+                    /* bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
+                     if (bConexion)
+                     {
+
+                     objCZKEM.RestartDevice(1);
+                      //   ControlNotificaciones(pnlCambia, lblCambia, 2, "Espere un momento por favor");
+                     CambiaMensajes("3 de 4", "Espere un momento por favor" , 550, Color: Color.Green);
+                     Application.DoEvents();
+                     Thread.Sleep(60000);
+                     }
+                 */
+                    #region InsertaRostros
+                    bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                         if (bConexion)
                         {
-
-                        objCZKEM.RestartDevice(1);
-                         //   ControlNotificaciones(pnlCambia, lblCambia, 2, "Espere un momento por favor");
-                        CambiaMensajes("3 de 4", "Espere un momento por favor" , 550, Color: Color.Green);
-                        Application.DoEvents();
-                        System.Threading.Thread.Sleep(60000);
-                        }
-
-                        bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
-                        if (bConexion)
-                        {
-                           // ControlNotificaciones(pnlCambia, lblCambia, 2, "Insertando rostros...");
-                        CambiaMensajes("4 de 4", "Insertando rostros", 650, Color: Color.Green);
-                        Application.DoEvents();
-                        foreach (FaceTmp ft in faces)
+                            CambiaMensajes("", "Insertando rostros", 650, Color: Color.Green);
+                            Application.DoEvents();
+                            objCZKEM.BeginBatchUpdate(1, 1);
+                            foreach (FaceTmp ft in faces)
+                                {
+                                    objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong);
+                            
+                                }
+                               bool BatchUpdate= objCZKEM.BatchUpdate(1);
+                                objCZKEM.RefreshData(1);
+                                objCZKEM.Disconnect();
+                            if (BatchUpdate)
                             {
-                                objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong);
+                                CambiaMensajes("Exito", "El rostro ha sido enviado al reloj  " + obj.Descripcion, 700, Color: Color.Green);
+                                Application.DoEvents();
+                                Thread.Sleep(1500);
                             }
-                            objCZKEM.BatchUpdate(1);
-                            objCZKEM.RefreshData(1);
-                            objCZKEM.Disconnect();
+                      
                         }
-                 //   ControlNotificaciones(pnlCambia, lblCambia, 2, "Proceso finalizado para el reloj: " + obj.Descripcion);
-                    CambiaMensajes("4 de 4", "Proceso finalizado para el reloj: " + obj.Descripcion, 700, Color: Color.Green);
-                    Application.DoEvents();
-                    objReloj.obtrelojeschecadores(8, obj.cvReloj, "", "", "", 0, "", "", LoginInfo.IdTrab, LoginInfo.IdTrab);
+                    #endregion
 
-#endregion
+                    CambiaMensajes("Exito", "Proceso finalizado para el reloj " + obj.Descripcion, 700, Color: Color.Green);
+                    Application.DoEvents();
+                    
+
+
+                    #endregion
                     }
 
+                // final del algoritmo
 
-                   // ControlNotificaciones(pnlCambia, lblCambia, 1, "Proceso terminado correctamente");
-                    DialogResult result2 = MessageBox.Show("Proceso terminado correctamente ", "SIPAA", MessageBoxButtons.OK);
+
+                CambiaMensajes("", "" , 1, Color: Color.Green);
+                Application.DoEvents();
+                DialogResult result2 = MessageBox.Show("El cambio de asociación se ha realizado correctamente", "SIPAA", MessageBoxButtons.OK);
                     if (result2 == DialogResult.OK)
                     {
                         AsignacionTrabajadorPerfil form = new AsignacionTrabajadorPerfil();
@@ -2655,9 +2715,12 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 CambiaMensajes("Error", "No le ha asignado ningún reloj al empleado.", 700, Color: Color.Red);
                 Application.DoEvents();
             }
-                //ControlNotificaciones(pnlCambia, lblCambia, 3, "No le ha asignado ningún reloj al empleado.");
+               
               
         }
+
+
+
 
 
 
@@ -2671,54 +2734,54 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
             bool bConexion;
             bool bauxvalida = false;
             bool result = false;
-            CambiaMensajes("3 de 4", "Conectando a "+row["descripcion"], 450, Color: Color.Green);
+            CambiaMensajes("Comienza", "Conectando a "+row["descripcion"], 450, Color: Color.Green);
             Application.DoEvents();
-            if (bConexion = ConectaR(row["ip"].ToString()))
-            {
+                if (bConexion = ConectaR(row["ip"].ToString()))
+                {
                
-                CambiaMensajes("3 de 4", "Conectado", 450, Color: Color.Green);
-                Application.DoEvents();
+                    CambiaMensajes("Exito", "Conectado", 450, Color: Color.Green);
+                    Application.DoEvents();
 
-                Invoke(new Delegado(Ejecuta), banderaaux, sIdTrab, sVerify, iModoCheck, iAnho
-                                                                                         , iMes, iDia, iHora, iMinuto, iSegundo
-                                                                                         , iWorkCode, row);
-                objCZKEM.Disconnect();
-                CambiaMensajes("3 de 4", "Conectado " , 1, Color: Color.Green);
-                Application.DoEvents();
+                    Invoke(new Delegado(Ejecuta), banderaaux, sIdTrab, sVerify, iModoCheck, iAnho
+                                                                                             , iMes, iDia, iHora, iMinuto, iSegundo
+                                                                                             , iWorkCode, row);
+                    objCZKEM.Disconnect();
+                    CambiaMensajes("Exito", "Conectado" , 1, Color: Color.Green);
+                    Application.DoEvents();
 
-                bauxvalida = true;
-            }
-            else
-            {
+                    bauxvalida = true;
+                }
+                else
+                {
                 
-                CambiaMensajes("3 de 4", "Conexión fallida", 450, Color: Color.Red);
-                MessageBox.Show("No fue posible conectarse al dispositivo de  " + row["descipcion"].ToString(), "SIPPA", MessageBoxButtons.OK);
+                    CambiaMensajes("Error", "Conexión fallida", 450, Color: Color.Red);
+                    MessageBox.Show("No fue posible conectarse al dispositivo de  " + row["descripcion"].ToString(), "SIPPA", MessageBoxButtons.OK);
       
 
-            }
+                }
             if (bauxvalida == true)
             {
-                CambiaMensajes("3 de 4", "Reconectando a "+row["descripcion"], 450, Color: Color.Green);
+                CambiaMensajes("Continua", "Reconectando a "+row["descripcion"], 450, Color: Color.Green);
                 Application.DoEvents();
                 if (bConexion = ConectaR(row["ip"].ToString()))
                 {
                     banderaaux = true;
                    
-                    CambiaMensajes("3 de 4", "Reconectado" , 450, Color: Color.Green);
+                    CambiaMensajes("Exito", "Reconectado" , 450, Color: Color.Green);
                     Application.DoEvents();
                     result = (bool)this.Invoke(new Delegado(Ejecuta), banderaaux, sIdTrab, sVerify, iModoCheck, iAnho, iMes, iDia, iHora, iMinuto, iSegundo
                                                                                        , iWorkCode, row);
 
                     objCZKEM.Disconnect();
                     
-                    CambiaMensajes("3 de 4", "Proceso terminado en " + row["descripcion"], 1, Color: Color.Green);
+                    CambiaMensajes("", "Proceso terminado en " + row["descripcion"], 1, Color: Color.Green);
                     Application.DoEvents();
 
                 }
                 else
                 {
                     
-                    CambiaMensajes("3 de 4", "Conexión fallida" , 450, Color: Color.Red);
+                    CambiaMensajes("Error", "Conexión fallida" , 450, Color: Color.Red);
                     Application.DoEvents();
                     MessageBox.Show("No fue posible conectarse al dispositivo de  " + row["descipcion"], "SIPPA", MessageBoxButtons.OK);
 
@@ -2750,7 +2813,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         aux++;
                         float ancho = (450 * aux) / auxiliar;
                         IngresarRegistro(sIdTrab, iAnho, iMes, iDia, iHora, iMinuto, iSegundo, (int)row["cvreloj"] , iModoCheck);
-                        CambiaMensajes("2 de 4", "Descargando " + aux + " de " + auxiliar + " registros", (int)ancho, Color: Color.Red);
+                        CambiaMensajes("", "Descargando " + aux + " de " + auxiliar + " registros", (int)ancho, Color: Color.Green);
                         Application.DoEvents();
 
                     }
@@ -2766,7 +2829,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 if (objCZKEM.ReadAllGLogData(1))
                 {
                    
-                    CambiaMensajes("2 de 4", "Calculando" , 350, Color: Color.Red);
+                    CambiaMensajes("", "Calculando" , 350, Color: Color.Green);
                     Application.DoEvents();
                     while (objCZKEM.SSR_GetGeneralLogData(1, out sIdTrab, out sVerify, out iModoCheck, out iAnho
                                                                                          , out iMes, out iDia, out iHora, out iMinuto, out iSegundo
@@ -2777,7 +2840,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     }
                    
                     auxiliar = aux;
-                    CambiaMensajes("2 de 4", "Calculando", 450, Color: Color.Red);
+                    CambiaMensajes("", "Calculando", 450, Color: Color.Green);
                     Application.DoEvents();
 
 
@@ -2890,16 +2953,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             DataTable dt = objTrab.Relojchecador(sIdTrab, 5, DateTime.Parse(sFecha), iTipoCheck, tpHora, cvReloj, 2, LoginInfo.IdTrab, Name);
 
-            if (dt != null)
+           if (dt != null)
             {
-                ControlNotificaciones(pnlCambia, lblCambia, 1, "Registro Correcto");
-                panelTag.Update();
+                /*ControlNotificaciones(pnlCambia, lblCambia, 1, "Registro Correcto");
+                panelTag.Update();*/
                 return true;
             }
             else
             {
-                ControlNotificaciones(pnlCambia, lblCambia, 3, "Error en el guardado de Datos, intente de nuevo");
-                panelTag.Update();
+                /*ControlNotificaciones(pnlCambia, lblCambia, 3, "Error en el guardado de Datos, intente de nuevo");
+                panelTag.Update();*/
                 return false;
             }
 
