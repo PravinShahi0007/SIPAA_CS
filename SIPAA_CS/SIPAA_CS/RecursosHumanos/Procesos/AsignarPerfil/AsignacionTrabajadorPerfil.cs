@@ -1563,7 +1563,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                             try
                             {
-                                bool bandera = objCZKEM.SendFile(1, @"\\192.168.30.171\FotosJS\FotosRelojChecador\" + idtrab + ".jpg");
+                                bool bandera = objCZKEM.SendFile(1, @"\\172.165.1.10\FotosJS\FotosRelojChecador\" + idtrab + ".jpg");
 
                             }
                             catch { }
@@ -2401,11 +2401,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
         private void button7_Click(object sender, EventArgs e)
         {
-            string sIdTrab;
-            sIdTrab = String.Empty;
-            int sVerify, iModoCheck, iAnho, iDia, iMes, iHora, iMinuto, iSegundo, iWorkCode;
-            sVerify = iModoCheck = iAnho = iDia = iMes = iHora = iMinuto = iSegundo = iWorkCode =  0;
-            DateTime FechaVacia = new DateTime();
+      
             RelojChecador objReloj = new RelojChecador();
 
             for (int i = 0; i < dgvCambiaAsociacion.RowCount; i++)
@@ -2603,9 +2599,9 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                     {
                                     objCZKEM.BeginBatchUpdate(1, 1);
                                    
-                                    System.IO.File.Copy(@"\\192.168.30.171\FotosJS\FotosEmpleados\" + cbEmpleadosInactivos.SelectedValue.ToString() + ".jpg", @"\\192.168.30.171\FotosJS\FotosEmpleados\" + TrabajadorInfo.IdTrab + ".jpg", true);
-                                    System.IO.File.Copy(@"\\192.168.30.171\FotosJS\FotosRelojChecador\" + cbEmpleadosInactivos.SelectedValue.ToString() + ".jpg", @"\\192.168.30.171\FotosJS\FotosRelojChecador\" + TrabajadorInfo.IdTrab + ".jpg", true);
-                                    bool EnviaFoto = objCZKEM.SendFile(1, @"\\192.168.30.171\FotosJS\FotosRelojChecador\" + TrabajadorInfo.IdTrab + ".jpg");
+                                    System.IO.File.Copy(@"\\172.165.1.10\FotosJS\FotosEmpleados\" + cbEmpleadosInactivos.SelectedValue.ToString() + ".jpg", @"\\172.165.1.10\FotosJS\FotosEmpleados\" + TrabajadorInfo.IdTrab + ".jpg");
+                                    System.IO.File.Copy(@"\\172.165.1.10\FotosJS\FotosRelojChecador\" + cbEmpleadosInactivos.SelectedValue.ToString() + ".jpg", @"\\172.165.1.10\FotosJS\FotosRelojChecador\" + TrabajadorInfo.IdTrab + ".jpg");
+                                    bool EnviaFoto = objCZKEM.SendFile(1, @"\\172.165.1.10\FotosJS\FotosRelojChecador\" + TrabajadorInfo.IdTrab + ".jpg");
                                     objCZKEM.BatchUpdate(1);
                                     objCZKEM.RefreshData(1);
                                 }
