@@ -1268,8 +1268,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
         {
             Utilerias.ControlNotificaciones(panelTag, lbMensaje, 2, "Comienza proceso" );
             ProcesoReloj();
-            // ProcesoReloj("Face");
-            //ProcesoReloj("Pass");
+        
             ltReloj.Clear();
             LlenarGrid(6, 0, "%", "%", "%", 0, "", "");
 
