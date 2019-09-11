@@ -1483,6 +1483,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
                 iCont += 1;
                 ControlNotificaciones(Pnl, Lbl, 2, "Conectando con Dispositivo " + obj.Descripcion + " " + iCont + " de " + ltReloj2.Count);
+                Application.DoEvents();
                 bConexion = Connect_Net(obj.IpReloj, 4370);
                 if (bConexion != false)
                 {
@@ -1492,6 +1493,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     objCZKEM.BeginBatchUpdate(1, 1);
                     dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 17, "%", "%");
                     ControlNotificaciones(Pnl, Lbl, 2, "Insertando huellas.. ");
+                    Application.DoEvents();
                     foreach (DataRow row in dt.Rows)
                     {
                         string idtrab = row["idtrab"].ToString();
@@ -1542,11 +1544,13 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 else
                 {
                     ControlNotificaciones(Pnl, Lbl, 3, "No fue posible conectarse al reloj: " + obj.Descripcion);
+                    Application.DoEvents();
                     continue;
                 }
 
 
-
+                ControlNotificaciones(Pnl, Lbl, 2, "Conectando con Dispositivo " + obj.Descripcion + " " + iCont + " de " + ltReloj2.Count);
+                Application.DoEvents();
                 bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
 
                 if (bConexion)
@@ -1554,6 +1558,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     objCZKEM.BeginBatchUpdate(1, 1);
                     dt = objReloj.RelojesxTrabajador(lbIdTrab.Text, obj.cvReloj, 18, "%", "%");
                     ControlNotificaciones(Pnl, Lbl, 2, "Insertando grupos... ");
+                    Application.DoEvents();
                     foreach (DataRow row in dt.Rows)
                     {
                         string idtrab = row["idtrab"].ToString();
@@ -1581,6 +1586,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 else
                 {
                     ControlNotificaciones(Pnl, Lbl, 3, "No fue posible conectarse al reloj: " + obj.Descripcion);
+                    Application.DoEvents();
                     continue;
                 }
 
@@ -1598,20 +1604,24 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                                 
                             }
                         }
+                ControlNotificaciones(Pnl, Lbl, 2, "Conectando con Dispositivo " + obj.Descripcion + " " + iCont + " de " + ltReloj2.Count);
+                Application.DoEvents();
+                bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
+                if (bConexion)
+                {
+                    //Reiniciando dispositivo...
+                    objCZKEM.RestartDevice(1);
+                    ControlNotificaciones(Pnl, Lbl, 2, "Espere un momento por favor");
+                    Application.DoEvents();
+                    System.Threading.Thread.Sleep(60000);
+                }
 
-                //bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
-                //if (bConexion)
-                //{
-                //    //Reiniciando dispositivo...
-                //    objCZKEM.RestartDevice(1);
-                //    ControlNotificaciones(Pnl, Lbl, 2, "Espere un momento por favor");
-                //    System.Threading.Thread.Sleep(60000);
-                //}
 
 
 
 
-
+                ControlNotificaciones(Pnl, Lbl, 2, "Conectando con Dispositivo " + obj.Descripcion + " " + iCont + " de " + ltReloj2.Count);
+                Application.DoEvents();
 
 
                 bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
@@ -1619,6 +1629,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 {
                     objCZKEM.BeginBatchUpdate(1, 1);
                     ControlNotificaciones(Pnl, Lbl, 2, "Insertando rostro...");
+                    Application.DoEvents();
                     foreach (FaceTmp ft in faces)
                     {
                         objCZKEM.SetUserFaceStr(1, ft.idtrab, ft.index, ft.rostroTmp, ft.rostrolong);
@@ -1631,7 +1642,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 objCZKEM.Disconnect();
 
                 ControlNotificaciones(Pnl, Lbl, 1, "Biométricos guardados correctamente en el reloj: "+obj.Descripcion+  " " + iCont + " de " + ltReloj2.Count);
-                System.Threading.Thread.Sleep(1000);
+                Application.DoEvents();
+               // System.Threading.Thread.Sleep(1000);
                }
             
         }
@@ -2647,17 +2659,17 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     #endregion
 
 
-                    /* bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
-                     if (bConexion)
-                     {
+                    bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
+                    if (bConexion)
+                    {
 
-                     objCZKEM.RestartDevice(1);
-                      //   ControlNotificaciones(pnlCambia, lblCambia, 2, "Espere un momento por favor");
-                     CambiaMensajes("3 de 4", "Espere un momento por favor" , 550, Color: Color.Green);
-                     Application.DoEvents();
-                     Thread.Sleep(60000);
-                     }
-                 */
+                        objCZKEM.RestartDevice(1);
+                        //   ControlNotificaciones(pnlCambia, lblCambia, 2, "Espere un momento por favor");
+                        CambiaMensajes("3 de 4", "Espere un momento por favor", 550, Color: Color.Green);
+                        Application.DoEvents();
+                        Thread.Sleep(60000);
+                    }
+
                     #region InsertaRostros
                     bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                         if (bConexion)
