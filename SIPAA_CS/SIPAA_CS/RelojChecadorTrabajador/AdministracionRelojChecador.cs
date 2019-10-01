@@ -762,7 +762,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             {
                                 CambiaMensajes("Exito", "Las huellas han sido enviadas al reloj  " + obj.Descripcion, 450, Color: Color.Green);
                                 Application.DoEvents();
-                                Thread.Sleep(800);
+                                //Thread.Sleep(800);
                             }
 
                         }
@@ -779,7 +779,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         #region InsertaGrupos
                         CambiaMensajes("", "Conectando con Dispositivo " + iCont + " de " + ltReloj.Count, 250, Color: Color.Green);
                         Application.DoEvents();
-                        Thread.Sleep(500);
+                        //Thread.Sleep(500);
                         bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
 
                         if (bConexion)
@@ -803,10 +803,10 @@ namespace SIPAA_CS.RelojChecadorTrabajador
 
                                     try
                                     {
-                                        objCZKEM.BeginBatchUpdate(1, 1);
+                                       // objCZKEM.BeginBatchUpdate(1, 1);
                                         bool EnviaFoto = objCZKEM.SendFile(1, @"\\192.168.30.171\FotosJS\FotosRelojChecador\" + row["idtrab"] + ".jpg");
-                                        objCZKEM.BatchUpdate(1);
-                                        objCZKEM.RefreshData(1);
+                                        //objCZKEM.BatchUpdate(1);
+                                        //objCZKEM.RefreshData(1);
                                     }
                                     catch
                                     {
@@ -821,7 +821,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             {
                                 CambiaMensajes("Exito", "El grupo ha sido enviado al reloj  " + obj.Descripcion, 450, Color: Color.Green);
                                 Application.DoEvents();
-                                Thread.Sleep(1500);
+                                //Thread.Sleep(1500);
                             }
                         }
 
@@ -862,10 +862,10 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                         }
 
 
-                            #region InsertaRostros
+                        #region InsertaRostros
                         CambiaMensajes("", "Conectando con Dispositivo " + iCont + " de " + ltReloj.Count, 250, Color: Color.Green);
                         Application.DoEvents();
-                        Thread.Sleep(500);
+                       // Thread.Sleep(500);
 
                         bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                         if (bConexion)
@@ -887,7 +887,7 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                             {
                                 CambiaMensajes("Exito", "Los rostros han sido enviado al reloj  " + obj.Descripcion, 450, Color: Color.Green);
                                 Application.DoEvents();
-                                Thread.Sleep(1500);
+                                //Thread.Sleep(1500);
                             }
 
                         }
@@ -1324,8 +1324,8 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     bool bConexion = Connect_Net(obj.IpReloj, 4370);
                     if (bConexion != false)
                     {
-                        //objCZKEM.ReadAllUserID(1);
-                        //objCZKEM.ReadAllTemplate(1);
+                        objCZKEM.ReadAllUserID(1);
+                        objCZKEM.ReadAllTemplate(1);
                         bool bBanderaPass, bBanderaHuella, bBanderaFace;
                         bBanderaPass = bBanderaHuella = bBanderaFace = false;
                         int iContTrab = 0;
@@ -1425,7 +1425,9 @@ namespace SIPAA_CS.RelojChecadorTrabajador
                     {
                         for (int iFinger = 0; iFinger < 10; iFinger++)
                         {
-                            if (objCZKEM.GetUserTmpExStr(1, sIdTrab, iFinger, out flag, out huellatmp, out tpmlong))
+                            if(objCZKEM.GetUserTmpExStr(1, sIdTrab, iFinger, out flag, out huellatmp, out tpmlong))
+                              //if( objCZKEM.GetUserTmpStr(1, Convert.ToInt32(sIdTrab), iFinger, huellatmp, tpmlong))
+
                             {
                                 SonaTrabajador objTrab = new SonaTrabajador();
                                 try
