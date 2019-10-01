@@ -1507,16 +1507,16 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                         if (Convert.ToBoolean(row["administrador"].ToString()))
                             Permiso = 3;
 
-                        if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
-                        {
-                            if (row["huellaTmp"].ToString() != String.Empty)
-                                objCZKEM.SetUserTmpExStr(1, idtrab, Convert.ToInt32(row["indicehuella"].ToString()), 1, row["huellaTmp"].ToString());
-
-                        }
-
-
 
                         if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
+                          {
+                              if (row["huellaTmp"].ToString() != String.Empty)
+                                  objCZKEM.SetUserTmpExStr(1, idtrab, Convert.ToInt32(row["indicehuella"].ToString()), 1, row["huellaTmp"].ToString());
+                          }
+
+
+
+                      /*  if (objCZKEM.SSR_SetUserInfo(1, idtrab, Nombre, pass_desc, Permiso, true))
                         {
                             if (row["huellaTmp"].ToString() != String.Empty)
                             {
@@ -1532,7 +1532,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                             }
 
 
-                        }
+                        }*/
 
                     }
 
@@ -1624,7 +1624,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                 Application.DoEvents();
 
 
-                bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
+             bConexion = objCZKEM.Connect_Net(obj.IpReloj, 4370);
                 if (bConexion)
                 {
                     objCZKEM.BeginBatchUpdate(1, 1);
@@ -2172,20 +2172,29 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     string sPass = "";
                     int iPrivilegio = 0;
                     bool bActivo = false;
-                  
-                    while(objCZKEM.SSR_GetAllUserInfo(1, out sIdTrab, out sNombre, out sPass, out iPrivilegio, out bActivo))
+
+
+
+
+
+                    while (objCZKEM.SSR_GetAllUserInfo(1, out sIdTrab, out sNombre, out sPass, out iPrivilegio, out bActivo))
                     {
                         for (int iFinger = 0; iFinger < 10; iFinger++)
                         {
+
                             if (objCZKEM.GetUserTmpExStr(1, sIdTrab, iFinger, out flag, out huellatmp, out tpmlong))
                             {
-                                SonaTrabajador objTrab = new SonaTrabajador();
-                                try
+                                if (sIdTrab== lbIdTrab.Text)
                                 {
-                                    objTrab.GestionHuella(sIdTrab, huellatmp, iFinger, LoginInfo.IdTrab, Name, 5);
-                                    bBandera = true;
+                                    SonaTrabajador objTrab = new SonaTrabajador();
+                                    try
+                                    {
+                                        objTrab.GestionHuella(sIdTrab, huellatmp, iFinger, LoginInfo.IdTrab, Name, 5);
+                                        bBandera = true;
+                                    }
+                                    catch { }
                                 }
-                                catch { }
+                                   
                             }
                         }
                     }
@@ -2370,9 +2379,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
 
             if (ltAgrega.Count > 0)
             {
-                DialogResult result = MessageBox.Show("¿Seguro que desea asignar " + ltAgrega.Count + " relojes?", "SIPAA", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
+               
                     ControlNotificaciones(pnlAgregaRelojes, lblAgregaRelojes, 2, "Comienza Proceso");
 
                     RelojChecador objReloj = new RelojChecador();
@@ -2394,7 +2401,6 @@ namespace SIPAA_CS.RecursosHumanos.Procesos.AsignarPerfil
                     }
 
 
-                }
             }
             else
                 ControlNotificaciones(pnlEliminaAsignaciones, lblEliminaAsignaciones, 3, "Seleccione al menos un reloj para Agregar");
