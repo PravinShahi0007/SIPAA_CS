@@ -15,7 +15,6 @@ using static SIPAA_CS.App_Code.Usuario;
 using SIPAA_CS.RecursosHumanos.Reportes;
 using CrystalDecisions.CrystalReports.Engine;
 
-
 //***********************************************************************************************
 //Autor: Noe Alvarez Marquina
 //Fecha creación:28-abr-2017       Última Modificacion: dd-mm-aaaa
@@ -26,6 +25,8 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 {
     public partial class ProcesaIncidencias : Form
     {
+        //variables
+        int ivarproceso;
         public ProcesaIncidencias()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         Utilerias Util = new Utilerias();
         ProcesaIncidencia ProcesaInc = new ProcesaIncidencia();
         Perfil DatPerfil = new Perfil();
+        ProcesoIncidenciasLogs clprocesoincidenciaslogs = new ProcesoIncidenciasLogs();
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
@@ -94,46 +96,103 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         {
             try
             {
-                Cursor.Current = Cursors.WaitCursor;
-                btnguardar.Enabled = false;
-
                 //valida se seleccione un periodo
                 if (Int32.Parse(cbtiponomina.SelectedValue.ToString()) == 0)
                 {
                     DialogResult result = MessageBox.Show("Seleccione un tipo de nomina", "SIPAA");
                     cbtiponomina.Focus();
-                    
                 }
                 else
                 {
-                    DialogResult resultms = MessageBox.Show("Esta acción genera las incidencias del periodo: " + "\r\n" + "\r\n" + cbtiponomina.Text + "\r\n" + "\r\n" + " ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+                    DataTable dtvarproinc = clprocesoincidenciaslogs.dtdatos(1, 0, Int32.Parse(cbtiponomina.SelectedValue.ToString()), "", "", "", "", "");
+                    ivarproceso = Int32.Parse(dtvarproinc.Rows[0][0].ToString());
 
-                    if (resultms == DialogResult.Yes)
+                    //ejecuta conforme a las variables
+                    if (ivarproceso == 0)
                     {
-                        Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, generando incidencias...");
-
-                        int ival = ProcesaInc.vuidprocesainc(5, 0, 0, txtfecini.Text, txtfecfin.Text, Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0, 0, LoginInfo.IdTrab, this.Name);
-                        txtfecini.Text = "";
-                        txtfecfin.Text = "";
-                        dgvregistros.DataSource = null;
+                        Cursor.Current = Cursors.WaitCursor;
                         btnguardar.Enabled = false;
 
-                        //llena combo tipo de nomina
-                        Util.p_inicbo = 0;
-                        DataTable dtcbtipnom = ProcesaInc.cbtiponomina(8);
-                        Utilerias.llenarComboxDataTable(cbtiponomina, dtcbtipnom, "Clave", "Descripción");
-                        Util.p_inicbo = 1;
+                        DialogResult resultms = MessageBox.Show("Esta acción genera las incidencias del periodo: " + "\r\n" + "\r\n" + cbtiponomina.Text + "\r\n" + "\r\n" + " ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
 
-                        Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 1, "Incidencias generadas con exito");
+                        if (resultms == DialogResult.Yes)
+                        {
+                            Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, generando incidencias...");
 
-                        DialogResult result = MessageBox.Show("Incidencias generadas con exito", "SIPAA", MessageBoxButtons.OK);
+                            int ival = ProcesaInc.vuidprocesainc(5, 0, 0, txtfecini.Text, txtfecfin.Text, Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0, 0, LoginInfo.IdTrab, this.Name);
+                            clprocesoincidenciaslogs.cruddatos(2, 0, Int32.Parse(cbtiponomina.SelectedValue.ToString()), "Genera incidencias", "", LoginInfo.IdTrab, this.Name, Util.scontrol());
 
-                        pnlmenssuid.Visible = false;
-                        cbtiponomina.Focus();
+                            ProcesaInc.vuidprocesainc(8, 0, 0, "", "", 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                            clprocesoincidenciaslogs.cruddatos(2, 0, Int32.Parse(cbtiponomina.SelectedValue.ToString()), "Manda correos a supervisores y/directores cuando aplique", "", LoginInfo.IdTrab, this.Name, Util.scontrol());
+
+                            txtfecini.Text = "";
+                            txtfecfin.Text = "";
+                            dgvregistros.DataSource = null;
+                            btnguardar.Enabled = false;
+
+                            //llena combo tipo de nomina
+                            Util.p_inicbo = 0;
+                            DataTable dtcbtipnom = ProcesaInc.cbtiponomina(8);
+                            Utilerias.llenarComboxDataTable(cbtiponomina, dtcbtipnom, "Clave", "Descripción");
+                            Util.p_inicbo = 1;
+
+                            Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 1, "Incidencias generadas con exito");
+
+                            DialogResult result = MessageBox.Show("Incidencias generadas con exito", "SIPAA", MessageBoxButtons.OK);
+
+                            pnlmenssuid.Visible = false;
+                            cbtiponomina.Focus();
+                        }
+                        Cursor.Current = Cursors.Default;
+                    }
+                    else if (ivarproceso == 1)
+                    {
+                        Cursor.Current = Cursors.WaitCursor;
+                        btnguardar.Enabled = false;
+
+                        DialogResult resultms = MessageBox.Show("Esta acción genera las incidencias del periodo: " + "\r\n" + "\r\n" + cbtiponomina.Text + "\r\n" + "\r\n" + " ¿Desea Continuar?", "SIPAA", MessageBoxButtons.YesNo);
+
+                        if (resultms == DialogResult.Yes)
+                        {
+                            Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 2, "Espere por favor, generando incidencias...");
+
+                            clprocesoincidenciaslogs.cruddatos(3, 0, 0, "", "", LoginInfo.IdTrab, this.Name, Util.scontrol());
+                            clprocesoincidenciaslogs.cruddatos(2, 0, Int32.Parse(cbtiponomina.SelectedValue.ToString()), "Crea LOG antes de procesar incidencias", "", LoginInfo.IdTrab, this.Name, Util.scontrol());
+
+                            int ival = ProcesaInc.vuidprocesainc(5, 0, 0, txtfecini.Text, txtfecfin.Text, Int32.Parse(cbtiponomina.SelectedValue.ToString()), 0, 0, LoginInfo.IdTrab, this.Name);
+                            clprocesoincidenciaslogs.cruddatos(2, 0, Int32.Parse(cbtiponomina.SelectedValue.ToString()), "Genera incidencias", "", LoginInfo.IdTrab, this.Name, Util.scontrol());
+
+                            ProcesaInc.vuidprocesainc(8, 0, 0, "", "", 0, 0, 0, LoginInfo.IdTrab, this.Name);
+                            clprocesoincidenciaslogs.cruddatos(2, 0, Int32.Parse(cbtiponomina.SelectedValue.ToString()), "Manda correos a supervisores y/directores cuando aplique", "", LoginInfo.IdTrab, this.Name, Util.scontrol());
+
+                            clprocesoincidenciaslogs.cruddatos(4, 0, 0, "", "", LoginInfo.IdTrab, this.Name, Util.scontrol());
+                            clprocesoincidenciaslogs.cruddatos(2, 0, Int32.Parse(cbtiponomina.SelectedValue.ToString()), "Crea LOG después de procesar incidencias", "", LoginInfo.IdTrab, this.Name, Util.scontrol());
+
+                            txtfecini.Text = "";
+                            txtfecfin.Text = "";
+                            dgvregistros.DataSource = null;
+                            btnguardar.Enabled = false;
+
+                            //llena combo tipo de nomina
+                            Util.p_inicbo = 0;
+                            DataTable dtcbtipnom = ProcesaInc.cbtiponomina(8);
+                            Utilerias.llenarComboxDataTable(cbtiponomina, dtcbtipnom, "Clave", "Descripción");
+                            Util.p_inicbo = 1;
+
+                            Utilerias.ControlNotificaciones(pnlmenssuid, menssuid, 1, "Incidencias generadas con exito");
+
+                            DialogResult result = MessageBox.Show("Incidencias generadas con exito", "SIPAA", MessageBoxButtons.OK);
+
+                            pnlmenssuid.Visible = false;
+                            cbtiponomina.Focus();
+                        }
+                        Cursor.Current = Cursors.Default;
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("No se realizo ninguna accrion, verificar con el área de sistemas", "SIPAA", MessageBoxButtons.OK);
                     }
                 }
-                //btnguardar.Enabled = true;
-                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
@@ -203,7 +262,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
 
                 //variables accesos
                 DataTable Permisos = DatPerfil.accpantalla(LoginInfo.IdTrab, this.Name);
-                iins = Int32.Parse(Permisos.Rows[0][3].ToString()); ;
+                iins = Int32.Parse(Permisos.Rows[0][3].ToString());
 
                 //llena combo tipo de nomina
                 Util.p_inicbo = 0;

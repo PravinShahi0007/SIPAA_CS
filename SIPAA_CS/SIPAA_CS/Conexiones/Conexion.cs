@@ -25,8 +25,8 @@ namespace SIPAA_CS.Conexiones
         {
             try
             {
-                cn = new SqlConnection("Data Source=192.168.10.40;Initial Catalog=sipaa;User ID=Desarrollo;Password=Desa17");
-                iconexsvr = 1;
+                cn = new SqlConnection("Data Source=192.168.31.15; Initial Catalog=sipaa; Integrated Security=True");
+                //iconexsvr = 1;
                 cn.Open();
             }
             catch (Exception ex)

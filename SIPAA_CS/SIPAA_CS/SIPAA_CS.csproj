@@ -28,7 +28,7 @@
     <PublisherName>Departamento de Organización y Sistemas JS</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>83</ApplicationRevision>
+    <ApplicationRevision>86</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -380,6 +380,7 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\Empleadoporsupdir.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncExtraSuspRetro.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\ProcesoIncidenciasLogs.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SancionesIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SancionesProceso.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SincRegistrosica.cs" />
