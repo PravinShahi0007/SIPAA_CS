@@ -125,6 +125,10 @@
     <Reference Include="ZMotifGraphics">
       <HintPath>..\..\..\..\..\..\..\..\..\Windows\SysWOW64\ZMotifGraphics.dll</HintPath>
     </Reference>
+    <Reference Include="ZMOTIFPRINTERLib">
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\ZMOTIFPRINTERLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceso.cs">
@@ -385,6 +389,7 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\SancionesProceso.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SincRegistrosica.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorPerfil.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\UnivHorarios.cs" />
     <Compile Include="App_Code\Sistemas\Procesos\MonitoreoProceso.cs" />
     <Compile Include="RecursosHumanos\Catalogos\CorreosAvisosIncidencias.cs">
       <SubType>Form</SubType>
@@ -884,6 +889,12 @@
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.Designer.cs">
       <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\HorariosUniversidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecursosHumanos\Procesos\HorariosUniversidad.Designer.cs">
+      <DependentUpon>HorariosUniversidad.cs</DependentUpon>
     </Compile>
     <Compile Include="RecursosHumanos\Procesos\ProcesaIncidencias.cs">
       <SubType>Form</SubType>
@@ -1483,6 +1494,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\DesbloqueoIncidencias.resx">
       <DependentUpon>DesbloqueoIncidencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecursosHumanos\Procesos\HorariosUniversidad.resx">
+      <DependentUpon>HorariosUniversidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursosHumanos\Procesos\ProcesaIncidencias.resx">
       <DependentUpon>ProcesaIncidencias.cs</DependentUpon>
@@ -2485,15 +2499,7 @@
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>False</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="ZMOTIFPRINTERLib">
-      <Guid>{1D2498AA-D4EB-4F0C-975E-C7B157B0C2DA}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
     </COMReference>
   </ItemGroup>
   <ItemGroup>
