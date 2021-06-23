@@ -47,7 +47,7 @@ namespace SIPAA_CS.RecursosHumanos.Procesos
         Utilerias Util = new Utilerias();
         ProcesaIncidencia ProcesaInc = new ProcesaIncidencia();
         Perfil DatPerfil = new Perfil();
-        //ProcesoIncidenciasLogs clprocesoincidenciaslogs = new ProcesoIncidenciasLogs();
+        ProcesoIncidenciasLogs clprocesoincidenciaslogs = new ProcesoIncidenciasLogs();
 
         //-----------------------------------------------------------------------------------------------
         //                                      C O M B O S
