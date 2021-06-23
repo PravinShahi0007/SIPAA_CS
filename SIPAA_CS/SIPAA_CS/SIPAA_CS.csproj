@@ -385,7 +385,6 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\SancionesProceso.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SincRegistrosica.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\TrabajadorPerfil.cs" />
-    <Compile Include="App_Code\RecursosHumanos\Procesos\UnivHorarios.cs" />
     <Compile Include="App_Code\Sistemas\Procesos\MonitoreoProceso.cs" />
     <Compile Include="RecursosHumanos\Catalogos\CorreosAvisosIncidencias.cs">
       <SubType>Form</SubType>
