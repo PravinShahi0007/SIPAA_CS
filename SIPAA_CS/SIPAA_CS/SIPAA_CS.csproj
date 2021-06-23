@@ -385,6 +385,7 @@
     <Compile Include="App_Code\RecursosHumanos\Procesos\Empleadoporsupdir.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncCaptura.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\IncExtraSuspRetro.cs" />
+    <Compile Include="App_Code\RecursosHumanos\Procesos\ProcesoIncidenciasLogs.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SancionesIncidencia.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SancionesProceso.cs" />
     <Compile Include="App_Code\RecursosHumanos\Procesos\SincRegistrosica.cs" />
